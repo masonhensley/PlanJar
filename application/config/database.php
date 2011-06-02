@@ -42,8 +42,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'billsona';
-$db['default']['password'] = 'UlVYPmglQ1Wk';
+$db['default']['username'] = 'billsona_dev';
+$db['default']['password'] = 'planDev11';
 $db['default']['database'] = 'billsona_planjar';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
