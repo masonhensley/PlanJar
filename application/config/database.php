@@ -41,7 +41,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'outnotabout.com';
+$db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'billsona';
 $db['default']['password'] = 'UlVYPmglQ1Wk';
 $db['default']['database'] = 'billsona_planjar';
