@@ -41,10 +41,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'pushplans.com';
-$db['default']['username'] = 'billsona_dev';
-$db['default']['password'] = 'planDev11';
-$db['default']['database'] = 'billsona_planjar';
+$db['default']['hostname'] = 'localhost:/tmp/mysql/caroline.sock';
+$db['default']['username'] = 'garnet';
+$db['default']['password'] = 'Jc1GI8gm';
+$db['default']['database'] = 'caroline';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
