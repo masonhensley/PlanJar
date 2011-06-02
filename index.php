@@ -6,6 +6,7 @@
     </head>
     <body>
         <?php
+        test
         ?>
     </body>
 </html>
