@@ -1,64 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <script src="/application/assets/js/jquery-1.6.1.min.js"></script>
+        <script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js"></script>
+        <style type="text/css">
+            * { font-family: Verdana; font-size: 96%; }
+            label { width: 10em; float: left; }
+            label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+            p { clear: both; }
+            .submit { margin-left: 12em; }
+            em { font-weight: bold; padding-right: 1em; vertical-align: top; }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#commentForm").validate();
+            });
+        </script>
 
-<style type="text/css">
-
-body {
- background-color: #fff;
- margin: 40px;
- font-family: Lucida Grande, Verdana, Sans-serif;
- font-size: 14px;
- color: #4F5155;
-}
-
-a {
- color: #003399;
- background-color: transparent;
- font-weight: normal;
-}
-
-h1 {
- color: #444;
- background-color: transparent;
- border-bottom: 1px solid #D0D0D0;
- font-size: 16px;
- font-weight: bold;
- margin: 24px 0 2px 0;
- padding: 5px 0 6px 0;
-}
-
-code {
- font-family: Monaco, Verdana, Sans-serif;
- font-size: 12px;
- background-color: #f9f9f9;
- border: 1px solid #D0D0D0;
- color: #002166;
- display: block;
- margin: 14px 0 14px 0;
- padding: 12px 10px 12px 10px;
-}
-
-</style>
-</head>
-<body>
-
-<h1>Welcome to CodeIgniter!</h1>
-
-<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-<p>If you would like to edit this page you'll find it located at:</p>
-<code>application/views/welcome_message.php</code>
-
-<p>The corresponding controller for this page is found at:</p>
-<code>application/controllers/welcome.php</code>
-
-<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+    </head>
+    <body>
 
 
-<p><br />Page rendered in {elapsed_time} seconds</p>
-
-</body>
+        <form class="cmxform" id="commentForm" method="get" action="">
+            <fieldset>
+                <legend>A simple comment form with submit validation and default messages</legend>
+                <p>
+                    <label for="cname">Name</label>
+                    <em>*</em><input id="cname" name="name" size="25" class="required" minlength="2" />
+                </p>
+                <p>
+                    <label for="cemail">E-Mail</label>
+                    <em>*</em><input id="cemail" name="email" size="25"  class="required email" />
+                </p>
+                <p>
+                    <label for="curl">URL</label>
+                    <em>  </em><input id="curl" name="url" size="25"  class="url" value="" />
+                </p>
+                <p>
+                    <label for="ccomment">Your comment</label>
+                    <em>*</em><textarea id="ccomment" name="comment" cols="22"  class="required"></textarea>
+                </p>
+                <p>
+                    <input class="submit" type="submit" value="Submit"/>
+                </p>
+            </fieldset>
+        </form>
+    </body>
 </html>
