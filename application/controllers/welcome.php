@@ -22,6 +22,7 @@ class Welcome extends CI_Controller {
      */
     public function index() {
         $this->load->view('login.php');
+        $this->load->library('ion_auth');
         if ($this->ion_auth->username_check('test')) {
             echo('success');
         } else {
