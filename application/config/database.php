@@ -41,7 +41,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
+$db['default']['hostname'] = 'pushplans.com';
 $db['default']['username'] = 'billsona_dev';
 $db['default']['password'] = 'planDev11';
 $db['default']['database'] = 'billsona_planjar';
