@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'planjar.com/dev';
+$config['base_url']	= 'http://testing.pagodabox.com/';
 
 /*
 |--------------------------------------------------------------------------
