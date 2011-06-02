@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    
+
     <head>
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js"></script>
@@ -15,18 +15,68 @@
         </style>
         <script>
             $(document).ready(function(){
-                $("#commentForm").validate();
+                              
+                $("#commentForm").validate({
+                    submitHandler: function(form) {
+                        $(form).ajaxSubmit();
+                    },
+                    
+                    invalidHandler: function(form, validator) {
+                        var errors = validator.numberOfInvalids();
+                        if (errors) {
+                            var message = errors == 1
+                                ? 'You missed 1 field. It has been highlighted'
+                            : 'You missed ' + errors + ' fields. They have been highlighted';
+                            $("div.error span").html(message);
+                            $("div.error").show();
+                        } else {
+                            $("div.error").hide();
+                        }
+                    }
+                    
+                    
+                });
             });
         </script>
 
+
+        <!-- AJAX object is created here -->
+
+        <script type="text/javascript">
+            function loadXMLDoc()
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function()
+                {
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET","ajax_info.txt",true);
+                xmlhttp.send();
+            }
+        </script>
+
+
+
+
     </head>
-    
+
     <body>
 
 
         <form class="cmxform" id="commentForm" method="get" action="">
             <fieldset>
-                
+
                 <p>
                     <label for="cname">Name</label>
                     <em>*</em><input id="cname" name="name" size="25" class="required" minlength="2" />
