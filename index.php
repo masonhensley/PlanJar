@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php
-        test
+        echo('git test');
         ?>
     </body>
 </html>
