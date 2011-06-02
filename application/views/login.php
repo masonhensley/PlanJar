@@ -34,14 +34,6 @@
                     <em>*</em><input id="cemail" name="email" size="25"  class="required email" />
                 </p>
                 <p>
-                    <label for="curl">URL</label>
-                    <em>  </em><input id="curl" name="url" size="25"  class="url" value="" />
-                </p>
-                <p>
-                    <label for="ccomment">Your comment</label>
-                    <em>*</em><textarea id="ccomment" name="comment" cols="22"  class="required"></textarea>
-                </p>
-                <p>
                     <input class="submit" type="submit" value="Submit"/>
                 </p>
             </fieldset>
