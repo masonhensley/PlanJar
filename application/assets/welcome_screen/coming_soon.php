@@ -1,4 +1,4 @@
-<?php echo(getcwd()); require_once("assets/includes/functions.php"); ?>
+<?php require_once("assets/includes/functions.php"); ?>
 <?php include("assets/includes/settings.php"); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +9,7 @@
         <link rel="apple-touch-icon" href="<?php echo $cs_apple_icon; ?>"/>
         <link rel="shortcut icon" href="<?php echo $cs_favicon; ?>"/>
 
-        <link rel="stylesheet" type="text/css" href="application/views/assets/css/style_<?php echo($cs_style); ?>.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style_<?php echo($cs_style); ?>.css"/>
 
         <script type="text/javascript" src="assets/js/jquery-1.6.1.min"</script>
 
