@@ -22,14 +22,15 @@ class Welcome extends CI_Controller {
      */
     public function index() {
         $this->load->view('login.php');
+        // The following line should be unnecessary, but the ion_auth library won't autoload.
+        // See the applicatin/config/autoload.php file.
+        $this->load->library('ion_auth');
+        if ($this->ion_auth->username_check('test')) {
+            echo('success');
+        } else {
+            echo('failure');
+        };
     }
-    
-    
-    public function validate()
-    {
-        
-    }
-    
 
 }
 
