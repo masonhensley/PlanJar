@@ -7,7 +7,6 @@
     <body>
         <?php
         echo('git test');
-        echo('edited offline');
         ?>
     </body>
 </html>
