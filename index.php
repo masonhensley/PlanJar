@@ -9,6 +9,7 @@
         // put your code here
         echo('testcode');
         echo('again67');
+        echo('new edit');
         ?>
     </body>
 </html>
