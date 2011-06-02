@@ -25,13 +25,16 @@ class Welcome extends CI_Controller {
         // The following line should be unnecessary, but the ion_auth library won't autoload.
         // See the application/config/autoload.php file.
         $this->load->database();
-        $this->load->library('ion_auth');
-
-        if ($this->ion_auth->username_check('test')) {
-            echo('success');
-        } else {
-            echo('failure');
-        };
+        $query = $this->db->query("INSERT INTO `Groups` VALUES (DEFAULT, a, b, 1, 1, c, TRUE)");
+        echo($this->db->affected_rows());
+        /*
+          $this->load->library('ion_auth');
+          if ($this->ion_auth->username_check('test')) {
+          echo('success');
+          } else {
+          echo('failure');
+          };
+         */
     }
 
 }
