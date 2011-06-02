@@ -21,7 +21,12 @@ class Welcome extends CI_Controller {
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
     public function index() {
-        $this->load->view('auth.php');
+        $this->load->view('login.php');
+        if ($this->ion_auth->username_check('test')) {
+            echo('success');
+        } else {
+            echo('failure');
+        };
     }
 
 }
