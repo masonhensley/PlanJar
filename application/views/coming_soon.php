@@ -1,5 +1,5 @@
-<?php require_once("assets/includes/functions.php"); ?>
-<?php include("assets/includes/settings.php");?>
+<?php require_once(base_url() . "application/views/assets/includes/functions.php"); ?>
+<?php include(base_url() . "application/views/assets/includes/settings.php");?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,13 +9,12 @@
 <link rel="apple-touch-icon" href="<?php echo $cs_apple_icon;?>"/>
 <link rel="shortcut icon" href="<?php echo $cs_favicon;?>"/>
 
-<link rel="stylesheet" type="text/css" href="assets/css/style_<?php echo $cs_style;?>.css"/>
+<link rel="stylesheet" type="text/css" href=<?php echo(base_url() . "application/views/assets/css/style_" . $cs_style); ?>.css"/>
 
-<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> -->
-<script type="text/javascript" src="assets/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="<?php echo(base_url() . "application/assets/js/jquery-1.6.1.min"); ?>"</script>
 
-<script src="assets/js/cufon-yui.js" type="text/javascript"></script>
-<script src="assets/js/cufon-font.js" type="text/javascript"></script>
+<script src="<?php echo(base_url() . "application/views/assets/js/cufon-yui.js"); ?>" type="text/javascript"></script>
+<script src="<?php echo(base_url() . "application/views/assets/js/cufon-font.js"); ?>" type="text/javascript"></script>
 <script type="text/javascript">
     Cufon.replace('h1, h2'); // Works without a selector engine
 </script>
@@ -49,7 +48,7 @@
 			<!-- LEFT SIDE -->
 			<div id="left_side">
 				<div style="text-align: center;">
-				<img src="assets/images/g3930.png" />
+				<img src="<?php echo(base_url() . "application/views/assets/images/g3930.png"); ?>" />
 				</div>
 			</div>
 			<!-- /LEFT SIDE -->
@@ -72,7 +71,7 @@
 					<form id="subscribe_form" method="post" action="assets/includes/subscribe.php">
 						<input type="text" name="email" id="email" value="" />
 						<input type="submit" name="subscribe" id="subscribe_btn" value=""/>
-						<img src="assets/images/ajax-loader-<?php if($cs_style == 'light') echo 'light'; else echo 'dark';?>.gif" class="loader" alt="loading" />
+						<img src="<?php echo(base_url() . "application/views/assets/images/ajax-loader-"); ?><?php if($cs_style == 'light') echo 'light'; else echo 'dark';?>.gif" class="loader" alt="loading" />
 					</form>
 				</div>
 			<!-- /SUBSCRIBE FORM -->
@@ -93,6 +92,6 @@
 <!-- TWITTER TWEETS SCRIPT  -->
 <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
 <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/<?php echo $cs_twitter_account; ?>.json?callback=twitterCallback2&amp;count=<?php echo $cs_tweets;?>"></script>
-<script type="text/javascript" src="assets/js/jquery.coming_soon.js"></script>
+<script type="text/javascript" src="<?php echo(base_url() . "application/views/assets/js/jquery.coming_soon.js"); ?>"</script>
 </body>
 </html>

@@ -19,7 +19,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('comingSoon.php');
+		$this->load->view('coming_soon.php');
+                $this->load->helper('url');
 	}
 }
 
