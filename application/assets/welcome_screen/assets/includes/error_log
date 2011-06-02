@@ -1,1 +1,0 @@
-[21-Feb-2011 16:46:28] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'billsona_coming'@'localhost' (using password: YES) in /home/billsona/public_html/pushplans.com/ComingSoon/cs_public/assets/includes/connection/connection.php on line 5
