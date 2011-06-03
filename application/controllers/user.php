@@ -8,7 +8,8 @@ class User extends CI_Controller {
     }
     
     public function check_email() {
-        $this->load->library('ion_auth');
+        $this->load->library('Ion_auth');
+        
         echo(email_check($this->get('email')));
     }
     
