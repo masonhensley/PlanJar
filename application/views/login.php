@@ -118,7 +118,7 @@
                         
                         <label for="su_grad_year">Class of</label>
                         <div class="div_texbox">
-                            <input id="su_grad_year" name="su_grad_year" type="text" class="textbox" value="<?php echo "date(y)+4"; ?>" onfocus="if(this.value==getYear()+4){this.value='';}">
+                            <input id="su_grad_year" name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y')+4; ?>" onfocus="if(this.value==getYear()+4){this.value='';}">
                         </div>
 
                         <div class="button_div">
