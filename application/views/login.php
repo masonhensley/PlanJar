@@ -6,16 +6,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/formly.min.js"></script>
-        <link rel="stylesheet" href="/application/assets/css/formly.min.css" type="text/css" />   
-
-        <style type="text/css">
-            * { font-family: Verdana; font-size: 96%; }
-            label { width: 10em; float: left; }
-            label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
-            p { clear: both; }
-            .submit { margin-left: 12em; }
-            em { font-weight: bold; padding-right: 1em; vertical-align: top; }
-        </style>
+        <link rel="stylesheet" href="/application/assets/css/formly.min.css" type="text/css" />
 
         <script>
 
