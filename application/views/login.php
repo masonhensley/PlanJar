@@ -75,12 +75,12 @@
                     <form id="sign_up">
                         <label for="email_1">E-mail</label>
                         <div class="div_texbox">
-                            <input id="su_email_1" name="email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input id="email_1" name="email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
                         <label for="email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
-                            <input id="su_email_2" name="email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input id="email_2" name="email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
                         <label for="password">Password</label>
@@ -90,12 +90,12 @@
 
                         <label for="first_name">First Name</label>
                         <div class="div_texbox">
-                            <input id="su_first_name" name="first_name" type="text" class="textbox" value="Your" onfocus="if(this.value=='Enter first name'){this.value='';}">
+                            <input id="su_first_name" name="first_name" type="text" class="textbox" value="First name" onfocus="if(this.value=='First name'){this.value='';}">
                         </div>
 
                         <label for="last_name">Last Name</label>
                         <div class="div_texbox">
-                            <input id="su_last_name" name="last_name" type="text" class="textbox" value="Name" onfocus="if(this.value=='Enter last name'){this.value='';}">
+                            <input id="su_last_name" name="last_name" type="text" class="textbox" value="Last name" onfocus="if(this.value=='Last name'){this.value='';}">
                         </div>
 
                         <label for="school">School</label>
