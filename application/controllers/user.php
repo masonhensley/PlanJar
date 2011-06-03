@@ -5,7 +5,7 @@ class User extends CI_Controller {
     // Constructor
     public function __construct() {
         parent::__construct();
-        // Your own constructor code
+        $this->load->library('ion_auth');
     }
     
     public function check_email() {
