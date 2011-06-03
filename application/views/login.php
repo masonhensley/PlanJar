@@ -19,6 +19,7 @@
         </style>
 
         <script>
+
             // Formly javascript
             $(document).ready(function()
             { 
