@@ -72,41 +72,49 @@
                 <fieldset>
                     <legend>Personal details</legend>
                     <form id="sign_up">
-                        <label for="email_1">E-mail</label>
-                        <div class="div_texbox">
-                            <input name="email_1" type="text" class="textbox" id="email_1" />
-                        </div>
-                        <label for="email_2">Re-enter E-mail</label>
-                        <div class="div_texbox">
-                            <input name="email_2" type="text" class="textbox" id="email_2" />
-                        </div>
-                        <label for="password">Password</label>
-                        <div class="div_texbox">
-                            <input name="password" type="password" class="textbox" id="city" />
-                        </div>
-                        <label for="first_name">First Name</label>
-                        <div class="div_texbox">
-                            <input name="first_name" type="text" class="textbox" id="first_name" />
-                        </div>
-                        <label for="last_name">Last Name</label>
-                        <div class="div_texbox">
-                            <input name="last_name" type="text" class="textbox" id="last_name" />
-                        </div>
-                        <label for="school">School</label>
-                        <div class="div_texbox">
-                            <input name="school" type="text" class="textbox" id="school" />
-                            
-                        </div>
-                        
-                        <label for="sex">
-                            <input type="radio" name="sex" value="male" class="textbox"/> Male
+                        <label>E-mail
+                            <div class="div_texbox">
+                                <input name="email_1" type="text" class="textbox">
+                            </div>
                         </label>
-                        <label for="sex">
-                            <input type="radio" name="sex" value="female" class="textbox"/> Female
+                        <label>Re-enter E-mail
+                            <div class="div_texbox">
+                                <input name="email_2" type="text" class="textbox">
+                            </div>
                         </label>
-                        
+                        <label>Password
+                            <div class="div_texbox">
+                                <input name="password" type="password" class="textbox">
+                            </div>
+                        </label>
+                        <label >First Name
+                            <div class="div_texbox">
+                                <input name="first_name" type="text" class="textbox">
+                            </div>
+                        </label>
+                        <label>Last Name
+                            <div class="div_texbox">
+                                <input name="last_name" type="text" class="textbox">
+                            </div>
+                        </label>
+                        <label>School
+                            <div class="div_texbox">
+                                <input name="school" type="text" class="textbox">
+                            </div>
+                        </label>
+                        <label>
+                            <div class="radio">
+                                <input type="radio" name="sex" value="male" class="textbox"/>Male
+                            </div>
+                        </label>
+                        <label>
+                            <div class="radio">
+                                <input type="radio" name="sex" value="female" class="textbox"/>Female
+                            </div>
+                        </label>
+
                         <div class="button_div">
-                            
+
                             <input name="Submit" type="button" value="Submit" class="buttons" />
                         </div>
                     </form>
