@@ -1,5 +1,4 @@
 // Run when then DOM is loaded
-/*
 $(document).ready(function() {
 
     // Initialize the validate plugin.
@@ -13,6 +12,16 @@ $(document).ready(function() {
                 required: true,
                 email:true,
                 equalTo: email_1
+            },
+            password: {
+                required: true,
+                password: true
+            },
+            first_name: {
+                required:true
+            },
+            last_name: {
+                required: true
             }
         },
         submitHandler: function(form) {
@@ -21,4 +30,3 @@ $(document).ready(function() {
         }
     });
 });
-*/
