@@ -59,16 +59,7 @@ label {
     padding-top:30px;
     float:left;
 }
-#rightSide {
-    background-color:#fff;
-    width:200px;
-    padding:5px;
-    margin-top:40px;
-    float:right;
-    border:1px solid #CCC;
-    font:normal 12px Arial;
-    color:#666666
-}
+
 .clear {
     clear:both;
 }
@@ -168,6 +159,6 @@ label {
 }
 
 .submit_button {
-    width:100%;
+    width:530px;
     padding: 10px 10px 10px 10px;
 }
