@@ -53,9 +53,6 @@ $(document).ready(function() {
         },
         invalidHandler: function(form, validator) {
             alert('invalid');
-        },
-        errorPlacement: function(error, element) {
-            alert(error);
         }
     });
     
