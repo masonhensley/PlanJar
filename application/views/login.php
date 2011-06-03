@@ -97,7 +97,7 @@
                             <input name="school" type="text" class="textbox" id="school" />
                             
                         </div>
-                        <div class="div_textbox">
+                        <div class="radio">
                         <input type="radio" name="sex" value="male" /> Male
                         <input type="radio" name="sex" value="female" /> Female
                         </div>
