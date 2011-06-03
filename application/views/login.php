@@ -120,11 +120,12 @@
                         <div class="div_texbox">
                             <input id="su_grad_year" name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
                         </div>
+                        
+                        <div id="sign_up_errors"></div>
 
                         <div class="button_div">
                             <input name="sign_up" type="button" value="Sign up" class="buttons">
                         </div>
-                        <div id="sign_up_errors"></div>
                     </form>
                 </fieldset>
             </div>
