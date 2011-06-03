@@ -11,7 +11,6 @@ $(document).ready(function() {
 
     // Initialize the sign up validate instance.
     $("#sign_up").validate({
-        onkeyup:true,
         rules: {
             su_email_1: {
                 required: true,
@@ -27,7 +26,7 @@ $(document).ready(function() {
             },
             su_first_name: {
                 required:true,
-                rangeLength: [2, 20]
+                rangeLength: [2, 25]
             },
             su_last_name: {
                 required: true,
