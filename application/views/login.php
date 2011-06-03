@@ -90,23 +90,23 @@
 
                         <label for="first_name">First Name</label>
                         <div class="div_texbox">
-                            <input name="first_name" type="text" class="textbox" value="Your" onfocus="if(this.value=='Your'){this.value='';}">
+                            <input name="first_name" type="text" class="textbox" value="Your" onfocus="if(this.value=='Enter first name'){this.value='';}">
                         </div>
 
                         <label for="last_name">Last Name</label>
                         <div class="div_texbox">
-                            <input name="last_name" type="text" class="textbox" value="Name" onfocus="if(this.value=='Name'){this.value='';}">
+                            <input name="last_name" type="text" class="textbox" value="Name" onfocus="if(this.value=='Enter last name'){this.value='';}">
                         </div>
 
                         <label for="school">School</label>
                         <div class="div_texbox">
-                            <input name="school" type="text" class="textbox" value="State" onfocus="if(this.value=='State'){this.value='';}">
+                            <input name="school" type="text" class="textbox" value="School" onfocus="if(this.value=='Your school'){this.value='';}">
                         </div>
 
                         <label for="sex">Sex</label>
                         <div class="div_texbox">
                             <select name="sex">
-                                <option value="male" selected="true">Male</option>
+                                <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
                         </div>
@@ -118,7 +118,7 @@
                         
                         <label for="grad_year">Class of</label>
                         <div class="div_texbox">
-                            <input name="grad_year" type="text" class="textbox" value="2014" onfocus="if(this.value=='2014'){this.value='';}">
+                            <input name="grad_year" type="text" class="textbox" value="getDate()+4" onfocus="if(this.value=='2014'){this.value='';}">
                         </div>
 
                         <div class="button_div">
