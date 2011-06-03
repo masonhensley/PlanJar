@@ -9,8 +9,7 @@ class User extends CI_Controller {
     }
     
     public function check_email() {
-        // email_check($this->get('email'));
-        echo('hello');
+        echo(email_check($this->get('email')));
     }
     
     public function signup($email, $password, $additional_data) {
