@@ -12,7 +12,7 @@ $(document).ready(function() {
     // Initialize the sign up validate instance.
     $("#sign_up").validate({
         rules: {
-            su_email: email
+            su_email_1: email
         },
 //        rules: {
 //            su_email_1: {
