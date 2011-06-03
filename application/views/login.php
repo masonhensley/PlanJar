@@ -111,11 +111,12 @@
                             </select>
                         </div>
 
-                        <!--                        <div class="button_div">-->
-                        <input name="signup" type="button" value="Signup" class="buttons">
-                        <!--                        </div>-->
-
+                        <label for="birthday">Birthday</label>
                         <div id="birthday" class="div_texbox"></div>
+
+                        <div class="button_div">
+                            <input name="signup" type="button" value="Signup" class="buttons">
+                        </div>
                     </form>
                 </fieldset>
             </div>
