@@ -6,7 +6,8 @@
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/formly.min.js"></script>
-        <script type="text/javascript" src="js/formly.js"></script>
+        
+        <link rel="stylesheet" href="/application/assets/css/formly.css" type="text/css" />   
         
         <style type="text/css">
             * { font-family: Verdana; font-size: 96%; }
@@ -18,7 +19,7 @@
         </style>
 
         <script>
-            
+
             // Formly javascript
             $(document).ready(function()
             { 
