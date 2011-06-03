@@ -58,9 +58,10 @@ $(document).ready(function() {
         errorElement: 'em',
         messages: {
             su_email_1: {
-                required: "Email field is required"
+                required: "Email field is required."
             },
             su_email_2: {
+                required: "Email field is required.",
                 equalTo: "Both email addresses must match."
             }
         }
