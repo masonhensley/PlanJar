@@ -97,10 +97,12 @@
                             <input name="school" type="text" class="textbox" id="school" />
                             
                         </div>
+                        
                         <div class="radio">
-                        <input type="radio" name="sex" value="male" /> Male
-                        <input type="radio" name="sex" value="female" /> Female
+                        <input type="radio" name="sex" value="male" class="radio"/> Male
+                        <input type="radio" name="sex" value="female" class="radio"/> Female
                         </div>
+                        
                         <div class="button_div">
                             
                             <input name="Submit" type="button" value="Submit" class="buttons" />
