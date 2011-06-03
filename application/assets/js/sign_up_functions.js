@@ -62,7 +62,7 @@ $(document).ready(function() {
                 email: "Your email address must be a valid email address."
             },
             su_email_2: {
-                required: "Email field is required.",
+                required: "Re-enter your email.",
                 equalTo: "Both email addresses must match."
             },
             su_password: {
