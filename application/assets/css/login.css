@@ -118,7 +118,8 @@ label {
 }
 
 .button_div {
-    width:100%;
+    width:91px;
+    float:right;
     background-color:#fff;
     border:1px solid #ccc;
     text-align:left;
