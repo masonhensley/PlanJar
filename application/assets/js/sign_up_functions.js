@@ -55,7 +55,15 @@ $(document).ready(function() {
         },
         errorLabelContainer: '#error_list',
         wrapper: 'li',
-        errorElement: 'em'
+        errorElement: 'em',
+        messages: {
+            su_email_1: {
+                required: "Email field is required"
+            },
+            su_email_2: {
+                equalTo: "Both email addresses must match."
+            }
+        }
         
     });
     
