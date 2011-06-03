@@ -69,7 +69,7 @@
                         </div>
                     </form>
                 </fieldset>
-                <br /><hr size="1"><br /><div id="sign_up_errors"></div>
+                <br /><hr size="1"><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
                 <fieldset>
                     <legend>Not a member? Sign up.  It's easy and free.</legend>
                     <form id="sign_up">
@@ -121,7 +121,7 @@
                             <input id="su_grad_year" name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
                         </div>
 
-                        <div class="button_div">
+                        <div class="submit_button">
                             <input onpress="javascript:function($('#sign_up').validate().form())" name="sign_up" type="button" value="Sign up" class="buttons">
                         </div>
                     </form>
