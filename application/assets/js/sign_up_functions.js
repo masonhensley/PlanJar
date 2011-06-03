@@ -53,8 +53,7 @@ $(document).ready(function() {
         },
         invalidHandler: function(form, validator) {
             alert('invalid');
-        },
-        wrapper: '<br>'
+        }
     });
     
     // Initialize the login validate instance.
