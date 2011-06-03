@@ -28,8 +28,10 @@
             });
        
 
+            // Run when then DOM is loaded
             $(document).ready(function(){
 
+                // Initialize the validate plugin.
                 $("#commentForm").validate({
                     submitHandler: function(form) {
                         $(form).ajaxSubmit();
