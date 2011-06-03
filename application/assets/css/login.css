@@ -161,3 +161,9 @@ label {
 .radio {
     background: url(radio.gif) no-repeat;
 }
+
+.sign_up_errors {
+    top:20px;
+    width:200px;
+    text-align:center;
+}
