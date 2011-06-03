@@ -118,7 +118,7 @@
                         
                         <label for="grad_year">Class of</label>
                         <div class="div_texbox">
-                            <input id="su_grad_year" name="grad_year" type="text" class="textbox" value="getDate()+4" onfocus="if(this.value=='2014'){this.value='';}">
+                            <input id="su_grad_year" name="grad_year" type="text" class="textbox" value="getYear()+4" onfocus="if(this.value==getYear()+4){this.value='';}">
                         </div>
 
                         <div class="button_div">
