@@ -54,9 +54,7 @@ $(document).ready(function() {
         invalidHandler: function(form, validator) {
             alert('invalid');
         },
-        errorPlacement: function(error, element) {
-            error.appendTo(element.parent);
-        }
+        wrapper: '<br>'
     });
     
     // Initialize the login validate instance.
