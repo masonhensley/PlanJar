@@ -99,7 +99,8 @@
             <input type="password" name="pword" require="true" label="Password" place="Password" />
             <input type="password" name="pwordm" match="pword" label="Password" place="Re-type password" />
             <input type="checkbox" name="agree" require="true" label="Terms" value="agree" /> I agree to the terms
-            <input type="submit" value="Sign up" /><input type="reset" value="Clear" /> </form>
+            <input type="submit" value="Sign up" /><input type="reset" value="Clear" /> 
+        </form>
 
     </body>
 </html>
