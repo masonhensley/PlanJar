@@ -1,5 +1,14 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
+    $.get('/user/check_email',
+    {
+        email: 'hello@123.com'
+    },
+    function (data) {
+        alert(data);
+    });
+    
+    alert('requested');
 
     // Initialize the validate plugins.
     $("#sign_up").validate({
@@ -34,7 +43,6 @@ $(document).ready(function() {
             alert('success');
         },
         invalidHandler: function(form, validator) {
-            showErrors();
         }
     });
     
