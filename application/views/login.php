@@ -13,7 +13,7 @@
 
             // Formly javascript
             $(document).ready(function() { 
-                $('#sign_up').formly({'theme':'Light'})
+                $('#sign_up').formly({theme:'Light'})
             });
             
         </script>
