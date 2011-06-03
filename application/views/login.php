@@ -95,7 +95,7 @@
 
                         <label for="last_name">Last Name</label>
                         <div class="div_texbox">
-                            <input id="su_last_name" name="last_name" type="text" class="textbox" value="Last Name" onfocus="if(this.value=='Last name'){this.value='';}">
+                            <input id="su_last_name" name="last_name" type="text" class="textbox" value="Last name" onfocus="if(this.value=='Last name'){this.value='';}">
                         </div>
 
                         <label for="school">School</label>
