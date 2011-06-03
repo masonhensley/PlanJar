@@ -53,7 +53,7 @@ $(document).ready(function() {
         invalidHandler: function(form, validator) {
             alert('invalid');
         },
-        errorLabelContainer: '#sign_up_errors',
+        errorLabelContainer: '#error_list',
         wrapper: 'li',
         errorElement: '<em>'
         
