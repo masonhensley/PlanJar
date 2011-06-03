@@ -5,7 +5,7 @@
     <head>
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js">
-        <link rel="stylesheet" href="css/formly.css" type="text/css" />    
+                <link rel="stylesheet" href="css/formly.css" type="text/css" />    
            
     
         </script>
@@ -20,7 +20,7 @@
 
         <script>
             
-             // Formly javascript
+            // Formly javascript
             $(document).ready(function()
             { 
                 $('#ContactInfo').formly({'theme':'Dark'}, function(e)
@@ -32,22 +32,18 @@
             $(document).ready(function(){
 
                 // Initialize the validate plugin.
-                $("#commentForm").validate({
-                    submitHandler: function(form) {
-                        $(form).ajaxSubmit();
-                    },
-
-                    invalidHandler: function(form, validator) {
-                        var errors = validator.numberOfInvalids();
-                        if (errors) {
-                            var message = errors == 1
-                                ? 'You missed 1 field. It has been highlighted'
-                            : 'You missed ' + errors + ' fields. They have been highlighted';
-                            $("div.error span").html(message);
-                            $("div.error").show();
-                        } else {
-                            $("div.error").hide();
+                $("#sign_up").validate({
+                    rules: {
+                        email_1: {
+                            required: true
+                        },
+                        email_2: {
+                            required: true
                         }
+                    },
+                    submitHandler: function(form) {
+                    },
+                    invalidHandler: function(form, validator) {
                     }
                 });
             });
