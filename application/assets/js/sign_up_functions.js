@@ -55,6 +55,7 @@ $(document).ready(function() {
         },
         errorLabelContainer: '#sign_up_errors',
         wrapper: 'li'
+        
     });
     
     // Initialize the login validate instance.
