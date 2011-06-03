@@ -64,7 +64,7 @@
                         <div class="div_texbox">
                             <input name="password" type="password" class="password" id="password" value="password" />
                         </div>
-                        <div class="buuton_div">
+                        <div class="button_div">
                             <input name="Submit" type="button" value="Log In" class="buttons" />
                         </div>
                     </form>
