@@ -113,7 +113,7 @@
 
                         <label for="su_birthday">Birthday</label>
                         <div class="div_texbox">
-                            <input id="su_birthday" name="su_birthday" type="text" class="textbox" value="03/30/1990" onfocus="if(this.value=='03/30/1990'){this.value='';}">
+                            <input id="su_birthday" name="su_birthday" type="text" class="textbox" value="mm/dd/yyyy" onfocus="if(this.value=='mm/dd/yyyy'){this.value='';}">
                         </div>
                         
                         <label for="su_grad_year">Class of</label>
