@@ -55,6 +55,7 @@ $(document).ready(function() {
             alert('invalid');
         },
         errorPlacement: function(error, element) {
+            alert(element);
             error.insertAfter(element)
         }
     });
