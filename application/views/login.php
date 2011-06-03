@@ -58,7 +58,7 @@
                     <form action="login.php" method="POST" class="form">
                         <label for="email">Username</label>
                         <div class="div_texbox">
-                            <input name="username" type="text" class="username" id="email" value="username" />
+                            <input onfocus="this.value=''" name="username" type="text" class="username" id="email" value="username" />
                         </div>
                         <label for="password">Password</label>
                         <div class="div_texbox">
