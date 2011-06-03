@@ -44,7 +44,7 @@ $(document).ready(function() {
             }
         },
         submitHandler: function(form) {
-            if (!checkdate(form.birthday.text)) {
+            if (!checkdate(form.su_birthday.text)) {
                 alert('bad date');
                 return;
             }
