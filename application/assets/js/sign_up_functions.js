@@ -12,42 +12,39 @@ $(document).ready(function() {
     // Initialize the sign up validate instance.
     $("#sign_up").validate({
         rules: {
-            su_email_1: email
+            su_email_1: {
+                required: true,
+                email: true
+            },
+            su_email_2: {
+                required: true,
+                equalTo: '#su_email_1'
+            },
+            su_password: {
+                required: true,
+                rangeLength: [6, 20]
+            },
+            su_first_name: {
+                required:true,
+                rangeLength: [2, 25]
+            },
+            su_last_name: {
+                required: true,
+                rangeLength: [2, 25]
+            },
+            su_school: {
+                required: true
+            },
+            su_birthday: {
+                required: true,
+                date: true
+            },
+            su_grad_year: {
+                required:true
+            }
         },
-//        rules: {
-//            su_email_1: {
-//                required: true,
-//                email: true
-//            },
-//            su_email_2: {
-//                required: true,
-//                equalTo: '#su_email_1'
-//            },
-//            su_password: {
-//                required: true,
-//                rangeLength: [6, 20]
-//            },
-//            su_first_name: {
-//                required:true,
-//                rangeLength: [2, 20]
-//            },
-//            su_last_name: {
-//                required: true,
-//                rangeLength: [2, 25]
-//            },
-//            su_school: {
-//                required: true
-//            },
-//            su_birthday: {
-//                required: true,
-//                date: true
-//            },
-//            su_grad_year: {
-//                required:true
-//            }
-//        },
         submitHandler: function(form) {
-            if (!checkdate(form.su_birthday.text)) {
+            if (!checkdate(form.su_birthday.value)) {
                 alert('bad date');
                 return;
             }
