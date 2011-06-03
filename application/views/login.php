@@ -71,7 +71,7 @@
                 </fieldset>
                 <br /><hr size="1"><br />
                 <fieldset>
-                    <legend>Not a member? Sign up.</legend>
+                    <legend>Not a member? Sign up.  It's easy and free.</legend>
                     <form id="sign_up">
                         <label for="email_1">E-mail</label>
                         <div class="div_texbox">
