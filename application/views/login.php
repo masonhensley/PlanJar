@@ -72,11 +72,13 @@
                 <fieldset>
                     <legend>Personal details</legend>
                     <form id="sign_up">
-                        <label>E-mail
-                            <div class="div_texbox">
+
+                        <div class="div_texbox">
+                            <label>E-mail
                                 <input name="email_1" type="text" class="textbox">
-                            </div>
-                        </label>
+                            </label>
+                        </div>
+
                         <label>Re-enter E-mail
                             <div class="div_texbox">
                                 <input name="email_2" type="text" class="textbox">
@@ -104,18 +106,18 @@
                         </label>
                         <label>
                             <div class="radio">
-                                <input type="radio" name="sex" value="male" class="textbox"/>Male
+                                <input type="radio" name="sex" value="male" class="textbox">Male
                             </div>
                         </label>
                         <label>
                             <div class="radio">
-                                <input type="radio" name="sex" value="female" class="textbox"/>Female
+                                <input type="radio" name="sex" value="female" class="textbox">Female
                             </div>
                         </label>
 
                         <div class="button_div">
 
-                            <input name="Submit" type="button" value="Submit" class="buttons" />
+                            <input name="Submit" type="button" value="Submit" class="buttons">
                         </div>
                     </form>
                 </fieldset>
