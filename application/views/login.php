@@ -121,7 +121,7 @@
                             <input id="su_grad_year" name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
                         </div>
 
-                        <div class="submit_button">
+                        <div class="button_div">
                             <input onpress="javascript:function($('#sign_up').validate().form())" name="sign_up" type="button" value="Sign up" class="buttons">
                         </div>
                     </form>
