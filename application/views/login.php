@@ -4,7 +4,11 @@
 
     <head>
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
-        <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js">
+        <link rel="stylesheet" href="css/formly.css" type="text/css" />    
+           
+    
+        </script>
         <style type="text/css">
             * { font-family: Verdana; font-size: 96%; }
             label { width: 10em; float: left; }
@@ -16,7 +20,7 @@
 
         <script>
             
-            // Formly javascript
+             // Formly javascript
             $(document).ready(function()
             { 
                 $('#ContactInfo').formly({'theme':'Dark'}, function(e)
@@ -80,7 +84,6 @@
     </head>
 
     <body>
-
 
         <form id="ContactInfo" width="600px" title="Member sign up">
             <input type="text" name="first_name" place="Your first name" size="30" /> 
