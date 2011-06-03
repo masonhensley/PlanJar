@@ -1,1 +1,0 @@
-php_extensions: [mcrypt, mysqli, mysql, mbstring]
