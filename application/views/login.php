@@ -124,9 +124,9 @@
                         <div class="button_div">
                             <input name="sign_up" type="button" value="Sign up" class="buttons">
                         </div>
+                        <div id="sign_up_errors"></div>
                     </form>
                 </fieldset>
-                <div id="sign_up_errors"></div>
             </div>
             <div id="rightSide">
                 <p><u>This is the right side div that can be used for showing info's in order to help the visitor.</u> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

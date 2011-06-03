@@ -18,7 +18,6 @@ $(document).ready(function() {
             },
             su_email_2: {
                 required: true,
-                email:true,
                 equalTo: su_email_1.value
             },
             su_password: {
