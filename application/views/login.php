@@ -6,7 +6,8 @@
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/formly.min.js"></script>
-        <script type="text/javascript" src="/application/assets/js/validate_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/sign_up_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/birthday-picker-1.2.min.js"></script>
         <link rel=StyleSheet href="/application/assets/css/login.css" type="text/css" >
 
 
@@ -76,43 +77,45 @@
                         <div class="div_texbox">
                             <input name="email_1" type="text" class="textbox">
                         </div>
-                        
+
                         <label for="email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
                             <input name="email_2" type="text" class="textbox">
                         </div>
-                        
+
                         <label for="password">Password</label>
                         <div class="div_texbox">
                             <input name="password" type="password" class="textbox">
                         </div>
-                        
+
                         <label for="first_name">First Name</label>
                         <div class="div_texbox">
                             <input name="first_name" type="text" class="textbox">
                         </div>
-                        
+
                         <label for="last_name">Last Name</label>
                         <div class="div_texbox">
                             <input name="last_name" type="text" class="textbox">
                         </div>
-                        
+
                         <label for="school">School</label>
                         <div class="div_texbox">
                             <input name="school" type="text" class="textbox">
                         </div>
-                        
+
                         <label for="sex">Sex</label>
                         <div class="div_texbox">
-                            <select>
+                            <select name="sex">
                                 <option value="male" selected="true">Male</option>
                                 <option value="female">Female</option>
                             </select>
                         </div>
-                        
-                        <div class="button_div">
-                            <input name="Submit" type="button" value="Submit" class="buttons">
-                        </div>
+
+                        <!--                        <div class="button_div">-->
+                        <input name="signup" type="button" value="Signup" class="buttons">
+                        <!--                        </div>-->
+
+                        <div id="birthday" class="div_texbox"></div>
                     </form>
                 </fieldset>
             </div>
