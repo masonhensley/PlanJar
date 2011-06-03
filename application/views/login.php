@@ -6,8 +6,8 @@
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/formly.min.js"></script>
-        <script type="text/javascript" src="/applicatino/assets/js/validate_functions.js"></script>
-        <link rel="stylesheet" href="formly.min.css" type="text/css" />
+        <script type="text/javascript" src="/application/assets/js/validate_functions.js"></script>
+        <link rel="stylesheet" href="/application/assets/css/formly.min.css" type="text/css" />
 
         <script>
 
@@ -17,6 +17,7 @@
                 $('#sign_up').formly({'theme':'Dark'}, function(e)
                 { $('.callback').html(e); });
             });
+            
         </script>
 
 
@@ -63,7 +64,6 @@
                 <option value="female">Female</option>
             </select>
             <input type="password" name="password1" require="true" label="Password" place="Password" />
-            <input type="password" name="password2" match="pword" label="Password" place="Re-type password" />
             <input type="checkbox" name="agree" require="true" label="Terms" value="agree" /> I agree to the terms
             <input type="submit" value="Sign up" /><input type="reset" value="Clear" /> 
         </form>
