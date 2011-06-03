@@ -55,7 +55,7 @@ $(document).ready(function() {
         },
         errorLabelContainer: '#error_list',
         wrapper: 'li',
-        errorElement: '<em>'
+        errorElement: 'em'
         
     });
     
