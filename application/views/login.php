@@ -9,14 +9,7 @@
         <script type="text/javascript" src="/application/assets/js/validate_functions.js"></script>
         <link rel="stylesheet" href="/application/assets/css/formly.min.css" type="text/css" />
 
-        <script>
 
-            // Formly javascript
-            $(document).ready(function() { 
-                $('sign_up').formly({'theme':'Light'})
-            });
-            
-        </script>
 
 
         <!-- AJAX object is created here -->
@@ -67,4 +60,14 @@
         </form>
 
     </body>
+
+    <script>
+
+        // Formly javascript
+        $(document).ready(function() { 
+            $('sign_up').formly({'theme':'Light'})
+        });
+            
+    </script>
+
 </html>
