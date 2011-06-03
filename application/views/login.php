@@ -127,8 +127,6 @@
                     </form>
                 </fieldset>
             </div>
-            <div id="rightSide">
-            </div>
             <div class="clear"></div>
         </div>
 
