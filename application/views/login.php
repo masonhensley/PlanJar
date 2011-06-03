@@ -80,7 +80,7 @@
 
                         <label for="email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
-                            <input name="email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input id="email_2" name="email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
                         <label for="password">Password</label>
