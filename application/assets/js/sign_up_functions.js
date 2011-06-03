@@ -100,5 +100,5 @@ $(document).ready(function() {
 });
 
 function clear_form_input(value) {
-    alert('current value: ' + his.value);
+    alert("current value: " + this.value);
 }
