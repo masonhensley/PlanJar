@@ -12,37 +12,40 @@ $(document).ready(function() {
     // Initialize the sign up validate instance.
     $("#sign_up").validate({
         rules: {
-            su_email_1: {
-                required: true,
-                email: true
-            },
-            su_email_2: {
-                required: true,
-                equalTo: '#su_email_1'
-            },
-            su_password: {
-                required: true,
-                rangeLength: [6, 20]
-            },
-            su_first_name: {
-                required:true,
-                rangeLength: [2, 20]
-            },
-            su_last_name: {
-                required: true,
-                rangeLength: [2, 25]
-            },
-            su_school: {
-                required: true
-            },
-            su_birthday: {
-                required: true,
-                date: true
-            },
-            su_grad_year: {
-                required:true
-            }
+            su_email: email
         },
+//        rules: {
+//            su_email_1: {
+//                required: true,
+//                email: true
+//            },
+//            su_email_2: {
+//                required: true,
+//                equalTo: '#su_email_1'
+//            },
+//            su_password: {
+//                required: true,
+//                rangeLength: [6, 20]
+//            },
+//            su_first_name: {
+//                required:true,
+//                rangeLength: [2, 20]
+//            },
+//            su_last_name: {
+//                required: true,
+//                rangeLength: [2, 25]
+//            },
+//            su_school: {
+//                required: true
+//            },
+//            su_birthday: {
+//                required: true,
+//                date: true
+//            },
+//            su_grad_year: {
+//                required:true
+//            }
+//        },
         submitHandler: function(form) {
             if (!checkdate(form.su_birthday.text)) {
                 alert('bad date');
@@ -54,6 +57,7 @@ $(document).ready(function() {
             alert('invalid');
         },
         errorLabelContainer: '#error_list',
+        wrapper: 'li',
         errorElement: 'em',
         messages: {
             su_email_1: {
@@ -67,8 +71,7 @@ $(document).ready(function() {
             su_password: {
                 required: "Password field is required."
             }
-        },
-        errorClass: 'error'
+        }
     });
     
 // Initialize the login validate instance.
