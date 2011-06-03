@@ -111,8 +111,15 @@
                             </select>
                         </div>
 
-                        <label for="birthday">Birthday</label>
-                        <div id="birthday" class="div_texbox"></div>
+                        <label for="birthday">School</label>
+                        <div class="div_texbox">
+                            <input name="birthday" type="text" class="textbox" value="03/30/1990">
+                        </div>
+                        
+                        <label for="grad_year">School</label>
+                        <div class="div_texbox">
+                            <input name="grad_year" type="text" class="textbox">
+                        </div>
 
                         <div class="button_div">
                             <input name="signup" type="button" value="Signup" class="buttons">
