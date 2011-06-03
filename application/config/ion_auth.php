@@ -50,7 +50,7 @@ $config['admin_group'] = 'admin';
  * Meta table column you want to join WITH.
  * Joins from users.id
  * */
-$config['join'] = 'user_id';
+$config['join'] = 'id';
 
 /**
  * Columns in your meta table,
@@ -64,6 +64,7 @@ $config['columns'] = array(
     'birthday',
     'join_date',
     'school',
+    'hometown',
     'latitude',
     'longitude',
     'followed_groups',
