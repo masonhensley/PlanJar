@@ -53,7 +53,6 @@ $(document).ready(function() {
         invalidHandler: function(form, validator) {
             alert('invalid');
         },
-        errorLabelContainer: '#error_list',
         wrapper: 'li',
         errorElement: 'em',
         messages: {
@@ -68,6 +67,9 @@ $(document).ready(function() {
             su_password: {
                 required: "Password field is required."
             }
+        },
+        errorPlacement: function(error, element) {
+            error.appendTo($('#error_list'))
         }
     });
     
