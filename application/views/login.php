@@ -13,7 +13,6 @@
 
             // Formly javascript
             $(document).ready(function() {
-                alert('here');
                 $('sign_up').formly({'theme':'Light'})
             });
             
@@ -54,7 +53,7 @@
     <body>
 
         <form id="sign_up" width="600px" title="Member sign up">
-            <input type="text" name="first_name" place="Your first name" size="30" /> 
+            <label for="first_name"><input type="text" name="first_name" place="Your first name" size="30" /></label>
             <input type="text" name="last_name" place="Your last name" size="30" style="margin-left:10px;" />
             <input type="text" name="email1" validate="email" place="e-mail address" size="30" />
             <input type="text" name="email2" place="e-mail address again" size="30" pre-fix="http://" validate="http" style="margin-left:10px;" />
