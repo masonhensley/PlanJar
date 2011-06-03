@@ -10,6 +10,7 @@ $(document).ready(function() {
     //    });
 
     // Initialize the sign up validate instance.
+    alert('sign_up: ' + sign_up);
     $("#sign_up").validate({
         rules: {
             email_1: {
@@ -53,6 +54,9 @@ $(document).ready(function() {
         },
         invalidHandler: function(form, validator) {
             alert('invalid');
+        },
+        errorPlacement: function(error, element) {
+            alert(error);
         }
     });
     
