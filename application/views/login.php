@@ -111,7 +111,7 @@
                             </select>
                         </div>
 
-                        <label for="birthday">School</label>
+                        <label for="birthday">Birthday</label>
                         <div class="div_texbox">
                             <input name="birthday" type="text" class="textbox" value="03/30/1990">
                         </div>
