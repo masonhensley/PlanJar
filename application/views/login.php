@@ -128,7 +128,7 @@
                 </fieldset>
             </div>
             <div id="rightSide">
-                <div id="sign_up_errors"></div>
+                <font color="red"><div id="sign_up_errors"></div></font>
             </div>
             <div class="clear"></div>
         </div>
