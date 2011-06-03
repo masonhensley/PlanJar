@@ -8,9 +8,7 @@ class User extends CI_Controller {
     }
     
     public function check_email() {
-        $this->load->library('ion_auth');
-        
-        echo($this->ion_auth->email_check($this->get('email')));
+        echo($this->ion_auth->email_check($this->input->get('email')));
     }
     
     public function signup($email, $password, $additional_data) {
