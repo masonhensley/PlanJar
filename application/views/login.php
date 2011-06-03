@@ -12,10 +12,8 @@
         <script>
 
             // Formly javascript
-            $(document).ready(function()
-            { 
-                $('#sign_up').formly({'theme':'Dark'}, function(e)
-                { $('.callback').html(e); });
+            $(document).ready(function() { 
+                $('#sign_up').formly({'theme':'Dark'})
             });
             
         </script>
