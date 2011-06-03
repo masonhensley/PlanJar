@@ -10,7 +10,6 @@ $(document).ready(function() {
     //    });
 
     // Initialize the sign up validate instance.
-    alert('sign_up: ' + sign_up);
     $("#sign_up").validate({
         rules: {
             email_1: {
