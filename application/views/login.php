@@ -82,7 +82,7 @@
                         </div>
                         <label for="password">Password</label>
                         <div class="div_texbox">
-                            <input name="password" type="text" class="textbox" id="city" />
+                            <input name="password" type="password" class="textbox" id="city" />
                         </div>
                         <label for="first_name">First Name</label>
                         <div class="div_texbox">
@@ -94,11 +94,13 @@
                         </div>
                         <label for="school">School</label>
                         <div class="div_texbox">
-                            <input name="country" type="text" class="textbox" id="country" />
+                            <input name="school" type="text" class="textbox" id="school" />
                             
                         </div>
-                        <input type="radio" name="sex" value="male" /> Male<br />
+                        <div class="div_textbox">
+                        <input type="radio" name="sex" value="male" /> Male
                         <input type="radio" name="sex" value="female" /> Female
+                        </div>
                         <div class="button_div">
                             
                             <input name="Submit" type="button" value="Submit" class="buttons" />
