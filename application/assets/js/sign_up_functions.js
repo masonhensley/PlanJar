@@ -1,14 +1,15 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
-    $.get('/user/check_email',
-    {
-        email: 'hello@123.com'
-    },
-    function (data) {
-        alert(data);
-    });
+    
+    //    $.get('/user/check_email',
+    //    {
+    //        email: 'hello@123.com'
+    //    },
+    //    function (data) {
+    //        alert(data);
+    //    });
 
-    // Initialize the validate plugins.
+    // Initialize the sign up validate instance.
     $("#sign_up").validate({
         rules: {
             email_1: {
@@ -44,6 +45,7 @@ $(document).ready(function() {
         }
     });
     
+    // Initialize the login validate instance.
     $("#login").validate({
         rules: {
             email: {
@@ -59,5 +61,11 @@ $(document).ready(function() {
         },
         invalidHandler: function(form, validator) {
         }
+    });
+    
+    // Initialize the birthday picker instance.
+    $('#birthday').birthdaypicker({
+        placeholder: false,
+        defaultDate:'03-30-1990'
     });
 });
