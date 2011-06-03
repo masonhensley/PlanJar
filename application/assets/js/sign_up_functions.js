@@ -12,11 +12,11 @@ $(document).ready(function() {
     // Initialize the sign up validate instance.
     $("#sign_up").validate({
         rules: {
-            su_email_1: {
+            email_1: {
                 required: true,
                 email: true
             },
-            su_email_2: {
+            email_2: {
                 required: true,
                 email:true,
                 equalTo: email_1
