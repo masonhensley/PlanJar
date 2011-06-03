@@ -56,9 +56,9 @@
                 <fieldset>
                     <legend>Login details</legend>
                     <form action="login.php" method="POST" class="form">
-                        <label for="email">Username</label>
+                        <label for="username">Username</label>
                         <div class="div_texbox">
-                            <input onfocus="this.value=''" name="username" type="text" class="username" id="email" value="username" />
+                            <input onfocus="clear_form_input('username')" name="username" type="text" class="username" id="email" value="username" />
                         </div>
                         <label for="password">Password</label>
                         <div class="div_texbox">
