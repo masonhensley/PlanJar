@@ -13,17 +13,23 @@
             .submit { margin-left: 12em; }
             em { font-weight: bold; padding-right: 1em; vertical-align: top; }
         </style>
+
         <script>
-            // Function to run when the DOM is loaded
+            
+            // Formly javascript
+            $(document).ready(function()
+            { 
+                $('#ContactInfo').formly({'theme':'Dark'}, function(e)
+                { $('.callback').html(e); });
+            });
+       
+
             $(document).ready(function(){
-                
-                // Setup the validate plugin.
-                $("#sign_up").validate({
-                    rules: {
-                        
-                    },
+
+                $("#commentForm").validate({
                     submitHandler: function(form) {
                     },
+
                     invalidHandler: function(form, validator) {
                     }
                 });
@@ -65,21 +71,21 @@
     <body>
 
 
-        <form class="cmxform" id="commentForm" method="get" action="">
-            <fieldset>
+        <form id="ContactInfo" width="600px" title="Member sign up">
+            <input type="text" name="first_name" place="Your first name" size="30" /> 
+            <input type="text" name="last_name" place="Your last name" size="30" style="margin-left:10px;" />
+            <input type="text" name="email" validate="email" place="Email address" size="30" />
+            <input type="text" name="website" place="Your website" size="30" pre-fix="http://" validate="http" style="margin-left:10px;" />
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <input type="radio" name="membership" value="new" style="margin-left:10px;" /> New member
+            <input type="radio" name="membership" value="existing" /> Existing member 
+            <input type="password" name="pword" require="true" label="Password" place="Password" />
+            <input type="password" name="pwordm" match="pword" label="Password" place="Re-type password" />
+            <input type="checkbox" name="agree" require="true" label="Terms" value="agree" /> I agree to the terms
+            <input type="submit" value="Sign up" /><input type="reset" value="Clear" /> </form>
 
-                <p>
-                    <label for="cname">Name</label>
-                    <em>*</em><input id="cname" name="name" size="25" class="required" minlength="2" />
-                </p>
-                <p>
-                    <label for="cemail">E-Mail</label>
-                    <em>*</em><input id="cemail" name="email" size="25"  class="required email" />
-                </p>
-                <p>
-                    <input class="submit" type="submit" value="Submit"/>
-                </p>
-            </fieldset>
-        </form>
     </body>
 </html>
