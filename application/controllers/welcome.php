@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
         // See the application/config/autoload.php file.
         //$this->load->database();
         $this->load->library('ion_auth');
-        if ($this->ion_auth->username_check('test')) {
+        if ($this->ion_auth->username_check('email')) {
             echo('success');
         } else {
             echo('failure');
