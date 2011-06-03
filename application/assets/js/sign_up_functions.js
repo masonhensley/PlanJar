@@ -67,7 +67,8 @@ $(document).ready(function() {
             su_password: {
                 required: "Password field is required."
             }
-        }
+        },
+        errorClass: 'error'
     });
     
 // Initialize the login validate instance.
