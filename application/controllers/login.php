@@ -20,6 +20,24 @@ class Login extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
+    
+    // Returns 'true' if the email exists, 'false' otherwise
+    private function check_email() {
+        echo($this->ion_auth->email_check(
+                $this->input->get('email')) ? 'true' : 'false');
+    }
+
+    // Signs up a user
+    // Returns 'success' or 'failure'
+    // $additional_data must be a JSON array multidimentional array.
+    private function signup() {
+        $name = $this->input->get('first_name');
+        $email = $this->input->get('$email_1');
+        $password = $this->input->get('$password');
+        $additional_data = $this->input->get('$additional_data');
+        echo($this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure');
+    }
+    
     public function index() {
         $this->load->view('login.php');
     }
