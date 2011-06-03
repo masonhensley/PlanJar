@@ -22,9 +22,16 @@ $(document).ready(function() {
             },
             last_name: {
                 required: true
+            },
+            school: {
+                required: true
+            },
+            sex: {
+                reguired: true
             }
         },
         submitHandler: function(form) {
+            alert('success');
         },
         invalidHandler: function(form, validator) {
         }
