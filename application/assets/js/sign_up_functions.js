@@ -98,3 +98,7 @@ $(document).ready(function() {
         return returnval
     }
 });
+
+function clear_form_input(value) {
+    alert(this.parent);
+}
