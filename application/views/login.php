@@ -14,27 +14,18 @@
             em { font-weight: bold; padding-right: 1em; vertical-align: top; }
         </style>
         <script>
+            // Function to run when the DOM is loaded
             $(document).ready(function(){
-                              
-                $("#commentForm").validate({
-                    submitHandler: function(form) {
-                        $(form).ajaxSubmit();
+                
+                // Setup the validate plugin.
+                $("#sign_up").validate({
+                    rules: {
+                        
                     },
-                    
+                    submitHandler: function(form) {
+                    },
                     invalidHandler: function(form, validator) {
-                        var errors = validator.numberOfInvalids();
-                        if (errors) {
-                            var message = errors == 1
-                                ? 'You missed 1 field. It has been highlighted'
-                            : 'You missed ' + errors + ' fields. They have been highlighted';
-                            $("div.error span").html(message);
-                            $("div.error").show();
-                        } else {
-                            $("div.error").hide();
-                        }
                     }
-                    
-                    
                 });
             });
         </script>
