@@ -9,7 +9,7 @@
         <script type="text/javascript" src="/application/assets/js/validate_functions.js"></script>
         <link rel=StyleSheet href="/application/assets/css/login.css" type="text/css" >
 
-        
+
 
 
         <!-- AJAX object is created here -->
@@ -45,7 +45,7 @@
 
     <body>
 
-        
+
         <!-- this was pulled from Tableless forms -->
         <div id="container">
             <div id="top">
@@ -55,40 +55,52 @@
                 <fieldset>
                     <legend>Login details</legend>
                     <form action="login.php" method="POST" class="form">
-                        <label for="username">Username</label>
+                        <label for="email">Username</label>
                         <div class="div_texbox">
-                            <input name="username" type="text" class="username" id="username" value="username" />
+                            <input name="username" type="text" class="username" id="email" value="username" />
                         </div>
                         <label for="password">Password</label>
                         <div class="div_texbox">
                             <input name="password" type="password" class="password" id="password" value="password" />
                         </div>
                         <div class="buuton_div">
-                            <input name="Submit" type="button" value="Submit" class="buttons" />
+                            <input name="Submit" type="button" value="Log In" class="buttons" />
                         </div>
                     </form>
                 </fieldset>
                 <br /><hr size="1"><br />
                 <fieldset>
                     <legend>Personal details</legend>
-                    <form action="pay.php" method="POST" class="form">
-                        <label for="name">Name</label>
+                    <form id="sign_up">
+                        <label for="email_1">E-mail</label>
                         <div class="div_texbox">
-                            <input name="name" type="text" class="textbox" id="name" value="John Doe" />
+                            <input name="email_1" type="text" class="textbox" id="email_1" />
                         </div>
-                        <label for="address">Address</label>
+                        <label for="email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
-                            <input name="address" type="text" class="textbox" id="address" value="12 main" />
+                            <input name="email_2" type="text" class="textbox" id="email_2" />
                         </div>
-                        <label for="city">City</label>
+                        <label for="password">Password</label>
                         <div class="div_texbox">
-                            <input name="city" type="text" class="textbox" id="city" value="Rochester" />
+                            <input name="password" type="text" class="textbox" id="city" />
                         </div>
-                        <label for="country">Country</label>
+                        <label for="first_name">First Name</label>
                         <div class="div_texbox">
-                            <input name="country" type="text" class="textbox" id="country" value="United States" />
+                            <input name="first_name" type="text" class="textbox" id="first_name" />
                         </div>
+                        <label for="last_name">Last Name</label>
+                        <div class="div_texbox">
+                            <input name="last_name" type="text" class="textbox" id="last_name" />
+                        </div>
+                        <label for="school">School</label>
+                        <div class="div_texbox">
+                            <input name="country" type="text" class="textbox" id="country" />
+                            
+                        </div>
+                        <input type="radio" name="sex" value="male" /> Male<br />
+                        <input type="radio" name="sex" value="female" /> Female
                         <div class="button_div">
+                            
                             <input name="Submit" type="button" value="Submit" class="buttons" />
                         </div>
                     </form>
