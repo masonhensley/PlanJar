@@ -52,7 +52,7 @@
 
     <body>
 
-        <form id="sign_up" width="600px" title="Member sign up">
+        <form id="sign_up" name="sign_up" width="600px" title="Member sign up">
             <input type="text" name="first_name" place="Your first name" size="30" /> 
             <input type="text" name="last_name" place="Your last name" size="30" style="margin-left:10px;" />
             <input type="text" name="email1" validate="email" place="e-mail address" size="30" />
