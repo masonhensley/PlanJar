@@ -57,11 +57,11 @@
                     <form action="login.php" method="POST" class="form">
                         <label for="email">Username</label>
                         <div class="div_texbox">
-                            <input name="username" type="text" class="username" value="username" />
+                            <input name="username" type="text" class="username" id="email" value="username" />
                         </div>
                         <label for="password">Password</label>
                         <div class="div_texbox">
-                            <input name="password" type="password" class="password" value="password" />
+                            <input name="password" type="password" class="password" id="password" value="password" />
                         </div>
                         <div class="buuton_div">
                             <input name="Submit" type="button" value="Log In" class="buttons" />
@@ -70,54 +70,47 @@
                 </fieldset>
                 <br /><hr size="1"><br />
                 <fieldset>
-                    <legend>Personal details</legend>
+                    <legend>Not a member? Signup.</legend>
                     <form id="sign_up">
-
+                        <label for="email_1">E-mail</label>
                         <div class="div_texbox">
-                            <label>E-mail
-                                <input name="email_1" type="text" class="textbox">
-                            </label>
+                            <input name="email_1" type="text" class="textbox">
                         </div>
-
-<!--                        <label>Re-enter E-mail
-                            <div class="div_texbox">
-                                <input name="email_2" type="text" class="textbox">
-                            </div>
+                        
+                        <label for="email_2">Re-enter E-mail</label>
+                        <div class="div_texbox">
+                            <input name="email_2" type="text" class="textbox">
+                        </div>
+                        
+                        <label for="password">Password</label>
+                        <div class="div_texbox">
+                            <input name="password" type="password" class="textbox">
+                        </div>
+                        
+                        <label for="first_name">First Name</label>
+                        <div class="div_texbox">
+                            <input name="first_name" type="text" class="textbox">
+                        </div>
+                        
+                        <label for="last_name">Last Name</label>
+                        <div class="div_texbox">
+                            <input name="last_name" type="text" class="textbox">
+                        </div>
+                        
+                        <label for="school">School</label>
+                        <div class="div_texbox">
+                            <input name="school" type="text" class="textbox">
+                        </div>
+                        
+                        <label for="sex">
+                            <input type="radio" name="sex" value="male" class="textbox"/> Male
                         </label>
-                        <label>Password
-                            <div class="div_texbox">
-                                <input name="password" type="password" class="textbox">
-                            </div>
+                        <label for="sex">
+                            <input type="radio" name="sex" value="female" class="textbox"/> Female
                         </label>
-                        <label >First Name
-                            <div class="div_texbox">
-                                <input name="first_name" type="text" class="textbox">
-                            </div>
-                        </label>
-                        <label>Last Name
-                            <div class="div_texbox">
-                                <input name="last_name" type="text" class="textbox">
-                            </div>
-                        </label>
-                        <label>School
-                            <div class="div_texbox">
-                                <input name="school" type="text" class="textbox">
-                            </div>
-                        </label>
-                        <label>
-                            <div class="radio">
-                                <input type="radio" name="sex" value="male" class="textbox">Male
-                            </div>
-                        </label>
-                        <label>
-                            <div class="radio">
-                                <input type="radio" name="sex" value="female" class="textbox">Female
-                            </div>
-                        </label>-->
-
+                        
                         <div class="button_div">
-
-                            <input name="Submit" type="button" value="Submit" class="buttons">
+                            <input name="Submit" type="button" value="Submit" class="buttons" />
                         </div>
                     </form>
                 </fieldset>
