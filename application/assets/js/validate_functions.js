@@ -1,4 +1,5 @@
 // Run when then DOM is loaded
+/*
 $(document).ready(function() {
 
     // Initialize the validate plugin.
@@ -20,3 +21,4 @@ $(document).ready(function() {
         }
     });
 });
+*/
