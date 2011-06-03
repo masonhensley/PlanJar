@@ -102,15 +102,16 @@
                             <input name="school" type="text" class="textbox">
                         </div>
                         
-                        <label for="sex">
-                            <input type="radio" name="sex" value="male" class="textbox"/> Male
-                        </label>
-                        <label for="sex">
-                            <input type="radio" name="sex" value="female" class="textbox"/> Female
-                        </label>
+                        <label for="sex">Sex</label>
+                        <div class="div_texbox">
+                            <select>
+                                <option value="male" selected="true">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
                         
                         <div class="button_div">
-                            <input name="Submit" type="button" value="Submit" class="buttons" />
+                            <input name="Submit" type="button" value="Submit" class="buttons">
                         </div>
                     </form>
                 </fieldset>
