@@ -57,11 +57,11 @@
                     <form action="login.php" method="POST" class="form">
                         <label for="email">Username</label>
                         <div class="div_texbox">
-                            <input name="username" type="text" class="username" id="email" value="username" />
+                            <input name="username" type="text" class="username" value="username" />
                         </div>
                         <label for="password">Password</label>
                         <div class="div_texbox">
-                            <input name="password" type="password" class="password" id="password" value="password" />
+                            <input name="password" type="password" class="password" value="password" />
                         </div>
                         <div class="buuton_div">
                             <input name="Submit" type="button" value="Log In" class="buttons" />
@@ -74,12 +74,12 @@
                     <form id="sign_up">
 
                         <div class="div_texbox">
-                            
+                            <label>E-mail
                                 <input name="email_1" type="text" class="textbox">
-                            
+                            </label>
                         </div>
 
-                        <label>Re-enter E-mail
+<!--                        <label>Re-enter E-mail
                             <div class="div_texbox">
                                 <input name="email_2" type="text" class="textbox">
                             </div>
@@ -113,7 +113,7 @@
                             <div class="radio">
                                 <input type="radio" name="sex" value="female" class="textbox">Female
                             </div>
-                        </label>
+                        </label>-->
 
                         <div class="button_div">
 
