@@ -56,22 +56,22 @@ $(document).ready(function() {
     });
     
     // Initialize the login validate instance.
-    $("#login").validate({
-        rules: {
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true,
-                password: true
-            }
-        },
-        submitHandler: function(form) {
-        },
-        invalidHandler: function(form, validator) {
-        }
-    });
+//    $("#login").validate({
+//        rules: {
+//            email: {
+//                required: true,
+//                email: true
+//            },
+//            password: {
+//                required: true,
+//                password: true
+//            }
+//        },
+//        submitHandler: function(form) {
+//        },
+//        invalidHandler: function(form, validator) {
+//        }
+//    });
     
     /**--------------------------
 //* Validate Date Field script- By JavaScriptKit.com
