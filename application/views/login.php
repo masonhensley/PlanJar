@@ -65,7 +65,7 @@
                             <input name="password" type="password" class="password" id="password" value="password" />
                         </div>
                         <div class="button_div">
-                            <input name="Submit" type="button" value="Log In" />
+                            <input name="Submit" type="button" class="buttons" value="Log In" />
                         </div>
                     </form>
                 </fieldset>
@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="button_div">
-                            <input onclick="alert('submit'); $('#sign_up').validate.form()" type="button" value="Sign up">
+                            <input onclick="alert('submit'); $('#sign_up').form()" class="buttons" name="sign_up" type="button" value="Sign up">
                         </div>
                     </form>
                 </fieldset>
