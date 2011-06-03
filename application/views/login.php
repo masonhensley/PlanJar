@@ -64,7 +64,7 @@
                         <div class="div_texbox">
                             <input name="password" type="password" class="password" id="password" value="password" />
                         </div>
-                        <div class="buuton_div">
+                        <div class="button_div">
                             <input name="Submit" type="button" value="Log In" class="buttons" />
                         </div>
                     </form>
@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="button_div">
-                            <input onclick="$('#sign_up').validate().form()" name="sign_up" type="button" value="Sign up" class="buttons">
+                            <input onclick="alert('submit'); $('#sign_up').validate().form()" name="sign_up" type="button" value="Sign up" class="buttons">
                         </div>
                     </form>
                 </fieldset>
