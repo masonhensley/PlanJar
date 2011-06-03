@@ -69,7 +69,7 @@
                         </div>
                     </form>
                 </fieldset>
-                <br /><hr size="1"><br />
+                <br /><hr size="1"><br /><div id="sign_up_errors"></div>
                 <fieldset>
                     <legend>Not a member? Sign up.  It's easy and free.</legend>
                     <form id="sign_up">
@@ -122,13 +122,12 @@
                         </div>
 
                         <div class="button_div">
-                            <input name="sign_up" type="button" value="Sign up" class="buttons">
+                            <input onpress="$('#sign_up').validate().form()" name="sign_up" type="button" value="Sign up" class="buttons">
                         </div>
                     </form>
                 </fieldset>
             </div>
             <div id="rightSide">
-                <font color="red"><div id="sign_up_errors"></div></font>
             </div>
             <div class="clear"></div>
         </div>
