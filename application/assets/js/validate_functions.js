@@ -7,8 +7,6 @@ $(document).ready(function() {
     function (data) {
         alert(data);
     });
-    
-    alert('requested');
 
     // Initialize the validate plugins.
     $("#sign_up").validate({
