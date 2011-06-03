@@ -75,7 +75,7 @@
                     <form id="sign_up">
                         <label for="email_1">E-mail</label>
                         <div class="div_texbox">
-                            <input name="email_1" type="text" class="textbox">
+                            <input name="email_1" type="text" class="textbox" value="you@domain.com">
                         </div>
 
                         <label for="email_2">Re-enter E-mail</label>
@@ -85,22 +85,22 @@
 
                         <label for="password">Password</label>
                         <div class="div_texbox">
-                            <input name="password" type="password" class="textbox">
+                            <input name="password" type="password" class="textbox" value="password">
                         </div>
 
                         <label for="first_name">First Name</label>
                         <div class="div_texbox">
-                            <input name="first_name" type="text" class="textbox">
+                            <input name="first_name" type="text" class="textbox" value="Your">
                         </div>
 
                         <label for="last_name">Last Name</label>
                         <div class="div_texbox">
-                            <input name="last_name" type="text" class="textbox">
+                            <input name="last_name" type="text" class="textbox" value="Name">
                         </div>
 
                         <label for="school">School</label>
                         <div class="div_texbox">
-                            <input name="school" type="text" class="textbox">
+                            <input name="school" type="text" class="textbox" value="State">
                         </div>
 
                         <label for="sex">Sex</label>
