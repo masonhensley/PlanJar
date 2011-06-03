@@ -55,7 +55,7 @@ $(document).ready(function() {
         },
         errorLabelContainer: '#sign_up_errors',
         wrapper: 'li',
-        errorElement: ''
+        errorElement: '<em>'
         
     });
     
