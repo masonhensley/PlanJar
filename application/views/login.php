@@ -74,9 +74,9 @@
                     <form id="sign_up">
 
                         <div class="div_texbox">
-                            <label>E-mail
+                            
                                 <input name="email_1" type="text" class="textbox">
-                            </label>
+                            
                         </div>
 
                         <label>Re-enter E-mail
