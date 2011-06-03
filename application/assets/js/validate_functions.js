@@ -1,7 +1,7 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
 
-    // Initialize the validate plugin.
+    // Initialize the validate plugins.
     $("#sign_up").validate({
         rules: {
             email_1: {
@@ -22,6 +22,23 @@ $(document).ready(function() {
             },
             last_name: {
                 required: true
+            }
+        },
+        submitHandler: function(form) {
+        },
+        invalidHandler: function(form, validator) {
+        }
+    });
+    
+    $("#login").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                password: true
             }
         },
         submitHandler: function(form) {
