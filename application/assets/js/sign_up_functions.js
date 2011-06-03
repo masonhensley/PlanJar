@@ -18,7 +18,7 @@ $(document).ready(function() {
             },
             su_email_2: {
                 required: true,
-                equalTo: su_email_1.value
+                equalTo: '#su_email_1'
             },
             su_password: {
                 required: true,
@@ -54,7 +54,6 @@ $(document).ready(function() {
             alert('invalid');
         },
         errorLabelContainer: '#error_list',
-        wrapper: 'li',
         errorElement: 'em',
         messages: {
             su_email_1: {
