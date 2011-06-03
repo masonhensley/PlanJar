@@ -19,7 +19,7 @@ $(document).ready(function() {
             email_2: {
                 required: true,
                 email:true,
-                equalTo: email_1
+                equalTo: email_1.value
             },
             su_password: {
                 required: true,
