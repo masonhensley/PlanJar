@@ -6,11 +6,12 @@ class User extends CI_Controller {
     public function __construct() {
         parent::__construct();
     }
-    
+
     public function check_email() {
-        echo($this->ion_auth->email_check($this->input->get('email')));
+        echo($this->ion_auth->email_check(
+                $this->input->get('email')) ? 'true' : 'false');
     }
-    
+
     public function signup($email, $password, $additional_data) {
         
     }
