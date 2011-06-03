@@ -80,7 +80,7 @@
 
                         <label for="email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
-                            <input name="email_2" type="text" class="textbox">
+                            <input name="email_2" type="text" class="textbox" value="you@domain.com">
                         </div>
 
                         <label for="password">Password</label>
@@ -116,9 +116,9 @@
                             <input name="birthday" type="text" class="textbox" value="03/30/1990">
                         </div>
                         
-                        <label for="grad_year">School</label>
+                        <label for="grad_year">Class of</label>
                         <div class="div_texbox">
-                            <input name="grad_year" type="text" class="textbox">
+                            <input name="grad_year" type="text" class="textbox" value="2014">
                         </div>
 
                         <div class="button_div">
