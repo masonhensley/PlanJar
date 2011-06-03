@@ -13,7 +13,7 @@
             // Formly javascript
             $(document).ready(function()
             { 
-                $('#ContactInfo').formly({'theme':'Dark'}, function(e)
+                $('#sign_up').formly({'theme':'Dark'}, function(e)
                 { $('.callback').html(e); });
             });
        
@@ -25,10 +25,13 @@
                 $("#sign_up").validate({
                     rules: {
                         email_1: {
-                            required: true
+                            required: true,
+                            email: true
                         },
                         email_2: {
-                            required: true
+                            required: true,
+                            email:true,
+                            equalTo: email_1
                         }
                     },
                     submitHandler: function(form) {
