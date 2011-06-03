@@ -75,12 +75,12 @@
                     <form id="sign_up">
                         <label for="email_1">E-mail</label>
                         <div class="div_texbox">
-                            <input id="email_1" name="email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input id="su_email_1" name="su_email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
                         <label for="email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
-                            <input id="email_2" name="email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input id="su_email_2" name="su_email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
                         <label for="password">Password</label>
