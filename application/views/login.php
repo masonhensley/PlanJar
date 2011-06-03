@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="button_div">
-                            <input name="sign_up" type="button" value="Sign up" class="buttons">
+                            <input name="sign_up" type="submit" value="Sign up" class="buttons">
                         </div>
                     </form>
                 </fieldset>
