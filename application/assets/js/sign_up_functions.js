@@ -26,19 +26,29 @@ $(document).ready(function() {
                 rangeLength: [6, 20]
             },
             first_name: {
-                required:true
+                required:true,
+                rangeLength: [2, 20]
             },
             last_name: {
-                required: true
+                required: true,
+                rangeLength: [2, 25]
             },
             school: {
                 required: true
             },
-            sex: {
-                reguired: true
+            birthday: {
+                required: true,
+                date: true
+            },
+            grad_year: {
+                required:true
             }
         },
         submitHandler: function(form) {
+            if (!checkdate(form.birthday.text)) {
+                alert('bad date');
+                return;
+            }
             alert('success');
         },
         invalidHandler: function(form, validator) {
