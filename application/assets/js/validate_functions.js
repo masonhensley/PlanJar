@@ -1,5 +1,6 @@
 // Run when then DOM is loaded
 $(document).ready(function(){
+    alert('loaded');
 
     // Initialize the validate plugin.
     $("#sign_up").validate({
