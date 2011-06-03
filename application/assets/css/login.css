@@ -163,7 +163,6 @@ label {
 }
 
 #sign_up_errors {
-    top:20px;
-    width:500px;
-    text-align:center;
+    width:100%;
+    float:left;
 }
