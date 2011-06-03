@@ -120,18 +120,13 @@ label {
 .button_div {
     width:91px;
     float:left;
-    background-color:#fff;
-    border:1px solid #ccc;
-    text-align:left;
-    height:35px;
-    margin-top:3px;
-    padding:10px;
+    text-align:center;
+    padding:10px 10px 10px 10px;
 }
 .buttons {
     background: #e3e3db;
     font-size:12px; 
     color: #989070; 
-    padding: 10px;
     border-width: 2px;
     border-style: solid;
     border-color: #fff #d8d8d0 #d8d8d0 #fff;
