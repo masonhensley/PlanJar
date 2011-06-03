@@ -69,7 +69,7 @@ $(document).ready(function() {
             }
         },
         errorPlacement: function(error, element) {
-            error.appendTo($('#error_list'))
+            error.appendTo($('#error_list'));
         }
     });
     
