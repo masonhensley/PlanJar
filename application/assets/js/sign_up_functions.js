@@ -54,7 +54,8 @@ $(document).ready(function() {
             alert('invalid');
         },
         errorLabelContainer: '#sign_up_errors',
-        wrapper: 'li'
+        wrapper: 'li',
+        errorElement: '<p>'
         
     });
     
