@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="submit_button">
-                            <input onpress="javascript:function(alert('hey'); $('#sign_up').validate().form())" name="sign_up" type="button" value="Sign up" class="buttons">
+                            <input onpress="alert('hey'); $('#sign_up').validate().form()" name="sign_up" type="button" value="Sign up" class="buttons">
                         </div>
                     </form>
                 </fieldset>
