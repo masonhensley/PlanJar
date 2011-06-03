@@ -15,7 +15,7 @@ $(document).ready(function() {
             },
             password: {
                 required: true,
-                password: true
+                rangeLength: [6, 20]
             },
             first_name: {
                 required:true
@@ -34,6 +34,7 @@ $(document).ready(function() {
             alert('success');
         },
         invalidHandler: function(form, validator) {
+            showErrors();
         }
     });
     
