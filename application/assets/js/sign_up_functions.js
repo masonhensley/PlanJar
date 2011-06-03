@@ -52,6 +52,7 @@ $(document).ready(function() {
             alert('success');
         },
         invalidHandler: function(form, validator) {
+            alert('invalid');
         }
     });
     
