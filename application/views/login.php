@@ -50,7 +50,7 @@
         <!-- this was pulled from Tableless forms -->
         <div id="container">
             <div id="top">
-                <h1>Please complete the form below</h1>
+                <h1>Sign in to PlanJar</h1>
             </div>
             <div id="leftSide">
                 <fieldset>
