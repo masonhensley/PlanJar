@@ -98,10 +98,12 @@
                             
                         </div>
                         
-                        <div class="radio">
+                        <label for="sex">
                             <input type="radio" name="sex" value="male" class="textbox"/> Male
+                        </label>
+                        <label for="sex">
                             <input type="radio" name="sex" value="female" class="textbox"/> Female
-                        </div>
+                        </label>
                         
                         <div class="button_div">
                             
