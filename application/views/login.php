@@ -73,52 +73,52 @@
                 <fieldset>
                     <legend>Not a member? Sign up.  It's easy and free.</legend>
                     <form id="sign_up">
-                        <label for="email_1">E-mail</label>
+                        <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
                             <input id="su_email_1" name="su_email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
-                        <label for="email_2">Re-enter E-mail</label>
+                        <label for="su_email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
                             <input id="su_email_2" name="su_email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
-                        <label for="password">Password</label>
+                        <label for="su_password">Password</label>
                         <div class="div_texbox">
-                            <input id="su_password" name="password" type="password" class="textbox" value="password" onfocus="if(this.value=='password'){this.value='';}">
+                            <input id="su_password" name="su_password" type="password" class="textbox" value="password" onfocus="if(this.value=='password'){this.value='';}">
                         </div>
 
-                        <label for="first_name">First Name</label>
+                        <label for="su_first_name">First Name</label>
                         <div class="div_texbox">
-                            <input id="su_first_name" name="first_name" type="text" class="textbox" value="First name" onfocus="if(this.value=='First name'){this.value='';}">
+                            <input id="su_first_name" name="su_first_name" type="text" class="textbox" value="First name" onfocus="if(this.value=='First name'){this.value='';}">
                         </div>
 
-                        <label for="last_name">Last Name</label>
+                        <label for="su_last_name">Last Name</label>
                         <div class="div_texbox">
-                            <input id="su_last_name" name="last_name" type="text" class="textbox" value="Last name" onfocus="if(this.value=='Last name'){this.value='';}">
+                            <input id="su_last_name" name="su_last_name" type="text" class="textbox" value="Last name" onfocus="if(this.value=='Last name'){this.value='';}">
                         </div>
 
-                        <label for="school">School</label>
+                        <label for="su_school">School</label>
                         <div class="div_texbox">
-                            <input id="su_school" name="school" type="text" class="textbox" value="School" onfocus="if(this.value=='Your school'){this.value='';}">
+                            <input id="su_school" name="su_school" type="text" class="textbox" value="School" onfocus="if(this.value=='Your school'){this.value='';}">
                         </div>
 
-                        <label for="sex">Sex</label>
+                        <label for="su_sex">Sex</label>
                         <div class="div_texbox">
-                            <select id="su_sex" name="sex">
+                            <select id="su_sex" name="su_sex">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
                         </div>
 
-                        <label for="birthday">Birthday</label>
+                        <label for="su_birthday">Birthday</label>
                         <div class="div_texbox">
-                            <input id="su_birthday" name="birthday" type="text" class="textbox" value="03/30/1990" onfocus="if(this.value=='03/30/1990'){this.value='';}">
+                            <input id="su_birthday" name="su_birthday" type="text" class="textbox" value="03/30/1990" onfocus="if(this.value=='03/30/1990'){this.value='';}">
                         </div>
                         
-                        <label for="grad_year">Class of</label>
+                        <label for="su_grad_year">Class of</label>
                         <div class="div_texbox">
-                            <input id="su_grad_year" name="grad_year" type="text" class="textbox" value="javascript: function(){return getYear()+4;}" onfocus="if(this.value==getYear()+4){this.value='';}">
+                            <input id="su_grad_year" name="su_grad_year" type="text" class="textbox" value="javascript: function(){return getYear()+4;}" onfocus="if(this.value==getYear()+4){this.value='';}">
                         </div>
 
                         <div class="button_div">
