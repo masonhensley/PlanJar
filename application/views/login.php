@@ -124,6 +124,7 @@
                         <div class="button_div">
                             <input name="sign_up" type="button" value="Sign up" class="buttons">
                         </div>
+                        <div id="sign_up_errors"></div>
                     </form>
                 </fieldset>
             </div>
