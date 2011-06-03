@@ -12,35 +12,35 @@ $(document).ready(function() {
     // Initialize the sign up validate instance.
     $("#sign_up").validate({
         rules: {
-            email_1: {
+            su_email_1: {
                 required: true,
                 email: true
             },
-            email_2: {
+            su_email_2: {
                 required: true,
                 email:true,
                 equalTo: email_1
             },
-            password: {
+            su_password: {
                 required: true,
                 rangeLength: [6, 20]
             },
-            first_name: {
+            su_first_name: {
                 required:true,
                 rangeLength: [2, 20]
             },
-            last_name: {
+            su_last_name: {
                 required: true,
                 rangeLength: [2, 25]
             },
-            school: {
+            su_school: {
                 required: true
             },
-            birthday: {
+            su_birthday: {
                 required: true,
                 date: true
             },
-            grad_year: {
+            su_grad_year: {
                 required:true
             }
         },
@@ -53,9 +53,6 @@ $(document).ready(function() {
         },
         invalidHandler: function(form, validator) {
             alert('invalid');
-        },
-        errorPlacement: function(error, element) {
-            alert(error);
         }
     });
     
