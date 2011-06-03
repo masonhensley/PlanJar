@@ -13,7 +13,7 @@
             // Formly javascript
             $(document).ready(function()
             { 
-                $('#ContactInfo').formly({'theme':'Dark'}, function(e)
+                $('#sign_up').formly({'theme':'Dark'}, function(e)
                 { $('.callback').html(e); });
             });
        
@@ -24,11 +24,14 @@
                 // Initialize the validate plugin.
                 $("#sign_up").validate({
                     rules: {
-                        email_1: {
-                            required: true
+                        email1: {
+                            required: true,
+                            email: true
                         },
-                        email_2: {
-                            required: true
+                        email2: {
+                            required: true,
+                            email: true,
+                            equalTo: email1
                         }
                     },
                     submitHandler: function(form) {
