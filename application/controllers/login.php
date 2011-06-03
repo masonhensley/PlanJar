@@ -30,11 +30,19 @@ class Login extends CI_Controller {
     // Signs up a user
     // Returns 'success' or 'failure'
     // $additional_data must be a JSON array multidimentional array.
+    // This function is called upon a successful submit
     private function signup() {
-        $name = $this->input->get('first_name');
-        $email = $this->input->get('$email_1');
-        $password = $this->input->get('$password');
-        $additional_data = $this->input->get('$additional_data');
+        $email = $this->input->get('$su_email_1');
+        $password = $this->input->get('$su_password');
+        
+        // populate the associative array additional_data with sex/college/birth info
+        $additional_data['school'] = $this->input->get('su_school');
+        $additional_data['sex'] = $this->input->get('su_sex');
+        $additional_data['first_name'] = $this->input->get('su_first_name');
+        $additional_data['last_name'] = $this->input->get('su_last_name');
+        $additional_data['birthday'] = $this->input->get('su_birthday');
+        $additional_data['grad_year'] = $this->input->get('su_grad_year');
+        
         echo($this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure');
     }
     
