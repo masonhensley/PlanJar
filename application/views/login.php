@@ -7,7 +7,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery-validate-1.5.5/jquery.validate.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/formly.min.js"></script>
         <script type="text/javascript" src="/applicatino/assets/js/validate_functions.js"></script>
-        <link rel="stylesheet" href="/application/assets/css/formly.min.css" type="text/css" />
+        <link rel="stylesheet" href="formly.min.css" type="text/css" />
 
         <script>
 
