@@ -104,7 +104,7 @@
                         </div>
 
                         <label for="su_sex">Sex</label>
-                        <div class="div_texbox">
+                        <div class="div_texbox" style="">
                             <select id="su_sex" name="su_sex">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
