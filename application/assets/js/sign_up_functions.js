@@ -31,7 +31,7 @@ function checkdate(input){
     if (returnval==false) input.select()
     return returnval
 }
-    
+
 //returns the current year. used for login.
 function getYear()
 {
