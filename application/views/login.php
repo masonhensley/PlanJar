@@ -124,7 +124,7 @@
                         </div>
 
                         <div class="button_div">
-                            <input onclick="alert('submit'); $('sign_up').submit()" class="buttons" type="submit" value="Sign up">
+                            <input class="buttons" type="submit" value="Sign up">
                         </div>
                     </form>
                 </fieldset>
