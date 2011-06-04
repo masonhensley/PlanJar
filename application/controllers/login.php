@@ -46,7 +46,7 @@ class Login extends CI_Controller {
         $password = "herro";
         $additional_data['school'] = "Vanderbilt";
         $additional_data['sex'] = "Male";
-        $additional_data['first_name'] = "Parjer";
+        $additional_data['first_name'] = "Parker";
         $additional_data['last_name'] = "Bossier";
         $additional_data['birthday'] = "03/30/1990";
         $additional_data['grad_year'] = "2012";
