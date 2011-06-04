@@ -78,6 +78,18 @@ label {
     padding-left:5px;
 }
 
+label.error {
+    background-color: red;
+    width:347px;
+    float:right;
+    background-color:#E6E6E6;
+    height:35px;
+    margin-top:3px;
+    padding-top:5px;
+    padding-bottom:3px;
+    padding-left:5px;
+}
+
 .textbox {
     background-image: url(images/16t.png);
     background-repeat: no-repeat;
