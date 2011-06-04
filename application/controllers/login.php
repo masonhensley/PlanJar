@@ -51,6 +51,7 @@ class Login extends CI_Controller {
         $additional_data['last_name'] = "johnston";
         $additional_data['birthday'] = "03/18/1990";
         $additional_data['grad_year'] = "2015";
+        echo($additional_data);
         
         echo($this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure');
     }
