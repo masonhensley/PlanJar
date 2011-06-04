@@ -67,7 +67,7 @@
                             <input name="password" type="password" class="password" id="password" value="password" />
                         </div>
                         <div class="button_div">
-                            <input name="Submit" type="button" class="buttons" value="Log In" />
+                            <input name="Submit" type="submit" class="buttons" value="Log In" />
                         </div>
                     </form>
                 </fieldset>
