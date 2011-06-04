@@ -4,6 +4,7 @@ $(function() {
     $("sign_up").validity(function() {
         $('#su_email_1').require();
     });
+    $.validity.setup({outputMode: 'modal'});
 });
 
 
