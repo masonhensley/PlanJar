@@ -9,69 +9,77 @@ $(document).ready(function() {
     //        alert(data);
     //    });
 
-    // Initialize the sign up validate instance.
-    $("#sign_up").validate({
-        rules: {
-            su_email_1: {
-                required: true,
-                email: true
-            },
-            su_email_2: {
-                required: true,
-                equalTo: '#su_email_1'
-            },
-            su_password: {
-                required: true,
-                rangeLength: [6, 20]
-            },
-            su_first_name: {
-                required:true,
-                rangeLength: [2, 25]
-            },
-            su_last_name: {
-                required: true,
-                rangeLength: [2, 25]
-            },
-            su_school: {
-                required: true
-            },
-            su_birthday: {
-                required: true,
-                date: true
-            },
-            su_grad_year: {
-                required:true
-            }
-        },
-        submitHandler: function(form) {
-            if (!checkdate(form.su_birthday.value)) {
-                alert('bad date');
-                return;
-            }
-            alert('success');
-        },
-        invalidHandler: function(form, validator) {
-            alert('invalid');
-        },
-        wrapper: 'li',
-        errorElement: 'em',
-        messages: {
-            su_email_1: {
-                required: "Email field is required.",
-                email: "Your email address must be a valid email address."
-            },
-            su_email_2: {
-                required: "Re-enter your email.",
-                equalTo: "Both email addresses must match."
-            },
-            su_password: {
-                required: "Password field is required."
-            }
-        },
-        errorPlacement: function(error, element) {
-            error.appendTo($('#error_list'));
-        }
+    // Initialize the sign up validity instance.
+    $("#sign_up").validity(function() {
+        $('#su_email_1')
+            .require()
+            
     });
+    
+    
+    
+//    {
+//        rules: {
+//            su_email_1: {
+//                required: true,
+//                email: true
+//            },
+//            su_email_2: {
+//                required: true,
+//                equalTo: '#su_email_1'
+//            },
+//            su_password: {
+//                required: true,
+//                rangeLength: [6, 20]
+//            },
+//            su_first_name: {
+//                required:true,
+//                rangeLength: [2, 25]
+//            },
+//            su_last_name: {
+//                required: true,
+//                rangeLength: [2, 25]
+//            },
+//            su_school: {
+//                required: true
+//            },
+//            su_birthday: {
+//                required: true,
+//                date: true
+//            },
+//            su_grad_year: {
+//                required:true
+//            }
+//        },
+//        submitHandler: function(form) {
+//            if (!checkdate(form.su_birthday.value)) {
+//                alert('bad date');
+//                return;
+//            }
+//            alert('success');
+//        },
+//        invalidHandler: function(form, validator) {
+//            alert('invalid');
+//        },
+//        wrapper: 'li',
+//        errorElement: 'em',
+//        messages: {
+//            su_email_1: {
+//                required: "Email field is required.",
+//                email: "Your email address must be a valid email address."
+//            },
+//            su_email_2: {
+//                required: "Re-enter your email.",
+//                equalTo: "Both email addresses must match."
+//            },
+//            su_password: {
+//                required: "Password field is required."
+//            }
+//        },
+//        errorPlacement: function(error, element) {
+//            error.appendTo($('#error_list'));
+//        }
+//    });
     
 // Initialize the login validate instance.
 //    $("#login").validate({
