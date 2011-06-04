@@ -13,7 +13,6 @@ $(document).ready(function() {
     $("#sign_up").validity(function() {
         $('#su_email_1')
             .require()
-            
     });
     
     
