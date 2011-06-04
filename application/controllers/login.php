@@ -43,12 +43,12 @@ class Login extends CI_Controller {
         //$additional_data['birthday'] = $this->input->get('su_birthday');
         //$additional_data['grad_year'] = $this->input->get('su_grad_year');
         
-        $email = "bossier330@gmail.com";
+        $email = "bossier330330@gmail.com";
         $password = "hello";
         $additional_data = array();
         $additional_data['school'] = "vanderbilt";
         $additional_data['sex'] = "Male";
-        $additional_data['first_name'] = "wells";
+        $additional_data['first_name'] = "p-dawg";
         $additional_data['last_name'] = "johnston";
         $additional_data['birthday'] = "03/18/1990";
         $additional_data['grad_year'] = "2015";
