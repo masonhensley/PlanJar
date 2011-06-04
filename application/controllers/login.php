@@ -43,15 +43,14 @@ class Login extends CI_Controller {
         //$additional_data['birthday'] = $this->input->get('su_birthday');
         //$additional_data['grad_year'] = $this->input->get('su_grad_year');
         
-        $email = "bossier330330@gmail.com";
-        $password = "hello";
-        $additional_data = array();
-        $additional_data['school'] = "vanderbilt";
+        $email = "parker@planjar.com";
+        $password = "herro";
+        $additional_data['school'] = "Vanderbilt";
         $additional_data['sex'] = "Male";
-        $additional_data['first_name'] = "p-dawg";
-        $additional_data['last_name'] = "johnston";
-        $additional_data['birthday'] = "03/18/1990";
-        $additional_data['grad_year'] = "2015";
+        $additional_data['first_name'] = "Parjer";
+        $additional_data['last_name'] = "Bossier";
+        $additional_data['birthday'] = "03/30/1990";
+        $additional_data['grad_year'] = "2012";
         
         echo($this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure');
     }
