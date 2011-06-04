@@ -20,7 +20,6 @@ class Login extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    
     // Returns 'true' if the email exists, 'false' otherwise
     private function check_email() {
         echo($this->ion_auth->email_check(
@@ -34,7 +33,7 @@ class Login extends CI_Controller {
     public function sign_up() {
         $email = $this->input->get('$su_email_1');
         $password = $this->input->get('$su_password');
-        
+
         // populate the associative array additional_data with sex/college/birth info
         //$additional_data['school'] = $this->input->get('su_school');
         //$additional_data['sex'] = $this->input->get('su_sex');
@@ -42,7 +41,7 @@ class Login extends CI_Controller {
         //$additional_data['last_name'] = $this->input->get('su_last_name');
         //$additional_data['birthday'] = $this->input->get('su_birthday');
         //$additional_data['grad_year'] = $this->input->get('su_grad_year');
-        
+
         $email = "parker@planjar.com";
         $password = "herro";
         $additional_data['school'] = "Vanderbilt";
@@ -51,10 +50,11 @@ class Login extends CI_Controller {
         $additional_data['last_name'] = "Bossier";
         $additional_data['birthday'] = "03/30/1990";
         $additional_data['grad_year'] = "2012";
-        
+        $additional_data['phone'] = '5044279205';
+
         echo($this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure');
     }
-    
+
     public function index() {
         $this->load->view('login.php');
     }

@@ -68,7 +68,8 @@ $config['columns'] = array(
     'longitude',
     'past_events',
     'current_events',
-    'following');
+    'following',
+    'phone');
 
 /**
  * A database column which is used to
