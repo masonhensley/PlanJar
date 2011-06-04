@@ -85,7 +85,7 @@
 
                         <label for="su_password">Password</label>
                         <div class="div_texbox">
-                            <input id="su_password" name="su_password" type="password" class="textbox" value="password" onfocus="if(this.value=='password'){this.value='';}">
+                            <input id="su_password" name="su_password" type="password" class="textbox" >
                         </div>
 
                         <label for="su_first_name">First Name</label>
