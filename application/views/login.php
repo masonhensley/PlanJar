@@ -4,11 +4,13 @@
 
     <head>
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
-        <script type="text/javascript" src="/application/assets/js/jquery.validity-1.1.1/jquery.validity.js"></script>
+        <script type="text/javascript" src="/application/assets/jquery.validity-1.1.1/jquery.validity.js"></script>
         <script type="text/javascript" src="/application/assets/js/sign_up_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/birthday-picker-1.2.min.js"></script>
         <link rel=stylesheet href="/application/assets/css/login.css" type="text/css">
-        <link rel=stylesheet href="/application/assets/jQuery.validity-1.1.1/jquery.validity.css" type="text/css">
+        <link rel=stylesheet href="/application/assets/jquery.validity-1.1.1/jquery.validity.css" type="text/css">
+        
+        
 
 
 

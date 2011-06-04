@@ -79,7 +79,7 @@ label {
 }
 
 label.error {
-    background-color: red;
+    border-color: red;
     width:347px;
     float:right;
     background-color:#E6E6E6;
