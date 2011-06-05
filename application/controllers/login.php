@@ -45,9 +45,18 @@ class Login extends CI_Controller {
 
         echo($this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure');
     }
+    
+    public function try_log_in()
+    {
+        
+    }
 
     public function index() {
-        $this->load->view('login.php');
+        if(!$this->ion_auth->logged_in())
+        {
+            $this->load->view('login.php');
+        }
+        
     }
 
 }
