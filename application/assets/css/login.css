@@ -137,7 +137,7 @@ label {
 }
 .buttons {
     background: #e3e3db;
-    font-size:24px; 
+    font-size:17px; 
     color: #99ffbb; 
     border-width: 2px;
     border-style: solid;
@@ -167,5 +167,5 @@ label {
 
 .submit_button {
     width:530px;
-    padding: 10px 10px 10px 10px;
+    padding: 5px 5px 5px 5px;
 }
