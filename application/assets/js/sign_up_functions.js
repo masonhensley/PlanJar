@@ -6,7 +6,7 @@ $(document).ready(function() {
     $('#sign_up').validate({
         submitHandler: function(form) {
             alert($.param($('#sign_up')));
-            $.get('/login/try_sign_up', $.param($('#sign_up')), function(data) {
+            $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert('return: ' + data);
             })
         }
@@ -52,8 +52,8 @@ $(document).ready(function() {
 //    function try_sign_up() {
 //    }
 //
-//    function try_log_in() {
-//        $.get('/login/try_log_in', $.('#log_in').serialize(), function(data) {
-//            alert(data);
-//        });
-//    }
+    function try_log_in() {
+        $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
+            alert(data);
+        });
+    }
