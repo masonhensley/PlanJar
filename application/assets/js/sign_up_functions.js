@@ -22,6 +22,11 @@ $(document).ready(function() {
                     window.location.href = data;
                 }
             });
+        },
+        messages: {
+            required: {
+                email: 'Your email must be a valid email address.'
+            }
         }
     });
     
