@@ -43,7 +43,7 @@ function getYear()
 }
 
 function try_sign_up() {
-    alert($('#sign_up').serialize);
+    alert($('#sign_up').serialize());
     $.get('/login/try_sign_up', $('#sign_up').serialize, function(data) {
         alert(data);
     });
