@@ -4,4 +4,8 @@ echo "login success";
 
 ?>
 
-<a href="/home/logout">Log out.</a>
+<a id="logout">Log out.</a>
+
+<script type="text/javascript">
+    
+</script>
