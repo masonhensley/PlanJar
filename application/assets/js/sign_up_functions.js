@@ -24,7 +24,7 @@ $(document).ready(function() {
             });
         },
         messages: {
-            required: {
+            li_email: {
                 email: 'Your email must be a valid email address.'
             }
         }
