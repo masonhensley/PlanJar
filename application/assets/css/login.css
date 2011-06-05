@@ -138,10 +138,10 @@ label {
 .buttons {
     background: #e3e3db;
     font-size:17px; 
-    color: #99ffbb; 
+    color: #999999; 
     border-width: 2px;
     border-style: solid;
-    border-color: #fff #d8d8d0 #d8d8d0 #fff;
+    border-color: #fff #99ffbb #d8d8d0 #fff;
     text-decoration: none;
     text-transform:uppercase;
     font-weight:bold;
