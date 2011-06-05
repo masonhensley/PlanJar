@@ -1,7 +1,7 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
     
-    // Initialize the log in validator instance.
+    // Initialize the log in Validator instance.
     $('#log_in').validate({
         rules: {
             li_email: {
@@ -21,7 +21,7 @@ $(document).ready(function() {
         }
     });
     
-    // Initialize the sign up validator instance.
+    // Initialize the sign up Validator instance.
     $('#sign_up').validate({
         rules: {
             su_email_1: {
@@ -31,52 +31,44 @@ $(document).ready(function() {
             su_email_2: {
                 required:true,
                 equalto: '#su_email_2'
+            },
+            su_password: {
+                required: true,
+                rangelength: [8, 20]
+            },
+            su_first_name: {
+                required: true,
+                rangelength: [2, 20]
+            },
+            su_last_name: {
+                required: true,
+                rangelength: [2, 20]
+            },
+            su_school: {
+                required: true,
+                maxlength: 60
+            },
+            // Note that validating #su_sex isn't needed.
+            su_birthday: {
+                required: true,
+                date:true
+            },
+            su_grad_year: {
+                required: true,
+                max: get_year() + 6
             }
         },
         submitHandler: function(form) {
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert('return: ' + data);
-            })
+            });
         }
     });
 });
-    
 
-
-
-
-    ///**--------------------------
-    ////* Validate Date Field script- By JavaScriptKit.com
-    ////* For this script and 100s more, visit http://www.javascriptkit.com
-    ////* This notice must stay intact for usage
-    //---------------------------**/
-    //
-    //function checkdate(input){
-    //    var validformat=/^\d{2}\/\d{2}\/\d{4}$/ //Basic check for format validity
-    //    var returnval=false
-    //    if (!validformat.test(input.value))
-    //        alert("Invalid Date Format. Please correct and submit again.")
-    //    else{ //Detailed check for valid date ranges
-    //        var monthfield=input.value.split("/")[0]
-    //        var dayfield=input.value.split("/")[1]
-    //        var yearfield=input.value.split("/")[2]
-    //        var dayobj = new Date(yearfield, monthfield-1, dayfield)
-    //        if ((dayobj.getMonth()+1!=monthfield)||(dayobj.getDate()!=dayfield)||(dayobj.getFullYear()!=yearfield))
-    //            alert("Invalid Day, Month, or Year range detected. Please correct and submit again.")
-    //        else
-    //            returnval=true
-    //    }
-    //    if (returnval==false) input.select()
-    //    return returnval
-    //}
-    //
-    //returns the current year. used for login.
-//    function getYear()
-//    {
-//        var d = new Date();
-//        return d.getFullYear();
-//    }
-//
-//    function try_sign_up() {
-//    }
-//
+    // Returns the current year.
+    function get_year()
+    {
+        var d = new Date();
+        return d.getFullYear();
+    }
