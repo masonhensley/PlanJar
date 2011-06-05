@@ -60,7 +60,7 @@ class Login extends CI_Controller {
         $remember = $this->input->get('li_remember');
         //$logged_in = $this->ion_auth->login($email, $password, $remember);
         $logged_in = true;
-        if (!$logged_in) {
+        if ($logged_in) {
             echo "error";
         } else {
             redirect('/home');
