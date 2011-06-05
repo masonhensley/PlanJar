@@ -48,7 +48,8 @@ class Login extends CI_Controller {
     
     public function try_log_in()
     {
-        
+        $email = $this->input->get('$li_email');
+        $password = $this->input->get('$li_password');
     }
 
     public function index() {
@@ -56,7 +57,6 @@ class Login extends CI_Controller {
         {
             $this->load->view('login.php');
         }
-        
     }
 
 }

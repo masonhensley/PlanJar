@@ -58,9 +58,9 @@
                 <fieldset>
                     <legend>Login details</legend>
                     <form method="POST" id="log_in" class="form">
-                        <label for="username">Username</label>
+                        <label for="email">E-mail</label>
                         <div class="div_texbox">
-                            <input onfocus="if(this.value=='username'){this.value='';}" name="username" type="text" class="username" id="email" value="username" />
+                            <input onfocus="if(this.value=='email'){this.value='';}" name="li_email" type="text" class="username" id="li_email" value="username" />
                         </div>
                         <label for="password">Password</label>
                         <div class="div_texbox">
