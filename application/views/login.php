@@ -56,11 +56,11 @@
             </div>
             <div id="leftSide">
                 <fieldset>
-                    <legend>Login details</legend>
+                    <legend>Enter</legend>
                     <form method="POST" id="log_in" class="form">
                         <label for="email">E-mail</label>
                         <div class="div_texbox">
-                            <input onfocus="if(this.value=='email'){this.value='';}" name="li_email" type="text" class="username" id="li_email" value="username" />
+                            <input onfocus="if(this.value=='you@domain.com'){this.value='';}" name="li_email" type="text" class="username" id="li_email" value="you@domain.com" />
                         </div>
                         <label for="password">Password</label>
                         <div class="div_texbox">
