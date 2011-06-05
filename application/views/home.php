@@ -1,11 +1,9 @@
-<?php
+<html>
+    <head>
+        <?php echo(add_includes()); ?>
+    </head>
 
-echo "login success<br/>";
-
-?>
-
-<a id="logout">Log out.</a>
-
-<script type="text/javascript">
-    
-</script>
+    <body>
+        <a href="/home/login">Log out.</a>
+    </body>
+</html>
