@@ -2,9 +2,12 @@
 $(function() {
     // Initialize the sign up validity instance.
     $("sign_up").validity(function() {
-        $('#su_email_1').require()
+        $('#su_email_1').require();
+        $('#su_email_2').require();
     });
+    $.validity.setup({outputMode: 'modal'});
 });
+
 
 
 /**--------------------------
