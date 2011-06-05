@@ -1,11 +1,11 @@
-jQuery.validator.setDefaults({
+$.validator.setDefaults({
     submitHandler: function() {
         alert("submitted!");
     }
 });
 
 // Run when then DOM is loaded
-jQuery(document).ready(function() {
+$(function() {
     // Initialize the sign up validity instance.
     //    $("sign_up").validity(function() {
     //        $('#su_email_1').require();
