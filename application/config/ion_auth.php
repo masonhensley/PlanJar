@@ -34,7 +34,7 @@ $config['site_title'] = "planjar.com";
 /**
  * Admin Email, admin@example.com
  */
-$config['admin_email'] = "dv@planjar.com";
+$config['admin_email'] = "dev@planjar.com";
 
 /**
  * Default group, use name
@@ -89,7 +89,7 @@ $config['max_password_length'] = 20;
 /**
  * Email Activation for registration
  * */
-$config['email_activation'] = true;
+$config['email_activation'] = false;
 
 /**
  * Allow users to be remembered and enable auto-login
