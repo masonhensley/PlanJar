@@ -10,7 +10,7 @@ $(document).ready(function() {
             },
             li_password: {
                 required: true,
-                rangelength: [$config['min_password_length'], $config['max_password_length']]
+                rangelength: [8,20]
             }
         },
         submitHandler: function(form) {
