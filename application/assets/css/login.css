@@ -133,7 +133,7 @@ label {
     width:127px;
     float:left;
     text-align:center;
-    padding:5px 5px 5px 5px;
+    top:10px;
 }
 .buttons {
     background: #ffffff;
@@ -167,7 +167,7 @@ label {
 
 .submit_button {
     width:530px;
-    padding: 5px 5px 5px 5px;
+    top:10px;
 }
 
 .remember {
