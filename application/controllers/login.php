@@ -63,7 +63,8 @@ class Login extends CI_Controller {
         if (!$logged_in) {
             echo "error";
         } else {
-            echo "success";
+            redirect('/home/');
+            //echo "success";
         }
     }
 
