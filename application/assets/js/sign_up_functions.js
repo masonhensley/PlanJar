@@ -14,14 +14,14 @@ $(document).ready(function() {
     //    $.validity.setup({outputMode: 'modal'});
     alert('ready');
     
-    $('#sign_up').validate({
-        rules: {
-            su_email_1: {
-                required: true,
-                email: true
-            }
-        }
-    })
+//    $('#sign_up').validate({
+//        rules: {
+//            su_email_1: {
+//                required: true,
+//                email: true
+//            }
+//        }
+//    })
 });
 
 
