@@ -8,6 +8,7 @@ $(function() {
     //    $.validity.setup({outputMode: 'modal'});
     
     $('#sign_up').submit(function() {
+        return false;
         alert('submitted');
         $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
             alert('return: ' + data);

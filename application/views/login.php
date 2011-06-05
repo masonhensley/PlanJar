@@ -75,7 +75,7 @@
                 <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
                 <fieldset>
                     <legend>Not a member?  Sign up.   It's easy and free.</legend>
-                    <form id="sign_up" method="post">
+                    <form id="sign_up" method="get">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
                             <input id="su_email_1" name="su_email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
@@ -108,7 +108,7 @@
 
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
-                            <select id="su_sex" class="buttons_black" name="su_sex">
+                            <select id="su_sex" class="buttons" name="su_sex">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="button_div">
-                            <center><input class="buttons" type="submit" value="Sign up" onclick="try_sign_up()"></center>
+                            <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
                     </form>
                 </fieldset>
