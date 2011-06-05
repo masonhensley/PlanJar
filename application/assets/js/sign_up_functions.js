@@ -1,19 +1,27 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
-    alert('hi');
     
-    // Initialize the sign up validity instance.
-    $('#sign_up').validate({
+    // Initialize the log in validator instance.
+    $('#log_in').validate({
+        rules: {
+            li_email: {
+                required: true,
+                email: true
+            },
+            li_password: {
+                required: true,
+                rangelength: [$config['min_password_length'], $config['max_password_length']]
+            }
+        },
         submitHandler: function(form) {
-            $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
-                alert('return: ' + data);
-            })
+            $.get('/login/try_log_in', $('#log_in').serialize());
         }
     });
     
-    $('#log_in').validate({
+    // Initialize the sign up validator instance.
+    $('#sign_up').validate({
         submitHandler: function(form) {
-            $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
+            $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert('return: ' + data);
             })
         }
