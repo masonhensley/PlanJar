@@ -11,14 +11,14 @@ class Home extends CI_Controller {
         {
             $this->load->view('home.php');
         } else {
-            $this->logout();
+            logout();
         }
     }
 
     // logs user out and redirects to login page
     public function logout() {
         $this->ion_auth->logout();
-        redirect('/login/');
+        redirect('login');
     }
 
 }
