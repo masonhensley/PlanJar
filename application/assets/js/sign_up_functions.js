@@ -43,8 +43,13 @@ function getYear()
 }
 
 function try_sign_up() {
-    alert($('#sign_up').serialize());
-    $.get('/login/try_sign_up', $('#sign_up').serialize, function(data) {
+    $.get('/login/try_sign_up', $('#sign_up').serialize()), function(data) {
         alert(data);
-    });
+    })
+}
+
+function try_log_in() {
+    $.get('/login/try_log_in', $.('#log_in', function(data) {
+        alert(data);
+    })
 }
