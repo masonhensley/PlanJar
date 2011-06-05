@@ -60,11 +60,11 @@
                     <form id="log_in" class="form">
                         <label for="li_email">E-mail</label>
                         <div class="div_texbox">
-                            <input onfocus="if(this.value=='you@domain.com'){this.value='';}" name="li_email" type="text" class="username" id="li_email" value="you@domain.com" />
+                            <input name="li_email" type="text" class="username" id="li_email" />
                         </div>
                         <label for="li_password">Password</label>
                         <div class="div_texbox">
-                            <input name="password" type="password" class="password" id="password" value="password" />
+                            <input name="password" type="password" class="password" id="password" />
                         </div>
                         <div class="button_div">
                             <input type="submit" class="buttons" value="Log In" />
