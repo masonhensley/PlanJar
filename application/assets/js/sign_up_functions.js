@@ -41,3 +41,9 @@ function getYear()
     var d = new Date();
     return d.getFullYear();
 }
+
+function try_errors() {
+    $.get('/login/sign_up', $('sign_up').serialize, function(data) {
+        alert(data);
+    })
+}

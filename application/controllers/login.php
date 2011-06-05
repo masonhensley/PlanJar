@@ -35,22 +35,12 @@ class Login extends CI_Controller {
         $password = $this->input->get('$su_password');
 
         // populate the associative array additional_data with sex/college/birth info
-        //$additional_data['school'] = $this->input->get('su_school');
-        //$additional_data['sex'] = $this->input->get('su_sex');
-        //$additional_data['first_name'] = $this->input->get('su_first_name');
-        //$additional_data['last_name'] = $this->input->get('su_last_name');
-        //$additional_data['birthday'] = $this->input->get('su_birthday');
-        //$additional_data['grad_year'] = $this->input->get('su_grad_year');
-
-        $email = "parker@planjar.com";
-        $password = "herro";
-        $additional_data['school'] = "Vanderbilt";
-        $additional_data['sex'] = "Male";
-        $additional_data['first_name'] = "Parker";
-        $additional_data['last_name'] = "Bossier";
-        $additional_data['birthday'] = "03/30/1990";
-        $additional_data['grad_year'] = "2012";
-        $additional_data['phone'] = '5044279205';
+        $additional_data['school'] = $this->input->get('su_school');
+        $additional_data['sex'] = $this->input->get('su_sex');
+        $additional_data['first_name'] = $this->input->get('su_first_name');
+        $additional_data['last_name'] = $this->input->get('su_last_name');
+        $additional_data['birthday'] = $this->input->get('su_birthday');
+        $additional_data['grad_year'] = $this->input->get('su_grad_year');
 
         echo($this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure');
     }
