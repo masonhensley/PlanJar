@@ -66,11 +66,3 @@ function try_log_in() {
         alert(data);
     });
 }
-
-$('#sign_up').submit(function() {
-    alert('submitted');
-    $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
-        alert('return: ' + data);
-    });
-    return false;
-});
