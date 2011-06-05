@@ -1,7 +1,7 @@
 <?php
 
 function add_includes() {
-    echo(
+    echo
     ?>
 
     <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -10,7 +10,5 @@ function add_includes() {
     <link rel=stylesheet href="/application/assets/css/login.css" type="text/css">
 
     <?php
-
-    );
 }
 ?>
