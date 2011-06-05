@@ -6,7 +6,20 @@ $(function() {
     //        $('#su_email_2').require();
     //    });
     //    $.validity.setup({outputMode: 'modal'});
+    alert('ready');
+    
+    $.validator.setDefaults({
+        submitHandler: function() {
+            alert("submitted!");
+        }
     });
+    
+    $('#sign_up').validate({
+        rules: {
+            su_email_1: 'required'
+        }
+    })
+});
 
 
 
@@ -52,9 +65,9 @@ function try_log_in() {
 }
 
 $('#sign_up').submit(function() {
-    return false;
     alert('submitted');
     $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
         alert('return: ' + data);
     });
+    return false;
 });
