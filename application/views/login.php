@@ -68,8 +68,8 @@
                         </div>
                         <div class="button_div">
                             <input name="Submit" type="submit" class="buttons" value="Log In" />
-                            <div class="remember">remember<input type="checkbox" name="remember" value="remember" /></div>
                         </div>
+                        <div class="remember">remember<input type="checkbox" name="remember" value="remember" /></div>
                     </form>
                 </fieldset>
                 <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
