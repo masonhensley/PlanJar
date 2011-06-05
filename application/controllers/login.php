@@ -21,11 +21,6 @@ class Login extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    // Returns 'true' if the email exists, 'false' otherwise
-    private function check_email() {
-        echo($this->ion_auth->email_check(
-                $this->input->get('email')) ? 'true' : 'false');
-    }
 
     // Signs up a user
     // Returns 'success' or 'failure'
