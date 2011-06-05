@@ -5,7 +5,7 @@ $.validator.setDefaults({
 });
 
 // Run when then DOM is loaded
-$(function() {
+$(document).ready(function() {
     // Initialize the sign up validity instance.
     //    $("sign_up").validity(function() {
     //        $('#su_email_1').require();
