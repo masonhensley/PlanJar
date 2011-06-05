@@ -59,8 +59,3 @@ $(document).ready(function() {
 //    function try_sign_up() {
 //    }
 //
-    function try_log_in() {
-        $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
-            alert(data);
-        });
-    }
