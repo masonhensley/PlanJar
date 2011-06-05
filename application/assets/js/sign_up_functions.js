@@ -11,8 +11,8 @@ $(document).ready(function() {
                 alert('return: ' + data);
             })
         }
-    });
     */
+    });
 
 
 
