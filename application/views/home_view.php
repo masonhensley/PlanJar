@@ -4,6 +4,6 @@
     </head>
 
     <body>
-        <a href="/home/login">Log out.</a>
+        <a href="/home/logout">Log out.</a>
     </body>
 </html>
