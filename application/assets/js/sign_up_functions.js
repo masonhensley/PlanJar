@@ -1,6 +1,8 @@
+// Run when then DOM is loaded
 $(document).ready(function() {
     alert('hi');
     
+    // Initialize the sign up validity instance.
     $('#sign_up').validate({
         submitHandler: function(form) {
             alert('serial: ' + $('#sign_up').serialize());
@@ -8,33 +10,6 @@ $(document).ready(function() {
                 alert('return: ' + data);
             })
         }
-    });
-
-    $.validator.setDefaults({
-        submitHandler: function() {
-            alert("submitted!");
-        }
-    });
-
-
-    // Run when then DOM is loaded
-    $(document).ready(function() {
-        // Initialize the sign up validity instance.
-        //    $("sign_up").validity(function() {
-        //        $('#su_email_1').require();
-        //        $('#su_email_2').require();
-        //    });
-        //    $.validity.setup({outputMode: 'modal'});
-        alert('ready');
-    
-        //    $('#sign_up').validate({
-        //        rules: {
-        //            su_email_1: {
-        //                required: true,
-        //                email: true
-        //            }
-        //        }
-        //    })
     });
 
 
