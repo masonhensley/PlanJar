@@ -7,7 +7,7 @@
         <script type="text/javascript" src="/application/assets/validation-1.8.1/jquery.validate.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/sign_up_functions.js"></script>
         <link rel=stylesheet href="/application/assets/css/login.css" type="text/css">
-
+        
         <script type="text/javascript">
             
         </script>
@@ -70,9 +70,7 @@
                             <input type="submit" class="buttons" value="Log In" />
                         </div>
                         <div class="remember">
-                            <label>
-                                <input type="checkbox" name="li_remember" value="1" />&nbsp;Remember
-                            </label>
+                            <input type="checkbox" name="li_remember" value="1" />&nbsp;Remember
                         </div>
                     </form>
                 </fieldset>
