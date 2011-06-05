@@ -38,7 +38,8 @@ class Login extends CI_Controller {
         $additional_data['birthday'] = $this->input->get('su_birthday');
         $additional_data['grad_year'] = $this->input->get('su_grad_year');
 
-        echo($this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure');
+        echo($additional_data['sex'] . ' before register');
+        $this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure';
     }
     
     public function try_log_in()
