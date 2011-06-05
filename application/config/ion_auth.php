@@ -34,7 +34,7 @@ $config['site_title'] = "planjar.com";
 /**
  * Admin Email, admin@example.com
  */
-$config['admin_email'] = "dv@planjar.com";
+$config['admin_email'] = "dev@planjar.com";
 
 /**
  * Default group, use name
