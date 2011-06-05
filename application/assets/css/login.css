@@ -148,7 +148,7 @@ label {
     font-weight:bold;
 }
 
-buttons_black {
+.buttons_black {
     background: #ffffff;
     font-size:17px; 
     color: #000000; 
