@@ -1,6 +1,6 @@
 <?php
 
-echo "login success";
+echo "login success<br/>";
 
 ?>
 
