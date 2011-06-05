@@ -6,9 +6,13 @@ $(document).ready(function() {
     $('#sign_up').validate({
         submitHandler: function(form) {
             alert($('#sign_up').serialize());
-            $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
-                alert('return: ' + data);
-            })
+            //            $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
+            //                alert('return: ' + data);
+            //            })
+            form.ajaxSubmit(function(data) {
+                alert(data);
+            });
+            alert('ajax submitted');
         }
     });
 });
