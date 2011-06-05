@@ -5,8 +5,15 @@ $(document).ready(function() {
     // Initialize the sign up validity instance.
     $('#sign_up').validate({
         submitHandler: function(form) {
-            alert($.param($('#sign_up')));
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
+                alert('return: ' + data);
+            })
+        }
+    });
+    
+    $('#log_in').validate({
+        submitHandler: function(form) {
+            $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
                 alert('return: ' + data);
             })
         }

@@ -57,17 +57,17 @@
             <div id="leftSide">
                 <fieldset>
                     <legend>Enter site.</legend>
-                    <form method="POST" id="log_in" class="form">
-                        <label for="email">E-mail</label>
+                    <form id="log_in" class="form">
+                        <label for="li_email">E-mail</label>
                         <div class="div_texbox">
                             <input onfocus="if(this.value=='you@domain.com'){this.value='';}" name="li_email" type="text" class="username" id="li_email" value="you@domain.com" />
                         </div>
-                        <label for="password">Password</label>
+                        <label for="li_password">Password</label>
                         <div class="div_texbox">
                             <input name="password" type="password" class="password" id="password" value="password" />
                         </div>
                         <div class="button_div">
-                            <input name="Submit" type="submit" class="buttons" value="Log In" />
+                            <input type="submit" class="buttons" value="Log In" />
                         </div>
                         <div class="remember"><input type="checkbox" name="remember" value="remember" />&nbsp;Remember</div>
                     </form>
