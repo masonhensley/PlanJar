@@ -148,7 +148,7 @@ label {
     font-weight:bold;
 }
 
-buttons_black {
+.buttons_black {
     background: #ffffff;
     font-size:17px; 
     color: #000000; 
@@ -182,4 +182,5 @@ buttons_black {
     float:right;
     font-size:20px; 
     color: #990099;
+    padding-top: 11px;
 }
