@@ -134,6 +134,7 @@ label {
     float:left;
     text-align:center;
     top:10px;
+    padding-top:11px;
 }
 .buttons {
     background: #ffffff;
@@ -145,7 +146,18 @@ label {
     text-decoration: none;
     text-transform:uppercase;
     font-weight:bold;
-    padding-top:11px;
+}
+
+buttons_black {
+    background: #ffffff;
+    font-size:17px; 
+    color: #000000; 
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000000 #000000 #000000 #000000;
+    text-decoration: none;
+    text-transform:uppercase;
+    font-weight:bold;
 }
 
 .checkbox, .radio {
