@@ -6,11 +6,24 @@ if (!defined('BASEPATH'))
 
 class Login extends CI_Controller {
 
+    
+    // Index function runs first when site is loaded
+    public function index() {
+        
+        //Check if user is logged in
+        // if user is not logged in, load login.php
+        if (!$this->ion_auth->logged_in()) {
+            $this->load->view('login.php');
+        } else {
+            // if user is logged in, redirect to planjar.com/home/
+            redirect('/home/', 'refresh');
+        }
+    }
+
     // Signs up a user
     // Returns 'success' or 'failure'
     // $additional_data must be a JSON array multidimentional array.
     // This function is called upon a successful submit
-    
     public function try_sign_up() {
         $email = $this->input->get('$su_email_1');
         $password = $this->input->get('$su_password');
@@ -24,31 +37,19 @@ class Login extends CI_Controller {
         $additional_data['grad_year'] = $this->input->get('su_grad_year');
 
         echo($additional_data['sex'] . ' before register');
-        $this->ion_auth->register($email, $password, $email, $additional_data) ? 'success' : 'failure';
+        $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
     }
-    
-    public function try_log_in()
-    {
+
+    public function try_log_in() {
         $email = $this->input->get('$li_email');
         $password = $this->input->get('$li_password');
         $remember = $this->input->get('li_remember');
         $logged_in = $this->ion_auth->login($email, $password, $remember);
-        
-        if(!$logged_in)
-        {
-            echo "error";
-        }else{
-            redirect('/home', 'location');
-        }
-        
-    }
 
-    public function index() {
-        if(!$this->ion_auth->logged_in())
-        {
-            $this->load->view('login.php');
-        }else{
-            redirect('/home/','refresh');
+        if (!$logged_in) {
+            echo "error";
+        } else {
+            redirect('/home', 'location');
         }
     }
 
