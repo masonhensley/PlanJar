@@ -76,7 +76,7 @@
                     <form id="sign_up">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
-                            <input id="su_email_1" name="su_email_1" type="text" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input id="su_email_1" name="su_email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
                         <label for="su_email_2">Re-enter E-mail</label>

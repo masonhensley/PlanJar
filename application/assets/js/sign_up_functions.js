@@ -16,7 +16,10 @@ $(function() {
     
     $('#sign_up').validate({
         rules: {
-            su_email_1: 'required'
+            su_email_1: {
+                required: true,
+                email: true
+            }
         }
     })
 });
