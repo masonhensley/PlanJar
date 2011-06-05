@@ -158,6 +158,8 @@ label {
     text-decoration: none;
     text-transform:uppercase;
     font-weight:bold;
+    width:120px;
+    text-align: center;
 }
 
 .checkbox, .radio {
