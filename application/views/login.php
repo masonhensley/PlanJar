@@ -57,7 +57,7 @@
             <div id="leftSide">
                 <fieldset>
                     <legend>Login details</legend>
-                    <form action="login.php" method="POST" class="form">
+                    <form method="POST" id="log_in" class="form">
                         <label for="username">Username</label>
                         <div class="div_texbox">
                             <input onfocus="if(this.value=='username'){this.value='';}" name="username" type="text" class="username" id="email" value="username" />
