@@ -24,7 +24,14 @@ $(document).ready(function() {
     // Initialize the sign up validator instance.
     $('#sign_up').validate({
         rules: {
-            required: true
+            su_email_1: {
+                required: true,
+                email: true
+            },
+            su_email_2: {
+                required:true,
+                equalto: '#su_email_2'
+            }
         },
         submitHandler: function(form) {
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
