@@ -61,13 +61,11 @@ class Login extends CI_Controller {
 
         $logged_in = $this->ion_auth->login($email, $password, $remember);
         
-        ecoh($remember);
-
-//        if (!$logged_in) {
-//            echo "error";
-//        } else {
-//            echo "/home/";
-//        }
+        if (!$logged_in) {
+            echo "error";
+        } else {
+            echo "/home/";
+        }
     }
 
 }
