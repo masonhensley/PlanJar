@@ -14,6 +14,7 @@ $(document).ready(function() {
             }
         },
         submitHandler: function(form) {
+            alert($('#log_in').serialize());
             $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
                 alert(data);
                 if (data != 'error')  {
