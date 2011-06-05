@@ -13,8 +13,12 @@ $(document).ready(function() {
             }
         },
         submitHandler: function(form) {
+            // Send the form information to the try_login function.
             $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
-                if (data != 'error')  {
+                // Redirect or display the error.
+                if (data == 'error')  {
+                    alert(data);
+                } else {
                     window.location.href = data;
                 }
             });
@@ -59,16 +63,23 @@ $(document).ready(function() {
             }
         },
         submitHandler: function(form) {
+            // Send the form information to the try_sign_up function.
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
-                alert('return: ' + data);
+                // Redirect or display the error.
+                alert(data);
+            //                if (data == 'error')  {
+            //                    alert(data);
+            //                } else {
+            //                    window.location.href = data;
+            //                }
             });
         }
     });
 });
 
-    // Returns the current year.
-    function get_year()
-    {
-        var d = new Date();
-        return d.getFullYear();
-    }
+// Returns the current year.
+function get_year()
+{
+    var d = new Date();
+    return d.getFullYear();
+}
