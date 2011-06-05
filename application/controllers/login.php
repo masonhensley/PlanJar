@@ -13,7 +13,7 @@ class Login extends CI_Controller {
         //Check if user is logged in
         // if user is not logged in, load login.php
         if (!$this->ion_auth->logged_in()) {
-            $this->load->view('login.php');
+            $this->load->view('login_view');
         } else {
             // if user is logged in, redirect to planjar.com/home/
             redirect('/home/', 'refresh');
