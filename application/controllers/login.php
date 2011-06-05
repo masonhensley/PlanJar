@@ -48,7 +48,6 @@ class Login extends CI_Controller {
                 echo "username_error";
             }
         }
-        
     }
 
     public function try_log_in() {
