@@ -48,7 +48,7 @@ class Login extends CI_Controller {
         {
             $this->load->view('login.php');
         }else{
-            redirect('/home', 'location');
+            redirect('/home/','refresh');
         }
     }
 
