@@ -42,10 +42,14 @@ function getYear()
     return d.getFullYear();
 }
 
-function try_sign_up() {
+$('#sign_up').submit(function() {
+    alert('submitted');
     $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
-        alert(data);
+        alert('return: ' + data);
     });
+});
+
+function try_sign_up() {
 }
 
 function try_log_in() {
