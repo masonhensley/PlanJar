@@ -2,7 +2,7 @@ body {
     background-color:#F7F7F7;
 }
 fieldset {
-    border:1px dashed #CCC;
+    border:1px solid #000000;
     padding:10px;
 }
 legend {
@@ -130,7 +130,7 @@ label {
 }
 
 .button_div {
-    width:91px;
+    width:127px;
     float:left;
     text-align:center;
     padding:5px 5px 5px 5px;
