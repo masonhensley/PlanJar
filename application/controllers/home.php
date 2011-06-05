@@ -11,7 +11,7 @@ class Home extends CI_Controller {
         {
             $this->load->view('home.php');
         } else {
-            $this->logout();
+            logout();
         }
     }
 
