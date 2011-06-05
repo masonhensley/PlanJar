@@ -12,6 +12,7 @@ $(function() {
         $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
             alert('return: ' + data);
         });
+        return false;
     });
 });
 
