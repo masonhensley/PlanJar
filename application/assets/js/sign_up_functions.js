@@ -5,10 +5,11 @@ $(document).ready(function() {
     // Initialize the sign up validity instance.
     $('#sign_up').validate({
         submitHandler: function(form) {
-            alert('serial: ' + $('#sign_up').serialize());
-            $.get('/login/sign_up', $('#sign_up').serialize(), function(data) {
+            alert('pre get');
+            $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert('return: ' + data);
             })
+            alert('post get');
         }
     });
 });
