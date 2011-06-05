@@ -38,7 +38,7 @@ class Login extends CI_Controller {
         );
 
 
-        echo($password);
+        echo($this->input->get('su_school'));
         $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
 
 
