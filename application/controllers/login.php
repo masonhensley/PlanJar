@@ -37,21 +37,17 @@ class Login extends CI_Controller {
             'grad_year' => $this->input->get('su_grad_year')
         );
 
-
-        echo($this->input->get('su_school'));
         $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
 
-
-
-//        if($registered)
-//        {
-//            echo "success";
-//        }else{
-//            if(!$this->ion_auth->username_check($email))
-//            {
-//                echo "username_error";
-//            }
-//        }
+        if($registered)
+        {
+            echo "success";
+        }else{
+            if(!$this->ion_auth->username_check($email))
+            {
+                echo "username_error";
+            }
+        }
     }
 
     public function try_log_in() {
