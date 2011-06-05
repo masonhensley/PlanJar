@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="button_div">
-                            <input class="buttons" type="submit" value="Sign up" onclick="try_sign_up()">
+                            <center><input class="buttons" type="submit" value="Sign up" onclick="try_sign_up()"></center>
                         </div>
                     </form>
                 </fieldset>
