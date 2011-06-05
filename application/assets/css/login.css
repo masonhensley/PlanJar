@@ -169,3 +169,9 @@ label {
     width:530px;
     padding: 5px 5px 5px 5px;
 }
+
+.remember {
+    float:right;
+    font-size:17px; 
+    color: #990099;
+}

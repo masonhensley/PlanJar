@@ -46,6 +46,9 @@ class Login extends CI_Controller {
     {
         $email = $this->input->get('$li_email');
         $password = $this->input->get('$li_password');
+        $remember = $this->input->get('li_remember');
+        
+        $this->ion_auth->login($email, $password, $remember);
     }
 
     public function index() {

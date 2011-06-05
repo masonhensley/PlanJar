@@ -69,6 +69,7 @@
                         <div class="button_div">
                             <input name="Submit" type="submit" class="buttons" value="Log In" />
                         </div>
+                        <div class="remember">remember<input type="checkbox" name="remember" value="remember" /></div>
                     </form>
                 </fieldset>
                 <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
@@ -107,7 +108,7 @@
 
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
-                            <select id="su_sex" name="su_sex">
+                            <select id="su_sex" class="buttons" name="su_sex">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
