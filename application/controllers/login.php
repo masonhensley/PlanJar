@@ -37,11 +37,11 @@ class Login extends CI_Controller {
             'grad_year' => $this->input->get('su_grad_year')
         );
 
-        
+
         echo($password);
         $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
 
-        
+
 
 //        if($registered)
 //        {
@@ -63,7 +63,7 @@ class Login extends CI_Controller {
         if (!$logged_in) {
             echo "error";
         } else {
-            redirect('/home/', 'location');
+            echo "success";
         }
     }
 
