@@ -1,3 +1,9 @@
+$.validator.setDefaults({
+    submitHandler: function() {
+        alert("submitted!");
+    }
+});
+
 // Run when then DOM is loaded
 $(function() {
     // Initialize the sign up validity instance.
@@ -7,12 +13,6 @@ $(function() {
     //    });
     //    $.validity.setup({outputMode: 'modal'});
     alert('ready');
-    
-    $.validator.setDefaults({
-        submitHandler: function() {
-            alert("submitted!");
-        }
-    });
     
     $('#sign_up').validate({
         rules: {
