@@ -13,6 +13,7 @@ class Home extends CI_Controller {
     public function logout()
     {  
         $this->ion_auth->logout();
+        redirect('/login/');
     }
 }
 ?>
