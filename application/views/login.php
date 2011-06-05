@@ -15,7 +15,7 @@
 
         <!-- AJAX object is created here -->
 
-        <script type="text/javascript">
+<!--        <script type="text/javascript">
             function loadXMLDoc()
             {
                 var xmlhttp;
@@ -37,7 +37,7 @@
                 xmlhttp.open("GET","ajax_info.txt",true);
                 xmlhttp.send();
             }
-        </script>
+        </script>-->
 
 
 
