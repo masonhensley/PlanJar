@@ -1,6 +1,7 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
     alert('hi');
+});
     
 //    // Initialize the sign up validity instance.
 //    $('#sign_up').validate({
@@ -10,7 +11,6 @@ $(document).ready(function() {
 //                alert('return: ' + data);
 //            })
 //        }
-});
 
 
 
