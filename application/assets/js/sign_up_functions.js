@@ -2,6 +2,7 @@
 $(document).ready(function() {
     alert('hi');
     
+    /*
     // Initialize the sign up validity instance.
     $('#sign_up').validate({
         submitHandler: function(form) {
@@ -11,6 +12,7 @@ $(document).ready(function() {
             })
         }
     });
+    */
 
 
 
