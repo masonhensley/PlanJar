@@ -39,7 +39,7 @@ class Login extends CI_Controller {
 
         $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
 
-        echo($additional_data['grad_year']);
+        echo($email);
 
 //        if($registered)
 //        {
