@@ -24,8 +24,8 @@ class Login extends CI_Controller {
     // $additional_data must be a JSON array multidimentional array.
     // This function is called upon a successful submit
     public function try_sign_up() {
-        $email = $this->input->get('$su_email_1');
-        $password = $this->input->get('$su_password');
+        $email = $this->input->get('su_email_1');
+        $password = $this->input->get('su_password');
 
         // populate the associative array additional_data with sex/college/birth info
         $additional_data = array(
