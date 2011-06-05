@@ -43,17 +43,17 @@ $(document).ready(function() {
     //}
     //
     //returns the current year. used for login.
-    function getYear()
-    {
-        var d = new Date();
-        return d.getFullYear();
-    }
-
-    function try_sign_up() {
-    }
-
-    function try_log_in() {
-        $.get('/login/try_log_in', $.('#log_in').serialize(), function(data) {
-            alert(data);
-        });
-    }
+//    function getYear()
+//    {
+//        var d = new Date();
+//        return d.getFullYear();
+//    }
+//
+//    function try_sign_up() {
+//    }
+//
+//    function try_log_in() {
+//        $.get('/login/try_log_in', $.('#log_in').serialize(), function(data) {
+//            alert(data);
+//        });
+//    }
