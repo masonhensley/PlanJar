@@ -73,7 +73,7 @@
                 </fieldset>
                 <br /><hr size="1"><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
                 <fieldset>
-                    <legend>Not a member? Sign up.  It's easy and free.</legend>
+                    <legend>Not a member?  Sign up.   It's easy and free.</legend>
                     <form id="sign_up">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
