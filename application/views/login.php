@@ -9,9 +9,7 @@
         <link rel=stylesheet href="/application/assets/css/login.css" type="text/css">
         
         <script type="text/javascript">
-            $(document).ready(function() {
-                alert('hi');
-            });
+            
         </script>
 
 
