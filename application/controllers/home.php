@@ -6,7 +6,8 @@ if (!defined('BASEPATH'))
 
 class Home extends CI_Controller {
 
-    public function index() {
+    public function index() 
+    {
         if ($this->ion_auth->logged_in()) 
         {
             $this->load->view('home_view');
@@ -16,7 +17,8 @@ class Home extends CI_Controller {
     }
 
     // logs user out and redirects to login page
-    public function logout() {
+    public function logout() 
+    {
         $this->ion_auth->logout();
         redirect('/login/');
     }
