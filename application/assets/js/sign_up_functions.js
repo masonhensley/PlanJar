@@ -1,11 +1,18 @@
 // Run when then DOM is loaded
 $(function() {
     // Initialize the sign up validity instance.
-    $("sign_up").validity(function() {
-        $('#su_email_1').require();
-        $('#su_email_2').require();
+    //    $("sign_up").validity(function() {
+    //        $('#su_email_1').require();
+    //        $('#su_email_2').require();
+    //    });
+    //    $.validity.setup({outputMode: 'modal'});
+    
+    $('#sign_up').submit(function() {
+        alert('submitted');
+        $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
+            alert('return: ' + data);
+        });
     });
-    $.validity.setup({outputMode: 'modal'});
 });
 
 
@@ -43,9 +50,6 @@ function getYear()
 }
 
 function try_sign_up() {
-    $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
-        alert(data);
-    });
 }
 
 function try_log_in() {
