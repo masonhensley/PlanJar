@@ -70,7 +70,7 @@
                             <input type="submit" class="buttons" value="Log In" />
                         </div>
                         <div class="remember">
-                            <input type="checkbox" name="li_remember" value="1" />&nbsp;Remember
+                            <input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.
                         </div>
                     </form>
                 </fieldset>
