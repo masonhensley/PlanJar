@@ -108,7 +108,7 @@
 
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
-                            <select id="su_sex" class="buttons" name="su_sex">
+                            <select id="su_sex" class="buttons_black" name="su_sex">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
