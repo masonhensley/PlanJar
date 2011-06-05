@@ -42,7 +42,7 @@ function getYear()
     return d.getFullYear();
 }
 
-function try_errors() {
+function try_sign_up() {
     $.get('/login/sign_up', $('sign_up').serialize, function(data) {
         alert(data);
     })

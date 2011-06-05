@@ -74,7 +74,7 @@
                 <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
                 <fieldset>
                     <legend>Not a member?  Sign up.   It's easy and free.</legend>
-                    <form id="sign_up" action="/login/sign_up" method="get">
+                    <form id="sign_up" method="post">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
                             <input id="su_email_1" name="su_email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
@@ -124,7 +124,7 @@
                         </div>
 
                         <div class="button_div">
-                            <input class="buttons" type="submit" value="Sign up">
+                            <input class="buttons" type="submit" value="Sign up" onclick="try_sign_up()">
                         </div>
                     </form>
                 </fieldset>
