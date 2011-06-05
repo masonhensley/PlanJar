@@ -9,7 +9,7 @@ class Home extends CI_Controller {
     public function index() {
         if ($this->ion_auth->logged_in()) 
         {
-            $this->load->view('home.php');
+            $this->load->view('home_view');
         } else {
             logout();
         }
