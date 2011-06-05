@@ -6,26 +6,11 @@ if (!defined('BASEPATH'))
 
 class Login extends CI_Controller {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -  
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in 
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see http://codeigniter.com/user_guide/general/urls.html
-     */
-
     // Signs up a user
     // Returns 'success' or 'failure'
     // $additional_data must be a JSON array multidimentional array.
     // This function is called upon a successful submit
+    
     public function try_sign_up() {
         $email = $this->input->get('$su_email_1');
         $password = $this->input->get('$su_password');
@@ -66,6 +51,3 @@ class Login extends CI_Controller {
     }
 
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
