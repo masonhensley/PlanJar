@@ -6,10 +6,9 @@ if (!defined('BASEPATH'))
 
 class Login extends CI_Controller {
 
-    
     // Index function runs first when site is loaded
     public function index() {
-        
+
         //Check if user is logged in
         // if user is not logged in, load login.php
         if (!$this->ion_auth->logged_in()) {
@@ -29,17 +28,19 @@ class Login extends CI_Controller {
         $password = $this->input->get('$su_password');
 
         // populate the associative array additional_data with sex/college/birth info
-        $additional_data['school'] = $this->input->get('su_school');
-        $additional_data['sex'] = $this->input->get('su_sex');
-        $additional_data['first_name'] = $this->input->get('su_first_name');
-        $additional_data['last_name'] = $this->input->get('su_last_name');
-        $additional_data['birthday'] = $this->input->get('su_birthday');
-        $additional_data['grad_year'] = $this->input->get('su_grad_year');
-        
+        $additional_data = array(
+            'school' => $this->input->get('su_school'),
+            'sex' => $this->input->get('su_sex'),
+            'first_name' => $this->input->get('su_first_name'),
+            'last_name' => $this->input->get('su_last_name'),
+            'birthday' => $this->input->get('su_birthday'),
+            'grad_year' => $this->input->get('su_grad_year')
+        );
+
         $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
-        
+
         echo($additional_data['grad_year']);
-        
+
 //        if($registered)
 //        {
 //            echo "success";
@@ -49,7 +50,6 @@ class Login extends CI_Controller {
 //                echo "username_error";
 //            }
 //        }
-        
     }
 
     public function try_log_in() {
