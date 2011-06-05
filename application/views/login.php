@@ -54,7 +54,7 @@
             </div>
             <div id="leftSide">
                 <fieldset>
-                    <legend>Enter</legend>
+                    <legend>Enter site.</legend>
                     <form method="POST" id="log_in" class="form">
                         <label for="email">E-mail</label>
                         <div class="div_texbox">
