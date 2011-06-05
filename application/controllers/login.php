@@ -59,11 +59,8 @@ class Login extends CI_Controller {
         $password = $this->input->get('$li_password');
         $remember = $this->input->get('li_remember');
         
-        // this will work when login is implemented
-        //$logged_in = $this->ion_auth->login($email, $password, $remember);
+        $logged_in = $this->ion_auth->login($email, $password, $remember);
         
-        // this is for debugging
-        $logged_in = true;
         if (!$logged_in) {
             echo "error";
         } else {
