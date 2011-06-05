@@ -31,7 +31,7 @@ class Login extends CI_Controller {
     // Returns 'success' or 'failure'
     // $additional_data must be a JSON array multidimentional array.
     // This function is called upon a successful submit
-    public function sign_up() {
+    public function try_sign_up() {
         $email = $this->input->get('$su_email_1');
         $password = $this->input->get('$su_password');
 
