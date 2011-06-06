@@ -217,3 +217,16 @@ function get_year()
     var d = new Date();
     return d.getFullYear();
 }
+
+// Should be run on #su_school on blur.
+// Reverts #su_school to the school name represented by #su_school_id if available
+function force_school() {
+    var id = $('#su_school_id').val();
+    if (id != '') {
+        $.get('/login/get_school_by_id', {"id": id}, function(data) {
+            if (data != 'error') {
+                $('#su_school').val(data);
+            }
+        })
+    }
+}

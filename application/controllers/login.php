@@ -117,5 +117,20 @@ class Login extends CI_Controller
         $email_exists = $this->ion_auth->email_check($this->input->get('email'));
         echo(json_encode(!$email_exists));
     }
+    
+    public function get_school_by_id() {
+        $this->load->database();
+        $query_string = "SELECT `school` FROM `school_data` WHERE `id` = ?";
+        $query = $this->db->query($query_string, array($this->input->get('id')));
+        
+        if ($query->num_rows() == 0) {
+            // Return an error if no entries come up.
+            echo('error');
+        } else {
+            // Return the first result.
+            $row = $query->result();
+            echo($row['school']);
+        }
+    }
 
 }
