@@ -14,32 +14,35 @@
         <div id="container">
             <div id="rightside">
                 <fieldset>
+
                     <legend>Enter site.</legend>
                     <form id="log_in" class="form">
-                        
+
                         <label for="li_email">E-mail</label>
                         <div class="div_texbox">
                             <input name="li_email" type="text" class="username" id="li_email" />
                         </div>
-                        
+
                         <label for="li_password">Password</label>
                         <div class="div_texbox">
                             <input name="li_password" type="password" class="password" id="password" />
                         </div>
-                        
+
                         <div class="button_div">
-                            <input type="submit" class="buttons" value="Log In" />
-                        </div>
-                        
-                        <div class ="remember">
+                            <input type="submit" class="buttons" value="Log In" /><br/>
                             <center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center>
                         </div>
+
+                        <div class ="error_message">
+                            <!-- Errors will be displayed here -->
+                            <ul id="li_error_list"></ul>
+                        </div>
+
                     </form>
                 </fieldset>
-                
-                <!-- Errors will be displayed here -->
-            <ul id="li_error_list"></ul>
-                
+
+
+
                 <center><img src="/application/assets/images/Planjar logo.png"  style="top:200px" alt="PlanJar Logo"></center>
             </div>
             <div id="leftSide">
@@ -94,19 +97,21 @@
                         <div class="div_texbox">
                             <input name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
                         </div>
-                        
+
                         <div class="button_div">
                             <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
+
+                        <div class="error_messages">
+                            <!-- Errors will be displayed here -->
+                            <ul id="su_error_list"></ul>
+                        </div>
+
                     </form>
                 </fieldset>
             </div>
-            
-            <!-- Errors will be displayed here -->
-            <ul id="su_error_list"></ul>
-            
+
             <div class="clear"></div>
         </div>
-
     </body>
 </html>
