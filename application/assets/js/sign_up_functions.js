@@ -139,21 +139,22 @@ $(document).ready(function() {
     // Initialize the autocomplete instance.
     $('#su_school').autocomplete({
         minLength: 2,
-        source: function (request, response) {
-            $.get('/login/search_school', {
-                needle: request.term
-            }, function (data) {
-                
-                // Map the returned JSON data, building the source list.
-                $.map(data, function (item) {
-                    return {
-                        label: item.school + ' (' + item.city + ')', 
-                        value: item.school
-                    };
-                });
-                
-            });
-        },
+        source: ['arm', 'boy', 'hello', 'hello-there'],
+//        source: function (request, response) {
+//            $.get('/login/search_school', {
+//                needle: request.term
+//            }, function (data) {
+//                
+//                // Map the returned JSON data, building the source list.
+//                $.map(data, function (item) {
+//                    return {
+//                        label: item.school + ' (' + item.city + ')', 
+//                        value: item.school
+//                    };
+//                });
+//                
+//            });
+//        },
         select: function (event, ui) {
             $('#su_school').value = ui.item.value;
         }
