@@ -8,16 +8,6 @@
         echo(add_includes());
         ?>
 
-        <script type="text/javascript">
-            function whichElement(event){
-                var tname
-                tname=event.srcElement.tagName
-                alert(tname.id)
-            }
-        </script>
-
-
-
     </head>
 
     <body onmousedown="whichElement(event)">
