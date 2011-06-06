@@ -46,6 +46,10 @@ $(document).ready(function() {
         }
     });
     
+    $.get('/login/check_email', {email: 'test@baba.com'}, function(data) {
+        alert('returned: ' + data);
+    });
+    
     // Initialize the sign up Validator instance.
     $('#sign_up').validate({
         rules: {
