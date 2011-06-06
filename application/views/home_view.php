@@ -15,12 +15,14 @@
 
             <div class="centerpanel">
                 <div class="centergraph">
-                    
+
                 </div>
             </div>
 
             <div class="rightpanel">
-                <a href="/home/logout">Log out.</a>
+                <div class="controls">
+                    <a href="/home/logout">Log out.</a>
+                </div>
             </div>
 
         </div>

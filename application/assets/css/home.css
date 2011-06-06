@@ -26,8 +26,8 @@
 .centergraph{
     position:relative;
     width:400px;
-    height:400px;
-        background-color: grey;
+    height:300px;
+    background-color: grey;
 }
 .rightpanel {
     position:relative;
