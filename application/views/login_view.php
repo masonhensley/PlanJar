@@ -33,7 +33,7 @@
                             <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</center></div>
                         </div>
 
-                        <font color="purple" ><div id="li_error" class ="error_message"></font>
+                        <div id="li_error" class ="error_message">
                             <!-- Errors will be displayed here -->
                         </div>
 
