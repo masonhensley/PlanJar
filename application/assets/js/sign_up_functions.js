@@ -45,7 +45,7 @@ $(document).ready(function() {
             },
             su_email_2: {
                 required:true,
-                equalTo: '#su_email_2'
+                equalTo: '#su_email_1'
             },
             su_password: {
                 required: true,
@@ -89,7 +89,7 @@ $(document).ready(function() {
         },
         messages: {
             su_email_1: {
-                required: 'Email address is required',
+                required: 'Email address is required.',
                 email: 'Email address must be valid.'
             },
             su_email_2: {
