@@ -46,9 +46,9 @@ $(document).ready(function() {
         }
     });
     
-    $.get('/login/check_email', {email: 'admin1@admin.com'}, function(data) {
-        alert('returned: ' + data);
-    });
+//    $.get('/login/check_email', {email: 'admin@admin.com'}, function(data) {
+//        alert('returned: ' + data);
+//    });
     
     // Initialize the sign up Validator instance.
     $('#sign_up').validate({
@@ -61,7 +61,7 @@ $(document).ready(function() {
                     type: 'get',
                     data: {
                         email: function() {
-                            $('#su_email_1').val();
+                            return $('#su_email_1').val();
                         }
                     }
                 }
