@@ -108,13 +108,13 @@ class Login extends CI_Controller
         }
 
         // Return the data.
-        echo (json_encode($result_array));
+        echo(json_encode($result_array));
     }
 
     // Returns true if the username is available, false otherwise.
     public function check_email()
     {
-        return (!$this->ion_auth->email_check($this->input->get('email')));
+        echo(!$this->ion_auth->email_check($this->input->get('email')));
     }
 
 }
