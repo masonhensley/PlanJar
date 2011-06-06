@@ -37,7 +37,7 @@
                         
                     </form>
                 </fieldset>
-                <center><img src="/application/assets/images/Planjar logo.png" style="top:100px" alt="PlanJar Logo"></center>
+                <div style="top:200px"><center><img src="/application/assets/images/Planjar logo.png" style="top:100px" alt="PlanJar Logo"></center></div>
             </div>
             <div id="leftSide">
                 <fieldset>
@@ -98,6 +98,7 @@
                     </form>
                 </fieldset>
             </div>
+            //needed to clear css
             <div class="clear"></div>
         </div>
     </body>
