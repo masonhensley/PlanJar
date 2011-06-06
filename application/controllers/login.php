@@ -129,7 +129,7 @@ class Login extends CI_Controller
         } else {
             // Return the first result.
             $row = $query->result();
-            echo($row['school']);
+            echo($row->school);
         }
     }
 
