@@ -140,7 +140,7 @@ $(document).ready(function() {
     $('#su_school').autocomplete({
         minLength: 2,
         source: function (request, response) {
-            $.get('/login/search_school', {
+            $.get('/login/search_schools', {
                 needle: request.term
             }, function (data) {
                 alert(data);
