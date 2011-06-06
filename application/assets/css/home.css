@@ -19,14 +19,21 @@
     width:400px;
     float:left;
     height:1000px;
+    left:20px;
     border-width:3px;
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
     padding:20px;
     background-color: grey;
 }
+.graph{
+    position:relative;
+    width:400px;
+    height:400px;
+}
 .rightpanel {
     position:relative;
+    left:20px;
     width:150px;
     height:1000px;
     border-width:3px;
