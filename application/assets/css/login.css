@@ -178,5 +178,6 @@ label {
 }
 
 .highlight_error {
-    color: red;
+    color: purple;
+    border-color: purple;
 }
