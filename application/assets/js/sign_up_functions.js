@@ -23,11 +23,7 @@ $(document).ready(function() {
                 }
             });
         },
-        messages: {
-            li_email: {
-                email: 'Your email must be a valid email address.'
-            }
-        }
+        errorLabelContainer: '#li_error_list'
     });
     
     // Initialize the sign up Validator instance.
@@ -78,7 +74,8 @@ $(document).ready(function() {
             //                    window.location.href = data;
             //                }
             });
-        }
+        },
+        errorLabelContainer: '#li_error_list'
     });
 });
 

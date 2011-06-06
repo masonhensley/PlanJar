@@ -38,6 +38,11 @@
                             <input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.
                         </div>
                     </form>
+                    
+                    <div>
+                        <!-- This will contain the error messages. -->
+                        <ul id="li_error_list"></ul>
+                    </div>
 
                 </fieldset>
                 <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
@@ -47,37 +52,37 @@
                     <form id="sign_up" action="/login/try_sign_up" method="get">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
-                            <input id="su_email_1" name="su_email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input name="su_email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
                         <label for="su_email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
-                            <input id="su_email_2" name="su_email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input name="su_email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
                         </div>
 
                         <label for="su_password">Password</label>
                         <div class="div_texbox">
-                            <input id="su_password" name="su_password" type="password" class="textbox" >
+                            <input name="su_password" type="password" class="textbox" >
                         </div>
 
                         <label for="su_first_name">First Name</label>
                         <div class="div_texbox">
-                            <input id="su_first_name" name="su_first_name" type="text" class="textbox" value="First name" onfocus="if(this.value=='First name'){this.value='';}">
+                            <input name="su_first_name" type="text" class="textbox" value="First name" onfocus="if(this.value=='First name'){this.value='';}">
                         </div>
 
                         <label for="su_last_name">Last Name</label>
                         <div class="div_texbox">
-                            <input id="su_last_name" name="su_last_name" type="text" class="textbox" value="Last name" onfocus="if(this.value=='Last name'){this.value='';}">
+                            <input name="su_last_name" type="text" class="textbox" value="Last name" onfocus="if(this.value=='Last name'){this.value='';}">
                         </div>
 
                         <label for="su_school">School</label>
                         <div class="div_texbox">
-                            <input id="su_school" name="su_school" type="text" class="textbox" value="Your school" onfocus="if(this.value=='Your school'){this.value='';}">
+                            <input name="su_school" type="text" class="textbox" value="Your school" onfocus="if(this.value=='Your school'){this.value='';}">
                         </div>
 
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
-                            <select id="su_sex" class="buttons_black" name="su_sex">
+                            <select class="buttons_black" name="su_sex">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
@@ -85,20 +90,25 @@
 
                         <label for="su_birthday">Birthday</label>
                         <div class="div_texbox">
-                            <input id="su_birthday" name="su_birthday" type="text" class="textbox" value="mm/dd/yyyy" onfocus="if(this.value=='mm/dd/yyyy'){this.value='';}">
+                            <input name="su_birthday" type="text" class="textbox" value="mm/dd/yyyy" onfocus="if(this.value=='mm/dd/yyyy'){this.value='';}">
                         </div>
 
                         <label for="su_grad_year">Class of</label>
                         <div class="div_texbox">
-                            <input id="su_grad_year" name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
+                            <input name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
                         </div>
 
                         <div class="button_div">
                             <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
                     </form>
-
                 </fieldset>
+                
+                div>
+                        <!-- This will contain the error messages. -->
+                        <ul id="su_error_list"></ul>
+                    </div>
+                
             </div>
             <div class="clear"></div>
         </div>
