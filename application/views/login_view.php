@@ -88,18 +88,12 @@
                         <div class="div_texbox">
                             <input name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
                         </div>
-
+                        
                         <div class="button_div">
                             <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
                     </form>
                 </fieldset>
-
-                <fieldset>
-                    <!-- This will contain the error messages. -->
-                    <ul id="su_error_list"></ul>
-                </fieldset>
-
             </div>
             <div class="clear"></div>
         </div>
