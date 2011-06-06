@@ -30,7 +30,7 @@
 
                         <div class="button_div">
                             <input type="submit" class="buttons" value="Log In" /><br/>
-                            <center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center>
+                            <div style="position:relative; top:10px;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center></div>
                         </div>
 
                         <div class ="error_message">
