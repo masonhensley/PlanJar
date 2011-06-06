@@ -221,7 +221,7 @@ function get_year()
 // Reverts #su_school to the school name represented by #su_school_id if available
 function force_school() {
     var id = $('#su_school_id').val();
-    alert('blur');
+    alert('blurred: ' + id);
     
     // If id is not empty (some school already selected), replace the textbox value with
     // the correct name from the server (to avoid user confusion). Otherwise, clear the
