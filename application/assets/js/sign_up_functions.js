@@ -23,6 +23,15 @@ $(document).ready(function() {
                 }
             });
         },
+        messages: {
+            li_email: {
+                required: 'Email address is required',
+                email: 'Email address must be valid.'
+            },
+            li_password: {
+                required: 'Password is required.'
+            }
+        },
         errorLabelContainer: '#li_error_list',
         wrapper: 'li'
     });
@@ -78,8 +87,41 @@ $(document).ready(function() {
             //                }
             });
         },
-        invalidHandler: function() {
-                alert('invalid');
+        messages: {
+            su_email_1: {
+                required: 'Email address is required',
+                email: 'Email address must be valid.'
+            },
+            su_email_2: {
+                required: 'Re-enter you remail address.',
+                equalTo: 'Email addresses must match.'
+            },
+            su_password: {
+                required: 'Password is required.',
+                rangelength: 'Password must be between 8 and 20 characters.'
+                
+            },
+            su_first_name: {
+                required: 'First name is required.',
+                rangelength: 'First name must be between 2 and 20 characters.'
+            },
+            su_last_name: {
+                required: 'Last name is required.',
+                rangelength: 'Last name must be between 2 and 20 characters.'
+            },
+            su_school: {
+                required: 'School is required.',
+                maxlength: 60
+            },
+            // Note that validating #su_sex isn't needed.
+            su_birthday: {
+                required: 'Birthday is required.',
+                date:true
+            },
+            su_grad_year: {
+                required: true,
+                max: get_year() + 6
+            }
         },
         errorLabelContainer: '#su_error_list',
         wrapper: 'li'
@@ -92,3 +134,12 @@ function get_year()
     var d = new Date();
     return d.getFullYear();
 }
+
+// Add a mm-dd-yyy validation metho to Validator.
+$.validator.addMethod(
+    'custom_date',
+    function (value, element) {
+        return value.match('\d\d-\d\d-\d\d\d\d');
+    },
+    "Please enter a date in the form mm-dd-yyyy."
+    );
