@@ -72,7 +72,15 @@ $(document).ready(function() {
                 required: true,
                 maxlength: 60
             },
-            // Note that validating #su_sex isn't needed.
+            su_sex: {
+                nna: 'true'
+            },
+            su_month: {
+                nna: 'true'
+            },
+            su_year: {
+                nna: 'true'
+            },
             su_grad_year: {
                 required: true,
                 max: get_year() + 6
@@ -161,7 +169,7 @@ $(document).ready(function() {
         }
     })
     
-    // End of ready function.
+// End of ready function.
 });
 
 // Returns the current year.
@@ -170,3 +178,10 @@ function get_year()
     var d = new Date();
     return d.getFullYear();
 }
+
+// Add a neq method for Validator.
+$.validator.addMethod('nna',
+    function (value, element) {
+        return value != 'n/a';
+    },
+    element.label + " must not be blank.");

@@ -17,13 +17,13 @@
                 <fieldset>
 
                     <legend>Enter site</legend>
-                    
+
                     <font color="purple" >
-                            <div id="li_error" class ="error_message">
-                                <!-- Errors will be displayed here -->
-                            </div>
-                        </font>
-                    
+                        <div id="li_error" class ="error_message">
+                            <!-- Errors will be displayed here -->
+                        </div>
+                    </font>
+
                     <form id="log_in" class="form">
 
                         <label for="li_email">E-mail</label>
@@ -41,7 +41,7 @@
                             <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</center></div>
                         </div>
 
-                        
+
 
                     </form>
                 </fieldset>
@@ -58,42 +58,42 @@
                             <!-- Errors will be displayed here -->
                         </div>
                     </font>
-                    
+
                     <form id="sign_up" action="/login/try_sign_up" method="get">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
-                            <input name="su_email_1" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input name="su_email_1" type="text" class="textbox">
                         </div>
 
                         <label for="su_email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
-                            <input name="su_email_2" type="text" class="textbox" value="you@domain.com" onfocus="if(this.value=='you@domain.com'){this.value='';}">
+                            <input name="su_email_2" type="text" class="textbox">
                         </div>
 
                         <label for="su_password">Password</label>
                         <div class="div_texbox" id="foo">
-                            <input name="su_password" type="password" class="textbox" >
+                            <input name="su_password" type="password" class="textbox">
                         </div>
 
                         <label for="su_first_name">First Name</label>
                         <div class="div_texbox">
-                            <input name="su_first_name" type="text" class="textbox" value="First name" onfocus="if(this.value=='First name'){this.value='';}">
+                            <input name="su_first_name" type="text" class="textbox">
                         </div>
 
                         <label for="su_last_name">Last Name</label>
                         <div class="div_texbox">
-                            <input name="su_last_name" type="text" class="textbox" value="Last name" onfocus="if(this.value=='Last name'){this.value='';}">
+                            <input name="su_last_name" type="text" class="textbox">
                         </div>
 
                         <label for="su_school">School</label>
                         <div class="div_texbox">
-                            <input id="su_school" name="su_school" type="text" class="textbox" value="Your school" onfocus="if(this.value=='Your school'){this.value='';}">
+                            <input id="su_school" name="su_school" type="text" class="textbox">
                         </div>
 
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
                             <select class="buttons_black" name="su_sex">
-                                <option value="gender"selected="selected">Select Sex:</option>
+                                <option value="n/a"selected="selected"></option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
@@ -102,7 +102,7 @@
                         <label for="su_birthday">Birthday</label>
                         <div id="su_birthday" class="div_texbox">
                             <select name="su_month">
-                                <option value="month"selected="selected">Month:</option>
+                                <option value="n/a"selected="selected"></option>
                                 <option value="1">Jan</option>
                                 <option value="2">Feb</option>
                                 <option value="3">Mar</option>
@@ -117,7 +117,7 @@
                                 <option value="12">Dec</option>
                             </select>
                             <select name="su_day">
-                                <option value="day" selected="selected">Day:</option>
+                                <option value="n/a" selected="selected"></option>
                                 <?php
                                 for ($i = 1; $i <= 31; ++$i)
                                 {
@@ -138,7 +138,7 @@
 
                         <label for="su_grad_year">Class of</label>
                         <div class="div_texbox">
-                            <input name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
+                            <input name="su_grad_year" type="text" class="textbox">
                         </div>
 
                         <div class="button_div">
@@ -147,7 +147,7 @@
 
                     </form>
 
-                    
+
 
                 </fieldset>
             </div>
