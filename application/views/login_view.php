@@ -40,10 +40,10 @@
                     </form>
                 </fieldset>
 
-                <div>
+                <fieldset>
                     <!-- This will contain the error messages. -->
                     <ul id="li_error_list"></ul>
-                </div>
+                </fieldset>
 
                 <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
                 <fieldset>
@@ -104,10 +104,10 @@
                     </form>
                 </fieldset>
 
-                <div>
+                <formset>
                     <!-- This will contain the error messages. -->
                     <ul id="su_error_list"></ul>
-                </div>
+                </formset>
 
             </div>
             <div class="clear"></div>
