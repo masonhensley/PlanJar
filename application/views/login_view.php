@@ -126,7 +126,7 @@
                                 ?>
                             </select>
                             <select name="su_year">
-                                <option value="year" selected="selected">Year:</option>
+                                <option value="n/a" selected="selected"></option>
                                 <?php
                                 for ($i = date('Y') - 13; $i >= date('Y') - 105; --$i)
                                 {
