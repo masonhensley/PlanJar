@@ -1,66 +1,65 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
-    //    
-    //    // Initialize the log in Validator instance.
-    //    $('#log_in').validate({
-    //        rules: {
-    //            li_email: {
-    //                required: true,
-    //                email: true
-    //            },
-    //            li_password: {
-    //                required: true
-    //            }
-    //        },
-    //        submitHandler: function(form) {
-    //            // Send the form information to the try_login function.
-    //            $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
-    //                // Redirect or display the error.
-    //                if (data != 'error')  {
-    //                    window.location.href = data;
-    //                } else {
-    //                    alert(data);
-    //                }
-    //            });
-    //        },
-    //        messages: {
-    //            li_email: {
-    //                required: 'Email address is required.',
-    //                email: 'Email address must be valid.'
-    //            },
-    //            li_password: {
-    //                required: 'Password is required.'
-    //            }
-    //        },
-    //        showErrors: function(errorMap, errorList) {
-    //            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
-    //            $("#log_in").find("input").each(function() {
-    //                $(this).removeClass("highlight_error");
-    //            });
-    //            
-    //            $("#li_error").html("");
-    //            if(errorList.length) {
-    //                $("#li_error").html(errorList[0]['message']);
-    //                $(errorList[0]['element']).addClass("highlight_error");
-    //            }
-    //        }
-    //    });
-    //    
+    
+    // Initialize the log in Validator instance.
+    $('#log_in').validate({
+        rules: {
+            li_email: {
+                required: true,
+                email: true
+            },
+            li_password: {
+                required: true
+            }
+        },
+        submitHandler: function(form) {
+            // Send the form information to the try_login function.
+            $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
+                // Redirect or display the error.
+                if (data != 'error')  {
+                    window.location.href = data;
+                } else {
+                    alert(data);
+                }
+            });
+        },
+        messages: {
+            li_email: {
+                required: 'Email address is required.',
+                email: 'Email address must be valid.'
+            },
+            li_password: {
+                required: 'Password is required.'
+            }
+        },
+        showErrors: function(errorMap, errorList) {
+            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
+            $("#log_in").find("input").each(function() {
+                $(this).removeClass("highlight_error");
+            });
+            
+            $("#li_error").html("");
+            if(errorList.length) {
+                $("#li_error").html(errorList[0]['message']);
+                $(errorList[0]['element']).addClass("highlight_error");
+            }
+        }
+    });
+    
 
-alert('here');
     // Initialize the sign up Validator instance.
     $('#sign_up').validate({
         rules: {
             su_email_1: {
-//                required: true,
-//                email: true,
-//                remote: {
-//                    url: '/login/check_email',
-//                    type: 'get',
-//                    data: {
-//                        email: '#su_email_1'.val()
-//                    }
-//                }
+                required: true
+            //                email: true,
+            //                remote: {
+            //                    url: '/login/check_email',
+            //                    type: 'get',
+            //                    data: {
+            //                        email: '#su_email_1'.val()
+            //                    }
+            //                }
             },
             su_email_2: {
                 required: true
@@ -82,13 +81,13 @@ alert('here');
                 maxlength: 60
             },
             su_sex: {
-                //nna: true
+                required: true
             },
             su_month: {
-                //nna: true
+                date: true
             },
             su_year: {
-                //nna: true
+                date: true
             },
             su_grad_year: {
                 required: true,
@@ -151,47 +150,38 @@ alert('here');
             }
         }
     });
-
-
-//    
-//    // Initialize the autocomplete instance.
-//    $('#su_school').autocomplete({
-//        minLength: 2,
-//        source: function (request, response) {
-//            $.get('/login/search_schools', {
-//                needle: request.term
-//            }, function (data) {
-//                
-//                // Convert each item in the input JSON to the required JSON form for the autocomplete
-//                // and pass the result through the response handler.
-//                data = $.parseJSON(data);
-//                response($.map(data, function (item) {
-//                    return {
-//                        label: item.school + ' (' + item.city + ')', 
-//                        value: item.school
-//                    };
-//                }));
-//                
-//            });
-//        },
-//        select: function (event, ui) {
-//            $('#su_school').value = ui.item.value;
-//        }
-//    })
-//    
-//// End of ready function.
+    
+    // Initialize the autocomplete instance.
+    $('#su_school').autocomplete({
+        minLength: 2,
+        source: function (request, response) {
+            $.get('/login/search_schools', {
+                needle: request.term
+            }, function (data) {
+                
+                // Convert each item in the input JSON to the required JSON form for the autocomplete
+                // and pass the result through the response handler.
+                data = $.parseJSON(data);
+                response($.map(data, function (item) {
+                    return {
+                        label: item.school + ' (' + item.city + ')', 
+                        value: item.school
+                    };
+                }));
+                
+            });
+        },
+        select: function (event, ui) {
+            $('#su_school').value = ui.item.value;
+        }
+    })
+    
+// End of ready function.
 });
-//
-//// Returns the current year.
-//function get_year()
-//{
-//    var d = new Date();
-//    return d.getFullYear();
-//}
-//
-// Add a neq method for Validator.
-//$.validator.addMethod('nna',
-//    function (value, element) {
-//        return value != 'n/a';
-//    },
-//    element.label + " must not be blank.");
+
+// Returns the current year.
+function get_year()
+{
+    var d = new Date();
+    return d.getFullYear();
+}

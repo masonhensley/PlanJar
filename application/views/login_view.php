@@ -109,7 +109,7 @@
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
                             <select class="buttons_black" name="su_sex">
-                                <option value="n/a"selected="selected"></option>
+                                <option value=""selected="selected"></option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
@@ -142,7 +142,7 @@
                                 ?>
                             </select>
                             <select name="su_year">
-                                <option value="year" selected="selected">Year:</option>
+                                <option value="n/a" selected="selected"></option>
                                 <?php
                                 for ($i = date('Y') - 13; $i >= date('Y') - 105; --$i)
                                 {
