@@ -16,7 +16,6 @@
             <div id="rightside">
                 <fieldset>
                     <legend>Enter site.</legend>
-
                     <form id="log_in" class="form">
                         <label for="li_email">E-mail</label>
                         <div class="div_texbox">
@@ -32,7 +31,8 @@
                         <div class ="remember">
                             <input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.
                         </div>
-                    </form>
+                    </form><br/>
+                    <img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo">
                 </fieldset>
             </div>
             <div id="leftSide">
