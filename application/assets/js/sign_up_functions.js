@@ -81,15 +81,15 @@ $(document).ready(function() {
                 required: true,
                 maxlength: 60
             },
-//            su_sex: {
-//            //nna: true
-//            },
-//            su_month: {
-//            //nna: true
-//            },
-//            su_year: {
-//            //nna: true
-//            },
+            //            su_sex: {
+            //            //nna: true
+            //            },
+            //            su_month: {
+            //            //nna: true
+            //            },
+            //            su_year: {
+            //            //nna: true
+            //            },
             su_grad_year: {
                 required: true,
                 max: get_year() + 6
@@ -178,17 +178,17 @@ $(document).ready(function() {
 //            $('#su_school').value = ui.item.value;
 //        }
 //    })
-//    
-//// End of ready function.
+    
+// End of ready function.
 });
-//
-//// Returns the current year.
-//function get_year()
-//{
-//    var d = new Date();
-//    return d.getFullYear();
-//}
-//
+
+// Returns the current year.
+function get_year()
+{
+    var d = new Date();
+    return d.getFullYear();
+}
+
 // Add a neq method for Validator.
 //$.validator.addMethod('nna',
 //    function (value, element) {
