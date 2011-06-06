@@ -46,7 +46,9 @@ $(document).ready(function() {
         }
     });
     
-    $.get('/login/test_email');
+    $.get('/login/test_email', function(data) {
+        alert('returned: ' + data);
+    });
     
     // Initialize the sign up Validator instance.
     $('#sign_up').validate({
