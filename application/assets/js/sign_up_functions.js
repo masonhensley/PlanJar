@@ -160,6 +160,8 @@ $(document).ready(function() {
             $('#su_school').value = ui.item.value;
         }
     })
+    
+    // End of ready function.
 });
 
 // Returns the current year.
