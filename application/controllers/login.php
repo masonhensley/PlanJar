@@ -29,6 +29,8 @@ class Login extends CI_Controller
     // This function is called upon a successful submit
     public function try_sign_up()
     {
+        $this->load->library('email');
+        
         $email = $this->input->get('su_email_1');
         $password = $this->input->get('su_password');
 
