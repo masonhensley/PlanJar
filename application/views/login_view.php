@@ -89,7 +89,7 @@
                         </div>
 
                         <label for="su_birthday">Birthday</label>
-                        <div id="ssu_birthday" class="div_texbox">
+                        <div id="su_birthday" class="div_texbox">
                             <select name="su_month">
                                 <option value="month"selected="selected">Month:</option>
                                 <option value="1">Jan</option>
