@@ -47,7 +47,7 @@ $(document).ready(function() {
     //    });
     //    
 
-
+alert('here');
     // Initialize the sign up Validator instance.
     $('#sign_up').validate({
         rules: {
