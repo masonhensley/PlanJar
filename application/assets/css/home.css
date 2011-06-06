@@ -27,6 +27,7 @@
     position:relative;
     width:400px;
     height:300px;
+    border-bottom-color: black;
     background-color: grey;
 }
 .rightpanel {
