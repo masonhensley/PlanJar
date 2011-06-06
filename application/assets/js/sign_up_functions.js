@@ -118,8 +118,7 @@ $(document).ready(function() {
                 rangelength: 'Last name must be between 2 and 20 characters.'
             },
             su_school: {
-                required: 'School is required.',
-                maxlength: 60
+                required: 'School is required.'
             },
             // Note that validating #su_sex isn't needed.
             su_grad_year: {
@@ -130,13 +129,13 @@ $(document).ready(function() {
         showErrors: function(errorMap, errorList) {
             // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
             $("#sign_up").find("input").each(function() {
-                $(this).removeClass("error");
+                $(this).removeClass("div_error");
             });
             
             $("#su_error").html("");
             if(errorList.length) {
                 $("#su_error").html(errorList[0]['message']);
-                $(errorList[0]['element']).addClass("error");
+                $(errorList[0]['element']).addClass("div_error");
             }
         }
     });
