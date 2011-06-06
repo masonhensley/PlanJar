@@ -144,15 +144,16 @@ $(document).ready(function() {
                 needle: request.term
             }, function (data) {
                 
-                // Convert each item in the input JSON to the required JSON form for the autocomplete.
+                // Convert each item in the input JSON to the required JSON form for the autocomplete
+                // and pass the result through the response handler.
                 data = $.parseJSON(data);
-                $.map(data, function (item) {
+                response($.map(data, function (item) {
                     alert(item.school);
                     return {
                         label: item.school + ' (' + item.city + ')', 
                         value: item.school
                     };
-                });
+                }));
                 
             });
         },
