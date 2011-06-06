@@ -49,8 +49,7 @@ $(document).ready(function() {
             },
             su_password: {
                 required: true,
-                rangelength: [8, 20],
-                
+                rangelength: [8, 20]
             },
             su_first_name: {
                 required: true,
