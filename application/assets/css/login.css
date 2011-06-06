@@ -46,7 +46,7 @@ label {
     padding:0;
 }
 #container {
-    width:750px;
+    width:1080px;
     margin:auto;
     padding:10px;
 }
@@ -61,7 +61,8 @@ label {
 }
 
 #rightside{
-    width:200px;
+    width:530px;
+    height:500px;
     padding-top:30px;
     float:right;
 }
@@ -187,7 +188,7 @@ label.error {
 }
 
 .remember {
-    width:100%;
+    width:200px;
     float:left;
     text-align:center;
     top:10px;
