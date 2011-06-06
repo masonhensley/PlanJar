@@ -116,11 +116,11 @@ $(document).ready(function() {
             // Note that validating #su_sex isn't needed.
             su_birthday: {
                 required: 'Birthday is required.',
-                date:true
+                custom_date:true
             },
             su_grad_year: {
-                required: true,
-                max: get_year() + 6
+                required: 'Graduation year is required.',
+                max: "Sorry, you can't graduate more than 6 years from now."
             }
         },
         errorLabelContainer: '#su_error_list',
