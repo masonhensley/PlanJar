@@ -87,7 +87,7 @@
 
                         <label for="su_school">School</label>
                         <div class="div_texbox">
-                            <input id="su_school" name="su_school" type="text" class="textbox" onchange="this.value = ''">
+                            <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
                         </div>
                         
                         <!-- Hidden input used to pass the school id to the server instead of the school name -->
