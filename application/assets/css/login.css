@@ -171,17 +171,16 @@ label {
 }
 
 .su_error_div{
-    
+
 }
 
 .li_error_div{
-    
-    
+ 
 }
 
 .error_message{
     position:relative;
-    height:10px;
+    bottom:10px;
     width:100%;
     text-align:center;
 }
@@ -189,5 +188,5 @@ label {
 .highlight_error {
     color: purple;
     border-color: purple;
-    border-width: 3px;
+    border-width: 5px;
 }
