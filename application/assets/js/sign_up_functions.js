@@ -138,6 +138,7 @@ $(document).ready(function() {
                 rangelength: 'Your last name must be between 2 and 20 characters.'
             },
             su_school_id: {
+                
                 required: 'Choose your school.'
             },
             su_sex: {
