@@ -33,9 +33,8 @@
                             <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</center></div>
                         </div>
 
-                        <div class ="error_message">
+                        <div id="li_error" class ="error_message">
                             <!-- Errors will be displayed here -->
-                            <ul id="li_error_list"></ul>
                         </div>
 
                     </form>
@@ -133,9 +132,8 @@
                             <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
 
-                        <div class="error_message">
+                        <div id="su_error" class="error_message">
                             <!-- Errors will be displayed here -->
-                            <ul id="su_error_list" class="unordered_list"></ul>
                         </div>
 
                     </form>
