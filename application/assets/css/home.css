@@ -5,6 +5,7 @@
     background-color: grey;
 }
 .leftpanel {
+    position:relative;
     width:300px;
     height:1000px;
     float:left;
@@ -12,12 +13,14 @@
     background-color: grey;
 }
 .centerpanel {
+    position:relative;
     width:600px;
     height:1000px;
     border-color: black;
     background-color: grey;
 }
 .rightpanel {
+    position:relative;
     width:300px;
     border-color: black;
     float:right;
