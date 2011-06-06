@@ -137,7 +137,7 @@ $(document).ready(function() {
                 required: 'Enter your last name.',
                 rangelength: 'Your last name must be between 2 and 20 characters.'
             },
-            su_school: {
+            su_school_id: {
                 required: 'Choose your school.'
             },
             su_sex: {
@@ -188,7 +188,8 @@ $(document).ready(function() {
                 response($.map(data, function (item) {
                     return {
                         label: item.school + ' (' + item.city + ')', 
-                        value: item.school
+                        value: item.school,
+                        id: item.id
                     };
                 }));
                 
@@ -196,6 +197,7 @@ $(document).ready(function() {
         },
         select: function (event, ui) {
             $('#su_school').value = ui.item.value;
+            $('#su_school_id').value = ui.item.id;
         }
     })
     
