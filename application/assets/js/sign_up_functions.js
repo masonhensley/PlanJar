@@ -24,7 +24,9 @@ $(document).ready(function() {
             });
         },
         messages: {
-            email: 'Your email must be a valid email address.'
+            li_email: {
+                email: 'Your email must be a valid email address.'
+            }
         }
     });
     
