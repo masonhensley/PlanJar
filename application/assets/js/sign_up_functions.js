@@ -36,11 +36,12 @@ $(document).ready(function() {
             },
             su_email_2: {
                 required:true,
-                equalto: '#su_email_2'
+                equalTo: '#su_email_2'
             },
             su_password: {
                 required: true,
-                rangelength: [8, 20]
+                rangelength: [8, 20],
+                
             },
             su_first_name: {
                 required: true,
@@ -66,6 +67,7 @@ $(document).ready(function() {
         },
         submitHandler: function(form) {
             // Send the form information to the try_sign_up function.
+            alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 // Redirect or display the error.
                 alert(data);
