@@ -8,6 +8,22 @@
         echo(add_includes());
         ?>
 
+        <script type="text/javascript">
+            
+            var geo = google.gears.factory.create('beta.geolocation');
+
+            function updatePosition(position) {
+                alert('Current lat/lon is: ' + position.latitude + ',' + position.longitude);
+            }
+
+            function handleError(positionError) {
+                alert('Attempt to get location failed: ' + positionError.message);
+            }
+
+            geo.getCurrentPosition(updatePosition, handleError);
+            
+        </script>
+
     </head>
 
     <body>

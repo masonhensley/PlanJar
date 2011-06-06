@@ -91,6 +91,7 @@ label {
     background-repeat: no-repeat;
     background-position:left;
     width:250px;
+    bottom:5px;
     font:normal 18px Arial;
     color: #999999;
     padding:3px 5px 3px 19px;
