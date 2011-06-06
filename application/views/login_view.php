@@ -33,9 +33,11 @@
                             <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</center></div>
                         </div>
 
-                        <div id="li_error" class ="error_message">
-                            <!-- Errors will be displayed here -->
-                        </div>
+                        <font color="purple" >
+                            <div id="li_error" class ="error_message">
+                                <!-- Errors will be displayed here -->
+                            </div>
+                        </font>
 
                     </form>
                 </fieldset>
@@ -115,7 +117,7 @@
                             <select name="su_year">
                                 <option value="year" selected="selected">Year:</option>
                                 <?php
-                                for ($i = date('Y')-13; $i >= date('Y')-105; --$i)
+                                for ($i = date('Y') - 13; $i >= date('Y') - 105; --$i)
                                 {
                                     echo("<option value=\"" . $i . "\">" . $i . "</option>");
                                 }
@@ -132,13 +134,16 @@
                             <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
 
-                        <div id="su_error" class="error_message">
-                            <!-- Errors will be displayed here -->
-                        </div>
+                        <font color="purple" >
+                            <div id="su_error" class="error_message">
+                                <!-- Errors will be displayed here -->
+                            </div>
+                        </font>
 
                     </form>
                 </fieldset>
             </div>
+            
 
             <div class="clear"></div>
         </div>

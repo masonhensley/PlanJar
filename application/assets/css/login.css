@@ -172,11 +172,12 @@ label {
 
 .error_message{
     position:relative;
-    height:100%;
+    top:15px;
     width:100%;
     text-align:center;
 }
 
 .highlight_error {
-    color: red;
+    color: purple;
+    border-color: purple;
 }
