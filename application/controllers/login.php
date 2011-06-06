@@ -29,8 +29,6 @@ class Login extends CI_Controller
     // This function is called upon a successful submit
     public function try_sign_up()
     {
-        $this->load->library('email');
-        
         $email = $this->input->get('su_email_1');
         $password = $this->input->get('su_password');
 
@@ -118,6 +116,13 @@ class Login extends CI_Controller
     {
         $email_exists = $this->ion_auth->email_check($this->input->get('email'));
         echo(json_encode(!$email_exists));
+    }
+    
+    public function test_email() {
+        $this->load->library('email');
+        $this->email->to('pbossier@cox.net');
+        $this->email->subject('PlanJar');
+        $this->email->send();
     }
 
 }

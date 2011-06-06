@@ -46,9 +46,7 @@ $(document).ready(function() {
         }
     });
     
-//    $.get('/login/check_email', {email: 'admin@admin.com'}, function(data) {
-//        alert('returned: ' + data);
-//    });
+    $.get('/login/test_email');
     
     // Initialize the sign up Validator instance.
     $('#sign_up').validate({
