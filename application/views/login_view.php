@@ -10,7 +10,7 @@
 
     </head>
 
-    <body onmousedown="whichElement(event)">
+    <body>
         <!-- this was pulled from Tableless forms -->
         <div id="container">
             <div id="rightside">
@@ -78,7 +78,7 @@
 
                         <label for="su_school">School</label>
                         <div class="div_texbox">
-                            <input name="su_school" type="text" class="textbox" value="Your school" onfocus="if(this.value=='Your school'){this.value='';}">
+                            <input id="su_school" name="su_school" type="text" class="textbox" value="Your school" onfocus="if(this.value=='Your school'){this.value='';}">
                         </div>
 
                         <label for="su_sex">Sex</label>
