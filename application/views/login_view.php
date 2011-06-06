@@ -15,7 +15,7 @@
             <div id="rightside">
                 <fieldset>
 
-                    <legend>Enter site.</legend>
+                    <legend>Enter site</legend>
                     <form id="log_in" class="form">
 
                         <label for="li_email">E-mail</label>
@@ -30,7 +30,7 @@
 
                         <div class="button_div">
                             <input type="submit" class="buttons" value="Log In" /><br/>
-                            <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center></div>
+                            <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</center></div>
                         </div>
 
                         <div class ="error_message">
