@@ -84,5 +84,17 @@ class Login extends CI_Controller
             echo "/home/";
         }
     }
+    
+    public function search_schools() {
+        $needle = $this->input->get('needle');
+        
+        $this->load->database();
+        $query = $this->db->query("SELECT `school`, `city` FROM `school_data` WHERE `school` LIKE '%%" . $needle . "%%'");
+        foreach ($query->result_array() as $row) {
+            $result_array[] = $row;
+        }
+        
+        echo (json_encode($result_array));
+    }
 
 }
