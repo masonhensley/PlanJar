@@ -38,9 +38,11 @@ class Login extends CI_Controller
             'sex' => $this->input->get('su_sex'),
             'first_name' => $this->input->get('su_first_name'),
             'last_name' => $this->input->get('su_last_name'),
-            'birthday' => $this->input->get('su_birthday'),
             'grad_year' => $this->input->get('su_grad_year')
         );
+        $additional_data['birthday'] = $this->input->get('su_month') . '/' .
+                $this->input->get('su_day') . '/' .
+                $this->input->get('su_year');
 
         $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
 
