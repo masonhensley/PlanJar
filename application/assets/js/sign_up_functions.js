@@ -137,19 +137,19 @@ alert('here');
                 required: 'Graduation year is required.',
                 max: "Sorry, you can't graduate more than 6 years from now."
             }
-        }
-//        showErrors: function(errorMap, errorList) {
-//            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
+        },
+        showErrors: function(errorMap, errorList) {
+            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
 //            $("#sign_up").find("input").each(function() {
 //                $(this).removeClass("highlight_error");
 //            });
-//            
+            
 //            $("#su_error").html("");
 //            if(errorList.length) {
 //                $("#su_error").html(errorList[0]['message']);
 //                $(errorList[0]['element']).addClass("highlight_error");
 //            }
-//        }
+        }
     });
 
 
