@@ -3,6 +3,7 @@
         <?php
         // Add the includes from js-css-includes.
         echo(add_includes());
+        
         ?>
     </head>
 
