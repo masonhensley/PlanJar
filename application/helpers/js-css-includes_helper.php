@@ -9,8 +9,6 @@ function add_includes()
     <script type="text/javascript" src="/application/assets/validation-1.8.1/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/application/assets/js/sign_up_functions.js"></script>
     
-    <!-- gears geolocation api -->
-    <script type="text/javascript" src="/application/assets/js/gears_init.js"></script>
 
     <!-- for login and home css -->
     <link rel=stylesheet href="/application/assets/css/login.css" type="text/css" />
