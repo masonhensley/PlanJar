@@ -110,12 +110,12 @@ $(document).ready(function() {
             alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert(data);
-                //                // Redirect or display the error.
-                //                if (data != 'error')  {
-                //                    window.location.href = data;
-                //                } else {
-                //                    alert(data);
-                //                }
+            //                // Redirect or display the error.
+            //                if (data != 'error')  {
+            //                    window.location.href = data;
+            //                } else {
+            //                    alert(data);
+            //                }
             });
         },
         messages: {
@@ -204,11 +204,10 @@ $(document).ready(function() {
         select: function (event, ui) {
             $('#su_school').value = ui.item.value;
             $('#su_school_id').value = ui.item.id;
-            alert(ui.item.id);
         }
     })
     
-    // End of ready function.
+// End of ready function.
 });
 
 // Returns the current year.
@@ -222,11 +221,18 @@ function get_year()
 // Reverts #su_school to the school name represented by #su_school_id if available
 function force_school() {
     var id = $('#su_school_id').val();
+    alert('blur');
+    
+    // If the id is not empty (some school already selected), replace the textbox value with
+    // the correct name from the server (to avoid user confusion).
     if (id != '') {
-        $.get('/login/get_school_by_id', {"id": id}, function(data) {
+        $.get('/login/get_school_by_id', {
+            "id": id
+        }, function(data) {
+            alert('gotten response with id=' + id);
             if (data != 'error') {
                 $('#su_school').val(data);
             }
-        })
+        });
     }
 }
