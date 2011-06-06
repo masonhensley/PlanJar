@@ -43,7 +43,7 @@ $(document).ready(function() {
             $("#li_error_list").html("");
             if(errorList.length) {
                 $("#li_error_list").html(errorList[0]['message']);
-                $(errorList[0]['element']).parent.addClass("error_message");
+                $(errorList[0]['element']).parent().addClass("error_message");
             }
         }
     });
