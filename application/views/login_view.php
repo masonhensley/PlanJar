@@ -7,9 +7,20 @@
         // Add the includes from js-css-includes.
         echo(add_includes());
         ?>
+
+        <script type="text/javascript">
+            function whichElement(event){
+                var tname
+                tname=event.srcElement.tagName
+                alert("You clicked on a " + tname + " element.")
+            }
+        </script>
+
+
+
     </head>
 
-    <body>
+    <body onmousedown="whichElement(event)">
         <!-- this was pulled from Tableless forms -->
         <div id="container">
             <div id="rightside">
@@ -143,7 +154,7 @@
                     </form>
                 </fieldset>
             </div>
-            
+
 
             <div class="clear"></div>
         </div>
