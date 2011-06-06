@@ -4,24 +4,27 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
-    public function index() 
+    public function index()
     {
-        if ($this->ion_auth->logged_in()) 
+        if ($this->ion_auth->logged_in())
         {
             $this->load->view('home_view');
-        } else {
+        } else
+        {
             $this->logout();
         }
     }
 
     // logs user out and redirects to login page
-    public function logout() 
+    public function logout()
     {
         $this->ion_auth->logout();
         redirect('/login/');
     }
+
 }
 
 ?>

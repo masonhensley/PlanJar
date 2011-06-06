@@ -1,6 +1,9 @@
 <html>
     <head>
-        <?php echo(add_includes()); ?>
+        <?php
+        // Add the includes from js-css-includes.
+        echo(add_includes());
+        ?>
     </head>
 
     <body>
