@@ -123,13 +123,13 @@ $(document).ready(function() {
             },
             // Note that validating #su_sex isn't needed.
             su_month: {
-                date: true
+                
             },
             su_day: {
-                date: true
+                
             },
             su_year: {
-                date: true
+                
             },
             su_grad_year: {
                 required: 'Graduation year is required.',
@@ -144,8 +144,8 @@ $(document).ready(function() {
             
             $("#su_error").html("");
             if(errorList.length) {
-                $("#li_error").html(errorList[0]['message']);
-                $(errorList[0]['element']).parent().addClass("error_message");
+                $("#su_error").html(errorList[0]['message']);
+                $(errorList[0]['element']).addClass("error_message");
             }
     });
 });
