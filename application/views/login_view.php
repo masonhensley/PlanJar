@@ -34,10 +34,13 @@
                         <div class ="remember">
                             <center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center>
                         </div>
-                        
                     </form>
                 </fieldset>
-                <div style="top:200px"><center><img src="/application/assets/images/Planjar logo.png" style="top:100px" alt="PlanJar Logo"></center></div>
+                
+                <!-- Errors will be displayed here -->
+            <ul id="li_error_list"></ul>
+                
+                <center><img src="/application/assets/images/Planjar logo.png"  style="top:200px" alt="PlanJar Logo"></center>
             </div>
             <div id="leftSide">
                 <fieldset>
@@ -98,7 +101,10 @@
                     </form>
                 </fieldset>
             </div>
-            //needed to clear css
+            
+            <!-- Errors will be displayed here -->
+            <ul id="su_error_list"></ul>
+            
             <div class="clear"></div>
         </div>
     </body>
