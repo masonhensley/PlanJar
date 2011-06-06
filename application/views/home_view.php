@@ -8,6 +8,7 @@
 
     <body>
         <div class="container">
+            <center>
             
             <div class="leftpanel">
                 <a href="/home/logout">Log out.</a>
@@ -19,6 +20,7 @@
             <div class="rightpanel">
             </div>
             
+            </center>
         </div>
     </body>
 </html>
