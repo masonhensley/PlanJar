@@ -169,3 +169,9 @@ label {
     top:10px;
     padding-top:11px;
 }
+
+.error_message{
+    position:relative;
+    width:250px;
+    text-align:center;
+}
