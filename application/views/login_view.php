@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="button_div">
-                            <input type="submit" class="buttons" value="Log In" /><br/>
+                            <input type="submit" class="buttons" value="Log In" /><br/><br/>
                             <center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center>
                         </div>
 
@@ -41,9 +41,8 @@
                     </form>
                 </fieldset>
 
-
-
-                <center><img src="/application/assets/images/Planjar logo.png"  style="top:200px" alt="PlanJar Logo"></center>
+                <div style="top:150px;"><center><img src="/application/assets/images/Planjar logo.png"  style="top:200px" alt="PlanJar Logo"></center></div>
+                
             </div>
             <div id="leftSide">
                 <fieldset>
