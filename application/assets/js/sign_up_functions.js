@@ -143,10 +143,11 @@ $(document).ready(function() {
             $.get('/login/search_schools', {
                 needle: request.term
             }, function (data) {
-                alert(data);
                 
-                // Map the returned JSON data, building the source list.
+                // Convert each item in the input JSON to the required JSON form for the autocomplete.
+                alert(data);
                 $.map(data, function (item) {
+                    alert(item);
                     return {
                         label: item.school + ' (' + item.city + ')', 
                         value: item.school
