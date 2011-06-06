@@ -25,11 +25,11 @@ $(document).ready(function() {
         },
         messages: {
             li_email: {
-                required: 'Email address is required.',
-                email: 'Email address must be valid.'
+                required: 'Enter your email address.',
+                email: 'Check your email address for errors.'
             },
             li_password: {
-                required: 'Password is required.'
+                required: 'Enter your password.'
             }
         },
         showErrors: function(errorMap, errorList) {
