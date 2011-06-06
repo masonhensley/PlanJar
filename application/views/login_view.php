@@ -18,7 +18,7 @@
             <div id="leftSide">
                 <fieldset>
                     <legend>Enter site.</legend>
-                    
+
                     <form id="log_in" class="form">
                         <label for="li_email">E-mail</label>
                         <div class="div_texbox">
@@ -35,12 +35,12 @@
                             <input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.
                         </div>
                     </form>
-                    
+
                 </fieldset>
                 <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
                 <fieldset>
                     <legend>Not a member?  Sign up.   It's easy and free.</legend>
-                    
+
                     <form id="sign_up" action="/login/try_sign_up" method="get">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
@@ -94,7 +94,7 @@
                             <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
                     </form>
-                    
+
                 </fieldset>
             </div>
             <div class="clear"></div>
