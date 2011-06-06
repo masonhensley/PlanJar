@@ -33,7 +33,7 @@
                         </div>
                     </form><br/>
                 </fieldset>
-                <img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo">
+                <center><img src="/application/assets/images/Planjar logo.png"  style="top:200px" alt="PlanJar Logo"></center>
             </div>
             <div id="leftSide">
                 <br /><br />
