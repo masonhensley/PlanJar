@@ -8,19 +8,9 @@
         echo(add_includes());
         ?>
 
-        <script type="text/javascript">
-            function whichElement(event){
-                var tname
-                tname=event.srcElement.tagName
-                alert("You clicked on a " + tname + " element.")
-            }
-        </script>
-
-
-
     </head>
 
-    <body onmousedown="whichElement(event)">
+    <body>
         <!-- this was pulled from Tableless forms -->
         <div id="container">
             <div id="rightside">
@@ -45,8 +35,8 @@
                         </div>
 
                         <font color="purple" >
-                            <div class ="su_error_div">
-                                <div id="li_error" class ="error_message"></div>
+                            <div id="li_error" class ="error_message">
+                                <!-- Errors will be displayed here -->
                             </div>
                         </font>
 
@@ -88,12 +78,13 @@
 
                         <label for="su_school">School</label>
                         <div class="div_texbox">
-                            <input name="su_school" type="text" class="textbox" value="Your school" onfocus="if(this.value=='Your school'){this.value='';}">
+                            <input id="su_school" name="su_school" type="text" class="textbox" value="Your school" onfocus="if(this.value=='Your school'){this.value='';}">
                         </div>
 
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
                             <select class="buttons_black" name="su_sex">
+ <option value="gender"selected="selected">Select Sex:</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
@@ -146,8 +137,8 @@
                         </div>
 
                         <font color="purple" >
-                            <div class="su_error_div">
-                                <div id="su_error" class="error_message"></div>
+                            <div id="su_error" class="error_message">
+                                <!-- Errors will be displayed here -->
                             </div>
                         </font>
 

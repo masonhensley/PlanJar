@@ -181,6 +181,7 @@ label {
 
 .error_message{
     position:relative;
+    height:10px;
     width:100%;
     text-align:center;
 }
@@ -188,4 +189,5 @@ label {
 .highlight_error {
     color: purple;
     border-color: purple;
+    border-width: 3px;
 }

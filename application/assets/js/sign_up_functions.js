@@ -83,12 +83,12 @@ $(document).ready(function() {
             alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert(data);
-                //                // Redirect or display the error.
-                //                if (data != 'error')  {
-                //                    window.location.href = data;
-                //                } else {
-                //                    alert(data);
-                //                }
+            //                // Redirect or display the error.
+            //                if (data != 'error')  {
+            //                    window.location.href = data;
+            //                } else {
+            //                    alert(data);
+            //                }
             });
         },
         messages: {
@@ -135,11 +135,34 @@ $(document).ready(function() {
             }
         }
     });
+    
+    // Initialize the autocomplete instance.
+    $('#su_school').autocomplete({
+        minLength: 2,
+        source: function (request, response) {
+            $.get('/login/search_school', {
+                needle: request.term
+            }, function (data) {
+                
+                // Map the returned JSON data, building the source list.
+                $.map(data, function (item) {
+                    return {
+                        label: item.school + ' (' + item.city + ')', 
+                        value: item.school
+                    };
+                });
+                
+            });
+        },
+        select: function (event, ui) {
+            $('#su_school').value = ui.item.value;
+        }
+    })
 });
 
-    // Returns the current year.
-    function get_year()
-    {
-        var d = new Date();
-        return d.getFullYear();
-    }
+// Returns the current year.
+function get_year()
+{
+    var d = new Date();
+    return d.getFullYear();
+}

@@ -84,5 +84,21 @@ class Login extends CI_Controller
             echo "/home/";
         }
     }
+    
+    // Returns a list of schools (in JSON format) that match the needle string.
+    public function search_schools() {
+        
+        $this->load->database();
+        $needle = $this->input->get('needle');
+        $query = $this->db->query("SELECT `school`, `city` FROM `school_data` WHERE `school` LIKE '%%" . $needle . "%%'");
+        
+        // Convert the set of results to JSON.
+        foreach ($query->result_array() as $row) {
+            $result_array[] = $row;
+        }
+        
+        // Return the data.
+        echo (json_encode($result_array));
+    }
 
 }
