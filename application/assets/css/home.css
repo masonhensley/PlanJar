@@ -18,7 +18,8 @@
 }
 .centerpanel {
     position:relative;
-    width:600px;
+    width:400px;
+    float:left;
     height:1000px;
     border-width:3px;
     border-style:solid;
