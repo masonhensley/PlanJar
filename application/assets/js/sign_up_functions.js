@@ -88,3 +88,7 @@ function get_year()
     var d = new Date();
     return d.getFullYear();
 }
+
+
+
+// foo
