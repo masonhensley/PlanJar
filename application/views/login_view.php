@@ -12,7 +12,7 @@
             function whichElement(event){
                 var tname
                 tname=event.srcElement.tagName
-                alert("You clicked on a " + tname + " element.")
+                alert(tname.id)
             }
         </script>
 
