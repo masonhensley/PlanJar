@@ -157,6 +157,9 @@ $(document).ready(function() {
 //        },
         select: function (event, ui) {
             $('#su_school').value = ui.item.value;
+        },
+        search: function() {
+            alert('search');
         }
     })
 });
