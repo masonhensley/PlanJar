@@ -100,10 +100,10 @@
                     </form>
                 </fieldset>
 
-                <formset>
+                <fieldset>
                     <!-- This will contain the error messages. -->
                     <ul id="su_error_list"></ul>
-                </formset>
+                </fieldset>
 
             </div>
             <div class="clear"></div>

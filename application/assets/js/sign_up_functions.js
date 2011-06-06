@@ -16,10 +16,10 @@ $(document).ready(function() {
             // Send the form information to the try_login function.
             $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
                 // Redirect or display the error.
-                if (data == 'error')  {
-                    alert(data);
-                } else {
+                if (data != 'error')  {
                     window.location.href = data;
+                } else {
+                    alert(data);
                 }
             });
         },
@@ -69,10 +69,10 @@ $(document).ready(function() {
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 // Redirect or display the error.
                 alert(data);
-            //                if (data == 'error')  {
-            //                    alert(data);
-            //                } else {
+            //                if (data != 'error')  {
             //                    window.location.href = data;
+            //                } else {
+            //                    alert(data);
             //                }
             });
         },
