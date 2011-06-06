@@ -12,31 +12,34 @@
     <body>
         <!-- this was pulled from Tableless forms -->
         <div id="container">
-
             <div id="rightside">
                 <fieldset>
                     <legend>Enter site.</legend>
                     <form id="log_in" class="form">
+                        
                         <label for="li_email">E-mail</label>
                         <div class="div_texbox">
                             <input name="li_email" type="text" class="username" id="li_email" />
                         </div>
+                        
                         <label for="li_password">Password</label>
                         <div class="div_texbox">
                             <input name="li_password" type="password" class="password" id="password" />
                         </div>
+                        
                         <div class="button_div">
                             <input type="submit" class="buttons" value="Log In" />
                         </div>
+                        
                         <div class ="remember">
                             <center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center>
                         </div>
-                    </form><br/>
+                        
+                    </form>
                 </fieldset>
                 <center><img src="/application/assets/images/Planjar logo.png"  style="top:200px" alt="PlanJar Logo"></center>
             </div>
             <div id="leftSide">
-                <br /><br />
                 <fieldset>
                     <legend>Not a member?  Sign up.   It's easy and free.</legend>
 
