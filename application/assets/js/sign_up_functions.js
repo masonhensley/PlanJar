@@ -1,53 +1,52 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
-    //    
-    //    // Initialize the log in Validator instance.
-    //    $('#log_in').validate({
-    //        rules: {
-    //            li_email: {
-    //                required: true,
-    //                email: true
-    //            },
-    //            li_password: {
-    //                required: true
-    //            }
-    //        },
-    //        submitHandler: function(form) {
-    //            // Send the form information to the try_login function.
-    //            $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
-    //                // Redirect or display the error.
-    //                if (data != 'error')  {
-    //                    window.location.href = data;
-    //                } else {
-    //                    alert(data);
-    //                }
-    //            });
-    //        },
-    //        messages: {
-    //            li_email: {
-    //                required: 'Email address is required.',
-    //                email: 'Email address must be valid.'
-    //            },
-    //            li_password: {
-    //                required: 'Password is required.'
-    //            }
-    //        },
-    //        showErrors: function(errorMap, errorList) {
-    //            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
-    //            $("#log_in").find("input").each(function() {
-    //                $(this).removeClass("highlight_error");
-    //            });
-    //            
-    //            $("#li_error").html("");
-    //            if(errorList.length) {
-    //                $("#li_error").html(errorList[0]['message']);
-    //                $(errorList[0]['element']).addClass("highlight_error");
-    //            }
-    //        }
-    //    });
-    //    
+    
+    // Initialize the log in Validator instance.
+    $('#log_in').validate({
+        rules: {
+            li_email: {
+                required: true,
+                email: true
+            },
+            li_password: {
+                required: true
+            }
+        },
+        submitHandler: function(form) {
+            // Send the form information to the try_login function.
+            $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
+                // Redirect or display the error.
+                if (data != 'error')  {
+                    window.location.href = data;
+                } else {
+                    alert(data);
+                }
+            });
+        },
+        messages: {
+            li_email: {
+                required: 'Email address is required.',
+                email: 'Email address must be valid.'
+            },
+            li_password: {
+                required: 'Password is required.'
+            }
+        },
+        showErrors: function(errorMap, errorList) {
+            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
+            $("#log_in").find("input").each(function() {
+                $(this).removeClass("highlight_error");
+            });
+            
+            $("#li_error").html("");
+            if(errorList.length) {
+                $("#li_error").html(errorList[0]['message']);
+                $(errorList[0]['element']).addClass("highlight_error");
+            }
+        }
+    });
+    
 
-    alert('here');
     // Initialize the sign up Validator instance.
     $('#sign_up').validate({
         rules: {
@@ -82,7 +81,7 @@ $(document).ready(function() {
                 maxlength: 60
             },
             su_sex: {
-                date: true
+                required: true
             },
             su_month: {
                 date: true
