@@ -9,6 +9,7 @@ class Home extends CI_Controller
 
     public function index()
     {
+        // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
             $this->load->view('home_view');
