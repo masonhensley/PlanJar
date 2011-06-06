@@ -51,15 +51,15 @@ $(document).ready(function() {
     $('#sign_up').validate({
         rules: {
             su_email_1: {
-                required: true
-            //                email: true,
-            //                remote: {
-            //                    url: '/login/check_email',
-            //                    type: 'get',
-            //                    data: {
-            //                        email: '#su_email_1'.val()
-            //                    }
-            //                }
+                required: true,
+                email: true,
+                remote: {
+                    url: '/login/check_email',
+                    type: 'get',
+                    data: {
+                        email: '#su_email_1'.val()
+                    }
+                }
             },
             su_email_2: {
                 required: true
@@ -102,12 +102,12 @@ $(document).ready(function() {
             alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert(data);
-            //                // Redirect or display the error.
-            //                if (data != 'error')  {
-            //                    window.location.href = data;
-            //                } else {
-            //                    alert(data);
-            //                }
+                //                // Redirect or display the error.
+                //                if (data != 'error')  {
+                //                    window.location.href = data;
+                //                } else {
+                //                    alert(data);
+                //                }
             });
         },
         messages: {
@@ -193,7 +193,7 @@ $(document).ready(function() {
         }
     })
     
-// End of ready function.
+    // End of ready function.
 });
 
 // Returns the current year.
