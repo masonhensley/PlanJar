@@ -80,13 +80,13 @@ $(document).ready(function() {
                 maxlength: 60
             },
             su_sex: {
-                nna: 'true'
+                nna: true
             },
             su_month: {
-                nna: 'true'
+                nna: true
             },
             su_year: {
-                nna: 'true'
+                nna: true
             },
             su_grad_year: {
                 required: true,
@@ -186,9 +186,9 @@ function get_year()
     return d.getFullYear();
 }
 
-// Add a neq method for Validator.
-$.validator.addMethod('nna',
-    function (value, element) {
-        return value != 'n/a';
-    },
-    element.label + " must not be blank.");
+//// Add a neq method for Validator.
+//$.validator.addMethod('nna',
+//    function (value, element) {
+//        return value != 'n/a';
+//    },
+//    element.label + " must not be blank.");
