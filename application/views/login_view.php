@@ -89,7 +89,6 @@
 
                         <label for="su_birthday">Birthday</label>
                         <div idd="ssu_birthday" class="div_texbox">
-                            <input name="su_birthday" type="text" class="textbox" value="mm/dd/yyyy" onfocus="if(this.value=='mm/dd/yyyy'){this.value='';}">
                             <select name="su_month">
                                 <option disabled="disabled" selected="selected">Month</option>
                                 <option value="1">Jan</option>
