@@ -17,6 +17,13 @@
                 <fieldset>
 
                     <legend>Enter site</legend>
+                    
+                    <font color="purple" >
+                            <div id="li_error" class ="error_message">
+                                <!-- Errors will be displayed here -->
+                            </div>
+                        </font>
+                    
                     <form id="log_in" class="form">
 
                         <label for="li_email">E-mail</label>
@@ -34,11 +41,7 @@
                             <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</center></div>
                         </div>
 
-                        <font color="purple" >
-                            <div id="li_error" class ="error_message">
-                                <!-- Errors will be displayed here -->
-                            </div>
-                        </font>
+                        
 
                     </form>
                 </fieldset>
@@ -50,6 +53,12 @@
                 <fieldset>
                     <legend>Not a member?  Sign up.   It's easy and free.</legend>
 
+                    <font color="purple" >
+                        <div id="su_error" class="error_message">
+                            <!-- Errors will be displayed here -->
+                        </div>
+                    </font>
+                    
                     <form id="sign_up" action="/login/try_sign_up" method="get">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
@@ -138,11 +147,7 @@
 
                     </form>
 
-                    <font color="purple" >
-                        <div id="su_error" class="error_message">
-                            <!-- Errors will be displayed here -->
-                        </div>
-                    </font>
+                    
 
                 </fieldset>
             </div>
