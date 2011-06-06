@@ -136,32 +136,26 @@ $(document).ready(function() {
         }
     });
     
-    var foo =  ['abc', 'abcd', 'abcdef', 'abcdefg'];
-    
     // Initialize the autocomplete instance.
     $('#su_school').autocomplete({
         minLength: 2,
-        source: foo,
-//        source: function (request, response) {
-//            $.get('/login/search_school', {
-//                needle: request.term
-//            }, function (data) {
-//                
-//                // Map the returned JSON data, building the source list.
-//                $.map(data, function (item) {
-//                    return {
-//                        label: item.school + ' (' + item.city + ')', 
-//                        value: item.school
-//                    };
-//                });
-//                
-//            });
-//        },
-//        select: function (event, ui) {
-//            $('#su_school').value = ui.item.value;
-//        },
-        search: function() {
-            alert('search');
+        source: function (request, response) {
+            $.get('/login/search_school', {
+                needle: request.term
+            }, function (data) {
+                
+                // Map the returned JSON data, building the source list.
+                $.map(data, function (item) {
+                    return {
+                        label: item.school + ' (' + item.city + ')', 
+                        value: item.school
+                    };
+                });
+                
+            });
+        },
+        select: function (event, ui) {
+            $('#su_school').value = ui.item.value;
         }
     })
 });
