@@ -171,7 +171,8 @@ label {
 }
 
 .su_error_div{
-
+    position:relative;
+    top:30px;
 }
 
 .li_error_div{
