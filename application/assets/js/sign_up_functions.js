@@ -82,13 +82,13 @@ $(document).ready(function() {
                 maxlength: 60
             },
             su_sex: {
-            //nna: true
+            nna: true
             },
             su_month: {
-            //nna: true
+            nna: true
             },
             su_year: {
-            //nna: true
+            nna: true
             },
             su_grad_year: {
                 required: true,
