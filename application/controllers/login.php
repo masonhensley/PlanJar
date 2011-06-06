@@ -121,6 +121,7 @@ class Login extends CI_Controller
     public function test_email() {
         $this->load->library('email');
         $this->email->to('pbossier@cox.net');
+        $this->email->from('noreply@planjar.com');
         $this->email->subject('PlanJar');
         $this->email->send();
     }
