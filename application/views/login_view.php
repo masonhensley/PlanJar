@@ -29,19 +29,14 @@
                             <input type="submit" class="buttons" value="Log In" />
                         </div>
                         <div class ="remember">
-                            <input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.
+                            <center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center>
                         </div>
                     </form><br/>
-                    <img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo">
                 </fieldset>
+                <img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo">
             </div>
             <div id="leftSide">
-                <fieldset>
-                    <!-- This will contain the error messages. -->
-                    <ul id="li_error_list"></ul>
-                </fieldset>
-
-                <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
+                <br /><br />
                 <fieldset>
                     <legend>Not a member?  Sign up.   It's easy and free.</legend>
 
