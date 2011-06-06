@@ -124,6 +124,7 @@ class Login extends CI_Controller
         $this->email->from('noreply@planjar.com');
         $this->email->subject('PlanJar');
         $this->email->send();
+        echo($this->email->print_debugger());
     }
 
 }
