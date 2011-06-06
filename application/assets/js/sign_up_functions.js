@@ -46,7 +46,7 @@ $(document).ready(function() {
         }
     });
     
-    $.get('/login/check_email', {email: 'test@baba.com'}, function(data) {
+    $.get('/login/check_email', {email: 'admin@admin.com'}, function(data) {
         alert('returned: ' + data);
     });
     
