@@ -148,7 +148,6 @@ $(document).ready(function() {
                 // and pass the result through the response handler.
                 data = $.parseJSON(data);
                 response($.map(data, function (item) {
-                    alert(item.school);
                     return {
                         label: item.school + ' (' + item.city + ')', 
                         value: item.school
