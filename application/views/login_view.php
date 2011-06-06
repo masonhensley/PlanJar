@@ -34,8 +34,8 @@
                         </div>
 
                         <font color="purple" >
-                            <div id="li_error" class ="error_message">
-                                <!-- Errors will be displayed here -->
+                            <div class ="su_error_div">
+                                <div id="li_error" class ="error_message"></div>
                             </div>
                         </font>
 
@@ -135,15 +135,14 @@
                         </div>
 
                         <font color="purple" >
-                            <div id="su_error" class="error_message">
-                                <!-- Errors will be displayed here -->
+                            <div class="su_error_div">
+                                <div id="su_error" class="error_message"></div>
                             </div>
                         </font>
 
                     </form>
                 </fieldset>
             </div>
-            
 
             <div class="clear"></div>
         </div>
