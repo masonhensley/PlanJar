@@ -22,7 +22,7 @@
 
             <div class="rightpanel">
                 
-                <div class="controls">
+                <div class="logout">
                     <a href="/home/logout">Log out.</a>
                 </div>
                 

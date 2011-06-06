@@ -44,9 +44,9 @@
     background-color: grey;
 }
 
-.controls{
+.logout{
     width:100%;
-    height:80px;
+    height:40px;
     border-bottom-style:solid;
     border-bottom-color: black;
     border-width:3px;
