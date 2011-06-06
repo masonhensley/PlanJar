@@ -176,3 +176,7 @@ label {
     width:100%;
     text-align:center;
 }
+
+.highlight_error {
+    color: red;
+}
