@@ -187,10 +187,9 @@ label.error {
 }
 
 .remember {
-    text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 120%;
-    top:40px;
-    color: #000000;
-    top: 11px;
+    width:100%;
+    float:left;
+    text-align:center;
+    top:10px;
+    padding-top:11px;
 }
