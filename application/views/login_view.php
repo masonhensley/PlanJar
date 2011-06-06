@@ -42,7 +42,7 @@
                 </fieldset>
 
                 <div><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
-                
+
             </div>
             <div id="leftSide">
                 <fieldset>
@@ -90,7 +90,7 @@
                         <label for="su_birthday">Birthday</label>
                         <div idd="ssu_birthday" class="div_texbox">
                             <select name="su_month">
-                                <option disabled="disabled" selected="selected">Month</option>
+                                <option value="month"selected="selected">Month:</option>
                                 <option value="1">Jan</option>
                                 <option value="2">Feb</option>
                                 <option value="3">Mar</option>
@@ -104,6 +104,17 @@
                                 <option value="11">Nov</option>
                                 <option value="12">Dec</option>
                             </select>
+
+                            <select name="su_day" selected="selected">
+                                <option value="day" selected="selected">Day:</option>
+                                <?php
+                                for ($i = 1; $i <= 31; ++$i)
+                                {
+                                    echo("<option value=\"" . $i . "\">" . $i . "</option>\r\n");
+                                }
+                                ?>
+                            </select>
+
                         </div>
 
                         <label for="su_grad_year">Class of</label>
