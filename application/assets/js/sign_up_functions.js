@@ -23,11 +23,8 @@ $(document).ready(function() {
                 }
             });
         },
-        messages: {
-            li_email: {
-                email: 'Your email must be a valid email address.'
-            }
-        }
+        errorLabelContainer: '#li_error_list',
+        wrapper: 'li'
     });
     
     // Initialize the sign up Validator instance.
@@ -78,7 +75,9 @@ $(document).ready(function() {
             //                    window.location.href = data;
             //                }
             });
-        }
+        },
+        errorLabelContainer: '#li_error_list',
+        wrapper: 'li'
     });
 });
 
@@ -88,7 +87,3 @@ function get_year()
     var d = new Date();
     return d.getFullYear();
 }
-
-
-
-// foo
