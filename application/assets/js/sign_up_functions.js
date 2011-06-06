@@ -87,12 +87,12 @@ $(document).ready(function() {
             alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert(data);
-            //                // Redirect or display the error.
-            //                if (data != 'error')  {
-            //                    window.location.href = data;
-            //                } else {
-            //                    alert(data);
-            //                }
+                //                // Redirect or display the error.
+                //                if (data != 'error')  {
+                //                    window.location.href = data;
+                //                } else {
+                //                    alert(data);
+                //                }
             });
         },
         messages: {
@@ -122,15 +122,6 @@ $(document).ready(function() {
                 maxlength: 60
             },
             // Note that validating #su_sex isn't needed.
-            su_month: {
-                date: true
-            },
-            su_day: {
-                date: true
-            },
-            su_year: {
-                date: true
-            },
             su_grad_year: {
                 required: 'Graduation year is required.',
                 max: "Sorry, you can't graduate more than 6 years from now."
@@ -144,15 +135,16 @@ $(document).ready(function() {
             
             $("#su_error").html("");
             if(errorList.length) {
-                $("#li_error").html(errorList[0]['message']);
-                $(errorList[0]['element']).parent().addClass("error_message");
+                $("#su_error").html(errorList[0]['message']);
+                $(errorList[0]['element']).addClass("error_message");
             }
+        }
     });
 });
 
-// Returns the current year.
-function get_year()
-{
-    var d = new Date();
-    return d.getFullYear();
-}
+    // Returns the current year.
+    function get_year()
+    {
+        var d = new Date();
+        return d.getFullYear();
+    }
