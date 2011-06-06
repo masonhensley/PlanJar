@@ -185,6 +185,8 @@ label.error {
 .error_message{
     width:350px;
     height:60px;
+    float:right;
+    top:10px;
 }
 
 .remember {
