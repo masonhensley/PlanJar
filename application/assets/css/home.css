@@ -52,3 +52,10 @@
     border-width:3px;
     background-color: grey;
 }
+
+.error_message{
+    width:250px;
+    text-align:center;
+
+    
+}
