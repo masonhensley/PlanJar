@@ -46,7 +46,6 @@ $(document).ready(function() {
         }
     });
     
-
     // Initialize the sign up Validator instance.
     $('#sign_up').validate({
         rules: {
