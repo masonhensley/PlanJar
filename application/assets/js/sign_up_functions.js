@@ -81,15 +81,15 @@ $(document).ready(function() {
                 required: true,
                 maxlength: 60
             },
-            //            su_sex: {
-            //            //nna: true
-            //            },
-            //            su_month: {
-            //            //nna: true
-            //            },
-            //            su_year: {
-            //            //nna: true
-            //            },
+            su_sex: {
+            //nna: true
+            },
+            su_month: {
+            //nna: true
+            },
+            su_year: {
+            //nna: true
+            },
             su_grad_year: {
                 required: true,
                 max: get_year() + 6
