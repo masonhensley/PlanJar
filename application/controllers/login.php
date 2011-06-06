@@ -46,16 +46,17 @@ class Login extends CI_Controller
 
         $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
 
-        if ($registered)
-        {
-            echo "success";
-        } else
-        {
-            if (!$this->ion_auth->username_check($email))
-            {
-                echo "username_error";
-            }
-        }
+        echo('donezo');
+//        if ($registered)
+//        {
+//            echo "success";
+//        } else
+//        {
+//            if (!$this->ion_auth->username_check($email))
+//            {
+//                echo "username_error";
+//            }
+//        }
     }
 
     public function try_log_in()
