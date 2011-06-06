@@ -34,7 +34,9 @@
                         <div class="button_div">
                             <input type="submit" class="buttons" value="Log In" />
                         </div>
-                        <div class="remember"><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</div>
+                        <div class ="button_div">
+                            <div class="remember"><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</div>
+                        </div>
                     </form>
                 </fieldset>
 
