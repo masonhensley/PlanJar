@@ -44,7 +44,7 @@ $(document).ready(function() {
                 email: true
             },
             su_email_2: {
-                required:true,
+                required: true,
                 equalTo: '#su_email_1'
             },
             su_password: {
@@ -113,9 +113,8 @@ $(document).ready(function() {
                 maxlength: 60
             },
             // Note that validating #su_sex isn't needed.
-            su_birthday: {
-                required: 'Birthday is required.',
-                custom_date:true
+            su_month: {
+               
             },
             su_grad_year: {
                 required: 'Graduation year is required.',
@@ -133,12 +132,3 @@ function get_year()
     var d = new Date();
     return d.getFullYear();
 }
-
-// Add a mm-dd-yyy validation metho to Validator.
-$.validator.addMethod(
-    'custom_date',
-    function (value, element) {
-        return value.match('\d\d-\d\d-\d\d\d\d');
-    },
-    "Please enter a date in the form mm-dd-yyyy."
-    );
