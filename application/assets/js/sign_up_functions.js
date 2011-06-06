@@ -32,17 +32,15 @@ $(document).ready(function() {
                 required: 'Password is required.'
             }
         },
-        errorLabelContainer: '#li_error_list',
-        wrapper: 'li',
         showErrors: function(errorMap, errorList) {
             // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
             $("#log_in").find("input").each(function() {
                 $(this).removeClass("error");
             });
             
-            $("#li_error_list").html("");
+            $("#li_error").html("");
             if(errorList.length) {
-                $("#li_error_list").html(errorList[0]['message']);
+                $("#li_error").html(errorList[0]['message']);
                 $(errorList[0]['element']).parent().addClass("error_message");
             }
         }
@@ -138,8 +136,17 @@ $(document).ready(function() {
                 max: "Sorry, you can't graduate more than 6 years from now."
             }
         },
-        errorLabelContainer: '#su_error_list',
-        wrapper: 'li'
+        showErrors: function(errorMap, errorList) {
+            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
+            $("#sign_up").find("input").each(function() {
+                $(this).removeClass("error");
+            });
+            
+            $("#su_error").html("");
+            if(errorList.length) {
+                $("#li_error").html(errorList[0]['message']);
+                $(errorList[0]['element']).parent().addClass("error_message");
+            }
     });
 });
 
