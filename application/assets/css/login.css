@@ -182,9 +182,9 @@ label.error {
     background: url(radio.gif) no-repeat;
 }
 
-#sign_up_errors {
-    width:100%;
-    float:left;
+.error_message{
+    width:350px;
+    height:60px;
 }
 
 .remember {
