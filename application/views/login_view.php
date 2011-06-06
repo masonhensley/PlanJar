@@ -37,8 +37,7 @@
                     </form>
                 </fieldset>
                 
-                <!-- Errors will be displayed here -->
-            <ul id="li_error_list"></ul>
+             
                 
                 <center><img src="/application/assets/images/Planjar logo.png"  style="top:200px" alt="PlanJar Logo"></center>
             </div>
@@ -101,7 +100,8 @@
                     </form>
                 </fieldset>
             </div>
-            
+            <!-- Errors will be displayed here -->
+            <ul id="li_error_list"></ul>
             <!-- Errors will be displayed here -->
             <ul id="su_error_list"></ul>
             
