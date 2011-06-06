@@ -13,7 +13,7 @@
                 <a href="/home/logout">Log out.</a>
             </div>
             
-            <div class="center">
+            <div class="centerpanel">
             </div>
             
             <div class="rightpanel">
