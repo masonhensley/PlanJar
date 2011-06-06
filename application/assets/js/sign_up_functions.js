@@ -35,13 +35,13 @@ $(document).ready(function() {
         showErrors: function(errorMap, errorList) {
             // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
             $("#log_in").find("input").each(function() {
-                $(this).removeClass("hiighlight_error");
+                $(this).removeClass("highlight_error");
             });
             
             $("#li_error").html("");
             if(errorList.length) {
                 $("#li_error").html(errorList[0]['message']);
-                $(errorList[0]['element']).parent().addClass("highlight_error");
+                $(errorList[0]['element']).addClass("highlight_error");
             }
         }
     });
