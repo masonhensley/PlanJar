@@ -112,7 +112,8 @@ $(document).ready(function() {
         messages: {
             su_email_1: {
                 required: 'Enter your email address.',
-                email: 'Your email address must be valid.'
+                email: 'Your email address must be valid.',
+                remote: 'An account with that username already exists.'
             },
             su_email_2: {
                 required: 'Re-enter you remail address.',
