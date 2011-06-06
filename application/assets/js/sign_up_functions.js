@@ -84,10 +84,13 @@ $(document).ready(function() {
                 required: true
             },
             su_month: {
-                date: true
+                required: true
+            },
+            su_day: {
+                required: true
             },
             su_year: {
-                date: true
+                required: true
             },
             su_grad_year: {
                 required: true,
@@ -109,32 +112,43 @@ $(document).ready(function() {
         },
         messages: {
             su_email_1: {
-                required: 'Email address is required.',
-                email: 'Email address must be valid.'
+                required: 'Enter your email address.',
+                email: 'Your email address must be valid.'
             },
             su_email_2: {
                 required: 'Re-enter you remail address.',
-                equalTo: 'Email addresses must match.'
+                equalTo: 'Your email addresses must match.'
             },
             su_password: {
-                required: 'Password is required.',
-                rangelength: 'Password must be between 8 and 20 characters.'
-                
+                required: 'Enter a password.',
+                rangelength: 'Your password must be between 8 and 20 characters.'
             },
             su_first_name: {
-                required: 'First name is required.',
-                rangelength: 'First name must be between 2 and 20 characters.'
+                required: 'Enter your first name.',
+                rangelength: 'Your first name must be between 2 and 20 characters.'
             },
             su_last_name: {
-                required: 'Last name is required.',
-                rangelength: 'Last name must be between 2 and 20 characters.'
+                required: 'Enter your last name.',
+                rangelength: 'Your last name must be between 2 and 20 characters.'
             },
             su_school: {
-                required: 'School is required.'
+                required: 'Choose your school.'
+            },
+            su_sex: {
+                required: 'Choose your sex.'
+            },
+            su_month: {
+                required: 'Choose your month of birth.'
+            },
+            su_day: {
+                required: 'Choose your day of birth.'
+            },
+            su_year: {
+                required: 'Choose your year of birth'
             },
             su_grad_year: {
-                required: 'Graduation year is required.',
-                max: "Sorry, you can't graduate more than 6 years from now."
+                required: 'Enter your graduation year',
+                max: "Your graduation year is too far away."
             }
         },
         showErrors: function(errorMap, errorList) {
