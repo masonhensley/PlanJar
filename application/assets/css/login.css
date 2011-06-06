@@ -60,6 +60,12 @@ label {
     float:left;
 }
 
+#rightside{
+    width:530px;
+    padding-top:30px;
+    float:right;
+}
+
 .clear {
     clear:both;
 }

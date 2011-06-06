@@ -12,8 +12,11 @@
     <body>
         <!-- this was pulled from Tableless forms -->
         <div id="container">
-            <div id="top">
-                <h1>Sign in to PlanJar</h1>
+
+            <div id="rightside">
+                <div id="top">
+                    <h1>Sign in to PlanJar</h1>
+                </div>
             </div>
             <div id="leftSide">
                 <fieldset>
