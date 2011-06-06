@@ -88,12 +88,13 @@ $(document).ready(function() {
             // Send the form information to the try_sign_up function.
             alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
-                // Redirect or display the error.
-                if (data != 'error')  {
-                    window.location.href = data;
-                } else {
-                    alert(data);
-                }
+                alert(data);
+            //                // Redirect or display the error.
+            //                if (data != 'error')  {
+            //                    window.location.href = data;
+            //                } else {
+            //                    alert(data);
+            //                }
             });
         },
         messages: {
@@ -124,7 +125,7 @@ $(document).ready(function() {
             },
             // Note that validating #su_sex isn't needed.
             su_month: {
-               date: true
+                date: true
             },
             su_day: {
                 date: true
