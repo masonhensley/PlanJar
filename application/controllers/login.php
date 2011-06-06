@@ -43,19 +43,21 @@ class Login extends CI_Controller
         $additional_data['birthday'] = $this->input->get('su_month') . '/' .
                 $this->input->get('su_day') . '/' .
                 $this->input->get('su_year');
+        
+        echo($additional_data['birthday']);
 
         $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
 
-        if ($registered)
-        {
-            echo "success";
-        } else
-        {
-            if (!$this->ion_auth->username_check($email))
-            {
-                echo "username_error";
-            }
-        }
+//        if ($registered)
+//        {
+//            echo "success";
+//        } else
+//        {
+//            if (!$this->ion_auth->username_check($email))
+//            {
+//                echo "username_error";
+//            }
+//        }
     }
 
     public function try_log_in()
