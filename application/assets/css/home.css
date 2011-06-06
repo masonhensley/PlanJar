@@ -47,4 +47,8 @@
 .controls{
     width:100%;
     height:80px;
+    border-bottom-style:solid;
+    border-bottom-color: black;
+    border-width:3px;
+    background-color: grey;
 }
