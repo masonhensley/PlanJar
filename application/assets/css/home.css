@@ -33,7 +33,7 @@
 }
 .rightpanel {
     position:relative;
-    left:20px;
+    right:20px;
     width:150px;
     height:1000px;
     border-width:3px;
