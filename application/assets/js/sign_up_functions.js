@@ -73,10 +73,6 @@ $(document).ready(function() {
                 maxlength: 60
             },
             // Note that validating #su_sex isn't needed.
-            su_birthday: {
-                required: true,
-                date:true
-            },
             su_grad_year: {
                 required: true,
                 max: get_year() + 6

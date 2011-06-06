@@ -7,9 +7,20 @@
         // Add the includes from js-css-includes.
         echo(add_includes());
         ?>
+
+        <script type="text/javascript">
+            function whichElement(event){
+                var tname
+                tname=event.srcElement.tagName
+                alert("You clicked on a " + tname + " element.")
+            }
+        </script>
+
+
+
     </head>
 
-    <body>
+    <body onmousedown="whichElement(event)">
         <!-- this was pulled from Tableless forms -->
         <div id="container">
             <div id="rightside">
@@ -89,7 +100,7 @@
                         </div>
 
                         <label for="su_birthday">Birthday</label>
-                        <div id="ssu_birthday" class="div_texbox">
+                        <div id="su_birthday" class="div_texbox">
                             <select name="su_month">
                                 <option value="month"selected="selected">Month:</option>
                                 <option value="1">Jan</option>
@@ -143,6 +154,7 @@
                     </form>
                 </fieldset>
             </div>
+
 
             <div class="clear"></div>
         </div>
