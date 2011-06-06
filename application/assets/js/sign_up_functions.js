@@ -153,10 +153,13 @@ $(document).ready(function() {
         },
         showErrors: function(errorMap, errorList) {
             // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
-            $("#sign_up").find("input").each(function() {
+            
+            // Remove all error classes.
+            $("#sign_up").find("input, select").each(function() {
                 $(this).removeClass("highlight_error");
             });
             
+            // Add the error class to the first invalid field.
             $("#su_error").html("");
             if(errorList.length) {
                 $("#su_error").html(errorList[0]['message']);
