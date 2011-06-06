@@ -26,7 +26,7 @@ h1 {
     color:#333;
 }
 label {
-    width:142px;
+    width:160px;
     height:32px;
     margin-top:3px;
     margin-right:2px;
@@ -77,18 +77,6 @@ label {
 }
 .div_texbox {
     width:290px;
-    float:right;
-    background-color:#E6E6E6;
-    height:35px;
-    margin-top:3px;
-    padding-top:5px;
-    padding-bottom:3px;
-    padding-left:5px;
-}
-
-label.error {
-    border-color: red;
-    width:347px;
     float:right;
     background-color:#E6E6E6;
     height:35px;
@@ -174,17 +162,16 @@ label.error {
     background: url(radio.gif) no-repeat;
 }
 
-.unordered_list {
-    width:100%;
-    height:30px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 8px;
-}
-
 .remember {
     width:200px;
     float:left;
     text-align:center;
     top:10px;
     padding-top:11px;
+}
+
+.error_message{
+    position:relative;
+    width:100%;
+    text-align:center;
 }
