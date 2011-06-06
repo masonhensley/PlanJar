@@ -51,7 +51,14 @@ $(document).ready(function() {
         rules: {
             su_email_1: {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: '/login/check_email',
+                    type: 'get',
+                    data: {
+                        email: '#su_email_1'.val()
+                    }
+                }
             },
             su_email_2: {
                 required: true

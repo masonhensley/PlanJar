@@ -84,28 +84,37 @@ class Login extends CI_Controller
             echo "/home/";
         }
     }
-    
+
     // Returns a list of schools (in JSON format) that match the needle string.
-    public function search_schools() {
-        
+    public function search_schools()
+    {
+
         $this->load->database();
         $needle = $this->input->get('needle');
         $search_terms = explode(' ', $needle);
-        
+
         $like_clauses = '';
-        foreach($search_terms as $term) {
+        foreach ($search_terms as $term)
+        {
             $like_clauses .= "`school` LIKE '%%" . $needle . "%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
         $query = $this->db->query("SELECT `school`, `city` FROM `school_data` WHERE " . $like_clauses . 'LIMIT 10');
-        
+
         // Convert the set of results to JSON.
-        foreach ($query->result_array() as $row) {
+        foreach ($query->result_array() as $row)
+        {
             $result_array[] = $row;
         }
-        
+
         // Return the data.
         echo (json_encode($result_array));
+    }
+
+    // Returns true if the username is available, false otherwise.
+    public function check_email()
+    {
+        return!$this->ion_auth->email_check($this->input->get('email'));
     }
 
 }
