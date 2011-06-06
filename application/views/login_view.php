@@ -103,7 +103,7 @@
 
                         <div class="error_message">
                             <!-- Errors will be displayed here -->
-                            <ul id="su_error_list"></ul>
+                            <ul id="su_error_list" class="unordered_list"></ul>
                         </div>
 
                     </form>
