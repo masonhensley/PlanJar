@@ -104,17 +104,23 @@
                                 <option value="11">Nov</option>
                                 <option value="12">Dec</option>
                             </select>
-
-                            <select name="su_day" selected="selected">
+                            <select name="su_day">
                                 <option value="day" selected="selected">Day:</option>
                                 <?php
                                 for ($i = 1; $i <= 31; ++$i)
                                 {
-                                    ?>
-                                    <option value=""><?php echo($i); ?></select>
+                                    echo("<option value=\"" . $i . "\">" . $i . "</option>");
+                                }
+                                ?>
+                            </select>
+                            <select name="su_year">
+                                <option value="year" selected="selected">Year:</option>
                                 <?php
-                            }
-                            ?>
+                                for ($i = date('Y')-105; $i <= date('Y')-13; ++$i)
+                                {
+                                    echo("<option value=\"" . $i . "\">" . $i . "</option>\r\n");
+                                }
+                                ?>
                             </select>
 
                         </div>
