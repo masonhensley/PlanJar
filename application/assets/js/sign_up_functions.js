@@ -23,7 +23,8 @@ $(document).ready(function() {
                 }
             });
         },
-        errorLabelContainer: '#li_error_list'
+        errorLabelContainer: '#li_error_list',
+        wrapper: 'li'
     });
     
     // Initialize the sign up Validator instance.
@@ -75,7 +76,8 @@ $(document).ready(function() {
             //                }
             });
         },
-        errorLabelContainer: '#li_error_list'
+        errorLabelContainer: '#li_error_list',
+        wrapper: 'li'
     });
 });
 
@@ -85,7 +87,3 @@ function get_year()
     var d = new Date();
     return d.getFullYear();
 }
-
-
-
-// foo
