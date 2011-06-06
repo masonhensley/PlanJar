@@ -143,6 +143,7 @@ $(document).ready(function() {
             $.get('/login/search_school', {
                 needle: request.term
             }, function (data) {
+                alert(data);
                 
                 // Map the returned JSON data, building the source list.
                 $.map(data, function (item) {
