@@ -41,7 +41,7 @@
                     </form>
                 </fieldset>
 
-                <div style="top:150px;"><center><img src="/application/assets/images/Planjar logo.png"  alt="PlanJar Logo"></center></div>
+                <div><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
                 
             </div>
             <div id="leftSide">
