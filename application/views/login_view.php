@@ -14,14 +14,8 @@
         <div id="container">
 
             <div id="rightside">
-                <div id="top">
-                    <h1>Sign in to PlanJar</h1>
-                </div>
-            </div>
-            <div id="leftSide">
                 <fieldset>
                     <legend>Enter site.</legend>
-
                     <form id="log_in" class="form">
                         <label for="li_email">E-mail</label>
                         <div class="div_texbox">
@@ -37,9 +31,11 @@
                         <div class ="remember">
                             <input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.
                         </div>
-                    </form>
+                    </form><br/>
+                    <img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo">
                 </fieldset>
-
+            </div>
+            <div id="leftSide">
                 <fieldset>
                     <!-- This will contain the error messages. -->
                     <ul id="li_error_list"></ul>
