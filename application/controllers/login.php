@@ -120,7 +120,7 @@ class Login extends CI_Controller
     
     public function get_school_by_id() {
         $this->load->database();
-        $query_string = "SELECT `school` FROM `school_data` WHERE `id` = ?";
+        $query_string = "SELECT `school` FROM `school_data` WHERE `id` = ? LIMIT 1";
         $query = $this->db->query($query_string, array($this->input->get('id')));
         
         if ($query->num_rows() == 0) {
@@ -128,8 +128,8 @@ class Login extends CI_Controller
             echo('error');
         } else {
             // Return the first result.
-            $row = $query->result();
-            echo($row->school);
+            $row = $query->row_array();
+            echo($row['school']);
         }
     }
 
