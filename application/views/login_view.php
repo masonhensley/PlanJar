@@ -91,7 +91,7 @@
                         </div>
                         
                         <!-- Hidden input used to pass the school id to the server instead of the school name -->
-                        <input type="hidden" id="su_school_id"/>
+                        <input type="hidden" id="su_school_id" name="su_school_id"/>
                         
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">

@@ -85,6 +85,9 @@ $(document).ready(function() {
                 required: true,
                 maxlength: 60
             },
+            su_school_id: {
+                required: true
+            },
             su_sex: {
                 required: true
             },
@@ -137,8 +140,10 @@ $(document).ready(function() {
                 required: 'Enter your last name.',
                 rangelength: 'Your last name must be between 2 and 20 characters.'
             },
+            su_school: {
+                required: 'Choose your school.'
+            },
             su_school_id: {
-                
                 required: 'Choose your school.'
             },
             su_sex: {
