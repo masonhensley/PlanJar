@@ -45,7 +45,7 @@ $(document).ready(function() {
             },
             su_email_2: {
                 required:true,
-                equalTo: '#su_email_2'
+                equalTo: '#su_email_1'
             },
             su_password: {
                 required: true,
@@ -89,7 +89,7 @@ $(document).ready(function() {
         },
         messages: {
             su_email_1: {
-                required: 'Email address is required',
+                required: 'Email address is required.',
                 email: 'Email address must be valid.'
             },
             su_email_2: {
@@ -116,11 +116,11 @@ $(document).ready(function() {
             // Note that validating #su_sex isn't needed.
             su_birthday: {
                 required: 'Birthday is required.',
-                date:true
+                custom_date:true
             },
             su_grad_year: {
-                required: true,
-                max: get_year() + 6
+                required: 'Graduation year is required.',
+                max: "Sorry, you can't graduate more than 6 years from now."
             }
         },
         errorLabelContainer: '#su_error_list',
