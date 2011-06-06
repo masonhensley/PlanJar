@@ -189,9 +189,9 @@ $(document).ready(function() {
 //    return d.getFullYear();
 //}
 //
-//// Add a neq method for Validator.
-//$.validator.addMethod('nna',
-//    function (value, element) {
-//        return value != 'n/a';
-//    },
-//    element.label + " must not be blank.");
+// Add a neq method for Validator.
+$.validator.addMethod('nna',
+    function (value, element) {
+        return value != 'n/a';
+    },
+    element.label + " must not be blank.");
