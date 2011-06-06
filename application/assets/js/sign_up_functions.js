@@ -136,7 +136,7 @@ $(document).ready(function() {
             $("#su_error").html("");
             if(errorList.length) {
                 $("#su_error").html(errorList[0]['message']);
-                $(errorList[0]['element']).addClass("error_message");
+                $(errorList[0]['element']).parent().addClass("error_message");
             }
         }
     });
