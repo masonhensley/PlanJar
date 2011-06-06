@@ -25,7 +25,7 @@
 
                         <label for="li_password">Password</label>
                         <div class="div_texbox">
-                            <input name="li_password" type="password" class="password" id="password" />
+                            <input name="li_password" type="password" class="username" id="password" />
                         </div>
 
                         <div class="button_div">
