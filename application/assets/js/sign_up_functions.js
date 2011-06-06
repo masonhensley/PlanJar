@@ -136,10 +136,12 @@ $(document).ready(function() {
         }
     });
     
+    var foo =  ['abc', 'abcd', 'abcdef', 'abcdefg'];
+    
     // Initialize the autocomplete instance.
     $('#su_school').autocomplete({
         minLength: 2,
-        source: ['arm', 'boy', 'hello', 'hello-there'],
+        source: foo,
 //        source: function (request, response) {
 //            $.get('/login/search_school', {
 //                needle: request.term
@@ -155,9 +157,9 @@ $(document).ready(function() {
 //                
 //            });
 //        },
-        select: function (event, ui) {
-            $('#su_school').value = ui.item.value;
-        },
+//        select: function (event, ui) {
+//            $('#su_school').value = ui.item.value;
+//        },
         search: function() {
             alert('search');
         }
