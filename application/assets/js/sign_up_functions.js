@@ -85,7 +85,6 @@ $(document).ready(function() {
                 required: true,
                 maxlength: 60
             },
-            
             su_school_id: {
                 required: true
             },
@@ -205,6 +204,7 @@ $(document).ready(function() {
         select: function (event, ui) {
             $('#su_school').value = ui.item.value;
             $('#su_school_id').value = ui.item.id;
+            alert(ui.item.id);
         }
     })
     
