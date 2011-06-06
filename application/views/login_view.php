@@ -42,7 +42,7 @@
                 </fieldset>
 
                 <div><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
-                
+
             </div>
             <div id="leftSide">
                 <fieldset>
@@ -88,8 +88,35 @@
                         </div>
 
                         <label for="su_birthday">Birthday</label>
-                        <div class="div_texbox">
-                            <input name="su_birthday" type="text" class="textbox" value="mm/dd/yyyy" onfocus="if(this.value=='mm/dd/yyyy'){this.value='';}">
+                        <div idd="ssu_birthday" class="div_texbox">
+                            <select name="su_month">
+                                <option value="month"selected="selected">Month:</option>
+                                <option value="1">Jan</option>
+                                <option value="2">Feb</option>
+                                <option value="3">Mar</option>
+                                <option value="4">Apr</option>
+                                <option value="5">May</option>
+                                <option value="6">Jun</option>
+                                <option value="7">July</option>
+                                <option value="8">Aug</option>
+                                <option value="9">Sept</option>
+                                <option value="10">Oct</option>
+                                <option value="11">Nov</option>
+                                <option value="12">Dec</option>
+                            </select>
+
+                            <select name="su_day" selected="selected">
+                                <option value="day" selected="selected">Day:</option>
+                                <?php
+                                for ($i = 1; $i <= 31; ++$i)
+                                {
+                                    ?>
+                                    <option value=""><?php echo($i); ?></select>
+                                <?php
+                            }
+                            ?>
+                            </select>
+
                         </div>
 
                         <label for="su_grad_year">Class of</label>
