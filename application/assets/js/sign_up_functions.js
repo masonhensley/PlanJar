@@ -223,8 +223,9 @@ function force_school() {
     var id = $('#su_school_id').val();
     alert('blur');
     
-    // If the id is not empty (some school already selected), replace the textbox value with
-    // the correct name from the server (to avoid user confusion).
+    // If id is not empty (some school already selected), replace the textbox value with
+    // the correct name from the server (to avoid user confusion). Otherwise, clear the
+    // autocomplete.
     if (id != '') {
         $.get('/login/get_school_by_id', {
             "id": id
@@ -234,5 +235,7 @@ function force_school() {
                 $('#su_school').val(data);
             }
         });
+    } else {
+        $('#su_school').val('');
     }
 }
