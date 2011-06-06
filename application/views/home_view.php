@@ -7,6 +7,18 @@
     </head>
 
     <body>
-        <a href="/home/logout">Log out.</a>
+        <div class="container">
+            
+            <div class="leftpanel">
+                <a href="/home/logout">Log out.</a>
+            </div>
+            
+            <div class="center">
+            </div>
+            
+            <div class="rightpanel">
+            </div>
+            
+        </div>
     </body>
 </html>
