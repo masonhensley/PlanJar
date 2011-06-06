@@ -78,7 +78,7 @@
                     <form id="sign_up" action="/login/try_sign_up" method="get">
                         <label for="su_email_1">E-mail</label>
                         <div class="div_texbox">
-                            <input name="su_email_1" type="text" class="textbox">
+                            <input id="su_email_1" name="su_email_1" type="text" class="textbox">
                         </div>
 
                         <label for="su_email_2">Re-enter E-mail</label>

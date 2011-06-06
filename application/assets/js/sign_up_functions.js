@@ -56,10 +56,9 @@ $(document).ready(function() {
                     url: '/login/check_email',
                     type: 'get',
                     data: {
-                        email: $('#su_email_1').value
-                    },
-                    complete: function() {
-                        echo('here');
+                        email: function() {
+                            $('#su_email_1').val();
+                        }
                     }
                 }
             },
