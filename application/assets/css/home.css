@@ -31,13 +31,12 @@
 }
 .rightpanel {
     position:relative;
-    left:20px;
+    left:100px;
     width:150px;
     height:1000px;
     border-width:3px;
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
-    
     float:left;
     background-color: grey;
 }
