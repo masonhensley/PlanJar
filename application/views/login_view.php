@@ -84,7 +84,7 @@
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
                             <select class="buttons_black" name="su_sex">
- <option value="gender"selected="selected">Select Sex:</option>
+                                <option value="gender"selected="selected">Select Sex:</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
@@ -136,13 +136,14 @@
                             <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
 
-                        <font color="purple" >
-                            <div id="su_error" class="error_message">
-                                <!-- Errors will be displayed here -->
-                            </div>
-                        </font>
-
                     </form>
+
+                    <font color="purple" >
+                        <div id="su_error" class="error_message">
+                            <!-- Errors will be displayed here -->
+                        </div>
+                    </font>
+
                 </fieldset>
             </div>
 
