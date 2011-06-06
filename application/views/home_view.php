@@ -14,7 +14,7 @@
             </div>
 
             <div class="centerpanel">
-                <div class="graph">
+                <div class="centergraph">
                     
                 </div>
             </div>

@@ -22,12 +22,12 @@
     border-width:3px;
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
-    background-color: grey;
 }
-.graph{
+.centergraph{
     position:relative;
     width:400px;
     height:400px;
+        background-color: grey;
 }
 .rightpanel {
     position:relative;
