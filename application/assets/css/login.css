@@ -180,4 +180,5 @@ label {
 .highlight_error {
     color: purple;
     border-color: purple;
+    border-width: 5px;
 }
