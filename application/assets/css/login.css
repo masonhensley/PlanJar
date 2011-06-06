@@ -26,7 +26,7 @@ h1 {
     color:#333;
 }
 label {
-    width:142px;
+    width:160px;
     height:32px;
     margin-top:3px;
     margin-right:2px;
@@ -172,6 +172,6 @@ label {
 
 .error_message{
     position:relative;
-    width:250px;
+    width:100%;
     text-align:center;
 }
