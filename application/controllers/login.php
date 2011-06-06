@@ -117,14 +117,5 @@ class Login extends CI_Controller
         $email_exists = $this->ion_auth->email_check($this->input->get('email'));
         echo(json_encode(!$email_exists));
     }
-    
-    public function test_email() {
-        $this->load->library('email');
-        $this->email->to('pbossier@cox.net');
-        $this->email->from('noreply@planjar.com');
-        $this->email->subject('PlanJar');
-        $this->email->send();
-        echo($this->email->print_debugger());
-    }
 
 }
