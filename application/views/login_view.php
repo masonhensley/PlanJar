@@ -12,36 +12,34 @@
     <body>
         <!-- this was pulled from Tableless forms -->
         <div id="container">
-
             <div id="rightside">
                 <fieldset>
                     <legend>Enter site.</legend>
                     <form id="log_in" class="form">
+                        
                         <label for="li_email">E-mail</label>
                         <div class="div_texbox">
                             <input name="li_email" type="text" class="username" id="li_email" />
                         </div>
+                        
                         <label for="li_password">Password</label>
                         <div class="div_texbox">
                             <input name="li_password" type="password" class="password" id="password" />
                         </div>
+                        
                         <div class="button_div">
                             <input type="submit" class="buttons" value="Log In" />
                         </div>
+                        
                         <div class ="remember">
-                            <input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.
+                            <center><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</center>
                         </div>
-                    </form><br/>
-                    <img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo">
+                        
+                    </form>
                 </fieldset>
+                <center><img src="/application/assets/images/Planjar logo.png"  style="top:200px" alt="PlanJar Logo"></center>
             </div>
             <div id="leftSide">
-                <fieldset>
-                    <!-- This will contain the error messages. -->
-                    <ul id="li_error_list"></ul>
-                </fieldset>
-
-                <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
                 <fieldset>
                     <legend>Not a member?  Sign up.   It's easy and free.</legend>
 
@@ -93,18 +91,12 @@
                         <div class="div_texbox">
                             <input name="su_grad_year" type="text" class="textbox" value="<?php echo date('Y') + 4; ?>" onfocus="if(this.value==<?php echo date('Y') + 4; ?>){this.value='';}">
                         </div>
-
+                        
                         <div class="button_div">
                             <center><input class="buttons" type="submit" value="Sign up"></center>
                         </div>
                     </form>
                 </fieldset>
-
-                <fieldset>
-                    <!-- This will contain the error messages. -->
-                    <ul id="su_error_list"></ul>
-                </fieldset>
-
             </div>
             <div class="clear"></div>
         </div>
