@@ -59,7 +59,7 @@
                         </div>
 
                         <label for="su_password">Password</label>
-                        <div class="div_texbox">
+                        <div class="div_texbox" id="foo">
                             <input name="su_password" type="password" class="textbox" >
                         </div>
 
