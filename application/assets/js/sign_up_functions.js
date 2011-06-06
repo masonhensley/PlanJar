@@ -139,45 +139,43 @@ $(document).ready(function() {
             }
         },
         showErrors: function(errorMap, errorList) {
-        // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
-        //            $("#sign_up").find("input").each(function() {
-        //                $(this).removeClass("highlight_error");
-        //            });
+            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
+            $("#sign_up").find("input").each(function() {
+                $(this).removeClass("highlight_error");
+            });
             
-        //            $("#su_error").html("");
-        //            if(errorList.length) {
-        //                $("#su_error").html(errorList[0]['message']);
-        //                $(errorList[0]['element']).addClass("highlight_error");
-        //            }
+            $("#su_error").html("");
+            if(errorList.length) {
+                $("#su_error").html(errorList[0]['message']);
+                $(errorList[0]['element']).addClass("highlight_error");
+            }
         }
     });
-
-
-//    
-//    // Initialize the autocomplete instance.
-//    $('#su_school').autocomplete({
-//        minLength: 2,
-//        source: function (request, response) {
-//            $.get('/login/search_schools', {
-//                needle: request.term
-//            }, function (data) {
-//                
-//                // Convert each item in the input JSON to the required JSON form for the autocomplete
-//                // and pass the result through the response handler.
-//                data = $.parseJSON(data);
-//                response($.map(data, function (item) {
-//                    return {
-//                        label: item.school + ' (' + item.city + ')', 
-//                        value: item.school
-//                    };
-//                }));
-//                
-//            });
-//        },
-//        select: function (event, ui) {
-//            $('#su_school').value = ui.item.value;
-//        }
-//    })
+    
+    // Initialize the autocomplete instance.
+    $('#su_school').autocomplete({
+        minLength: 2,
+        source: function (request, response) {
+            $.get('/login/search_schools', {
+                needle: request.term
+            }, function (data) {
+                
+                // Convert each item in the input JSON to the required JSON form for the autocomplete
+                // and pass the result through the response handler.
+                data = $.parseJSON(data);
+                response($.map(data, function (item) {
+                    return {
+                        label: item.school + ' (' + item.city + ')', 
+                        value: item.school
+                    };
+                }));
+                
+            });
+        },
+        select: function (event, ui) {
+            $('#su_school').value = ui.item.value;
+        }
+    })
     
 // End of ready function.
 });
