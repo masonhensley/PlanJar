@@ -52,15 +52,15 @@ $(document).ready(function() {
     $('#sign_up').validate({
         rules: {
             su_email_1: {
-                required: true,
-                email: true,
-                remote: {
-                    url: '/login/check_email',
-                    type: 'get',
-                    data: {
-                        email: '#su_email_1'.val()
-                    }
-                }
+//                required: true,
+//                email: true,
+//                remote: {
+//                    url: '/login/check_email',
+//                    type: 'get',
+//                    data: {
+//                        email: '#su_email_1'.val()
+//                    }
+//                }
             },
             su_email_2: {
                 required: true
@@ -82,13 +82,13 @@ $(document).ready(function() {
                 maxlength: 60
             },
             su_sex: {
-                nna: true
+                //nna: true
             },
             su_month: {
-                nna: true
+                //nna: true
             },
             su_year: {
-                nna: true
+                //nna: true
             },
             su_grad_year: {
                 required: true,
@@ -190,8 +190,8 @@ $(document).ready(function() {
 //}
 //
 // Add a neq method for Validator.
-$.validator.addMethod('nna',
-    function (value, element) {
-        return value != 'n/a';
-    },
-    element.label + " must not be blank.");
+//$.validator.addMethod('nna',
+//    function (value, element) {
+//        return value != 'n/a';
+//    },
+//    element.label + " must not be blank.");
