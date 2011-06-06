@@ -56,8 +56,7 @@ $(document).ready(function() {
                 email: true
             },
             su_email_2: {
-                required: true,
-                equalTo: '#su_email_1'
+                required: true
             },
             su_password: {
                 required: true,
@@ -90,12 +89,11 @@ $(document).ready(function() {
             alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 // Redirect or display the error.
-                alert(data);
-            //                if (data != 'error')  {
-            //                    window.location.href = data;
-            //                } else {
-            //                    alert(data);
-            //                }
+                if (data != 'error')  {
+                    window.location.href = data;
+                } else {
+                    alert(data);
+                }
             });
         },
         messages: {
@@ -126,7 +124,13 @@ $(document).ready(function() {
             },
             // Note that validating #su_sex isn't needed.
             su_month: {
-               
+               date: true
+            },
+            su_day: {
+                date: true
+            },
+            su_year: {
+                date: true
             },
             su_grad_year: {
                 required: 'Graduation year is required.',
