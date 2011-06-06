@@ -85,6 +85,7 @@ $(document).ready(function() {
                 required: true,
                 maxlength: 60
             },
+            
             su_school_id: {
                 required: true
             },
