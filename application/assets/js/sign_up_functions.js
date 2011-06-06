@@ -76,7 +76,7 @@ $(document).ready(function() {
             //                }
             });
         },
-        errorLabelContainer: '#li_error_list',
+        errorLabelContainer: '#su_error_list',
         wrapper: 'li'
     });
 });
