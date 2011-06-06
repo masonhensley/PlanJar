@@ -145,7 +145,8 @@ $(document).ready(function() {
             }, function (data) {
                 
                 // Convert each item in the input JSON to the required JSON form for the autocomplete.
-                data = JSON.encode(data);
+                alert(data);
+                data = $.parseJSON(data);
                 alert(data);
                 $.map(data, function (item) {
                     alert(item);
