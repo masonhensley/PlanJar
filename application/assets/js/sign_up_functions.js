@@ -202,8 +202,8 @@ $(document).ready(function() {
             });
         },
         select: function (event, ui) {
-            $('#su_school').value = ui.item.value;
-            $('#su_school_id').value = ui.item.id;
+            $('#su_school').val(ui.item.value);
+            $('#su_school_id').val(ui.item.id);
         }
     })
     
