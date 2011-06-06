@@ -145,9 +145,9 @@ $(document).ready(function() {
             }, function (data) {
                 
                 // Convert each item in the input JSON to the required JSON form for the autocomplete.
-                alert(data);
+                data = $.parseJSON(data);
                 $.map(data, function (item) {
-                    alert(item);
+                    alert(item.school);
                     return {
                         label: item.school + ' (' + item.city + ')', 
                         value: item.school
