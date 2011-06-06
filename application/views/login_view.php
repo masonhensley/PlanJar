@@ -116,9 +116,9 @@
                             <select name="su_year">
                                 <option value="year" selected="selected">Year:</option>
                                 <?php
-                                for ($i = date('Y')-105; $i <= date('Y')-13; ++$i)
+                                for ($i = date('Y')-13; $i >= date('Y')-105; --$i)
                                 {
-                                    echo("<option value=\"" . $i . "\">" . $i . "</option>\r\n");
+                                    echo("<option value=\"" . $i . "\">" . $i . "</option>");
                                 }
                                 ?>
                             </select>
