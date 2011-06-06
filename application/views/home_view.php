@@ -7,20 +7,20 @@
     </head>
 
     <body>
+    <center>
         <div class="container">
-            <center>
-            
+
             <div class="leftpanel">
                 <a href="/home/logout">Log out.</a>
             </div>
-            
+
             <div class="centerpanel">
             </div>
-            
+
             <div class="rightpanel">
             </div>
-            
-            </center>
+
         </div>
-    </body>
+    </center>
+</body>
 </html>
