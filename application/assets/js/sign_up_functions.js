@@ -190,8 +190,8 @@ function get_year()
 }
 
 // Add a neq method for Validator.
-//$.validator.addMethod('nna',
-//    function (value, element) {
-//        return value != 'n/a';
-//    },
-//    element.label + " must not be blank.");
+$.validator.addMethod('nna',
+    function (value, element) {
+        return value != 'n/a';
+    },
+    element.label + " must not be blank.");
