@@ -36,13 +36,13 @@
                         </div>
                         <div class="remember"><input type="checkbox" name="li_remember" value="1" />&nbsp;Keep me logged in.</div>
                     </form>
-                    
-                    <div>
-                        <!-- This will contain the error messages. -->
-                        <ul id="li_error_list"></ul>
-                    </div>
-
                 </fieldset>
+
+                <div>
+                    <!-- This will contain the error messages. -->
+                    <ul id="li_error_list"></ul>
+                </div>
+
                 <br /><br /><div id="sign_up_errors"><ul id="error_list"></ul></div>
                 <fieldset>
                     <legend>Not a member?  Sign up.   It's easy and free.</legend>
@@ -101,12 +101,12 @@
                         </div>
                     </form>
                 </fieldset>
-                
-                div>
-                        <!-- This will contain the error messages. -->
-                        <ul id="su_error_list"></ul>
-                    </div>
-                
+
+                <div>
+                    <!-- This will contain the error messages. -->
+                    <ul id="su_error_list"></ul>
+                </div>
+
             </div>
             <div class="clear"></div>
         </div>
