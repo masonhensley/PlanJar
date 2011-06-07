@@ -40,7 +40,6 @@ h1 {
     width:260px;
     padding-top:30px;
     left:300px;
-    right:0;
 }
 
 #leftside{
@@ -48,7 +47,6 @@ h1 {
     width:260px;
     height:1000px;
     padding-top:30px;
-    left:0;
 }
 
 .clear {
