@@ -48,17 +48,15 @@
                     <input type="radio" id="sel_mult" name="one_mult_group"/>
                 </div> 
                 <ol id="my_groups">
-
-                    <ol id="test">
-                        <?php
-                        for ($i = 1; $i < 10; ++$i)
-                        {
-                            ?>
-                            <li class="ui-widget-content">Item  <?php echo($i); ?></li>
-                            <?php
-                        }
+                    <?php
+                    for ($i = 1; $i < 10; ++$i)
+                    {
                         ?>
-                    </ol>
+                        <li class="ui-widget-content">Item  <?php echo($i); ?></li>
+                        <?php
+                    }
+                    ?>
+                </ol>
             </div>
 
             <div class="rightpanel">
