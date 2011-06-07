@@ -218,6 +218,7 @@ $(document).ready(function() {
         }
     });
     
+    alert('infield');
     $('label').inFieldLabels();
     
 // End of ready function.
