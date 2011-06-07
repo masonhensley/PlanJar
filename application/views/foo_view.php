@@ -11,12 +11,14 @@
 
     <body>
     <center>
+        <form>
         <div id="one_mult">
-            <label for="sel_one">Select one</label>
             <input type="radio" id="sel_one" name="one_mult_group" onchange="reset_my_groups()"/>
-            <label for="sel_all">Select multiple</label>
+            <label for="sel_one">Select one</label>
             <input type="radio" id="sel_mult" name="one_mult_group" onchange="reset_my_groups()"/>
+            <label for="sel_all">Select multiple</label>
         </div>
+        </form>
 
         <div style="width:400px; height:600px">
             <ol id="my_groups">
