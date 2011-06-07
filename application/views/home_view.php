@@ -25,9 +25,7 @@
 
             <div class="centerpanel">
 
-                <div class="centergraph">
-
-                </div>
+                <div class="centergraph"></div>
             </div>
 
             <div class="rightpanel">
