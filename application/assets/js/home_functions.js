@@ -6,12 +6,7 @@ $(function() {
 });
 
 
-// JS for the tabs with jquery
-$(function() {
-    $( "#tabs" ).tabs({
-        collapsible: true
-    });
-});
+
 	
 
 var initialLocation;

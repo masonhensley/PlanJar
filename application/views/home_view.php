@@ -6,16 +6,37 @@
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
+
+        <script type="text/javascript">
+            $(function() {
+                $( "#tabs" ).tabs({
+                    collapsible: true
+                });
+            });
+        </script>
     </head>
 
     <body>
     <center>
         <div class="container">
-            
-            <div class="toppanel">
 
+            <div class="toppanel">
+                <div id="tags">
+                    <ul>
+                        <li><a href="#tabs-1">Home</a></li>
+                        <li><a href="#tabs-2">Your Location</a></li>
+                    </ul>
+                </div>
+                <div id="tabs-1">
+		<p><strong>Click this tab again to close the content pane.</strong></p>
+		
+	</div>
+	<div id="tabs-2">
+		<p><strong>Click this tab again to close the content pane.</strong></p>
+		
+	</div>
             </div>
-            
+
             <div class="leftpanel">
                 <ol id="test">
                     <?php
