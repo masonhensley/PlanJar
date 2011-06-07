@@ -41,12 +41,14 @@ h1 {
 }
 */
 #leftSide {
+    position:absolute;
     width:300px;
     padding-top:30px;
     left:400px;
 }
 
 #rightside{
+    position:absolute;
     width:300px;
     height:1000px;
     padding-top:30px;
