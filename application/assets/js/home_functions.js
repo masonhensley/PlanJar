@@ -1,9 +1,15 @@
 // Run when the DOM is loaded.
 $(function() {
     initialize();
+});
+
+
+$(function() {
+    $( "#tabs" ).tabs({
+        collapsible: true
     });
-
-
+});
+	
 
 var initialLocation;
 var browserSupportFlag =  new Boolean();
