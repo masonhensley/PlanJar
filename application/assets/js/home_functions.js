@@ -6,6 +6,7 @@ $(function() {
         // Toggle the state when an object is selected.
         sart: function(event, ui) {
             if ($(ui.selected).hasClass('ui-selected')) {
+                alert('ui-selected on start');
                 $(ui.selected).removeClass('ui-selected');
             } else {
                 $(ui.selected).addClass('ui-selected');
