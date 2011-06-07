@@ -25,25 +25,22 @@
                     </font>
 
                     <form id="log_in" class="form">
-                        <div class="form_inputs">
-                            <div class="div_texbox">
-                                <input name="li_email" type="text" class="textbox" id="li_email" />
-                            </div>
 
-                            <div class="div_texbox">
-                                <input name="li_password" type="password" class="textbox" id="password" />
-                            </div>
+                        <div class="div_texbox">
+                            <input name="li_email" type="text" class="textbox" id="li_email" />
+                        </div>
+
+                        <div class="div_texbox">
+                            <input name="li_password" type="password" class="textbox" id="password" />
                         </div>
 
                         <div class="button_div">
-                            
                             <div class ="submit_div"><input type="submit" class="buttons" value="Log In" /></div><br/>
                             <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</center></div>
                         </div>
 
-
-
                     </form>
+
                 </fieldset>
 
                 <div><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
@@ -60,7 +57,7 @@
                     </font>
 
                     <form id="sign_up" action="/login/try_sign_up" method="get">
-                       
+
                         <div class="div_texbox">
                             <input id="su_email_1" name="su_email_1" type="text" class="textbox">
                         </div>
