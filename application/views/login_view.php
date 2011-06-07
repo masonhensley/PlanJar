@@ -54,7 +54,7 @@
                         </form>
 
                     </fieldset>
-                    <div style="position:relative; width:220px;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
+                    <div style="position:relative; width:260px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
 
 
                 </div>
