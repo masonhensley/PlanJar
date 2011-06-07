@@ -24,16 +24,6 @@ function initialize() {
         }, function() {
             handleNoGeolocation(browserSupportFlag);
         });
-    // Try Google Gears Geolocation
-    } else if (google.gears) {
-        browserSupportFlag = true;
-        var geo = google.gears.factory.create('beta.geolocation');
-        geo.getCurrentPosition(function(position) {
-            initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
-            map.setCenter(initialLocation);
-        }, function() {
-            handleNoGeoLocation(browserSupportFlag);
-        });
     // Browser doesn't support Geolocation
     } else {
         browserSupportFlag = false;
@@ -43,11 +33,11 @@ function initialize() {
     function handleNoGeolocation(errorFlag) {
         if (errorFlag == true) {
             alert("Geolocation service failed.");
-            initialLocation = newyork;
+        //initialLocation = newyork;
         } else {
             alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-            initialLocation = siberia;
+        //initialLocation = siberia;
         }
-        map.setCenter(initialLocation);
+    //map.setCenter(initialLocation);
     }
 }
