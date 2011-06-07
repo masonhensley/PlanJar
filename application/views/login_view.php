@@ -45,7 +45,7 @@
                             </div>
 
                             <div class="button_div">
-                                <div style="position:relative; top:3px;">
+                                <div style="position:relative; top:1px;">
                                     <input type="submit" class="buttons" value="Log In" />
                                     <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
                                 </div>
