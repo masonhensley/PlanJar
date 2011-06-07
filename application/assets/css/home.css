@@ -11,7 +11,7 @@ body {
 .left{
     width:200px;
     height:1000px;
-    margin-left: 0px;
+    float:left;
     
     background-color: yellow;
 }
@@ -19,6 +19,7 @@ body {
 .center{
     width:500px;
     height:1000px;
+    float:left;
     
     background-color: red;
 }
@@ -27,6 +28,7 @@ body {
     width:200px;
     height:1000px;
     margin-right:0px;
+    float:right;
     
     background-color: orange;
 }
