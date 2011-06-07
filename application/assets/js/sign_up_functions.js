@@ -218,7 +218,7 @@ $(document).ready(function() {
         }
     });
     
-    $('labell').inFieldLabels();
+    $('label').inFieldLabels();
     
 // End of ready function.
 });
