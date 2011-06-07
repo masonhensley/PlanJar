@@ -10,7 +10,25 @@
 
     <body>
     <center>
-        <div id="map_canvas" style="width:400px; height:400px"></div>
+        <div id="one_mult">
+            <label for="sel_one">Select one</label>
+            <input type="radio" id="sel_one" name="one_mult_group" onchange="reset_my_groups()"/>
+            <label for="sel_all">Select multiple</label>
+            <input type="radio" id="sel_mult" name="one_mult_group"/>
+        </div>
+
+        <div style="width:400px; height:600px">
+            <ol id="my_groups">
+                <?php
+                for ($i = 1; $i < 10; ++$i)
+                {
+                    ?>
+                    <li class="ui-widget-content">Item  <?php echo($i); ?></li>
+                    <?php
+                }
+                ?>
+            </ol>
+        </div>
     </center>
 </body>
 </html>
