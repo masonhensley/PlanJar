@@ -2,6 +2,7 @@
 $(function() {
     initialize();
     
+    alert('selectable');
     $('#test').selectable();
 });
 
