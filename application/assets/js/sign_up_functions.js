@@ -237,7 +237,7 @@ function force_school() {
     var id = $('#su_school_id').val();
     alert('existing id: ' + id);
     
-    if (id != '') {
+    if (id == '') {
         // If id is empty, clear the school box.
         $('#su_school').val('');
         
