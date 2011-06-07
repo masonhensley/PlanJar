@@ -14,7 +14,6 @@
     <body>
         <!-- this was pulled from Tableless forms -->
         <div id="container">
-            <center>
             <div id="rightside">
                 <fieldset>
 
@@ -156,7 +155,6 @@
 
 
             <div class="clear"></div>
-            </center>
         </div>
     </body>
 </html>
