@@ -11,7 +11,7 @@ $(function() {
 });
 
 function toggle_group_select() {
-    if ($('#sel_one').attr('checked') == 'checked') {
+    if ($('#sel_one').attr('checked') != 'checked') {
         
         // Set up the Selectable instance with custom options.
         $('#my_groups').selectable('destroy');
