@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <!-- this was pulled from Tableless forms -->
+        
         <div id="container">
 
             <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
