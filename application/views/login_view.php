@@ -95,7 +95,7 @@
 
                                 <!-- Hidden input used to pass the school id to the server instead of the school name -->
                                 <input type="hidden" id="su_school_id" name="su_school_id"/>
-                                <center>
+                                
                                     <div class="div_texbox" style="">
                                         <select class="buttons_black" name="su_sex">
                                             <option value=""selected="selected"></option>
@@ -138,7 +138,7 @@
                                             }
                                             ?>
                                         </select>
-                                </center>
+                               
                                 </div>
 
                                 <div class="div_texbox">
