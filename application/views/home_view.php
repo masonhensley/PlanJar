@@ -5,7 +5,7 @@
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
-        <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
+        <link type="text/css" rel=stylesheet href="/application/assets/css/home.css"/>
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
 
