@@ -104,7 +104,7 @@
                                 </select>
                             </div>
 
-                            <div id="su_birthday" class="div_texbox">
+                            <div class="div_texbox">
                                 <select name="su_month">
                                     <option value=""selected="selected"></option>
                                     <option value="1">Jan</option>
