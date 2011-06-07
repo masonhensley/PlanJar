@@ -43,7 +43,7 @@
             
             <div class="right" align="right">
                 <div class="right_top">
-                    
+                        <a href="/home/logout">Log out.</a>
                 </div>
                 
                 <div class="right_bottom">
@@ -54,6 +54,5 @@
             
          </div>
 
-    <a href="/home/logout">Log out.</a>
 </body>
 </html>
