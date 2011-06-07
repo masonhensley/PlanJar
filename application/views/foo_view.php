@@ -13,10 +13,10 @@
     <center>
         <div id="one_mult">
             <label for="sel_one">Select one</label>
-            <input type="radio" id="sel_one" name="one_mult_group" onchange="reset_my_groups()"/>
+            <input type="radio" id="sel_one" name="one_mult_group" checked="checked" onchange="toggle_group_select()"/>
 
             <label for="sel_mult">Select multiple</label>
-            <input type="radio" id="sel_mult" name="one_mult_group" onchange="reset_my_groups()"/>
+            <input type="radio" id="sel_mult" name="one_mult_group" onchange="toggle_group_select()"/>
         </div>
 
         <div style="width:400px; height:600px">

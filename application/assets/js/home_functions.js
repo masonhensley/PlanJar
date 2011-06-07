@@ -3,46 +3,59 @@ $(function() {
     //initialize();
     
     // The following instantiation was pulled from http://forum.jquery.com/topic/ui-selectable-allow-select-multiple-without-lasso
-    /* Instantiate jQuery Selectable */
-    $('#my_groups').selectable({
-        selected: function (event, ui) {
-            var e= $(ui.selected);
-            if (e.hasClass('my-selected')) {
-                e.removeClass('my-selected');
-                e.removeClass('ui-selected');
-            } else {
-                e.addClass('my-selected');
-                e.addClass('ui-selected');
-            }
-        },
-        unselected: function (event, ui) {
-            var e= $(ui.unselected);
-            if (e.hasClass('my-selected')) {
-                e.addClass('my-selected');
-                e.addClass('ui-selected');
-            } else {
-                e.removeClass('ui-selected');
-                e.removeClass('my-selected');
-            }
-        },
-        unselecting: function (event, ui) {
-            var e= $(ui.unselecting);
-            if (e.hasClass('my-selected')) {
-                e.addClass('ui-selected');
-                e.addClass('my-selected');
-            } else {
-                e.removeClass('ui-selected');
-                e.removeClass('my-selected');
-            }
-        }
-    });
+    // Set up the Selectable instance with default options.
+    $('#my_groups').selectable();
     
     // Initialize the buttonset (select one/select multiple).
     $('#one_mult').buttonset();
 });
 
-function reset_my_groups() {
-    alert($('#sel_one').attr('checked'));
+function toggle_group_select() {
+    if ($('#sel_one').attr('checked') == 'checked') {
+        
+        // Set up the Selectable instance with custom options.
+        $('#my_groups').destroy();
+        
+        // The following instantiation was pulled from
+        // http://forum.jquery.com/topic/ui-selectable-allow-select-multiple-without-lasso
+        $('#my_groups').selectable({
+            selected: function (event, ui) {
+                var e= $(ui.selected);
+                if (e.hasClass('my-selected')) {
+                    e.removeClass('my-selected');
+                    e.removeClass('ui-selected');
+                } else {
+                    e.addClass('my-selected');
+                    e.addClass('ui-selected');
+                }
+            },
+            unselected: function (event, ui) {
+                var e= $(ui.unselected);
+                if (e.hasClass('my-selected')) {
+                    e.addClass('my-selected');
+                    e.addClass('ui-selected');
+                } else {
+                    e.removeClass('ui-selected');
+                    e.removeClass('my-selected');
+                }
+            },
+            unselecting: function (event, ui) {
+                var e= $(ui.unselecting);
+                if (e.hasClass('my-selected')) {
+                    e.addClass('ui-selected');
+                    e.addClass('my-selected');
+                } else {
+                    e.removeClass('ui-selected');
+                    e.removeClass('my-selected');
+                }
+            }
+        });
+    } else {
+        
+        // Set up the Selectable instance with standard options.
+        $('#my_groups').destroy();
+        $('#my_groups').selectable();
+    }
 }
 
 
