@@ -100,18 +100,6 @@ label {
     background-color:#F0FFE6;
 }
 
-/*
-.username {
-    background-image: url(images/16m.png);
-    background-repeat: no-repeat;
-    background-position:left;
-    width:260px;
-    font:normal 18px Arial;
-    color: #999999;
-    padding:3px 5px 3px 19px;
-}
-*/
-
 .username:focus, .username:hover {
     background-color:#F0FFE6;
 }
@@ -123,8 +111,12 @@ label {
 .button_div {
     width:148px;
     text-align:center;
-    top:10px;
     padding-top:11px;
+}
+.submit_div{
+    position:relative;
+    left:150px;
+    top:15px;
 }
 .buttons {
     background: #ffffff;
@@ -161,6 +153,7 @@ label {
     clear: left;
     float: left;
 }
+
 .radio {
     background: url(radio.gif) no-repeat;
 }

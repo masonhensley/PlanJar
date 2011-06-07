@@ -25,19 +25,21 @@
                     </font>
 
                     <form id="log_in" class="form">
+                        <div class="form_inputs">
+                            <label for="li_email">E-mail</label>
+                            <div class="div_texbox">
+                                <input name="li_email" type="text" class="textbox" id="li_email" />
+                            </div>
 
-                        <label for="li_email">E-mail</label>
-                        <div class="div_texbox">
-                            <input name="li_email" type="text" class="textbox" id="li_email" />
-                        </div>
-
-                        <label for="li_password">Password</label>
-                        <div class="div_texbox">
-                            <input name="li_password" type="password" class="textbox" id="password" />
+                            <label for="li_password">Password</label>
+                            <div class="div_texbox">
+                                <input name="li_password" type="password" class="textbox" id="password" />
+                            </div>
                         </div>
 
                         <div class="button_div">
-                            <input type="submit" class="buttons" value="Log In" /><br/>
+                            
+                            <div class ="submit_div"><input type="submit" class="buttons" value="Log In" /></div><br/>
                             <div style="position:relative; top:4px; font-family:Arial, Helvetica, sans-serif;"><center><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</center></div>
                         </div>
 
@@ -89,10 +91,10 @@
                         <div class="div_texbox">
                             <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
                         </div>
-                        
+
                         <!-- Hidden input used to pass the school id to the server instead of the school name -->
                         <input type="hidden" id="su_school_id" name="su_school_id"/>
-                        
+
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
                             <select class="buttons_black" name="su_sex">
@@ -145,7 +147,7 @@
                         </div>
 
                         <div class="button_div">
-                            <center><input class="buttons" type="submit" value="Sign up"></center>
+                            <div class="submit_div"><input class="buttons" type="submit" value="Sign up"></div>
                         </div>
 
                     </form>
