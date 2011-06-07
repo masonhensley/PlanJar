@@ -68,6 +68,7 @@
                         </font>
 
                         <form id="sign_up" action="/login/try_sign_up" method="get">
+                            <div id="top_padding" style="position:relative; width:260px; height:10px;"></div>
 
                             <div class="div_texbox">
                                 <div class="block">
