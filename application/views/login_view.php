@@ -22,10 +22,9 @@
 
                         <legend>Enter site</legend>
 
-                        <font color="purple" >
+                        <font color="red" >
                             <div id="li_error" class ="error_message">
-                                <!-- Errors will be displayed here -->
-                            </div>
+                                <!-- Errors will be displayed here --></div>
                         </font>
 
                         <form id="log_in" class="form">
@@ -53,7 +52,7 @@
                         </form>
 
                     </fieldset>
-                    <div style="position:relative; width:292px; top:15px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
+                    <div style="position:relative; width:312px; top:15px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
 
 
                 </div>
