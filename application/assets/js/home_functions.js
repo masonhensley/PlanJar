@@ -1,8 +1,40 @@
 // Run when the DOM is loaded.
 $(function() {
-    initialize();
+    //initialize();
     
-    $('#test').selectable();
+    /* Instantiate jQuery Selectable */
+    $('#test').selectable({
+        selected: function (event, ui) {
+            var e= $(ui.selected);
+            if (e.hasClass('my-selected')) {
+                e.removeClass('my-selected');
+                e.removeClass('ui-selected');
+            } else {
+                e.addClass('my-selected');
+                e.addClass('ui-selected');
+            }
+        },
+        unselected: function (event, ui) {
+            var e= $(ui.unselected);
+            if (e.hasClass('my-selected')) {
+                e.addClass('my-selected');
+                e.addClass('ui-selected');
+            } else {
+                e.removeClass('ui-selected');
+                e.removeClass('my-selected');
+            }
+        },
+        unselecting: function (event, ui) {
+            var e= $(ui.unselecting);
+            if (e.hasClass('my-selected')) {
+                e.addClass('ui-selected');
+                e.addClass('my-selected');
+            } else {
+                e.removeClass('ui-selected');
+                e.removeClass('my-selected');
+            }
+        }
+    });
 });
 
 
@@ -10,7 +42,7 @@ $(function() {
 	
 
 var initialLocation;
-var browserSupportFlag =  new Boolean();
+var browserSupportFlag;
 
 function initialize() {
     var map_options = {
