@@ -61,6 +61,7 @@
                         <fieldset>
                             <legend>Not a member?  Sign up for free.</legend>
 
+                            <center>
                             <font color="purple" >
                                 <div id="su_error" class="error_message">
                                     <!-- Errors will be displayed here -->
