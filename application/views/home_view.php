@@ -39,7 +39,13 @@
             </div>
 
             <div class="leftpanel">
-                <ol id="test">
+                <div id="one_mult">
+                    <label for="sel_one">Select one</label>
+                    <input type="radio" id="sel_one" onchange="reset_my_groups()"/>
+                    <label for="sel_all">Select one</label>
+                    <input type="radio" id="sel_one"/>
+                </div> 
+                <ol id="my_groups">
                     <?php
                     for ($i = 1; $i < 10; ++$i)
                     {
