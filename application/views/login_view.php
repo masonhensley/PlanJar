@@ -54,7 +54,7 @@
 
                         </fieldset>
 
-                        <div><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
+                        <div style="position:relative; width:300px;"><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
 
                     </div>
                     <div id="rightside">
