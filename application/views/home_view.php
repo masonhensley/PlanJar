@@ -10,7 +10,6 @@
 
         <script type="text/javascript">
             $(function() {
-                alert('test');
                 $( "#tabs" ).tabs({
                     collapsible: true
                 });
@@ -59,19 +58,19 @@
                             <?php
                         }
                         ?>
-                        </ul>
-                        </div>
+                    </ol>
+            </div>
 
-                        <div class="rightpanel">
-                            <div class="centergraph">
+            <div class="rightpanel">
+                <div class="centergraph">
 
-                            </div>
-                            <div class="logout_panel">
-                                <a href="/home/logout">Log out.</a>
-                            </div>
-                        </div>
+                </div>
+                <div class="logout_panel">
+                    <a href="/home/logout">Log out.</a>
+                </div>
+            </div>
 
-                        </div>
-                        </center>
-                        </body>
-                        </html>
+        </div>
+    </center>
+</body>
+</html>
