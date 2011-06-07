@@ -28,7 +28,6 @@
                     <?php
                 }
                 ?>
-                <li>Sep<?php echo($i); ?></li>
                 <?php
                 for ($i = 1; $i < 10; ++$i)
                 {
