@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Almost there</title>
-        <link rel=stylesheet href="/application/assets/css/login.css" type="text/css" />
+        <link rel=stylesheet href="<?php echo(base_url()); ?>/application/assets/css/login.css" type="text/css" />
     </head>
 
     <body>
