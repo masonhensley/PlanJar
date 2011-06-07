@@ -29,11 +29,9 @@
                 </div>
                 <div id="tabs-1">
 		<p><strong>Click this tab again to close the content pane.</strong></p>
-		
 	</div>
 	<div id="tabs-2">
 		<p><strong>Click this tab again to close the content pane.</strong></p>
-		
 	</div>
             </div>
 
