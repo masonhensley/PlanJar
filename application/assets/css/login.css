@@ -171,6 +171,6 @@ h1 {
 
 #log_in label, #sign_up label {
     position:absolute;
-    top:5px;
+    top:0;
     left:0
 }
