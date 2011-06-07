@@ -94,14 +94,14 @@
                             <div class="div_texbox">
                                 <div class="block">
                                     <label for="su_first_name">First name</label>
-                                    <input name="su_first_name" type="text" class="textbox">
+                                    <input id="su_first_name" name="su_first_name" type="text" class="textbox">
                                 </div>
                             </div>
 
                             <div class="div_texbox">
                                 <div class="block">
                                     <label for="su_last_name">Last name</label>
-                                    <input name="su_last_name" type="text" class="textbox">
+                                    <input id="su_last_name" name="su_last_name" type="text" class="textbox">
                                 </div>
                             </div>
 
