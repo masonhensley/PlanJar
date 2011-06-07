@@ -32,7 +32,7 @@
 
                             <div class="div_texbox">
                                 <div class="block">
-                                    <label for="li_email" style="top:10px">Email</label><br>
+                                    <label for="li_email" style="top:10px">Email</label>
                                     <input id="li_email" name="li_email" type="text" class="textbox" id="li_email" />
                                 </div>
                             </div>
