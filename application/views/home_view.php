@@ -17,8 +17,8 @@
         </script>
     </head>
 
-    <body>
-        <div class="container" align="center">
+    <body align="center">
+        <div class="container" >
             
             <div class="left" align="left">
                 <div class="left_top">
