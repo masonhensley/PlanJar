@@ -59,7 +59,6 @@ h1 {
     width:260px;
     float:right;
     height:40px;
-    padding-top:10px;
 }
 
 .textbox {
@@ -69,7 +68,6 @@ h1 {
     width:260px;
     font:normal 18px Arial;
     color: #999999;
-    padding-top:10px;
 }
 .textbox:focus, .textbox:hover {
     background-color:#f9f2fc;
