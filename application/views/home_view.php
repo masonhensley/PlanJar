@@ -17,10 +17,10 @@
         </script>
     </head>
 
-    <body align="center">
-        <div class="container" >
+    <body >
+        <div class="container" align="center">
             
-            <div class="left" align="left">
+            <div class="left" >
                 <div class="left_top">
                     
                 </div>

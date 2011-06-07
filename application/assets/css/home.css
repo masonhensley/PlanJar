@@ -11,6 +11,7 @@ body {
 .left{
     width:200px;
     height:1000px;
+    margin-left: 0px;
     
     background-color: yellow;
 }
@@ -25,6 +26,7 @@ body {
 .right{
     width:200px;
     height:1000px;
+    margin-right:0px;
     
     background-color: orange;
 }
