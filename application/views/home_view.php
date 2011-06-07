@@ -20,7 +20,7 @@
     <body>
         <div class="container">
             
-            <div class="left">
+            <div class="left" align="left">
                 <div class="left_top">
                     
                 </div>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             
-            <div class="center">
+            <div class="center" align="center">
                 <div class="center_top">
                     
                 </div>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             
-            <div class="right">
+            <div class="right" align="right">
                 <div class="right_top">
                     
                 </div>
