@@ -26,12 +26,10 @@
 
                     <form id="log_in" class="form">
                         <div class="form_inputs">
-                            <label for="li_email">E-mail</label>
                             <div class="div_texbox">
                                 <input name="li_email" type="text" class="textbox" id="li_email" />
                             </div>
 
-                            <label for="li_password">Password</label>
                             <div class="div_texbox">
                                 <input name="li_password" type="password" class="textbox" id="password" />
                             </div>
@@ -62,32 +60,27 @@
                     </font>
 
                     <form id="sign_up" action="/login/try_sign_up" method="get">
-                        <label for="su_email_1">E-mail</label>
+                       
                         <div class="div_texbox">
                             <input id="su_email_1" name="su_email_1" type="text" class="textbox">
                         </div>
 
-                        <label for="su_email_2">Re-enter E-mail</label>
                         <div class="div_texbox">
                             <input name="su_email_2" type="text" class="textbox">
                         </div>
 
-                        <label for="su_password">Password</label>
                         <div class="div_texbox" id="foo">
                             <input name="su_password" type="password" class="textbox">
                         </div>
 
-                        <label for="su_first_name">First Name</label>
                         <div class="div_texbox">
                             <input name="su_first_name" type="text" class="textbox">
                         </div>
 
-                        <label for="su_last_name">Last Name</label>
                         <div class="div_texbox">
                             <input name="su_last_name" type="text" class="textbox">
                         </div>
 
-                        <label for="su_school">School</label>
                         <div class="div_texbox">
                             <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
                         </div>
@@ -95,7 +88,6 @@
                         <!-- Hidden input used to pass the school id to the server instead of the school name -->
                         <input type="hidden" id="su_school_id" name="su_school_id"/>
 
-                        <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
                             <select class="buttons_black" name="su_sex">
                                 <option value=""selected="selected"></option>
@@ -104,7 +96,6 @@
                             </select>
                         </div>
 
-                        <label for="su_birthday">Birthday</label>
                         <div id="su_birthday" class="div_texbox">
                             <select name="su_month">
                                 <option value=""selected="selected"></option>
@@ -141,7 +132,6 @@
                             </select>
                         </div>
 
-                        <label for="su_grad_year">Class of</label>
                         <div class="div_texbox">
                             <input name="su_grad_year" type="text" class="textbox">
                         </div>
