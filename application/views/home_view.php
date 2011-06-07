@@ -43,7 +43,7 @@
                     for ($i = 1; $i < 10; ++$i)
                     {
                         ?>
-                        <li class="ui-widget-content">Item  <?php echo($i); ?></li>;
+                        <li class="ui-widget-content">Item  <?php echo($i); ?></li>
                         <?php
                     }
                     ?>
