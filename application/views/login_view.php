@@ -104,7 +104,7 @@
                                 </select>
                             </div>
 
-                            <div id="su_birthday" class="div_texbox">
+                            <div class="div_texbox">
                                 <select name="su_month">
                                     <option value=""selected="selected"></option>
                                     <option value="1">Jan</option>
@@ -120,6 +120,7 @@
                                     <option value="11">Nov</option>
                                     <option value="12">Dec</option>
                                 </select>
+
                                 <select name="su_day">
                                     <option value="" selected="selected"></option>
                                     <?php
@@ -129,6 +130,7 @@
                                     }
                                     ?>
                                 </select>
+
                                 <select name="su_year">
                                     <option value="" selected="selected"></option>
                                     <?php
@@ -138,7 +140,6 @@
                                     }
                                     ?>
                                 </select>
-
                             </div>
 
                             <div class="div_texbox">
@@ -155,7 +156,6 @@
 
                     </fieldset>
                 </div>
-
 
                 <div class="clear"></div>
             </div>
