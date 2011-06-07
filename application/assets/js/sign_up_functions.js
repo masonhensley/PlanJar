@@ -12,6 +12,7 @@ $(document).ready(function() {
                 required: true
             }
         },
+        // Submit and redirect
         submitHandler: function(form) {
             // Send the form information to the try_login function.
             $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
@@ -23,6 +24,7 @@ $(document).ready(function() {
                 }
             });
         },
+        // Custom error messages
         messages: {
             li_email: {
                 required: 'Enter your email address.',
@@ -34,10 +36,14 @@ $(document).ready(function() {
         },
         showErrors: function(errorMap, errorList) {
             // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
+            // Displays one error at a time and changes the invalid input's class
+            
+            // Remove all error classes.
             $("#log_in").find("input").each(function() {
                 $(this).removeClass("highlight_error");
             });
             
+            // Add the error class to the first invalid field.
             $("#li_error").html("");
             if(errorList.length) {
                 $("#li_error").html(errorList[0]['message']);
@@ -105,19 +111,21 @@ $(document).ready(function() {
                 max: get_year() + 6
             }
         },
+        // Submit and redirect
         submitHandler: function(form) {
             // Send the form information to the try_sign_up function.
             alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 alert(data);
-            //                // Redirect or display the error.
-            //                if (data != 'error')  {
-            //                    window.location.href = data;
-            //                } else {
-            //                    alert(data);
-            //                }
+                // Redirect or display an error.
+                if (data != 'error')  {
+                    window.location.href = data;
+                } else {
+                    alert('try again');
+                }
             });
         },
+        // Custom error messages
         messages: {
             su_email_1: {
                 required: 'Enter your email address.',
@@ -165,6 +173,7 @@ $(document).ready(function() {
         },
         showErrors: function(errorMap, errorList) {
             // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
+            // Displays one error at a time and changes the invalid input's class
             
             // Remove all error classes.
             $("#sign_up").find("input, select").each(function() {
@@ -183,13 +192,15 @@ $(document).ready(function() {
     // Initialize the autocomplete instance.
     $('#su_school').autocomplete({
         minLength: 2,
+        // Get info from the server.
         source: function (request, response) {
             $.get('/login/search_schools', {
                 needle: request.term
             }, function (data) {
                 
-                // Convert each item in the input JSON to the required JSON form for the autocomplete
-                // and pass the result through the response handler.
+                // Convert each item in the JSON from the server to the required JSON
+                // form for the autocomplete and pass the result through the response
+                // handler.
                 data = $.parseJSON(data);
                 response($.map(data, function (item) {
                     return {
@@ -201,6 +212,8 @@ $(document).ready(function() {
                 
             });
         },
+        // When an item is selected, update the school text as well as the hidden school
+        // id field.
         select: function (event, ui) {
             $('#su_school').val(ui.item.value);
             $('#su_school_id').val(ui.item.id);
@@ -217,15 +230,20 @@ function get_year()
     return d.getFullYear();
 }
 
-// Should be run on #su_school on blur.
-// Reverts #su_school to the school name represented by #su_school_id if available
+// Should be run on #su_school onblur.
+// Ensures only a valid school can be submitted.
 function force_school() {
+    // Get the school id stored in the hidden field.
     var id = $('#su_school_id').val();
     
-    // If id is not empty (some school already selected), replace the textbox value with
-    // the correct name from the server (to avoid user confusion). Otherwise, clear the
-    // autocomplete.
     if (id != '') {
+        // If id is empty, clear the school box.
+        $('#su_school').val('');
+        
+    } else {
+        // A school was previously selected, so repopulate the school box with that
+        // name (pulled from the server) This should make it clear to the user that
+        // only a chosen school can be submitted.
         $.get('/login/get_school_by_id', {
             "id": id
         }, function(data) {
@@ -233,7 +251,5 @@ function force_school() {
                 $('#su_school').val(data);
             }
         });
-    } else {
-        $('#su_school').val('');
     }
 }

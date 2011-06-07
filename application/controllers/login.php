@@ -50,13 +50,10 @@ class Login extends CI_Controller
 
         if ($registered)
         {
-            echo "success";
+            echo "/login/post_sign_up";
         } else
         {
-            if (!$this->ion_auth->username_check($email))
-            {
-                echo "username_error";
-            }
+            echo "error";
         }
     }
 
@@ -131,6 +128,11 @@ class Login extends CI_Controller
             $row = $query->row_array();
             echo($row['school']);
         }
+    }
+    
+    // Post sign up message
+    public function post_sign_up() {
+        $this->load->view('post_sign_up_view');
     }
 
 }
