@@ -12,8 +12,8 @@
         <div class="almost_there">
             <fieldset>
                 <legend>Almost there...</legend>
-                Thanks for registering for PlanJar.com.
-                Please check your email to confirm your account.
+                <p>Thanks for registering for PlanJar.com.
+                Please check your email to confirm your account.</p>
             </fieldset>
         </div>
     </center>
