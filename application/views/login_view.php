@@ -15,7 +15,7 @@
         <!-- this was pulled from Tableless forms -->
         <div id="container">
 
-            <div style="position:relative; width:1000px; height:1000px;">
+            <div style="position:relative; width:700px; margin-left: auto; margin-right: auto; height:1000px;">
                 <div id="leftside">
                     <fieldset>
 
