@@ -27,12 +27,12 @@
                             </p>
 <!--                        </div>-->
 
-                        <div class="div_texbox">
+<!--                        <div class="div_texbox">-->
                             <p>
                                 <label for="li_password">Password</label>
                                 <input name="li_password" type="password" class="textbox" id="password" />
                             </p>
-                        </div>
+<!--                        </div>-->
 
                         <div class="button_div">
                             <input type="submit" class="buttons" value="Log In" />
