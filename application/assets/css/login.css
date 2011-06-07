@@ -110,16 +110,10 @@ label {
 
 .button_div {
     position:relative;
-    width:40px;
+    width:100px;
     text-align:center;
 }
-/*
-.submit_div{
-    position:relative;
-    left:50px;
-    top:15px;
-}
-*/
+
 .buttons {
     background: #ffffff;
     font-size:17px; 
