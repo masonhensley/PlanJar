@@ -40,14 +40,14 @@ h1 {
     height:50px;
 }
 */
-#leftSide {
+#rightside {
     position:absolute;
     width:300px;
     padding-top:30px;
     left:400px;
 }
 
-#rightside{
+#leftside{
     position:absolute;
     width:300px;
     height:1000px;

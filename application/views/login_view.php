@@ -14,7 +14,7 @@
     <body>
         <!-- this was pulled from Tableless forms -->
         <div id="container">
-            <div id="rightside">
+            <div id="leftside">
                 <fieldset>
 
                     <legend>Enter site</legend>
@@ -55,7 +55,7 @@
                 <div><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
 
             </div>
-            <div id="leftSide">
+            <div id="rightside">
                 <fieldset>
                     <legend>Not a member?  Sign up for free.</legend>
 
