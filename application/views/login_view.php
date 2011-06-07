@@ -120,6 +120,7 @@
                                     <option value="11">Nov</option>
                                     <option value="12">Dec</option>
                                 </select>
+
                                 <select name="su_day">
                                     <option value="" selected="selected"></option>
                                     <?php
@@ -129,6 +130,7 @@
                                     }
                                     ?>
                                 </select>
+
                                 <select name="su_year">
                                     <option value="" selected="selected"></option>
                                     <?php
@@ -138,7 +140,6 @@
                                     }
                                     ?>
                                 </select>
-
                             </div>
 
                             <div class="div_texbox">
@@ -147,7 +148,9 @@
 
                             <div class="button_div">
                                 <div style="position:relative; top:5px;">
-                                    <div class="submit_div"><input class="buttons" type="submit" value="Sign up"></div>
+                                    <div class="submit_div">
+                                        <input class="buttons" type="submit" value="Sign up">
+                                    </div>
                                 </div>
                             </div>
 
@@ -155,7 +158,6 @@
 
                     </fieldset>
                 </div>
-
 
                 <div class="clear"></div>
             </div>
