@@ -116,7 +116,6 @@ $(document).ready(function() {
             // Send the form information to the try_sign_up function.
             alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
-                alert(data);
                 // Redirect or display an error.
                 if (data != 'error')  {
                     window.location.href = data;
