@@ -37,7 +37,7 @@ h1 {
 
 #rightside {
     position:absolute;
-    width:220px;
+    width:260px;
     padding-top:30px;
     left:400px;
     right:0;
@@ -45,7 +45,7 @@ h1 {
 
 #leftside{
     position:absolute;
-    width:220px;
+    width:260px;
     height:1000px;
     padding-top:30px;
     left:0;
@@ -58,7 +58,7 @@ h1 {
     background-color:#fff;
 }
 .div_textbox {
-    width:220px;
+    width:260px;
     float:right;
     height:40px;
 }
@@ -67,7 +67,7 @@ h1 {
     background-image: url(images/16t.png);
     background-repeat: no-repeat;
     background-position:left;
-    width:220px;
+    width:260px;
     bottom:5px;
     font:normal 18px Arial;
     color: #999999;
@@ -140,7 +140,7 @@ h1 {
 
 .error_message{
     position:relative;
-    width:220px;
+    width:260px;
     height:20px;
     font-family:Arial, Helvetica, sans-serif;
     text-align:center;
