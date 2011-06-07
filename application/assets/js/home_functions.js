@@ -2,8 +2,8 @@
 $(function() {
     //initialize();
     
-    alert('selectable');
     $('#test').selectable({
+        /*
         selected: function(event, ui) {
             if ($(ui.selected).hasClass('click-selected')) {
                 $(ui.selected).removeClass('ui-selected click-selected');
@@ -16,6 +16,7 @@ $(function() {
         unselected: function (event, ui) {
             $(ui.unselected).removeClass('click-selected');
         }
+        */
     });
 });
 
