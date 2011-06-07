@@ -78,12 +78,7 @@ h1 {
 .div_textbox {
     width:290px;
     float:right;
-    background-color:#E6E6E6;
     height:40px;
-    margin-top:3px;
-    padding-top:5px;
-    padding-bottom:3px;
-    padding-left:5px;
 }
 
 .textbox {
