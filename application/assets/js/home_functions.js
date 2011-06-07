@@ -10,7 +10,7 @@ var browserSupportFlag =  new Boolean();
 
 function initialize() {
     var map_options = {
-        zoom: 6,
+        zoom: 14,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"), map_options);
