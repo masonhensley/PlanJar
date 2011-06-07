@@ -16,7 +16,7 @@
                     <?php
                     for ($i = 1; $i < 10; ++$i)
                     {
-                        echo("<li>Item " . $i . "</li>");
+                        echo("<li class=\"ui-widget-content\">Item " . $i . "</li>");
                     }
                     ?>
                 </ul>
