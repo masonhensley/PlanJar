@@ -218,6 +218,7 @@ $(document).ready(function() {
         }
     });
     
+    // Initialize tthe in-field labels.
     $('label').inFieldLabels();
     
 // End of ready function.
