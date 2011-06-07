@@ -58,6 +58,8 @@ h1 {
     background-color:#fff;
 }
 .div_textbox {
+    position:relative;
+    top:10px;
     padding-top:10px;
     width:260px;
     float:right;
@@ -70,7 +72,6 @@ h1 {
     background-position:left;
     width:260px;
     bottom:5px;
-    padding-top:10px;
     font:normal 18px Arial;
     color: #999999;
 }
