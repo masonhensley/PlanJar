@@ -10,6 +10,7 @@
 
         <script type="text/javascript">
             $(function() {
+                alert('test');
                 $( "#tabs" ).tabs({
                     collapsible: true
                 });
