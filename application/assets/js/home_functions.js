@@ -42,8 +42,8 @@ $(function() {
 });
 
 function reset_my_groups() {
-        alert($('#sel_one').attr('checked'));
-    }
+    alert($('#sel_one').attr('checked'));
+}
 
 
 
