@@ -4,6 +4,7 @@ body {
 fieldset {
     border:1px solid #000000;
     background-color: white;
+    width:312px;
 }
 legend {
     font-family:Arial, Helvetica, sans-serif;
