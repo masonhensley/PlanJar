@@ -6,6 +6,7 @@
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
+        <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
         <script type="text/javascript">
             $(function() {
@@ -28,13 +29,13 @@
                     </ul>
                 </div>
                 <div id="tabs-1">
-		<p><strong>Click this tab again to close the content pane.</strong></p>
-		
-	</div>
-	<div id="tabs-2">
-		<p><strong>Click this tab again to close the content pane.</strong></p>
-		
-	</div>
+                    <p><strong>Click this tab again to close the content pane.</strong></p>
+
+                </div>
+                <div id="tabs-2">
+                    <p><strong>Click this tab again to close the content pane.</strong></p>
+
+                </div>
             </div>
 
             <div class="leftpanel">
