@@ -1,3 +1,6 @@
+// Run when the DOM is loaded.
 $(function() {
-    $('#test').selectable();
+    // Detect the browser.
+    var useragent = navigator.userAgent;
+    alert(useragent.appCodeName);
 });
