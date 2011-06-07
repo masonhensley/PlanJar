@@ -11,6 +11,7 @@ $(function() {
 });
 
 function toggle_group_select() {
+    alert('here');
     if ($('#sel_one').attr('checked') == 'checked') {
         alert('sel one');
         
