@@ -3,23 +3,13 @@ $(function() {
     //initialize();
     
     $('#test').selectable({
-        selected: function(event, ui) {
-            alert($(ui.selected).hasClass('ui-selected'))
-        },
-        /*
-            if ($(ui.selected).hasClass('click-selected')) {
-                $(ui.selected).removeClass('ui-selected click-selected');
-
+        // Toggle the state when an object is selected.
+        sart: function(event, ui) {
+            if ($(ui.selected).hasClass('ui-selected')) {
+                $(ui.selected).removeClass('ui-selected');
             } else {
-                $(ui.selected).addClass('click-selected');
-
+                $(ui.selected).addClass('ui-selected');
             }
-        */
-        
-        unselected: function (event, ui) {
-            /*
-            $(ui.unselected).removeClass('click-selected');
-            */
         }
     });
 });
