@@ -160,15 +160,14 @@ h1 {
     font-family:Arial, Helvetica, sans-serif;
 }
 
+/* The following two classes are used for the in-field labels. */
 #log_in div.block, #sign_up div.block {
     position:relative;
 }
-
-
 #log_in label, #sign_up label {
     position:absolute;
-    top:9px;
-    left:14px;
+    top:7px;
+    left:16px;
     font:normal 18px Arial;
     color: #999999;
 }

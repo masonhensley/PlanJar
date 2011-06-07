@@ -68,7 +68,7 @@
                             </div>
                         </font>
                         <center>
-                            <form id="sign_up" action="/login/try_sign_up" method="get">
+                            <form id="sign_up" class="form" action="/login/try_sign_up" method="get">
                                 <div id="top_padding" style="position:relative; width:260px; height:10px;"></div>
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
