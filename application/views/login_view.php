@@ -29,6 +29,7 @@
                         <center>
                             <form id="log_in" class="form">
 
+                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
                                         <label for="li_email">Email</label>
@@ -72,7 +73,7 @@
 
                                 <div class="div_texbox">
                                     <div class="block">
-                                        <label for="su_email_1">Email</label>
+                                        <label for="su_email_1" class="first_label">Email</label>
                                         <input id="su_email_1" name="su_email_1" type="text" class="textbox">
                                     </div>
                                 </div>
