@@ -31,18 +31,18 @@
                         <form id="log_in" class="form">
                             <div class="div_texbox">
                                 <div class="block">
-                                    <label for="li_email">Email</label><br>
+                                    <label for="li_email">Email</label>
                                     <input id="li_email" name="li_email" type="text" class="textbox"/>
                                 </div>
                             </div>
-                            <br/>
+                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                             <div class="div_texbox">
                                 <div class="block">
                                     <label for="li_password">Password</label>
                                     <input id="li_password" name="li_password" type="password" class="textbox"/>
                                 </div>
                             </div>
-                            <br/>
+                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                             <div class="button_div">
                                 <div style="position:relative; top:5px;">
                                     <input type="submit" class="buttons" value="Log In" />
