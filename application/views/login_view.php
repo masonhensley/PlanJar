@@ -28,12 +28,12 @@
 
                         <label for="li_email">E-mail</label>
                         <div class="div_texbox">
-                            <input name="li_email" type="text" class="username" id="li_email" />
+                            <input name="li_email" type="text" class="textbox" id="li_email" />
                         </div>
 
                         <label for="li_password">Password</label>
                         <div class="div_texbox">
-                            <input name="li_password" type="password" class="username" id="password" />
+                            <input name="li_password" type="password" class="textbox" id="password" />
                         </div>
 
                         <div class="button_div">

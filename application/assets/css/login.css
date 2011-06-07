@@ -58,14 +58,14 @@ label {
 #leftSide {
     width:500px;
     padding-top:30px;
-    float:left;
+    float:right;
 }
 
 #rightside{
     width:500px;
     height:1000px;
     padding-top:30px;
-    float:right;
+    float:left;
 }
 
 .clear {
@@ -100,6 +100,7 @@ label {
     background-color:#F0FFE6;
 }
 
+/*
 .username {
     background-image: url(images/16m.png);
     background-repeat: no-repeat;
@@ -109,6 +110,8 @@ label {
     color: #999999;
     padding:3px 5px 3px 19px;
 }
+*/
+
 .username:focus, .username:hover {
     background-color:#F0FFE6;
 }
