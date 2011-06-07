@@ -67,6 +67,7 @@
                                 <!-- Errors will be displayed here -->
                             </div>
                         </font>
+                        
                         <center>
                             <form id="sign_up" class="form">
 
@@ -77,6 +78,7 @@
                                         <input id="su_email_1" name="su_email_1" type="text" class="textbox">
                                     </div>
                                 </div>
+                                
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -84,6 +86,7 @@
                                         <input id="su_email_2" name="su_email_2" type="text" class="textbox">
                                     </div>
                                 </div>
+                                
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -91,6 +94,7 @@
                                         <input id="su_password" name="su_password" type="password" class="textbox">
                                     </div>
                                 </div>
+                                
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -98,6 +102,7 @@
                                         <input id="su_first_name" name="su_first_name" type="text" class="textbox">
                                     </div>
                                 </div>
+                                
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -105,6 +110,7 @@
                                         <input id="su_last_name" name="su_last_name" type="text" class="textbox">
                                     </div>
                                 </div>
+                                
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -112,19 +118,21 @@
                                         <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
                                     </div>
                                 </div>
-                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                                
                                 <!-- Hidden input used to pass the school id to the server instead of the school name -->
                                 <input type="hidden" id="su_school_id" name="su_school_id"/>
-
-                                <div class="div_texbox" style="">
-                                    <select class="buttons_black" name="su_sex">
+                                
+                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                                <div class="div_texbox" style="align:left">
+                                    <select name="su_sex">
                                         <option value="" selected="selected"></option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
+                                    &nbsp;Sex
                                 </div>
+                                
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-
                                 <div class="div_texbox">
                                     <select name="su_month">
                                         <option value=""selected="selected"></option>
