@@ -39,9 +39,8 @@
                             <input name="li_password" type="password" class="textbox" id="password" />
                             <!--                            </p>-->
                         </div>
-                        <br/>
                         <div class="div_textbox">
-                            <div style="position:relative; top:7px;">
+                            <div style="position:relative; top:5px;">
                                 <input type="submit" class="buttons" value="Log In" />
                                 <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
                             </div>
@@ -142,7 +141,9 @@
                         </div>
 
                         <div class="button_div">
-                            <div class="submit_div"><input class="buttons" type="submit" value="Sign up"></div>
+                            <div style="position:relative; top:5px;">
+                                <div class="submit_div"><input class="buttons" type="submit" value="Sign up"></div>
+                            </div>
                         </div>
 
                     </form>
