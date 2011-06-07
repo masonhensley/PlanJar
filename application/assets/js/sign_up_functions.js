@@ -218,7 +218,7 @@ $(document).ready(function() {
         }
     });
     
-    $('label').inFieldLabels();
+    $('#log_in').inFieldLabels();
     
 // End of ready function.
 });

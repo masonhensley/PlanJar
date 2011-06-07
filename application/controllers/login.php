@@ -134,5 +134,9 @@ class Login extends CI_Controller
     public function post_sign_up() {
         $this->load->view('post_sign_up_view');
     }
+    
+   public function foo() {
+     $this->load->view('foo');
+   }
 
 }
