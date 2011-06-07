@@ -39,7 +39,7 @@ h1 {
     position:absolute;
     width:260px;
     padding-top:30px;
-    left:300px;
+    float:right;
 }
 
 #leftside{
@@ -47,6 +47,7 @@ h1 {
     width:260px;
     height:1000px;
     padding-top:30px;
+    float:left;
 }
 
 .clear {
