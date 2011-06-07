@@ -73,7 +73,8 @@ $(document).ready(function() {
                 }
             },
             su_email_2: {
-                required: true
+                required: true,
+                equalTo: '#su_email_1'
             },
             su_password: {
                 required: true,
