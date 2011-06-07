@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Almost there</title>
+        <title>Almost there...</title>
         <?php
         // Add the includes from js-css-includes.
         echo(add_includes());
