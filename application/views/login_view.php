@@ -27,11 +27,17 @@
                     <form id="log_in" class="form">
 
                         <div class="div_texbox">
-                            <input name="li_email" type="text" class="textbox" id="li_email" />
+                            <p>
+                                <label for="li_email">Email</label><br>
+                                <input id="li_email" name="li_email" type="text" class="textbox" id="li_email" />
+                            </p>
                         </div>
 
                         <div class="div_texbox">
-                            <input name="li_password" type="password" class="textbox" id="password" />
+                            <p>
+                                <label for="li_password">Password</label>
+                                <input name="li_password" type="password" class="textbox" id="password" />
+                            </p>
                         </div>
 
                         <div class="button_div">
