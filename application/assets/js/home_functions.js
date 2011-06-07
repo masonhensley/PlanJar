@@ -4,7 +4,7 @@ $(function() {
     
     $('#test').selectable({
         selected: function(event, ui) {
-            alert($(ui.selected).hasClass('click-selected'))
+            alert($(ui.selected).hasClass('ui-selected'))
         },
         /*
             if ($(ui.selected).hasClass('click-selected')) {
