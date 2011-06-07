@@ -59,7 +59,7 @@ h1 {
     width:260px;
     float:right;
     height:40px;
-    top:10px;
+    padding-top:10px;
 }
 
 .textbox {
@@ -67,9 +67,9 @@ h1 {
     background-repeat: no-repeat;
     background-position:left;
     width:260px;
-    bottom:5px;
     font:normal 18px Arial;
     color: #999999;
+    padding-top:10px;
 }
 .textbox:focus, .textbox:hover {
     background-color:#f9f2fc;
