@@ -53,7 +53,7 @@
                             </form>
                         </center>
                     </fieldset>
-                    <div style="position:relative; width:312px; top:15px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
+                    <div style="position:relative; width:338px; top:15px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
 
 
                 </div>

@@ -85,6 +85,7 @@ h1 {
 
 .button_div {
     position:relative;
+    float:left;
     width:100%;
 }
 
