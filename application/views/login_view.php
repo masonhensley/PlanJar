@@ -53,7 +53,7 @@
                             </form>
                         </center>
                     </fieldset>
-                    <div style="position:relative; width:338px; top:15px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
+                    <div style="position:relative; width:338px; top:23px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
 
 
                 </div>
@@ -117,7 +117,7 @@
 
                                 <div class="div_texbox" style="">
                                     <select class="buttons_black" name="su_sex">
-                                        <option value="" selected="selected"></option>
+                                        <option value="Select gender" selected="selected"></option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
@@ -126,6 +126,7 @@
 
                                 <div class="div_texbox">
                                     <select name="su_month">
+                                        Birthday: 
                                         <option value=""selected="selected"></option>
                                         <option value="1">Jan</option>
                                         <option value="2">Feb</option>
