@@ -32,43 +32,16 @@
                             <div class="div_texbox">
 <!--                                <p>
                                     <label for="li_email">Email</label><br>-->
-                                    <input id="li_email" name="li_email" type="text" class="textbox" id="li_email" />
-<!--                                </p>-->
+                                <input id="li_email" name="li_email" type="text" class="textbox" id="li_email" />
+                                <!--                                </p>-->
                             </div>
 
                             <div class="div_texbox">
 <!--                                <p>
                                     <label for="li_password">Password</label>-->
-                                    <input name="li_password" type="password" class="textbox" id="password" />
-                                    <!--                            </p>-->
-                                </div>
-
-                                <div class="div_textbox">
-                                    <div style="position:relative; top:5px;">
-                                        <input type="submit" class="buttons" value="Log In" />
-                                        <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </fieldset>
-
-                        <div style="position:relative; width:300px;"><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
-
-                    </div>
-                    <div id="rightside">
-                        <fieldset>
-                            <legend>Not a member?  Sign up for free.</legend>
-
-                            <center>
-                            <font color="purple" >
-                                <div id="su_error" class="error_message">
-                                    <!-- Errors will be displayed here -->
-                                </div>
-                            </font>
-
-                            <form id="sign_up" action="/login/try_sign_up" method="get">
+                                <input name="li_password" type="password" class="textbox" id="password" />
+                                <!--                            </p>-->
+                            </div>
 
                             <div class="div_textbox">
                                 <div style="position:relative; top:5px;">
@@ -80,6 +53,8 @@
                         </form>
 
                     </fieldset>
+
+                    <div style="position:relative; width:300px;"><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
 
                 </div>
                 <div id="rightside">
