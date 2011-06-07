@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <div class="width:250px">
+        <div class="almost_there">
             <fieldset>
                 <legend>Almost there...</legend>
                 Thanks for registering for PlanJar.com.
