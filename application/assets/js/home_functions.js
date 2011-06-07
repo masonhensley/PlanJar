@@ -1,6 +1,6 @@
 // Run when the DOM is loaded.
 $(function() {
-    initialize();
+    //initialize();
     
     alert('selectable');
     $('#test').selectable();
@@ -11,7 +11,7 @@ $(function() {
 	
 
 var initialLocation;
-var browserSupportFlag =  new Boolean();
+var browserSupportFlag;
 
 function initialize() {
     var map_options = {
