@@ -1,5 +1,6 @@
 body {
     background-color:#F7F7F7;
+    text-align:center;
 }
 .container {
     top:70px;
@@ -50,7 +51,7 @@ body {
     background-color: white;
 }
 
-.logout_panel{
+.right_top{
     width:100%;
     height:40px;
     border-bottom-style:solid;
@@ -61,7 +62,11 @@ body {
     background-color: white;
 }
 
-#my_groups .ui-selecting { background: #FECA40; }
-#my_groups .ui-selected { background: #F39814; color: white; }
-#my_groups { list-style-type: none; margin: 0; padding: 0; width:100% }
-#my_groups li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+.right_bottom{
+    
+}
+
+#one_mult .ui-selecting { background: #FECA40; }
+#one_mult .ui-selected { background: #F39814; color: white; }
+#one_mult { list-style-type: none; margin: 0; padding: 0; width:100% }
+#one_mult li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }

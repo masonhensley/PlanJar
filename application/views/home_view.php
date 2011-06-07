@@ -18,57 +18,42 @@
     </head>
 
     <body>
-    <center>
         <div class="container">
-
-
-            <div id="tags">
-                <ul>
-                    <li><a href="#tabs-1">Home</a></li>
-                    <li><a href="#tabs-2">Your Location</a></li>
-                </ul>
-            </div>
-            <div id="tabs-1">
-                <p><strong>Click this tab again to close the content pane.</strong></p>
-            </div>
-            <div id="tabs-2">
-                <p><strong>Click this tab again to close the content pane.</strong></p>
-            </div>
-
-
-            <div class="leftpanel">
-                <div class="planjar_logo">
-
+            
+            <div class="left">
+                <div class="left_top">
+                    
                 </div>
-
-                <div id="one_mult">
-                    <label for="sel_one">Select one</label>
-                    <input type="radio" id="sel_one" name="one_mult_group" onchange="reset_my_groups()"/>
-                    <label for="sel_all">Select multiple</label>
-                    <input type="radio" id="sel_mult" name="one_mult_group"/>
-                </div>
-                <ol id="my_groups">
-                    <?php
-                    for ($i = 1; $i < 10; ++$i)
-                    {
-                        ?>
-                        <li class="ui-widget-content">Item  <?php echo($i); ?></li>
-                        <?php
-                    }
-                    ?>
-                </ol>
-            </div>
-
-            <div class="rightpanel">
-                <div class="centergraph">
-
-                </div>
-                <div class="logout_panel">
-                    <a href="/home/logout">Log out.</a>
+                <div class="left_bottom">
+                    
                 </div>
             </div>
+            
+            <div class="center">
+                <div class="center_top">
+                    
+                </div>
+                <div class="center_graph">
+                    
+                </div>
+                <div class="center_board">
+                    
+                </div>
+            </div>
+            
+            <div class="right">
+                <div class="right_top">
+                    
+                </div>
+                
+                <div class="right_bottom">
+                    
+                </div>
+                                    
+            </div>
+            
+         </div>
 
-        </div>
-    </center>
+    <a href="/home/logout">Log out.</a>
 </body>
 </html>
