@@ -8,7 +8,7 @@ $(function() {
         selected: function(event, ui) {
             $(ui.selected).addClass('my-selected');
         },
-        selected: function(event, ui) {
+        unselected: function(event, ui) {
             $(ui.selected).removeClass('my-selected');
         }
     });
