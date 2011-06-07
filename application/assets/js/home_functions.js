@@ -3,4 +3,5 @@ $(function() {
     // Detect the browser.
     var useragent = navigator.userAgent;
     alert(useragent.appCodeName);
+    
 });
