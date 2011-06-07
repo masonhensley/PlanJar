@@ -39,12 +39,12 @@
                             <input name="li_password" type="password" class="textbox" id="password" />
                             <!--                            </p>-->
                         </div>
-
+                        <br/>
                         <div class="div_textbox">
                             <input type="submit" class="buttons" value="Log In" />
                             <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
-
                         </div>
+                        
                     </form>
 
                 </fieldset>
