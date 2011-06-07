@@ -58,7 +58,9 @@ h1 {
 #leftSide {
     width:300px;
     padding-top:30px;
-    float:right;
+    float:left;
+    position:relative;
+    left:40px;
 }
 
 #rightside{
@@ -76,7 +78,7 @@ h1 {
 
 }
 .div_textbox {
-    width:290px;
+    width:300px;
     float:right;
     height:40px;
 }
