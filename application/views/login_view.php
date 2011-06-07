@@ -42,7 +42,7 @@
 
                         <div class="textbox">
                             <input type="submit" class="buttons" value="Log In" />
-                            <div style="font-family:Arial, Helvetica, sans-serif;"><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</div>
+                            <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
 
                         </div>
                     </form>
