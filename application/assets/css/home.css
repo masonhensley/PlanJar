@@ -7,6 +7,48 @@ body {
     width:1024px;
     height:100%;
 }
+
+.left{
+    
+}
+
+.center{
+    
+}
+
+.right{
+    
+}
+
+.left_top{
+    
+}
+
+.left_bottom{
+    
+}
+
+.center_top{
+    
+}
+
+.center_graph{
+    
+}
+
+.center_board{
+    
+}
+
+.right_top{
+    
+}
+
+.right_bottom{
+    
+}
+
+/*
 .toppanel{
     position:relative;
     width:100%;
@@ -65,6 +107,8 @@ body {
 .right_bottom{
     
 }
+
+*/
 
 #one_mult .ui-selecting { background: #FECA40; }
 #one_mult .ui-selected { background: #F39814; color: white; }
