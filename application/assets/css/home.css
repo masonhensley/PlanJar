@@ -26,17 +26,7 @@ body {
     border-color: #000000 #000000 #000000 #000000;
     background-color: white;
 }
-.centerpanel {
-    position:relative;
-    width:400px;
-    float:left;
-    left:20px;
-    height:1000px;
 
-    border-width:3px;
-    border-style:solid;
-    border-color: #000000 #000000 #000000 #000000;
-}
 .centergraph{
     position:relative;
     width:400px;
