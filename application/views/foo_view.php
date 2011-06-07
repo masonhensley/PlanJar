@@ -10,7 +10,7 @@
 
     <body>
     <center>
-        <div id="map_canvas" style="width:400px; heigh:400px"></div>
+        <div id="map_canvas" style="width:400px; height:400px"></div>
     </center>
 </body>
 </html>
