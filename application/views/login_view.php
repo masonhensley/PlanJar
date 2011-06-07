@@ -15,8 +15,9 @@
         <!-- this was pulled from Tableless forms -->
         <div id="container">
 
-            <div style="position:relative; width:650px; height:1000px;">
+            <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
                 <div id="leftside">
+
                     <fieldset>
 
                         <legend>Enter site</legend>
@@ -43,7 +44,7 @@
                                 <!--                            </p>-->
                             </div>
 
-                            <div class="div_textbox">
+                            <div class="button_div">
                                 <div style="position:relative; top:5px;">
                                     <input type="submit" class="buttons" value="Log In" />
                                     <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
@@ -53,8 +54,8 @@
                         </form>
 
                     </fieldset>
+                    <div style="position:relative; width:292px; top:15px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
 
-                    <div style="position:relative; width:300px;"><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
 
                 </div>
                 <div id="rightside">
@@ -148,15 +149,14 @@
 
                             <div class="button_div">
                                 <div style="position:relative; top:5px;">
-                                    <div class="submit_div">
-                                        <input class="buttons" type="submit" value="Sign up">
-                                    </div>
+                                    <input class="buttons" type="submit" value="Sign up">
                                 </div>
                             </div>
 
                         </form>
 
                     </fieldset>
+
                 </div>
 
                 <div class="clear"></div>
