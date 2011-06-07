@@ -147,7 +147,7 @@
                         </div>
 
                         <div class="button_div">
-                            <center><input class="buttons" type="submit" value="Sign up"></center>
+                            <div class="submit_div"><input class="buttons" type="submit" value="Sign up"></div>
                         </div>
 
                     </form>
