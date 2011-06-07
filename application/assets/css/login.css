@@ -182,11 +182,11 @@ h1 {
     font-family:Arial, Helvetica, sans-serif;
 }
 
-#log_in.p {
+form p {
     position:relative;
 }
 
-#log_in.label  {
+label  {
     position:absolute;
     top:0;
     left:0
