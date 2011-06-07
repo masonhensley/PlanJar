@@ -75,15 +75,15 @@ h1 {
     padding:3px 5px 3px 19px;
 }
 .textbox:focus, .textbox:hover {
-    background-color:purple;
+    background-color:#f9f2fc;
 }
 
 .username:focus, .username:hover {
-    background-color:purpule;
+    background-color:#f9f2fc;
 }
 
 .password:focus, .password:hover {
-    background-color:purple;
+    background-color:#f9f2fc;
 }
 
 .button_div {
