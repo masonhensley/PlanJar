@@ -216,7 +216,9 @@ $(document).ready(function() {
             $('#su_school').val(ui.item.value);
             $('#su_school_id').val(ui.item.id);
         }
-    })
+    });
+    
+    $('label').inFieldLabels();
     
 // End of ready function.
 });
