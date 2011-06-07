@@ -15,9 +15,9 @@
         <!-- this was pulled from Tableless forms -->
         <div id="container">
 
-            <div style="position:relative; width:700px; margin-left: auto; margin-right: auto; height:1000px;">
+            <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
                 <div id="leftside">
-                     <div style="position:relative; width:300px;"><center><img src="/application/assets/images/Planjar logo.png" style="position:relative; top:50px;"  alt="PlanJar Logo"></center></div>
+                     <div style="position:relative; width:300px;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
                     <fieldset>
 
                         <legend>Enter site</legend>
