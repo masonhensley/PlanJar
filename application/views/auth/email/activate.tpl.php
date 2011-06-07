@@ -1,12 +1,12 @@
 <html>
-    <head>
-        <link rel=stylesheet href="<?php echo(base_url()); ?>/application/assets/css/login.css" type="text/css" />
-    </head>
-
     <body>
         <div class="almost_there">
-            <fieldset>
-                <legend>Activate your account (<?php echo $identity; ?>)</legend>
+            <fieldset style="border:1px solid #000000; padding:10px; background-color: white;">
+                <legend style="font-family:Arial, Helvetica, sans-serif; font-size: 120%;
+                        letter-spacing: -1px; font-weight: bold; line-height: 1.1; color:#fff;
+                        background: #990099; border: 1px solid #333; padding: 2px 6px;">
+                    Activate your account (<?php echo $identity; ?>)
+                </legend>
                 <p>Please click this link to
                     <?php echo anchor('auth/activate/' . $id . '/' . $activation, 'activate your account'); ?>.</p>
             </fieldset>

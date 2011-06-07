@@ -114,7 +114,6 @@ $(document).ready(function() {
         // Submit and redirect
         submitHandler: function(form) {
             // Send the form information to the try_sign_up function.
-            alert($('#sign_up').serialize());
             $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
                 // Redirect or display an error.
                 if (data != 'error')  {
