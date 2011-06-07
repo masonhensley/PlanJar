@@ -152,14 +152,13 @@ h1 {
     border-color: purple;
     border-width: 5px;
 }
-/*what is this*/
-/*
+
+/* Used for the post sign up screen */
 .almost_there {
     width: 400px;
     padding-top:15%;
     font-family:Arial, Helvetica, sans-serif;
 }
-*/
 
 #log_in div.block, #sign_up div.block {
     position:relative;
@@ -168,12 +167,8 @@ h1 {
 
 #log_in label, #sign_up label {
     position:absolute;
-    top:17px;
+    top:14px;
     left:10px;
     font:normal 18px Arial;
     color: #999999;
-}
-
-first_label {
-    
 }
