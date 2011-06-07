@@ -5,7 +5,8 @@
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
-        <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
+        <link type="text/css" rel=stylesheet href="/application/assets/css/home.css"/>
+        <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
 
     <body>
@@ -22,7 +23,7 @@
                     for ($i = 1; $i < 10; ++$i)
                     {
                         ?>
-                        <li class="ui-widget-content">Item  <?php echo($i); ?></li>;
+                        <li class="ui-widget-content">Item  <?php echo($i); ?></li>
                         <?php
                     }
                     ?>
