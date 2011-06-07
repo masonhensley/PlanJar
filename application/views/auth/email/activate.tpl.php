@@ -1,10 +1,7 @@
 <html>
     <head>
         <title>Almost there</title>
-        <?php
-        // Add the includes from js-css-includes.
-        echo(add_includes());
-        ?>
+        <link rel=stylesheet href="/application/assets/css/login.css" type="text/css" />
     </head>
 
     <body>
