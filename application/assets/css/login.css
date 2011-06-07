@@ -150,12 +150,14 @@ h1 {
     border-color: purple;
     border-width: 5px;
 }
-
+/*what is this*/
+/*
 .almost_there {
     width: 400px;
     padding-top:15%;
     font-family:Arial, Helvetica, sans-serif;
 }
+*/
 
 #log_in div.block, #sign_up div.block {
     position:relative;
@@ -163,7 +165,6 @@ h1 {
 
 #log_in label, #sign_up label {
     position:absolute;
-    /*top:5px;*/
     left:3px;
     font:normal 18px Arial;
     color: #999999;
