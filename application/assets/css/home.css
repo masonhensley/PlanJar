@@ -114,3 +114,7 @@ body {
 #my_groups .ui-selected { background: #F39814; color: white; }
 #my_groups { list-style-type: none; margin: 0; padding: 0; width:100% }
 #my_groups li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+
+#my_groups li.group_label {
+    margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px;
+}
