@@ -166,8 +166,8 @@ h1 {
 }
 #log_in label, #sign_up label {
     position:absolute;
-    top:7px;
-    left:16px;
+    top:6px;
+    left:17px;
     font:normal 18px Arial;
     color: #999999;
 }
