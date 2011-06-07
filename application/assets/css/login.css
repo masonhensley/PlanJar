@@ -158,7 +158,7 @@ h1 {
     font-family:Arial, Helvetica, sans-serif;
 }
 
-#log_in p, #sign_up p {
+#log_in div.block, #sign_up div.block {
     position:relative;
 }
 
