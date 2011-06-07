@@ -18,7 +18,7 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="container" align="center">
             
             <div class="left" align="left">
                 <div class="left_top">
@@ -29,7 +29,7 @@
                 </div>
             </div>
             
-            <div class="center" align="center">
+            <div class="center" >
                 <div class="center_top">
                     
                 </div>
@@ -41,9 +41,9 @@
                 </div>
             </div>
             
-            <div class="right" align="right">
+            <div class="right" >
                 <div class="right_top">
-                    
+                        <a href="/home/logout">Log out.</a>
                 </div>
                 
                 <div class="right_bottom">
@@ -54,6 +54,5 @@
             
          </div>
 
-    <a href="/home/logout">Log out.</a>
 </body>
 </html>

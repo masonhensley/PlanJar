@@ -10,14 +10,23 @@ body {
 
 .left{
     width:200px;
+    height:1000px;
+    
+    background-color: yellow;
 }
 
 .center{
     width:500px;
+    height:1000px;
+    
+    background-color: red;
 }
 
 .right{
     width:200px;
+    height:1000px;
+    
+    background-color: orange;
 }
 
 .left_top{
