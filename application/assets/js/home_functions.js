@@ -2,14 +2,36 @@
 $(function() {
     //initialize();
     
+    /* Instantiate jQuery Selectable */
     $('#test').selectable({
-        // Toggle the state when an object is selected.
-        start: function(event, ui) {
-            alert($(ui.selected));
-            if ($(ui.selected).hasClass('ui-selected')) {
-                $(ui.selected).removeClass('ui-selected');
+        selected: function (event, ui) {
+            var e= $(ui.selected);
+            if (e.hasClass('my-selected')) {
+                e.removeClass('my-selected');
+                e.removeClass('ui-selected');
             } else {
-                $(ui.selected).addClass('ui-selected');
+                e.addClass('my-selected');
+                e.addClass('ui-selected');
+            }
+        },
+        unselected: function (event, ui) {
+            var e= $(ui.unselected);
+            if (e.hasClass('my-selected')) {
+                e.addClass('my-selected');
+                e.addClass('ui-selected');
+            } else {
+                e.removeClass('ui-selected');
+                e.removeClass('my-selected');
+            }
+        },
+        unselecting: function (event, ui) {
+            var e= $(ui.unselecting);
+            if (e.hasClass('my-selected')) {
+                e.addClass('ui-selected');
+                e.addClass('my-selected');
+            } else {
+                e.removeClass('ui-selected');
+                e.removeClass('my-selected');
             }
         }
     });
