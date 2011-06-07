@@ -19,6 +19,7 @@
                     <legend>Enter site</legend>
 
                     <font color="purple" >
+                        <div style="font-family:Arial, Helvetica, sans-serif;"><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</div>
                         <div id="li_error" class ="error_message">
                             <!-- Errors will be displayed here -->
                         </div>
@@ -44,8 +45,6 @@
                         <input type="submit" class="buttons" value="Log In" />
                        
                     </form>
-                    
-                    <div style="font-family:Arial, Helvetica, sans-serif;"><input type="checkbox" name="li_remember" value="1" />&nbsp;Stay logged in</div>
 
                 </fieldset>
 
