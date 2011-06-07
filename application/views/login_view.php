@@ -57,7 +57,7 @@
             </div>
             <div id="leftSide">
                 <fieldset>
-                    <legend>Not a member?  Sign up.   It's easy and free.</legend>
+                    <legend>Not a member?  Sign up for free.</legend>
 
                     <font color="purple" >
                         <div id="su_error" class="error_message">
