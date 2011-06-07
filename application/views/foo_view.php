@@ -6,6 +6,7 @@
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
         <link type="text/css" rel=stylesheet href="/application/assets/css/home.css"/>
+        <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
 
     <body>
@@ -14,7 +15,7 @@
             <label for="sel_one">Select one</label>
             <input type="radio" id="sel_one" name="one_mult_group" onchange="reset_my_groups()"/>
             <label for="sel_all">Select multiple</label>
-            <input type="radio" id="sel_mult" name="one_mult_group"/>
+            <input type="radio" id="sel_mult" name="one_mult_group" onchange="reset_my_groups()"/>
         </div>
 
         <div style="width:400px; height:600px">
