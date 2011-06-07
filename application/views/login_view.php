@@ -17,7 +17,7 @@
 
             <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
                 <div id="leftside">
-                     <div style="position:relative; width:300px;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
+                    
                     <fieldset>
 
                         <legend>Enter site</legend>
@@ -156,6 +156,7 @@
                         </form>
 
                     </fieldset>
+                     <div style="position:relative; width:220px;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
                 </div>
 
                 <div class="clear"></div>
