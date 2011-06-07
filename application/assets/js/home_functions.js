@@ -5,6 +5,7 @@ $(function() {
     $('#test').selectable({
         // Toggle the state when an object is selected.
         start: function(event, ui) {
+            alert($(ui.selected));
             if ($(ui.selected).hasClass('ui-selected')) {
                 $(ui.selected).removeClass('ui-selected');
             } else {
