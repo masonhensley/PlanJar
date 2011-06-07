@@ -71,15 +71,24 @@
                         <form id="sign_up" action="/login/try_sign_up" method="get">
 
                             <div class="div_texbox">
-                                <input id="su_email_1" name="su_email_1" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_email_1">Email</label>
+                                    <input id="su_email_1" name="su_email_1" type="text" class="textbox">
+                                </div>
                             </div>
 
                             <div class="div_texbox">
-                                <input name="su_email_2" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_email_2">Confirm email</label>
+                                    <input id="su_email_2" name="su_email_2" type="text" class="textbox">
+                                </div>
                             </div>
 
-                            <div class="div_texbox" id="foo">
-                                <input name="su_password" type="password" class="textbox">
+                            <div class="div_texbox">
+                                <div class="block">
+                                    <label for="su_password">Password</label>
+                                    <input id="su_password" name="su_password" type="password" class="textbox">
+                                </div>
                             </div>
 
                             <div class="div_texbox">
