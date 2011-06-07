@@ -13,14 +13,16 @@
         <div class="container">
 
             <div class="leftpanel">
-<!--                <ol id="test">
+                <ol id="test">
                     <?php
-//                    for ($i = 1; $i < 10; ++$i)
-//                    {
-//                        echo("<li class=\"ui-widget-content\">Item " . $i . "</li>");
-//                    }
+                    for ($i = 1; $i < 10; ++$i)
+                    {
+                        ?>
+                        <li class="ui-widget-content">Item  <?php echo($i); ?></li>;
+                        <?php
+                    }
                     ?>
-                    </ul>-->
+                    </ul>
             </div>
 
             <div class="centerpanel">
