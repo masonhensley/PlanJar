@@ -98,7 +98,7 @@
 
                             <div class="div_texbox" style="">
                                 <select class="buttons_black" name="su_sex">
-                                    <option value=""selected="selected"></option>
+                                    <option value="" selected="selected"></option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
