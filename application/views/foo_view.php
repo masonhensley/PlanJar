@@ -11,6 +11,7 @@
 
     <body>
     <center>
+        Groups:
         <div id="one_mult">
             <label for="sel_one">Select one</label>
             <input type="radio" id="sel_one" name="one_mult_group" checked="checked" onchange="toggle_group_select()"/>
@@ -20,16 +21,26 @@
         </div>
 
         <div style="width:400px; height:600px">
-            Groups:
             <br/>
             <ol id="my_groups">
-                <li class="ui-widget-content">Friends - <a href="#" onclick="alert('friends page');">edit</a></li>
-                <li class="ui-widget-content">Joined</li>
+                <li class="ui-widget-content">Friends</li>
+
+                <li class="group_label">Joined</li>
                 <?php
-                for ($i = 1; $i < 10; ++$i)
+                for ($i = 1; $i < 5; ++$i)
                 {
                     ?>
-                    <li class="ui-widget-content">Item  <?php echo($i); ?></li>
+                    <li class="ui-widget-content">Group <?php echo($i); ?></li>
+                    <?php
+                }
+                ?>
+
+                <li class="group_label">Following</li>
+                <?php
+                for ($i = 1; $i < 5; ++$i)
+                {
+                    ?>
+                    <li class="ui-widget-content">Group <?php echo($i); ?></li>
                     <?php
                 }
                 ?>
