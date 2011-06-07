@@ -58,6 +58,7 @@ h1 {
     background-color:#fff;
 }
 .div_textbox {
+    padding-top:10px;
     width:260px;
     float:right;
     height:40px;
