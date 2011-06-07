@@ -11,9 +11,7 @@ $(function() {
 });
 
 function toggle_group_select() {
-    alert('here');
     if ($('#sel_one').attr('checked') == 'checked') {
-        alert('sel one');
         
         // Set up the Selectable instance with custom options.
         $('#my_groups').destroy();
@@ -53,7 +51,6 @@ function toggle_group_select() {
             }
         });
     } else {
-        alert('sel mult');
         
         // Set up the Selectable instance with standard options.
         $('#my_groups').destroy();
