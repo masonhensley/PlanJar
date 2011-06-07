@@ -11,6 +11,7 @@
 
     <body>
     <center>
+        Groups:
         <div id="one_mult">
             <label for="sel_one">Select one</label>
             <input type="radio" id="sel_one" name="one_mult_group" checked="checked" onchange="toggle_group_select()"/>
@@ -20,7 +21,6 @@
         </div>
 
         <div style="width:400px; height:600px">
-            Groups:
             <br/>
             <ol id="my_groups">
                 <li class="ui-widget-content">Friends</li>
