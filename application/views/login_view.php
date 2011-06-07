@@ -107,7 +107,7 @@
 
                             <div class="div_texbox">
                                 <div class="block">
-                                    <label for="su_school">Password</label>
+                                    <label for="su_school">Choose your school</label>
                                     <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
                                 </div>
                             </div>
@@ -163,8 +163,8 @@
 
                             <div class="div_texbox">
                                 <div class="block">
-                                    <label for="su_grad_year">Class of</label>
-                                    <input name="su_grad_year" type="text" class="textbox">
+                                    <label for="su_grad_year">Graduation year</label>
+                                    <input id="su_grad_year" name="su_grad_year" type="text" class="textbox">
                                 </div>
                             </div>
 
