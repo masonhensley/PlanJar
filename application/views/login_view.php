@@ -123,19 +123,18 @@
                                 <input type="hidden" id="su_school_id" name="su_school_id"/>
                                 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-                                <div class="div_texbox" style="text-align:left">
+                                <div class="div_texbox">
                                     <select name="su_sex">
-                                        <option value="" selected="selected"></option>
+                                        <option value="" selected="selected">Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
-                                    &nbsp;Sex
                                 </div>
                                 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <select name="su_month">
-                                        <option value=""selected="selected"></option>
+                                        <option value=""selected="selected">Month</option>
                                         <option value="1">Jan</option>
                                         <option value="2">Feb</option>
                                         <option value="3">Mar</option>
@@ -151,7 +150,7 @@
                                     </select>
 
                                     <select name="su_day">
-                                        <option value="" selected="selected"></option>
+                                        <option value="" selected="selected">Day</option>
                                         <?php
                                         for ($i = 1; $i <= 31; ++$i)
                                         {
@@ -161,7 +160,7 @@
                                     </select>
 
                                     <select name="su_year">
-                                        <option value="" selected="selected"></option>
+                                        <option value="" selected="selected">Year</option>
                                         <?php
                                         for ($i = date('Y') - 13; $i >= date('Y') - 105; --$i)
                                         {
