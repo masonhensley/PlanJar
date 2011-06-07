@@ -26,6 +26,9 @@ class Home extends CI_Controller
         redirect('/login/');
     }
 
+    public function foo() {
+        $this->load->view('foo_view');
+    }
 }
 
 ?>
