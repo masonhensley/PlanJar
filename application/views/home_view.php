@@ -21,24 +21,24 @@
     <center>
         <div class="container">
 
-            
-                <div id="tags">
-                    <ul>
-                        <li><a href="#tabs-1">Home</a></li>
-                        <li><a href="#tabs-2">Your Location</a></li>
-                    </ul>
-                </div>
-                <div id="tabs-1">
-		<p><strong>Click this tab again to close the content pane.</strong></p>
-	</div>
-	<div id="tabs-2">
-		<p><strong>Click this tab again to close the content pane.</strong></p>
-	</div>
-            
 
-            <div class="leftpanel">
+            <div id="tags">
+                <ul>
+                    <li><a href="#tabs-1">Home</a></li>
+                    <li><a href="#tabs-2">Your Location</a></li>
+                </ul>
+            </div>
+            <div id="tabs-1">
+                <p><strong>Click this tab again to close the content pane.</strong></p>
+            </div>
+            <div id="tabs-2">
+                <p><strong>Click this tab again to close the content pane.</strong></p>
+            </div>
+
+
+            <div class="left_container">
                 <div class="planjar_logo">
-                    
+
                 </div>
                 <ol id="test">
                     <?php
@@ -51,16 +51,18 @@
                     ?>
                     </ul>
             </div>
-            
-            <div class="rightpanel">
-                <div class="centergraph">
-                    
+
+            <div class="right_container">
+                <div class="center_panel">
+                    <div class="centergraph">
+                    </div>
                 </div>
-                <div class="logout_panel">
-                    <a href="/home/logout">Log out.</a>
+                <div class="rightpanel">
+                    <div class="logout_panel">
+                        <a href="/home/logout">Log out.</a>
+                    </div>
                 </div>
             </div>
-
         </div>
     </center>
 </body>

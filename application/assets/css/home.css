@@ -15,7 +15,7 @@ body {
     border-color: #000000 #000000 #000000 #000000;
     background-color: white;
 }
-.leftpanel {
+.left_container {
     position:relative;
     width:250px;
     height:1000px;
