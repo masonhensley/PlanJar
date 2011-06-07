@@ -8,6 +8,7 @@
     </head>
 
     <body>
+    <center>
         <div class="almost_there">
             <fieldset>
                 <legend>Almost there...</legend>
@@ -15,5 +16,6 @@
                 Please check your email to confirm your account.
             </fieldset>
         </div>
-    </body>
+    </center>
+</body>
 </html>
