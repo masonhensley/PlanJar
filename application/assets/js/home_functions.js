@@ -14,7 +14,7 @@ function toggle_group_select() {
     if ($('#sel_one').attr('checked') == 'checked') {
         
         // Set up the Selectable instance with custom options.
-        $('#my_groups').selectable().destroy();
+        $('#my_groups').selectable('destroy');
         
         // The following instantiation was pulled from
         // http://forum.jquery.com/topic/ui-selectable-allow-select-multiple-without-lasso
@@ -53,7 +53,7 @@ function toggle_group_select() {
     } else {
         
         // Set up the Selectable instance with standard options.
-        $('#my_groups').selectable().destroy();
+        $('#my_groups').selectable('destroy');
         $('#my_groups').selectable();
     }
 }
