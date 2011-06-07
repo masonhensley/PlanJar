@@ -20,15 +20,11 @@
         </div>
 
         <div style="width:400px; height:600px">
+            Groups:
+            <br/>
             <ol id="my_groups">
-                <?php
-                for ($i = 1; $i < 10; ++$i)
-                {
-                    ?>
-                    <li class="ui-widget-content">Item  <?php echo($i); ?></li>
-                    <?php
-                }
-                ?>
+                <li class="ui-widget-content">Friends - <a href="#" onclick="alert('friends page');">edit</a></li>
+                <li class="ui-widget-content">Joined</li>
                 <?php
                 for ($i = 1; $i < 10; ++$i)
                 {
