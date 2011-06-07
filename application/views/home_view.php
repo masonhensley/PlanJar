@@ -18,7 +18,7 @@
     </head>
 
     <body >
-        <div class="container" align="center">
+        <div class="container" >
             
             <div class="left" >
                 <div class="left_top">
