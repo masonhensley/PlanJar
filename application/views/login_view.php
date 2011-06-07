@@ -4,14 +4,15 @@
 
     <head>
         <title>PlanJar | Login or sign up</title>
-        
+
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
         <script type="text/javascript" src="/application/assets/validation-1.8.1/jquery.validate.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/sign_up_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-        
+
         <link type="text/css" rel=stylesheet href="/application/assets/css/home.css"/>
+        <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
 
     <body>
@@ -70,7 +71,7 @@
                                 <!-- Errors will be displayed here -->
                             </div>
                         </font>
-                        
+
                         <center>
                             <form id="sign_up" class="form">
 
@@ -81,7 +82,7 @@
                                         <input id="su_email_1" name="su_email_1" type="text" class="textbox">
                                     </div>
                                 </div>
-                                
+
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -89,7 +90,7 @@
                                         <input id="su_email_2" name="su_email_2" type="text" class="textbox">
                                     </div>
                                 </div>
-                                
+
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -97,7 +98,7 @@
                                         <input id="su_password" name="su_password" type="password" class="textbox">
                                     </div>
                                 </div>
-                                
+
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -105,7 +106,7 @@
                                         <input id="su_first_name" name="su_first_name" type="text" class="textbox">
                                     </div>
                                 </div>
-                                
+
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -113,7 +114,7 @@
                                         <input id="su_last_name" name="su_last_name" type="text" class="textbox">
                                     </div>
                                 </div>
-                                
+
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="block">
@@ -121,10 +122,10 @@
                                         <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
                                     </div>
                                 </div>
-                                
+
                                 <!-- Hidden input used to pass the school id to the server instead of the school name -->
                                 <input type="hidden" id="su_school_id" name="su_school_id"/>
-                                
+
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <select name="su_sex">
@@ -133,7 +134,7 @@
                                         <option value="female">Female</option>
                                     </select>
                                 </div>
-                                
+
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <select name="su_month">
