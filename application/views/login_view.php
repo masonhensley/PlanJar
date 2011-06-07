@@ -3,6 +3,7 @@
 <html>
 
     <head>
+        <title>PlanJar|Login or sign up</title>
         <?php
         // Add the includes from js-css-includes.
         echo(add_includes());
