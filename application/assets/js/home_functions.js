@@ -1,7 +1,10 @@
 // Run when the DOM is loaded.
 $(function() {
     initialize();
+    
+    $('#test').selectable();
 });
+
 
 // JS for the tabs with jquery
 $(function() {

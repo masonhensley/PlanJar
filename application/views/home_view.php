@@ -17,14 +17,16 @@
             </div>
             
             <div class="leftpanel">
-                <!--                <ol id="test">
-                <?php
-//                    for ($i = 1; $i < 10; ++$i)
-//                    {
-//                        echo("<li class=\"ui-widget-content\">Item " . $i . "</li>");
-//                    }
-                ?>
-                                    </ul>-->
+                <ol id="test">
+                    <?php
+                    for ($i = 1; $i < 10; ++$i)
+                    {
+                        ?>
+                        <li class="ui-widget-content">Item  <?php echo($i); ?></li>;
+                        <?php
+                    }
+                    ?>
+                    </ul>
             </div>
 
             <div class="centerpanel">
