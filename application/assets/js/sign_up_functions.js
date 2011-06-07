@@ -235,7 +235,6 @@ function get_year()
 function force_school() {
     // Get the school id stored in the hidden field.
     var id = $('#su_school_id').val();
-    alert('existing id: ' + id);
     
     if (id == '') {
         // If id is empty, clear the school box.
