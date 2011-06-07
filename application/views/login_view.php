@@ -25,15 +25,16 @@
                     </font>
 
                     <form id="log_in" class="form">
+                        <div class="form_inputs">
+                            <label for="li_email">E-mail</label>
+                            <div class="div_texbox">
+                                <input name="li_email" type="text" class="textbox" id="li_email" />
+                            </div>
 
-                        <label for="li_email">E-mail</label>
-                        <div class="div_texbox">
-                            <input name="li_email" type="text" class="textbox" id="li_email" />
-                        </div>
-
-                        <label for="li_password">Password</label>
-                        <div class="div_texbox">
-                            <input name="li_password" type="password" class="textbox" id="password" />
+                            <label for="li_password">Password</label>
+                            <div class="div_texbox">
+                                <input name="li_password" type="password" class="textbox" id="password" />
+                            </div>
                         </div>
 
                         <div class="button_div">
@@ -89,10 +90,10 @@
                         <div class="div_texbox">
                             <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
                         </div>
-                        
+
                         <!-- Hidden input used to pass the school id to the server instead of the school name -->
                         <input type="hidden" id="su_school_id" name="su_school_id"/>
-                        
+
                         <label for="su_sex">Sex</label>
                         <div class="div_texbox" style="">
                             <select class="buttons_black" name="su_sex">
