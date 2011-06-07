@@ -109,6 +109,7 @@ label {
 }
 
 .button_div {
+    position:relative;
     width:40px;
     text-align:center;
 }
