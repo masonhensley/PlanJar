@@ -13,6 +13,7 @@ class Home extends CI_Controller
         if ($this->ion_auth->logged_in())
         {
             $this->load->view('home_view');
+            
         } else
         {
             $this->logout();
