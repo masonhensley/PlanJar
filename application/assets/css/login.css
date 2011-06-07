@@ -163,9 +163,10 @@ h1 {
     position:relative;
 }
 
-#log_in label, #sign_up label {
+
+/*#log_in label, #sign_up label {
     position:absolute;
-    /*left:3px;*/
+    left:3px;
     font:normal 18px Arial;
     color: #999999;
-}
+}*/
