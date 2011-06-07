@@ -61,6 +61,8 @@ h1 {
     width:260px;
     float:right;
     height:40px;
+    font:normal 18px Arial;
+    color: #999999;
 }
 
 .textbox {

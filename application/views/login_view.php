@@ -123,7 +123,7 @@
                                 <input type="hidden" id="su_school_id" name="su_school_id"/>
                                 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-                                <div class="div_texbox" style="align:left">
+                                <div class="div_texbox" style="float:left">
                                     <select name="su_sex">
                                         <option value="" selected="selected"></option>
                                         <option value="male">Male</option>
