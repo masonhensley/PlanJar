@@ -92,15 +92,24 @@
                             </div>
 
                             <div class="div_texbox">
-                                <input name="su_first_name" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_first_name">First name</label>
+                                    <input name="su_first_name" type="text" class="textbox">
+                                </div>
                             </div>
 
                             <div class="div_texbox">
-                                <input name="su_last_name" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_last_name">Last name</label>
+                                    <input name="su_last_name" type="text" class="textbox">
+                                </div>
                             </div>
 
                             <div class="div_texbox">
-                                <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
+                                <div class="block">
+                                    <label for="su_school">Password</label>
+                                    <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
+                                </div>
                             </div>
 
                             <!-- Hidden input used to pass the school id to the server instead of the school name -->
@@ -153,7 +162,10 @@
                             </div>
 
                             <div class="div_texbox">
-                                <input name="su_grad_year" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_grad_year">Class of</label>
+                                    <input name="su_grad_year" type="text" class="textbox">
+                                </div>
                             </div>
 
                             <div class="button_div">
