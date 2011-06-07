@@ -40,7 +40,7 @@
                             <div class="div_texbox">
                                 <div class="block">
                                     <label for="li_password">Password</label>
-                                    <input name="li_password" type="password" class="textbox" id="password" />
+                                    <input id="li_password" name="li_password" type="password" class="textbox" id="password" />
                                 </div>
                             </div>
 
