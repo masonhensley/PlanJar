@@ -58,7 +58,9 @@ h1 {
 #leftSide {
     width:300px;
     padding-top:30px;
-    float:right;
+    float:left;
+    position:relative;
+    left:40px;
 }
 
 #rightside{
