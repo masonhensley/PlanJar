@@ -26,32 +26,32 @@
                             <div id="li_error" class ="error_message">
                                 <!-- Errors will be displayed here --></div>
                         </font>
+                        <center>
+                            <form id="log_in" class="form">
 
-                        <form id="log_in" class="form">
-                            
-                            <div class="div_texbox">
-                                <div class="block">
-                                    <label for="li_email">Email</label>
-                                    <input id="li_email" name="li_email" type="text" class="textbox"/>
+                                <div class="div_texbox">
+                                    <div class="block">
+                                        <label for="li_email">Email</label>
+                                        <input id="li_email" name="li_email" type="text" class="textbox"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-                            <div class="div_texbox">
-                                <div class="block">
-                                    <label for="li_password">Password</label>
-                                    <input id="li_password" name="li_password" type="password" class="textbox"/>
+                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                                <div class="div_texbox">
+                                    <div class="block">
+                                        <label for="li_password">Password</label>
+                                        <input id="li_password" name="li_password" type="password" class="textbox"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-                            <div class="button_div">
-                                <div style="position:relative; top:5px;">
-                                    <input type="submit" class="buttons" value="Log In" />
-                                    <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
+                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                                <div class="button_div">
+                                    <div style="position:relative; top:5px;">
+                                        <input type="submit" class="buttons" value="Log In" />
+                                        <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </form>
-
+                            </form>
+                        </center>
                     </fieldset>
                     <div style="position:relative; width:312px; top:15px; text-align: center;"><center><img src="/application/assets/images/Planjar logo.png" alt="PlanJar Logo"></center></div>
 
@@ -174,6 +174,8 @@
                                     <input class="buttons" type="submit" value="Sign up">
                                 </div>
                             </div>
+                            <div id="padding" style="position:relative; width:260px; height:7px;"></div>
+
 
                         </form>
 
