@@ -25,7 +25,7 @@ h1 {
     line-height: 1.1;
     color:#333;
 }
-label {
+/*label {
     width:168px;
     height:32px;
     margin-top:3px;
@@ -41,7 +41,7 @@ label {
     font-weight: normal;
     line-height: 1.1;
     color:#666;
-}
+}*/
 .form {
     margin:0;
     padding:0;
