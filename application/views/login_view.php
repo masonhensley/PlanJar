@@ -117,7 +117,7 @@
 
                                 <div class="div_texbox" style="">
                                     <select class="buttons_black" name="su_sex">
-                                        <option value="Select gender" selected="selected"></option>
+                                        <option value="" selected="selected"></option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
@@ -126,7 +126,6 @@
 
                                 <div class="div_texbox">
                                     <select name="su_month">
-                                        Birthday: 
                                         <option value=""selected="selected"></option>
                                         <option value="1">Jan</option>
                                         <option value="2">Feb</option>
