@@ -56,13 +56,13 @@ label {
     height:50px;
 }
 #leftSide {
-    width:500px;
+    width:400px;
     padding-top:30px;
     float:right;
 }
 
 #rightside{
-    width:500px;
+    width:400px;
     height:1000px;
     padding-top:30px;
     float:left;
