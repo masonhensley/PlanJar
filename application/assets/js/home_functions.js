@@ -2,8 +2,9 @@
 $(function() {
     //initialize();
     
+    // The following instantiation was pulled from http://forum.jquery.com/topic/ui-selectable-allow-select-multiple-without-lasso
     /* Instantiate jQuery Selectable */
-    $('#test').selectable({
+    $('#my_groups').selectable({
         selected: function (event, ui) {
             var e= $(ui.selected);
             if (e.hasClass('my-selected')) {
@@ -35,7 +36,14 @@ $(function() {
             }
         }
     });
+    
+    // Initialize the buttonset (select one/select multiple).
+    $('#one_mult').buttonset();
 });
+
+function reset_my_groups() {
+        alert($('#sel_one').attr('checked'));
+    }
 
 
 
