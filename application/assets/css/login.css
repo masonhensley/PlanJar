@@ -182,11 +182,11 @@ h1 {
     font-family:Arial, Helvetica, sans-serif;
 }
 
-form p {
+#sign_up p {
     position:relative;
 }
 
-label  {
+#sign_up label  {
     position:absolute;
     top:0;
     left:0
