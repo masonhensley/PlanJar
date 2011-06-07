@@ -9,6 +9,7 @@
     height:1000px;
     float:left;
     border-width:3px;
+    
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
     background-color: grey;
@@ -19,6 +20,7 @@
     float:left;
     left:20px;
     height:1000px;
+    
     border-width:3px;
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
@@ -28,6 +30,7 @@
     width:400px;
     height:300px;
     border-bottom-style:solid;
+    
     border-bottom-color: black;
     border-width:3px;
     background-color: grey;
@@ -38,6 +41,7 @@
     left:20px;
     width:150px;
     height:1000px;
+    
     border-width:3px;
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
@@ -48,6 +52,7 @@
     width:100%;
     height:40px;
     border-bottom-style:solid;
+    
     border-bottom-color: black;
     border-width:3px;
     background-color: grey;
