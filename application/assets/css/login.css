@@ -111,7 +111,6 @@ label {
 .button_div {
     width:40px;
     text-align:center;
-    padding-top:11px;
 }
 .submit_div{
     position:relative;
@@ -169,7 +168,7 @@ label {
 
 .error_message{
     position:relative;
-    width:100%;
+    width:245px;
     height:20px;
     font-family:Arial, Helvetica, sans-serif;
     text-align:center;
