@@ -12,7 +12,7 @@
     <center>
         <div class="container">
 
-            <div class="left_panel">
+            <div class="leftpanel">
 <!--                <ol id="test">
                     <?php
 //                    for ($i = 1; $i < 10; ++$i)
