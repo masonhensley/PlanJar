@@ -31,17 +31,17 @@
                         <form id="log_in" class="form">
 
                             <div class="div_texbox">
-<!--                                <p>
-                                    <label for="li_email">Email</label><br>-->
-                                <input id="li_email" name="li_email" type="text" class="textbox" id="li_email" />
-                                <!--                                </p>-->
+                                <div class="block">
+                                    <label for="li_email" style="top:27px">Email</label><br>
+                                    <input id="li_email" name="li_email" type="text" class="textbox"/>
+                                </div>
                             </div>
 
                             <div class="div_texbox">
-<!--                                <p>
-                                    <label for="li_password">Password</label>-->
-                                <input name="li_password" type="password" class="textbox" id="password" />
-                                <!--                            </p>-->
+                                <div class="block">
+                                    <label for="li_password">Password</label>
+                                    <input id="li_password" name="li_password" type="password" class="textbox"/>
+                                </div>
                             </div>
 
                             <div class="button_div">
@@ -71,27 +71,45 @@
                         <form id="sign_up" action="/login/try_sign_up" method="get">
 
                             <div class="div_texbox">
-                                <input id="su_email_1" name="su_email_1" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_email_1">Email</label>
+                                    <input id="su_email_1" name="su_email_1" type="text" class="textbox">
+                                </div>
                             </div>
 
                             <div class="div_texbox">
-                                <input name="su_email_2" type="text" class="textbox">
-                            </div>
-
-                            <div class="div_texbox" id="foo">
-                                <input name="su_password" type="password" class="textbox">
-                            </div>
-
-                            <div class="div_texbox">
-                                <input name="su_first_name" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_email_2">Confirm email</label>
+                                    <input id="su_email_2" name="su_email_2" type="text" class="textbox">
+                                </div>
                             </div>
 
                             <div class="div_texbox">
-                                <input name="su_last_name" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_password">Password</label>
+                                    <input id="su_password" name="su_password" type="password" class="textbox">
+                                </div>
                             </div>
 
                             <div class="div_texbox">
-                                <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
+                                <div class="block">
+                                    <label for="su_first_name">First name</label>
+                                    <input id="su_first_name" name="su_first_name" type="text" class="textbox">
+                                </div>
+                            </div>
+
+                            <div class="div_texbox">
+                                <div class="block">
+                                    <label for="su_last_name">Last name</label>
+                                    <input id="su_last_name" name="su_last_name" type="text" class="textbox">
+                                </div>
+                            </div>
+
+                            <div class="div_texbox">
+                                <div class="block">
+                                    <label for="su_school">Choose your school</label>
+                                    <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
+                                </div>
                             </div>
 
                             <!-- Hidden input used to pass the school id to the server instead of the school name -->
@@ -144,7 +162,10 @@
                             </div>
 
                             <div class="div_texbox">
-                                <input name="su_grad_year" type="text" class="textbox">
+                                <div class="block">
+                                    <label for="su_grad_year">Graduation year</label>
+                                    <input id="su_grad_year" name="su_grad_year" type="text" class="textbox">
+                                </div>
                             </div>
 
                             <div class="button_div">
