@@ -122,6 +122,7 @@
                                     <option value="female">Female</option>
                                 </select>
                             </div>
+                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
 
                             <div class="div_texbox">
                                 <select name="su_month">
