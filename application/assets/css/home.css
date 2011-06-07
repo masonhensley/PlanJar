@@ -6,13 +6,23 @@ body {
     width:1024px;
     height:100%;
 }
+.toppanel{
+    position:relative;
+    top:20px;
+    width:100%;
+    height:40px;
+
+    border-style:solid;
+    border-color: #000000 #000000 #000000 #000000;
+    background-color: white;
+}
 .leftpanel {
     position:relative;
     width:250px;
     height:1000px;
     float:left;
     border-width:3px;
-    
+
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
     background-color: white;
@@ -23,7 +33,7 @@ body {
     float:left;
     left:20px;
     height:1000px;
-    
+
     border-width:3px;
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
@@ -33,10 +43,10 @@ body {
     width:400px;
     height:300px;
     border-bottom-style:solid;
-    
+
     border-bottom-color: black;
     border-width:3px;
-    background-color: grey;
+    background-color: white;
 }
 .rightpanel {
     position:relative;
@@ -44,7 +54,7 @@ body {
     left:40px;
     width:150px;
     height:1000px;
-    
+
     border-width:3px;
     border-style:solid;
     border-color: #000000 #000000 #000000 #000000;
@@ -55,8 +65,8 @@ body {
     width:100%;
     height:40px;
     border-bottom-style:solid;
-     font-family:Arial, Helvetica, sans-serif;
-    
+    font-family:Arial, Helvetica, sans-serif;
+
     border-bottom-color: black;
     border-width:3px;
     background-color: white;
