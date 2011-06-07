@@ -6,7 +6,6 @@
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
         <link type="text/css" rel=stylesheet href="/application/assets/css/home.css"/>
-        <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
 
     <body>

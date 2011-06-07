@@ -12,8 +12,6 @@
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         
         <link type="text/css" rel=stylesheet href="/application/assets/css/home.css"/>
-        <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
-
     </head>
 
     <body>
