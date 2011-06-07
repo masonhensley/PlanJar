@@ -4,7 +4,14 @@ $(function() {
     
     // The following instantiation was pulled from http://forum.jquery.com/topic/ui-selectable-allow-select-multiple-without-lasso
     // Set up the Selectable instance with default options.
-    $('#my_groups').selectable();
+    $('#my_groups').selectable({
+        selected: function(event, ui) {
+            $(ui.selected).addClass('my-selected');
+        },
+        selected: function(event, ui) {
+            $(ui.selected).removeClass('my-selected');
+        }
+    });
     
     // Initialize the buttonset (select one/select multiple).
     $('#one_mult').buttonset();
