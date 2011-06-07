@@ -51,14 +51,12 @@
                     ?>
                     </ul>
             </div>
-
             
-
             <div class="rightpanel">
                 <div class="centergraph">
                     
                 </div>
-                <div class="logout">
+                <div class="logout_panel">
                     <a href="/home/logout">Log out.</a>
                 </div>
             </div>
