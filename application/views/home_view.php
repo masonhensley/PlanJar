@@ -11,16 +11,20 @@
     <body>
     <center>
         <div class="container">
+            
+            <div class="toppanel">
 
+            </div>
+            
             <div class="leftpanel">
-<!--                <ol id="test">
-                    <?php
+                <!--                <ol id="test">
+                <?php
 //                    for ($i = 1; $i < 10; ++$i)
 //                    {
 //                        echo("<li class=\"ui-widget-content\">Item " . $i . "</li>");
 //                    }
-                    ?>
-                    </ul>-->
+                ?>
+                                    </ul>-->
             </div>
 
             <div class="centerpanel">

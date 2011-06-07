@@ -6,6 +6,11 @@ body {
     width:1024px;
     height:100%;
 }
+.toppanel{
+    position:relative;
+    width:100%;
+    height:40px;
+}
 .leftpanel {
     position:relative;
     width:250px;
@@ -36,7 +41,7 @@ body {
     
     border-bottom-color: black;
     border-width:3px;
-    background-color: grey;
+    background-color: white;
 }
 .rightpanel {
     position:relative;
