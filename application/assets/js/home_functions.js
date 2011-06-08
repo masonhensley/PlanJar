@@ -229,9 +229,9 @@ function location_data() {
             } else {
                 place = response.Placemark[0];
                 point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
-                var name = place.AddressDetails.Country.CountryName;
                 
-                $('div.center_top_left').replaceWith("<div style=width:100%; height:100%;>" + name + "</div>");
+                var name = place.AddressDetails.Country.CountryName;
+                $("div .center_top_left").replaceWith("<div style=width:100%; height:100%;>" + name + "</div>");
             }
         }
     }
