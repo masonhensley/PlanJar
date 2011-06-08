@@ -165,6 +165,8 @@ ul.tabs li.active {
 /* Used for the in-field labels. */
 #div.in-field_block {
     position:relative;
+    width:60px;
+    height:30px;
 }
 #make_plan label {
     position:absolute;
@@ -172,4 +174,7 @@ ul.tabs li.active {
     left:17px;
     font:normal 18px Arial;
     color: #999999;
+}
+#make_plan div.div_textbox {
+    
 }
