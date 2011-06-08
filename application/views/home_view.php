@@ -11,7 +11,7 @@
 
     </head>
 
-    <body >
+    <body onload="locatoin_data()">
     <center>
         <div class="container" >
 
