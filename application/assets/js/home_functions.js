@@ -7,7 +7,7 @@ $(function() {
     $('#my_groups').selectable({
         selected: function(event, ui) {
             if ($(ui.selected).hasClass('group_label')) {
-                // Dissalow group label divs from being selected.
+                // Disallow group label divs from being selected.
                 $(ui.selected).removeClass('ui-selected');
             } else {
                 $(ui.selected).addClass('my-selected');
@@ -15,7 +15,12 @@ $(function() {
         },
         unselected: function(event, ui) {
             $(ui.unselected).removeClass('my-selected');
+        },
+        selecting: function(event_ui) {
+            // Disallow group label divs from being selected.
+            $(ui.selecting).removeClass('ui-selecting')
         }
+        
     });
     
     // Initialize the buttonset (select one/select multiple).
