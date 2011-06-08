@@ -37,7 +37,7 @@
                 </div>
                 <div class="center_day">
                     <!-- Weekday panel -->
-                    <?php include('/application/assets/html/weekday_panel.html'); ?>
+                    <?php include(APPPATH.'assets/html/weekday_panel.html'); ?>
                 </div>
                 <div class="center_graph">
 
