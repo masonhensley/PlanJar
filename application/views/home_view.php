@@ -45,9 +45,10 @@
                         </div>
 
                         <!-- preload the images -->
-                        <div style='display:none'>
+<!--                        <div style='display:none'>
                             <img src='/application/assets/images/x.png' alt='' />
-                        </div>
+                        </div>-->
+                        
                     </div>
                 </div>
                 <div class="center_day">
