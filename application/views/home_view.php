@@ -43,12 +43,7 @@
                         <div id="plan_content">
                             <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
                         </div>
-
-                        <!-- preload the images -->
-                        <!--                        <div style='display:none'>
-                                                    <img src='/application/assets/images/x.png' alt='' />
-                                                </div>-->
-
+                        
                     </div>
                 </div>
                 <div class="center_day">

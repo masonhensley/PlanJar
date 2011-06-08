@@ -53,13 +53,19 @@ $(function() {
     // Initialize the group buttonset (select one/select multiple).
     $('#one_mult').buttonset();
     
-    // Initialize the in-field labels for the status update.
-    $('form label').inFieldLabels();
-    
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
         $('#plan_content').modal({
-            
+            onOpen: function (dialog) {
+                dialog.overlay.fadeIn('slow', function () {
+                    dialog.container.slideDown('slow', function () {
+                        dialog.data.fadeIn('slow');
+                    });
+                });
+                
+                // Initialize the in-field labels.
+                $('#plan_content label').inFieldLabels();
+            }
         });
         
         return false;
