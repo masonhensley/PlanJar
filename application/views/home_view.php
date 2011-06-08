@@ -9,7 +9,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.simplemodal.1.4.1.min.js"></script>
 
-        
+
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
@@ -39,7 +39,10 @@
                     <div class="center_top_right">
                         <!-- New plan panel -->
                         <input type="button" id="make_a_plan" value="Make a plan."/>
-                        <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
+
+                        <div id="plan_content">
+                            <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
+                        </div>
                     </div>
                 </div>
                 <div class="center_day">
@@ -50,21 +53,21 @@
                 </div>
                 <div class="center_graph">
 
-                    <div id = "tabs" class="tabs-bottom" style="height:100%">
-                        
+                    <div id = "tabs" class="tabs-bottom" syle="heigh:100%">
+
                         <ul>
                             <li><a href="#tabs-1">Map</a></li>
                             <li><a href="#tabs-2">Data</a></li>
                         </ul>
                         
                         <div id="tabs-1" style="width: 555px; height:250px">
-                            <div id="map" style="width:555px; height:250px;"></div>
+                            <div id="map" style="width:100%; height:100%;"></div>
                         </div>
                         
                         <div id="tabs-2" style="background-color: purple; height:250px; ">
                             
                         </div>
-                    
+
                     </div>
                 </div>
                 <div class="center_board">

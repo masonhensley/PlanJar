@@ -54,10 +54,17 @@ $(function() {
     // Initialize the in-field labels for the status update.
     $('form label').inFieldLabels();
     
+    // Initialize he make-a-plan modal.
+    $('#make_a_plan').click(function() {
+        $('#plan_conent').modal();
+        
+        return false;
+    });
+    
 // End of ready function.
 });
 
-// SHould be called when #sel_one or #sel_mult
+// Should be called when #sel_one or #sel_mult
 // Set up the Selectable instance with "standard" options or toggle options.
 function toggle_group_select() {
     if ($('#sel_one').attr('checked') != 'checked') {
