@@ -46,30 +46,33 @@
 
                 </div>
                 <div class="center_graph">
-                    <div id = "tabs" class="tabs-bottom"><div id="map" style="width:100%; height:100%;">
-                            <ul>
-                                <li><a href="#tabs-1">Map</a></li>
-                            </ul>
-                        </div>
+                    <div id = "tabs" class="tabs-bottom">
+                        <ul>
+                            <li><a href="#tabs-1">Map</a></li>
+                        </ul>
                     </div>
+                    <div id="tabs-1"><div id="map" style="width:100%; height:100%;">
+
+                    </div></div>
+
                 </div>
-                    <div class="center_board">
+                <div class="center_board">
 
-                    </div>
+                </div>
+            </div>
+
+            <div class="right" >
+                <div class="right_top">
+                    <a href="/home/logout">Log out.</a>
                 </div>
 
-                <div class="right" >
-                    <div class="right_top">
-                        <a href="/home/logout">Log out.</a>
-                    </div>
-
-                    <div class="right_bottom">
-
-                    </div>
+                <div class="right_bottom">
 
                 </div>
 
             </div>
+
+        </div>
     </center>
 </body>
 </html>
