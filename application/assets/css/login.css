@@ -156,7 +156,7 @@ h1 {
 }
 
 /* The following two classes are used for the in-field labels. */
-#log_in div.in-field_block, #sign_up div.block {
+#log_in div.in-field_block, #sign_up div.in-field_block {
     position:relative;
 }
 #log_in label, #sign_up label {
