@@ -55,7 +55,7 @@
                         <div id="tabs-1">
                             <div id="map" style="width:100%; height:100%;"></div>
                         </div>
-                        <div id="test_div_color_purp" style="background-color: purple"></div>
+                        <div id="tabs-2" style="background-color: purple width:100%; height:100%;"></div>
                     </div>
                 </div>
                 <div class="center_board">
