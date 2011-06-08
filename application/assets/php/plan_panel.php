@@ -8,7 +8,7 @@
 
     <div class="in-field_block">
         <label for="plan_description">What are you doing?</label>
-        <input type="text" name="plan_description" class="textbox"/>
+        <input type="text" id="plan_description" class="textbox"/>
     </div>
 
     <select name="day" style="float:left">
