@@ -212,14 +212,12 @@ function location_data() {
         var map = new google.maps.Map(document.getElementById("map"),
             myOptions);
             
-        marker1 = new google.maps.Marker({
+        your_location_marker = new google.maps.Marker({
             position: myLatlng, 
             map: map, 
             draggable: true,
             title:"Your location!"
         });
-        
-        
  
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
