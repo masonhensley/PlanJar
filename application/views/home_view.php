@@ -46,14 +46,16 @@
 
                 </div>
                 <div class="center_graph">
+
                     <div id = "tabs" class="tabs-bottom">
+                        <ul>
+                            <li><a href="#tabs-1">Map</a></li>
+                            <li><a href="#tabs-2">Data</a></li>
+                        </ul>
                         <div id="tabs-1">
-                            <div id="map" style="width:100%; height:100%;">
-                                <ul>
-                                    <li><a href="#tabs-1">Map</a></li>
-                                </ul>
-                            </div>
+                            <div id="map" style="width:100%; height:100%;"></div>
                         </div>
+                        <div id="test_div_color_purp" style="background-color: purple"></div>
                     </div>
                 </div>
                 <div class="center_board">
