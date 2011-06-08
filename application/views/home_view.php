@@ -45,10 +45,10 @@
                         </div>
 
                         <!-- preload the images -->
-<!--                        <div style='display:none'>
-                            <img src='/application/assets/images/x.png' alt='' />
-                        </div>-->
-                        
+                        <!--                        <div style='display:none'>
+                                                    <img src='/application/assets/images/x.png' alt='' />
+                                                </div>-->
+
                     </div>
                 </div>
                 <div class="center_day">
@@ -57,10 +57,10 @@
                     <?php include(APPPATH . 'assets/php/weekday_panel.php'); ?>
 
                 </div>
-                 <div id = "tabs" class="tabs-bottom">
-                <div class="center_graph">
+                <div id = "tabs" class="tabs-bottom">
+                    <div class="center_graph">
 
-                   
+
 
                         <ul>
                             <li><a href="#tabs-1">Map</a></li>
