@@ -10,7 +10,7 @@
 
     </head>
 
-    <body onload="locatoin_data()">
+    <body>
     <center>
         <div class="container" >
 

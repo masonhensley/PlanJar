@@ -2,6 +2,9 @@
 $(function() {
     //initialize();
     
+    // retrieve location data
+    location_data();
+    
     // Set up the day of the week tabs.
     $(".tab_content").hide(); //Hide all content
     $("ul.tabs li:first").addClass("active").show(); //Activate first tab
