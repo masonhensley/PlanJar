@@ -17,8 +17,10 @@ $(function() {
             $(ui.unselected).removeClass('my-selected');
         },
         selecting: function(event, ui) {
-            // Disallow group label divs from being selected.
-            $(ui.selecting).removeClass('ui-selecting')
+            if ($(ui.selected).hasClass('group_label')) {
+                // Disallow group label divs from being selected.
+                $(ui.selecting).removeClass('ui-selecting');
+            }
         }
         
     });
