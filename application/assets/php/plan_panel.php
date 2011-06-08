@@ -39,4 +39,6 @@
         }
         ?>
     </select>
+    
+    <input type="submit" value="Make a plan"/>
 </form>
