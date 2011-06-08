@@ -73,7 +73,8 @@
                     </div>
                 </div>
                 <div class="center_board">
-
+                    <!-- Event list -->
+                    <?php include(APPPATH . 'assets/php/events_panel.php'); ?>
                 </div>
             </div>
 
