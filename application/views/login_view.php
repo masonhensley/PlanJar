@@ -35,14 +35,14 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="li_email">Email</label>
                                         <input id="li_email" name="li_email" type="email" class="textbox"/>
                                     </div>
                                 </div>
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="li_password">Password</label>
                                         <input id="li_password" name="li_password" type="password" class="textbox"/>
                                     </div>
@@ -77,7 +77,7 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="su_email_1">Email</label>
                                         <input id="su_email_1" name="su_email_1" type="email" class="textbox">
                                     </div>
@@ -85,7 +85,7 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="su_email_2">Confirm email</label>
                                         <input id="su_email_2" name="su_email_2" type="email" class="textbox">
                                     </div>
@@ -93,7 +93,7 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="su_password">Password</label>
                                         <input id="su_password" name="su_password" type="password" class="textbox">
                                     </div>
@@ -101,7 +101,7 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="su_first_name">First name</label>
                                         <input id="su_first_name" name="su_first_name" type="text" class="textbox">
                                     </div>
@@ -109,7 +109,7 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="su_last_name">Last name</label>
                                         <input id="su_last_name" name="su_last_name" type="text" class="textbox">
                                     </div>
@@ -117,7 +117,7 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="su_school">Choose your school</label>
                                         <input id="su_school" name="su_school" type="text" class="textbox" onblur="force_school()">
                                     </div>
@@ -175,7 +175,7 @@
                                 </div>
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="block">
+                                    <div class="in-field_block">
                                         <label for="su_grad_year">Graduation year</label>
                                         <input id="su_grad_year" name="su_grad_year" type="text" class="textbox">
                                     </div>

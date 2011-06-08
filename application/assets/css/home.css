@@ -161,3 +161,15 @@ ul.tabs li.active {
     margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px;
     text-align:left;
 }
+
+/* Used for the in-field labels. */
+#div.in-field_block, #sign_up div.block {
+    position:relative;
+}
+#log_in label, #sign_up label {
+    position:absolute;
+    top:6px;
+    left:17px;
+    font:normal 18px Arial;
+    color: #999999;
+}
