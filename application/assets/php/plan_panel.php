@@ -6,7 +6,7 @@
         <input type="text" id="plan_location" name="plan_location" class="textbox"/>
     </div>
 
-    <div class="in-field_block">
+    <div class="in-field_block" style="position:relative">
         <label for="plan_description">What are you doing?</label>
         <input type="text" name="plan_description" class="textbox"/>
     </div>
