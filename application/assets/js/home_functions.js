@@ -216,26 +216,18 @@ function location_data() {
             title:"Your location!"
         });
     
-        getAddress(myLatlng);
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
-        geocoder.getLocations(latitude+','+longitude, addAddressToMap);
+        geocoder.getLocations(myLatlng, getAddress);
     }
 
 }
 
-function getAddress(latlng) {
-    if (latlng != null) {
-        address = latlng;
-        if (!response || response.Status.code != 200) {
-            alert("Status Code:" + response.Status.code);
-        } else {
-            place = response.Placemark[0];
-            point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
-                
-            var name = place.AddressDetails.Country.CountryName;
-            alert('DAYYYYYOOOOOOO. ME SAY DAAAAAAYOOO.');
-            $("div .center_top_left").replaceWith("<div style=width:100%; height:100%;>" + name + "</div>");
-        }
+function getAddress(response) {
+    if (!response || response.Status.code != 200) {
+        alert("Status Code:" + response.Status.code);
+    } else {
+        place = response.Placemark[0];
+        $("div.center_top_left").relpaceWith("<div>" +  place.AddressDetails.City.CityName + "</div>"); 
     }
 }
