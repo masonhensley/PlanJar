@@ -16,7 +16,7 @@ $(function() {
         unselected: function(event, ui) {
             $(ui.unselected).removeClass('my-selected');
         },
-        selecting: function(event_ui) {
+        selecting: function(event, ui) {
             // Disallow group label divs from being selected.
             $(ui.selecting).removeClass('ui-selecting')
         }
