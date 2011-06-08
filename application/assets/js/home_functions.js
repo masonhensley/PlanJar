@@ -45,16 +45,6 @@ function toggle_group_select() {
                     e.removeClass('ui-selected');
                     e.removeClass('my-selected');
                 }
-            },
-            unselecting: function (event, ui) {
-                var e= $(ui.unselecting);
-                if (e.hasClass('my-selected')) {
-                    e.addClass('ui-selected');
-                    e.addClass('my-selected');
-                } else {
-                    e.removeClass('ui-selected');
-                    e.removeClass('my-selected');
-                }
             }
         });
     } else {
