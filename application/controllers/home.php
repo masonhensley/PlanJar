@@ -26,10 +26,6 @@ class Home extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
-
-    public function foo() {
-        $this->load->view('foo_view');
-    }
 }
 
 ?>
