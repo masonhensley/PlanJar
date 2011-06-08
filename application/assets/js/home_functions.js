@@ -54,13 +54,14 @@ $(function() {
     // Initialize the in-field labels for the status update.
     $('form label').inFieldLabels();
     
-    // Initialize he make-a-plan modal.
+    // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
-        $('#plan_content').modal();
+        $('#plan_content').modal({
+            
+        });
         
         return false;
     });
-    $('#plan_content').hide();
     
 // End of ready function.
 });

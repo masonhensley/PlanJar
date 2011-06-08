@@ -7,7 +7,7 @@
     </div>
     
     <div class="in-field_block">
-        <label for="plan_descripion">Where are you going?</label>
-        <input type="text" id="plan_desription" name="plan_description" class="textbox"/>
+        <label for="plan_description">Where are you going?</label>
+        <input type="text" id="plan_description" name="plan_description" class="textbox"/>
     </div>
 </form>
