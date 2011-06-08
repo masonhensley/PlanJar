@@ -21,7 +21,12 @@
         {
             ?>
             <option value="<?php echo($i); ?>">
-                <?php echo($days[(date('w') + $i) % 7]); ?>
+                <?php
+                // Format the displayed day name (e.g. Tue - 9).
+                $day_name = $days[(date('w') + $i) % 7];
+                $day_name .= ' - ' . date('j');
+                echo($day_name);
+                ?>
             </option>
             <?php
         }
