@@ -175,9 +175,8 @@
                                     </select>
                                 </div>
 
-
-
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                                
                                 <div class="div_texbox">
                                     <select name="su_sex">
                                         <option value="" selected="selected">Gender</option>
@@ -186,17 +185,15 @@
                                     </select>
                                 </div>
 
-
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-
 
                                 <div class="button_div">
                                     <div style="position:relative; top:5px;">
                                         <input class="buttons" type="submit" value="Sign up">
                                     </div>
                                 </div>
+                                
                                 <div id="padding" style="position:relative; width:260px; height:7px;"></div>
-
 
                             </form>
                         </center>
