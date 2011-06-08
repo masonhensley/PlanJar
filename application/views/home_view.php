@@ -26,30 +26,22 @@
 
             <div class="center" >
                 <div class="center_top">
-                    
+
                     <div class ="center_top_left">
-                        
+
                     </div>
-                    
+
                     <div class="center_top_right">
-                        
+
                     </div>
                 </div>
                 <div class="center_day">
-                    
+
                     <!-- Add the markup for the tabs, starting with today. -->
                     <?php include(APPPATH . 'assets/php/weekday_panel.php'); ?>
 
                 </div>
                 <div class="center_graph">
-
-                    <div id="Sun" class="tab_content"></div>
-                    <div id="Mon" class="tab_content"></div>
-                    <div id="Tues" class="tab_content"></div>
-                    <div id="Weds" class="tab_content"></div>
-                    <div id="Thurs" class="tab_content"></div>
-                    <div id="Fri" class="tab_content"></div>
-                    <div id="Sat" class="tab_content"></div>
 
                 </div>
                 <div class="center_board">

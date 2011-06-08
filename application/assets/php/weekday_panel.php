@@ -6,4 +6,14 @@
     <li>
         <a href="<?php echo(date('w') + 1); ?>">Tom</a>
     </li>
+    <?php
+    for ($i = 2; $i < 7; ++$i)
+    {
+        ?>
+        <li>
+            <a href="#<?php echo((date('w') + $i) % 7); ?>"><?php echo($days[(date('w') + $i) % 7]); ?></a>
+        </li>
+        <?php
+    }
+    ?>
 </ul>
