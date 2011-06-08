@@ -57,9 +57,9 @@ $(function() {
     $('#make_a_plan').click(function() {
         $('#plan_content').modal({
             onOpen: function (dialog) {
-                dialog.overlay.fadeIn('slow', function () {
-                    dialog.container.slideDown('slow', function () {
-                        dialog.data.fadeIn('slow');
+                dialog.overlay.fadeIn('fast', function () {
+                    dialog.container.slideDown('fast', function () {
+                        dialog.data.fadeIn('fast');
                     });
                 });
                 
