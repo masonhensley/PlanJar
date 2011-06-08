@@ -120,7 +120,7 @@ function toggle_group_select() {
 var initialLocation;
 var browserSupportFlag;
 
-function initialize() {
+function location_data() {
     
     if (navigator.geolocation) 
     {
