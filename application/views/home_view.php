@@ -33,7 +33,7 @@
                 <div class="center_top">
 
                     <div class ="center_top_left">
-
+                        your location data:
                     </div>
 
                     <div class="center_top_right">

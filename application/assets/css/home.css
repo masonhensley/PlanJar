@@ -59,7 +59,7 @@ body {
 }
 
 .center_top_left{
-    width:20%;
+    width:90%;
     float:left;
     height:100%;
 
@@ -67,7 +67,7 @@ body {
 }
 
 .center_top_right{
-    width:80%;
+    width:10%;
     float:right;
     height:100%;
 
