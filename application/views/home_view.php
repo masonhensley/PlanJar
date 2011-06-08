@@ -61,7 +61,7 @@
                             <div id="map" style="width:100%; height:100%;"></div>
                         </div>
                         
-                        <div id="tabs-2" style="background-color: purple; ">
+                        <div id="tabs-2" style="background-color: purple; height:250px; ">
                             
                         </div>
                     
