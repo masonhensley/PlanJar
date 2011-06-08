@@ -117,7 +117,7 @@ ul.tabs li {
 	overflow: hidden;
 	position: relative;
 	background: #e0e0e0;
-        width: 85px; /* Center width (595)/7 (days of the week)
+        width: 84px; /* Center width (595)/7 (days of the week) and adjusted for border */
 }
 ul.tabs li a {
 	text-decoration: none;
@@ -132,7 +132,7 @@ ul.tabs li a:hover {
 	background: #ccc;
 }
 
-/* Used for the groups Selectab;e instance. */
+/* Used for the groups Selectable instance. */
 #my_groups .ui-selecting { background: #FECA40; }
 #my_groups .ui-selected { background: #F39814; color: white; }
 #my_groups { list-style-type: none; margin: 0; padding: 0; width:100% }
