@@ -26,7 +26,7 @@
             <ol id="my_groups">
                 <li class="ui-widget-content">Friends</li>
 
-                <li class="group_label">Joined</li>
+                <div class="group_label">Joined</div>
                 <?php
                 for ($i = 1; $i < 5; ++$i)
                 {
@@ -36,7 +36,7 @@
                 }
                 ?>
 
-                <li class="group_label">Following</li>
+                <div class="group_label">Following</div>
                 <?php
                 for ($i = 1; $i < 5; ++$i)
                 {
