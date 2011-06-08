@@ -15,23 +15,13 @@ Select
     <li class="ui-widget-content">Friends</li>
 
     <div class="group_label">Joined</div>
-    <li class="ui-widget-content">College of Charleston</li>
-    <?php
-    for ($i = 1; $i < 5; ++$i)
-    {
-        ?>
-        <li class="ui-widget-content">Group <?php echo($i); ?></li>
-        <?php
-    }
-    ?>
+    <li class="ui-widget-content">Vanderbilt</li>
+    <li class="ui-widget-content">Lambda Chi Alpha</li>
+    <li class="ui-widget-content">VSVS</li>
+    <li class="ui-widget-content">ASB</li>
 
     <div class="group_label">Following</div>
-    <?php
-    for ($i = 1; $i < 5; ++$i)
-    {
-        ?>
-        <li class="ui-widget-content">Group <?php echo($i); ?></li>
-        <?php
-    }
-    ?>
+    <li class="ui-widget-content">Kappa Delta</li>
+    <li class="ui-widget-content">Vanderbilt Rugby</li>
+    <li class="ui-widget-content">Lupton 5</li>
 </ul>
