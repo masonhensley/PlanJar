@@ -20,7 +20,7 @@
             <input type="radio" id="sel_mult" name="one_mult_group" onchange="toggle_group_select()"/>
         </div>
 
-        <div style="width:400px; height:600px">
+        <div style="width:200px; height:600px">
             <br/>
             <ol id="my_groups">
                 <li class="ui-widget-content">Friends</li>
