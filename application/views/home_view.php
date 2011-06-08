@@ -69,7 +69,7 @@
                 <div class="center_graph">
 
                     <div id="monday" class="tab_content"></div>
-                    <div id="tuesday" class="tab_content"></div>
+                    <div id="tuesday" class="tab_content">Yo</div>
                     <div id="wednesday" class="tab_content"></div>
                     <div id="thursday" class="tab_content"></div>
                     <div id="friday" class="tab_content"></div>
