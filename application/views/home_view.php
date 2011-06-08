@@ -43,7 +43,7 @@
                         <div id="plan_content">
                             <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="center_day">
@@ -52,9 +52,9 @@
                     <?php include(APPPATH . 'assets/php/weekday_panel.php'); ?>
 
                 </div>
-                <div id = "tabs" class="tabs-bottom">
-                    <div class="center_graph">
 
+                <div class="center_graph">
+                    <div id = "tabs" class="tabs-bottom">
 
 
                         <ul>
