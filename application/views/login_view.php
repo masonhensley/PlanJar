@@ -136,7 +136,7 @@
                                 </div>
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-                                <div class="div_texbox">Birthday:
+                                <div class="div_texbox"><font style="font-family:Arial, Helvetica, sans-serif;">Birthday:</font>
                                     <select name="su_month">
                                         <option value=""selected="selected">Month</option>
                                         <option value="1">Jan</option>
