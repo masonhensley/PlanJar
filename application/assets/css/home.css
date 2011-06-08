@@ -167,7 +167,7 @@ ul.tabs li.active {
     position:relative;
 }
 #make_plan label {
-    position:absolute;
+    position:relative;
     top:6px;
     left:17px;
     font:normal 18px Arial;
