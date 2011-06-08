@@ -68,13 +68,13 @@
                 </div>
                 <div class="center_graph">
 
-                    <div id="tabs-1">Monday</div>
-                    <div id="tabs-2">Tuesday</div>
-                    <div id="tabs-3">Wednesday</div>
-                    <div id="tabs-4">Thursday</div>
-                    <div id="tabs-5">Friday</div>
-                    <div id="tabs-6">Saturday</div>
-                    <div id="tabs-7">Sunday</div>
+                    <div id="tabs-1" class="tab_content">Monday</div>
+                    <div id="tabs-2" class="tab_content">Tuesday</div>
+                    <div id="tabs-3" class="tab_content">Wednesday</div>
+                    <div id="tabs-4" class="tab_content">Thursday</div>
+                    <div id="tabs-5" class="tab_content">Friday</div>
+                    <div id="tabs-6" class="tab_content">Saturday</div>
+                    <div id="tabs-7" class="tab_content">Sunday</div>
 
                 </div>
                 <div class="center_board">
