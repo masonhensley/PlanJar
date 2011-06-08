@@ -1,6 +1,5 @@
 // Run when the DOM is loaded.
 $(function() {
-    //initialize();
     
     // retrieve location data
     location_data();
