@@ -224,7 +224,7 @@ function location_data() {
 
 }
 
-function getAddress(overlay, latlng) {
+function getAddress(latlng) {
     if (latlng != null) {
         address = latlng;
         if (!response || response.Status.code != 200) {
