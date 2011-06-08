@@ -164,7 +164,7 @@ ul.tabs li.active {
 }
 
 /* Used for the in-field labels. */
-#div.in-field_block {
+#div .in-field_block {
     position:relative;
 }
 #make_plan label {
