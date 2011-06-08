@@ -38,7 +38,7 @@
 
             <div class="left" >
                 <div class="left_top">
-
+                    logo goes here
                 </div>
                 <div class="left_bottom">
                     <!-- Group panel -->
