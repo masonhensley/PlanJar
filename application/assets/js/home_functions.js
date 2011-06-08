@@ -43,6 +43,8 @@ $(function() {
     $('#one_mult').buttonset();
 });
 
+// SHould be called when #sel_one or #sel_mult
+// Set up the Selectable instance with "standard" options or toggle options.
 function toggle_group_select() {
     if ($('#sel_one').attr('checked') != 'checked') {
         
