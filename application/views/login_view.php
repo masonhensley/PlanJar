@@ -125,15 +125,15 @@
 
                                 <!-- Hidden input used to pass the school id to the server instead of the school name -->
                                 <input type="hidden" id="su_school_id" name="su_school_id"/>
-
-                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                                
                                 <div class="div_texbox">
-                                    <select name="su_sex">
-                                        <option value="" selected="selected">Gender</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                    </select>
+                                    <div class="in-field_block">
+                                        <label for="su_grad_year">Graduation year</label>
+                                        <input id="su_grad_year" name="su_grad_year" type="text" class="textbox">
+                                    </div>
                                 </div>
+                                
+                                
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox"><font style="font-family:Arial, Helvetica, sans-serif;">Birthday:</font>
@@ -173,13 +173,21 @@
                                         ?>
                                     </select>
                                 </div>
+                                
+                                
+                                
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
-                                    <div class="in-field_block">
-                                        <label for="su_grad_year">Graduation year</label>
-                                        <input id="su_grad_year" name="su_grad_year" type="text" class="textbox">
-                                    </div>
+                                    <select name="su_sex">
+                                        <option value="" selected="selected">Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
                                 </div>
+                                
+                                
+                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+
 
                                 <div class="button_div">
                                     <div style="position:relative; top:5px;">
