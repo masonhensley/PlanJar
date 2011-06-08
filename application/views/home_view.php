@@ -40,27 +40,7 @@
                     <?php include(APPPATH . 'assets/html/weekday_panel.html'); ?>
                 </div>
                 <div class="center_graph">
-                    <div id="tabs-1">
-                        <p><strong>Monday Information</strong></p>
-                    </div>
-                    <div id="tabs-2">
-                        <p><strong>Tuesday Information</strong></p>
-                    </div>
-                    <div id="tabs-3">
-                        <p><strong>Wednesday Information</strong></p>
-                    </div>
-                    <div id="tabs-4">
-                        <p><strong>Thursday Information</strong></p>
-                    </div>
-                    <div id="tabs-5">
-                        <p><strong>Friday Information</strong></p>
-                    </div>
-                    <div id="tabs-6">
-                        <p><strong>Saturday Information</strong></p>
-                    </div>
-                    <div id="tabs-7">
-                        <p><strong>Sunday Information</strong></p>
-                    </div>
+                    
                 </div>
                 <div class="center_board">
 
@@ -73,27 +53,7 @@
                 </div>
 
                 <div class="right_bottom">
-                    <div id="tabs-1">
-                        <p><strong>Monday Information</strong></p>
-                    </div>
-                    <div id="tabs-2">
-                        <p><strong>Tuesday Information</strong></p>
-                    </div>
-                    <div id="tabs-3">
-                        <p><strong>Wednesday Information</strong></p>
-                    </div>
-                    <div id="tabs-4">
-                        <p><strong>Thursday Information</strong></p>
-                    </div>
-                    <div id="tabs-5">
-                        <p><strong>Friday Information</strong></p>
-                    </div>
-                    <div id="tabs-6">
-                        <p><strong>Saturday Information</strong></p>
-                    </div>
-                    <div id="tabs-7">
-                        <p><strong>Sunday Information</strong></p>
-                    </div>
+                    
                 </div>
 
             </div>
