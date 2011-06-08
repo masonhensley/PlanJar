@@ -215,10 +215,11 @@ function location_data() {
         marker1 = new google.maps.Marker({
             position: myLatlng, 
             map: map, 
+            draggable: true,
             title:"Your location!"
         });
         
-        marker1.setDraggable();
+        
  
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
