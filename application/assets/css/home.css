@@ -132,7 +132,7 @@ ul.tabs li a:hover {
     background: #ccc;
 }
 ul.tabs li.active {
-    background: #eee;
+    background: #999;
 }
 
 /* Used for the groups Selectable instance. */
