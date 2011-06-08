@@ -86,7 +86,7 @@ body {
     width:100%;
     height:300px;
 
-    background-color:purple;
+    
 }
 
 .center_board{
@@ -128,7 +128,7 @@ ul.tabs li {
     padding: 0;
     height: 31px; /*--Subtract 1px from the height of the unordered list--*/
     line-height: 31px; /*--Vertically aligns the text within the tab--*/
-    border: 1px solid #999;
+    /*border: 1px solid #999;*/
     border-left: none;
     margin-bottom: -1px; /*--Pull the list item down 1px--*/
     overflow: hidden;

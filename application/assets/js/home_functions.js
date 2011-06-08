@@ -135,7 +135,6 @@ function location_data() {
  
             function (position) {  
                  mapThisGoogle(position.coords.latitude,position.coords.longitude);
-                 alert('wutup');
             }, 
             // next function is the error callback
             function (error)
@@ -176,6 +175,7 @@ function location_data() {
  
     function mapThisGoogle(latitude,longitude)
     {
+        alert('wutup');
         var mapCenter = new GLatLng(latitude,longitude);
         map = new GMap2(document.getElementById("map"));
         map.setCenter(mapCenter, 15);
