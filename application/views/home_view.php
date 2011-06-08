@@ -44,7 +44,8 @@
 
                 </div>
                 <div class="center_graph">
-
+                    <div id="map">
+                    </div>
                 </div>
                 <div class="center_board">
 
