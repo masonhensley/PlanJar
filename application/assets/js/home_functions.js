@@ -200,6 +200,9 @@ function location_data() {
     function mapThisGoogle(latitude,longitude)
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
+        
+        
+        
         var myOptions = {
             zoom: 14,
             center: myLatlng,
@@ -208,6 +211,12 @@ function location_data() {
         
         var map = new google.maps.Map(document.getElementById("map"),
             myOptions);
+            
+        marker1 = new google.maps.Marker({
+            position: myLatlng, 
+            map: map, 
+            title:"Your location!"
+        });
  
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
