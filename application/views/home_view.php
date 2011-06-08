@@ -47,13 +47,16 @@
                 </div>
                 <div class="center_graph">
                     <div id = "tabs" class="tabs-bottom">
+                        
+                    
+                    <div id="tabs-1"><div id="map" style="width:100%; height:100%;">
+
+                    </div></div>
+                        
                         <ul>
                             <li><a href="#tabs-1">Map</a></li>
                         </ul>
                     </div>
-                    <div id="tabs-1"><div id="map" style="width:100%; height:100%;">
-
-                    </div></div>
 
                 </div>
                 <div class="center_board">
