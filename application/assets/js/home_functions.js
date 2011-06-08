@@ -56,7 +56,7 @@ $(function() {
     
     // Initialize he make-a-plan modal.
     $('#make_a_plan').click(function() {
-        $('#plan_conent').modal();
+        $('#plan_content').modal();
         
         return false;
     });
