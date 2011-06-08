@@ -11,7 +11,6 @@
         <script type="text/javascript">
             $(function() {
                 $( "#tabs" ).tabs({
-                    collapsible: true
                 });
             });
         </script>
