@@ -15,13 +15,12 @@ Select
     <li class="ui-widget-content">Friends</li>
 
     <div class="group_label">Joined</div>
+    <li class="ui-widget-content">College of Charleston</li>
     <?php
     for ($i = 1; $i < 5; ++$i)
     {
         ?>
-        <li class="ui-widget-content">
-            <input type="button">Group <?php echo($i); ?></input>
-        </li>
+        <li class="ui-widget-content">Group <?php echo($i); ?></li>
         <?php
     }
     ?>
