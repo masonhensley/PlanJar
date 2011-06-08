@@ -9,7 +9,7 @@
         <p>Can't find it? Just type in the name and keep going.</p>
     </div>
     
-    <div style="width:25px; float:left"></div>
+    <div style="width:25px; height:1px float:left"></div>
 
     <div class="in-field_block">
         <label for="plan_description">What are you doing?</label>
