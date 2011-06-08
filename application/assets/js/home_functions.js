@@ -2,7 +2,8 @@
 $(function() {
     //initialize();
     
-    // Set up the Selectable instance with default options.
+    // Set up the Selectable instance with default options (the shown
+    // options are to keep the last selected item from disappearing.
     $('#my_groups').selectable({
         selected: function(event, ui) {
             if ($(ui.selected).hasClass('group_label')) {
@@ -58,9 +59,22 @@ function toggle_group_select() {
         });
     } else {
         
-        // Set up the Selectable instance with standard options.
+        // Set up the Selectable instance with default options (the shown
+        // options are to keep the last selected item from disappearing.
         $('#my_groups').selectable('destroy');
-        $('#my_groups').selectable();
+        $('#my_groups').selectable({
+            selected: function(event, ui) {
+                if ($(ui.selected).hasClass('group_label')) {
+                    // Dissalow group label divs from being selected.
+                    $(ui.selected).removeClass('ui-selected');
+                } else {
+                    $(ui.selected).addClass('my-selected');
+                }
+            },
+            unselected: function(event, ui) {
+                $(ui.unselected).removeClass('my-selected');
+            }
+        });
     }
 }
 
