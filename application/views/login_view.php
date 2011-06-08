@@ -128,7 +128,7 @@
 
                                 <div class="div_texbox">
                                     <div class="in-field_block">
-                                        <label for="su_grad_year">Graduation year</label>
+                                        <label for="su_grad_year">Graduation year (yyyy)</label>
                                         <input id="su_grad_year" name="su_grad_year" type="text" class="textbox">
                                     </div>
                                 </div>
