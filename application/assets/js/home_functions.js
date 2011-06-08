@@ -3,7 +3,7 @@ $(function() {
     //initialize();
     
     // Set up the Selectable instance with default options (the shown
-    // options are to keep the last selected item from disappearing.
+    // options are to keep the last selected item from disappearing).
     $('#my_groups').selectable({
         selected: function(event, ui) {
             if ($(ui.selected).hasClass('group_label')) {
@@ -16,9 +16,9 @@ $(function() {
         unselected: function(event, ui) {
             $(ui.unselected).removeClass('my-selected');
         },
+        // Disallow group label divs from being selected.
         selecting: function(event, ui) {
             if ($(ui.selecting).hasClass('group_label')) {
-                // Disallow group label divs from being selected.
                 $(ui.selecting).removeClass('ui-selecting');
             }
         }
@@ -62,7 +62,13 @@ function toggle_group_select() {
                     e.removeClass('ui-selected');
                     e.removeClass('my-selected');
                 }
+            },
+        // Disallow group label divs from being selected.
+        selecting: function(event, ui) {
+            if ($(ui.selecting).hasClass('group_label')) {
+                $(ui.selecting).removeClass('ui-selecting');
             }
+        }
         });
     } else {
         
@@ -80,7 +86,13 @@ function toggle_group_select() {
             },
             unselected: function(event, ui) {
                 $(ui.unselected).removeClass('my-selected');
+            },
+        // Disallow group label divs from being selected.
+        selecting: function(event, ui) {
+            if ($(ui.selecting).hasClass('group_label')) {
+                $(ui.selecting).removeClass('ui-selecting');
             }
+        }
         });
     }
 }
