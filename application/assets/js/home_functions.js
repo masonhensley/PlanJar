@@ -200,9 +200,7 @@ function location_data() {
     function mapThisGoogle(latitude,longitude)
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
-        
-        
-        
+              
         var myOptions = {
             zoom: 14,
             center: myLatlng,
@@ -218,10 +216,43 @@ function location_data() {
             draggable: true,
             title:"Your location!"
         });
- 
+    
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
         geocoder.getLocations(latitude+','+longitude, addAddressToMap);
     }
     
-}
+    function getAddress(overlay, latlng) {
+        if (latlng != null) {
+            address = latlng;
+            if (!response || response.Status.code != 200) {
+                alert("Status Code:" + response.Status.code);
+            } else {
+                place = response.Placemark[0];
+                point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
+                
+                $('div.center_top_left').replaceWith('place.AddressDetails.Country.CountryName')
+            }
+        }
+    }
+        
+    function showAddress(response) {
+        map.clearOverlays();
+        if (!response || response.Status.code != 200) {
+            alert("Status Code:" + response.Status.code);
+        } else {
+            place = response.Placemark[0];
+            point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
+            marker = new GMarker(point);
+            map.addOverlay(marker);
+            marker.openInfoWindowHtml(
+                '<b>orig latlng:</b>' + response.name + '<br/>' + 
+                '<b>latlng:</b>' + place.Point.coordinates[1] + "," + place.Point.coordinates[0] + '<br>' +
+                '<b>Status Code:</b>' + response.Status.code + '<br>' +
+                '<b>Status Request:</b>' + response.Status.request + '<br>' +
+                '<b>Address:</b>' + place.address + '<br>' +
+                '<b>Accuracy:</b>' + place.AddressDetails.Accuracy + '<br>' +
+                '<b>Country code:</b> ' + place.AddressDetails.Country.CountryNameCode);
+        }
+    }
+
