@@ -11,7 +11,7 @@
         <input type="text" name="plan_description" class="textbox"/>
     </div>
 
-    <select name="day" style="float:right">
+    <select name="day" style="float:left">
         <option value="" selected="selected">What day?</option>
         <option value="0">Today</option>
         <option value="1">Tom</option>

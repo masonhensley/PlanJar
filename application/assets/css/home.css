@@ -168,6 +168,7 @@ ul.tabs li.active {
     position:relative;
     height:30px;
     width:200px;
+    float:left;
 }
 #make_plan label {
     position:absolute;
