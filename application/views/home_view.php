@@ -26,7 +26,14 @@
 
             <div class="center" >
                 <div class="center_top">
-
+                    
+                    <div class ="center_top_left">
+                        
+                    </div>
+                    
+                    <div class="center_top_right">
+                        
+                    </div>
                 </div>
                 <div class="center_day">
                     
