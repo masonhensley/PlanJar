@@ -37,8 +37,8 @@
                     <!-- Weekday panel 
                     <?php //include(APPPATH . 'assets/html/weekday_panel.html'); ?> -->
                     
-                    <div id="tabs">
-                        <ul>
+                    
+                        <ul class="tabs">
                             <li> <a href="#tabs-1">Monday</a></li>
                             <li><a href="#tabs-2">Tuesday</a></li>
                             <li><a href="#tabs-3">Wednesday</a></li>
@@ -47,17 +47,17 @@
                             <li><a href="#tabs-6">Saturday</a></li>
                             <li><a href="#tabs-7">Sunday</a></li>
                         </ul>
-                    </div>
+                    
                 </div>
                 <div class="center_graph">
 
-                    <div id="tabs-1"></div>
-                    <div id="tabs-2"></div>
-                    <div id="tabs-3"></div>
-                    <div id="tabs-4"></div>
-                    <div id="tabs-5"></div>
-                    <div id="tabs-6"></div>
-                    <div id="tabs-7"></div>
+                    <div id="tabs-1">Monday</div>
+                    <div id="tabs-2">Tuesday</div>
+                    <div id="tabs-3">Wednesday</div>
+                    <div id="tabs-4">Thursday</div>
+                    <div id="tabs-5">Friday</div>
+                    <div id="tabs-6">Saturday</div>
+                    <div id="tabs-7">Sunday</div>
 
                 </div>
                 <div class="center_board">
