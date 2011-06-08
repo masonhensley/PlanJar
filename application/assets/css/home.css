@@ -51,14 +51,14 @@ body {
     width:100%;
     height:50px;
     
-    background-color:darkgreen;
+    background-color:darkblue;
 }
 
 .center_graph{
     width:100%;
-    height:600px;
+    height:400px;
     
-    background-color:blueviolet;
+    background-color:purple;
 }
 
 .center_board{
