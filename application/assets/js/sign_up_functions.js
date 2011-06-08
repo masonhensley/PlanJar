@@ -215,7 +215,7 @@ $(document).ready(function() {
         }
     });
     
-    // Initialize tthe in-field labels.
+    // Initialize the in-field labels.
     $('form label').inFieldLabels();
     
 // End of ready function.
