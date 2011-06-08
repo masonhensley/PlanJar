@@ -18,7 +18,8 @@
     </head>
 
     <body >
-        <div class="container" align="center">
+        <center>
+        <div class="container" >
             
             <div class="left" >
                 <div class="left_top">
@@ -53,6 +54,6 @@
             </div>
             
          </div>
-
+        </center>
 </body>
 </html>
