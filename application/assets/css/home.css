@@ -168,8 +168,8 @@ ul.tabs li.active {
 }
 #make_plan label {
     position:absolute;
-    top:6px;
-    left:17px;
+    top:1px;
+    left:1px;
     font:normal 18px Arial;
     color: #999999;
 }
