@@ -50,7 +50,7 @@
                 </div>
                 <div class="center_graph">
 
-                    <div id = "tabs" class="tabs-bottom">
+                    <div id = "tabs" class="tabs-bottom" style="height:100%">
                         
                         <ul>
                             <li><a href="#tabs-1">Map</a></li>
