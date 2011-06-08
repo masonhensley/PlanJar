@@ -1,6 +1,8 @@
 // Run when the DOM is loaded.
 $(function() {
-    //initialize();
+    
+    // retrieve location data
+    location_data();
     
     // Set up the day of the week tabs.
     $(".tab_content").hide(); //Hide all content
@@ -45,7 +47,7 @@ $(function() {
     // Initialize the in-field labels for the status update.
     $('form label').inFieldLabels();
     
-    // End of ready function.
+// End of ready function.
 });
 
 // SHould be called when #sel_one or #sel_mult
@@ -139,8 +141,8 @@ function location_data() {
                 // To see everything available in the position.coords array:
                 // for (key in position.coords) {alert(key)}
  
-                mapServiceProvider(position.coords.latitude,position.coords.longitude);
- 
+                // mapServiceProvider(position.coords.latitude,position.coords.longitude);
+                mapThisGoogle(position.coords.latitude,position.coords.longitude);
             }, 
             // next function is the error callback
             function (error)
