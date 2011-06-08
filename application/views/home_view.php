@@ -41,7 +41,25 @@
                 </div>
                 <div class="center_graph">
                     <div id="tabs-1">
-                        <p><strong>Different shit</strong></p>
+                        <p><strong>Monday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Tuesday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Wednesday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Thursday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Friday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Saturday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Sunday Information</strong></p>
                     </div>
                 </div>
                 <div class="center_board">
@@ -56,8 +74,25 @@
 
                 <div class="right_bottom">
                     <div id="tabs-1">
-                        <p><strong>Click this tab again to close the content pane.</strong></p>
-                        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+                        <p><strong>Monday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Tuesday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Wednesday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Thursday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Friday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Saturday Information</strong></p>
+                    </div>
+                    <div id="tabs-1">
+                        <p><strong>Sunday Information</strong></p>
                     </div>
                 </div>
 
