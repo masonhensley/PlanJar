@@ -34,6 +34,9 @@
                 <div class="center_top">
                     
                 </div>
+                <div class="center_day">
+                    
+                </div>
                 <div class="center_graph">
                     
                 </div>
