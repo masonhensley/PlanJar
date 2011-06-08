@@ -37,7 +37,7 @@
                                 <div class="div_texbox">
                                     <div class="block">
                                         <label for="li_email">Email</label>
-                                        <input id="li_email" name="li_email" type="text" class="textbox"/>
+                                        <input id="li_email" name="li_email" type="email" class="textbox"/>
                                     </div>
                                 </div>
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
@@ -79,7 +79,7 @@
                                 <div class="div_texbox">
                                     <div class="block">
                                         <label for="su_email_1">Email</label>
-                                        <input id="su_email_1" name="su_email_1" type="text" class="textbox">
+                                        <input id="su_email_1" name="su_email_1" type="email" class="textbox">
                                     </div>
                                 </div>
 
@@ -87,7 +87,7 @@
                                 <div class="div_texbox">
                                     <div class="block">
                                         <label for="su_email_2">Confirm email</label>
-                                        <input id="su_email_2" name="su_email_2" type="text" class="textbox">
+                                        <input id="su_email_2" name="su_email_2" type="email" class="textbox">
                                     </div>
                                 </div>
 
