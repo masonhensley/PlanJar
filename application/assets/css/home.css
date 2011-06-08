@@ -163,10 +163,10 @@ ul.tabs li.active {
 }
 
 /* Used for the in-field labels. */
-#div.in-field_block, #sign_up div.block {
+#div.in-field_block {
     position:relative;
 }
-#log_in label, #sign_up label {
+#make_plan label {
     position:absolute;
     top:6px;
     left:17px;
