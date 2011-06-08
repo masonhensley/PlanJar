@@ -230,7 +230,7 @@ function location_data() {
                 place = response.Placemark[0];
                 point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
                 
-                $('div.center_top_left').replaceWith('place.AddressDetails.Country.CountryName')
+                $('div.center_top_left').replaceWith("<div style=width:100%; height:100%;>" + place.AddressDetails.Country.CountryName + "</div>");
             }
         }
     }
