@@ -131,11 +131,11 @@ function location_data() {
     
     if (navigator.geolocation) 
     {
-        alert('wutup');
         navigator.geolocation.getCurrentPosition( 
  
             function (position) {  
                  mapThisGoogle(position.coords.latitude,position.coords.longitude);
+                 alert('wutup');
             }, 
             // next function is the error callback
             function (error)
