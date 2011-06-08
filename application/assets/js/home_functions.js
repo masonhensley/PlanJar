@@ -131,18 +131,11 @@ function location_data() {
     
     if (navigator.geolocation) 
     {
+        alert('wutup');
         navigator.geolocation.getCurrentPosition( 
  
             function (position) {  
- 
-                // Did we get the position correctly?
-                // alert (position.coords.latitude);
- 
-                // To see everything available in the position.coords array:
-                // for (key in position.coords) {alert(key)}
- 
-                // mapServiceProvider(position.coords.latitude,position.coords.longitude);
-                mapThisGoogle(position.coords.latitude,position.coords.longitude);
+                 mapThisGoogle(position.coords.latitude,position.coords.longitude);
             }, 
             // next function is the error callback
             function (error)
@@ -194,40 +187,3 @@ function location_data() {
     }
     
 }
-    
-    
-    /*
-    var map_options = {
-        zoom: 14,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map_canvas"), map_options);
-  
-    // Try W3C Geolocation
-    if(navigator.geolocation) {
-        browserSupportFlag = true;
-        navigator.geolocation.getCurrentPosition(function(position) {
-            initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-            map.setCenter(initialLocation);
-        }, function() {
-            handleNoGeolocation(browserSupportFlag);
-        });
-    // Browser doesn't support Geolocation
-    } else {
-        browserSupportFlag = false;
-        handleNoGeolocation(browserSupportFlag);
-    }
-  
-    function handleNoGeolocation(errorFlag) {
-        if (errorFlag == true) {
-            alert("Geolocation service failed.");
-        //initialLocation = newyork;
-        } else {
-            alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-        //initialLocation = siberia;
-        }
-    //map.setCenter(initialLocation);
-    }
-    
-}
-*/
