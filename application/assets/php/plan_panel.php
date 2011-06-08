@@ -10,11 +10,13 @@
         <label for="plan_description">What are you doing?</label>
         <input type="text" id="plan_description" class="textbox"/>
     </div>
+    
+    <div style="width:20px; float:left"></div>
 
-    <select name="day" style="float:left">
+    <select name="day" style="float:right">
         <option value="" selected="selected">What day?</option>
-        <option value="0">Today</option>
-        <option value="1">Tom</option>
+        <option value="0">Today - <?php echo(date('j')); ?></option>
+        <option value="1">Tom - <?php echo(date('j') + 1); ?></option>
         <?php
         $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
         for ($i = 2; $i < 7; ++$i)
