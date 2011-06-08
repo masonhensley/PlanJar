@@ -7,7 +7,7 @@ $(function() {
         selected: function(event, ui) {
             if (e.hasClass('group_label')) {
                 // Dissalow group label divs from being selected.
-                e.removeClass('ui-selected');
+                $(ui.selected).removeClass('ui-selected');
             } else {
                 $(ui.selected).addClass('my-selected');
             }
