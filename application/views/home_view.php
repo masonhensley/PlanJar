@@ -53,7 +53,7 @@
                 </div>
                 <div class="center_graph">
 
-                    <div id = "tabs" class="tabs-bottom" syle="heigh:100%">
+                    <div id = "tabs" class="tabs-bottom" syle="heigh:555px;">
 
                         <ul>
                             <li><a href="#tabs-1">Map</a></li>
@@ -61,10 +61,10 @@
                         </ul>
                         
                         <div id="tabs-1" style="width: 555px; height:250px">
-                            <div id="map" style="width:100%; height:100%;"></div>
+                            <div id="map" style="width:555%; height:250%;"></div>
                         </div>
                         
-                        <div id="tabs-2" style="background-color: purple; height:250px; ">
+                        <div id="tabs-2" style="background-color: purple;  width: 555px; height:250px; ">
                             
                         </div>
 
