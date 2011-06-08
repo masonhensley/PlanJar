@@ -2,11 +2,15 @@
 $(function() {
     //initialize();
     
-    // The following instantiation was pulled from http://forum.jquery.com/topic/ui-selectable-allow-select-multiple-without-lasso
     // Set up the Selectable instance with default options.
     $('#my_groups').selectable({
         selected: function(event, ui) {
-            $(ui.selected).addClass('my-selected');
+            if (e.hasClass('group_label')) {
+                // Dissalow group label divs from being selected.
+                $(ui.selected).removeClass('ui-selected');
+            } else {
+                $(ui.selected).addClass('my-selected');
+            }
         },
         unselected: function(event, ui) {
             $(ui.unselected).removeClass('my-selected');
@@ -28,12 +32,17 @@ function toggle_group_select() {
         $('#my_groups').selectable({
             selected: function (event, ui) {
                 var e= $(ui.selected);
-                if (e.hasClass('my-selected')) {
-                    e.removeClass('my-selected');
+                if (e.hasClass('group_label')) {
+                    // Dissalow group label divs from being selected.
                     e.removeClass('ui-selected');
                 } else {
-                    e.addClass('my-selected');
-                    e.addClass('ui-selected');
+                    if (e.hasClass('my-selected')) {
+                        e.removeClass('my-selected');
+                        e.removeClass('ui-selected');
+                    } else {
+                        e.addClass('my-selected');
+                        e.addClass('ui-selected');
+                    }
                 }
             },
             unselected: function (event, ui) {

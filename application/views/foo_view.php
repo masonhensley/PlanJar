@@ -11,19 +11,22 @@
 
     <body>
     <center>
-        Select
-        <div id="one_mult">
-            <label for="sel_one">one</label>
-            <input type="radio" id="sel_one" name="one_mult" checked="checked" onchange="toggle_group_select()"/>
-
-            <label for="sel_mult">multiple</label>
-            <input type="radio" id="sel_mult" name="one_mult" onchange="toggle_group_select()"/>
-        </div>
-        groups
-
         <div style="width:200px; height:600px">
+            <h3>Filter by group</h3>
+            <hr/>
+            
+            Select
+            <div id="one_mult">
+                <label for="sel_one">one</label>
+                <input type="radio" id="sel_one" name="one_mult" checked="checked" onchange="toggle_group_select()"/>
+
+                <label for="sel_mult">multiple</label>
+                <input type="radio" id="sel_mult" name="one_mult" onchange="toggle_group_select()"/>
+            </div>
+            <hr/>
             <br/>
-            <ol id="my_groups">
+            
+            <ul id="my_groups">
                 <li class="ui-widget-content">Friends</li>
 
                 <div class="group_label">Joined</div>
@@ -45,7 +48,7 @@
                     <?php
                 }
                 ?>
-            </ol>
+            </ul>
         </div>
     </center>
 </body>
