@@ -32,7 +32,8 @@
                     </div>
 
                     <div class="center_top_right">
-
+                        <!-- Status panel -->
+                        <?php include(APPPATH . 'assets/php/status_panel.php'); ?>
                     </div>
                 </div>
                 <div class="center_day">
