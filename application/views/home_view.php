@@ -56,25 +56,25 @@
                     
                     
                         <ul class="tabs">
-                            <li> <a href="#tabs-1">Monday</a></li>
-                            <li><a href="#tabs-2">Tuesday</a></li>
-                            <li><a href="#tabs-3">Wednesday</a></li>
-                            <li><a href="#tabs-4">Thursday</a></li>
-                            <li> <a href="#tabs-5">Friday</a></li>
-                            <li><a href="#tabs-6">Saturday</a></li>
-                            <li><a href="#tabs-7">Sunday</a></li>
+                            <li> <a href="#monday">Monday</a></li>
+                            <li><a href="#tuesday">Tuesday</a></li>
+                            <li><a href="#wednesday">Wednesday</a></li>
+                            <li><a href="#thursday">Thursday</a></li>
+                            <li> <a href="#friday">Friday</a></li>
+                            <li><a href="#saturday">Saturday</a></li>
+                            <li><a href="#sunday">Sunday</a></li>
                         </ul>
                     
                 </div>
                 <div class="center_graph">
 
-                    <div id="tabs-1" class="tab_content">Monday</div>
-                    <div id="tabs-2" class="tab_content">Tuesday</div>
-                    <div id="tabs-3" class="tab_content">Wednesday</div>
-                    <div id="tabs-4" class="tab_content">Thursday</div>
-                    <div id="tabs-5" class="tab_content">Friday</div>
-                    <div id="tabs-6" class="tab_content">Saturday</div>
-                    <div id="tabs-7" class="tab_content">Sunday</div>
+                    <div id="monday" class="tab_content"></div>
+                    <div id="tuesday" class="tab_content"></div>
+                    <div id="wednesday" class="tab_content"></div>
+                    <div id="thursday" class="tab_content"></div>
+                    <div id="friday" class="tab_content"></div>
+                    <div id="saturday" class="tab_content"></div>
+                    <div id="sunday" class="tab_content"></div>
 
                 </div>
                 <div class="center_board">
