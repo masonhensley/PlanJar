@@ -4,7 +4,6 @@ $(function() {
     // retrieve location data
     location_data();
     
-    
     $( "#tabs" ).tabs({
         collapsible: true
     });
@@ -256,3 +255,4 @@ function location_data() {
         }
     }
 
+}
