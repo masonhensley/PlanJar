@@ -11,14 +11,15 @@
 
     <body>
     <center>
-        Groups:
+        Select
         <div id="one_mult">
-            <label for="sel_one">Select one</label>
-            <input type="radio" id="sel_one" name="one_mult_group" checked="checked" onchange="toggle_group_select()"/>
+            <label for="sel_one">one</label>
+            <input type="radio" id="sel_one" name="one_mult" checked="checked" onchange="toggle_group_select()"/>
 
-            <label for="sel_mult">Select multiple</label>
-            <input type="radio" id="sel_mult" name="one_mult_group" onchange="toggle_group_select()"/>
+            <label for="sel_mult">multiple</label>
+            <input type="radio" id="sel_mult" name="one_mult" onchange="toggle_group_select()"/>
         </div>
+        groups
 
         <div style="width:200px; height:600px">
             <br/>
