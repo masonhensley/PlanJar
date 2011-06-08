@@ -37,10 +37,12 @@
                 </div>
                 <div class="center_day">
                     <!-- Weekday panel -->
-                    <?php include(APPPATH.'assets/html/weekday_panel.html'); ?>
+                    <?php include(APPPATH . 'assets/html/weekday_panel.html'); ?>
                 </div>
                 <div class="center_graph">
-
+                    <div id="tabs-1">
+                        <p><strong>Different shit</strong></p>
+                    </div>
                 </div>
                 <div class="center_board">
 
@@ -53,7 +55,10 @@
                 </div>
 
                 <div class="right_bottom">
-
+                    <div id="tabs-1">
+                        <p><strong>Click this tab again to close the content pane.</strong></p>
+                        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+                    </div>
                 </div>
 
             </div>
