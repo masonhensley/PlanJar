@@ -135,12 +135,6 @@ function location_data() {
  
             function (position) {  
  
-                // Did we get the position correctly?
-                // alert (position.coords.latitude);
- 
-                // To see everything available in the position.coords array:
-                // for (key in position.coords) {alert(key)}
- 
                 // mapServiceProvider(position.coords.latitude,position.coords.longitude);
                 mapThisGoogle(position.coords.latitude,position.coords.longitude);
             }, 
