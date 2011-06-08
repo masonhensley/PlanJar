@@ -105,6 +105,7 @@ $(document).ready(function() {
             },
             su_grad_year: {
                 required: true,
+                min: 2000,
                 max: get_year() + 6
             }
         },
@@ -163,6 +164,7 @@ $(document).ready(function() {
             },
             su_grad_year: {
                 required: 'Enter your graduation year',
+                min: "Your graduation date was too long ago.",
                 max: "Your graduation year is too far away."
             }
         },
