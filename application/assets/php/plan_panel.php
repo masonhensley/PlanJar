@@ -1,17 +1,17 @@
 <form id="make_plan">
     Make a plan:
     <br/>
-    <div class="in-field_block" style="float:left">
+    <div class="in-field_block">
         <label for="plan_location">Where are you going?</label>
         <input type="text" id="plan_location" name="plan_location" class="textbox"/>
     </div>
 
     <div class="in-field_block">
         <label for="plan_description">What are you doing?</label>
-        <input type="text" name="plan_description" class="textbox"/>
+        <input type="text" id="plan_description" class="textbox"/>
     </div>
 
-    <select name="day" style="float:right">
+    <select name="day" style="float:left">
         <option value="" selected="selected">What day?</option>
         <option value="0">Today</option>
         <option value="1">Tom</option>
@@ -21,7 +21,12 @@
         {
             ?>
             <option value="<?php echo($i); ?>">
-                <?php echo($days[(date('w') + $i) % 7]); ?>
+                <?php
+                // Format the displayed day name (e.g. Tue - 9).
+                $day_name = $days[(date('w') + $i) % 7];
+                $day_name .= ' - ' . date('j');
+                echo($day_name);
+                ?>
             </option>
             <?php
         }

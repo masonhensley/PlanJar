@@ -11,7 +11,13 @@
     {
         ?>
         <li>
-            <a href="#<?php echo($i); ?>"><?php echo($days[(date('w') + $i) % 7]); ?></a>
+            <a href="#<?php echo($i); ?>"><?php
+    // Format the displayed day name (e.g. Tue - 9).
+    $day_name = $days[(date('w') + $i) % 7];
+    $day_name .= ' - ' . date('j');
+    echo($day_name);
+        ?>
+            </a>
         </li>
         <?php
     }
