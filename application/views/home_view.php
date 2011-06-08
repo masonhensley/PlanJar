@@ -57,9 +57,10 @@
                     <?php include(APPPATH . 'assets/php/weekday_panel.php'); ?>
 
                 </div>
+                 <div id = "tabs" class="tabs-bottom">
                 <div class="center_graph">
 
-                    <div id = "tabs" class="tabs-bottom">
+                   
 
                         <ul>
                             <li><a href="#tabs-1">Map</a></li>
