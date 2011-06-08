@@ -43,6 +43,11 @@
                         <div id="plan_content">
                             <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
                         </div>
+
+                        <!-- preload the images -->
+                        <div style='display:none'>
+                            <img src='img/basic/x.png' alt='' />
+                        </div>
                     </div>
                 </div>
                 <div class="center_day">
@@ -59,13 +64,13 @@
                             <li><a href="#tabs-1">Map</a></li>
                             <li><a href="#tabs-2">Data</a></li>
                         </ul>
-                        
+
                         <div id="tabs-1" style="width: 555px; height:250px;">
                             <div id="map" style="width:555px; height:250px;"></div>
                         </div>
-                        
+
                         <div id="tabs-2" style="background-color: purple;  width: 555px; height:250px; ">
-                            
+
                         </div>
 
                     </div>
