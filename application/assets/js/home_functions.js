@@ -2,6 +2,23 @@
 $(function() {
     //initialize();
     
+    // Set up the day of the week tabs.
+    $(".tab_content").hide(); //Hide all content
+    $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+    $(".tab_content:first").show(); //Show first tab content
+
+    //On Click Event
+    $("ul.tabs li").click(function() {
+
+        $("ul.tabs li").removeClass("active"); //Remove any "active" class
+        $(this).addClass("active"); //Add "active" class to selected tab
+        $(".tab_content").hide(); //Hide all tab content
+
+        var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+        $(activeTab).fadeIn(); //Fade in the active ID content
+        return false;
+    });
+    
     // Set up the Selectable instance with default options (the shown
     // options are to keep the last selected item from disappearing).
     $('#my_groups').selectable({
@@ -63,12 +80,12 @@ function toggle_group_select() {
                     e.removeClass('my-selected');
                 }
             },
-        // Disallow group label divs from being selected.
-        selecting: function(event, ui) {
-            if ($(ui.selecting).hasClass('group_label')) {
-                $(ui.selecting).removeClass('ui-selecting');
+            // Disallow group label divs from being selected.
+            selecting: function(event, ui) {
+                if ($(ui.selecting).hasClass('group_label')) {
+                    $(ui.selecting).removeClass('ui-selecting');
+                }
             }
-        }
         });
     } else {
         
@@ -87,12 +104,12 @@ function toggle_group_select() {
             unselected: function(event, ui) {
                 $(ui.unselected).removeClass('my-selected');
             },
-        // Disallow group label divs from being selected.
-        selecting: function(event, ui) {
-            if ($(ui.selecting).hasClass('group_label')) {
-                $(ui.selecting).removeClass('ui-selecting');
+            // Disallow group label divs from being selected.
+            selecting: function(event, ui) {
+                if ($(ui.selecting).hasClass('group_label')) {
+                    $(ui.selecting).removeClass('ui-selecting');
+                }
             }
-        }
         });
     }
 }
