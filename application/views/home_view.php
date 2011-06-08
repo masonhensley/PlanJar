@@ -38,7 +38,7 @@
 
                     <div class="center_top_right">
                         <!-- New plan panel -->
-                        <input type="button" id="make_a_plan" value="Make a plan."/>
+                        <input type="button" id="make_a_plan" value="Make a plan"/>
 
                         <div id="plan_content">
                             <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
