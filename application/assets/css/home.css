@@ -35,7 +35,7 @@ body {
 
 .left_top{
     width:100%;
-    height:200px;
+    height:160px;
     
     background-color:green;
 }
@@ -49,7 +49,7 @@ body {
 
 .center_top{
     width:100%;
-    height:50px;
+    height:160px;
     
     background-color:darkblue;
 }
