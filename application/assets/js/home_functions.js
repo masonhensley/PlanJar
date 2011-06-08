@@ -217,6 +217,8 @@ function location_data() {
             map: map, 
             title:"Your location!"
         });
+        
+        marker1.setDraggable();
  
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
