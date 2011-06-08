@@ -1,3 +1,4 @@
 <form id="status_update">
-<!--    <input type="text" id-->
+    <label for="status_location">Where are you going?</label>
+    <input type="text" id="status_location" name="status_location"/>
 </form>

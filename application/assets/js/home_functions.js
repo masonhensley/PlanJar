@@ -39,8 +39,10 @@ $(function() {
         
     });
     
-    // Initialize the buttonset (select one/select multiple).
+    // Initialize the group buttonset (select one/select multiple).
     $('#one_mult').buttonset();
+    
+    // End of ready function.
 });
 
 // SHould be called when #sel_one or #sel_mult
