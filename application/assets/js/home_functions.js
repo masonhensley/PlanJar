@@ -219,6 +219,8 @@ function location_data() {
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
         geocoder.getLocations(myLatlng, getAddress);
+        
+        alert('yeah');
     }
 
 }
@@ -228,6 +230,7 @@ function getAddress(response) {
         alert("Status Code:" + response.Status.code);
     } else {
         place = response.Placemark[0];
+        alert('sup');
         $("div.center_top_left").relpaceWith("<div>" +  place.AddressDetails.City.CityName + "</div>"); 
     }
 }
