@@ -13,6 +13,7 @@ body {
     height:1000px;
     float:left;
     border-left: black;
+    border:1px solid #000000;
     
     background-color: white;
 }
@@ -22,7 +23,7 @@ body {
     height:1000px;
     float:left;
     
-    background-color: red;
+    background-color: white;
 }
 
 .right{
@@ -31,6 +32,7 @@ body {
     margin-right:0px;
     float:left;
     border-right:black;
+    border:1px solid #000000;
     
     background-color: white;
 }
