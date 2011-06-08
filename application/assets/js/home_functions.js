@@ -42,6 +42,9 @@ $(function() {
     // Initialize the group buttonset (select one/select multiple).
     $('#one_mult').buttonset();
     
+    // Initialize the in-field labels for the status update.
+    $('form label').inFieldLabels();
+    
     // End of ready function.
 });
 
