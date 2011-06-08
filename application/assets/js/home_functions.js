@@ -231,10 +231,8 @@ function location_data() {
                 place = response.Placemark[0];
                 point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
                 
-                document.write('place.AddressDetails.Country.CountryName');
-                
+                $('div.center_top_left').replaceWith('place.AddressDetails.Country.CountryName')
             }
-        //geocoder.getLocations(latlng, showAddress);
         }
     }
         
