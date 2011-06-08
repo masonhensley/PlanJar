@@ -3,10 +3,10 @@ Filter by group
 
 Select
 <div id="one_mult">
-    <label for="sel_one">one</label>
+    <label for="sel_one">Standard</label>
     <input type="radio" id="sel_one" name="one_mult" checked="checked" onchange="toggle_group_select()"/>
 
-    <label for="sel_mult">multiple</label>
+    <label for="sel_mult">Toggle</label>
     <input type="radio" id="sel_mult" name="one_mult" onchange="toggle_group_select()"/>
 </div>
 <hr/>
@@ -19,7 +19,9 @@ Select
     for ($i = 1; $i < 5; ++$i)
     {
         ?>
-        <li class="ui-widget-content">Group <?php echo($i); ?></li>
+        <li class="ui-widget-content">
+            <input type="button">Group <?php echo($i); ?></input>
+        </li>
         <?php
     }
     ?>
