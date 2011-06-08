@@ -59,15 +59,15 @@ body {
 }
 
 .center_top_left{
-    width:50%;
+    width:20%;
     float:left;
     height:100%;
     
-   background-color: lightblue;
+    background-color:#99ff99;
 }
 
 .center_top_right{
-    width:50%;
+    width:80%;
     float:right;
     height:100%;
     
@@ -164,17 +164,13 @@ ul.tabs li.active {
 }
 
 /* Used for the in-field labels. */
-#div .in-field_block {
+#make_plan div .in-field_block {
     position:relative;
 }
 #make_plan label {
     position:absolute;
-    top:6px;
-    left:17px;
+    top:1px;
+    left:1px;
     font:normal 18px Arial;
     color: #999999;
-}
-#make_plan div.div_textbox {
-    width:60px;
-    height:30px;
 }
