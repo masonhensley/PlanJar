@@ -135,7 +135,9 @@ ul.tabs li {
     overflow: hidden;
     position: relative;
     background: #e0e0e0;
-    width: 84px; /* Center width (595)/7 (days of the week) and adjusted for border */
+    
+    font-size: 0.8em;
+    /* width: 84px; /* Center width (595)/7 (days of the week) and adjusted for border */
 }
 ul.tabs li a {
     text-decoration: none;
