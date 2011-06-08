@@ -4,6 +4,13 @@ $(function() {
     // retrieve location data
     location_data();
     
+    
+    $( "#tabs" ).tabs();
+    $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+    .removeClass( "ui-corner-all ui-corner-top" )
+    .addClass( "ui-corner-bottom" );
+	
+    
     // Set up the day of the week tabs.
     $(".tab_content").hide(); //Hide all content
     $("ul.tabs li:first").addClass("active").show(); //Activate first tab
@@ -177,7 +184,7 @@ function location_data() {
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
         var myOptions = {
-            zoom: 10,
+            zoom: 14,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
