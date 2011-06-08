@@ -26,8 +26,8 @@
 
                 </div>
                 <div class="left_bottom">
-                    <!-- Group Panel -->
-                    <?php include('/application/assets/html/group_panel.html'); ?>
+                    <!-- Group panel -->
+                    <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
                 </div>
             </div>
 
