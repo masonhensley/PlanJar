@@ -51,9 +51,7 @@
 
                 </div>
                 <div class="center_day">
-                    <!-- Weekday panel 
-                    <?php //include(APPPATH . 'assets/html/weekday_panel.html'); ?> -->
-
+                    
                     <!-- Add the markup for the tabs, starting with today. -->
                     <?php $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat'); ?>
                     <ul class="tabs">
