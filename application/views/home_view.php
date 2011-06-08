@@ -61,7 +61,7 @@
                             <a href="#<?php echo($days[date('w')]); ?>">Today</a>
                         </li>
                         <li>
-                            <a href="#<?php echo($days[date('w') + 1]); ?>">Tomorrow</a>
+                            <a href="#<?php echo($days[date('w') + 1]); ?>">Tom</a>
                         </li>
                         <?php
                         for ($i = 2; $i < 7; ++$i)
