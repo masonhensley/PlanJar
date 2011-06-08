@@ -5,7 +5,7 @@ $(function() {
     // Set up the Selectable instance with default options.
     $('#my_groups').selectable({
         selected: function(event, ui) {
-            if (e.hasClass('group_label')) {
+            if ($(ui.selected).hasClass('group_label')) {
                 // Dissalow group label divs from being selected.
                 $(ui.selected).removeClass('ui-selected');
             } else {
