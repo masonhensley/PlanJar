@@ -63,9 +63,6 @@ $(function() {
         return false;
     });
     
-    // Hide the make-a-plan content.
-    $('#plan_content').hide();
-    
 // End of ready function.
 });
 
