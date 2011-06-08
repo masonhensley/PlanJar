@@ -57,7 +57,7 @@
                             <li><a href="#tabs-2">Data</a></li>
                         </ul>
                         
-                        <div id="tabs-1" style="height:100%">
+                        <div id="tabs-1" style="height:250px">
                             <div id="map" style="width:100%; height:100%;"></div>
                         </div>
                         
