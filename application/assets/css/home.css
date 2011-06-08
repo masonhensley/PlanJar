@@ -175,5 +175,6 @@ ul.tabs li.active {
     color: #999999;
 }
 #make_plan input.textbox {
-    height:20px;
+    height:30px;
+    width:200px;
 }
