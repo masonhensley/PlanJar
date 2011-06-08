@@ -221,10 +221,20 @@ function location_data() {
         geocoder = new GClientGeocoder();
         geocoder.getLocations(latitude+','+longitude, addAddressToMap);
     }
+    
     function getAddress(overlay, latlng) {
         if (latlng != null) {
             address = latlng;
-            geocoder.getLocations(latlng, showAddress);
+            if (!response || response.Status.code != 200) {
+                alert("Status Code:" + response.Status.code);
+            } else {
+                place = response.Placemark[0];
+                point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
+                
+                document.write('place.AddressDetails.Country.CountryName');
+                
+            }
+        //geocoder.getLocations(latlng, showAddress);
         }
     }
         
