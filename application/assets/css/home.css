@@ -60,7 +60,8 @@ body {
 
 .center_day{
     width:100%;
-    height:50px;
+    padding-top: 10px
+    /*height:50px;*/
     
     background-color:blue;
 }
