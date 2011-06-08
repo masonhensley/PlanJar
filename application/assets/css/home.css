@@ -53,14 +53,14 @@ body {
 
 .center_top{
     width:100%;
-    height:160px;
+    height:50px;
     
     background-color:darkblue;
 }
 
 .center_graph{
     width:100%;
-    height:250px;
+    height:500px;
     
     background-color:purple;
 }
@@ -85,68 +85,6 @@ body {
     
     background-color: violet;
 }
-
-/*
-.toppanel{
-    position:relative;
-    width:100%;
-    height:40px;
-
-    border-style:solid;
-    border-color: #000000 #000000 #000000 #000000;
-    background-color: white;
-}
-.left_container {
-    position:relative;
-    width:250px;
-    height:1000px;
-    float:left;
-    border-width:3px;
-
-    border-style:solid;
-    border-color: #000000 #000000 #000000 #000000;
-    background-color: white;
-}
-
-.centergraph{
-    position:relative;
-    width:400px;
-    height:300px;
-    border-bottom-style:solid;
-
-    border-bottom-color: black;
-    border-width:3px;
-    background-color: white;
-}
-.rightpanel {
-    position:relative;
-    float:left;
-    left:40px;
-    width:150px;
-    height:1000px;
-
-    border-width:3px;
-    border-style:solid;
-    border-color: #000000 #000000 #000000 #000000;
-    background-color: white;
-}
-
-.right_top{
-    width:100%;
-    height:40px;
-    border-bottom-style:solid;
-    font-family:Arial, Helvetica, sans-serif;
-
-    border-bottom-color: black;
-    border-width:3px;
-    background-color: white;
-}
-
-.right_bottom{
-    
-}
-
-*/
 
 #my_groups .ui-selecting { background: #FECA40; }
 #my_groups .ui-selected { background: #F39814; color: white; }
