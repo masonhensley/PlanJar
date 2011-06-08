@@ -13,8 +13,8 @@
 
     <select name="day">
         <option value="" selected="selected">What day?</option>
-        <option value="0" selected="selected">Today</option>
-        <option value="1" selected="selected">Tomorrow</option>
+        <option value="0">Today</option>
+        <option value="1">Tom</option>
         <?php
         $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
         for ($i = 2; $i < 7; ++$i)
