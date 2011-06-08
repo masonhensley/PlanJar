@@ -174,3 +174,6 @@ ul.tabs li.active {
     font:normal 18px Arial;
     color: #999999;
 }
+#make_plan input.textbox {
+    height:20px;
+}
