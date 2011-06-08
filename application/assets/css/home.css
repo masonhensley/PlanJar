@@ -19,7 +19,7 @@ body {
 }
 
 .center{
-    width:600px;
+    width:595px;
     height:1000px;
     float:left;
     
@@ -117,6 +117,7 @@ ul.tabs li {
 	overflow: hidden;
 	position: relative;
 	background: #e0e0e0;
+        width: 85px; /* Center width (595)/7 (days of the week)
 }
 ul.tabs li a {
 	text-decoration: none;
