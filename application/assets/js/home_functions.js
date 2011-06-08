@@ -121,6 +121,75 @@ var initialLocation;
 var browserSupportFlag;
 
 function initialize() {
+    
+    if (navigator.geolocation) 
+    {
+        navigator.geolocation.getCurrentPosition( 
+ 
+            function (position) {  
+ 
+                // Did we get the position correctly?
+                // alert (position.coords.latitude);
+ 
+                // To see everything available in the position.coords array:
+                // for (key in position.coords) {alert(key)}
+ 
+                mapServiceProvider(position.coords.latitude,position.coords.longitude);
+ 
+            }, 
+            // next function is the error callback
+            function (error)
+            {
+                switch(error.code) 
+                {
+                    case error.TIMEOUT:
+                        alert ('Timeout');
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert ('Position unavailable');
+                        break;
+                    case error.PERMISSION_DENIED:
+                        alert ('Permission denied');
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert ('Unknown error');
+                        break;
+                }
+            }
+            );
+    }
+    function mapServiceProvider(latitude,longitude)
+    {
+        // querystring function from prettycode.org: 
+        // http://prettycode.org/2009/04/21/javascript-query-string/
+ 
+        if (window.location.querystring['serviceProvider']=='Yahoo')
+        {
+            mapThisYahoo(latitude,longitude);
+        }
+        else
+        {
+            mapThisGoogle(latitude,longitude);
+        }
+    }
+    // be sure to include the script to initialize Google or Yahoo! Maps
+ 
+    function mapThisGoogle(latitude,longitude)
+    {
+        var mapCenter = new GLatLng(latitude,longitude);
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(mapCenter, 15);
+        map.addOverlay(new GMarker(mapCenter));
+ 
+        // Start up a new reverse geocoder for addresses?
+        geocoder = new GClientGeocoder();
+        geocoder.getLocations(latitude+','+longitude, addAddressToMap);
+    }
+    
+}
+    
+    
+    /*
     var map_options = {
         zoom: 14,
         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -152,4 +221,5 @@ function initialize() {
         }
     //map.setCenter(initialLocation);
     }
+    */
 }
