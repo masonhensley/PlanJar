@@ -9,7 +9,9 @@ $(function() {
             $(ui.selected).addClass('my-selected');
         },
         unselected: function(event, ui) {
-            alert('unselected');
+            $(ui.selected).removeClass('my-selected');
+        },
+        unselecting: function(event, ui) {
             $(ui.selected).removeClass('my-selected');
         }
     });
