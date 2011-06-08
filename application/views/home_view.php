@@ -11,7 +11,6 @@
         <script type="text/javascript">
             $(function() {
                 $( "#tabs" ).tabs({
-                    collapsible: true
                 });
             });
         </script>
@@ -37,10 +36,10 @@
                 </div>
                 <div class="center_day">
                     <!-- Weekday panel -->
-                    <?php include(APPPATH.'assets/html/weekday_panel.html'); ?>
+                    <?php include(APPPATH . 'assets/html/weekday_panel.html'); ?>
                 </div>
                 <div class="center_graph">
-
+                    
                 </div>
                 <div class="center_board">
 
@@ -53,7 +52,7 @@
                 </div>
 
                 <div class="right_bottom">
-
+                    
                 </div>
 
             </div>
