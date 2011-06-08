@@ -26,7 +26,7 @@
 
                 </div>
                 <div class="left_bottom">
-                    <?php include('/application/assets/html/group_panel.html'); ?>
+                    <?php include('/application/assets/php/group_panel.php'); ?>
                 </div>
             </div>
 
