@@ -182,7 +182,7 @@ ul.tabs li.active {
 }
 
 /* used for bottom up tabs */
-#tabs { height: 555px; } 
+#tabs { height: 100%; } 
 .tabs-bottom { position: relative; } 
 .tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
 .tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
