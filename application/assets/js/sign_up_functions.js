@@ -216,7 +216,7 @@ $(document).ready(function() {
     });
     
     // Initialize tthe in-field labels.
-    $('label').inFieldLabels();
+    $('form label').inFieldLabels();
     
 // End of ready function.
 });
