@@ -26,6 +26,7 @@
 
                 </div>
                 <div class="left_bottom">
+                    <!-- Group Panel -->
                     <?php include('/application/assets/html/group_panel.html'); ?>
                 </div>
             </div>
@@ -35,7 +36,8 @@
 
                 </div>
                 <div class="center_day">
-
+                    <!-- Weekday panel -->
+                    <?php include('/application/assets/html/weekday_panel.html'); ?>
                 </div>
                 <div class="center_graph">
 
