@@ -1,9 +1,9 @@
 <ul class="tabs">
     <li>
-        <a href="0">Today <?php echo(date('j')); ?></a>
+        <a href="0">Today - <?php echo(date('j')); ?></a>
     </li>
     <li>
-        <a href="1">Tom <?php echo(date('j') + 1); ?></a>
+        <a href="1">Tom - <?php echo(date('j') + 1); ?></a>
     </li>
     <?php
     $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
