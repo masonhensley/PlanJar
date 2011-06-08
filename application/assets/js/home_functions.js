@@ -177,7 +177,7 @@ function location_data() {
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
         var myOptions = {
-            zoom: 8,
+            zoom: 10,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
