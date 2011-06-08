@@ -46,7 +46,7 @@
 
                         <!-- preload the images -->
                         <div style='display:none'>
-                            <img src='img/basic/x.png' alt='' />
+                            <img src='/application/assets/images/x.png' alt='' />
                         </div>
                     </div>
                 </div>
