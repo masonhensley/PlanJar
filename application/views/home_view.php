@@ -11,24 +11,24 @@
         <script type="text/javascript">
             $(document).ready(function() {
 
-	//When page loads...
-	$(".tab_content").hide(); //Hide all content
-	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
-	$(".tab_content:first").show(); //Show first tab content
+                //When page loads...
+                $(".tab_content").hide(); //Hide all content
+                $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+                $(".tab_content:first").show(); //Show first tab content
 
-	//On Click Event
-	$("ul.tabs li").click(function() {
+                //On Click Event
+                $("ul.tabs li").click(function() {
 
-		$("ul.tabs li").removeClass("active"); //Remove any "active" class
-		$(this).addClass("active"); //Add "active" class to selected tab
-		$(".tab_content").hide(); //Hide all tab content
+                    $("ul.tabs li").removeClass("active"); //Remove any "active" class
+                    $(this).addClass("active"); //Add "active" class to selected tab
+                    $(".tab_content").hide(); //Hide all tab content
 
-		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-		$(activeTab).fadeIn(); //Fade in the active ID content
-		return false;
-	});
+                    var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+                    $(activeTab).fadeIn(); //Fade in the active ID content
+                    return false;
+                });
 
-});
+            });
         </script>
     </head>
 
@@ -53,28 +53,38 @@
                 <div class="center_day">
                     <!-- Weekday panel 
                     <?php //include(APPPATH . 'assets/html/weekday_panel.html'); ?> -->
-                    
-                    
-                        <ul class="tabs">
-                            <li> <a href="#monday">Monday</a></li>
-                            <li><a href="#tuesday">Tuesday</a></li>
-                            <li><a href="#wednesday">Wednesday</a></li>
-                            <li><a href="#thursday">Thursday</a></li>
-                            <li> <a href="#friday">Friday</a></li>
-                            <li><a href="#saturday">Saturday</a></li>
-                            <li><a href="#sunday">Sunday</a></li>
-                        </ul>
-                    
+
+                    <!-- Add the markup for the tabs, starting with today. -->
+                    <?php $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat'); ?>
+                    <ul class="tabs">
+                        <li>
+                            <a href="#<?php echo($days[date('w')]); ?>">Today</a>
+                        </li>
+                        <li>
+                            <a href="#<?php echo($days[date('w') + 1]); ?>">Tomorrow</a>
+                        </li>
+                        <?php
+                        for ($i = 2; $i < 7; ++$i)
+                        {
+                            ?>
+                            <li>
+                                <a href="#<?php echo($days[(date('w') + $i) % 7]); ?>"><?php echo($days[(date('w') + $i) % 7]); ?></a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+
                 </div>
                 <div class="center_graph">
 
-                    <div id="monday" class="tab_content"></div>
-                    <div id="tuesday" class="tab_content">Yo</div>
-                    <div id="wednesday" class="tab_content"></div>
-                    <div id="thursday" class="tab_content"></div>
-                    <div id="friday" class="tab_content"></div>
-                    <div id="saturday" class="tab_content"></div>
-                    <div id="sunday" class="tab_content"></div>
+                    <div id="Sun" class="tab_content"></div>
+                    <div id="Mon" class="tab_content"></div>
+                    <div id="Tues" class="tab_content"></div>
+                    <div id="Weds" class="tab_content"></div>
+                    <div id="Thurs" class="tab_content"></div>
+                    <div id="Fri" class="tab_content"></div>
+                    <div id="Sat" class="tab_content"></div>
 
                 </div>
                 <div class="center_board">
