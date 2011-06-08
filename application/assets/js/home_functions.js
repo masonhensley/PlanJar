@@ -60,6 +60,7 @@ $(function() {
         
         return false;
     });
+    $('#plan_content').hide();
     
 // End of ready function.
 });
