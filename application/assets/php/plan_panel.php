@@ -1,7 +1,7 @@
 <form id="make_plan">
     Make a plan:
     <br/>
-    <div class="in-field_block">
+    <div class="in-field_block" style="float:left">
         <label for="plan_location">Where are you going?</label>
         <input type="text" id="plan_location" name="plan_location" class="textbox"/>
     </div>
@@ -11,7 +11,7 @@
         <input type="text" name="plan_description" class="textbox"/>
     </div>
 
-    <select name="day">
+    <select name="day" style="float:right">
         <option value="" selected="selected">What day?</option>
         <option value="0">Today</option>
         <option value="1">Tom</option>
