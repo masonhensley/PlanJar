@@ -230,8 +230,6 @@ function location_data() {
             } else {
                 alert("Geocoder failed due to: " + status);
             }
-        });
-        
+        });  
     }
-
 }
