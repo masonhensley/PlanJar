@@ -198,7 +198,6 @@ function location_data() {
  
     function mapThisGoogle(latitude,longitude)
     {
-        alert('in google');
         var myLatlng = new google.maps.LatLng(latitude,longitude);
               
         var myOptions = {
@@ -217,6 +216,8 @@ function location_data() {
             title:"Your location!"
         });
     
+    
+        alert('in google 1');
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
         geocoder.getLocations(myLatlng, getAddress);
