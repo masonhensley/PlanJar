@@ -78,7 +78,7 @@ $(function() {
                         radius: 2000,
                         name: $('#plan_location').val(),
                         sensor: false,
-                        //key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+                        key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                     },
                     function (data) {
                         alert('response: ' + data);
@@ -181,7 +181,7 @@ function location_data() {
                 myLatitude=position.coords.latitude;
                 myLongitude=position.coords.longitude;
                 
-                mapThisGoogle(position.coords.latitude,position.coords.longitude);
+                mapThisGoogle(position.coords.latitude, position.coords.longitude);
             }, 
             // next function is the error callback
             function (error)
@@ -223,8 +223,7 @@ function location_data() {
     function mapThisGoogle(latitude,longitude)
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
-        //var geocoder = new google.maps.Geocoder();    
-            
+        
         var myOptions = {
             zoom: 14,
             center: myLatlng,
@@ -233,28 +232,28 @@ function location_data() {
         
         var map = new google.maps.Map(document.getElementById("map"), myOptions);
             
-        your_location_marker = new google.maps.Marker({
-            position: myLatlng, 
-            map: map, 
-            draggable: true,
-            title:"Your location!"
-        });
-        
-        
-        geocoder = new google.maps.Geocoder();
-        geocoder.geocode({
-            'latLng': myLatitude+", "+myLongitude
-        }, 
-        function(results, status) {
-            myAddress = results[1].formatted_address;
-            alert(myAddress);
-            //if (status == google.maps.GeocoderStatus.OK) {
-             //   if (results[1]) {
-                    
-            //}
-            //} else {
-             //   alert("Geocoder failed due to: " + status);
-            //}
-        });  
+//        your_location_marker = new google.maps.Marker({
+//            position: myLatlng, 
+//            map: map, 
+//            draggable: true,
+//            title:"Your location!"
+//        });
+//        
+//        
+//        geocoder = new google.maps.Geocoder();
+//        geocoder.geocode({
+//            'latLng': myLatitude+", "+myLongitude
+//        }, 
+//        function(results, status) {
+//            myAddress = results[1].formatted_address;
+//            alert(myAddress);
+//            //if (status == google.maps.GeocoderStatus.OK) {
+//             //   if (results[1]) {
+//                    
+//            //}
+//            //} else {
+//             //   alert("Geocoder failed due to: " + status);
+//            //}
+//        });  
     }
 }
