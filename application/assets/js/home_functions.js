@@ -243,7 +243,7 @@ function location_data() {
         
         geocoder = new google.maps.Geocoder();
         geocoder.geocode({
-            'latLng': myLatitude+", "+myLongitude
+            'latLng': myLatlng
         }, 
         function(results, status) {
             myAddress = results[1].formatted_address;
