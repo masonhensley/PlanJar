@@ -71,12 +71,17 @@ $(function() {
                 // Initialize the in-field labels.
                 $('#plan_content label').inFieldLabels();
                 
-                var defaultBounds = new google.maps.LatLngBounds(
-                    new google.maps.LatLng(-33.8902, 151.1759),
-                    new google.maps.LatLng(-33.8474, 151.2631));
-
-                $('#plan_location').change(function() {
-                    alert('changed');
+                // Set up a custom Google Places autocomplete.
+                $('#plan_location').keydown(function() {
+                    $.get('https://maps.googleapis.com/maps/api/place/search/json', {
+                        location: new google.maps.LatLng(29.964683, -90.070652),
+                        radius: 2000,
+                        name: $('#plan_location').val(),
+                        key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+                    },
+                    function (data) {
+                        alert('response: ' + data);
+                    });
                 });
             }
         });
