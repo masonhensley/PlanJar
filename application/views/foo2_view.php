@@ -71,22 +71,7 @@ $(function() {
                 <span class="pie">0.52/1.561</span> 
             </p> 
 
-            <div class="example"> 
-                <div class="html"> 
-                    <h4>HTML</h4> 
-
-                    <pre><code class="html">&lt;span class="pie"&gt;1/5&lt;/span&gt;
-&lt;span class="pie"&gt;226/360&lt;/span&gt;
-&lt;span class="pie"&gt;0.52/1.561&lt;/span&gt;</code></pre> 
-                </div> 
-
-                <div class="javascript"> 
-                    <h4>Javascript</h4> 
-
-                    <pre><code class="javascript">$("span.pie").peity("pie");</code></pre> 
-                </div> 
-            </div> 
-
+            
             <h3>Custom Colours and Radius</h3> 
 
             <p>You can pass custom colours and radius to <code>peity("pie", { radius: 42 })</code>.</p> 
@@ -104,38 +89,7 @@ $(function() {
                 <span class="r1">10/10</span> 
             </p> 
 
-            <div class="example"> 
-                <div class="html"> 
-                    <h4>HTML</h4> 
-
-                    <pre><code class="html">&lt;p class="radius"&gt;
-  &lt;span class="r10"&gt;1/10&lt;/span&gt;
-  &lt;span class="r9"&gt;2/10&lt;/span&gt;
-  &lt;span class="r8"&gt;3/10&lt;/span&gt;
-  &lt;span class="r7"&gt;4/10&lt;/span&gt;
-  &lt;span class="r6"&gt;5/10&lt;/span&gt;
-  &lt;span class="r5"&gt;6/10&lt;/span&gt;
-  &lt;span class="r4"&gt;7/10&lt;/span&gt;
-  &lt;span class="r3"&gt;8/10&lt;/span&gt;
-  &lt;span class="r2"&gt;9/10&lt;/span&gt;
-  &lt;span class="r1"&gt;10/10&lt;/span&gt;
-&lt;/p&gt;</code></pre> 
-                </div> 
-
-                <div class="javascript"> 
-                    <h4>Javascript</h4> 
-
-                    <pre><code class="javascript">$(".radius span").each(function() {
-  var elem = $(this);
-  var radius = elem.attr("class").match(/\d+/) * 4;
- 
-  elem.peity("pie", {
-    colours: ["#C6D9FD", "#4D89F9"],
-    radius: radius
-  });
-});</code></pre> 
-                </div> 
-            </div> 
+            
 
             <h2>Line Charts</h2> 
 
