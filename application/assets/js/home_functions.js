@@ -241,6 +241,7 @@ function location_data() {
         });
         
         alert(myLatitude+", "+myLongitude)
+        geocoder = new google.maps.Geocoder();
         geocoder.geocode({
             'latLng': myLatitude+", "+myLongitude
             }, 
