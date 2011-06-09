@@ -1,10 +1,6 @@
 <html>
     <head>
         <title>MaseBook</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
-<script src="jquery.peity.js"></script> 
-<script src="docs/code_highlighter.js"></script> 
-<script src="docs/syntax.js"></script> 
 
 //added some more scripts
         <script type="text/javascript" src="/application/assets/js/jquery.peity.min.js"></script>
