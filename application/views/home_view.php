@@ -40,9 +40,7 @@
                         <!-- New plan panel -->
                         <input type="button" id="make_a_plan" value="Make a plan"/>
 
-                        <div id="plan_content">
-                            <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
-                        </div>
+                        <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
 
                     </div>
                 </div>
