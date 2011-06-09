@@ -248,13 +248,6 @@ function location_data() {
         function(results, status) {
             myAddress = results[1].formatted_address;
             alert(myAddress);
-            //if (status == google.maps.GeocoderStatus.OK) {
-             //   if (results[1]) {
-                    
-            //}
-            //} else {
-             //   alert("Geocoder failed due to: " + status);
-            //}
         });  
     }
 }
