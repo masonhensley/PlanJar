@@ -28,4 +28,9 @@ class Home extends CI_Controller
     }
 }
 
+// For Mason to fuck with...
+public function foo() {
+    $this->load->view('foo_view');
+}
+
 ?>
