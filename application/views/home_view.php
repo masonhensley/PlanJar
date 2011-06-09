@@ -58,8 +58,8 @@
 
 
                         <ul>
-                            <li><a href="#tabs-1">Map</a></li>
                             <li><a href="#tabs-2">Data</a></li>
+                            <li><a href="#tabs-1">Map</a></li> 
                         </ul>
 
                         <div id="tabs-1" style="width: 555px; height:250px;">
