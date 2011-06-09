@@ -71,19 +71,13 @@ $(function() {
                 // Initialize the in-field labels.
                 $('#plan_content label').inFieldLabels();
                 
-                // Set up the Google autocomplete.
                 var defaultBounds = new google.maps.LatLngBounds(
                     new google.maps.LatLng(-33.8902, 151.1759),
-                    new google.maps.LatLng(-33.8474, 151.2631)
-                    );
+                    new google.maps.LatLng(-33.8474, 151.2631));
 
-                var input = document.getElementById('plan_location');
-                var options = {
-                    bounds: defaultBounds,
-                    types: ['establishment']
-                };
-
-                autocomplete = new google.maps.places.Autocomplete(input, options);
+                $('#plan_location').change(function() {
+                    alert('changed');
+                });
             }
         });
         
