@@ -1,16 +1,22 @@
 // Run when the DOM is loaded.
 $(function() {
     
-    // retrieve location data
+    // places map
     location_data();
-    
+   
+   
     $( "#tabs" ).tabs({
         collapsible: true
-    });
+        select: function(event, ui){
+            if($(ui.item).
+        }
+
+        }
+    )
+    
     $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
     .removeClass( "ui-corner-all ui-corner-top" )
     .addClass( "ui-corner-bottom" );
-	
     
     // Set up the day of the week tabs.
     $(".tab_content").hide(); //Hide all content
@@ -70,7 +76,7 @@ $(function() {
         return false;
     });
     
-// End of ready function.
+    // End of ready function.
 });
 
 // Should be called when #sel_one or #sel_mult
@@ -156,29 +162,29 @@ function location_data() {
     {
         navigator.geolocation.getCurrentPosition( 
  
-            function (position) {  
-                mapThisGoogle(position.coords.latitude,position.coords.longitude);
-            }, 
-            // next function is the error callback
-            function (error)
+        function (position) {  
+            mapThisGoogle(position.coords.latitude,position.coords.longitude);
+        }, 
+        // next function is the error callback
+        function (error)
+        {
+            switch(error.code) 
             {
-                switch(error.code) 
-                {
-                    case error.TIMEOUT:
-                        alert ('Timeout');
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert ('Position unavailable');
-                        break;
-                    case error.PERMISSION_DENIED:
-                        alert ('Permission denied');
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        alert ('Unknown error');
-                        break;
-                }
+                case error.TIMEOUT:
+                    alert ('Timeout');
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert ('Position unavailable');
+                    break;
+                case error.PERMISSION_DENIED:
+                    alert ('Permission denied');
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert ('Unknown error');
+                    break;
             }
-            );
+        }
+    );
     }
     function mapServiceProvider(latitude,longitude)
     {
@@ -207,7 +213,7 @@ function location_data() {
         };
         
         var map = new google.maps.Map(document.getElementById("map"),
-            myOptions);
+        myOptions);
             
         your_location_marker = new google.maps.Marker({
             position: myLatlng, 
