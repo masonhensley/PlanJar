@@ -6,7 +6,8 @@
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript">
             // Run when the DOM loads.
-            $(function($(".radius span").each(function() {
+            $(function(
+) {$(".radius span").each(function() {
   var elem = $(this);
   var radius = elem.attr("class").match(/\d+/) * 4;
 
@@ -15,7 +16,8 @@
     radius: radius
   });
 });
-) {
+
+$(".line").peity("line");
                 
             });
         </script>
@@ -38,7 +40,7 @@
 </p>
 
 
-
+<span class="line">5,3,9,6,5,9,7,3,5,2</span>
 
 
 
