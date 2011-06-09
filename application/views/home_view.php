@@ -17,7 +17,7 @@
 
     <body>
     <center>
-        <div class="container" >
+        <div class="container">
 
             <div class="left" >
                 <div class="left_top">
@@ -30,8 +30,9 @@
             </div>
 
             <div class="center" >
+                
                 <div class="center_top">
-
+                    
                     <div class ="center_top_left">
                         <font style="float:left;">your location data: </font>
                     </div>
@@ -39,36 +40,28 @@
                     <div class="center_top_right">
                         <!-- New plan panel -->
                         <input type="button" id="make_a_plan" value="Make a plan"/>
-
                         <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
-
                     </div>
+                    
                 </div>
+                
                 <div class="center_day">
-
                     <!-- Add the markup for the tabs, starting with today. -->
                     <?php include(APPPATH . 'assets/php/weekday_panel.php'); ?>
-
                 </div>
 
                 <div class="center_graph">
                     <div id = "tabs" class="tabs-bottom">
-
-
                         <ul>
                             <li><a href="#tabs-2">Data</a></li>
                             <li><a href="#tabs-1">Map</a></li> 
                         </ul>
-
                         <div id="tabs-1" style="width:555px; height:250px;" >
                             <div id="map" style="width:555px; height:250px;">
                             </div>
                         </div>
-
                         <div id="tabs-2" style="background-color: purple;  width: 555px; height:250px; ">
-
                         </div>
-
                     </div>
                 </div>
                 <div class="center_board">
@@ -81,11 +74,8 @@
                 <div class="right_top">
                     <a href="/home/logout">Log out.</a>
                 </div>
-
                 <div class="right_bottom">
-
                 </div>
-
             </div>
 
         </div>
