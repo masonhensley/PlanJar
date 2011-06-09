@@ -217,9 +217,10 @@ function location_data() {
         });
     
     
-        alert('in google 1');
+        
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
+        alert('in google 2');
         geocoder.getLocations(myLatlng, getAddress);
         
         alert('yeah');
