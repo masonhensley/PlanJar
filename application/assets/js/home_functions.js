@@ -250,6 +250,7 @@ function location_data() {
                     map.setZoom(11);
                     infowindow.setContent(results[1].formatted_address);
                     myAddress = resultes[1].formatted_address;
+                    alert(myAddress);
                 }
             } else {
                 alert("Geocoder failed due to: " + status);
