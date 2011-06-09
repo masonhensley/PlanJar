@@ -1,3 +1,14 @@
+<script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
+<script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
+<script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
+<script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
+<script type="text/javascript" src="/application/assets/js/jquery.simplemodal.1.4.1.min.js"></script>
+
+
+<link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
+<link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
+
 <form id="make_plan">
     Make a plan:
     <br/>
@@ -8,7 +19,7 @@
 <!--        <p>Start typing, and we'll try to guess what you're looking for.</p>
         <p>Can't find it? Just type in the name and keep going.</p>-->
     </div>
-    
+
     <div style="width:50px; height:10px; float:left"></div>
 
     <div class="in-field_block">
@@ -39,6 +50,6 @@
         }
         ?>
     </select>
-    
+
     <input type="submit" value="Make a plan"/>
 </form>
