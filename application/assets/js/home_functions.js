@@ -198,6 +198,7 @@ function location_data() {
  
     function mapThisGoogle(latitude,longitude)
     {
+        alert('in google');
         var myLatlng = new google.maps.LatLng(latitude,longitude);
               
         var myOptions = {
