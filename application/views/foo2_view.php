@@ -59,11 +59,11 @@ $(function() {
 
             
 
-            <h2>Pie Charts</h2> 
+            <h2>H2</h2> 
 
-            <p>Simply call <code>peity("pie")</code> on a jQuery selection. You can also
-                pass <code>colours</code>, <code>radius</code> and <code>delimeter</code> 
-                options.</p> 
+            //<p>Simply call <code>peity("pie")</code> on a jQuery selection. You can also
+                //pass <code>colours</code>, <code>radius</code> and <code>delimeter</code> 
+                //options.</p> 
 
             <p> 
                 <span class="pie">1/5</span> 
