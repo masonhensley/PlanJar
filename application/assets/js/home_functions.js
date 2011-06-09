@@ -73,7 +73,7 @@ $(function() {
                 
                 // Set up a custom Google Places autocomplete.
                 $('#plan_location').keydown(function() {
-                    $.get('https://maps.googleapis.com/maps/api/place/search/json', {
+                    $.getJSON('https://maps.googleapis.com/maps/api/place/search/json', {
                         location: google.maps.LatLng(29.964683, -90.070652),
                         radius: 2000,
                         name: 'aa',
