@@ -239,6 +239,7 @@ function location_data() {
             draggable: true,
             title:"Your location!"
         });
+        
         alert(myLatitude+", "+myLongitude)
         geocoder.geocode({
             'latLng': myLatitude+", "+myLongitude
