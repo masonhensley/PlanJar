@@ -223,7 +223,7 @@ function location_data() {
     function mapThisGoogle(latitude,longitude)
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
-        var geocoder = new google.maps.Geocoder();    
+        //var geocoder = new google.maps.Geocoder();    
             
         var myOptions = {
             zoom: 14,
