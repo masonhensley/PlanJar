@@ -1,3 +1,6 @@
+var myLatitude;
+var myLongitude;
+
 // Run when the DOM is loaded.
 $(function() {
     
@@ -169,9 +172,14 @@ function location_data() {
     
     if (navigator.geolocation) 
     {
-        navigator.geolocation.getCurrentPosition( 
- 
-            function (position) {  
+        navigator.geolocation.getCurrentPosition
+        ( 
+            function (position) 
+            {  
+                myLatitude=position.coords.latitude;
+                myLongitude=position.coords.longitude;
+                alert("fuck you " + myLatitude + ", " + myLongitude);
+                
                 mapThisGoogle(position.coords.latitude,position.coords.longitude);
             }, 
             // next function is the error callback
@@ -213,7 +221,7 @@ function location_data() {
  
     function mapThisGoogle(latitude,longitude)
     {
-        var myLatlng = new google.maps.LatLng(latitude,longitude);
+        myLatlng = new google.maps.LatLng(latitude,longitude);
               
         var myOptions = {
             zoom: 14,
@@ -230,8 +238,6 @@ function location_data() {
             draggable: true,
             title:"Your location!"
         });
-    
-    
         
         geocoder.geocode({
             'latLng': latlng
