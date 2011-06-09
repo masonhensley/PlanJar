@@ -222,15 +222,15 @@ function location_data() {
     function mapThisGoogle(latitude,longitude)
     {
         myLatlng = new google.maps.LatLng(latitude,longitude);
-              
+        geocoder = new google.maps.Geocoder();    
+            
         var myOptions = {
             zoom: 14,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         
-        var map = new google.maps.Map(document.getElementById("map"),
-            myOptions);
+        var map = new google.maps.Map(document.getElementById("map"), myOptions);
             
         your_location_marker = new google.maps.Marker({
             position: myLatlng, 
@@ -238,13 +238,14 @@ function location_data() {
             draggable: true,
             title:"Your location!"
         });
-        
+        alert(myLatitude+", "+myLongitude)
         geocoder.geocode({
-            'latLng': myLatitude+","+myLongitude
-        }, function(results, status) {
+            'latLng': myLatitude+", "+myLongitude
+            }, 
+        function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[1]) {
-                    myAddress = results.formatted_address;
+                    myAddress = results[1].formatted_address;
                     alert(myAddress);
                 }
             } else {
