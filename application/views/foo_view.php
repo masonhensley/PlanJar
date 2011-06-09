@@ -64,7 +64,7 @@
                     Chrome, Firefox, Opera, Safari</dd> 
             </dl> 
 
-            <div id="fork-me"><a href="http://github.com/benpickles/peity">Fork me on GitHub</a></div> 
+            
 
             <h2>Pie Charts</h2> 
 
