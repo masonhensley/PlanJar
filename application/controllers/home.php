@@ -31,6 +31,10 @@ class Home extends CI_Controller
     {
         $this->load->view('foo_view');
     }
+    public function foo2()
+    {
+        $this->load->view('foo2_view');
+    }
 
 }
 
