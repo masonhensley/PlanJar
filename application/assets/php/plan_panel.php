@@ -9,8 +9,6 @@
 <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
 <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
-<input type="button" id="make_a_plan" value="plan"/>
-
 <div id="plan_content">
     <form id="make_plan">
         Make a plan:
