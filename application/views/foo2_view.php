@@ -49,26 +49,13 @@ $(function() {
 
 
 <div id="container"> 
-            <h1>Peity</h1> 
-
-            <p>Peity (sounds like deity) is a simple <a href="http://jquery.com/">jQuery</a> 
-                plugin that converts an element's content into a simple <code>&lt;canvas&gt;</code> 
+            
+            <p>
                 mini pie <span class="pie">2/5</span> 
                 line <span class="line">5,3,9,6,5,9,7,3,5,2</span> 
                 or bar chart <span class="bar">5,3,9,6,5,9,7,3,5,2</span>.</p> 
 
-            <dl> 
-                <dt>Download</dt> 
-                <dd><a href="jquery.peity.js">jquery.peity.js</a> (3.9Kb)</dd> 
-                <dd><a href="jquery.peity.min.js">jquery.peity.min.js</a> (2.1Kb)</dd> 
-
-                <dt>Source</dt> 
-                <dd><a href="http://github.com/benpickles/peity">github.com/benpickles/peity</a></dd> 
-
-                <dt>Compatibility</dt> 
-                <dd>Any browser that supports <code>&lt;canvas&gt;</code>:
-                    Chrome, Firefox, Opera, Safari</dd> 
-            </dl> 
+          
 
             
 
