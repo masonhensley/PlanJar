@@ -8,13 +8,7 @@ $(function() {
     $( "#tabs" ).tabs({
         collapsible: true
     })
-        
-    $( "#tabs-1" ).tabs({
-        select: function(event, ui){
-            alert('name: ' + $(ui.index));
-        }
-    })
-    
+
     $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
     .removeClass( "ui-corner-all ui-corner-top" )
     .addClass( "ui-corner-bottom" );
