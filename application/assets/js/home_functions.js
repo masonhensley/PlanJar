@@ -240,20 +240,21 @@ function location_data() {
             title:"Your location!"
         });
         
-        alert(myLatitude+", "+myLongitude)
+        
         geocoder = new google.maps.Geocoder();
         geocoder.geocode({
             'latLng': myLatitude+", "+myLongitude
-            }, 
+        }, 
         function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                if (results[1]) {
-                    myAddress = results[1].formatted_address;
-                    alert(myAddress);
-                }
-            } else {
-                alert("Geocoder failed due to: " + status);
-            }
+            myAddress = results[1].formatted_address;
+            alert(myAddress);
+            //if (status == google.maps.GeocoderStatus.OK) {
+             //   if (results[1]) {
+                    
+            //}
+            //} else {
+             //   alert("Geocoder failed due to: " + status);
+            //}
         });  
     }
 }
