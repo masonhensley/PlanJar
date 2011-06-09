@@ -1,5 +1,7 @@
 var myLatitude;
 var myLongitude;
+var myCity;
+var myAddress;
 
 // Run when the DOM is loaded.
 $(function() {
@@ -178,7 +180,8 @@ function location_data() {
             {  
                 myLatitude=position.coords.latitude;
                 myLongitude=position.coords.longitude;
-                alert("fuck you " + myLatitude + ", " + myLongitude);
+                
+                alert("fuck you, " + myLatitude + ", " + myLongitude);
                 
                 mapThisGoogle(position.coords.latitude,position.coords.longitude);
             }, 
@@ -240,12 +243,14 @@ function location_data() {
         });
         
         geocoder.geocode({
-            'latLng': latlng
+            'latLng': myLatlng
         }, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[1]) {
                     map.setZoom(11);
                     infowindow.setContent(results[1].formatted_address);
+                    myAddress = resultes[1].formatted_address;
+                    alert(myAddress);
                 }
             } else {
                 alert("Geocoder failed due to: " + status);
