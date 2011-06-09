@@ -134,69 +134,8 @@ $(function() {
 
             <p id="notice">Nothing's happened yet.</p> 
 
-            <div class="example pie-events"> 
-                <div class="html"> 
-                    <h4>HTML</h4> 
+            
 
-                    <pre><code class="html">&lt;ul&gt;
-  &lt;li&gt;
-    &lt;span class="graph"&gt;&lt;/span&gt;
-    &lt;select&gt;
-      &lt;option value="0"&gt;0&lt;/option&gt;
-      &lt;option value="1"&gt;1&lt;/option&gt;
-      &lt;option value="2"&gt;2&lt;/option&gt;
-      &lt;option value="3"&gt;3&lt;/option&gt;
-      &lt;option value="4" selected&gt;4&lt;/option&gt;
-      &lt;option value="5"&gt;5&lt;/option&gt;
-    &lt;/select&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;span class="graph"&gt;&lt;/span&gt;
-    &lt;select&gt;
-      &lt;option value="0"&gt;0&lt;/option&gt;
-      &lt;option value="1" selected&gt;1&lt;/option&gt;
-      &lt;option value="2"&gt;2&lt;/option&gt;
-      &lt;option value="3"&gt;3&lt;/option&gt;
-      &lt;option value="4"&gt;4&lt;/option&gt;
-      &lt;option value="5"&gt;5&lt;/option&gt;
-    &lt;/select&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;span class="graph"&gt;&lt;/span&gt;
-    &lt;select&gt;
-      &lt;option value="0"&gt;0&lt;/option&gt;
-      &lt;option value="1"&gt;1&lt;/option&gt;
-      &lt;option value="2"&gt;2&lt;/option&gt;
-      &lt;option value="3" selected&gt;3&lt;/option&gt;
-      &lt;option value="4"&gt;4&lt;/option&gt;
-      &lt;option value="5"&gt;5&lt;/option&gt;
-    &lt;/select&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
- 
-&lt;p id="notice"&gt;Nothing's happened yet.&lt;/p&gt;</code></pre> 
-                </div> 
-
-                <div class="javascript"> 
-                    <h4>Javascript</h4> 
-
-                    <pre><code class="javascript">$("select").change(function(){
-  $(this)
-    .siblings("span.graph")
-    .text($(this).val() + "/" + 5).change();
-}).change();
- 
-var chartUpdate = function(event, value, max) {
-  $("#notice").text(
-    "Chart updated: " + value + "/" + max
-  );
-};
- 
-$("span.graph")
-  .peity("pie")
-  .bind("chart:changed", chartUpdate);</code></pre> 
-                </div> 
-            </div> 
 
             <h2>Custom Chart Types</h2> 
 
