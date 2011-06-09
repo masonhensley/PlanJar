@@ -296,56 +296,5 @@ $("span.graph")
     </div> 
   </div> 
  
-  <h2>Custom Chart Types</h2> 
- 
-  <p>You can easily add your own custom chart type by registering it with
-    Peity with name, defaults and draw function.</p> 
- 
-  <pre><code class="javascript">$.fn.peity.add("custom", {
-    colour: "#FFCC00"
-  }, function() {
-    ...
-  }
-)</code></pre> 
- 
-  <h2>Defaults</h2> 
- 
-  <p>Defaults can be overridden globally like so:</p> 
- 
-  <pre><code class="javascript">$.fn.peity.defaults.pie = {
-  colours: ["#FFF4DD", "#FF9900"],
-  delimeter: "/",
-  radius: 16
-};
- 
-$.fn.peity.defaults.line = {
-  colour: "#c6d9fd",
-  strokeColour: "#4d89f9",
-  strokeWidth: 1,
-  delimeter: ",",
-  height: 16,
-  max: null,
-  width: 32
-};
- 
-$.fn.peity.defaults.bar = {
-  colour: "#4D89F9",
-  delimeter: ",",
-  height: 16,
-  max: null,
-  width: 32
-};</code></pre> 
-</div> 
-<script type="text/javascript"> 
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script> 
-<script type="text/javascript"> 
-try {
-var pageTracker = _gat._getTracker("UA-117680-14");
-pageTracker._trackPageview();
-} catch(err) {}</script> 
-
-
-    </body>
+      </body>
 </html>
