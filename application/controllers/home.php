@@ -13,7 +13,6 @@ class Home extends CI_Controller
         if ($this->ion_auth->logged_in())
         {
             $this->load->view('home_view');
-            
         } else
         {
             $this->logout();
@@ -26,6 +25,13 @@ class Home extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
+
+    // For Mason to fuck with...
+    public function foo()
+    {
+        $this->load->view('foo_view');
+    }
+
 }
 
 ?>
