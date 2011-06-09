@@ -75,7 +75,7 @@ $(function() {
                     new google.maps.LatLng(-33.8474, 151.2631)
                     );
 
-                var input = $('#plan_location');
+                var input = document.getElementById('plan_location');
                 var options = {
                     bounds: defaultBounds,
                     types: ['establishment']
