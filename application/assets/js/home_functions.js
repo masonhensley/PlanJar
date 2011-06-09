@@ -78,8 +78,7 @@ $(function() {
                         radius: 2000,
                         name: $('#plan_location').val(),
                         sensor: false,
-                        key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
-                        callback: '?'
+                        key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                     },
                     function (data) {
                         alert('response: ' + data);
