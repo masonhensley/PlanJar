@@ -60,7 +60,8 @@
                             <div id="map" style="width:555px; height:250px;">
                             </div>
                         </div>
-                        <div id="tabs-2" style="background-color: purple;  width: 555px; height:250px; ">
+                        <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
+                            <p><script>document.write(myAddress);</script></p>
                         </div>
                     </div>
                 </div>

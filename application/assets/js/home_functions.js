@@ -247,7 +247,7 @@ function location_data() {
         }, 
         function(results, status) {
             myAddress = results[1].formatted_address;
-            alert(myAddress);
+            
         });  
     }
 }
