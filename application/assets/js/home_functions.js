@@ -235,13 +235,3 @@ function location_data() {
     }
 
 }
-
-function getAddress(response) {
-    if (!response || response.Status.code != 200) {
-        alert("Status Code:" + response.Status.code);
-    } else {
-        place = response.Placemark[0];
-        alert('sup');
-        $("div.center_top_left").relpaceWith("<div>" +  place.AddressDetails.City.CityName + "</div>"); 
-    }
-}
