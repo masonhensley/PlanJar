@@ -9,11 +9,15 @@ $(function() {
         collapsible: true,
         select: function(event, ui){
             alert('name: ' + $(ui.index));
-            
         }
 
-    }
-    )
+    })
+        
+    $( "#tabs-1" ).tabs({
+        select: function(event, ui){
+            alert('name: ' + $(ui.index));
+        }
+    })
     
     $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
     .removeClass( "ui-corner-all ui-corner-top" )
