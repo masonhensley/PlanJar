@@ -4,7 +4,7 @@
         <title>MaseBook</title>
         
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
-        <script type="text/javascript" src="/application/assets/peity/jquery.peity.min.js"></script>
+        <script type="text/javascript" src="/application/assets/peity/jquery.peity.js"></script>
         <script type="text/javascript" src="/application/assets/peity/code_highlighter.js"></script>
         <script type="text/javascript" src="/application/assets/peity/syntax.js"></script>
 
