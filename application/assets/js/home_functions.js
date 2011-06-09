@@ -6,12 +6,14 @@ $(function() {
    
    
     $( "#tabs" ).tabs({
-        collapsible: true
+        collapsible: true,
         select: function(event, ui){
-            if($(ui.item).
+            if ($(ui.item).id == 'map') {
+                alert('here');
+            }
         }
 
-        }
+    }
     )
     
     $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
@@ -76,7 +78,7 @@ $(function() {
         return false;
     });
     
-    // End of ready function.
+// End of ready function.
 });
 
 // Should be called when #sel_one or #sel_mult
@@ -162,29 +164,29 @@ function location_data() {
     {
         navigator.geolocation.getCurrentPosition( 
  
-        function (position) {  
-            mapThisGoogle(position.coords.latitude,position.coords.longitude);
-        }, 
-        // next function is the error callback
-        function (error)
-        {
-            switch(error.code) 
+            function (position) {  
+                mapThisGoogle(position.coords.latitude,position.coords.longitude);
+            }, 
+            // next function is the error callback
+            function (error)
             {
-                case error.TIMEOUT:
-                    alert ('Timeout');
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert ('Position unavailable');
-                    break;
-                case error.PERMISSION_DENIED:
-                    alert ('Permission denied');
-                    break;
-                case error.UNKNOWN_ERROR:
-                    alert ('Unknown error');
-                    break;
+                switch(error.code) 
+                {
+                    case error.TIMEOUT:
+                        alert ('Timeout');
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert ('Position unavailable');
+                        break;
+                    case error.PERMISSION_DENIED:
+                        alert ('Permission denied');
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert ('Unknown error');
+                        break;
+                }
             }
-        }
-    );
+            );
     }
     function mapServiceProvider(latitude,longitude)
     {
@@ -213,7 +215,7 @@ function location_data() {
         };
         
         var map = new google.maps.Map(document.getElementById("map"),
-        myOptions);
+            myOptions);
             
         your_location_marker = new google.maps.Marker({
             position: myLatlng, 
