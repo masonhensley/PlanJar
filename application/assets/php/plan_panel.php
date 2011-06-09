@@ -5,8 +5,8 @@
         <label for="plan_location">Where are you going?</label>
         <input type="text" id="plan_location" name="plan_location" class="textbox"/>
         <br/>
-        <p>Start typing, and we'll try to guess what you're looking for.</p>
-        <p>Can't find it? Just type in the name and keep going.</p>
+<!--        <p>Start typing, and we'll try to guess what you're looking for.</p>
+        <p>Can't find it? Just type in the name and keep going.</p>-->
     </div>
     
     <div style="width:50px; height:10px; float:left"></div>
