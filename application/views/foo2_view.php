@@ -94,6 +94,13 @@ $(function() {
 
             <p><span class="bar">5,3,9,6,5,9,7,3,5,2</span></p>
 
+            <h2> Playing around</h2> 
+                <p class="radius"> 
+                <span class="r10">1/10</span>
+                mini pie <span class="pie">2/5</span> 
+                line <span class="line">5,3,9,6,5,9,7,3,5,2</span> 
+                or bar chart <span class="bar">5,3,9,6,5,9,7,3,5,2</span>.</p>
+
             <h2>Events</h2>
 
             <ul> 
