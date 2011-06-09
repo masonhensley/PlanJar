@@ -164,6 +164,8 @@ function location_data() {
             {  
                 myLatitude=position.coords.latitude;
                 myLongitude=position.coords.longitude;
+                alert("fuck you" + myLatitude + ", " + myLongitude);
+                
                 mapThisGoogle(position.coords.latitude,position.coords.longitude);
             }, 
             // next function is the error callback
