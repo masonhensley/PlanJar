@@ -216,8 +216,11 @@ function location_data() {
             title:"Your location!"
         });
     
+    
+        
         // Start up a new reverse geocoder for addresses?
         geocoder = new GClientGeocoder();
+        alert('in google 2');
         geocoder.getLocations(myLatlng, getAddress);
         
         alert('yeah');
