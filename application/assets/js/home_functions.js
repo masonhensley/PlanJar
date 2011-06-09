@@ -73,7 +73,7 @@ $(function() {
                 
                 // Set up a custom Google Places autocomplete.
                 $('#plan_location').keyup(function() {
-                    $.get('https://maps.googleapis.com/maps/api/place/search/json', {
+                    $.getJSON('http://maps.googleapis.com/maps/api/place/search/json', {
                         location: google.maps.LatLng(29.964683, -90.070652),
                         radius: 2000,
                         name: $('#plan_location').val(),
@@ -181,7 +181,7 @@ function location_data() {
                 myLatitude=position.coords.latitude;
                 myLongitude=position.coords.longitude;
                 
-                mapThisGoogle(position.coords.latitude,position.coords.longitude);
+                mapThisGoogle(position.coords.latitude, position.coords.longitude);
             }, 
             // next function is the error callback
             function (error)
@@ -223,8 +223,7 @@ function location_data() {
     function mapThisGoogle(latitude,longitude)
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
-        //var geocoder = new google.maps.Geocoder();    
-            
+        
         var myOptions = {
             zoom: 14,
             center: myLatlng,
@@ -243,7 +242,7 @@ function location_data() {
         
         geocoder = new google.maps.Geocoder();
         geocoder.geocode({
-            'latLng': myLatlng
+            "latLng": myLatlng
         }, 
         function(results, status) {
             myAddress = results[1].formatted_address;
