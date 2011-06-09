@@ -73,12 +73,12 @@ $(function() {
                 
                 // Set up a custom Google Places autocomplete.
                 $('#plan_location').keyup(function() {
-                    $.getJSON('https://maps.googleapis.com/maps/api/place/search/json', {
+                    $.getJSON('http://maps.googleapis.com/maps/api/place/search/json', {
                         location: google.maps.LatLng(29.964683, -90.070652),
                         radius: 2000,
                         name: $('#plan_location').val(),
                         sensor: false,
-                        key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+                        //key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                     },
                     function (data) {
                         alert('response: ' + data);
