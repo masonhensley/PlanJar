@@ -222,8 +222,8 @@ function location_data() {
  
     function mapThisGoogle(latitude,longitude)
     {
-        myLatlng = new google.maps.LatLng(latitude,longitude);
-        //geocoder = new google.maps.Geocoder();    
+        var myLatlng = new google.maps.LatLng(latitude,longitude);
+        //var geocoder = new google.maps.Geocoder();    
             
         var myOptions = {
             zoom: 14,
