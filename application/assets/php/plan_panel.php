@@ -1,34 +1,36 @@
-<script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
-<script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
-<script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
-<script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-<script type="text/javascript" src="/application/assets/js/jquery.simplemodal.1.4.1.min.js"></script>
+<head>
+    <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
+    <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
+    <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
+    <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
+    <script type="text/javascript" src="/application/assets/js/jquery.simplemodal.1.4.1.min.js"></script>
 
 
-<link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
-<link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
+    <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
+    <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
-<script type="text/javascript">
-    $(function() {
-        // Initialize the in-field labels.
-        $('#plan_content label').inFieldLabels();
+    <script type="text/javascript">
+        $(function() {
+            // Initialize the in-field labels.
+            $('#plan_content label').inFieldLabels();
                 
-        // Set up the Google autocomplete.
-        var defaultBounds = new google.maps.LatLngBounds(
-        new google.maps.LatLng(-33.8902, 151.1759),
-        new google.maps.LatLng(-33.8474, 151.2631)
-    );
+            // Set up the Google autocomplete.
+            var defaultBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(-33.8902, 151.1759),
+            new google.maps.LatLng(-33.8474, 151.2631)
+        );
 
-        var input = document.getElementById('plan_location');
-        var options = {
-            bounds: defaultBounds,
-            types: ['establishment']
-        };
+            var input = document.getElementById('plan_location');
+            var options = {
+                bounds: defaultBounds,
+                types: ['establishment']
+            };
 
-        autocomplete = new google.maps.places.Autocomplete(input, options);
-    }
-</script>
+            autocomplete = new google.maps.places.Autocomplete(input, options);
+        }
+    </script>
+</head>
 
 <div id="plan_content">
     <form id="make_plan">
