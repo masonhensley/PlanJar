@@ -33,7 +33,7 @@
                 <div class="center_top">
 
                     <div class ="center_top_left">
-                        your location data: <script>document.write(myLongitude)</script>
+                        your location data: <script>document.write(myAddress)</script>
                     </div>
 
                     <div class="center_top_right">
