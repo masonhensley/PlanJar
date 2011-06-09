@@ -134,13 +134,16 @@ $(function() {
 
             <p id="notice">Nothing's happened yet.</p> 
 
-            
-
+                <h2> Playing around</h2> 
+                <span radius="r10">1/10</span>
+                mini pie <span class="pie">2/5</span> 
+                line <span class="line">5,3,9,6,5,9,7,3,5,2</span> 
+                or bar chart <span class="bar">5,3,9,6,5,9,7,3,5,2</span>.</p>
 
            
   
            
-
+</div>
 
         </script> 
     </head> 
