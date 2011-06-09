@@ -6,7 +6,16 @@
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript">
             // Run when the DOM loads.
-            $(function() {
+            $(function($(".radius span").each(function() {
+  var elem = $(this);
+  var radius = elem.attr("class").match(/\d+/) * 4;
+
+  elem.peity("pie", {
+    colours: ["#C6D9FD", "#4D89F9"],
+    radius: radius
+  });
+});
+) {
                 
             });
         </script>
@@ -29,15 +38,6 @@
 </p>
 
 
-$(".radius span").each(function() {
-  var elem = $(this);
-  var radius = elem.attr("class").match(/\d+/) * 4;
-
-  elem.peity("pie", {
-    colours: ["#C6D9FD", "#4D89F9"],
-    radius: radius
-  });
-});
 
 
 
