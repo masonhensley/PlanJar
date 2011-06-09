@@ -232,28 +232,29 @@ function location_data() {
         
         var map = new google.maps.Map(document.getElementById("map"), myOptions);
             
-//        your_location_marker = new google.maps.Marker({
-//            position: myLatlng, 
-//            map: map, 
-//            draggable: true,
-//            title:"Your location!"
-//        });
-//        
-//        
-//        geocoder = new google.maps.Geocoder();
-//        geocoder.geocode({
-//            'latLng': myLatitude+", "+myLongitude
-//        }, 
-//        function(results, status) {
-//            myAddress = results[1].formatted_address;
-//            alert(myAddress);
-//            //if (status == google.maps.GeocoderStatus.OK) {
-//             //   if (results[1]) {
-//                    
-//            //}
-//            //} else {
-//             //   alert("Geocoder failed due to: " + status);
-//            //}
-//        });  
+        your_location_marker = new google.maps.Marker({
+            position: myLatlng, 
+            map: map, 
+            draggable: true,
+            title:"Your location!"
+        });
+        
+        
+        geocoder = new google.maps.Geocoder();
+        alert('geocoder created');
+        geocoder.geocode({
+            'latLng': myLatitude+", "+myLongitude
+        }, 
+        function(results, status) {
+            myAddress = results[1].formatted_address;
+            alert(myAddress);
+            //if (status == google.maps.GeocoderStatus.OK) {
+             //   if (results[1]) {
+                    
+            //}
+            //} else {
+             //   alert("Geocoder failed due to: " + status);
+            //}
+        });  
     }
 }
