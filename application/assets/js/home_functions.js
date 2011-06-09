@@ -8,9 +8,10 @@ $(function() {
     $( "#tabs" ).tabs({
         collapsible: true,
         select: function(event, ui){
-            if ($(ui.item).id == 'map') {
-                alert('here');
-            }
+            alert('name: ' + $(ui.item));
+            //if ($(ui.item).id == 'map') {
+                alert('name: ' + $(ui.item));
+            //}
         }
 
     }
