@@ -249,7 +249,7 @@ function location_data() {
                 if (results[1]) {
                     map.setZoom(11);
                     infowindow.setContent(results[1].formatted_address);
-                    myAddress = resultes[1].formatted_address;
+                    myAddress = results[1].formatted_address;
                     alert(myAddress);
                 }
             } else {
