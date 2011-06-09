@@ -61,9 +61,6 @@ $(function() {
 
             <h2>H2</h2> 
 
-            //<p>Simply call <code>peity("pie")</code> on a jQuery selection. You can also
-                //pass <code>colours</code>, <code>radius</code> and <code>delimeter</code> 
-                //options.</p> 
 
             <p> 
                 <span class="pie">1/5</span> 
@@ -72,9 +69,7 @@ $(function() {
             </p> 
 
             
-            <h3>Custom Colours and Radius</h3> 
-
-            <p>You can pass custom colours and radius to <code>peity("pie", { radius: 42 })</code>.</p> 
+            <h3>Custom Colours and Radius</h3>  
 
             <p class="radius"> 
                 <span class="r10">1/10</span> 
@@ -93,50 +88,13 @@ $(function() {
 
             <h2>Line Charts</h2> 
 
-            <p>Line charts work on a comma-separated list of digits. Line charts can
-                take the following options: <code>colour</code>, <code>strokeColour</code>,
-                <code>strokeWidth</code>, <code>delimeter</code>, <code>width</code> and
-                <code>height</code>.</p> 
-
             <p><span class="line">5,3,9,6,5,9,7,3,5,2</span></p> 
 
-            <div class="example line-chart"> 
-                <div class="html"> 
-                    <h4>HTML</h4> 
-                    <pre><code class="html">&lt;span class="line"&gt;5,3,9,6,5,9,7,3,5,2&lt;/span&gt;</code></pre> 
-                </div> 
+            <h2>Bar Charts</h2>
 
-                <div class="javascript"> 
-                    <h4>Javascript</h4> 
-                    <pre><code class="javascript">$(".line").peity("line");</code></pre> 
-                </div> 
-            </div> 
+            <p><span class="bar">5,3,9,6,5,9,7,3,5,2</span></p>
 
-            <h2>Bar Charts</h2> 
-
-            <p>Bar charts work in the same way as line charts and take the following
-                options: <code>colour</code>, <code>delimeter</code>, <code>width</code> 
-                and <code>height</code>.</p> 
-
-            <p><span class="bar">5,3,9,6,5,9,7,3,5,2</span></p> 
-
-            <div class="example bar-chart"> 
-                <div class="html"> 
-                    <h4>HTML</h4> 
-                    <pre><code class="html">&lt;span class="bar"&gt;5,3,9,6,5,9,7,3,5,2&lt;/span&gt;</code></pre> 
-                </div> 
-
-                <div class="javascript"> 
-                    <h4>Javascript</h4> 
-                    <pre><code class="javascript">$(".bar").peity("bar");</code></pre> 
-                </div> 
-            </div> 
-
-            <h2>Events</h2> 
-
-            <p>Peity adds a "change" event trigger to your graph elements, so if you
-                update their data your can regenerate one or more charts by triggering
-                <code>change()</code> on them.</p> 
+            <h2>Events</h2>
 
             <ul> 
                 <li> 
