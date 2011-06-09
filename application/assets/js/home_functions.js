@@ -181,8 +181,6 @@ function location_data() {
                 myLatitude=position.coords.latitude;
                 myLongitude=position.coords.longitude;
                 
-                alert("fuck you, " + myLatitude + ", " + myLongitude);
-                
                 mapThisGoogle(position.coords.latitude,position.coords.longitude);
             }, 
             // next function is the error callback
@@ -243,12 +241,10 @@ function location_data() {
         });
         
         geocoder.geocode({
-            'latLng': myLatlng
+            'latLng': myLatitude+","+myLongitude
         }, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[1]) {
-                    map.setZoom(11);
-                    infowindow.setContent(results[1].formatted_address);
                     myAddress = results.formatted_address;
                     alert(myAddress);
                 }
