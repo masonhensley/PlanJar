@@ -218,12 +218,19 @@ function location_data() {
     
     
         
-        // Start up a new reverse geocoder for addresses?
-        geocoder = new GClientGeocoder();
-        alert('in google 2');
-        geocoder.getLocations(myLatlng, getAddress);
+        geocoder.geocode({
+            'latLng': latlng
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[1]) {
+                    map.setZoom(11);
+                    infowindow.setContent(results[1].formatted_address);
+                }
+            } else {
+                alert("Geocoder failed due to: " + status);
+            }
+        });
         
-        alert('yeah');
     }
 
 }
