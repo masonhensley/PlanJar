@@ -54,18 +54,6 @@ $(function() {
     line <span class="line">5,3,9,6,5,9,7,3,5,2</span> 
     or bar chart <span class="bar">5,3,9,6,5,9,7,3,5,2</span>.</p> 
  
-  <dl> 
-    <dt>Download</dt> 
-    <dd><a href="jquery.peity.js">jquery.peity.js</a> (3.9Kb)</dd> 
-    <dd><a href="jquery.peity.min.js">jquery.peity.min.js</a> (2.1Kb)</dd> 
- 
-    <dt>Source</dt> 
-    <dd><a href="http://github.com/benpickles/peity">github.com/benpickles/peity</a></dd> 
- 
-    <dt>Compatibility</dt> 
-    <dd>Any browser that supports <code>&lt;canvas&gt;</code>:
-      Chrome, Firefox, Opera, Safari</dd> 
-  </dl> 
  
   <div id="fork-me"><a href="http://github.com/benpickles/peity">Fork me on GitHub</a></div> 
  
