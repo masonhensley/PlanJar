@@ -6,11 +6,7 @@ $(function() {
    
    
     $( "#tabs" ).tabs({
-        collapsible: true,
-        select: function(event, ui){
-            alert('name: ' + $(ui.index));
-        }
-
+        collapsible: true
     })
         
     $( "#tabs-1" ).tabs({
