@@ -111,6 +111,9 @@ class Home extends CI_Controller
         // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT `id`, `category` FROM `plan_categories` WHERE $like_clauses LIMIT 10";
         $query = $this->db->query($query_string, $search_terms);
+        
+        echo('here');
+        return;
 
         // Return a JSON array.
         foreach ($query->result_array() as $row)
