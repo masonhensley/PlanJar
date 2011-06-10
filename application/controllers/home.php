@@ -76,7 +76,49 @@ class Home extends CI_Controller
             $sub_query = $this->db->query($query_string, array($row['category']));
             $sub_row = $sub_query->row_array();
             $row['category'] = $sub_row['category'];
-            
+
+            // Append to the return array.
+            $return_array[] = $row;
+        }
+
+        // Check for no results.
+        if (!isset($return_array))
+        {
+            echo('no results found');
+        } else
+        {
+            echo(json_encode($return_array));
+        }
+    }
+
+    // Checks the plan cotegories with the server.
+    public function find_plan_categories()
+    {
+        $this->load->database();
+
+        $needle = $this->input->get('needle');
+        $search_terms = explode(' ', $needle);
+
+        $like_clauses = '';
+        foreach ($search_terms as $term)
+        {
+            $like_clauses .= "`name` LIKE '%%?%%' OR ";
+        }
+        $like_clauses = substr($like_clauses, 0, -4);
+
+        // Check the PlanJar database. (Query string courtesy of Wells.)
+        $query_string = "SELECT `id`, `category` FROM `plan_categories` WHERE $like_clauses LIMIT 10";
+        $query = $this->db->query($query_string, $search_terms);
+
+        // Return a JSON array.
+        foreach ($query->result_array() as $row)
+        {
+            // Replace each category id with the name of the category.
+            $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ? LIMIT 1";
+            $sub_query = $this->db->query($query_string, array($row['category']));
+            $sub_row = $sub_query->row_array();
+            $row['category'] = $sub_row['category'];
+
             // Append to the return array.
             $return_array[] = $row;
         }

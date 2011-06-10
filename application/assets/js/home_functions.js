@@ -71,7 +71,7 @@ $(function() {
                 // Initialize the in-field labels.
                 $('#plan_content label').inFieldLabels();
                 
-                // Initialize the autocomplete instance.
+                // Initialize the plan location autocomplete instance.
                 $('#plan_location').autocomplete({
                     minLength: 2,
                     // Get info from the server.
@@ -101,6 +101,37 @@ $(function() {
                     select: function (event, ui) {
                         $('#plan_location').val(ui.item.value);
                         $('#plan_location_id').val(ui.item.id);
+                    }
+                });
+                
+                // Initialize the plan category autocomplete instance.
+                $('#plan_category').autocomplete({
+                    minLength: 2,
+                    // Get info from the server.
+                    source: function (request, response) {
+                        $.get('/home/find_plan_categories', {
+                            needle: request.term
+                        }, function (data) {
+                
+                            // Convert each item in the JSON from the server to the required JSON
+                            // form for the autocomplete and pass the result through the response
+                            // handler.
+                            data = $.parseJSON(data);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.name,
+                                    value: item.name,
+                                    id: item.id
+                                };
+                            }));
+                
+                        });
+                    },
+                    // When an item is selected, update the location text as well as the hidden
+                    // id field.
+                    select: function (event, ui) {
+                        $('#plan_category').val(ui.item.value);
+                        $('#plan_category_id').val(ui.item.id);
                     }
                 });
             }
@@ -265,7 +296,7 @@ function location_data() {
         }, 
         function(results, status) {
             myAddress = results[1].formatted_address;
-            //alert(myAddress);
+        //alert(myAddress);
         });  
     }
 }
