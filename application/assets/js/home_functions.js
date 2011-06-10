@@ -118,8 +118,8 @@ $(function() {
                             data = $.parseJSON(data);
                             response($.map(data, function (item) {
                                 return {
-                                    label: item.name,
-                                    value: item.name,
+                                    label: item.category,
+                                    value: item.category,
                                     id: item.id
                                 };
                             }));
