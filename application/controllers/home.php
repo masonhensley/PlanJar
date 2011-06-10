@@ -12,7 +12,10 @@ class Home extends CI_Controller
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
-            $this->load->view('home_view');
+            // fill array with information about user events
+            $home_events_data = loadMyEvents();
+            
+            $this->load->view('home_view', $home_events_data);
         } else
         {
             $this->logout();
@@ -77,10 +80,10 @@ class Home extends CI_Controller
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $user_name = $user_info->username;
+       
+        $query="SELECT plans.time_of_day, plans.date, places.name FROM plans LEFT JOIN places ON plans.place_id=places.place_id WHERE plans.user_id=?";
         
-        $query="SELECT user.username, plans.time_of_day, plans.date, plans.category_id FROM";
-        
-        $query_result = $this->db->query("$query");
+        $query_result = $this->db->query($query, array($user_id));
         $row = $query_result->row();
         
        return $row;
