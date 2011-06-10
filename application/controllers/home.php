@@ -12,6 +12,7 @@ class Home extends CI_Controller
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
+            $data = loadMyEvents();
             $this->load->view('home_view');
         } else
         {
@@ -113,8 +114,17 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
-    
-     // For Mason to fuck with...
+
+    function loadMyEvents()
+    {
+        $this->load->database();
+        $query = $this->db->query('');
+        $row = $query->row();
+        
+       return $row;
+    }
+
+    // For Mason to fuck with...
     public function foo()
     {
         $this->load->view('foo_view');
