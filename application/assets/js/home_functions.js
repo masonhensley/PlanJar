@@ -91,9 +91,7 @@ $(function() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
-                    if (data == 'none') {
-                        alert('none');
-                        
+                    if (data == 'none') {                        
                         // No results found. Try Google Places.
                         var request = {
                             location: new google.maps.LatLng(myLatitude,myLongitude),
