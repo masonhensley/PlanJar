@@ -68,7 +68,7 @@ class Home extends CI_Controller
   FROM `pois` WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array_merge($search_terms, array($latitude, $latitude, $longitude, 10)));
 
-        echo($this->db->last_query());
+        echo('foo');
         return;
         
         // Return a JSON array.
