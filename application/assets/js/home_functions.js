@@ -107,7 +107,6 @@ $(function() {
         
         // Initialize the plan category autocomplete instance.
         $('#plan_category').autocomplete({
-            minLength: 2,
             // Get info from the server.
             source: function (request, response) {
                 $.get('/home/find_plan_categories', {
