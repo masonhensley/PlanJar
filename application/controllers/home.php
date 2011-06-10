@@ -77,10 +77,10 @@ class Home extends CI_Controller
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $user_name = $user_info->username;
+       
+        $query="SELECT plans.time_of_day, plans.date, places.name FROM plans LEFT JOIN places ON plans.place_id=places.place_id WHERE plans.user_id=?";
         
-        $query="SELECT plans.time_of_day, plans.date, places.name FROM plans JOIN places ON plans.place_id=places.place_id WHERE plans.user_id=";
-        
-        $query_result = $this->db->query("$query");
+        $query_result = $this->db->query($query, array($user_id));
         $row = $query_result->row();
         
        return $row;
