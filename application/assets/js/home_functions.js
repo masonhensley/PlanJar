@@ -304,7 +304,7 @@ function location_data() {
             },
             type: 'get',
             crossDomain: true,
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function (data) {
                 alert('data: ' + completeJSONObj.getJSONArray(data).success);
             },
