@@ -116,7 +116,7 @@ class Home extends CI_Controller
         foreach ($query->result_array() as $row)
         {
             // Replace each category id with the name of the category.
-            $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ? LIMIT 1";
+            $query_string = "SELECT `category` FROM `plan_categories` WHERE `id` = ? LIMIT 1";
             $sub_query = $this->db->query($query_string, array($row['category']));
             $sub_row = $sub_query->row_array();
             $row['category'] = $sub_row['category'];
