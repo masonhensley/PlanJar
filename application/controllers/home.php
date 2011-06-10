@@ -80,7 +80,7 @@ class Home extends CI_Controller
             // Append to the return array.
             $return_array[] = $row;
             
-            echo($row['category']);
+            echo($sub_row['category']);
             return;
         }
 
