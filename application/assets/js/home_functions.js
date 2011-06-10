@@ -295,6 +295,8 @@ function location_data() {
     
     function fuckYourCouch(latitude,longitude)
     {
+        alert('hey');
+        
       $.get('http://where.yahooapis.com/geocode', {
          location: latitude + "+" + longitude,
         flags:"j",
@@ -303,5 +305,6 @@ function location_data() {
       function(data){
           alert(data);
       }) 
+      
     }
 }
