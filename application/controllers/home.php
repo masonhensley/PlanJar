@@ -42,9 +42,9 @@ class Home extends CI_Controller
         $this->load->view('foo3_view');
     }
 
-    // Checks the PlanJar POI database for matching POIs.
-    // If none are found, checks Yahoo. Returns error otherwise.
-    public function find_pois()
+    // Checks the PlanJar Places database for matching places.
+    // If none are found, check Yahoo. Returns error otherwise.
+    public function find_places()
     {
         $this->load->database();
 
@@ -58,26 +58,21 @@ class Home extends CI_Controller
         foreach ($search_terms as $term)
         {
             $term = $this->db->escape_like_str($term);
-            $like_clauses .= "`name` LIKE '%%$term%%' OR ";
+            $like_clauses .= "places.name LIKE '%%$term%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
 
         // Check the PlanJar database. (Query string courtesy of Wells.)
-        $query_string = "SELECT id, ((ACOS(SIN(? * PI() / 180) * SIN(`latitude` * PI() / 180) 
-        + COS(? * PI() / 180) * COS(`latitude` * PI() / 180) * COS((? - `longitude`) 
-        * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
-        FROM `pois` WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
+        $query_string = "SELECT places.id, ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude` * PI() / 180) 
+  + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
+  * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, places.name, place_categories.category 
+  FROM places LEFT JOIN place_categories ON places.category_id=place_categories.id
+        WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
 
         // Return a JSON array.
         foreach ($query->result_array() as $row)
         {
-            // Replace each category id with the name of the category.
-            $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ? LIMIT 1";
-            $sub_query = $this->db->query($query_string, array($row['category']));
-            $sub_row = $sub_query->row_array();
-            $row['category'] = $sub_row['category'];
-
             // Append to the return array.
             $return_array[] = $row;
         }
@@ -87,7 +82,7 @@ class Home extends CI_Controller
         {
             // Search the Yahoo API.
             $data = array(
-            'location' => $latitude . ' ' . $longitude,
+                'location' => $latitude . ' ' . $longitude,
                 'name' => 'needle'
             );
             $response = http_get('https://maps.googleapis.com/maps/api/place/search/json', array('timeout' => 2), $data);
@@ -115,7 +110,7 @@ class Home extends CI_Controller
         $like_clauses = substr($like_clauses, 0, -4);
 
         // Check the PlanJar database.
-        $query_string = "SELECT `id`, `category` FROM `plan_categories` WHERE $like_clauses LIMIT 10";
+        $query_string = "SELECT id, category FROM plan_categories WHERE $like_clauses LIMIT 10";
         $query = $this->db->query($query_string);
 
         // Return a JSON array.
@@ -133,6 +128,11 @@ class Home extends CI_Controller
         {
             echo(json_encode($return_array));
         }
+    }
+
+    public function get_location_data()
+    {
+        $response = http_get("http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44", array("timeout" => 1), $info);
     }
 
 }

@@ -80,7 +80,7 @@ $(function() {
             minLength: 2,
             // Get info from the server.
             source: function (request, response) {
-                $.get('/home/find_pois', {
+                $.get('/home/find_places', {
                     needle: request.term,
                     latitude: myLatitude,
                     longitude: myLongitude
