@@ -111,7 +111,6 @@ $(function() {
                         $.get('/home/find_plan_categories', {
                             needle: request.term
                         }, function (data) {
-                            alert(data);
                 
                             // Convert each item in the JSON from the server to the required JSON
                             // form for the autocomplete and pass the result through the response
