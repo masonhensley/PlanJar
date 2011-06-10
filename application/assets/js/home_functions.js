@@ -312,7 +312,7 @@ function location_data() {
             sensor: false,
             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
             //callback: 'callback'
-        }, callback);
+        }, callback(data));
         alert('after get');
         
         function callback(data) {
