@@ -100,13 +100,14 @@ $(function() {
                             },
                             type: 'get',
                             dataType: 'jsonp',
+                            json: 'json',
                             success: function (data, text, xhqr) {
                                 //alert('data: ' + completeJSONObj.getJSONArray(data.item).success);
                                 alert('data: ');
                             }
                         });
-                        alert('after get');
                     }
+                    
                     // Convert each item in the JSON from the server to the required JSON
                     // form for the autocomplete and pass the result through the response
                     // handler.
