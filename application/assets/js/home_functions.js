@@ -70,7 +70,7 @@ $(function() {
         $('#plan_content').dialog('open');
         
         // Initialize the in-field labels.
-        $('#plan_content div.in-field_block label').inFieldLabels();
+        //$('#plan_content div.in-field_block label').inFieldLabels();
                 
         // Initialize the plan location autocomplete instance.
         $('#plan_location').autocomplete({
