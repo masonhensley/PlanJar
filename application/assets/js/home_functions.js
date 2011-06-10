@@ -9,7 +9,6 @@ $(function() {
     // places map
     location_data();
    
-   
     $( "#tabs" ).tabs({
         collapsible: true
     })
@@ -257,14 +256,15 @@ function location_data() {
             title:"Your location!"
         });
         
-        
-        geocoder = new google.maps.Geocoder();
-        geocoder.geocode({
-            "latLng": myLatlng
-        }, 
-        function(results, status) {
-            myAddress = results[1].formatted_address;
-            alert(myAddress);
-        });  
+        fuckYourCouch(latitude,longitude);
+    }
+    
+    function fuckYourCouch(latitude,longitude)
+    {
+      $.get('http://where.yahooapis.com/geocode', {
+         location: latitude + ", " + longitude,
+         appid: "5CXRiH44"
+      }) 
+     
     }
 }
