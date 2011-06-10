@@ -13,7 +13,7 @@ class Home extends CI_Controller
         if ($this->ion_auth->logged_in())
         {
             // fill array with information about user events
-            $home_events_data = loadMyEvents();
+            $home_events_data = $this->loadMyEvents();
            var_dump($home_events_data);
             
             $this->load->view('home_view', $home_events_data);
@@ -44,6 +44,7 @@ class Home extends CI_Controller
         $query_result = $this->db->query($query, array($user_id));
         $row = $query_result->row();
 
+        var_dump($row);
         return $row;
     }
 
