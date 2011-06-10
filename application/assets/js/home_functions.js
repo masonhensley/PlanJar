@@ -80,6 +80,7 @@ $(function() {
                             latitude: myLatitude,
                             longitude: myLongitude
                         }, function (data) {
+                            alert(data);
                 
                             // Convert each item in the JSON from the server to the required JSON
                             // form for the autocomplete and pass the result through the response
