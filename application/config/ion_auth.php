@@ -65,8 +65,8 @@ $config['columns'] = array(
     'grad_year',
     'latitude',
     'longitude',
-    'past_events',
-    'current_events',
+    'past_plans',
+    'current_plans',
     'following',
     'phone');
 
