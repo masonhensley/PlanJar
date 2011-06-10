@@ -71,19 +71,46 @@ $(function() {
                 // Initialize the in-field labels.
                 $('#plan_content label').inFieldLabels();
                 
-                // Set up a custom Google Places autocomplete.
-                $('#plan_location').keyup(function() {
-                    $.get('http://maps.googleapis.com/maps/api/place/search/json?callback=?', {
-                        location: google.maps.LatLng(29.964683, -90.070652),
-                        radius: 2000,
-                        name: $('#plan_location').val(),
-                        sensor: false,
-                        key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+               
+               
+               
+               
+                // Initialize the autocomplete instance.
+                $('#su_school').autocomplete({
+                    minLength: 2,
+                    // Get info from the server.
+                    source: function (request, response) {
+                        $.get('/login/search_schools', {
+                            needle: request.term
+                        }, function (data) {
+                
+                            // Convert each item in the JSON from the server to the required JSON
+                            // form for the autocomplete and pass the result through the response
+                            // handler.
+                            data = $.parseJSON(data);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.school + ' (' + item.city + ')', 
+                                    value: item.school,
+                                    id: item.id
+                                };
+                            }));
+                
+                        });
                     },
-                    function (data) {
-                        alert('response: ' + data);
-                    });
+                    // When an item is selected, update the school text as well as the hidden school
+                    // id field.
+                    select: function (event, ui) {
+                        $('#su_school').val(ui.item.value);
+                        $('#su_school_id').val(ui.item.id);
+                    }
                 });
+               
+               
+               
+               
+               
+               
             }
         });
         

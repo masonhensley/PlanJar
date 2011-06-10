@@ -93,10 +93,10 @@ class Login extends CI_Controller
         $like_clauses = '';
         foreach ($search_terms as $term)
         {
-            $like_clauses .= "`school` LIKE '%%" . $needle . "%%' OR ";
+            $like_clauses .= "`school` LIKE '%%" . $term . "%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
-        $query = $this->db->query("SELECT `id`, `school`, `city` FROM `school_data` WHERE " . $like_clauses . 'LIMIT 10');
+        $query = $this->db->query("SELECT `id`, `school`, `city` FROM `school_data` WHERE " . $like_clauses . ' LIMIT 10');
 
         // Convert the set of results to JSON.
         foreach ($query->result_array() as $row)
