@@ -307,7 +307,7 @@ function location_data() {
             crossDomain: true,
             dataType: 'jsonp',
             success: function (data) {
-                alert('data: ' + data);
+                alert('data: ' + data.status);
             },
             error: function (data) {
             }
