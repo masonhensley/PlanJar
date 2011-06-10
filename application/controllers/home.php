@@ -39,9 +39,13 @@ class Home extends CI_Controller
         $user_id = $user_info->id;
         $user_name = $user_info->username;
 
-        $query = "SELECT plans.time_of_day, plans.date, places.name FROM plans LEFT JOIN places ON plans.place_id=places.id WHERE plans.user_id=?";
+        $query = "SELECT plans.time_of_day, plans.date, places.name FROM plans LEFT JOIN places ON plans.place_id=places.id WHERE plans.user_id='$user_id'";
 
+        var_dump($query);
+        
+        //$query_result = $this->db->query($query, array($user_id));
         $query_result = $this->db->query($query, array($user_id));
+        
         $row = $query_result->row();
 
         var_dump($row);
