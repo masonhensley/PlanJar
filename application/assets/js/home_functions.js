@@ -11,7 +11,7 @@ $(function() {
    
     $( "#tabs" ).tabs({
         collapsible: true
-    })
+    });
 
     $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
     .removeClass( "ui-corner-all ui-corner-top" )
@@ -111,7 +111,7 @@ $(function() {
                                     return {
                                         label: item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
                                         value: item.name
-                                        //id: item.id
+                                    //id: item.id
                                     };
                                 }));
                             }
