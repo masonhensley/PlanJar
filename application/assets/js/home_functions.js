@@ -60,7 +60,7 @@ $(function() {
     // Start the plan dialog box closed.
     $('#plan_content').dialog({
         autoOpen: false,
-        width: 500,
+        width: 700,
         height: 300,
         resizable: false
     });
