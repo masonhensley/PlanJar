@@ -71,16 +71,12 @@ $(function() {
                 // Initialize the in-field labels.
                 $('#plan_content label').inFieldLabels();
                 
-               
-               
-               
-               
                 // Initialize the autocomplete instance.
-                $('#su_school').autocomplete({
+                $('#plan_location').autocomplete({
                     minLength: 2,
                     // Get info from the server.
                     source: function (request, response) {
-                        $.get('/login/search_schools', {
+                        $.get('/home/find_pois', {
                             needle: request.term
                         }, function (data) {
                 
@@ -90,27 +86,21 @@ $(function() {
                             data = $.parseJSON(data);
                             response($.map(data, function (item) {
                                 return {
-                                    label: item.school + ' (' + item.city + ')', 
-                                    value: item.school,
+                                    label: item.name + ' (' + item.category + ')' + ' - ' + item.distance, 
+                                    value: item.name,
                                     id: item.id
                                 };
                             }));
                 
                         });
                     },
-                    // When an item is selected, update the school text as well as the hidden school
+                    // When an item is selected, update the location text as well as the hidden
                     // id field.
                     select: function (event, ui) {
                         $('#su_school').val(ui.item.value);
                         $('#su_school_id').val(ui.item.id);
                     }
                 });
-               
-               
-               
-               
-               
-               
             }
         });
         
