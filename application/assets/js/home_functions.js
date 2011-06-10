@@ -300,7 +300,7 @@ function location_data() {
             name: 'dan',
             sensor: false,
             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
-            callback: 'callback'
+            callback: '\?'
         }, function(data) {
             alert('returned:' + data);
         });
