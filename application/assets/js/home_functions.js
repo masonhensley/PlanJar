@@ -106,45 +106,31 @@ $(function() {
                         service = new google.maps.places.PlacesService(map);
                         service.search(request, function (results, status) {
                             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                                for (var i = 0; i < results.length; i++) {
-                                    alert(results[i]);
-//                                    var place = results[i];
-//                                    createMarker(results[i]); 
-                                }
+                                // Convert each item in the JSON from the server to the required JSON
+                                // form for the autocomplete and pass the result through the response
+                                // handler.
+                                response($.map(results, function (item) {
+                                    return {
+                                        label: item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
+                                        value: item.name
+                                        //id: item.id
+                                    };
+                                }));
                             }
                         });
-                        
-                        
-                    //                        $.ajax({
-                    //                            url: 'https://maps.googleapis.com/maps/api/place/search/json',
-                    //                            data: {
-                    //                                location: myLatitude + ',' + myLongitude,
-                    //                                radius: 2000,
-                    //                                name: request.term,
-                    //                                sensor: false,
-                    //                                key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
-                    //                            },
-                    //                            dataType: 'jsonp',
-                    //                            success: function (data) {
-                    //                                alert('data: ' + data);
-                    //                            }
-                    //                        });
-                    //                        alert('after get');
+                    } else {
+                        // Convert each item in the JSON from the server to the required JSON
+                        // form for the autocomplete and pass the result through the response
+                        // handler.
+                        data = $.parseJSON(data);
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                value: item.name,
+                                id: item.id
+                            };
+                        }));
                     }
-                    return;
-                    
-                    // Convert each item in the JSON from the server to the required JSON
-                    // form for the autocomplete and pass the result through the response
-                    // handler.
-                    data = $.parseJSON(data);
-                    response($.map(data, function (item) {
-                        return {
-                            label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
-                            value: item.name,
-                            id: item.id
-                        };
-                    }));
-                
                 });
             },
             // When an item is selected, update the location text as well as the hidden
