@@ -44,16 +44,16 @@
                     <label for="plan_night">-</label>
                     <input type="radio" id="plan_night" name="plan_time_group" />
                     
-                    <label for="plan_night">afternoon</label>
+                    <label for="plan_night1">afternoon</label>
                     <input type="radio" id="plan_night1" name="plan_time_group" />
                     
-                    <label for="plan_night">-</label>
+                    <label for="plan_night2">-</label>
                     <input type="radio" id="plan_night2" name="plan_time_group" />
                     
-                    <label for="plan_night">night</label>
+                    <label for="plan_night3">night</label>
                     <input type="radio" id="plan_night3" name="plan_time_group" />
                     
-                    <label for="plan_night">-</label>
+                    <label for="plan_night4">-</label>
                     <input type="radio" id="plan_night4" name="plan_time_group" />
                 </div>
             </center>
