@@ -92,7 +92,7 @@ $(function() {
                         $.ajax({    
                             url: 'https://maps.googleapis.com/maps/api/place/search/json',
                             data: {
-                                location: latitude + ',' + longitude,
+                                location: myLatitude + ',' + myLongitude,
                                 radius: 2000,
                                 name: request.term,
                                 sensor: false,
