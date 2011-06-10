@@ -53,7 +53,7 @@ class Home extends CI_Controller
   FROM places LEFT JOIN place_categories ON places.category_id=place_categories.id
         WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
-        alert($this->db->last_query());
+        alert($query_string);
         return;
 
         // Return a JSON array.
