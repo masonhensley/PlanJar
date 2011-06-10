@@ -77,6 +77,7 @@
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div class="right_bottom">
+                    User events
                 </div>
             </div>
 
