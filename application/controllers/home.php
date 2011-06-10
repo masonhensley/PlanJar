@@ -27,7 +27,7 @@ class Home extends CI_Controller
     }
 
     // Checks the PlanJar Places database for matching places.
-    // If none are found, check Yahoo. Returns error otherwise.
+    // If none are found, check Google. Returns error otherwise.
     public function find_places()
     {
         $this->load->database();
@@ -64,16 +64,19 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            // Search the Yahoo API.
+            // Search the Google API.
             $data = array(
-                'location' => $latitude . ' ' . $longitude,
-                'name' => 'needle'
+                'location' => $latitude . ',' . $longitude,
+                'name' => 'needle',
+                'radius' => 2000,
+                'sensor' => false,
+                'key' => 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
             );
             $response = http_get('https://maps.googleapis.com/maps/api/place/search/json', array('timeout' => 2), $data);
             echo($response);
         } else
         {
-            echo(json_encode($return_array));
+            //echo(json_encode($return_array));
         }
     }
 
