@@ -73,7 +73,7 @@
                         <input type="radio" id="0" name="plan_day_group" />
 
                         <label for="1">Tom - <?php echo(date('j') + 1); ?></label>
-                        <input type="radio" id="0" name="plan_day_group" />
+                        <input type="radio" id="1" name="plan_day_group" />
 
                         <?php
                         $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
