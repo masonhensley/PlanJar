@@ -75,9 +75,9 @@ class Home extends CI_Controller
         }
 
         // Check for no results.
-        if (!isset($like_clauses))
+        if (!isset($return_array))
         {
-            echo('lat: ' . $latitude . ', long: ' . $longitude);
+            echo('likes: ' . $like_clauses);
         } else
         {
             echo(json_encode($return_array));
