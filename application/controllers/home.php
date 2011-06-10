@@ -62,10 +62,10 @@ class Home extends CI_Controller
         $like_clauses = substr($like_clauses, 0, -4);
 
         // Check the PlanJar database. (Query string courtesy of Wells.)
-        $query_string = "SELECT id, ((ACOS(SIN(? * PI() / 180) * SIN(`latitude` * PI() / 180) 
-  + COS(? * PI() / 180) * COS(`latitude` * PI() / 180) * COS((? - `longitude`) 
+        $query_string = "SELECT id, ((ACOS(SIN( ? * PI() / 180) * SIN(`latitude` * PI() / 180) 
+  + COS( ? * PI() / 180) * COS(`latitude` * PI() / 180) * COS(( ? - `longitude`) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
-  FROM `pois` WHERE (?) ORDER BY distance ASC LIMIT ?";
+  FROM `pois` WHERE ( ? ) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, $like_clauses, 10));
 
         // Return a JSON array.
