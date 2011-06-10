@@ -88,7 +88,7 @@ $(function() {
                             data = $.parseJSON(data);
                             response($.map(data, function (item) {
                                 return {
-                                    label: item.name + ' (' + item.category + ')' + ' - ' + sprintf("%01.2f", item.distance), 
+                                    label: item.name + ' (' + item.category + ')' + ' - ' + item.distance.toFixed(2), 
                                     value: item.name,
                                     id: item.id
                                 };
