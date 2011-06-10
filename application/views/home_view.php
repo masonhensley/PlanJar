@@ -34,7 +34,7 @@
                 <div class="center_top">
                     
                     <div class ="center_top_left">
-                        <font style="float:left;">your location data: </font>
+                        <font style="float:left;"><p>your location data: <script>document.write(myAddress);</script></p></font>
                     </div>
 
                     <div class="center_top_right">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
-                            <p><script>document.write(myAddress);</script></p>
+                            
                         </div>
                     </div>
                 </div>
