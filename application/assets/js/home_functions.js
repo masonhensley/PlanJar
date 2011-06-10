@@ -92,6 +92,7 @@ $(function() {
                     // Convert each item in the JSON from the server to the required JSON
                     // form for the autocomplete and pass the result through the response
                     // handler.
+                    alert('data' + data);
                     data = $.parseJSON(data);
                     response($.map(data, function (item) {
                         return {
