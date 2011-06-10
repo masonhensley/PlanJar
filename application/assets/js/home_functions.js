@@ -85,8 +85,28 @@ $(function() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
-                    if (data == 'error') {
-                        alert('error');
+                    if (data == 'none') {
+                        alert('none');
+                        
+                        // No results found. Try Google Places.
+                        $.ajax({    
+                            url: 'https://maps.googleapis.com/maps/api/place/search/json',
+                            data: {
+                                location: latitude + ',' + longitude,
+                                radius: 2000,
+                                name: 'dan',
+                                sensor: false,
+                                key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+                            },
+                            type: 'get',
+                            dataType: 'jsonp',
+                            success: function (data, text, xhqr) {
+                                //alert('data: ' + completeJSONObj.getJSONArray(data.item).success);
+                                alert('data: ');
+                            }
+                        });
+                        
+                        alert(data);
                         return;
                     }
                     // Convert each item in the JSON from the server to the required JSON
@@ -293,24 +313,5 @@ function location_data() {
             draggable: true,
             title:"Your location!"
         });
-        
-        $.ajax({    
-            url: 'https://maps.googleapis.com/maps/api/place/search/json',
-            data: {
-                location: latitude + ',' + longitude,
-                radius: 2000,
-                name: 'dan',
-                sensor: false,
-                key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
-            },
-            type: 'get',
-            dataType: 'jsonp',
-            success: function (data, text, xhqr) {
-                //alert('data: ' + completeJSONObj.getJSONArray(data.item).success);
-                alert('data: ');
-            }
-        });
-        alert('after get');
-
     }
 }
