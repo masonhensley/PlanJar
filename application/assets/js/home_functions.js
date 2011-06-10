@@ -62,7 +62,9 @@ $(function() {
         autoOpen: false,
         width: 700,
         height: 300,
-        resizable: false
+        resizable: false,
+        show: 'clip',
+        hide: 'explode'
     });
     
     // Initialize the make-a-plan modal.
