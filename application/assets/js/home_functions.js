@@ -31,7 +31,7 @@ $(function() {
         return false;
     });
     
-     $("ul.tabs li").click(function(){
+    $("ul.tabs li").click(function(){
         day = $(".active").attr("href");
         alert(day);
     })
@@ -97,8 +97,12 @@ $(function() {
                         // No results found. Try Google Places.
                         var request = {
                             location: myLatitude + ',' + myLongitude,
-                            radius: '2000'
+                            radius: '2000',
+                            name: request.term,
+                            sensor: false,
+                            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                         };
+                        
                         service = new google.maps.places.PlacesService(map);
                         service.search(request, function (results, status) {
                             if (status == google.maps.places.PlacesServiceStatus.OK) {
