@@ -73,6 +73,8 @@ $(function() {
         
         // Initialize the in-field labels.
         $('#plan_content div.in-field_block label').inFieldLabels();
+        
+        // Initialize the buttonset.
                 
         // Initialize the plan location autocomplete instance.
         $('#plan_location').autocomplete({

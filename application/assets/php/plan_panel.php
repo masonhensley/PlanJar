@@ -33,6 +33,12 @@
 
             <tr>
                 <td colspan="2">
+                    Choose the time of day.
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
             <center>
                 <div id="plan_time" class="radio">
                     <label for="plan_morning">-</label>
@@ -43,16 +49,16 @@
 
                     <label for="plan_night">-</label>
                     <input type="radio" id="plan_night" name="plan_time_group" />
-                    
+
                     <label for="plan_night1">afternoon</label>
                     <input type="radio" id="plan_night1" name="plan_time_group" />
-                    
+
                     <label for="plan_night2">-</label>
                     <input type="radio" id="plan_night2" name="plan_time_group" />
-                    
+
                     <label for="plan_night3">night</label>
                     <input type="radio" id="plan_night3" name="plan_time_group" />
-                    
+
                     <label for="plan_night4">-</label>
                     <input type="radio" id="plan_night4" name="plan_time_group" />
                 </div>
@@ -62,9 +68,33 @@
 
             <tr>
                 <td colspan="2">
-                    Choose the time of day.
+                    <div id="plan_day" class="radio">
+                        <label for="0">Today - <?php echo(date('j')); ?></label>
+                        <input type="radio" id="0" name="plan_day_group" />
+
+                        <label for="1">Tom - <?php echo(date('j') + 1); ?></label>
+                        <input type="radio" id="0" name="plan_day_group" />
+
+                        <?php
+                        $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
+                        for ($i = 2; $i < 7; ++$i)
+                        {
+                            ?>
+
+                            <label for="<?php echo($i); ?>">
+                                <?php
+                                // Format the displayed day name (e.g. Tue - 9).
+                                $day_name = $days[(date('w') + $i) % 7];
+                                $day_name .= ' - ' . (date('j') + $i);
+                                echo($day_name);
+                                ?>
+                            </label>
+                            <input type="radio" id="<?php echo($i); ?>" name="plan_day_group" />
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </td>
-            </tr>
         </table>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
