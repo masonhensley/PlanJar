@@ -208,4 +208,4 @@ ul.tabs li.active {
 }
 
 /* for day picker in make-a-plan */
-#plan_day .ui-button-text-only .ui-button-text { padding: .1em 1em; }
+plan_day .ui-button-text-only .ui-button-text { padding: .4em .4em; }
