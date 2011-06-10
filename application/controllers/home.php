@@ -26,22 +26,6 @@ class Home extends CI_Controller
         redirect('/login/');
     }
 
-    // For Mason to fuck with...
-    public function foo()
-    {
-        $this->load->view('foo_view');
-    }
-
-    public function foo2()
-    {
-        $this->load->view('foo2_view');
-    }
-
-    public function foo3()
-    {
-        $this->load->view('foo3_view');
-    }
-
     // Checks the PlanJar Places database for matching places.
     // If none are found, check Yahoo. Returns error otherwise.
     public function find_places()
@@ -129,10 +113,21 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
-
-    public function get_location_data()
+    
+     // For Mason to fuck with...
+    public function foo()
     {
-        $response = http_get("http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44", array("timeout" => 1), $info);
+        $this->load->view('foo_view');
+    }
+
+    public function foo2()
+    {
+        $this->load->view('foo2_view');
+    }
+
+    public function foo3()
+    {
+        $this->load->view('foo3_view');
     }
 
 }
