@@ -31,6 +31,12 @@ $(function() {
         return false;
     });
     
+     $("ul.tabs li").click(function(){
+        day = $("li .active a").attr("href");
+        alert(day);
+    })
+    
+    
     // Set up the Selectable instance with default options (the shown
     // options are to keep the last selected item from disappearing).
     $('#my_groups').selectable({
@@ -240,12 +246,9 @@ function toggle_group_select() {
 // selected
 function update()
 {
-    var day;
-    $("ul .tabs").click(function(){
-        day = $("li .active a").attr("href") 
-    })
     
-    alert(day);
+   
+
 }
 
 
