@@ -297,12 +297,13 @@ function location_data() {
         alert('hey');
         
       $.get('http://where.yahooapis.com/geocode', {
-         location: latitude + "+" + longitude,
-        flags:"j",
+         location: latitude + " " + longitude,
+        flags:"J",
         appid: "5CXRiH44"
       },
       function(data){
-          alert(data);
+          alert('hey');
+          alert(data.line2);
       }) 
       
     }
