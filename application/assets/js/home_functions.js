@@ -310,7 +310,6 @@ function location_data() {
                 alert('data: ' + data);
             },
             error: function (data) {
-                alert('data: ' + data);
             }
         });
         alert('after get');
