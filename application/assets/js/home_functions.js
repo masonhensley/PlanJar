@@ -144,7 +144,7 @@ $(function() {
         return false;
     });
     
-    // End of ready function.
+// End of ready function.
 });
 
 // Should be called when #sel_one or #sel_mult
@@ -230,33 +230,33 @@ function location_data() {
     {
         navigator.geolocation.getCurrentPosition
         ( 
-        function (position) 
-        {  
-            myLatitude=position.coords.latitude;
-            myLongitude=position.coords.longitude;
+            function (position) 
+            {  
+                myLatitude=position.coords.latitude;
+                myLongitude=position.coords.longitude;
                 
-            mapThisGoogle(position.coords.latitude, position.coords.longitude);
-        }, 
-        // next function is the error callback
-        function (error)
-        {
-            switch(error.code) 
+                mapThisGoogle(position.coords.latitude, position.coords.longitude);
+            }, 
+            // next function is the error callback
+            function (error)
             {
-                case error.TIMEOUT:
-                    alert ('Timeout');
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert ('Position unavailable');
-                    break;
-                case error.PERMISSION_DENIED:
-                    alert ('Permission denied');
-                    break;
-                case error.UNKNOWN_ERROR:
-                    alert ('Unknown error');
-                    break;
+                switch(error.code) 
+                {
+                    case error.TIMEOUT:
+                        alert ('Timeout');
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert ('Position unavailable');
+                        break;
+                    case error.PERMISSION_DENIED:
+                        alert ('Permission denied');
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert ('Unknown error');
+                        break;
+                }
             }
-        }
-    );
+            );
     }
     function mapServiceProvider(latitude,longitude)
     {
@@ -304,7 +304,7 @@ function location_data() {
         //                alert(data);
         //            }); 
 
-
+        alert('fyc,n');
         $.get('https://maps.googleapis.com/maps/api/place/search/json', {
             location: myLatlng,
             radius: 2000,
