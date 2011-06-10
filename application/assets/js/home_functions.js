@@ -96,7 +96,7 @@ $(function() {
                         
                         // No results found. Try Google Places.
                         var request = {
-                            location: myLatitude + ',' + myLongitude,
+                            location: new google.maps.LatLng(myLatitude,myLongitude),
                             radius: '2000',
                             name: $('#plan_location').val(),
                             sensor: false,
