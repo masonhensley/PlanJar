@@ -60,6 +60,7 @@ $(function() {
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
         $('#plan_content').modal({
+            modal: false,
             onOpen: function (dialog) {
                 dialog.overlay.fadeIn('fast', function () {
                     dialog.container.slideDown('fast', function () {
