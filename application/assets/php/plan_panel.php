@@ -28,24 +28,26 @@
                     </div>
                 </td>
             </tr>
-            
+
             <tr><td><div style="height:20px; width:10px;"></div></td></tr>
 
             <tr>
                 <td>
-                    <div id="plan_time" class="radio">
-                        <label for="plan_morning">Morning</label>
-                        <input type="radio" id="plan_morning" name="plan_time_group" />
+            <center>
+                <div id="plan_time" class="radio">
+                    <label for="plan_morning">Morning</label>
+                    <input type="radio" id="plan_morning" name="plan_time_group" />
 
-                        <label for="plan_afternoon">Afternoon</label>
-                        <input type="radio" id="plan_afternoon" name="plan_time_group" />
+                    <label for="plan_afternoon">Afternoon</label>
+                    <input type="radio" id="plan_afternoon" name="plan_time_group" />
 
-                        <label for="plan_night">Night</label>
-                        <input type="radio" id="plan_night" name="plan_time_group" />
-                    </div>
-                </td>
+                    <label for="plan_night">Night</label>
+                    <input type="radio" id="plan_night" name="plan_time_group" />
+                </div>
+            </center>
+            </td>
             </tr>
-            
+
             <tr>
                 <td>
                     Choose the time of day.
