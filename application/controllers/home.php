@@ -95,8 +95,6 @@ class Home extends CI_Controller
     // Checks the plan cotegories with the server.
     public function find_plan_categories()
     {
-        echo('here');
-        return;
         $this->load->database();
 
         $needle = $this->input->get('needle');
@@ -109,6 +107,9 @@ class Home extends CI_Controller
             $like_clauses .= "`name` LIKE '%%$term%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
+        
+        echo('here');
+        return;
 
         // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT `id`, `category` FROM `plan_categories` WHERE $like_clauses LIMIT 10";
