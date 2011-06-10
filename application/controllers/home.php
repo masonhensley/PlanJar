@@ -134,11 +134,6 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
-    
-    public function get_location_data()
-    {
-        $response = http_get("http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44", array("timeout"=>1), $info);
-    }
 
 }
 

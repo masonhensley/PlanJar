@@ -313,20 +313,6 @@ function location_data() {
             }
         });
         alert('after get');
-        
-        
-        
-    //fuckYourCouch(myLatlng);
-    }
-    
-    function fuckYourCouch(myLatlng)
-    {        
-    //        var URL = 'http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44';
-    //        
-    //        $.get(URL, function(data){
-    //                alert(data);
-    //            }); 
 
-       
     }
 }
