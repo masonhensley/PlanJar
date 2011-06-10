@@ -91,7 +91,7 @@ class Home extends CI_Controller
             echo($this->db->last_query());
         } else
         {
-            echo(json_encode($return_array));
+            echo('json: ' . json_encode($return_array));
         }
     }
 
