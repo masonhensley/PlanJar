@@ -237,6 +237,14 @@ function toggle_group_select() {
     }
 }
 
+// this function is called on an onClick event for a day or group; 
+// it updates the dashboard information based on the day and groups
+// selected
+function update()
+{
+    
+}
+
 
 
 	
