@@ -30,17 +30,18 @@
             </tr>
 
             <tr>
-            <div id="plan_time" class="radio">
-                <label for="plan_morning">Morning</label>
-                <input type="radio" id="plan_morning" name="plan_time_group" />
-                
-                <label for="plan_afternoon">Afternoon</label>
-                <input type="radio" id="plan_afternoon" name="plan_time_group" />
-                
-                <label for="plan_night">Night</label>
-                <input type="radio" id="plan_night" name="plan_time_group" />
+                <td>
+                    <div id="plan_time" class="radio">
+                        <label for="plan_morning">Morning</label>
+                        <input type="radio" id="plan_morning" name="plan_time_group" />
 
-            </div>
+                        <label for="plan_afternoon">Afternoon</label>
+                        <input type="radio" id="plan_afternoon" name="plan_time_group" />
+
+                        <label for="plan_night">Night</label>
+                        <input type="radio" id="plan_night" name="plan_time_group" />
+                    </div>
+                </td>
             </tr>
         </table>
 
