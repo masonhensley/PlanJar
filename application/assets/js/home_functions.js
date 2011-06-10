@@ -55,7 +55,7 @@ $(function() {
     });
     
     // Initialize the group buttonset (select one/select multiple).
-    $('#one_mult').buttonset();
+    $('div .radio').buttonset();
     
     // Start the plan dialog box closed.
     $('#plan_content').dialog({

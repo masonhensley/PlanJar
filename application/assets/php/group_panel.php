@@ -2,7 +2,7 @@ Filter by group
 <hr/>
 
 Select
-<div id="one_mult">
+<div id="one_mult" class="radio">
     <label for="sel_one">Standard</label>
     <input type="radio" id="sel_one" name="one_mult" checked="checked" onchange="toggle_group_select()"/>
 
