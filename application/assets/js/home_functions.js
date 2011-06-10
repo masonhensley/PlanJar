@@ -94,7 +94,7 @@ $(function() {
                             data: {
                                 location: latitude + ',' + longitude,
                                 radius: 2000,
-                                name: 'dan',
+                                name: request.term,
                                 sensor: false,
                                 key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                             },
@@ -105,6 +105,7 @@ $(function() {
                                 alert('data: ');
                             }
                         });
+                        alert('after get');
                     }
                     // Convert each item in the JSON from the server to the required JSON
                     // form for the autocomplete and pass the result through the response
