@@ -79,6 +79,9 @@ class Home extends CI_Controller
             
             // Append to the return array.
             $return_array[] = $row;
+            
+            echo($this->db->last_query());
+            return;
         }
 
         // Check for no results.
