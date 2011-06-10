@@ -64,7 +64,7 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            // Search the Yahoo API.
+            // Search the Google Places API.
             $data = array(
                 'location' => $latitude . ' ' . $longitude,
                 'name' => 'needle'
@@ -113,8 +113,8 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
-    
-     // For Mason to fuck with...
+
+    // For Mason to fuck with...
     public function foo()
     {
         $this->load->view('foo_view');
