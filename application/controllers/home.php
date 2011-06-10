@@ -12,7 +12,6 @@ class Home extends CI_Controller
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
-            $data = loadMyEvents();
             $this->load->view('home_view');
         } else
         {
@@ -48,7 +47,7 @@ class Home extends CI_Controller
         $like_clauses = substr($like_clauses, 0, -4);
 
         // Check the PlanJar database. (Query string courtesy of Wells.)
-        $query_string = "SELECT places.id, ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude` * PI() / 180) 
+        $query_string = "SELECT places.id, ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude * PI() / 180) 
   + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, places.name, place_categories.category 
   FROM places LEFT JOIN place_categories ON places.category_id=place_categories.id
@@ -114,17 +113,8 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
-
-    function loadMyEvents()
-    {
-        $this->load->database();
-        $query = $this->db->query('');
-        $row = $query->row();
-        
-       return $row;
-    }
-
-    // For Mason to fuck with...
+    
+     // For Mason to fuck with...
     public function foo()
     {
         $this->load->view('foo_view');
