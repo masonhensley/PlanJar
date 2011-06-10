@@ -73,7 +73,7 @@ class Home extends CI_Controller
         }
     }
     
-    function loadMyEvents()
+    public function loadMyEvents()
     {
         $this->load->database();
         
