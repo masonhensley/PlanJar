@@ -13,9 +13,9 @@ class Home extends CI_Controller
         if ($this->ion_auth->logged_in())
         {
             // fill array with information about user events
-            $home_view_data = loadMyEvents();
+            $home_events_data = loadMyEvents();
             
-            $this->load->view('home_view', $home_view_data);
+            $this->load->view('home_view', $home_events_data);
         } else
         {
             $this->logout();
