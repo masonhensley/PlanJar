@@ -298,6 +298,5 @@ function location_data() {
         flags:"j",
         appid: "5CXRiH44"
       }) 
-     
     }
 }
