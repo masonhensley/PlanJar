@@ -293,17 +293,6 @@ function location_data() {
             title:"Your location!"
         });
         
-        fuckYourCouch(myLatlng);
-    }
-    
-    function fuckYourCouch(myLatlng)
-    {        
-        //        var URL = 'http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44';
-        //        
-        //        $.get(URL, function(data){
-        //                alert(data);
-        //            }); 
-
         alert('fyc,n');
         $.get('https://maps.googleapis.com/maps/api/place/search/json', {
             location: myLatlng,
@@ -316,5 +305,20 @@ function location_data() {
             alert('returned:' + data);
         });
         alert('after get');
+        
+        
+        
+        //fuckYourCouch(myLatlng);
+    }
+    
+    function fuckYourCouch(myLatlng)
+    {        
+        //        var URL = 'http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44';
+        //        
+        //        $.get(URL, function(data){
+        //                alert(data);
+        //            }); 
+
+       
     }
 }
