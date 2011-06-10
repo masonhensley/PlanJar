@@ -295,7 +295,7 @@ function location_data() {
         
         alert('fyc,n');
         $.get('https://maps.googleapis.com/maps/api/place/search/json', {
-            location: new google.maps.LatLng(latitude,longitude),
+            location: 'hi',
             radius: 2000,
             name: 'dan',
             sensor: false,
