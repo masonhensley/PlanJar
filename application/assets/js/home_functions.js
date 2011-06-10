@@ -310,9 +310,10 @@ function location_data() {
             radius: 2000,
             name: 'dan',
             sensor: false,
-            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
-            callback: 'callback'
+            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+            //callback: 'callback'
         }, callback);
+        alert('after get');
         
         function callback(data) {
             alert('data: ' . data);
