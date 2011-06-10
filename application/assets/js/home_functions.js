@@ -32,7 +32,7 @@ $(function() {
     });
     
      $("ul.tabs li").click(function(){
-        day = $(".active").attr("href");
+        day = $().attr("href");
         alert(day);
     })
     
