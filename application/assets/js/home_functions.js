@@ -98,7 +98,7 @@ $(function() {
                         var request = {
                             location: myLatitude + ',' + myLongitude,
                             radius: '2000',
-                            name: request.term,
+                            name: $('#plan_location').val(),
                             sensor: false,
                             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                         };
