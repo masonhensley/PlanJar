@@ -31,7 +31,7 @@ $(function() {
         return false;
     });
     
-     $("ul.tabs li").click(function(){
+    $("ul.tabs li").click(function(){
         day = $("li .active a").attr("href");
         alert("day");
     })
@@ -95,22 +95,37 @@ $(function() {
                         alert('none');
                         
                         // No results found. Try Google Places.
-                        $.ajax({
-                            url: 'https://maps.googleapis.com/maps/api/place/search/json',
-                            data: {
-                                location: myLatitude + ',' + myLongitude,
-                                radius: 2000,
-                                name: request.term,
-                                sensor: false,
-                                key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
-                            },
-                            dataType: 'jsonp',
-                            accepts: 'json',
-                            success: function (data) {
-                                alert('data: ' + data);
+                        var request = {
+                            location: myLatitude + ',' + myLongitude,
+                            radius: '2000'
+                        };
+                        service = new google.maps.places.PlacesService(map);
+                        service.search(request, function (results, status) {
+                            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                                for (var i = 0; i < results.length; i++) {
+                                    alert(results[i]);
+//                                    var place = results[i];
+//                                    createMarker(results[i]); 
+                                }
                             }
                         });
-                        alert('after get');
+                        
+                        
+                    //                        $.ajax({
+                    //                            url: 'https://maps.googleapis.com/maps/api/place/search/json',
+                    //                            data: {
+                    //                                location: myLatitude + ',' + myLongitude,
+                    //                                radius: 2000,
+                    //                                name: request.term,
+                    //                                sensor: false,
+                    //                                key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+                    //                            },
+                    //                            dataType: 'jsonp',
+                    //                            success: function (data) {
+                    //                                alert('data: ' + data);
+                    //                            }
+                    //                        });
+                    //                        alert('after get');
                     }
                     return;
                     
