@@ -297,7 +297,7 @@ function location_data() {
     {
         alert('hey');
         
-      $.get('http://where.yahooapis.com/geocode?'+latitude+'+'+longitude+'&flags=J&appid=5CXRiH44', {
+      $.get('http://where.yahooapis.com/geocode?'+latitude+' '+longitude+'&flags=J&appid=5CXRiH44', {
          location: latitude + " " + longitude,
         flags:"J",
         appid: "5CXRiH44"
