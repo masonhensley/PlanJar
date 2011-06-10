@@ -47,34 +47,41 @@ class Home extends CI_Controller
     public function find_pois()
     {
         $this->load->database();
-        
+
         $needle = $this->input->get('needle');
         $search_terms = explode(' ', $needle);
-        
+
         $latitude = $this->input->get('latitude');
         $longitude = $this->input->get('longitude');
-        
+
         $like_clauses = '';
         foreach ($search_terms as $term)
         {
             $like_clauses .= "`name` LIKE '%%" . $term . "%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
-        
+
         // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT id, ((ACOS(SIN(? * PI() / 180) * SIN(`latitude` * PI() / 180) 
   + COS(? * PI() / 180) * COS(`latitude` * PI() / 180) * COS((? - `longitude`) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
   FROM `pois` WHERE (?) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, $like_clauses, 10));
-        
+
         // Return a JSON array.
-        foreach ($query->result_array() as $row) {
+        foreach ($query->result_array() as $row)
+        {
             $return_array[] = $row;
         }
-        
-        echo(json_encode($return_array));
-        
+
+        // Check for no results.
+        if (!isset($return_array))
+        {
+            echo('no results');
+        } else
+        {
+            echo(json_encode($return_array));
+        }
     }
 
 }
