@@ -86,7 +86,7 @@ $(function() {
                     longitude: myLongitude
                 }, function (data) {
                     if (data == 'error') {
-                        alert(data);
+                        alert('error');
                         return;
                     }
                     // Convert each item in the JSON from the server to the required JSON
