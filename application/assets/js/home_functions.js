@@ -100,7 +100,6 @@ $(function() {
                             },
                             type: 'get',
                             dataType: 'jsonp',
-                            json: 'json',
                             success: function (data, text, xhqr) {
                                 //alert('data: ' + completeJSONObj.getJSONArray(data.item).success);
                                 alert('data: ');
