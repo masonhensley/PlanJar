@@ -65,7 +65,7 @@ class Home extends CI_Controller
         $query_string = "SELECT id, ((ACOS(SIN(? * PI() / 180) * SIN(`latitude` * PI() / 180) 
   + COS(? * PI() / 180) * COS(`latitude` * PI() / 180) * COS((? - `longitude`) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
-  FROM `pois` WHERE ($like_caluses) ORDER BY distance ASC LIMIT ?";
+  FROM `pois` WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
 
         // Return a JSON array.
