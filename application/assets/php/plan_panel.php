@@ -34,10 +34,10 @@
                 <label for="plan_morning">Morning</label>
                 <input type="radio" id="plan_morning" name="plan_time_group" />
                 
-                <label for="plan_morning">Afternoon</label>
+                <label for="plan_afternoon">Afternoon</label>
                 <input type="radio" id="plan_afternoon" name="plan_time_group" />
                 
-                <label for="plan_morning">Night</label>
+                <label for="plan_night">Night</label>
                 <input type="radio" id="plan_night" name="plan_time_group" />
 
             </div>
