@@ -95,6 +95,8 @@ class Home extends CI_Controller
     // Checks the plan cotegories with the server.
     public function find_plan_categories()
     {
+        echo('here');
+        return;
         $this->load->database();
 
         $needle = $this->input->get('needle');
@@ -112,8 +114,7 @@ class Home extends CI_Controller
         $query_string = "SELECT `id`, `category` FROM `plan_categories` WHERE $like_clauses LIMIT 10";
         $query = $this->db->query($query_string, $search_terms);
         
-        echo('here');
-        return;
+        
 
         // Return a JSON array.
         foreach ($query->result_array() as $row)
