@@ -66,6 +66,8 @@
             </td>
             </tr>
 
+            <tr><td colspan="2">What day?</td></tr>
+            
             <tr>
                 <td colspan="2">
                     <div id="plan_day" class="radio">
