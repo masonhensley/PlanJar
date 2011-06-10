@@ -33,7 +33,7 @@ $(function() {
     
      $("ul.tabs li").click(function(){
         day = $("li .active a").attr("href");
-        alert(day);
+        alert("day");
     })
     
     
