@@ -293,26 +293,26 @@ function location_data() {
             title:"Your location!"
         });
         
-        alert('fyc,n');
-        $.ajax({    
-            url: 'https://maps.googleapis.com/maps/api/place/search/json',
-            data: {
-                location: latitude + ',' + longitude,
-                radius: 2000,
-                name: 'dan',
-                sensor: false,
-                key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
-            },
-            type: 'get',
-            crossDomain: true,
-            dataType: 'json',
-            success: function (data) {
-                alert('data: ' + data.success);
-            },
-            error: function (data) {
-            }
-        });
-        alert('after get');
+//        alert('fyc,n');
+//        $.ajax({    
+//            url: 'https://maps.googleapis.com/maps/api/place/search/json',
+//            data: {
+//                location: latitude + ',' + longitude,
+//                radius: 2000,
+//                name: 'dan',
+//                sensor: false,
+//                key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+//            },
+//            type: 'get',
+//            crossDomain: true,
+//            dataType: 'json',
+//            success: function (data) {
+//                alert('data: ' + data.success);
+//            },
+//            error: function (data) {
+//            }
+//        });
+//        alert('after get');
 
     }
 }
