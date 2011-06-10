@@ -43,6 +43,12 @@
                     </div>
                 </td>
             </tr>
+            
+            <tr>
+                <td>
+                    Choose the time of day.
+                </td>
+            </tr>
         </table>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
