@@ -69,12 +69,11 @@ class Home extends CI_Controller
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, $like_clauses, 10));
         
         // Return a JSON array.
-        $return_array = array();
-        foreach ($query->result() as $row) {
+        foreach ($query->result_array() as $row) {
             $return_array[] = $row;
         }
-        echo($query_string);
-        //echo(json_encode($return_array));
+        
+        echo(json_encode($return_array));
         
     }
 
