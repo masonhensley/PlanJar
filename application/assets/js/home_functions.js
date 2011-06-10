@@ -85,7 +85,7 @@ $(function() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
-                    id (data == 'error') {
+                    if (data == 'error') {
                         alert(data);
                         return;
                     }
@@ -143,6 +143,7 @@ $(function() {
         
         return false;
     });
+    
     // End of ready function.
 });
 
@@ -292,15 +293,29 @@ function location_data() {
             title:"Your location!"
         });
         
-        fuckYourCouch(latitude,longitude);
+        fuckYourCouch(myLatlng);
     }
     
-    function fuckYourCouch(latitude,longitude)
+    function fuckYourCouch(myLatlng)
     {        
-        var URL = 'http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44';
+        //        var URL = 'http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44';
+        //        
+        //        $.get(URL, function(data){
+        //                alert(data);
+        //            }); 
+
+
+        $.get('https://maps.googleapis.com/maps/api/place/search/json', {
+            location: myLatlng,
+            radius: 2000,
+            name: 'dan',
+            sensor: false,
+            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
+            callback: 'callback'
+        });
         
-        $.get(URL, function(data){
-                alert(data);
-            }); 
+        function callback(data) {
+            alert('data: ' . data);
+        }
     }
 }
