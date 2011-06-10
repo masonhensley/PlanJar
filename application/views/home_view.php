@@ -7,7 +7,6 @@
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-        <script type="text/javascript" src="/application/assets/js/jquery.simplemodal.1.4.1.min.js"></script>
 
         <!-- Load Yahoo api -->
         <script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.8&appid=5CXRiH44"></script>
