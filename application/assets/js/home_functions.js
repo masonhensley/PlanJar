@@ -294,30 +294,41 @@ function location_data() {
         });
         
         alert('fyc,n');
-        $.getJSON('https://maps.googleapis.com/maps/api/place/search/json', {
-            location: latitude + ',' + longitude,
-            radius: 2000,
-            name: 'dan',
-            sensor: false,
-            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
-            callback: 'callback'
-        }, function(data) {
-            alert('returned:' + data);
+        $.ajax({    
+            url: 'https://maps.googleapis.com/maps/api/place/search/json',
+            data: {
+                location: latitude + ',' + longitude,
+                radius: 2000,
+                name: 'dan',
+                sensor: false,
+                key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+            },
+            type: 'get',
+            crossDomain: true,
+            dataType: 'jsonp',
+            success: function (data) {
+                alert(('data: ') + data);
+            },
+            error: function (data) {
+                alert(('data: ') + data);
+            },
+            beforeSend: setHeader
         });
+        
         alert('after get');
         
         
         
-        //fuckYourCouch(myLatlng);
+    //fuckYourCouch(myLatlng);
     }
     
     function fuckYourCouch(myLatlng)
     {        
-        //        var URL = 'http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44';
-        //        
-        //        $.get(URL, function(data){
-        //                alert(data);
-        //            }); 
+    //        var URL = 'http://where.yahooapis.com/geocode?location='+latitude+' '+longitude+'&gflags=r&appid=5CXRiH44';
+    //        
+    //        $.get(URL, function(data){
+    //                alert(data);
+    //            }); 
 
        
     }
