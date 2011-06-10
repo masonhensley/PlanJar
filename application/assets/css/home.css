@@ -206,3 +206,6 @@ ul.tabs li.active {
 .pac-container {
     width: 100px;
 }
+
+/* for day picker in make-a-plan */
+#plan_day .ui-button-text-only .ui-button-text { padding: .1em 1em; }
