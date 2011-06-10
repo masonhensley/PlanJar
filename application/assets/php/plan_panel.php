@@ -8,7 +8,7 @@
         </div>
         
         <div class="in-field_block">
-            <label for="plan_activity">What are you doing?</label>
+            <label for="plan_category">What are you doing?</label>
             <input type="text" id="plan_category" name="plan_category" class="textbox"/>
         </div>
         
