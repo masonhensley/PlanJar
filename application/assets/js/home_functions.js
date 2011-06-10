@@ -263,7 +263,8 @@ function location_data() {
     {
       $.get('http://where.yahooapis.com/geocode', {
          location: latitude + ", " + longitude,
-         appid: "5CXRiH44"
+        flags:"j",
+        appid: "5CXRiH44"
       }) 
      
     }
