@@ -31,7 +31,7 @@
 
             <tr>
                 <td>
-                    <div id="plan_time" class="radio">
+                    <div id="plan_time" class="radio" style="height:100%">
                         <label for="plan_morning">Morning</label>
                         <input type="radio" id="plan_morning" name="plan_time_group" />
 
