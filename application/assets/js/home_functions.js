@@ -31,9 +31,9 @@ $(function() {
         return false;
     });
     
-    $("ul.tabs li").click(function(){
-        day = $("li .active a").attr("href");
-        alert("day");
+     $("ul.tabs li").click(function(){
+        day = $(".active").attr("href");
+        alert(day);
     })
     
     
