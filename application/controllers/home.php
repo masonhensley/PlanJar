@@ -74,13 +74,13 @@ class Home extends CI_Controller
             // Replace each category id with the name of the category.
             $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ?";
             $sub_query = $this->db->query($query_string, array($row['category']));
-            $sub_row = $sub_query->result_array();
+            $sub_row = $sub_query->row_array();
             //$row['category'] = $sub_row['category'];
             
             // Append to the return array.
             $return_array[] = $row;
             
-            echo($this->db->last_query());
+            echo($sub_row['category']);
             
             return;
         }
