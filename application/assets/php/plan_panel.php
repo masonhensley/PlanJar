@@ -28,10 +28,12 @@
                     </div>
                 </td>
             </tr>
+            
+            <tr><td><div style="height:20px; width:10px;"></div></td></tr>
 
             <tr>
                 <td>
-                    <div id="plan_time" class="radio1">
+                    <div id="plan_time" class="radio">
                         <label for="plan_morning">Morning</label>
                         <input type="radio" id="plan_morning" name="plan_time_group" />
 
