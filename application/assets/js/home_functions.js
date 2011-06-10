@@ -74,7 +74,6 @@ $(function() {
         // Initialize the in-field labels.
         $('#plan_content div.in-field_block label').inFieldLabels();
         
-        // Initialize the buttonset.
                 
         // Initialize the plan location autocomplete instance.
         $('#plan_location').autocomplete({
@@ -86,7 +85,10 @@ $(function() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
-                            
+                    id (data == 'error') {
+                        alert(data);
+                        return;
+                    }
                     // Convert each item in the JSON from the server to the required JSON
                     // form for the autocomplete and pass the result through the response
                     // handler.
@@ -141,7 +143,7 @@ $(function() {
         
         return false;
     });
-// End of ready function.
+    // End of ready function.
 });
 
 // Should be called when #sel_one or #sel_mult
@@ -227,33 +229,33 @@ function location_data() {
     {
         navigator.geolocation.getCurrentPosition
         ( 
-            function (position) 
-            {  
-                myLatitude=position.coords.latitude;
-                myLongitude=position.coords.longitude;
+        function (position) 
+        {  
+            myLatitude=position.coords.latitude;
+            myLongitude=position.coords.longitude;
                 
-                mapThisGoogle(position.coords.latitude, position.coords.longitude);
-            }, 
-            // next function is the error callback
-            function (error)
+            mapThisGoogle(position.coords.latitude, position.coords.longitude);
+        }, 
+        // next function is the error callback
+        function (error)
+        {
+            switch(error.code) 
             {
-                switch(error.code) 
-                {
-                    case error.TIMEOUT:
-                        alert ('Timeout');
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert ('Position unavailable');
-                        break;
-                    case error.PERMISSION_DENIED:
-                        alert ('Permission denied');
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        alert ('Unknown error');
-                        break;
-                }
+                case error.TIMEOUT:
+                    alert ('Timeout');
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert ('Position unavailable');
+                    break;
+                case error.PERMISSION_DENIED:
+                    alert ('Permission denied');
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert ('Unknown error');
+                    break;
             }
-            );
+        }
+    );
     }
     function mapServiceProvider(latitude,longitude)
     {
@@ -296,8 +298,8 @@ function location_data() {
     function fuckYourCouch(latitude,longitude)
     {        
         $.get('http://where.yahooapis.com/geocode?'+latitude+' '+longitude+'&flags=J&appid=5CXRiH44', 
-            function(data){
-                alert('hey');
-            }) 
+        function(data){
+            alert('hey');
+        }) 
     }
 }

@@ -85,7 +85,13 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            echo('no results found');
+            // Search the Yahoo API.
+            $data = array(
+            'location' => $latitude . ' ' . $longitude,
+                'name' => 'needle'
+            )
+            $response = http_get('http://where.yahooapis.com/geocode', array('timeout' => 2), $data);
+            echo($response);
         } else
         {
             echo(json_encode($return_array));
@@ -122,7 +128,7 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            echo('no results found');
+            echo('error');
         } else
         {
             echo(json_encode($return_array));
