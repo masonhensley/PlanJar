@@ -294,9 +294,7 @@ function location_data() {
     }
     
     function fuckYourCouch(latitude,longitude)
-    {
-        alert('hey');
-        
+    {        
         $.get('http://where.yahooapis.com/geocode?'+latitude+' '+longitude+'&flags=J&appid=5CXRiH44', 
             function(data){
                 alert('hey');
