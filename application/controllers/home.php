@@ -123,6 +123,10 @@ class Home extends CI_Controller
             $return_array[] = $row;
         }
 
+        
+        echo('here');
+        return;
+        
         // Check for no results.
         if (!isset($return_array))
         {
