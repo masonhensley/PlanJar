@@ -307,14 +307,12 @@ function location_data() {
             crossDomain: true,
             dataType: 'jsonp',
             success: function (data) {
-                alert(('data: ') + data);
+                alert('data: ' + data);
             },
             error: function (data) {
-                alert(('data: ') + data);
-            },
-            beforeSend: setHeader
+                alert('data: ' + data);
+            }
         });
-        
         alert('after get');
         
         
