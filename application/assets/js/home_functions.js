@@ -89,7 +89,7 @@ $(function() {
                             data = $.parseJSON(data);
                             response($.map(data, function (item) {
                                 return {
-                                    label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2), 
+                                    label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
                                     value: item.name,
                                     id: item.id
                                 };
