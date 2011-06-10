@@ -99,6 +99,7 @@ $(function() {
                                 key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                             },
                             dataType: 'jsonp',
+                            accepts: 'json',
                             success: function (data) {
                                 alert('data: ' + data);
                             }
