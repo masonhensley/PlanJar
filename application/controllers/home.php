@@ -122,7 +122,7 @@ class Home extends CI_Controller
         $user_id = $user_info->id;
         $user_name = $user_info->username;
         
-        $query="SELECT user.username, plans.time_of_day, plans.date, plans.category_id FROM";
+        $query="SELECT plans.time_of_day, plans.date, places.name FROM plans JOIN places ON plans.place_id = places.place_id";
         
         $query_result = $this->db->query("$query");
         $row = $query_result->row();
