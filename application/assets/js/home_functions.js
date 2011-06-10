@@ -89,7 +89,7 @@ $(function() {
                         alert('none');
                         
                         // No results found. Try Google Places.
-                        $.ajax({    
+                        $.ajax({
                             url: 'https://maps.googleapis.com/maps/api/place/search/json',
                             data: {
                                 location: myLatitude + ',' + myLongitude,
@@ -249,6 +249,7 @@ function update()
 
 var initialLocation;
 var browserSupportFlag;
+var map;
 
 function location_data() {
     
@@ -310,7 +311,7 @@ function location_data() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         
-        var map = new google.maps.Map(document.getElementById("map"), myOptions);
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
             
         your_location_marker = new google.maps.Marker({
             position: myLatlng, 
