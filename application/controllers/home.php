@@ -77,7 +77,7 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            echo('no results');
+            echo('lat: ' . $latitude . ', long: ' . $longitude);
         } else
         {
             echo(json_encode($return_array));
