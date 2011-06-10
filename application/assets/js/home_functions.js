@@ -97,8 +97,8 @@ $(function() {
                     // When an item is selected, update the location text as well as the hidden
                     // id field.
                     select: function (event, ui) {
-                        $('#su_school').val(ui.item.value);
-                        $('#su_school_id').val(ui.item.id);
+                        $('#plan_location').val(ui.item.value);
+                        $('#plan_location_id').val(ui.item.id);
                     }
                 });
             }
