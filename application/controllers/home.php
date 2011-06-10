@@ -73,8 +73,8 @@ class Home extends CI_Controller
         foreach ($query->result() as $row) {
             $return_array[] = $row;
         }
-        
-        echo('results: ' . json_encode($return_array));
+        echo($query_string);
+        //echo(json_encode($return_array));
         
     }
 
