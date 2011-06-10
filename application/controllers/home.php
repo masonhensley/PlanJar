@@ -28,6 +28,23 @@ class Home extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
+    
+    // load and return user event data
+     public function loadMyEvents()
+    {
+        $this->load->database();
+
+        $user_info = $this->ion_auth->get_user();
+        $user_id = $user_info->id;
+        $user_name = $user_info->username;
+
+        $query = "SELECT plans.time_of_day, plans.date, places.name FROM plans LEFT JOIN places ON plans.place_id=places.place_id WHERE plans.user_id=?";
+
+        $query_result = $this->db->query($query, array($user_id));
+        $row = $query_result->row();
+
+        return $row;
+    }
 
     // Checks the PlanJar Places database for matching places.
     public function find_places()
@@ -110,21 +127,7 @@ class Home extends CI_Controller
         }
     }
 
-    public function loadMyEvents()
-    {
-        $this->load->database();
-
-        $user_info = $this->ion_auth->get_user();
-        $user_id = $user_info->id;
-        $user_name = $user_info->username;
-
-        $query = "SELECT plans.time_of_day, plans.date, places.name FROM plans LEFT JOIN places ON plans.place_id=places.place_id WHERE plans.user_id=?";
-
-        $query_result = $this->db->query($query, array($user_id));
-        $row = $query_result->row();
-
-        return $row;
-    }
+   
 
     // For Mason to fuck with...
     public function foo()
