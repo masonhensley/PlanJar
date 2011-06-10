@@ -108,19 +108,13 @@ class Home extends CI_Controller
         }
         $like_clauses = substr($like_clauses, 0, -4);
 
-        // Check the PlanJar database. (Query string courtesy of Wells.)
+        // Check the PlanJar database.
         $query_string = "SELECT `id`, `category` FROM `plan_categories` WHERE $like_clauses LIMIT 10";
         $query = $this->db->query($query_string);
 
         // Return a JSON array.
         foreach ($query->result_array() as $row)
         {
-            // Replace each category id with the name of the category.
-            $query_string = "SELECT `category` FROM `plan_categories` WHERE `id` = ? LIMIT 1";
-            $sub_query = $this->db->query($query_string, array($row['category']));
-            $sub_row = $sub_query->row_array();
-            $row['category'] = $sub_row['category'];
-
             // Append to the return array.
             $return_array[] = $row;
         }
