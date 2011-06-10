@@ -57,7 +57,7 @@ class Home extends CI_Controller
         $like_clauses = '';
         foreach ($search_terms as $term)
         {
-            $like_clauses .= "`name` LIKE '%%" . $term . "%%' OR ";
+            $like_clauses .= "`name` LIKE '%%?%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
 
@@ -66,7 +66,7 @@ class Home extends CI_Controller
   + COS(? * PI() / 180) * COS(`latitude` * PI() / 180) * COS((? - `longitude`) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
   FROM `pois` WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
-        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
+        $query = $this->db->query($query_string, array_merge($search_terms, array($latitude, $latitude, $longitude, 10)));
 
         // Return a JSON array.
         foreach ($query->result_array() as $row)
@@ -123,10 +123,10 @@ class Home extends CI_Controller
             $return_array[] = $row;
         }
 
-        
+
         echo('here');
         return;
-        
+
         // Check for no results.
         if (!isset($return_array))
         {
