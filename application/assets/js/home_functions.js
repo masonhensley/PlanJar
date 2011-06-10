@@ -240,12 +240,14 @@ function toggle_group_select() {
 // selected
 function update()
 {
+    var day;
+    $("ul .tabs").click(function(){
+        day = $("li .active a").attr("href") 
+    })
     
+    alert(day);
 }
 
-
-
-	
 
 var initialLocation;
 var browserSupportFlag;
