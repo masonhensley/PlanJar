@@ -77,13 +77,15 @@ $(function() {
                     // Get info from the server.
                     source: function (request, response) {
                         $.get('/home/find_pois', {
-                            needle: request.term
+                            needle: request.term,
+                            latitude: myLatitude,
+                            longitude: myLongitude
                         }, function (data) {
                 
                             // Convert each item in the JSON from the server to the required JSON
                             // form for the autocomplete and pass the result through the response
                             // handler.
-                            alert('results: ' + data);
+                            alert(data);
                             data = $.parseJSON(data);
                             response($.map(data, function (item) {
                                 return {
