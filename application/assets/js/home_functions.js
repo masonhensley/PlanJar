@@ -247,9 +247,6 @@ function update()
 }
 
 
-
-	
-
 var initialLocation;
 var browserSupportFlag;
 
