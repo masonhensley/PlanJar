@@ -293,7 +293,6 @@ function location_data() {
             title:"Your location!"
         });
         
-        alert('fyc,n');
         $.ajax({    
             url: 'https://maps.googleapis.com/maps/api/place/search/json',
             data: {
@@ -304,12 +303,10 @@ function location_data() {
                 key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
             },
             type: 'get',
-            crossDomain: true,
-            dataType: 'json',
-            success: function (data) {
-                alert('data: ' + data.success);
-            },
-            error: function (data) {
+            dataType: 'jsonp',
+            success: function (data, text, xhqr) {
+                //alert('data: ' + completeJSONObj.getJSONArray(data.item).success);
+                alert('data: ');
             }
         });
         alert('after get');
