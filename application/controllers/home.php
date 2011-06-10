@@ -89,8 +89,8 @@ class Home extends CI_Controller
             $data = array(
             'location' => $latitude . ' ' . $longitude,
                 'name' => 'needle'
-            )
-            $response = http_get('http://where.yahooapis.com/geocode', array('timeout' => 2), $data);
+            );
+            $response = http_get('https://maps.googleapis.com/maps/api/place/search/json', array('timeout' => 2), $data);
             echo($response);
         } else
         {
