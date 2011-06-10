@@ -57,6 +57,7 @@ class Home extends CI_Controller
         $like_clauses = '';
         foreach ($search_terms as $term)
         {
+            $term = $this->db->escape_like_str($term);
             $like_clauses .= "`name` LIKE '%%$term%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
@@ -102,7 +103,8 @@ class Home extends CI_Controller
         $like_clauses = '';
         foreach ($search_terms as $term)
         {
-            $like_clauses .= "`name` LIKE '%%?%%' OR ";
+            $term = $this->db->escape_like_str($term);
+            $like_clauses .= "`name` LIKE '%%$term%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
 
