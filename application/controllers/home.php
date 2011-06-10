@@ -107,12 +107,11 @@ class Home extends CI_Controller
             $like_clauses .= "`name` LIKE '%%$term%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
-        
-        echo($like_clauses);
-        return;
 
         // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT `id`, `category` FROM `plan_categories` WHERE $like_clauses LIMIT 10";
+        echo($query_string);
+        return;
         $query = $this->db->query($query_string);
 
         // Return a JSON array.
