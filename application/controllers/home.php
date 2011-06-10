@@ -47,13 +47,13 @@ class Home extends CI_Controller
         $like_clauses = substr($like_clauses, 0, -4);
 
         // Check the PlanJar database. (Query string courtesy of Wells.)
-        $query_string = "SELECT places.id, ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude` * PI() / 180) 
+        $query_string = "SELECT places.id, ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude * PI() / 180) 
   + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, places.name, place_categories.category 
   FROM places LEFT JOIN place_categories ON places.category_id=place_categories.id
         WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
-//        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
-        echo($query_string);
+        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
+        echo($this->db->last_query());
         return;
 
         // Return a JSON array.
