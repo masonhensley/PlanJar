@@ -50,7 +50,7 @@
                     <label for="plan_night">night</label>
                     <input type="radio" id="plan_night" name="plan_time_group" />
 
-                    <label for="plan_ate_night">late night</label>
+                    <label for="plan_late_night">late night</label>
                     <input type="radio" id="plan_late_night" name="plan_time_group" />
                 </div>
             </center>
