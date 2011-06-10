@@ -303,6 +303,7 @@ function location_data() {
                 key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
             },
             type: 'get',
+            cache: false,
             crossDomain: true,
             dataType: 'jsonp',
             success: function (data, text, xhqr) {
