@@ -42,8 +42,8 @@ class Home extends CI_Controller
         $this->load->view('foo3_view');
     }
 
-    // Checks the PlanJar POI database for matching POIs.
-    // If none are found, checks Yahoo. Returns error otherwise.
+    // Checks the PlanJar Places database for matching places.
+    // If none are found, check Yahoo. Returns error otherwise.
     public function find_pois()
     {
         $this->load->database();
@@ -66,14 +66,14 @@ class Home extends CI_Controller
         $query_string = "SELECT id, ((ACOS(SIN(? * PI() / 180) * SIN(`latitude` * PI() / 180) 
   + COS(? * PI() / 180) * COS(`latitude` * PI() / 180) * COS((? - `longitude`) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
-  FROM `pois` WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
+  FROM `places` WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
 
         // Return a JSON array.
         foreach ($query->result_array() as $row)
         {
             // Replace each category id with the name of the category.
-            $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ? LIMIT 1";
+            $query_string = "SELECT `category` FROM `place_categories` WHERE `id` = ? LIMIT 1";
             $sub_query = $this->db->query($query_string, array($row['category']));
             $sub_row = $sub_query->row_array();
             $row['category'] = $sub_row['category'];
