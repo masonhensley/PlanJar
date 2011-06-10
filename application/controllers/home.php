@@ -117,9 +117,12 @@ class Home extends CI_Controller
     function loadMyEvents()
     {
         $this->load->database();
-        $user = $this->ion_auth->get_user();
-        $id = $user->id;
-        $query="SELECT place_id user_id FROM plans";
+        
+        $user_info = $this->ion_auth->get_user();
+        $user_id = $user_info->id;
+        $user_name = $user_info->username;
+        
+        $query="SELECT user.username, plans.time_of_day, plans.date, plans.category_id FROM";
         
         $query_result = $this->db->query("$query");
         $row = $query_result->row();
