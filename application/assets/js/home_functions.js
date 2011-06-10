@@ -90,7 +90,7 @@ $(function() {
                         
                         // No results found. Try Google Places.
                         $.ajax({    
-                            url: 'http://maps.googleapis.com/maps/api/place/search/json',
+                            url: 'https://maps.googleapis.com/maps/api/place/search/json',
                             data: {
                                 location: myLatitude + ',' + myLongitude,
                                 radius: 2000,
