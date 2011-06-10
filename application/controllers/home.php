@@ -66,9 +66,9 @@ class Home extends CI_Controller
   + COS(? * PI() / 180) * COS(`latitude` * PI() / 180) * COS((? - `longitude`) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
   FROM `pois` WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
-        echo('pre: ' . array_merge(array($latitude, $latitude, $longitude, 10), $search_terms));
-        $query = $this->db->query($query_string, array_merge(array($latitude, $latitude, $longitude, 10), $search_terms));
+        echo('pre: ' . var_export(array_merge(array($latitude, $latitude, $longitude, 10), $search_terms)));
         return;
+        $query = $this->db->query($query_string, array_merge(array($latitude, $latitude, $longitude, 10), $search_terms));
 
         // Return a JSON array.
         foreach ($query->result_array() as $row)
