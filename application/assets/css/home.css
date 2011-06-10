@@ -172,7 +172,7 @@ ul.tabs li.active {
     width:200px;
     float:left;
 }
-#make_plan label {
+#make_plan div.in-field_block label {
     position:absolute;
     top:3px;
     left:5px;
