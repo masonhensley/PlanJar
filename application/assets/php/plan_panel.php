@@ -1,4 +1,4 @@
-<div id="plan_content">
+<div id="plan_content" title="Make a plan.">
 
     <form id="make_plan">
 
