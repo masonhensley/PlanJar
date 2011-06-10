@@ -98,20 +98,18 @@ $(function() {
                                 sensor: false,
                                 key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                             },
-                            type: 'get',
                             dataType: 'jsonp',
-                            success: function (data, text, xhqr) {
+                            success: function (data) {
                                 alert('data: ' + data);
                             }
                         });
+                        alert('after get');
                     }
+                    return;
                     
                     // Convert each item in the JSON from the server to the required JSON
                     // form for the autocomplete and pass the result through the response
                     // handler.
-                    alert(data);
-                    return;
-                    
                     data = $.parseJSON(data);
                     response($.map(data, function (item) {
                         return {
