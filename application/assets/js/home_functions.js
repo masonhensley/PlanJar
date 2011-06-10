@@ -307,7 +307,7 @@ function location_data() {
             dataType: 'jsonp',
             success: function (data, text, xhqr) {
                 //alert('data: ' + completeJSONObj.getJSONArray(data.item).success);
-                alert('data: ' + data.item);
+                alert('data: ');
             }
         });
         alert('after get');
