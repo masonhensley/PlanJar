@@ -101,8 +101,7 @@ $(function() {
                             type: 'get',
                             dataType: 'jsonp',
                             success: function (data, text, xhqr) {
-                                //alert('data: ' + completeJSONObj.getJSONArray(data.item).success);
-                                alert('data: ');
+                                alert('data: ' + data);
                             }
                         });
                     }
