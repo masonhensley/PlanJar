@@ -3,14 +3,16 @@
     <form id="make_plan">
         
         <div class="in-field_block">
-            
             <label for="plan_location">Where are you going?</label>
             <input type="text" id="plan_location" name="plan_location" class="textbox"/>
-            <br/>
-            <!--        <p>Start typing, and we'll try to guess what you're looking for.</p>
-    <p>Can't find it? Just type in the name and keep going.</p>-->
-
-            <input id="plan_location_id" type="hidden"/>
         </div>
+        
+        <div class="in-field_block">
+            <label for="plan_category">What are you doing?</label>
+            <input type="text" id="plan_category" name="plan_category" class="textbox"/>
+        </div>
+        
+        <input id="plan_location_id" type="hidden"/>
+        <input id="plan_category_id" type="hidden"/>
     </form>
 </div>

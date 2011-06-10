@@ -47,34 +47,90 @@ class Home extends CI_Controller
     public function find_pois()
     {
         $this->load->database();
-        
+
         $needle = $this->input->get('needle');
         $search_terms = explode(' ', $needle);
-        
+
         $latitude = $this->input->get('latitude');
         $longitude = $this->input->get('longitude');
-        
+
         $like_clauses = '';
         foreach ($search_terms as $term)
         {
             $like_clauses .= "`name` LIKE '%%" . $term . "%%' OR ";
         }
         $like_clauses = substr($like_clauses, 0, -4);
-        
+
         // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT id, ((ACOS(SIN(? * PI() / 180) * SIN(`latitude` * PI() / 180) 
   + COS(? * PI() / 180) * COS(`latitude` * PI() / 180) * COS((? - `longitude`) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
-  FROM `pois` WHERE (?) ORDER BY distance ASC LIMIT ?";
-        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, $like_clauses, 10));
-        
+  FROM `pois` WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
+        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
+
         // Return a JSON array.
-        foreach ($query->result_array() as $row) {
+        foreach ($query->result_array() as $row)
+        {
+            // Replace each category id with the name of the category.
+            $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ? LIMIT 1";
+            $sub_query = $this->db->query($query_string, array($row['category']));
+            $sub_row = $sub_query->row_array();
+            $row['category'] = $sub_row['category'];
+
+            // Append to the return array.
             $return_array[] = $row;
         }
-        
-        echo(json_encode($return_array));
-        
+
+        // Check for no results.
+        if (!isset($return_array))
+        {
+            echo('no results found');
+        } else
+        {
+            echo(json_encode($return_array));
+        }
+    }
+
+    // Checks the plan cotegories with the server.
+    public function find_plan_categories()
+    {
+        $this->load->database();
+
+        $needle = $this->input->get('needle');
+        $search_terms = explode(' ', $needle);
+
+        $like_clauses = '';
+        foreach ($search_terms as $term)
+        {
+            $like_clauses .= "`name` LIKE '%%?%%' OR ";
+        }
+        $like_clauses = substr($like_clauses, 0, -4);
+
+        // Check the PlanJar database. (Query string courtesy of Wells.)
+        $query_string = "SELECT `id`, `category` FROM `plan_categories` WHERE $like_clauses LIMIT 10";
+        $query = $this->db->query($query_string, $search_terms);
+
+        // Return a JSON array.
+        foreach ($query->result_array() as $row)
+        {
+            // Replace each category id with the name of the category.
+            $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ? LIMIT 1";
+            $sub_query = $this->db->query($query_string, array($row['category']));
+            $sub_row = $sub_query->row_array();
+            $row['category'] = $sub_row['category'];
+
+            // Append to the return array.
+            $return_array[] = $row;
+        }
+
+        // Check for no results.
+        if (!isset($return_array))
+        {
+            echo('no results found');
+        } else
+        {
+            echo(json_encode($return_array));
+        }
     }
 
 }
