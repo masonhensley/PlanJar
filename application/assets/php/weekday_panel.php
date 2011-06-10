@@ -1,3 +1,5 @@
+<!-- this populates the tabs with right right days -->
+
 <ul class="tabs">
     <li>
         <a href="0">Today - <?php echo(date('j')); ?></a>
@@ -11,7 +13,7 @@
     {
         ?>
         <li>
-            <a href="#<?php echo($i); ?>"><?php
+            <a href="<?php echo($i); ?>"><?php
     // Format the displayed day name (e.g. Tue - 9).
     $day_name = $days[(date('w') + $i) % 7];
     $day_name .= ' - ' . (date('j') + $i);
