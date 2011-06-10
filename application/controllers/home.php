@@ -44,7 +44,7 @@ class Home extends CI_Controller
         var_dump($query);
         
         //$query_result = $this->db->query($query, array($user_id));
-        $query_result = $this->db->query($query, array($user_id));
+        $query_result = $this->db->query($query);
         
         $row = $query_result->row();
 
