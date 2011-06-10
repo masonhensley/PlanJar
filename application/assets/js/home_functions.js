@@ -305,9 +305,9 @@ function location_data() {
             },
             type: 'get',
             crossDomain: true,
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function (data) {
-                alert('data: ' + data.status);
+                alert('data: ' + data.success);
             },
             error: function (data) {
             }
