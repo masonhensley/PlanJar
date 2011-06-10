@@ -72,26 +72,22 @@ class Home extends CI_Controller
         foreach ($query->result_array() as $row)
         {
             // Replace each category id with the name of the category.
-            $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ?";
+            $query_string = "SELECT `category` FROM `poi_categories` WHERE `id` = ? LIMIT 1";
             $sub_query = $this->db->query($query_string, array($row['category']));
             $sub_row = $sub_query->row_array();
-            //$row['category'] = $sub_row['category'];
+            $row['category'] = $sub_row['category'];
             
             // Append to the return array.
             $return_array[] = $row;
-            
-            echo($sub_row['category']);
-            
-            return;
         }
 
         // Check for no results.
         if (!isset($return_array))
         {
-            echo($this->db->last_query());
+            echo('no results found');
         } else
         {
-            echo('json: ' . json_encode($return_array));
+            echo(json_encode($return_array));
         }
     }
 
