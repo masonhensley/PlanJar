@@ -67,9 +67,8 @@ class Home extends CI_Controller
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, name, category 
   FROM `pois` WHERE ($like_clauses) ORDER BY distance ASC LIMIT 10";
         $temp = array_merge(array($latitude, $latitude, $longitude), $search_terms);
-        echo($query_string . '|' . var_export($temp));
-        return;
         $query = $this->db->query($query_string, $temp);
+        
         echo($this->db->last_query());
         return;
 
