@@ -114,6 +114,19 @@ class Home extends CI_Controller
         }
     }
     
+    function loadMyEvents()
+    {
+        $this->load->database();
+        $user = $this->ion_auth->get_user();
+        $id = $user->id;
+        $query="SELECT place_id user_id FROM plans";
+        
+        $query_result = $this->db->query("$query");
+        $row = $query_result->row();
+        
+       return $row;
+    }
+    
      // For Mason to fuck with...
     public function foo()
     {
