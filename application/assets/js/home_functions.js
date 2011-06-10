@@ -299,8 +299,8 @@ function location_data() {
             radius: 2000,
             name: 'dan',
             sensor: false,
-            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
-            //callback: 'callback'
+            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
+            callback: 'callback'
         }, function(data) {
             alert('returned:' + data);
         });
