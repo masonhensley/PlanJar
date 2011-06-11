@@ -112,7 +112,10 @@ $(function() {
                         };
                     });
                     
-                    if (place_limit > 0) {                      
+                    if (place_limit > 0) {
+                        alert('more needed');
+                        return;
+                        
                         // Insufficient results found. Try Google Places.
                         var request = {
                             location: new google.maps.LatLng(myLatitude,myLongitude),
