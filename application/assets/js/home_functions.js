@@ -130,21 +130,19 @@ $(function() {
                         service.search(request, function (results, status) {
                             if (status == google.maps.places.PlacesServiceStatus.OK) {
                                 // Convert each item in the JSON from the server to the required JSON
-                                // form for the autocomplete, concatenate the previous results with it, 
-                                // and pass the result through the response handler.
-                                var temp = $.map(results, function (item) {
+                                // form for the autocomplete and push it to response_json. 
+                                $.map(results, function (item) {
                                     if (place_limit > 0) {
-                                        // Only accept up to 10 total results (including the earlier ones).
+                                        // Only push items if the required number isn't met.'
                                         --place_limit;
-                                        return {
+                                        response_json.push({
                                             label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
                                             value: item.name,
                                             id: '?'
-                                        };
+                                        });
                                     }
-                                    return {};
                                 });
-                                    
+                                
                                 // Append the recent data to the original data.
                                 console.log(temp);
                                 console.log(response_json);
