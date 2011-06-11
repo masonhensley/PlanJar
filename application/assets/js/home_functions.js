@@ -113,8 +113,6 @@ $(function() {
                     });
                     
                     if (place_limit > 0) {
-                        alert('more needed');
-                        return;
                         
                         // Insufficient results found. Try Google Places.
                         var request = {
@@ -124,6 +122,8 @@ $(function() {
                             sensor: false,
                             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                         };
+                        
+                        alert('made it');
 
                         service = new google.maps.places.PlacesService(map);
                         service.search(request, function (results, status) {
