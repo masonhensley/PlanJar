@@ -131,7 +131,7 @@ $(function() {
                                 var temp = $.map(results, function (item) {
                                     //if (place_limit > 0) {
                                     // Only accept up to 10 total results (including the earlier ones).
-                                    --place_limit;
+                                    //--place_limit;
                                     return {
                                         label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
                                         value: item.name,
