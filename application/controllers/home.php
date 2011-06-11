@@ -47,7 +47,7 @@ class Home extends CI_Controller
         ON plans.place_id=places.id 
         WHERE plans.user_id=$user_id";
 
-        $query_result = $this->db->query($query, array($user_id));
+        $query_result = $this->db->query($query);
         $row = $query_result->row();
 
         return $row;
