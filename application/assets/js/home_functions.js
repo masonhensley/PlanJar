@@ -94,14 +94,16 @@ $(function() {
                 }, function (data) {
                     var place_count = 0;
                     var place_limit = 10 - data.count;
-                    alert(place_limit);
+                    alert(data);
                     data = data.data;
                     
                     // Populate the response array with the PlanJar results.
                     // Convert each item in the JSON from the server to the required JSON
                     // form for the autocomplete and pass the result through the response
                     // handler.
-                    var response_json = $.map(data, function (item) {
+                    
+                    response($.map(data, function (item) {
+                    //var response_json = $.map(data, function (item) {
                         return {
                             label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
                             value: item.name,
@@ -109,7 +111,7 @@ $(function() {
                         };
                     });
                     
-                    response(response_json);
+                    //response(response_json);
                 });
                     
             //                    if (place_limit > 0) {                      
