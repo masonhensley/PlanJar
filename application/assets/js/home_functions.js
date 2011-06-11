@@ -146,7 +146,7 @@ $(function() {
                                         
                                         response_json.push({
                                             //label: '*' + item.name + ' (' + item.types[0] + ') - ' + distance.toFixed(2) + 'mi',
-                                            label: item.name + ' (' + item.types[0] + ') - ' + item.vicinity,
+                                            label: '*' + tem.name + ' (' + item.types[0] + ') - ' + item.vicinity,
                                             value: item.name,
                                             id: '?'
                                         });
