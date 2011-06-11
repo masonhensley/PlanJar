@@ -108,6 +108,8 @@ $(function() {
                         };
                     });
                     
+                    response(response_json);
+                    
                     if (place_limit > 0) {                      
                         // Insufficient results found. Try Google Places.
                         var request = {
