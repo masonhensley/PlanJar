@@ -13,14 +13,14 @@ class Home extends CI_Controller
         if ($this->ion_auth->logged_in())
         {
              // fill array with information about user events
-            $home_events_data = $this->loadMyEvents();
-            $this->load->helper('object_to_array');
-            $home_events_array = objectToArray($home_events_data);
+            //$home_events_data = $this->loadMyEvents();
+            //$this->load->helper('object_to_array');
+            //$home_events_array = objectToArray($home_events_data);
+            //var_dump($home_events_array);
             
-            var_dump($home_events_array);
+            $query_result = $this->loadMyEvents();
             
-            $this->load->view('home_view', $home_events_array);
-            
+            $this->load->view('home_view', $query_result->result_array()); 
         } else
         {
             $this->logout();
@@ -53,9 +53,9 @@ class Home extends CI_Controller
 
         // pull data
         $query_result = $this->db->query($query);
-        $row = $query_result->row();
+        //$row = $query_result->row();
 
-        return $row;
+        return $query_result;
     }
 
     // Checks the PlanJar Places database for matching places.
@@ -84,7 +84,7 @@ class Home extends CI_Controller
   FROM places LEFT JOIN place_categories ON places.category_id=place_categories.id
         WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
-        
+
         // Return a JSON array.
         foreach ($query->result_array() as $row)
         {
@@ -95,8 +95,7 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            // Return a zero count.
-            echo(json_encode(array('count' => '0')));
+            echo('none');
         } else
         {
             // Return a JSON array with count and data members.
