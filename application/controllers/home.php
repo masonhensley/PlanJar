@@ -14,7 +14,6 @@ class Home extends CI_Controller
         {
             // fill array with information about user events
             $home_events_data = $this->loadMyEvents();
-           var_dump($home_events_data);
             
             $this->load->view('home_view', $home_events_data);
         } else
@@ -39,7 +38,7 @@ class Home extends CI_Controller
         $user_id = $user_info->id;
         $user_name = $user_info->username;
 
-        $query = "SELECT plans.time_of_day, plans.date, places.name FROM plans LEFT JOIN places ON plans.place_id=places.id WHERE plans.user_id='$user_id'";
+        $query = "SELECT plans.time_of_day, plans.date, places.name FROM plans LEFT JOIN places ON plans.place_id=places.id WHERE plans.user_id='86'";
 
         var_dump($query);
         
