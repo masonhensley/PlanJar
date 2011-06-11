@@ -101,11 +101,13 @@ $(function() {
                     // We're done with count, so overwrite data with data.data (Peter Griffin laugh).'
                     data = data.data;
                     
+                    var response_json = ({});
+                    
                     if (place_count > 0) {
                         // Populate the response array with the PlanJar results.
                         // Convert each item in the JSON from the server to the required JSON
                         // form for the autocomplete and save to response_json.
-                        var response_json = $.map(data, function (item) {
+                        response_json = $.map(data, function (item) {
                             return {
                                 label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
                                 value: item.name,
@@ -114,7 +116,7 @@ $(function() {
                         });
                     }
                     
-                    //if (place_limit > 0) {
+                    if (place_limit > 0) {
                     if (true) {
                         // Insufficient results found. Try Google Places.
                         var request = {
@@ -132,18 +134,20 @@ $(function() {
                                 // form for the autocomplete, concatenate the previous results with it, 
                                 // and pass the result through the response handler.
                                 var temp = $.map(results, function (item) {
-                                    //if (place_limit > 0) {
+                                    if (place_limit > 0) {
                                     // Only accept up to 10 total results (including the earlier ones).
-                                    alert(--place_limit);
+                                    --place_limit;
                                     return {
-                                        label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
-                                        value: item.name,
-                                        id: '?'
+                                            label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
+                                            value: item.name,
+                                            id: '?'
                                     };
                                 }
-                                //return {};
-                                //}
+                                return {};
+                                }
                                 );
+                                    
+                                // Append the recent data to the original data.
                                 console.log($.extend(response_json, temp));
                             }
                         });
