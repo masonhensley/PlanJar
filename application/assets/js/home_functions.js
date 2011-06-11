@@ -123,6 +123,8 @@ $(function() {
                             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                         };
                         
+                        console.log(response_json);
+                        
                         service = new google.maps.places.PlacesService(map);
                         service.search(request, function (results, status) {
                             if (status == google.maps.places.PlacesServiceStatus.OK) {
