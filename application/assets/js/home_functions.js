@@ -31,9 +31,10 @@ $(function() {
         return false;
     });
     
+    // this is supposed to save the day number to the day variable. doesn't work yet
     $("ul.tabs li").click(function(){
         day = $(".active").attr("href");
-        alert(day);
+        
     })
     
     
