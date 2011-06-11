@@ -12,15 +12,19 @@ class Home extends CI_Controller
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
-             // fill array with information about user events
-            $home_events_data = $this->loadMyEvents();
-            $this->load->helper('object_to_array');
-            $home_events_array = objectToArray($home_events_data);
-            var_dump($home_events_array);
-            
+            // fill array with information about user events
+            //$home_events_data = $this->loadMyEvents();
+            //$this->load->helper('object_to_array');
+            // $home_events_array = objectToArray($home_events_data);
+            //var_dump($home_events_array); 
             //$query_result = $this->loadMyEvents();
-            
-            $this->load->view('home_view', $home_events_array); 
+
+            $this->load->model('load_events_model');
+            $user_info = $this->ion_auth->get_user();
+            $user_id = $user_info->id;
+            $plans = $this->load_events_model->getPlans($user_id);
+
+            $this->load->view('home_view', $plans);
         } else
         {
             $this->logout();
@@ -33,9 +37,9 @@ class Home extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
-    
+
     // load and return user event data
-     public function loadMyEvents()
+    public function loadMyEvents()
     {
         $this->load->database();
 
@@ -44,8 +48,8 @@ class Home extends CI_Controller
         $user_id = $user_info->id;
 
         // pull all user's current events
-        $query = 
-       "SELECT plans.time_of_day, plans.date, places.name 
+        $query =
+                "SELECT plans.time_of_day, plans.date, places.name 
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -139,8 +143,6 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
-
-   
 
     // For Mason to fuck with...
     public function foo()
