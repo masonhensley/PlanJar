@@ -14,10 +14,10 @@ class Home extends CI_Controller
         {
              // fill array with information about user events
             $home_events_data = $this->loadMyEvents();
-            //$this->load->helper('object_to_array');
-            //$home_events_array = objectToArray($home_events_data);
+            $this->load->helper('object_to_array');
+            $home_events_array = objectToArray($home_events_data);
             
-            //var_dump($home_events_array);
+            var_dump($home_events_array);
             
             $this->load->view('home_view', $home_events_array);
             
