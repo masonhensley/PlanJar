@@ -22,7 +22,7 @@ class Home extends CI_Controller
             $this->load->model('Load_events');
             $user_info = $this->ion_auth->get_user();
             $user_id = $user_info->id;
-            $plans = $this->load_events_model->getPlans($user_id);
+            $plans = $this->Load_events->getPlans($user_id);
 
             $this->load->view('home_view', $plans);
         } else
