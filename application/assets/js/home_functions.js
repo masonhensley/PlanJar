@@ -122,9 +122,7 @@ $(function() {
                             sensor: false,
                             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                         };
-                        
-                        console.log(response_json);
-                        
+                                                
                         service = new google.maps.places.PlacesService(map);
                         service.search(request, function (results, status) {
                             if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -144,9 +142,7 @@ $(function() {
                                 //return {};
                                 //}
                                 );
-                                
-                                alert('temp:' + temp);
-                                alert(response_json.merge(temp));
+                                console.log($.extend(response_json, temp));
                             }
                         });
                     }
