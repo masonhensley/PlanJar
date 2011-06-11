@@ -17,6 +17,8 @@ class Home extends CI_Controller
             //$this->load->helper('object_to_array');
             $home_events_array = objectToArray($home_events_data);
             
+            
+            
             $this->load->view('home_view', $home_events_data);
         } else
         {
