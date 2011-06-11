@@ -109,7 +109,7 @@ $(function() {
                             value: item.name,
                             id: item.id
                         };
-                    });
+                    }));
                     
                     //response(response_json);
                 });
