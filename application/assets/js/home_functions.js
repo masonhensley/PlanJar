@@ -140,7 +140,7 @@ $(function() {
                                         var distance = ((Math.acos(Math.sin(myLatitude * Math.PI / 180) * Math.sin(item.geometry.location.lat * Math.PI / 180) 
                                             + Math.cos(myLatitude * Math.PI / 180) * Math.cos(item.geometry.location.lat * Math.PI / 180) * Math.cos((myLongitude - item.geometry.location.lat) 
                                                 * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
-                                            distance = item.geometry.location.lat;
+                                            distance = item.geometry.location.lat();
                                         
                                         response_json.push({
                                             label: '*' + item.name + ' (' + item.types[0] + ') - ' + distance + 'mi', 
