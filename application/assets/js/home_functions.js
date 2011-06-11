@@ -95,22 +95,24 @@ $(function() {
                     // Parse the JSON text.
                     data = $.parseJSON(data);
                     
-                    var place_count = 0;
+                    var place_count = data.count;
                     var place_limit = 10 - data.count;
                     
                     // We're done with count, so overwrite data with data.data (Peter Griffin laugh).'
                     data = data.data;
                     
-                    // Populate the response array with the PlanJar results.
-                    // Convert each item in the JSON from the server to the required JSON
-                    // form for the autocomplete and save to response_json.
-                    var response_json = $.map(data, function (item) {
-                        return {
-                            label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
-                            value: item.name,
-                            id: item.id
-                        };
-                    });
+                    if (place_count > 0) {
+                        // Populate the response array with the PlanJar results.
+                        // Convert each item in the JSON from the server to the required JSON
+                        // form for the autocomplete and save to response_json.
+                        var response_json = $.map(data, function (item) {
+                            return {
+                                label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                value: item.name,
+                                id: item.id
+                            };
+                        });
+                    }
                     
                     //if (place_limit > 0) {
                     if (true) {
