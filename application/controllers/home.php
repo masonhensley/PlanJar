@@ -88,7 +88,8 @@ class Home extends CI_Controller
             echo('none');
         } else
         {
-            echo(json_encode($return_array));
+            // Return a JSON array with count and data members.
+            echo(json_encode(array('count' => count($return_array), 'data' => $return_array)));
         }
     }
 

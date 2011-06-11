@@ -84,15 +84,32 @@ $(function() {
         // Initialize the plan location autocomplete instance.
         $('#plan_location').autocomplete({
             minLength: 2,
-            // Get info from the server.
+            // Get places from the server.
             source: function (request, response) {
                 $.get('/home/find_places', {
                     needle: request.term,
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
-                    if (data == 'none') {                        
-                        // No results found. Try Google Places.
+                    var place_count = 0;
+                    var place_limit = 10 - data.count;
+                    data = data.data;
+                    
+                    // Populate the response array with the PlanJar results.
+                    // Convert each item in the JSON from the server to the required JSON
+                    // form for the autocomplete and pass the result through the response
+                    // handler.
+                    data = $.parseJSON(data);
+                    var response_json = $.map(data, function (item) {
+                        return {
+                            label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                            value: item.name,
+                            id: item.id
+                        };
+                    });
+                    
+                    if (place_limit > 0) {                      
+                        // Insufficient results found. Try Google Places.
                         var request = {
                             location: new google.maps.LatLng(myLatitude,myLongitude),
                             radius: '2000',
@@ -100,34 +117,22 @@ $(function() {
                             sensor: false,
                             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                         };
-                        
+
                         service = new google.maps.places.PlacesService(map);
                         service.search(request, function (results, status) {
                             if (status == google.maps.places.PlacesServiceStatus.OK) {
                                 // Convert each item in the JSON from the server to the required JSON
-                                // form for the autocomplete and pass the result through the response
-                                // handler.
-                                response($.map(results, function (item) {
+                                // form for the autocomplete, concatenate the previous results with it, 
+                                // and pass the result through the response handler.
+                                response(response_json.merge($.map(results, function (item) {
                                     return {
-                                        label: item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
-                                        value: item.name
-                                    //id: item.id
+                                        label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
+                                        value: item.name,
+                                        id: '?'
                                     };
-                                }));
+                                })));
                             }
                         });
-                    } else {
-                        // Convert each item in the JSON from the server to the required JSON
-                        // form for the autocomplete and pass the result through the response
-                        // handler.
-                        data = $.parseJSON(data);
-                        response($.map(data, function (item) {
-                            return {
-                                label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
-                                value: item.name,
-                                id: item.id
-                            };
-                        }));
                     }
                 });
             },
