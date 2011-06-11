@@ -39,6 +39,7 @@ class Home extends CI_Controller
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
 
+        // pull all user's current events
         $query = 
        "SELECT plans.time_of_day, plans.date, places.name 
         FROM plans 
