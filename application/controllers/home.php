@@ -13,9 +13,9 @@ class Home extends CI_Controller
         if ($this->ion_auth->logged_in())
         {
              // fill array with information about user events
-            //$home_events_data = $this->loadMyEvents();
-            //$this->load->helper('object_to_array');
-            //$home_events_array = objectToArray($home_events_data);
+            $home_events_data = $this->loadMyEvents();
+            $this->load->helper('object_to_array');
+            $home_events_array = objectToArray($home_events_data);
             //var_dump($home_events_array);
             
             $query_result = $this->loadMyEvents();
@@ -53,9 +53,9 @@ class Home extends CI_Controller
 
         // pull data
         $query_result = $this->db->query($query);
-        //$row = $query_result->row();
+        $row = $query_result->row();
 
-        return $query_result;
+        return $row;
     }
 
     // Checks the PlanJar Places database for matching places.
