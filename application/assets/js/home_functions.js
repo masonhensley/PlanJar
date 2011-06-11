@@ -138,10 +138,10 @@ $(function() {
                                         
                                         // Calculate the distance (adapted from Wells' SQP query).'
                                         var distance = ((Math.acos(Math.sin(myLatitude * Math.PI / 180) *
-                                            Math.sin(item.geometry.location.lat()) * Math.PI / 180) +
+                                            Math.sin(item.geometry.location.lat() * Math.PI / 180) +
                                             Math.cos(myLatitude * Math.PI / 180) *
-                                            Math.cos(item.geometry.location.lat()) * Math.PI / 180) *
-                                            Math.cos((myLongitude - item.geometry.location.lng())) *
+                                            Math.cos(item.geometry.location.lat() * Math.PI / 180) *
+                                            Math.cos((myLongitude - item.geometry.location.lng()) *
                                                 Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
                                         
                                         response_json.push({
