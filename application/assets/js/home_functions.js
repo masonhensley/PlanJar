@@ -113,6 +113,7 @@ $(function() {
                     });
                     
                     if (place_limit > 0) {
+                        alert(response_json);
                         
                         // Insufficient results found. Try Google Places.
                         var request = {
