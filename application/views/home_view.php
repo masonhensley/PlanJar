@@ -77,7 +77,8 @@
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div class="right_bottom">
-                    User events: <?php echo $name; ?>
+                    <!-- this function loads the user events into the right panel -->
+                    <?php include(APPPATH . 'assets/php/right_plan_list.php'); ?>
                 </div>
             </div>
 
