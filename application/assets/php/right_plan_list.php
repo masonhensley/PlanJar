@@ -1,6 +1,6 @@
 <?php
 
-foreach ($query_result->result_array() as $row)
+foreach ($home_events_array as $row)
 {
     //echo $row['departmentName'];
     ?> 
