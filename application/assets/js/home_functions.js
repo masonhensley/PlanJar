@@ -129,6 +129,7 @@ $(function() {
                                 // form for the autocomplete, concatenate the previous results with it, 
                                 // and pass the result through the response handler.
                                 var temp = $.map(results, function (item) {
+                                    alert('here');
                                     //if (place_limit > 0) {
                                     // Only accept up to 10 total results (including the earlier ones).
                                     alert(--place_limit);
