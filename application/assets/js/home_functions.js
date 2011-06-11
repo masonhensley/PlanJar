@@ -92,55 +92,61 @@ $(function() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
+                    // Parse the JSON text.
+                    data = $.parseJSON(data);
+                    
                     var place_count = 0;
                     var place_limit = 10 - data.count;
-                    alert(data);
+                    
+                    // We're done with count, so overwrite data with data.data (Peter Griffin laugh).'
                     data = data.data;
                     
                     // Populate the response array with the PlanJar results.
                     // Convert each item in the JSON from the server to the required JSON
-                    // form for the autocomplete and pass the result through the response
-                    // handler.
-                    
-                    response($.map(data, function (item) {
-                    //var response_json = $.map(data, function (item) {
+                    // form for the autocomplete and save to response_json.
+                    var response_json = $.map(data, function (item) {
                         return {
                             label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
                             value: item.name,
                             id: item.id
                         };
-                    }));
+                    });
                     
-                    //response(response_json);
+                    //if (place_limit > 0) {
+                    if (true) {
+                        // Insufficient results found. Try Google Places.
+                        var request = {
+                            location: new google.maps.LatLng(myLatitude,myLongitude),
+                            radius: '2000',
+                            name: $('#plan_location').val(),
+                            sensor: false,
+                            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+                        };
+                                                
+                        service = new google.maps.places.PlacesService(map);
+                        service.search(request, function (results, status) {
+                            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                                // Convert each item in the JSON from the server to the required JSON
+                                // form for the autocomplete, concatenate the previous results with it, 
+                                // and pass the result through the response handler.
+                                var temp = $.map(results, function (item) {
+                                    //if (place_limit > 0) {
+                                    // Only accept up to 10 total results (including the earlier ones).
+                                    alert(--place_limit);
+                                    return {
+                                        label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
+                                        value: item.name,
+                                        id: '?'
+                                    };
+                                }
+                                //return {};
+                                //}
+                                );
+                                console.log($.extend(response_json, temp));
+                            }
+                        });
+                    }
                 });
-                    
-            //                    if (place_limit > 0) {                      
-            //                        // Insufficient results found. Try Google Places.
-            //                        var request = {
-            //                            location: new google.maps.LatLng(myLatitude,myLongitude),
-            //                            radius: '2000',
-            //                            name: $('#plan_location').val(),
-            //                            sensor: false,
-            //                            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
-            //                        };
-            //
-            //                        service = new google.maps.places.PlacesService(map);
-            //                        service.search(request, function (results, status) {
-            //                            if (status == google.maps.places.PlacesServiceStatus.OK) {
-            //                                // Convert each item in the JSON from the server to the required JSON
-            //                                // form for the autocomplete, concatenate the previous results with it, 
-            //                                // and pass the result through the response handler.
-            //                                response(response_json.merge(data, $.map(results, function (item) {
-            //                                    return {
-            //                                        label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
-            //                                        value: item.name,
-            //                                        id: '?'
-            //                                    };
-            //                                })));
-            //                            }
-            //                        });
-            //                    }
-            //                });
             },
             // When an item is selected, update the location text as well as the hidden
             // id field.
