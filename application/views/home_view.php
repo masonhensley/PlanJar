@@ -80,7 +80,7 @@
                     <!-- this function loads the user events into the right panel -->
                     <!-- <?php// include(APPPATH . 'assets/php/right_plan_list.php'); ?> -->
                     <?php
-                    foreach ($home_events_array as $row)
+                    foreach ($plans as $row)
                     {
                         //echo $row['departmentName'];
                         ?> 
