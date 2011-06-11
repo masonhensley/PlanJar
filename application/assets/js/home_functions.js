@@ -134,7 +134,7 @@ $(function() {
                                 var temp = $.map(results, function (item) {
                                     //if (place_limit > 0) {
                                     // Only accept up to 10 total results (including the earlier ones).
-                                    alert(--place_limit);
+                                    --place_limit;
                                     return {
                                         label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
                                         value: item.name,
@@ -144,7 +144,9 @@ $(function() {
                                 //return {};
                                 //}
                                 );
-                                console.log($.extend(response_json, temp));
+                                    
+                                    // Append the recent data to the original data.
+                                console.log(response_json.push(temp));
                             }
                         });
                     }
