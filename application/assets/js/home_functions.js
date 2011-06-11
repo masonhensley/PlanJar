@@ -117,7 +117,6 @@ $(function() {
                     }
                     
                     if (place_limit > 0) {
-                    if (true) {
                         // Insufficient results found. Try Google Places.
                         var request = {
                             location: new google.maps.LatLng(myLatitude,myLongitude),
@@ -135,17 +134,16 @@ $(function() {
                                 // and pass the result through the response handler.
                                 var temp = $.map(results, function (item) {
                                     if (place_limit > 0) {
-                                    // Only accept up to 10 total results (including the earlier ones).
-                                    --place_limit;
-                                    return {
+                                        // Only accept up to 10 total results (including the earlier ones).
+                                        --place_limit;
+                                        return {
                                             label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
                                             value: item.name,
                                             id: '?'
-                                    };
-                                }
-                                return {};
-                                }
-                                );
+                                        };
+                                    }
+                                    return {};
+                                });
                                     
                                 // Append the recent data to the original data.
                                 console.log($.extend(response_json, temp));
