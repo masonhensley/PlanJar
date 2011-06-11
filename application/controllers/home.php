@@ -23,7 +23,7 @@ class Home extends CI_Controller
             $user_info = $this->ion_auth->get_user();
             $user_id = $user_info->id;
             $plans = $this->Load_events->getPlans($user_id);
-
+var_dump($plans);
             $this->load->view('home_view', $plans);
         } else
         {
