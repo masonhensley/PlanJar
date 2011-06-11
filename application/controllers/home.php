@@ -85,6 +85,10 @@ class Home extends CI_Controller
         WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
 
+        echo($query_string);
+        return;
+        
+        
         // Return a JSON array.
         foreach ($query->result_array() as $row)
         {
