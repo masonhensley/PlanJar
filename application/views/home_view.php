@@ -31,9 +31,9 @@
             </div>
 
             <div class="center" >
-                
+
                 <div class="center_top">
-                    
+
                     <div class ="center_top_left">
                         <font style="float:left;"><p>your location data:</p></font>
                     </div>
@@ -43,9 +43,9 @@
                         <input type="button" id="make_a_plan" value="Make a plan"/>
                         <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
                     </div>
-                    
+
                 </div>
-                
+
                 <div class="center_day">
                     <!-- Add the markup for the tabs, starting with today. -->
                     <?php include(APPPATH . 'assets/php/weekday_panel.php'); ?>
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,22 @@
                 </div>
                 <div class="right_bottom">
                     <!-- this function loads the user events into the right panel -->
-                    <?php include(APPPATH . 'assets/php/right_plan_list.php'); ?>
+                    <!-- <?php// include(APPPATH . 'assets/php/right_plan_list.php'); ?> -->
+                    <?php
+                    foreach ($home_events_array as $row)
+                    {
+                        //echo $row['departmentName'];
+                        ?> 
+                        <div style="border: 2px solid #fff; width:100%; height: auto; padding: 10px;">
+                            <?php
+                            echo $row['name'] . "<br/>";
+                            echo $row['time_of_day'] . "<br/>";
+                            echo $row['date'] . "<br/>";
+                            ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
 
