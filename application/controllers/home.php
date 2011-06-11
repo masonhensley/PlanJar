@@ -95,8 +95,7 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            echo('boobs');
-            echo(array('count' => '0'));
+            echo(json_encode(array('count' => '0')));
         } else
         {
             echo('hi');
