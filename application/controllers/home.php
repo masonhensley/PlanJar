@@ -95,12 +95,12 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
+            // Return a zero count.
             echo(json_encode(array('count' => '0')));
         } else
         {
-            echo('hi');
             // Return a JSON array with count and data members.
-            //echo(json_encode(array('count' => count($return_array), 'data' => $return_array)));
+            echo(json_encode(array('count' => count($return_array), 'data' => $return_array)));
         }
     }
 
