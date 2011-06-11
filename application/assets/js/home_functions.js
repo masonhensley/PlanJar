@@ -125,7 +125,7 @@ $(function() {
                                 // Convert each item in the JSON from the server to the required JSON
                                 // form for the autocomplete, concatenate the previous results with it, 
                                 // and pass the result through the response handler.
-                                response(response_json.merge($.map(results, function (item) {
+                                response(response_json.merge(data, $.map(results, function (item) {
                                     return {
                                         label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
                                         value: item.name,
