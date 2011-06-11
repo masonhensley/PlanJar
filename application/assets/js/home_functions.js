@@ -128,7 +128,7 @@ $(function() {
                                 // Convert each item in the JSON from the server to the required JSON
                                 // form for the autocomplete, concatenate the previous results with it, 
                                 // and pass the result through the response handler.
-                                var temp = response_json.merge($.map(results, function (item) {
+                                var temp = $.map(results, function (item) {
                                     if (place_limit > 0) {
                                         // Only accept up to 10 total results (including the earlier ones).
                                         --place_limit;
@@ -139,9 +139,10 @@ $(function() {
                                         };
                                     }
                                     return {};
-                                }));
+                                });
                                 
                                 alert(temp);
+                                alert(response_json.merge(temp));
                             }
                         });
                     }
