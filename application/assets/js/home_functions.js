@@ -145,7 +145,8 @@ $(function() {
                                                 Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
                                         
                                         response_json.push({
-                                            label: '*' + item.name + ' (' + item.types[0] + ') - ' + distance.toFixed(2) + 'mi', 
+                                            //label: '*' + item.name + ' (' + item.types[0] + ') - ' + distance.toFixed(2) + 'mi',
+                                            label: item.name + ' (' + item.types[0] + ') - ' + item.vicinity,
                                             value: item.name,
                                             id: '?'
                                         });
