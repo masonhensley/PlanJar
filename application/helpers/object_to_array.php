@@ -1,4 +1,7 @@
 <?php
+
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 function objectToArray($d)
 {
     if (is_object($d))
@@ -22,5 +25,4 @@ function objectToArray($d)
         return $d;
     }
 }
-
 ?>
