@@ -38,7 +38,6 @@ class Home extends CI_Controller
         // get user info from ion_auth
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
-        $user_name = $user_info->username;
 
         $query = 
        "SELECT plans.time_of_day, plans.date, places.name 
