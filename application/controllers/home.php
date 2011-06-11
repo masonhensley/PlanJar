@@ -20,6 +20,7 @@ class Home extends CI_Controller
             var_dump($home_events_array);
             
             $this->load->view('home_view', $home_events_array);
+            
         } else
         {
             $this->logout();
