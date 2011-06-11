@@ -91,9 +91,6 @@ class Home extends CI_Controller
             // Append to the return array.
             $return_array[] = $row;
         }
-        
-        echo('mkay');
-        return;
 
         // Check for no results.
         if (!isset($return_array))
@@ -102,8 +99,9 @@ class Home extends CI_Controller
             //echo(json_encode(array('count' => '0')));
         } else
         {
+            echo('hi');
             // Return a JSON array with count and data members.
-            echo(json_encode(array('count' => count($return_array), 'data' => $return_array)));
+            //echo(json_encode(array('count' => count($return_array), 'data' => $return_array)));
         }
     }
 
