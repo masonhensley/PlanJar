@@ -94,7 +94,7 @@ $(function() {
                 }, function (data) {
                     var place_count = 0;
                     var place_limit = 10 - data.count;
-                    alert(place_limit);
+                    alert(data);
                     data = data.data;
                     
                     // Populate the response array with the PlanJar results.
