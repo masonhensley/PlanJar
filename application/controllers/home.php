@@ -15,6 +15,7 @@ class Home extends CI_Controller
              // fill array with information about user events
             $home_events_data = $this->loadMyEvents();
             var_dump($home_events_data);
+            echo $home_events_data['name'];
             
             $this->load->view('home_view', $home_events_data);
         } else
@@ -47,6 +48,7 @@ class Home extends CI_Controller
         ON plans.place_id=places.id 
         WHERE plans.user_id=$user_id";
 
+        // pull data
         $query_result = $this->db->query($query);
         $row = $query_result->row();
 
