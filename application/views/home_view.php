@@ -77,7 +77,7 @@
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div class="right_bottom">
-                    User events: <?php echo $home_events_array['name']; ?>
+                    User events: <?php echo $name; ?>
                 </div>
             </div>
 
