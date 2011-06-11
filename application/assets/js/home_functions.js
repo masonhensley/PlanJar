@@ -92,6 +92,7 @@ $(function() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
+                    data = $.parseJSON(data);
                     var place_count = 0;
                     var place_limit = 10 - data.count;
                     alert(data.count);
