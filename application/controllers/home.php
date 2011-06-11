@@ -16,7 +16,7 @@ class Home extends CI_Controller
             $home_events_data = $this->loadMyEvents();
             $this->load->helper('object_to_array');
             $home_events_array = objectToArray($home_events_data);
-            //var_dump($home_events_array);
+            var_dump($home_events_array);
             
             //$query_result = $this->loadMyEvents();
             
