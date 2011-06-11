@@ -148,7 +148,7 @@ $(function() {
                                 );
                                     
                                     // Append the recent data to the original data.
-                                console.log(response_json.push(temp));
+                                console.log($.extend(response_json, temp));
                             }
                         });
                     }
