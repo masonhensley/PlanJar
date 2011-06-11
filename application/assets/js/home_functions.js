@@ -140,7 +140,7 @@ $(function() {
                                         id: '?'
                                     };
                                 });
-                                alert(temp);
+                                alert('temp: ' + temp);
                                 
                                 response(response_json.merge(data, $.map(results, function (item) {
                                     return {
