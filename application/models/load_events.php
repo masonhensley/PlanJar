@@ -1,6 +1,6 @@
 <?php
 
-class Load_events_model extends Model
+class Load_events extends Model
 {
 
     function __construct()

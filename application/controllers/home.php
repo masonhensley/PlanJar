@@ -19,7 +19,7 @@ class Home extends CI_Controller
             //var_dump($home_events_array); 
             //$query_result = $this->loadMyEvents();
 
-            $this->load->model('Load_events');
+            $this->load->model('load_events');
             $user_info = $this->ion_auth->get_user();
             $user_id = $user_info->id;
             $plans = $this->Load_events->getPlans($user_id);
