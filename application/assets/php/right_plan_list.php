@@ -1,5 +1,5 @@
 <?php
-
+echo "hey this shit is working";
 foreach ($home_events_array as $row)
 {
     //echo $row['departmentName'];
