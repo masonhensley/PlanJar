@@ -101,7 +101,7 @@ $(function() {
                     // We're done with count, so overwrite data with data.data (Peter Griffin laugh).'
                     data = data.data;
                     
-                    var response_json = {};
+                    var response_json = ({});
                     
                     if (place_count > 0) {
                         // Populate the response array with the PlanJar results.
