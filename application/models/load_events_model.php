@@ -3,10 +3,9 @@
 class Load_events_model extends Model
 {
 
-    function Load_events_model()
+    function __construct()
     {
-        // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
 
     function getPlans($user_id)
