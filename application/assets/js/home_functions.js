@@ -93,6 +93,7 @@ $(function() {
                     longitude: myLongitude
                 }, function (data) {
                     // Parse the JSON text.
+                    console.log(data);
                     data = $.parseJSON(data);
                     
                     var place_count = 0;
