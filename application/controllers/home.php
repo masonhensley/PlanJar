@@ -18,9 +18,9 @@ class Home extends CI_Controller
             $home_events_array = objectToArray($home_events_data);
             //var_dump($home_events_array);
             
-            $query_result = $this->loadMyEvents();
+            //$query_result = $this->loadMyEvents();
             
-            $this->load->view('home_view', $query_result->result_array()); 
+            $this->load->view('home_view', $home_events_array); 
         } else
         {
             $this->logout();
