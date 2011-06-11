@@ -73,9 +73,9 @@ class Home extends CI_Controller
         foreach ($search_terms as $term)
         {
             $term = $this->db->escape_like_str($term);
-            $like_clauses .= "places.name LIKE '%%$term%%' OR ";
+            $like_clauses .= "places.name LIKE '%%$term%%' AND ";
         }
-        $like_clauses = substr($like_clauses, 0, -4);
+        $like_clauses = substr($like_clauses, 0, -5);
 
         // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT places.id, ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude * PI() / 180) 
