@@ -112,9 +112,7 @@ $(function() {
                         };
                     });
                     
-                    if (place_limit > 0) {
-                        alert(place_limit);
-                        
+                    if (place_limit > 0) {                        
                         // Insufficient results found. Try Google Places.
                         var request = {
                             location: new google.maps.LatLng(myLatitude,myLongitude),
@@ -124,30 +122,22 @@ $(function() {
                             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                         };
                         
-                        
-
                         service = new google.maps.places.PlacesService(map);
                         service.search(request, function (results, status) {
                             if (status == google.maps.places.PlacesServiceStatus.OK) {
                                 // Convert each item in the JSON from the server to the required JSON
                                 // form for the autocomplete, concatenate the previous results with it, 
                                 // and pass the result through the response handler.
-                                
-                                temp = $.map(results, function (item) {
-                                    return {
-                                        label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
-                                        value: item.name,
-                                        id: '?'
-                                    };
-                                });
-                                alert('temp: ' + temp);
-                                
-                                response(response_json.merge(data, $.map(results, function (item) {
-                                    return {
-                                        label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
-                                        value: item.name,
-                                        id: '?'
-                                    };
+                                response(response_json.merge($.map(results, function (item) {
+                                    if (place_limit > 0) {
+                                        // Only accept up to 10 total results (including the earlier ones).
+                                        --place_limit;
+                                        return {
+                                            label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
+                                            value: item.name,
+                                            id: '?'
+                                        };
+                                    }
                                 })));
                             }
                         });
