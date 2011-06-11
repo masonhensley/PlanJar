@@ -113,7 +113,7 @@ $(function() {
                     });
                     
                     if (place_limit > 0) {
-                        alert(response_json);
+                        alert(place_limit);
                         
                         // Insufficient results found. Try Google Places.
                         var request = {
@@ -124,7 +124,7 @@ $(function() {
                             key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
                         };
                         
-                        alert('made it');
+                        
 
                         service = new google.maps.places.PlacesService(map);
                         service.search(request, function (results, status) {
@@ -132,6 +132,16 @@ $(function() {
                                 // Convert each item in the JSON from the server to the required JSON
                                 // form for the autocomplete, concatenate the previous results with it, 
                                 // and pass the result through the response handler.
+                                
+                                temp = $.map(results, function (item) {
+                                    return {
+                                        label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
+                                        value: item.name,
+                                        id: '?'
+                                    };
+                                });
+                                alert(temp);
+                                
                                 response(response_json.merge(data, $.map(results, function (item) {
                                     return {
                                         label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
