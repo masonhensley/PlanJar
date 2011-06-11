@@ -3,7 +3,7 @@
 class Load_events_model extends Model
 {
 
-    function Tasks_model()
+    function Load_events_model()
     {
         // Call the Model constructor
         parent::Model();
