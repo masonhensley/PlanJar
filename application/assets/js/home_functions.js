@@ -148,7 +148,7 @@ $(function() {
                                 // Append the recent data to the original data.
                                 console.log(temp);
                                 console.log(response_json);
-                                response_json = response_json.push(temp);
+                                response_json.push(temp);
                                 console.log(response_json);
                             }
                         });
