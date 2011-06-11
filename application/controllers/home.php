@@ -15,7 +15,8 @@ class Home extends CI_Controller
              // fill array with information about user events
             $home_events_data = $this->loadMyEvents();
             var_dump($home_events_data);
-            echo $home_events_data['name'];
+            
+            $this->load->helper('object_to_array');
             
             $this->load->view('home_view', $home_events_data);
         } else
