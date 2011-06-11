@@ -132,11 +132,17 @@ $(function() {
                                 // Convert each item in the JSON from the server to the required JSON
                                 // form for the autocomplete and push it to response_json. 
                                 $.map(results, function (item) {
+                                    // Only push items if the required number isn't met.
                                     if (place_limit > 0) {
-                                        // Only push items if the required number isn't met.'
                                         --place_limit;
+                                        
+                                        // Calculate the distance.
+                                        var distance = ((Math.acos(Math.sin(myLatitude * Math.PI / 180) * Math.sin(item.geometry.location.lat * Math.PI / 180) 
+                                            + Math.cos(myLatitude * Math.PI / 180) * Math.cos(item.geometry.location.lat * Math.PI / 180) * Math.cos((myLongitude - item.geometry.location.lat) 
+                                                * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
+                                        
                                         response_json.push({
-                                            label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
+                                            label: '*' + item.name + ' (' + item.types[0] + ') - ' + distance + 'mi', 
                                             value: item.name,
                                             id: '?'
                                         });
