@@ -100,7 +100,6 @@ $(function() {
                     // Convert each item in the JSON from the server to the required JSON
                     // form for the autocomplete and pass the result through the response
                     // handler.
-                    data = $.parseJSON(data);
                     var response_json = $.map(data, function (item) {
                         return {
                             label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
