@@ -92,27 +92,27 @@ $(function() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
+                    // Parse the JSON text.
                     data = $.parseJSON(data);
+                    
                     var place_count = 0;
                     var place_limit = 10 - data.count;
-                    alert(data.count);
+                    
+                    // We're done with count, so overwrite data with data.data (Peter Griffin laugh).'
                     data = data.data;
                     
                     // Populate the response array with the PlanJar results.
                     // Convert each item in the JSON from the server to the required JSON
-                    // form for the autocomplete and pass the result through the response
-                    // handler.
-                    
-                    response($.map(data, function (item) {
-                    //var response_json = $.map(data, function (item) {
+                    // form for the autocomplete and save to response_json.
+                    var response_json = $.map(data, function (item) {
                         return {
                             label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
                             value: item.name,
                             id: item.id
                         };
-                    }));
+                    });
                     
-                    //response(response_json);
+                response(response_json);
                 });
                     
             //                    if (place_limit > 0) {                      
