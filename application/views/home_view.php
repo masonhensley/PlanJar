@@ -91,7 +91,7 @@
                             echo "<p>";
                             echo "Location: " . $plan->name . "<br/>";
                             echo "Time: " . $plan->time_of_day . "<br/>";
-                            echo "Date: " . date('dm',strtotime($plan->date)) . "<br/>";
+                            echo "Date: " . date('d/m',strtotime($plan->date)) . "<br/>";
                             echo "</p>"
                             ?>
                         </div>
