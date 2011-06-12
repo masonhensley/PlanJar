@@ -58,7 +58,7 @@
                             <li><a href="#tabs-1">Map</a></li> 
                         </ul>
                         <div id="tabs-1" style="width:555px; height:250px;" >
-                            <div id="map" style="width:555px; height:250px;">
+                            <div id="map" style="width:550px; height:250px;">
                             </div>
                         </div>
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
@@ -77,14 +77,14 @@
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div class="right_bottom">
+                    
                     <!-- this function loads the user events into the right panel -->
-                    <!-- <?php// include(APPPATH . 'assets/php/right_plan_list.php'); ?> -->
                     <?php
                     
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #fff; width:100%; height: auto; padding: 10px;">
+                        <div style="border: 2px solid #000; width:auto; height: auto; padding: 10px;">
                             <?php
                             echo $plan->name . "<br/>";
                             echo $plan->time_of_day . "<br/>";
@@ -94,6 +94,7 @@
                         <?php
                     }
                     ?>
+                    
                 </div>
             </div>
 
