@@ -80,10 +80,9 @@
                     <!-- this function loads the user events into the right panel -->
                     <!-- <?php// include(APPPATH . 'assets/php/right_plan_list.php'); ?> -->
                     <?php
-                    print_r($result);
+                    
                     foreach ($result as $plan)
                     {
-                        //echo $row['departmentName'];
                         ?> 
                         <div style="border: 2px solid #fff; width:100%; height: auto; padding: 10px;">
                             <?php
