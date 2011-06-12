@@ -273,16 +273,15 @@ function toggle_group_select() {
 // to the yahoo reverse geocoding api and returns JSON encoded string of
 // relevent info.  This is saved in global variables at top.'
 function reverse_geocode_user()
-{
-    
+{  
     $.ajax({
-                        url: 'http://where.yahooapis.com/geocode',
-                        appid: '5CXRiH44',
-                        location:myLatitude+' '+myLongitude,
-                        success : function(data) {
-                            alert(data);
-                        }
-                    })             
+        url: 'http://where.yahooapis.com/geocode',
+        appid: '5CXRiH44',
+        location:myLatitude+' '+myLongitude,
+        success : function(data) {
+            alert(data);
+        }
+    })             
 }
 
 // this function is called on an onClick event for a day or group; 
