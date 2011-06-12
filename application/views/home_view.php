@@ -10,10 +10,11 @@
 
         <!-- Load GeoPlugin api -->
         <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
-
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
+        <?php $user_place_info =  var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR']))); 
+                    var_dump($user_place_info); ?>
     </head>
 
     <body>
