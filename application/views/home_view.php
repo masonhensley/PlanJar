@@ -13,8 +13,7 @@
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
-        <?php $user_place_info =  var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR']))); 
-                    var_dump($user_place_info); ?>
+        <?php $user_place_info = var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR']))); ?>
     </head>
 
     <body>
@@ -36,7 +35,11 @@
                 <div class="center_top">
 
                     <div class ="center_top_left">
-                        <font style="float:left;"><p>your location data:</p></font>
+                        <font style="float:left;">
+                        <p><?php
+                          echo "City: " . $user_place_info('city');
+                    ?></p>
+                        </font>
                     </div>
 
                     <div class="center_top_right">
@@ -56,13 +59,13 @@
                     <div id = "tabs" class="tabs-bottom">
                         <ul>
                             <li><a href="#tabs-2">Data</a></li>
-                            <li><a href="#tabs-1">Map</a></li> 
+                            <li><a href="#tabs-1">Map</a></li>
                         </ul>
 
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
                             <!-- <img src="http://i.imgur.com/UCSx3.gif" /> -->
                         </div>
-                        
+
                         <!-- Google Map Div -->
                         <div id="tabs-1" style="width:555px; height:250px;" >
                             <div id="map" style="width:555px; height:250px;"></div>
