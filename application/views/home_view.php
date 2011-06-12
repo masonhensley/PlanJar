@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
-                            <img src="http://i.imgur.com/i5gPt.gif" />
+                            
                         </div>
                     </div>
                 </div>
