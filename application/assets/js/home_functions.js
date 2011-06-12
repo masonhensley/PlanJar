@@ -131,9 +131,7 @@ $(function() {
                                 "$search": request.term
                             }]
                         };
-                        
-                        console.log(filters);
-                        
+                                                
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
                             limit: place_limit,
