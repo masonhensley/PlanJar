@@ -196,8 +196,7 @@ $(function() {
         return false;
     });
     
-    // resize google map to ensure fully loaded
-    google.maps.event.trigger(map, 'resize');
+   
     
 // End of ready function.
 });

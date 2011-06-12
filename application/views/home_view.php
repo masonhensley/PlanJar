@@ -77,7 +77,9 @@
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div class="right_bottom">
-                    
+                    <div style="width:auto; height:33px; text-align: center;">
+                        My Plans
+                    </div>
                     <!-- this function loads the user events into the right panel -->
                     <?php
                     
