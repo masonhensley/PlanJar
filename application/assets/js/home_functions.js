@@ -155,8 +155,7 @@ $(function() {
                             dataType: 'jsonp',
                             success : function(data) {
                                 console.log(data);
-                            },
-                            processData: false
+                            }
                         });
                     }
                 });
