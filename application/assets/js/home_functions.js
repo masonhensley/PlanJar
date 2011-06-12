@@ -9,6 +9,7 @@ $(function() {
     // places map
     location_data();
    
+    // sets variables myCity, myAddress
     reverse_geocode_user();
    
     $( "#tabs" ).tabs({
