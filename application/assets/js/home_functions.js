@@ -85,9 +85,9 @@ $(function() {
         // Initialize the plan location autocomplete instance.
         $('#plan_location').autocomplete({
             minLength: 2,
-            // Get places from the server.
             source: function (request, response) {
                 $.get('/home/find_places', {
+                    // Get places from the PlanJar server.
                     needle: request.term,
                     latitude: myLatitude,
                     longitude: myLongitude
@@ -98,15 +98,15 @@ $(function() {
                     var place_count = data.count;
                     var place_limit = 10 - data.count;
                     
-                    // We're done with count, so overwrite data with data.data (Peter Griffin laugh).'
+                    // We're done with count, so overwrite data with data.data (Peter Griffin laugh).
                     data = data.data;
                     
+                    // Set response_json as an empty array.
                     var response_json = ([]);
                     
                     if (place_count > 0) {
-                        // Populate the response array with the PlanJar results.
-                        // Convert each item in the JSON from the server to the required JSON
-                        // form for the autocomplete and save to response_json.
+                        // Pick fields needed by the autocomplete from the resulting JSON and add
+                        // them to response_json array.
                         response_json = $.map(data, function (item) {
                             return {
                                 label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
@@ -117,46 +117,27 @@ $(function() {
                     }
                     
                     if (place_limit > 0) {
-                        // Insufficient results found. Try Google Places.
-                        var request = {
-                            location: new google.maps.LatLng(myLatitude,myLongitude),
-                            radius: '2000',
-                            name: $('#plan_location').val(),
-                            sensor: false,
-                            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
-                        };
-                                                
-                        service = new google.maps.places.PlacesService(map);
-                        service.search(request, function (results, status) {
-                            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                                // Convert each item in the JSON from the server to the required JSON
-                                // form for the autocomplete and push it to response_json. 
-                                $.map(results, function (item) {
-                                    // Only push items if the required number isn't met.
-                                    if (place_limit > 0) {
-                                        --place_limit;
-                                        
-                                        // Calculate the distance (adapted from Wells' SQP query).'
-                                        var distance = ((Math.acos(Math.sin(myLatitude * Math.PI / 180) *
-                                            Math.sin(item.geometry.location.lat() * Math.PI / 180) +
-                                            Math.cos(myLatitude * Math.PI / 180) *
-                                            Math.cos(item.geometry.location.lat() * Math.PI / 180) *
-                                            Math.cos((myLongitude - item.geometry.location.lng()) *
-                                                Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
-                                        
-                                        response_json.push({
-                                            //label: '*' + item.name + ' (' + item.types[0] + ') - ' + distance.toFixed(2) + 'mi',
-                                            label: '*' + tem.name + ' (' + item.types[0] + ') - ' + item.vicinity,
-                                            value: item.name,
-                                            id: '?'
-                                        });
+                        // If additional places are required, fetch places from Factual. Pick fields needed
+                        // by the autocomplete from the resulting JSON and add them to response_json array.
+                        var filters={"$and":[
+                                {"$loc":
+                                        {"$within":
+                                            {"$center":[
+                                                [myLatitude, myLongitude],5000]
+                                        }
                                     }
-                                });
-                                
-                                // Send the JSON array to the response handler.
-                                response((response_json));
-                            }
-                        });
+                                },
+                                {"$search": request.term}
+                            ]
+                        };
+                        
+                        console.log(filters);
+                        
+                        var options = {
+                            api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
+                            
+                        }
+                        //$.get('http://api.factual.com/v2/tables/TABLE_ID/read', )
                     }
                 });
             },
@@ -201,7 +182,7 @@ $(function() {
         return false;
     });
     
-// End of ready function.
+    // End of ready function.
 });
 
 // Should be called when #sel_one or #sel_mult
@@ -295,33 +276,33 @@ function location_data() {
     {
         navigator.geolocation.getCurrentPosition
         ( 
-            function (position) 
-            {  
-                myLatitude=position.coords.latitude;
-                myLongitude=position.coords.longitude;
+        function (position) 
+        {  
+            myLatitude=position.coords.latitude;
+            myLongitude=position.coords.longitude;
                 
-                mapThisGoogle(position.coords.latitude, position.coords.longitude);
-            }, 
-            // next function is the error callback
-            function (error)
+            mapThisGoogle(position.coords.latitude, position.coords.longitude);
+        }, 
+        // next function is the error callback
+        function (error)
+        {
+            switch(error.code) 
             {
-                switch(error.code) 
-                {
-                    case error.TIMEOUT:
-                        alert ('Timeout');
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert ('Position unavailable');
-                        break;
-                    case error.PERMISSION_DENIED:
-                        alert ('Permission denied');
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        alert ('Unknown error');
-                        break;
-                }
+                case error.TIMEOUT:
+                    alert ('Timeout');
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert ('Position unavailable');
+                    break;
+                case error.PERMISSION_DENIED:
+                    alert ('Permission denied');
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert ('Unknown error');
+                    break;
             }
-            );
+        }
+    );
     }
     function mapServiceProvider(latitude,longitude)
     {
