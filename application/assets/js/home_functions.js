@@ -271,7 +271,7 @@ function toggle_group_select() {
 function reverse_geocode_user()
 {
     $.ajax({
-        url: 'http://where.yahooapis.com/geocode',
+        url: 'http://where.yahooapis.com//geocode',
         data: {
             location: myLatitude+' '+myLongitude,
             flags: 'J',
