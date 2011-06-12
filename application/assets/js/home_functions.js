@@ -85,9 +85,9 @@ $(function() {
         // Initialize the plan location autocomplete instance.
         $('#plan_location').autocomplete({
             minLength: 2,
-            // Get places from the server.
             source: function (request, response) {
                 $.get('/home/find_places', {
+                    // Get places from the PlanJar server.
                     needle: request.term,
                     latitude: myLatitude,
                     longitude: myLongitude
@@ -98,15 +98,15 @@ $(function() {
                     var place_count = data.count;
                     var place_limit = 10 - data.count;
                     
-                    // We're done with count, so overwrite data with data.data (Peter Griffin laugh).'
+                    // We're done with count, so overwrite data with data.data (Peter Griffin laugh).
                     data = data.data;
                     
-                    var response_json = ({});
+                    // Set response_json as an empty array.
+                    var response_json = ([]);
                     
                     if (place_count > 0) {
-                        // Populate the response array with the PlanJar results.
-                        // Convert each item in the JSON from the server to the required JSON
-                        // form for the autocomplete and save to response_json.
+                        // Pick fields needed by the autocomplete from the resulting JSON and add
+                        // them to response_json array.
                         response_json = $.map(data, function (item) {
                             return {
                                 label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
@@ -117,37 +117,46 @@ $(function() {
                     }
                     
                     if (place_limit > 0) {
-                        // Insufficient results found. Try Google Places.
-                        var request = {
-                            location: new google.maps.LatLng(myLatitude,myLongitude),
-                            radius: '2000',
-                            name: $('#plan_location').val(),
-                            sensor: false,
-                            key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4'
+                        // If additional places are required, fetch places from Factual. Pick fields needed
+                        // by the autocomplete from the resulting JSON and add them to response_json array.
+                        var my_filters = {
+                            "$and":[{
+                                "$loc":{
+                                    "$within":{
+                                        "$center":[[34.06032, -118.41839],5000]
+                                    }
+                                }
+                            },
+                            {
+                                "$or":[{
+                                    "category":{
+                                        "$bw":"Arts"
+                                    }
+                                },
+                                {
+                                    "category":{
+                                        "$bw":"Food"
+                                    }
+                                }]
+                            }]
                         };
                                                 
-                        service = new google.maps.places.PlacesService(map);
-                        service.search(request, function (results, status) {
-                            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                                // Convert each item in the JSON from the server to the required JSON
-                                // form for the autocomplete, concatenate the previous results with it, 
-                                // and pass the result through the response handler.
-                                var temp = $.map(results, function (item) {
-                                    if (place_limit > 0) {
-                                        // Only accept up to 10 total results (including the earlier ones).
-                                        --place_limit;
-                                        return {
-                                            label: '*' + item.name + ' (' + item.types[0] + ')' + ' - ' + "?mi", 
-                                            value: item.name,
-                                            id: '?'
-                                        };
-                                    }
-                                    return {};
-                                });
-                                    
-                                // Append the recent data to the original data.
-                                console.log($.extend(response_json, temp));
-                            }
+                        var options = {
+                            api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
+                            limit: place_limit,
+                            filters: my_filters
+                        }
+                        
+                        console.log($.param(options));
+                        
+                        $.ajax({
+                            url: 'http://api.factual.com/v2/tables/s4OOB4/read',
+                            data: options,
+                            dataType: 'jsonp',
+                            success : function(data) {
+                                console.log(data);
+                            },
+                            processData: false
                         });
                     }
                 });
