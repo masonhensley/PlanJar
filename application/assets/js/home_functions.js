@@ -131,17 +131,12 @@ $(function() {
                                 "$search": request.term
                             }
                         };
-                        
-                        console.log(my_filters);
                                                 
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
                             limit: place_limit,
-                            filters: my_filters
+                            filters: JSON.stringify(my_filters)
                         }
-                        
-                        console.log($.param(options));
-                        alert(JSON.stringify(options));
                         
                         $.ajax({
                             url: 'http://api.factual.com/v2/tables/s4OOB4/read',
