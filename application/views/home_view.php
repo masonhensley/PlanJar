@@ -54,7 +54,9 @@
                 <div class="center_graph">
                     <div id = "tabs" class="tabs-bottom">
                         <ul>
-                            <li><a href="#tabs-2">Data</a></li>
+                            <li><a href="#tabs-2">Data</a>
+                                <a href="http://i.imgur.com/i5gPt.gif" />
+                            </li>
                             <li><a href="#tabs-1">Map</a></li> 
                         </ul>
                         <div id="tabs-1" style="width:555px; height:250px;" >
@@ -78,7 +80,7 @@
                 </div>
                 <div class="right_bottom">
                     <div style="width:auto; height:33px; text-align: center;">
-                        <font style="top:10px">Plans</font>
+                        <font>Plans</font>
                     </div>
                     <!-- this function loads the user events into the right panel -->
                     <?php
