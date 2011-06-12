@@ -274,7 +274,7 @@ function toggle_group_select() {
 // relevent info.  This is saved in global variables at top.'
 function reverse_geocode_user()
 {
-    $.get('http://where.yahooapis.com/geocode?location='+myLatitude+'+'+myLongitude+'&gflags=R&appid=5CXRiH44', 
+    $.get('http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&gflags=R&appid=5CXRiH44', 
     function(data) {
             alert(data);
         })
@@ -288,7 +288,6 @@ function update()
     
    
 }
-
 
 var initialLocation;
 var browserSupportFlag;
