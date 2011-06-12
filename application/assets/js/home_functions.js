@@ -120,25 +120,14 @@ $(function() {
                         // If additional places are required, fetch places from Factual. Pick fields needed
                         // by the autocomplete from the resulting JSON and add them to response_json array.
                         var my_filters = {
-                            "$and":[{
                                 "$loc":{
                                     "$within":{
                                         "$center":[[34.06032, -118.41839],5000]
                                     }
-                                }
-                            },
-                            {
-                                "$or":[{
-                                    "category":{
-                                        "$bw":"Arts"
-                                    }
                                 },
-                                {
-                                    "category":{
-                                        "$bw":"Food"
-                                    }
-                                }]
-                            }]
+                               "name": {
+                                   '$search': request.term
+                               }
                         };
                                                 
                         var options = {
@@ -155,8 +144,7 @@ $(function() {
                             dataType: 'jsonp',
                             success : function(data) {
                                 console.log(data);
-                            },
-                            processData: false
+                            }
                         });
                     }
                 });
