@@ -9,6 +9,7 @@ $(function() {
     // places map
     location_data();
    
+    // sets variables myCity, myAddress
     reverse_geocode_user();
    
     $( "#tabs" ).tabs({
@@ -36,9 +37,7 @@ $(function() {
     // this is supposed to save the day number to the day variable. doesn't work yet
     $("ul.tabs li").click(function(){
         day = $(".active").attr("href");
-        
     })
-    
     
     // Set up the Selectable instance with default options (the shown
     // options are to keep the last selected item from disappearing).
@@ -195,6 +194,8 @@ $(function() {
         return false;
     });
     
+   
+    
 // End of ready function.
 });
 
@@ -273,14 +274,10 @@ function toggle_group_select() {
 // relevent info.  This is saved in global variables at top.'
 function reverse_geocode_user()
 {
-    $.ajax({
-        url: 'http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&gflags=R&appid=yourappid',
-        data: options,
-        dataType: 'jsonp',
-        success : function(data) {
+    $.get('http://where.yahooapis.com/geocode?location='+myLatitude+'+'+myLongitude+'&gflags=R&appid=5CXRiH44', 
+    function(data) {
             alert(data);
-        }
-    })
+        })
 }
 
 // this function is called on an onClick event for a day or group; 
@@ -345,8 +342,8 @@ function location_data() {
             mapThisGoogle(latitude,longitude);
         }
     }
-    // be sure to include the script to initialize Google or Yahoo! Maps
- 
+
+    // places the google map
     function mapThisGoogle(latitude,longitude)
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
@@ -365,8 +362,5 @@ function location_data() {
             draggable: true,
             title:"Your location!"
         });
-        
-        google.maps.event.trigger(map, 'resize');
-        
     }
 }

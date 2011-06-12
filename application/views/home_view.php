@@ -40,7 +40,7 @@
 
                     <div class="center_top_right">
                         <!-- New plan panel -->
-                        <input type="button" id="make_a_plan" value="Make a plan"/>
+                        <input type="button" id="make_a_plan" style="top:50%;" value="Make a plan"/>
                         <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
                     </div>
 
@@ -57,13 +57,13 @@
                             <li><a href="#tabs-2">Data</a></li>
                             <li><a href="#tabs-1">Map</a></li> 
                         </ul>
-                        <div id="tabs-1" style="width:555px; height:250px;" >
-                            <div id="map" style="width:555px; height:250px;">
-                            </div>
-                        </div>
-                        <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
 
+                        <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
                         </div>
+                        <div id="tabs-1" style="width:555px; height:250px;" >
+                            <div id="map" style="width:555px; height:250px;"></div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="center_board">
@@ -77,24 +77,33 @@
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div class="right_bottom">
-                    
+                    <div style="width:auto; height:33px; text-align: center;">
+                        <font>Plans</font>
+                    </div>
                     <!-- this function loads the user events into the right panel -->
                     <?php
-                    
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #000; width:auto; height: auto; padding: 10px;">
+                        <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
+                            <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;">
+                                <?php
+                                echo $plan->name . "  |  ";
+                                $date_string = date('D', strtotime($plan->date));
+                                echo $date_string;
+                                ?>
+                            </div>
                             <?php
-                            echo $plan->name . "<br/>";
-                            echo $plan->time_of_day . "<br/>";
-                            echo $plan->date . "<br/>";
+                            echo "<p>";
+                            $date_string = date('l', strtotime($plan->date));
+                            echo $date_string . " " . $plan->time_of_day;
+                            echo "</p>";
                             ?>
                         </div>
                         <?php
                     }
                     ?>
-                    
+
                 </div>
             </div>
 
