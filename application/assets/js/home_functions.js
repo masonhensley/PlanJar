@@ -119,25 +119,29 @@ $(function() {
                     if (place_limit > 0) {
                         // If additional places are required, fetch places from Factual. Pick fields needed
                         // by the autocomplete from the resulting JSON and add them to response_json array.
-                        var filters={"$and":[
-                                {"$loc":
-                                        {"$within":
-                                            {"$center":[
-                                                [myLatitude, myLongitude],5000]
-                                        }
+                        var my_filters={
+                            "$and":[{
+                                "$loc":{
+                                    "$within":{
+                                        "$center":[[myLatitude, myLongitude],5000]
                                     }
-                                },
-                                {"$search": request.term}
-                            ]
+                                }
+                            },
+                            {
+                                "$search": request.term
+                            }]
                         };
                         
                         console.log(filters);
                         
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
-                            
+                            limit: place_limit,
+                            filters: my_filters
                         }
-                        //$.get('http://api.factual.com/v2/tables/TABLE_ID/read', )
+                        $.get('http://api.factual.com/v2/tables/TABLE_ID/read', options, function(data) {
+                            console.log(data);
+                        });
                     }
                 });
             },
@@ -182,7 +186,7 @@ $(function() {
         return false;
     });
     
-    // End of ready function.
+// End of ready function.
 });
 
 // Should be called when #sel_one or #sel_mult
@@ -276,33 +280,33 @@ function location_data() {
     {
         navigator.geolocation.getCurrentPosition
         ( 
-        function (position) 
-        {  
-            myLatitude=position.coords.latitude;
-            myLongitude=position.coords.longitude;
+            function (position) 
+            {  
+                myLatitude=position.coords.latitude;
+                myLongitude=position.coords.longitude;
                 
-            mapThisGoogle(position.coords.latitude, position.coords.longitude);
-        }, 
-        // next function is the error callback
-        function (error)
-        {
-            switch(error.code) 
+                mapThisGoogle(position.coords.latitude, position.coords.longitude);
+            }, 
+            // next function is the error callback
+            function (error)
             {
-                case error.TIMEOUT:
-                    alert ('Timeout');
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert ('Position unavailable');
-                    break;
-                case error.PERMISSION_DENIED:
-                    alert ('Permission denied');
-                    break;
-                case error.UNKNOWN_ERROR:
-                    alert ('Unknown error');
-                    break;
+                switch(error.code) 
+                {
+                    case error.TIMEOUT:
+                        alert ('Timeout');
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert ('Position unavailable');
+                        break;
+                    case error.PERMISSION_DENIED:
+                        alert ('Permission denied');
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert ('Unknown error');
+                        break;
+                }
             }
-        }
-    );
+            );
     }
     function mapServiceProvider(latitude,longitude)
     {
