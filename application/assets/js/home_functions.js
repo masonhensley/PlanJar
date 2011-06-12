@@ -276,6 +276,7 @@ function reverse_geocode_user()
             flags: 'J',
             appid: '5CXRiH44'
         },
+        dataType: 'JSONP',
         success: function(data) {
             alert(data);
         }
