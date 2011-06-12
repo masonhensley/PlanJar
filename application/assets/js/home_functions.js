@@ -273,10 +273,9 @@ function reverse_geocode_user()
         url: 'http://where.yahooapis.com/geocode',
         data: {
             location: myLatitude+'+'+myLongitude,
-            flags: 'J',
             appid: '5CXRiH44'
         },
-        dataType: 'JSONP',
+        dataType: 'xml',
         success: function(data) {
             alert(data);
         }
