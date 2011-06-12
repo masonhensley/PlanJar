@@ -196,6 +196,8 @@ $(function() {
         return false;
     });
     
+    google.maps.event.trigger(map, 'resize');
+    
 // End of ready function.
 });
 
@@ -342,8 +344,8 @@ function location_data() {
             mapThisGoogle(latitude,longitude);
         }
     }
-    // be sure to include the script to initialize Google or Yahoo! Maps
- 
+
+    // places the google map
     function mapThisGoogle(latitude,longitude)
     {
         var myLatlng = new google.maps.LatLng(latitude,longitude);
@@ -362,8 +364,5 @@ function location_data() {
             draggable: true,
             title:"Your location!"
         });
-        
-        google.maps.event.trigger(map, 'resize');
-        
     }
 }
