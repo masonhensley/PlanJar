@@ -124,22 +124,24 @@ $(function() {
                             "$loc":{
                                 "$within":{
                                     "$center":[[myLatitude + ',' + myLongitude
-                                    ],5000]
+                                        ],5000]
                                 }
                             },
                             "name": {
                                 "$search": request.term
                             }
                         };
+                        my_filters = JSON.stringify(my_filters);
+                        my_filters = my_filters.replace('[', '%5B');
+                        my_filters = my_filters.replace(']', '%5D');
                                                 
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
                             limit: place_limit
-                        //filters: JSON.stringify(my_filters)
-                        }
+                        };
                         
                         $.ajax({
-                            url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=' + JSON.stringify(my_filters),
+                            url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=' + my_filters,
                             data: options,
                             dataType: 'jsonp',
                             success : function(data) {
@@ -192,7 +194,7 @@ $(function() {
     
    
     
-// End of ready function.
+    // End of ready function.
 });
 
 // Should be called when #sel_one or #sel_mult
@@ -303,33 +305,33 @@ function location_data() {
     {
         navigator.geolocation.getCurrentPosition
         ( 
-            function (position) 
-            {  
-                myLatitude=position.coords.latitude;
-                myLongitude=position.coords.longitude;
+        function (position) 
+        {  
+            myLatitude=position.coords.latitude;
+            myLongitude=position.coords.longitude;
                 
-                mapThisGoogle(position.coords.latitude, position.coords.longitude);
-            }, 
-            // next function is the error callback
-            function (error)
+            mapThisGoogle(position.coords.latitude, position.coords.longitude);
+        }, 
+        // next function is the error callback
+        function (error)
+        {
+            switch(error.code) 
             {
-                switch(error.code) 
-                {
-                    case error.TIMEOUT:
-                        alert ('Timeout');
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert ('Position unavailable');
-                        break;
-                    case error.PERMISSION_DENIED:
-                        alert ('Permission denied');
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        alert ('Unknown error');
-                        break;
-                }
+                case error.TIMEOUT:
+                    alert ('Timeout');
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert ('Position unavailable');
+                    break;
+                case error.PERMISSION_DENIED:
+                    alert ('Permission denied');
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert ('Unknown error');
+                    break;
             }
-            );
+        }
+    );
     }
     function mapServiceProvider(latitude,longitude)
     {
