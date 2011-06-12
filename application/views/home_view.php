@@ -87,15 +87,16 @@
                     {
                         ?> 
                         <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
-                            <div id="day_display" style="width:45px; height: 30px; float:right;">
+                            <div id="day_display" style="width:100%; height: 30px; float:right;">
                                 <?php
                                 $date_string = date('D (d)',strtotime($plan->date));
+                                echo $plan->name;
                                 echo $date_string;
                                 ?>
                             </div>
                             <?php
                             echo "<p>";
-                            echo "Location: " . $plan->name . "<br/>";
+                   
                             echo "Time of day: " . $plan->time_of_day . "<br/>";
                             echo "</p>"
                             ?>
