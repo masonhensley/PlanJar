@@ -86,7 +86,7 @@
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #000; font-size: 10px; text-align: left; width:auto; height: auto; ">
+                        <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
                             <div id="day_display" style="width:45px; height: 30px; float:right;">
                                 <?php
                                 $date_string = date('D (d)',strtotime($plan->date));
