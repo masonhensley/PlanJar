@@ -137,7 +137,7 @@ $(function() {
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
                             limit: place_limit,
-                            filters: my_filters.serialize
+                            filters: my_filters.serialize()
                         }
                         
                         console.log($.param(options));
