@@ -340,5 +340,8 @@ function location_data() {
             draggable: true,
             title:"Your location!"
         });
+        
+        google.maps.event.trigger(map, 'resize');
+        
     }
 }
