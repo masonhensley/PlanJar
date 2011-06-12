@@ -134,12 +134,12 @@ $(function() {
                                                 
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
-                            limit: place_limit,
-                            filters: JSON.stringify(my_filters)
+                            limit: place_limit
+                            //filters: JSON.stringify(my_filters)
                         }
                         
                         $.ajax({
-                            url: 'http://api.factual.com/v2/tables/s4OOB4/read?{[}]',
+                            url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=' + JSON.stringify(my_filters),
                             data: options,
                             dataType: 'jsonp',
                             success : function(data) {
