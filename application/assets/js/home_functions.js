@@ -129,8 +129,9 @@ $(function() {
                             }
                         };
                         my_filters = JSON.stringify(my_filters);
-                        my_filters = my_filters.replace('[', '%5B');
-                        my_filters = my_filters.replace(']', '%5D');
+                        my_filters = my_filters.replace(/[/g, '%5B');
+                        my_filters = my_filters.replace(/]/g, '%5D');
+                        alert(my_filters);
                                                 
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
