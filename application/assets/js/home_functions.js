@@ -9,7 +9,7 @@ $(function() {
     // places map
     location_data();
    
-   reverse_geocode_user(myLatitude, myLongitude);
+   //reverse_geocode_user(myLatitude, myLongitude);
    
     $( "#tabs" ).tabs({
         collapsible: true
