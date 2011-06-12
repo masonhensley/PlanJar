@@ -82,21 +82,21 @@
                     </div>
                     <!-- this function loads the user events into the right panel -->
                     <?php
-                    
                     foreach ($result as $plan)
                     {
                         ?> 
                         <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
-                            <div id="day_display" style="width:100%; height: 30px; text-align: center; float:right;">
+                            <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: 30px; text-align: center; float:right;">
                                 <?php
-                                $date_string = date('D (d)',strtotime($plan->date));
+                                $date_string = date('D (d)', strtotime($plan->date));
                                 echo $plan->name . "  |  ";
                                 echo $date_string;
                                 ?>
+
                             </div>
                             <?php
                             echo "<p>";
-                   
+
                             echo "Time of day: " . $plan->time_of_day . "<br/>";
                             echo "</p>"
                             ?>
@@ -104,7 +104,7 @@
                         <?php
                     }
                     ?>
-                    
+
                 </div>
             </div>
 
