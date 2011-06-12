@@ -121,6 +121,8 @@ $(function() {
                         // by the autocomplete from the resulting JSON and add them to response_json array.
                         var my_filters = '{"$loc":{"$within":{"$center":[[' + myLatitude + ', ' + myLongitude + 
                         '],5000]}},"name": {"$search":"' + request.term + '"}}';
+                    
+                    alert(my_filters);
                                                 
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
