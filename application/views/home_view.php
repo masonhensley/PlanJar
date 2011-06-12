@@ -43,8 +43,9 @@
                     <div class ="center_top_left">
                         <font style="float:left;">
                         <p><?php
-                          echo "Our super-advanced reverse-geocoding techniques have determined your location to be: ";
-                          echo $city .", " . $state;
+                          echo "Our advanced reverse-geocoding algorithm has determined your location to be: ";
+                          echo $city .", " . $state . "<br/>";
+                          echo "And now your address is in our database.  WHAT THE FUCK YOU GONA DO ABOUT IT?";
                     ?></p>
                         </font>
                     </div>
