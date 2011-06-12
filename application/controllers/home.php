@@ -17,8 +17,6 @@ class Home extends CI_Controller
             $user_id = $user_info->id;
             $row = $this->load_events->getPlans($user_id);
             
-            var_dump($row);
-            
             $this->load->view('home_view', $row);
         } else
         {
