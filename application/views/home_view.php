@@ -37,7 +37,7 @@
                     <div class ="center_top_left">
                         <font style="float:left;">
                         <p><?php
-                          echo "City: " . $user_place_info['city'];
+                          echo "City: " . $user_place_info['geoplugin_city'];
                     ?></p>
                         </font>
                     </div>
