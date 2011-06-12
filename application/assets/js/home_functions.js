@@ -270,20 +270,11 @@ function toggle_group_select() {
 // relevent info.  This is saved in global variables at top.'
 function reverse_geocode_user()
 {
-    // This is how you need to do it since it's a cross-domain request.
-    // Also it's better practice than just making a url string with variables and all.'
-    $.ajax({
-        url: 'http://where.yahooapis.com/geocode?',
-        dataType: 'jsonp',
-        data: {
-            location: myLatitude + ' ' + myLongitude,
-            gflags: 'R',
-            appid: '5CXRiH44'
-        },
-        success: function(data) {
+    $.get('http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&gflags=R&appid=5CXRiH44', 
+    function(data) {
             alert(data);
         }
-    });
+    );
 }
 
 // this function is called on an onClick event for a day or group; 
@@ -294,7 +285,6 @@ function update()
     
    
 }
-
 
 var initialLocation;
 var browserSupportFlag;
