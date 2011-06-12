@@ -58,7 +58,7 @@
                             <li><a href="#tabs-1">Map</a></li> 
                         </ul>
                         <div id="tabs-1" style="width:555px; height:250px;" >
-                            <div id="map" style="width:555px; height:250px;">
+                            <div id="map" style="width:550px; height:250px;">
                             </div>
                         </div>
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
@@ -84,7 +84,7 @@
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #fff; width:auto; height: auto; padding: 10px;">
+                        <div style="border: 2px solid #000; width:auto; height: auto; padding: 10px;">
                             <?php
                             echo $plan->name . "<br/>";
                             echo $plan->time_of_day . "<br/>";
