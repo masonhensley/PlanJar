@@ -9,6 +9,8 @@ $(function() {
     // places map
     location_data();
    
+   reverse_geocode_user();
+   
     $( "#tabs" ).tabs({
         collapsible: true
     });
@@ -266,6 +268,21 @@ function toggle_group_select() {
     }
 }
 
+// This function takes the user's latitude and longitude and passes them
+// to the yahoo reverse geocoding api and returns JSON encoded string of
+// relevent info.  This is saved in global variables at top.'
+function reverse_geocode_user()
+{
+    $.ajax({
+                        url: 'http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&gflags=R&appid=yourappid',
+                        data: options,
+                        dataType: 'jsonp',
+                        success : function(data) {
+                            alert(data);
+                        }
+                    })
+}
+
 // this function is called on an onClick event for a day or group; 
 // it updates the dashboard information based on the day and groups
 // selected
@@ -273,7 +290,6 @@ function update()
 {
     
    
-
 }
 
 
