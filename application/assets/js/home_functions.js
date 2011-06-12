@@ -139,7 +139,7 @@ $(function() {
                         };
                         
                         $.ajax({
-                            url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=\"\"\"' + my_filters,
+                            url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=' + my_filters,
                             data: options,
                             dataType: 'jsonp',
                             success : function(data) {
