@@ -9,9 +9,6 @@ $(function() {
     // places map
     location_data();
    
-    // sets variables myCity, myAddress
-    reverse_geocode_user();
-   
     $( "#tabs" ).tabs({
         collapsible: true
     });
@@ -273,9 +270,9 @@ function toggle_group_select() {
 function reverse_geocode_user()
 {
     $.ajax({
-        url: 'http://where.yahooapis.com//geocode',
+        url: 'http://where.yahooapis.com/geocode',
         data: {
-            location: myLatitude+' '+myLongitude,
+            location: myLatitude+'+'+myLongitude,
             flags: 'J',
             appid: '5CXRiH44'
         },
@@ -310,12 +307,13 @@ function location_data() {
             myLatitude=position.coords.latitude;
             myLongitude=position.coords.longitude;
                 
-            mapThisGoogle(position.coords.latitude, position.coords.longitude);
-        }, 
-        // next function is the error callback
-        function (error)
-        {
-            switch(error.code) 
+                // sets variables myCity, myAddress
+                reverse_geocode_user();
+                
+                mapThisGoogle(position.coords.latitude, position.coords.longitude);
+            }, 
+            // next function is the error callback
+            function (error)
             {
                 case error.TIMEOUT:
                     alert ('Timeout');
