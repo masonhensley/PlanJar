@@ -88,15 +88,15 @@
                         <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
                             <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;">
                                 <?php
-                                $date_string = date('D (d)', strtotime($plan->date));
+                                
                                 echo $plan->name . "  |  ";
-                                echo $date_string;
+                                $date_string = date('l', strtotime($plan->date));
+                                echo $date_string . $plan->time_of_day;
                                 ?>
                             </div>
                             <?php
                             echo "<p>";
-                            echo "Time of day: " . $plan->time_of_day . "<br/>";
-                            echo "</p>"
+                            echo "</p>";
                             ?>
                         </div>
                         <?php
