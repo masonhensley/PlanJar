@@ -135,7 +135,7 @@ $(function() {
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
                             limit: place_limit
-                            //filters: JSON.stringify(my_filters)
+                        //filters: JSON.stringify(my_filters)
                         }
                         
                         $.ajax({
@@ -270,11 +270,18 @@ function toggle_group_select() {
 // relevent info.  This is saved in global variables at top.'
 function reverse_geocode_user()
 {
-    $.get('http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&gflags=R&appid=5CXRiH44', 
-    function(data) {
+    $.ajax({
+        url: 'http://where.yahooapis.com/geocode',
+        data: {
+            location: myLatitude+' '+myLongitude,
+            gflags: 'J',
+            appid: '5CXRiH44'
+        },
+        dataType: 'jsonp',
+        success: function(data) {
             alert(data);
         }
-    );
+    });
 }
 
 // this function is called on an onClick event for a day or group; 
