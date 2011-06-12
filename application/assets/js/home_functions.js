@@ -273,16 +273,18 @@ function toggle_group_select() {
 // relevent info.  This is saved in global variables at top.'
 function reverse_geocode_user()
 {
-    /*
+    
     $.ajax({
-                        url: 'http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&flags=J&appid=5CXRiH44',
-                        data: options,
+                        url: 'http://where.yahooapis.com/geocode',
+                        appid: '5CXRiH44',
+                        location:myLatitude+' '+myLongitude,
                         dataType: 'jsonp',
+                        flags: 'J',
                         success : function(data) {
                             alert(data);
                         }
                     })
-                    */
+                    
 }
 
 // this function is called on an onClick event for a day or group; 
