@@ -122,7 +122,7 @@ $(function() {
                         var my_filters = {
                                 "$loc":{
                                     "$within":{
-                                        "$center":[[34.06032, -118.41839],5000]
+                                        "$center":[[myLatitude, myLongitude],5000]
                                     }
                                 },
                                "name": {
