@@ -86,7 +86,7 @@
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #000; text-align: left; width:auto; height: auto; padding: 10px;">
+                        <div style="border: 2px solid #000; font-size: 10px; text-align: left; width:auto; height: auto; padding: 10px;">
                             <?php
                             echo "<p>";
                             echo "Location: " . $plan->name . "<br/>";
