@@ -137,6 +137,9 @@ $(function() {
                             limit: place_limit,
                             filters: my_filters
                         }
+                        
+                        console.log(options);
+                        
                         $.ajax({
                             url: 'http://api.factual.com/v2/tables/s4OOB4/read',
                             data: options,
