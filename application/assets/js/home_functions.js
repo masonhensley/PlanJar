@@ -9,7 +9,7 @@ $(function() {
     // places map
     location_data();
    
-   reverse_geocode_user();
+    reverse_geocode_user();
    
     $( "#tabs" ).tabs({
         collapsible: true
@@ -126,74 +126,74 @@ $(function() {
                                 "$within":{
                                     "$center":[[myLatitude + ',' + myLongitude
                                     ],5000]
-                                    }
-                                },
-                        "name": {
-                            "$search": request.term
+                                }
+                            },
+                            "name": {
+                                "$search": request.term
                             }
                         };
                         
                         console.log(my_filters);
                                                 
-                    var options = {
-                        api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
-                        limit: place_limit,
-                        filters: my_filters
-                    }
-                        
-                    console.log($.param(options));
-                        
-                    $.ajax({
-                        url: 'http://api.factual.com/v2/tables/s4OOB4/read',
-                        data: options,
-                        dataType: 'jsonp',
-                        success : function(data) {
-                            console.log(data);
+                        var options = {
+                            api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
+                            limit: place_limit,
+                            filters: my_filters
                         }
-                    });
-                }
-            });
-        },
-        // When an item is selected, update the location text as well as the hidden
-        // id field.
-        select: function (event, ui) {
-            $('#plan_location').val(ui.item.value);
-            $('#plan_location_id').val(ui.item.id);
-        }
-    });
+                        
+                        console.log($.param(options));
+                        
+                        $.ajax({
+                            url: 'http://api.factual.com/v2/tables/s4OOB4/read',
+                            data: options,
+                            dataType: 'jsonp',
+                            success : function(data) {
+                                console.log(data);
+                            }
+                        });
+                    }
+                });
+            },
+            // When an item is selected, update the location text as well as the hidden
+            // id field.
+            select: function (event, ui) {
+                $('#plan_location').val(ui.item.value);
+                $('#plan_location_id').val(ui.item.id);
+            }
+        });
         
-    // Initialize the plan category autocomplete instance.
-    $('#plan_category').autocomplete({
-        // Get info from the server.
-        source: function (request, response) {
-            $.get('/home/find_plan_categories', {
-                needle: request.term
-            }, function (data) {
+        // Initialize the plan category autocomplete instance.
+        $('#plan_category').autocomplete({
+            // Get info from the server.
+            source: function (request, response) {
+                $.get('/home/find_plan_categories', {
+                    needle: request.term
+                }, function (data) {
                 
-                // Convert each item in the JSON from the server to the required JSON
-                // form for the autocomplete and pass the result through the response
-                // handler.
-                data = $.parseJSON(data);
-                response($.map(data, function (item) {
-                    return {
-                        label: item.category,
-                        value: item.category,
-                        id: item.id
-                    };
-                }));
+                    // Convert each item in the JSON from the server to the required JSON
+                    // form for the autocomplete and pass the result through the response
+                    // handler.
+                    data = $.parseJSON(data);
+                    response($.map(data, function (item) {
+                        return {
+                            label: item.category,
+                            value: item.category,
+                            id: item.id
+                        };
+                    }));
                 
-            });
-        },
-        // When an item is selected, update the location text as well as the hidden
-        // id field.
-        select: function (event, ui) {
-            $('#plan_category').val(ui.item.value);
-            $('#plan_category_id').val(ui.item.id);
-        }
-    });
+                });
+            },
+            // When an item is selected, update the location text as well as the hidden
+            // id field.
+            select: function (event, ui) {
+                $('#plan_category').val(ui.item.value);
+                $('#plan_category_id').val(ui.item.id);
+            }
+        });
         
-    return false;
-});
+        return false;
+    });
     
 // End of ready function.
 });
@@ -274,13 +274,13 @@ function toggle_group_select() {
 function reverse_geocode_user()
 {
     $.ajax({
-                        url: 'http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&gflags=R&appid=yourappid',
-                        data: options,
-                        dataType: 'jsonp',
-                        success : function(data) {
-                            alert(data);
-                        }
-                    })
+        url: 'http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&gflags=R&appid=yourappid',
+        data: options,
+        dataType: 'jsonp',
+        success : function(data) {
+            alert(data);
+        }
+    })
 }
 
 // this function is called on an onClick event for a day or group; 
