@@ -124,7 +124,7 @@ $(function() {
                             "$loc":{
                                 "$within":{
                                     "$center":[[myLatitude + ',' + myLongitude
-                                    ],5000]
+                                        ],5000]
                                 }
                             },
                             "name": {
@@ -196,7 +196,7 @@ $(function() {
     
    
     
-// End of ready function.
+    // End of ready function.
 });
 
 // Should be called when #sel_one or #sel_mult
@@ -274,10 +274,20 @@ function toggle_group_select() {
 // relevent info.  This is saved in global variables at top.'
 function reverse_geocode_user()
 {
-    $.get('http://where.yahooapis.com/geocode?location='+myLatitude+'+'+myLongitude+'&gflags=R&appid=5CXRiH44', 
-    function(data) {
+    // This is how you need to do it since it's a cross-domain request.
+    // Also it's better practice than just making a url string with variables and all.'
+    $.ajax({
+        url: 'http://where.yahooapis.com/geocode?',
+        dataType: 'jsonp',
+        data: {
+            location: myLatitude + ' ' + myLongitude,
+            gflags: 'R',
+            appid: '5CXRiH44'
+        },
+        success: function(data) {
             alert(data);
-        })
+        }
+    }
 }
 
 // this function is called on an onClick event for a day or group; 
@@ -300,33 +310,33 @@ function location_data() {
     {
         navigator.geolocation.getCurrentPosition
         ( 
-            function (position) 
-            {  
-                myLatitude=position.coords.latitude;
-                myLongitude=position.coords.longitude;
+        function (position) 
+        {  
+            myLatitude=position.coords.latitude;
+            myLongitude=position.coords.longitude;
                 
-                mapThisGoogle(position.coords.latitude, position.coords.longitude);
-            }, 
-            // next function is the error callback
-            function (error)
+            mapThisGoogle(position.coords.latitude, position.coords.longitude);
+        }, 
+        // next function is the error callback
+        function (error)
+        {
+            switch(error.code) 
             {
-                switch(error.code) 
-                {
-                    case error.TIMEOUT:
-                        alert ('Timeout');
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert ('Position unavailable');
-                        break;
-                    case error.PERMISSION_DENIED:
-                        alert ('Permission denied');
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        alert ('Unknown error');
-                        break;
-                }
+                case error.TIMEOUT:
+                    alert ('Timeout');
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert ('Position unavailable');
+                    break;
+                case error.PERMISSION_DENIED:
+                    alert ('Permission denied');
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert ('Unknown error');
+                    break;
             }
-            );
+        }
+    );
     }
     function mapServiceProvider(latitude,longitude)
     {
