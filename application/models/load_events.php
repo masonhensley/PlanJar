@@ -22,7 +22,7 @@ class Load_events extends CI_Model
 
         // pull data
         $query_result = $this->db->query($query);
-        $row = $query_result->result();
+        $row = $query_result->result_array();
 
         return $row;
     }

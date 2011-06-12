@@ -12,19 +12,12 @@ class Home extends CI_Controller
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
-            // fill array with information about user events
-            //$home_events_data = $this->loadMyEvents();
-            //$this->load->helper('object_to_array');
-            // $home_events_array = objectToArray($home_events_data);
-            //var_dump($home_events_array); 
-            //$query_result = $this->loadMyEvents();
-
             $this->load->model('load_events');
             $user_info = $this->ion_auth->get_user();
             $user_id = $user_info->id;
-            $plans = $this->load_events->getPlans($user_id);
-            var_dump($plans);
-            $this->load->view('home_view', $plans);
+            $row = $this->load_events->getPlans($user_id);
+            
+            $this->load->view('home_view', $row);
         } else
         {
             $this->logout();
