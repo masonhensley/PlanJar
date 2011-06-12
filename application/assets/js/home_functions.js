@@ -156,7 +156,7 @@ $(function() {
                             success : function(data) {
                                 console.log(data);
                             },
-                            processData: true
+                            processData: false
                         });
                     }
                 });
