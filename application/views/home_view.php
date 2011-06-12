@@ -85,7 +85,7 @@
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
+                        <div style="top: 5px; border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
                             <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;">
                                 <?php
                                 echo $plan->name . "  |  ";
