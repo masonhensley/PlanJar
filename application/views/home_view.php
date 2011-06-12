@@ -86,11 +86,13 @@
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #000; width:auto; height: auto; padding: 10px;">
+                        <div style="border: 2px solid #000; text-align: left; width:auto; height: auto; padding: 10px;">
                             <?php
-                            echo $plan->name . "<br/>";
-                            echo $plan->time_of_day . "<br/>";
-                            echo $plan->date . "<br/>";
+                            echo "<p>";
+                            echo "Location: " . $plan->name . "<br/>";
+                            echo "Time: " . $plan->time_of_day . "<br/>";
+                            echo "Date: " . $plan->date . "<br/>";
+                            echo "</p>"
                             ?>
                         </div>
                         <?php
