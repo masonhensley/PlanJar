@@ -1,3 +1,9 @@
+<?php 
+    $user_place_info = (unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR']))); 
+    $city = $user_place_info['geoplugin_city'];
+    $state = $user_place_info[geoplugin_regionCode];
+?>
+
 <html>
     <head>
         <title>PlanJar | Home</title>
@@ -8,12 +14,12 @@
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
 
-        <!-- Load Yahoo api -->
-        <script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.8&appid=5CXRiH44"></script>
-
+        <!-- Load GeoPlugin api -->
+        <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
+        
     </head>
 
     <body>
@@ -35,7 +41,12 @@
                 <div class="center_top">
 
                     <div class ="center_top_left">
-                        <font style="float:left;"><p>your location data:</p></font>
+                        <font style="float:left;">
+                        <p><?php
+                          echo "Our reverse-geocoding techniques have determined your information to be: <br/>";
+                          echo "Location: " . $city .", " . $state;
+                    ?></p>
+                        </font>
                     </div>
 
                     <div class="center_top_right">
@@ -55,13 +66,13 @@
                     <div id = "tabs" class="tabs-bottom">
                         <ul>
                             <li><a href="#tabs-2">Data</a></li>
-                            <li><a href="#tabs-1">Map</a></li> 
+                            <li><a href="#tabs-1">Map</a></li>
                         </ul>
 
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
-                            <img src="http://i.imgur.com/UCSx3.gif" />
+                            <!-- <img src="http://i.imgur.com/UCSx3.gif" /> -->
                         </div>
-                        
+
                         <!-- Google Map Div -->
                         <div id="tabs-1" style="width:555px; height:250px;" >
                             <div id="map" style="width:555px; height:250px;"></div>
