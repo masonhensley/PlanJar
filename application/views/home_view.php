@@ -87,7 +87,7 @@
                     {
                         ?> 
                         <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
-                            <div id="day_display" style="width:100%; height: 30px; float:right;">
+                            <div id="day_display" style="width:100%; height: 30px; text-align: center; float:right;">
                                 <?php
                                 $date_string = date('D (d)',strtotime($plan->date));
                                 echo $plan->name . "  |  ";
