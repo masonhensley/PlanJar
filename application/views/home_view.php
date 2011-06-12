@@ -78,7 +78,7 @@
                 </div>
                 <div class="right_bottom">
                     <div style="width:auto; height:33px; text-align: center;">
-                        My Plans
+                        <p style="top:50%;">My Plans</p>
                     </div>
                     <!-- this function loads the user events into the right panel -->
                     <?php
