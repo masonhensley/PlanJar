@@ -89,8 +89,8 @@
                             <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;">
                                 <?php
                                 echo $plan->name . "  |  ";
-                                $date_string = date('(D)', strtotime($plan->date));
-                                echo $date_string . " " . $plan->time_of_day;
+                                $date_string = date('D', strtotime($plan->date));
+                                echo $date_string;
                                 ?>
                             </div>
                                 <?php
