@@ -59,13 +59,15 @@
                             </li>
                             <li><a href="#tabs-1">Map</a></li> 
                         </ul>
+                        
+                        <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
+                            <img src="http://i.imgur.com/i5gPt.gif" style="width:100%; height:100%;" />
+                        </div>
                         <div id="tabs-1" style="width:555px; height:250px;" >
                             <div id="map" style="width:555px; height:250px;">
                             </div>
                         </div>
-                        <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
-                            
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="center_board">
