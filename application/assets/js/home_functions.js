@@ -37,9 +37,7 @@ $(function() {
     // this is supposed to save the day number to the day variable. doesn't work yet
     $("ul.tabs li").click(function(){
         day = $(".active").attr("href");
-        
     })
-    
     
     // Set up the Selectable instance with default options (the shown
     // options are to keep the last selected item from disappearing).
