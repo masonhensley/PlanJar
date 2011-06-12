@@ -270,7 +270,7 @@ function reverse_geocode_user()
     $.ajax({
         url: 'http://where.yahooapis.com/geocode',
         data: {
-            location: myLatitude+' '+myLongitude,
+            location: myLatitude+'+'+myLongitude,
             flags: 'J',
             appid: '5CXRiH44'
         },
