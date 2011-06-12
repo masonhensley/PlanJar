@@ -139,7 +139,7 @@ $(function() {
                         }
                         
                         $.ajax({
-                            url: 'http://api.factual.com/v2/tables/s4OOB4/read',
+                            url: 'http://api.factual.com/v2/tables/s4OOB4/read?{[}]',
                             data: options,
                             dataType: 'jsonp',
                             success : function(data) {
