@@ -146,7 +146,7 @@ $(function() {
                     $.ajax({
                         url: 'http://api.factual.com/v2/tables/s4OOB4/read',
                         data: options,
-                        dataType: 'jsonp',
+                        dataType: 'json',
                         success : function(data) {
                             console.log(data);
                         }
