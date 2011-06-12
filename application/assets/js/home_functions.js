@@ -279,7 +279,7 @@ function reverse_geocode_user()
     function(data) {
             alert(data);
         }
-    });
+    );
 }
 
 // this function is called on an onClick event for a day or group; 
