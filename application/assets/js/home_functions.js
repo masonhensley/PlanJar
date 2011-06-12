@@ -130,8 +130,8 @@ $(function() {
                             "$search": request.term
                             }
                         };
-                    
-                alert('filter:' + my_filters);
+                        
+                        console.log(my_filters);
                                                 
                     var options = {
                         api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
