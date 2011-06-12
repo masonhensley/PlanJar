@@ -87,9 +87,9 @@
                         ?> 
                         <div style="border: 2px solid #fff; width:100%; height: auto; padding: 10px;">
                             <?php
-                            echo $plan['name'] . "<br/>";
-                            echo $plan['time_of_day'] . "<br/>";
-                            echo $plan['date'] . "<br/>";
+                            echo $plan->name . "<br/>";
+                            echo $plan->time_of_day . "<br/>";
+                            echo $plan->date . "<br/>";
                             ?>
                         </div>
                         <?php
