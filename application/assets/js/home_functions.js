@@ -141,6 +141,7 @@ $(function() {
                         }
                         
                         console.log($.param(options));
+                        alert(JSON.stringify(options));
                         
                         $.ajax({
                             url: 'http://api.factual.com/v2/tables/s4OOB4/read',
@@ -277,7 +278,8 @@ function reverse_geocode_user()
     $.get('http://where.yahooapis.com/geocode?location='+myLatitude+' '+myLongitude+'&gflags=R&appid=5CXRiH44', 
     function(data) {
             alert(data);
-        })
+        }
+    });
 }
 
 // this function is called on an onClick event for a day or group; 
