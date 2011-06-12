@@ -123,6 +123,9 @@ $(function() {
                                     "$center":[[myLatitude + ',' + myLongitude
                                     ],5000]
                                 }
+                            },
+                            "name": {
+                                "$search": request.term
                             }
                         };
                         my_filters = JSON.stringify(my_filters);
