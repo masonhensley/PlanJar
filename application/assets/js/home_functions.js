@@ -368,4 +368,3 @@ function mapThisGoogle(latitude,longitude)
         title:"Your location!"
     });
 }
-}
