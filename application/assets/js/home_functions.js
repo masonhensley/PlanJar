@@ -141,6 +141,7 @@ $(function() {
                         }
                         
                         console.log($.param(options));
+                        alert(JSON.stringify(options));
                         
                         $.ajax({
                             url: 'http://api.factual.com/v2/tables/s4OOB4/read',
