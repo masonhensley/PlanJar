@@ -60,7 +60,7 @@
                         </ul>
 
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
-                            <img src="http://i.imgur.com/UCSx3.gif" />
+                            <!-- <img src="http://i.imgur.com/UCSx3.gif" /> -->
                         </div>
                         
                         <!-- Google Map Div -->
