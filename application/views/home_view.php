@@ -43,7 +43,7 @@
                     <div class ="center_top_left">
                         <font style="float:left;">
                         <p><?php
-                          echo "Our super-advanced reverse-geocoding techniques have determined your location to be: <br/>";
+                          echo "Our super-advanced reverse-geocoding techniques have determined your location to be: ";
                           echo $city .", " . $state;
                     ?></p>
                         </font>
