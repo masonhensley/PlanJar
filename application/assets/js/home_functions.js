@@ -119,27 +119,21 @@ $(function() {
                     if (place_limit > 0) {
                         // If additional places are required, fetch places from Factual. Pick fields needed
                         // by the autocomplete from the resulting JSON and add them to response_json array.
-                        var my_filters = {
-                                "$loc":{
-                                    "$within":{
-                                        "$center":[[myLatitude, myLongitude],5000]
-                                    }
-                                },
-                               "name": {
-                                   '$search': request.term
-                               }
-                        };
+                        var my_filters = '{"$loc":{"$within":{"$center":[[' + myLatitude + ', ' + myLongitude + 
+                        '],5000]}},"name": {"$search":"' + request.term + '"}}';
+                    
+                        alert('filter:' + my_filters);
                                                 
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
-                            limit: place_limit,
-                            filters: my_filters
+                            limit: place_limit
+                            //filters: my_filters
                         }
                         
                         console.log($.param(options));
                         
                         $.ajax({
-                            url: 'http://api.factual.com/v2/tables/s4OOB4/read',
+                            url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=' + my_filters,
                             data: options,
                             dataType: 'jsonp',
                             success : function(data) {
