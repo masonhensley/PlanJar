@@ -80,15 +80,15 @@
                     <!-- this function loads the user events into the right panel -->
                     <!-- <?php// include(APPPATH . 'assets/php/right_plan_list.php'); ?> -->
                     <?php
-                    foreach ($plans as $row)
+                    foreach ($row as $plan)
                     {
                         //echo $row['departmentName'];
                         ?> 
                         <div style="border: 2px solid #fff; width:100%; height: auto; padding: 10px;">
                             <?php
-                            echo $row['name'] . "<br/>";
-                            echo $row['time_of_day'] . "<br/>";
-                            echo $row['date'] . "<br/>";
+                            echo $plan['name'] . "<br/>";
+                            echo $plan['time_of_day'] . "<br/>";
+                            echo $plan['date'] . "<br/>";
                             ?>
                         </div>
                         <?php
