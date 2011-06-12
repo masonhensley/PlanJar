@@ -307,14 +307,15 @@ function location_data() {
             myLatitude=position.coords.latitude;
             myLongitude=position.coords.longitude;
                 
-                // sets variables myCity, myAddress
-                reverse_geocode_user();
+            // sets variables myCity, myAddress
+            reverse_geocode_user();
                 
-                mapThisGoogle(position.coords.latitude, position.coords.longitude);
-            }, 
-            // next function is the error callback
-            function (error)
-            {
+            mapThisGoogle(position.coords.latitude, position.coords.longitude);
+        }, 
+        // next function is the error callback
+        function (error)
+        {
+            switch(error) {
                 case error.TIMEOUT:
                     alert ('Timeout');
                     break;
@@ -329,41 +330,42 @@ function location_data() {
                     break;
             }
         }
-    );
     }
-    function mapServiceProvider(latitude,longitude)
-    {
-        // querystring function from prettycode.org: 
-        // http://prettycode.org/2009/04/21/javascript-query-string/
+);
+}
+function mapServiceProvider(latitude,longitude)
+{
+    // querystring function from prettycode.org: 
+    // http://prettycode.org/2009/04/21/javascript-query-string/
  
-        if (window.location.querystring['serviceProvider']=='Yahoo')
-        {
-            mapThisYahoo(latitude,longitude);
-        }
-        else
-        {
-            mapThisGoogle(latitude,longitude);
-        }
-    }
-
-    // places the google map
-    function mapThisGoogle(latitude,longitude)
+    if (window.location.querystring['serviceProvider']=='Yahoo')
     {
-        var myLatlng = new google.maps.LatLng(latitude,longitude);
-        
-        var myOptions = {
-            zoom: 14,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        
-        map = new google.maps.Map(document.getElementById("map"), myOptions);
-            
-        your_location_marker = new google.maps.Marker({
-            position: myLatlng, 
-            map: map, 
-            draggable: true,
-            title:"Your location!"
-        });
+        mapThisYahoo(latitude,longitude);
     }
+    else
+    {
+        mapThisGoogle(latitude,longitude);
+    }
+}
+
+// places the google map
+function mapThisGoogle(latitude,longitude)
+{
+    var myLatlng = new google.maps.LatLng(latitude,longitude);
+        
+    var myOptions = {
+        zoom: 14,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+        
+    map = new google.maps.Map(document.getElementById("map"), myOptions);
+            
+    your_location_marker = new google.maps.Marker({
+        position: myLatlng, 
+        map: map, 
+        draggable: true,
+        title:"Your location!"
+    });
+}
 }
