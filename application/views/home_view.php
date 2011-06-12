@@ -77,14 +77,14 @@
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div class="right_bottom">
+                    
                     <!-- this function loads the user events into the right panel -->
-                    <!-- <?php// include(APPPATH . 'assets/php/right_plan_list.php'); ?> -->
                     <?php
                     
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #fff; width:100%; height: auto; padding: 10px;">
+                        <div style="border: 2px solid #fff; width:auto; height: auto; padding: 10px;">
                             <?php
                             echo $plan->name . "<br/>";
                             echo $plan->time_of_day . "<br/>";
@@ -94,6 +94,7 @@
                         <?php
                     }
                     ?>
+                    
                 </div>
             </div>
 
