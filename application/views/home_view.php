@@ -58,8 +58,10 @@
                             <li><a href="#tabs-1">Map</a></li> 
                         </ul>
 
-                        <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
+                        <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
                         </div>
+                        
+                        <!-- Google Map Div -->
                         <div id="tabs-1" style="width:555px; height:250px;" >
                             <div id="map" style="width:555px; height:250px;"></div>
                         </div>
