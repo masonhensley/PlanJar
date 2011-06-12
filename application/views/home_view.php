@@ -88,20 +88,21 @@
                         <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
                             <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;">
                                 <?php
-                                
                                 echo $plan->name . "  |  ";
-                                $date_string = date('l', strtotime($plan->date));
-                                echo $date_string . $plan->time_of_day;
+                                $date_string = date('(D)', strtotime($plan->date));
+                                echo $date_string . " " . $plan->time_of_day;
                                 ?>
                             </div>
-                            <?php
-                            echo "<p>";
-                            echo "</p>";
-                            ?>
+                                <?php
+                                echo "<p>";
+                                $date_string = date('l', strtotime($plan->date));
+                                echo $date_string . " " . $plan->time_of_day;
+                                echo "</p>";
+                                ?>
                         </div>
-                        <?php
-                    }
-                    ?>
+                            <?php
+                        }
+                        ?>
 
                 </div>
             </div>
