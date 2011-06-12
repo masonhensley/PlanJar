@@ -1,3 +1,9 @@
+<?php 
+    $user_place_info = (unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR']))); 
+    $city = $user_place_info['geoplugin_city'];
+    var_dump($city);
+?>
+
 <html>
     <head>
         <title>PlanJar | Home</title>
@@ -13,7 +19,7 @@
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
-        <?php $user_place_info = var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR']))); ?>
+        
     </head>
 
     <body>
