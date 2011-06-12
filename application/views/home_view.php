@@ -8,8 +8,8 @@
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
 
-        <!-- Load Yahoo api -->
-        <script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.8&appid=5CXRiH44"></script>
+        <!-- Load GeoPlugin api -->
+        <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
 
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
