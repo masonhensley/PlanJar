@@ -37,6 +37,7 @@
                     <div class ="center_top_left">
                         <font style="float:left;">
                         <p><?php
+                           var_dump($user_place_info);
                           echo "City: " . $user_place_info['geoplugin_city'];
                     ?></p>
                         </font>
