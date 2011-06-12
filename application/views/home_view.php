@@ -55,7 +55,7 @@
                     <div id = "tabs" class="tabs-bottom">
                         <ul>
                             <li><a href="#tabs-2">Data</a>
-                                <a href="http://i.imgur.com/i5gPt.gif" />
+
                             </li>
                             <li><a href="#tabs-1">Map</a></li> 
                         </ul>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px; ">
-
+                            <a href="http://i.imgur.com/i5gPt.gif" />
                         </div>
                     </div>
                 </div>
@@ -95,16 +95,16 @@
                                 echo $date_string;
                                 ?>
                             </div>
-                                <?php
-                                echo "<p>";
-                                $date_string = date('l', strtotime($plan->date));
-                                echo $date_string . " " . $plan->time_of_day;
-                                echo "</p>";
-                                ?>
-                        </div>
                             <?php
-                        }
-                        ?>
+                            echo "<p>";
+                            $date_string = date('l', strtotime($plan->date));
+                            echo $date_string . " " . $plan->time_of_day;
+                            echo "</p>";
+                            ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
 
                 </div>
             </div>
