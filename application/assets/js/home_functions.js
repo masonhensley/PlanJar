@@ -119,87 +119,87 @@ $(function() {
                     if (place_limit > 0) {
                         // If additional places are required, fetch places from Factual. Pick fields needed
                         // by the autocomplete from the resulting JSON and add them to response_json array.
-                        var my_filters=JSON.stringify({
+                        var my_filters = {
                             "$and":[{
                                 "$loc":{
                                     "$within":{
                                         "$center":[[34.06032, -118.41839],5000]
-                                        }
                                     }
+                                }
                             },
                             {
-                        "$or":[{
-                            "category":{
-                                "$bw":"Arts"
-                            }
-                        },
-                        {
-                        "category":{
-                            "$bw":"Food"
-                        }
-                    }]
-                }]
-                });
+                                "$or":[{
+                                    "category":{
+                                        "$bw":"Arts"
+                                    }
+                                },
+                                {
+                                    "category":{
+                                        "$bw":"Food"
+                                    }
+                                }]
+                            }]
+                        };
                                                 
-            var options = {
-                api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
-                limit: place_limit,
-                filters: my_filters
+                        var options = {
+                            api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
+                            limit: place_limit,
+                            filters: my_filters
+                        }
+                        
+                        console.log($.param(options));
+                        
+                        $.ajax({
+                            url: 'http://api.factual.com/v2/tables/s4OOB4/read',
+                            data: options,
+                            dataType: 'jsonp',
+                            success : function(data) {
+                                console.log(data);
+                            }
+                        });
+                    }
+                });
+            },
+            // When an item is selected, update the location text as well as the hidden
+            // id field.
+            select: function (event, ui) {
+                $('#plan_location').val(ui.item.value);
+                $('#plan_location_id').val(ui.item.id);
             }
-                        
-            console.log($.param(options));
-                        
-            $.ajax({
-                url: 'http://api.factual.com/v2/tables/s4OOB4/read',
-                data: options,
-                dataType: 'jsonp',
-                success : function(data) {
-                    console.log(data);
-                }
-            });
-        }
         });
-    },
-    // When an item is selected, update the location text as well as the hidden
-    // id field.
-    select: function (event, ui) {
-        $('#plan_location').val(ui.item.value);
-        $('#plan_location_id').val(ui.item.id);
-    }
-});
         
-// Initialize the plan category autocomplete instance.
-$('#plan_category').autocomplete({
-    // Get info from the server.
-    source: function (request, response) {
-        $.get('/home/find_plan_categories', {
-            needle: request.term
-        }, function (data) {
+        // Initialize the plan category autocomplete instance.
+        $('#plan_category').autocomplete({
+            // Get info from the server.
+            source: function (request, response) {
+                $.get('/home/find_plan_categories', {
+                    needle: request.term
+                }, function (data) {
                 
-            // Convert each item in the JSON from the server to the required JSON
-            // form for the autocomplete and pass the result through the response
-            // handler.
-            data = $.parseJSON(data);
-            response($.map(data, function (item) {
-                return {
-                    label: item.category,
-                    value: item.category,
-                    id: item.id
-                };
-            }));
+                    // Convert each item in the JSON from the server to the required JSON
+                    // form for the autocomplete and pass the result through the response
+                    // handler.
+                    data = $.parseJSON(data);
+                    response($.map(data, function (item) {
+                        return {
+                            label: item.category,
+                            value: item.category,
+                            id: item.id
+                        };
+                    }));
                 
+                });
+            },
+            // When an item is selected, update the location text as well as the hidden
+            // id field.
+            select: function (event, ui) {
+                $('#plan_category').val(ui.item.value);
+                $('#plan_category_id').val(ui.item.id);
+            }
         });
-    },
-    // When an item is selected, update the location text as well as the hidden
-    // id field.
-    select: function (event, ui) {
-        $('#plan_category').val(ui.item.value);
-        $('#plan_category_id').val(ui.item.id);
-    }
-});
         
-return false;
-});
+        return false;
+    });
     
 // End of ready function.
 });
