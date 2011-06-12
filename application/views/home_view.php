@@ -1,7 +1,7 @@
 <?php 
     $user_place_info = (unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR']))); 
     $city = $user_place_info['geoplugin_city'];
-    $state = $user_place_info[geoplugin_regionCode];
+    $state = $user_place_info['geoplugin_regionCode'];
 ?>
 
 <html>
@@ -43,8 +43,8 @@
                     <div class ="center_top_left">
                         <font style="float:left;">
                         <p><?php
-                          echo "Our reverse-geocoding techniques have determined your information to be: <br/>";
-                          echo "Location: " . $city .", " . $state;
+                          echo "Our super-advanced reverse-geocoding techniques have determined your location to be: <br/>";
+                          echo $city .", " . $state;
                     ?></p>
                         </font>
                     </div>
