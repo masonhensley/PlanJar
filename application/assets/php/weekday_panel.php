@@ -2,14 +2,12 @@
 
 <ul class="tabs">
     <li>
-        <a href="0">Today - <?php echo(date('j')); ?></a>
+        <a href="0">Today</a>
     </li>
-    <li>
-        <a href="1">Tom - <?php echo(date('j') + 1); ?></a>
-    </li>
+    
     <?php
-    $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
-    for ($i = 2; $i < 7; ++$i)
+    $days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+    for ($i = 1; $i < 7; ++$i)
     {
         ?>
         <li>
