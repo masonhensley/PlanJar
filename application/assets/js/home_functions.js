@@ -143,7 +143,7 @@ $(function() {
                         
 
                         var options = {
-                            api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
+                            api_key: 'Jh0TxY9qfV4C0fhuCqF1SHL45jfRHlS4uYJ4Wa9Ys9dr03nRpMLjYWVcjNxLRRCl',
                             limit: place_limit
                         };
 
