@@ -128,12 +128,11 @@ $(function() {
                                 "$search": request.term
                             }
                         };
-                        my_filters = JSON.stringify(my_filters);
-                        alert(my_filters);
                                                 
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
-                            limit: place_limit
+                            limit: place_limit,
+                            filters: my_filters
                         };
                         
                         $.ajax({
