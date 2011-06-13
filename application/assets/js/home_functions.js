@@ -126,17 +126,7 @@ $(function() {
                                 }
                             },
                             {
-                                "$or":[{
-                                    "category":{
-                                        "$bw":"Arts"
-                                    }
-                                },
-
-                                {
-                                    "category":{
-                                        "$bw":"Food"
-                                    }
-                                }]
+                               "$search":request.term
                             }]
                         }
                         
@@ -144,7 +134,6 @@ $(function() {
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
                             limit: place_limit
-                            //filters: my_filters
                         };
 
                         $.ajax({
