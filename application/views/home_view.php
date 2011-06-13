@@ -65,8 +65,8 @@ $state = $user_place_info['geoplugin_regionCode'];
                 <div class="center_graph">
                     <div id = "tabs" class="tabs-bottom">
                         <ul>
-                            <li><a href="#tabs-2">Data</a></li>
                             <li><a href="#tabs-1">Map</a></li>
+                            <li><a href="#tabs-2">Data</a></li>
                         </ul>
 
                          <!-- Google Map Div -->
