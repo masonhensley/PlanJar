@@ -76,7 +76,7 @@ body {
 }
 
 .center_day{
-    width:100%;
+    width:auto;
     height:33px;
 
     background-color:blue;
