@@ -152,7 +152,7 @@ $(function() {
                 data: options,
                 dataType: 'jsonp',
                 success : function(data) {
-                    console.log(data);
+                    console.log($.parseJSON(data));
                 }
             });
         }
