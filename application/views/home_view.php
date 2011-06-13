@@ -70,7 +70,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                         </ul>
 
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
-                            <img src="http://i.imgur.com/ZuWLt.gif" />
+                            <img style="width:auto; height:auto;" src="http://i.imgur.com/ZuWLt.gif" />
                         </div>
 
                         <!-- Google Map Div -->
