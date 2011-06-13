@@ -69,14 +69,16 @@ $state = $user_place_info['geoplugin_regionCode'];
                             <li><a href="#tabs-1">Map</a></li>
                         </ul>
 
+                         <!-- Google Map Div -->
+                        <div id="tabs-1" style="width:555px; height:250px;" >
+                            <div id="map" style="width:555px; height:250px;"></div>
+                        </div>
+                        
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
                             <img style="width:555px; height:250px;" src="http://i.imgur.com/ZuWLt.gif" />
                         </div>
 
-                        <!-- Google Map Div -->
-                        <div id="tabs-1" style="width:555px; height:250px;" >
-                            <div id="map" style="width:555px; height:250px;"></div>
-                        </div>
+                       
 
                     </div>
                 </div>
