@@ -2,7 +2,7 @@
 
 <ul class="tabs">
     <li>
-        <a href="0">Today - <?php echo(date('j')); ?></a>
+        <a href="0">Today</a>
     </li>
     
     <?php
