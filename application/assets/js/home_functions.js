@@ -118,17 +118,13 @@ $(function() {
                         // If additional places are required, fetch places from Factual. Pick fields needed
                         // by the autocomplete from the resulting JSON and add them to response_json array.
                         var my_filters = {
-                            "$and": [{
-                                "$loc":{
-                                    "$within":{
-                                        "$center":[[myLatitude + ',' + myLongitude
-                                        ],5000]
-                                    }
+                            "$loc":{
+                                "$within":{
+                                    "$center":[[myLatitude + ',' + myLongitude
+                                    ],5000]
                                 }
                             },
-                            {
-                                "$search": request.term
-                            }]
+                            "$search": request.term
                         };
 
                         var options = {
