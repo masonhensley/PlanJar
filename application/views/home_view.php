@@ -1,7 +1,7 @@
-<?php 
-    $user_place_info = (unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR']))); 
-    $city = $user_place_info['geoplugin_city'];
-    $state = $user_place_info['geoplugin_regionCode'];
+<?php
+$user_place_info = (unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=' . $_SERVER['REMOTE_ADDR'])));
+$city = $user_place_info['geoplugin_city'];
+$state = $user_place_info['geoplugin_regionCode'];
 ?>
 
 <html>
@@ -19,7 +19,7 @@
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
-        
+
     </head>
 
     <body>
@@ -42,10 +42,10 @@
 
                     <div class ="center_top_left">
                         <font style="float:left;">
-                        <p><?php
-                          echo "Our super-advanced reverse-geocoding techniques have determined your location to be: <br/>";
-                          echo $city .", " . $state;
-                    ?></p>
+                        <?php
+                        echo "Our advanced reverse-geocoding algorithm has determined your location to be: ";
+                        echo $city . ", " . $state . "<br/>";
+                        ?><font style="font-size:10px;"><?php echo "And now your address is in our database.  WHAT THE FUCK YOU GONA DO ABOUT IT?"; ?></font>
                         </font>
                     </div>
 
