@@ -125,7 +125,6 @@ $(function() {
                                     }
                                 }
                             },
-
                             {
                                 "$or":[{
                                     "category":{
@@ -140,7 +139,7 @@ $(function() {
                                 }]
                             }]
                         }
-                        }
+                        
 
                         var options = {
                             api_key: 'JG0aox7ooCrWUcQHHWsYNd4vq0nYTxvALaUk0ziSgFwwjl6DKvMqghXj3pnYaPGD',
