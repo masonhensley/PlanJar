@@ -75,7 +75,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                         </div>
                         
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
-                            <img style="width:555px; height:250px;" src="http://i.imgur.com/ZuWLt.gif" />
+                            <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
                         </div>
 
                        
