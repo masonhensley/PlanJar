@@ -12,6 +12,7 @@ function destroy_selectables() {
 function create_selectable(ul_element) {
     // Make the list tiems selectable.
     $('group_selectable_wrapper li').click(function() {
+        alert('li');
         // Toggle the selection.
         if ($(this).hasClass('group_selected')) {
             $(this).removeClass('group_selected');
