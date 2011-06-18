@@ -32,11 +32,6 @@ $(function() {
         return false;
     });
     
-    // this is supposed to save the day number to the day variable. doesn't work yet
-    $("ul.tabs li").click(function(){
-        day = $(".active").attr("href");
-    });
-    
     // Start the plan dialog box closed.
     $('#plan_content').dialog({
         autoOpen: false,
