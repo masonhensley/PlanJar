@@ -151,7 +151,7 @@ ul.tabs li a {
 ul.tabs li a:hover {
     background: #ccc;
 }
-ul.tabs li.active {
+ul.tabs li.day_selected {
     background: #999;
 }
 

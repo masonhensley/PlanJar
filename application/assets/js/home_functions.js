@@ -23,8 +23,8 @@ $(function() {
     //On Click Event
     $("ul.tabs li").click(function() {
 
-        $("ul.tabs li").removeClass("day_selected"); //Remove any "day_selected" class
-        $(this).addClass("day_selected"); //Add "actiday_selectedve" class to selected tab
+        $("ul.tabs li.day_selected").removeClass("day_selected"); //Remove any "day_selected" class
+        $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
         // Call the callback function.
         on_day_change($(this).attr('href'));
