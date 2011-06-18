@@ -9,8 +9,8 @@ class Load_groups extends CI_Model
         parent::__construct();
     }
 
-    // Returns a list of [id, name] pairs for each group id in the argument.
-    // Accepts a list.
+    // Returns a list of [id, name] pairs for each group id passed in.
+    // Accepts a list of group id's
     function get_groups($group_id_list)
     {
         $this->load->database();
