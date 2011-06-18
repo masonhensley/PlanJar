@@ -11,8 +11,13 @@ function destroy_selectables() {
 
 function create_selectable(ul_element) {
     $(ul_element + ' li').click(function() {
-        alert(this);
+        if (this.hasClass('group_selected')) {
+            this.removeClass('group_selected');
+        } else {
+            this.addClass('group_selected');
+        }
     });
+    
 //        // Set up the Selectable instance with default options (the shown
 //        // options are to keep the last selected item from disappearing.
 //        $(ul_element).selectable({
