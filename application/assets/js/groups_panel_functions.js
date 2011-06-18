@@ -5,7 +5,7 @@ $(function() {
 
 function create_selectables() {
     // Make the list tiems selectable.
-    $('group_selectable_wrapper li').click(function() {
+    $('div.group_selectable_wrapper li').click(function() {
         // Toggle the selection.
         if ($(this).hasClass('group_selected')) {
             $(this).removeClass('group_selected');
