@@ -1,27 +1,6 @@
 $(function() {
-    alert('here');
-    // Set up the Selectable instance with default options (the shown
-    // options are to keep the last selected item from disappearing).
-    $('#my_groups').selectable({
-        selected: function(event, ui) {
-            if ($(ui.selected).hasClass('group_label')) {
-                // Disallow group label divs from being selected.
-                $(ui.selected).removeClass('ui-selected');
-            } else {
-                $(ui.selected).addClass('my-selected');
-            }
-        },
-        unselected: function(event, ui) {
-            $(ui.unselected).removeClass('my-selected');
-        },
-        // Disallow group label divs from being selected.
-        selecting: function(event, ui) {
-            if ($(ui.selecting).hasClass('group_label')) {
-                $(ui.selecting).removeClass('ui-selecting');
-            }
-        }
-        
-    });
+    // Set up the Selectable instance with default options.
+    create_selectables('standard');
     
     // Initialize the group buttonset (select one/select multiple).
     $('div .radio').buttonset();
