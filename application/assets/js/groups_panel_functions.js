@@ -13,14 +13,22 @@ function create_selectables() {
             $(this).addClass('group_selected');
         }
         
-        // Call the change function.
+        // Initialize the group list.
         var selected_groups = ([]);
-        
         $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
-           selected_groups.push($(element).attr('group_id'));
+            selected_groups.push($(element).attr('group_id'));
         });
         
+        // Call the callback function.
         on_groups_change(selected_groups);
+    });
+    
+    // Initialize the clear all and select all button actions.
+    $('#clear_all_groups').click(function() {
+        $('div.group_selectable_wrapper li.group_selected').removeClass('group_selected');
+    });
+    $('#select_all_groups').click(function() {
+        $('div.group_selectable_wrapper li').addClass('group_selected');
     });
 }
 
