@@ -20,18 +20,26 @@ function create_selectables() {
         });
         
         // Call the callback function.
-        on_groups_change(selected_groups);
+        on_groups_change();
     });
     
     // Initialize the clear all and select all button actions.
     $('#clear_all_groups').click(function() {
         $('div.group_selectable_wrapper li.group_selected').removeClass('group_selected');
+        on_groups_change();
     });
     $('#select_all_groups').click(function() {
         $('div.group_selectable_wrapper li').addClass('group_selected');
+        on_groups_change();
     });
 }
 
-function on_groups_change(selected_groups) {
+function on_groups_change() {
+    // Initialize the group list.
+    var selected_groups = ([]);
+    $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
+        selected_groups.push($(element).attr('group_id'));
+    });
     
+    console.log(selected_groups);
 }
