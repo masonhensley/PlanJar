@@ -1,9 +1,6 @@
 $(function() {
     // Set up the Selectable instance with default options.
-    create_selectables('standard');
-    
-    // Initialize the group buttonset (select one/select multiple).
-    $('div .radio').buttonset();
+    create_selectables();
 });
 
 function destroy_selectables() {
