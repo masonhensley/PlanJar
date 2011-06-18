@@ -8,7 +8,7 @@ $(function() {
         show: 'clip',
         hide: 'explode'
     });
-    
+
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
         alert('here');
@@ -57,26 +57,26 @@ $(function() {
                         // by the autocomplete from the resulting JSON and add them to response_json array.
                         var my_filters = {
                             "$and":[{
-                                    "$loc":{
-                                        "$within":{
-                                            "$center":[[myLatitude, myLongitude],5000]
-                                        }
+                                "$loc":{
+                                    "$within":{
+                                        "$center":[[myLatitude, myLongitude],5000]
+                                    }
+                                }
+                            },
+
+                            {
+                                "$or":[{
+                                    "category":{
+                                        "$bw":"Arts"
                                     }
                                 },
 
                                 {
-                                    "$or":[{
-                                            "category":{
-                                                "$bw":"Arts"
-                                            }
-                                        },
-
-                                        {
-                                            "category":{
-                                                "$bw":"Food"
-                                            }
-                                        }]
+                                    "category":{
+                                        "$bw":"Food"
+                                    }
                                 }]
+                            }]
                         }
                         
 
@@ -136,4 +136,4 @@ $(function() {
         
         return false;
     });
-}
+});
