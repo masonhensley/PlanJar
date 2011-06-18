@@ -18,7 +18,7 @@ $(function() {
     .addClass( "ui-corner-bottom" );
     
     // Set up the day of the week tabs.
-    $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+    $("ul.tabs li:first").addClass("day_selected").show(); //Activate first tab
 
     //On Click Event
     $("ul.tabs li").click(function() {
