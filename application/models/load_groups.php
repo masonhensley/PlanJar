@@ -23,14 +23,14 @@ class Load_groups extends CI_Model
             $query_string = "SELECT id, name FROM groups WHERE id = $where_clause";
             $query = $this->db->query($query_string);
 
-
             foreach ($query->result() as $row)
             {
                 $return_array[] = array('id' => $row->id, 'name' => $row->name);
             }
         }
 
-        return $return_array;
+        //return $return_array;
+        return array('id' => 0, 'name' => $query_string);
     }
 
 }
