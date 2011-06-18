@@ -20,7 +20,7 @@ class Load_groups extends CI_Model
         if (count($group_id_list) != 0)
         {
             $where_clause = implode("' OR id = '", $group_id_list);
-            $query_string = "SELECT id, name FROM groups WHERE id = $where_clause";
+            $query_string = "SELECT id, name FROM groups WHERE id = '$where_clause'";
             $query = $this->db->query($query_string);
 
             foreach ($query->result() as $row)
