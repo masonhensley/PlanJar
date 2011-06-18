@@ -16,9 +16,12 @@ class Home extends CI_Controller
             $user_info = $this->ion_auth->get_user();
             $user_id = $user_info->id;
             $result = $this->load_events->getPlans($user_id);
-            
-            $this->load->view('home_view', array('result' => $result));
-            
+
+            $this->load->view('home_view', array(
+                'result' => $result,
+                'joined_groups' => $user_info->joined_groups,
+                'followed_groups' => $user_info->followed_groups)
+            );
         } else
         {
             $this->logout();

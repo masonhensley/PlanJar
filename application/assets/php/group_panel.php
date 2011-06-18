@@ -11,17 +11,15 @@ Select
 </div>
 <hr/>
 
-<ul id="my_groups">
+<ul id="friends">
     <li class="ui-widget-content">Friends</li>
+</ul>
 
+<ul id="joined">
     <div class="group_label">Joined</div>
     <li class="ui-widget-content">Vanderbilt</li>
-    <li class="ui-widget-content">Lambda Chi Alpha</li>
-    <li class="ui-widget-content">VSVS</li>
-    <li class="ui-widget-content">ASB</li>
+</ul>
 
+<ul id="following">
     <div class="group_label">Following</div>
-    <li class="ui-widget-content">Kappa Delta</li>
-    <li class="ui-widget-content">Vanderbilt Rugby</li>
-    <li class="ui-widget-content">Lupton 5</li>
 </ul>
