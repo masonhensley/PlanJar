@@ -80,7 +80,6 @@ function plan_location_autocomplete() {
                     
                 var place_count = data.count;
                 var place_limit = 10 - place_count;
-                alert(place_limit);
                     
                 // We're done with count, so overwrite data with data.data (Peter Griffin laugh).
                 data = data.data;
@@ -142,6 +141,8 @@ function plan_location_autocomplete() {
                         }
                     });
                 }
+                
+                response(response_json);
             });
         },
         // When an item is selected, update the location text as well as the hidden
