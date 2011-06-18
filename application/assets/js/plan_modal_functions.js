@@ -54,6 +54,10 @@ function initialize_plan_modal() {
             }
         });
         
+        // Make the time/day radios buttons.
+        $('#plan_time').buttonset();
+        $('#plan_day').buttonset();
+        
         return false;
     });
 }
