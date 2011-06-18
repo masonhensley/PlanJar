@@ -1,4 +1,5 @@
 $(function() {
+    alert('here');
     // Set up the Selectable instance with default options (the shown
     // options are to keep the last selected item from disappearing).
     $('#my_groups').selectable({
