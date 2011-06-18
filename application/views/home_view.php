@@ -101,17 +101,15 @@ $state = $user_place_info['geoplugin_regionCode'];
                     </div>
                     <!-- this function loads the user events into the right panel -->
 
-                    <ul>
+                    <div id="radio">
                         <?php
+                        $tracker=0;
                         foreach ($result as $plan)
                         {
-                            $tracker = 0;
                             ?> 
-
-                        <li class="<?php echo $tracker; ?>">
+                        <input type="radio" id="<?php echo $tracker; $tracker++;?>" /><label for="<?php echo $tracker;?>">
                             <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
                                 <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto;"> 
-
                                     <?php
                                     echo $plan->name . "  |  ";
                                     $date_string = date('D', strtotime($plan->date));
@@ -125,11 +123,13 @@ $state = $user_place_info['geoplugin_regionCode'];
                                 echo "</p>";
                                 ?>
                             </div>
-                        </li>
+                        </label>
+                  
                             <?php
                         }
                         ?>
-                    </ul>
+                    </div>
+          
 
                 </div>
             </div>
