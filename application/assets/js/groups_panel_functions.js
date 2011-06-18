@@ -3,16 +3,9 @@ $(function() {
     create_selectables();
 });
 
-function destroy_selectables() {
-    $('#friends_group').selectable('destroy');
-    $('#joined_groups').selectable('destroy');
-    $('#followed_groups').selectable('destroy');
-}
-
-function create_selectable(ul_element) {
+function create_selectables() {
     // Make the list tiems selectable.
     $('group_selectable_wrapper li').click(function() {
-        alert('li');
         // Toggle the selection.
         if ($(this).hasClass('group_selected')) {
             $(this).removeClass('group_selected');
@@ -29,12 +22,6 @@ function create_selectable(ul_element) {
         
         on_groups_change(selected_groups);
     });
-}
-
-function create_selectables(mode) {
-    create_selectable('#friends_group');
-    create_selectable('#joined_groups');
-    create_selectable('#followed_groups');
 }
 
 function on_groups_change(selected_groups) {
