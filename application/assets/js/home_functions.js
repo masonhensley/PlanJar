@@ -174,8 +174,8 @@ $(function() {
 // End of ready function.
 });
 
-function on_day_change(index) {
-    console.log(index);
+function on_day_change(day_index) {
+    
 }
 
 
