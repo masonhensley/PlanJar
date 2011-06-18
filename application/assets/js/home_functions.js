@@ -27,7 +27,7 @@ $(function() {
         $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
         // Call the callback function.
-        on_day_change(console.log($(this)));
+        on_day_change(console.log($(this, 'a')));
 
         return false;
     });
