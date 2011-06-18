@@ -27,7 +27,7 @@ $(function() {
         $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
         // Call the callback function.
-        on_day_change($('ul.tabs > a').attr('href'));
+        on_day_change($('ul.tabs li.day_selected a').attr('href'));
 
         return false;
     });
