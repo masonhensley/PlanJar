@@ -11,7 +11,7 @@ function destroy_selectables() {
 
 function create_selectable(ul_element) {
     $(ul_element + ' li').click(function() {
-        alert('hi');
+        alert(this);
     });
 //        // Set up the Selectable instance with default options (the shown
 //        // options are to keep the last selected item from disappearing.
