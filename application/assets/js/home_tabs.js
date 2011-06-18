@@ -1,6 +1,6 @@
 $(function() {
     $( "#myplans" ).tabs();
-    $("ul.tabs li").click(function() {
+    $("ul.myplans li").click(function() {
 
         alert('sup');
         
