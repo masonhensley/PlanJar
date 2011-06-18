@@ -11,6 +11,7 @@ $state = $user_place_info['geoplugin_regionCode'];
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
 
@@ -69,16 +70,16 @@ $state = $user_place_info['geoplugin_regionCode'];
                             <li><a href="#tabs-2">Data</a></li>
                         </ul>
 
-                         <!-- Google Map Div -->
+                        <!-- Google Map Div -->
                         <div id="tabs-1" style="width:555px; height:250px;" >
                             <div id="map" style="width:555px; height:250px;"></div>
                         </div>
-                        
+
                         <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
                             <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
                         </div>
 
-                       
+
 
                     </div>
                 </div>

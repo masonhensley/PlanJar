@@ -65,6 +65,8 @@ $config['columns'] = array(
     'grad_year',
     'latitude',
     'longitude',
+    'joined_groups',
+    'followed_groups',
     'past_plans',
     'current_plans',
     'following',

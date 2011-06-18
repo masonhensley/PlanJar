@@ -16,9 +16,18 @@ class Home extends CI_Controller
             $user_info = $this->ion_auth->get_user();
             $user_id = $user_info->id;
             $result = $this->load_events->getPlans($user_id);
+
+            // Lookup the groups by id.
+            $this->load->model('load_groups');
+            $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
+            $followed_groups = $this->load_groups->get_groups(json_decode($user_info->followed_groups));
             
-            $this->load->view('home_view', array('result' => $result));
-            
+            // Pass the necessary information to the view.
+            $this->load->view('home_view', array(
+                'result' => $result,
+                'joined_groups' => $joined_groups,
+                'followed_groups' => $followed_groups)
+            );
         } else
         {
             $this->logout();
