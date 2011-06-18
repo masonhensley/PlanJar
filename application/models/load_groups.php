@@ -29,7 +29,8 @@ class Load_groups extends CI_Model
             }
         }
 
-        return $return_array;
+        //return $return_array;
+        return array(array('id' => 0, 'name' => $this->db->last_query()));
     }
 
 }
