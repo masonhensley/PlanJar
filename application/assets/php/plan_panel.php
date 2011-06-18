@@ -42,16 +42,16 @@
             <center>
                 <div id="plan_time" class="radio">
                     <label for="plan_morning">morning</label>
-                    <input type="radio" value="morning" name="plan_time_group" />
+                    <input type="radio" id="plan_morning" value="morning" name="plan_time_group" />
 
                     <label for="plan_afternoon">afternoon</label>
-                    <input type="radio" value="afternoon" name="plan_time_group" />
+                    <input type="radio" id="plan_afternoon" value="afternoon" name="plan_time_group" />
 
                     <label for="plan_night">night</label>
-                    <input type="radio" value="night" name="plan_time_group" />
+                    <input type="radio" id="plan_night" value="night" name="plan_time_group" />
 
                     <label for="plan_late_night">late night</label>
-                    <input type="radio" value="late_night" name="plan_time_group" />
+                    <input type="radio" id="plan_late_night" value="late_night" name="plan_time_group" />
                 </div>
             </center>
             </td>
@@ -64,7 +64,7 @@
                     <div id="plan_day" class="radio">
                         <center>
                             <label for="0">Today - <?php echo(date('j')); ?></label>
-                            <input type="radio" name="0" value="0" name="plan_day_group" />
+                            <input type="radio" id="0" value="0" name="plan_day_group" />
 
                             <?php
                             $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
@@ -80,7 +80,7 @@
                                     echo($day_name);
                                     ?>
                                 </label>
-                                <input type="radio" name="<?php echo($i); ?>" value="<?php echo($i); ?>" name="plan_day_group" />
+                                <input type="radio" id="<?php echo($i); ?>" value="<?php echo($i); ?>" name="plan_day_group" />
                                 <?php
                             }
                             ?>
