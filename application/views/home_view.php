@@ -105,8 +105,9 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <?php
                     foreach ($result as $plan)
                     {
+                        $tracker = 0;
                         ?> 
-                    <li><a href="#plan">
+                    <a href="#plan<?php echo $tracker; $tracker++;?>">
                             <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
                                 <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto;"> 
 
@@ -123,7 +124,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                                 echo "</p>";
                                 ?>
                             </div>
-                        </a></li>
+                        </a>
                         <?php
                     }
                     ?>
