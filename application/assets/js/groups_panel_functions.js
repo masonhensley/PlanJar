@@ -11,6 +11,7 @@ function destroy_selectables() {
 
 function create_selectable(ul_element) {
     $(ul_element + ' li').click(function() {
+        console.log(this);
         if (this.hasClass('group_selected')) {
             this.removeClass('group_selected');
         } else {
