@@ -12,10 +12,10 @@ function destroy_selectables() {
 function create_selectable(ul_element) {
     $(ul_element + ' li').click(function() {
         console.log(this);
-        if (this.hasClass('group_selected')) {
-            this.removeClass('group_selected');
+        if ($(this).hasClass('group_selected')) {
+            $(this).removeClass('group_selected');
         } else {
-            this.addClass('group_selected');
+            $(this).addClass('group_selected');
         }
     });
     
