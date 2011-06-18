@@ -3,7 +3,7 @@ Filter by group
 
 <div class="group_selectable_wrapper">
     <ul id="friends_group">
-        <li class="ui-widget-content">Friends</li>
+        <li class="ui-widget-content" group_id="friends">Friends</li>
     </ul>
 
     <ul id="joined_groups">

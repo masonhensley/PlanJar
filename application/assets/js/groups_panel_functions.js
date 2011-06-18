@@ -20,8 +20,6 @@ function create_selectables() {
            selected_groups.push($(element).attr('group_id'));
         });
         
-        console.log(selected_groups);
-        
         on_groups_change(selected_groups);
     });
 }
