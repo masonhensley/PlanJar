@@ -42,16 +42,16 @@
             <center>
                 <div id="plan_time" class="radio">
                     <label for="plan_morning">morning</label>
-                    <input type="radio" id="plan_morning" name="plan_time_group" />
+                    <input type="radio" value="morning" name="plan_time_group" />
 
                     <label for="plan_afternoon">afternoon</label>
-                    <input type="radio" id="plan_afternoon" name="plan_time_group" />
+                    <input type="radio" value="afternoon" name="plan_time_group" />
 
                     <label for="plan_night">night</label>
-                    <input type="radio" id="plan_night" name="plan_time_group" />
+                    <input type="radio" value="night" name="plan_time_group" />
 
                     <label for="plan_late_night">late night</label>
-                    <input type="radio" id="plan_late_night" name="plan_time_group" />
+                    <input type="radio" value="late_night" name="plan_time_group" />
                 </div>
             </center>
             </td>
