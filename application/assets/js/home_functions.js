@@ -2,6 +2,7 @@ var myLatitude;
 var myLongitude;
 var myCity;
 var myAddress;
+var current_day_offset = 0;
 
 // Run when the DOM is loaded.
 $(function() {
@@ -36,7 +37,7 @@ $(function() {
 });
 
 function on_day_change(day_index) {
-    
+    current_day_offset = day_index;
 }
 
 

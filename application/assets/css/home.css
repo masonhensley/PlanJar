@@ -211,6 +211,8 @@ div.group_selectable_wrapper ul div.group_label {
     width: 100px;
 }
 
-/* for day picker in make-a-plan */
+/* for time/day picker in make-a-plan */
+#plan_time .ui-button-text-only .ui-button-text { padding: .4em .4em; }
+#plan_time  .ui-widget { font-size: .85em; }
 #plan_day .ui-button-text-only .ui-button-text { padding: .4em .4em; }
 #plan_day  .ui-widget { font-size: .85em; }
