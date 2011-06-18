@@ -22,7 +22,6 @@ Select
         <?php
         foreach ($joined_groups as $group)
         {
-            echo('wufgiufubewiufgbueb');
             ?>
             <li class="ui-widget-content" group_id="<?php echo($group['id']); ?>"><?php echo($group['name']); ?></li>
             <?php

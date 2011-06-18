@@ -26,7 +26,7 @@ class Load_groups extends CI_Model
 
             foreach ($query->result() as $row)
             {
-                $return_array[] = array($row->id, $row->name);
+                $return_array[] = array('id' => $row->id, 'name' => $row->name);
             }
         }
 
