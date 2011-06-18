@@ -12,9 +12,8 @@ function destroy_selectables() {
 function create_selectable(ul_element) {
     // Make the list tiems selectable.
     $(ul_element + ' li').click(function() {
-        console.log(this);
         if ($(this).hasClass('group_selected')) {
-            if (!$(ul_element + ' li').hasClass('group_selected')) {
+            if ($(ul_element + ' li').hasClass('group_selected')) {
                 $(this).removeClass('group_selected');
             }
         } else {
