@@ -19,8 +19,8 @@ class Home extends CI_Controller
 
             // Lookup the groups by id.
             $this->load->model('load_groups');
-            $joined_groups = $this->load_groups->get_groups($user_info->joined_groups);
-            $followed_groups = $this->load_groups->get_groups($user_info->followed_groups);
+            $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
+            $followed_groups = $this->load_groups->get_groups(json_decode($user_info->followed_groups));
             
             
 
