@@ -10,7 +10,7 @@ function destroy_selectables() {
 }
 
 function create_selectable(ul_element) {
-    $(ul_element + ' ul').click(function() {
+    $(ul_element + ' li').click(function() {
         alert('hi');
     });
 //        // Set up the Selectable instance with default options (the shown
