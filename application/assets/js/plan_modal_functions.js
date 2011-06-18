@@ -11,6 +11,7 @@ $(function() {
     
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
+        alert('here');
         $('#plan_content').dialog('open');
         
         // Initialize the in-field labels.
