@@ -14,10 +14,11 @@ function create_selectables() {
         }
         
         // Call the change function.
-        var selected_groups = new JSONObject();
+        var selected_groups = ([]);
         
         $('div.group_selectable_wrapper li').each(function (index, element) {
-           alert('here'); 
+            alert('hi');
+           //selected_groups.push();
         });
         
         on_groups_change(selected_groups);
