@@ -11,11 +11,11 @@ Select
 </div>
 <hr/>
 
-<ul id="friends">
+<ul id="friends_group">
     <li class="ui-widget-content">Friends</li>
 </ul>
 
-<ul id="joined">
+<ul id="joined_groups">
     <div class="group_label">Joined</div>
     
     <?php
@@ -27,7 +27,7 @@ Select
     ?>
 </ul>
 
-<ul id="following">
+<ul id="followed_groups">
     <div class="group_label">Following</div>
     
     <?php
