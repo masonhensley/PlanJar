@@ -155,6 +155,11 @@ ul.tabs li.day_selected {
     background: #999;
 }
 
+/* CSS for active plan */
+.active{
+    background:#000000;
+}
+
 /* Used for the groups Selectable instance. */
 div.group_selectable_wrapper ul .group_selected { background: #F39814; color: white; }
 div.group_selectable_wrapper ul { list-style-type: none; margin: 0; padding: 0; width:100% }

@@ -1,6 +1,5 @@
 $(function() {
     $( "#myplans" ).tabs();
-    
     $("ul.tabs li").click(function() {
 
         $("ul.tabs li").removeClass("active"); //Remove any "active" class
@@ -11,5 +10,4 @@ $(function() {
         $(activeTab).fadeIn(); //Fade in the active ID content
         return false;
     });
-
 });
