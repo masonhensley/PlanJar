@@ -137,7 +137,7 @@ function plan_location_autocomplete() {
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
-                            console.log($.parseJSON(data));
+                            console.log(data);
                         }
                     });
                 }
