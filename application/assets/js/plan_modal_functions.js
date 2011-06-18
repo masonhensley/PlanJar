@@ -58,6 +58,9 @@ function initialize_plan_modal() {
         $('#plan_time').buttonset();
         $('#plan_day').buttonset();
         
+        // Auto select the appropriate day.
+        $('#plan_day ' + '[value=' + current_day_offset + ']').select();
+        
         return false;
     });
 }

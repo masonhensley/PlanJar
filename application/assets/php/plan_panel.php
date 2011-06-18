@@ -64,14 +64,11 @@
                     <div id="plan_day" class="radio">
                         <center>
                             <label for="0">Today - <?php echo(date('j')); ?></label>
-                            <input type="radio" id="0" name="plan_day_group" />
-
-                            <label for="1">Tom - <?php echo(date('j') + 1); ?></label>
-                            <input type="radio" id="1" name="plan_day_group" />
+                            <input type="radio" name="0" value="0" name="plan_day_group" />
 
                             <?php
                             $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
-                            for ($i = 2; $i < 7; ++$i)
+                            for ($i = 1; $i < 7; ++$i)
                             {
                                 ?>
 
@@ -83,7 +80,7 @@
                                     echo($day_name);
                                     ?>
                                 </label>
-                                <input type="radio" id="<?php echo($i); ?>" name="plan_day_group" />
+                                <input type="radio" name="<?php echo($i); ?>" value="<?php echo($i); ?>" name="plan_day_group" />
                                 <?php
                             }
                             ?>
