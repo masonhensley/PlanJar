@@ -18,14 +18,16 @@ $(function() {
     .addClass( "ui-corner-bottom" );
     
     // Set up the day of the week tabs.
-    $(".tab_content").hide(); //Hide all content
     $("ul.tabs li:first").addClass("active").show(); //Activate first tab
 
     //On Click Event
     $("ul.tabs li").click(function() {
 
-        $("ul.tabs li").removeClass("day_selected"); //Remove any "active" class
-        $(this).addClass("day_selected"); //Add "active" class to selected tab
+        $("ul.tabs li").removeClass("day_selected"); //Remove any "day_selected" class
+        $(this).addClass("day_selected"); //Add "actiday_selectedve" class to selected tab
+        
+        // Call the callback function.
+        on_day_change($(this).attr('href'));
 
         return false;
     });
@@ -176,6 +178,10 @@ $(function() {
     
 // End of ready function.
 });
+
+function on_day_change(index) {
+    alert(index);
+}
 
 
 // This function takes the user's latitude and longitude and passes them
