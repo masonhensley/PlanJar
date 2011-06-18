@@ -34,12 +34,11 @@ function create_selectables() {
     });
 }
 
+// Callback function
 function on_groups_change() {
     // Initialize the group list.
     var selected_groups = ([]);
     $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
         selected_groups.push($(element).attr('group_id'));
     });
-    
-    console.log(selected_groups);
 }

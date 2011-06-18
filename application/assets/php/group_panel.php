@@ -1,8 +1,8 @@
 Filter by group
 <hr/>
 
-<input type="button" id="clear_all_groups" value="Clear all"/>
 <input type="button" id="select_all_groups" value="Select all"/>
+<input type="button" id="clear_all_groups" value="Clear all"/>
 
 <div class="group_selectable_wrapper">
     <ul id="friends_group">
