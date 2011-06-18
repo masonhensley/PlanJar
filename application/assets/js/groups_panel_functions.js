@@ -16,8 +16,7 @@ function create_selectable(ul_element, mode) {
     if (mode == 'standard') {
         // Set up the Selectable instance with default options (the shown
         // options are to keep the last selected item from disappearing.
-        $('#my_groups').selectable('destroy');
-        $('#my_groups').selectable({
+        $(ul_element).selectable({
             selected: function(event, ui) {
                 if ($(ui.selected).hasClass('group_label')) {
                     // Dissalow group label divs from being selected.
