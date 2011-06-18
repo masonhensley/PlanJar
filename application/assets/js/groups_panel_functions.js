@@ -22,7 +22,7 @@ function create_selectable(ul_element) {
         // Call the change function.
         var selected_groups = new JSONObject();
         
-        $('group_selectable_wrapper li').each(function (index, element) {
+        $('div.group_selectable_wrapper li').each(function (index, element) {
            alert('here'); 
         });
         
