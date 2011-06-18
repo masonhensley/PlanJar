@@ -17,9 +17,24 @@ Select
 
 <ul id="joined">
     <div class="group_label">Joined</div>
-    <li class="ui-widget-content">Vanderbilt</li>
+    
+    <?php
+    foreach ($joined_groups as $group) {
+        ?>
+    <li class="ui-widget-content" group_id="<?php echo($group['id']); ?>"><?php echo($group['name']); ?></li>
+    <?php
+    }
+    ?>
 </ul>
 
 <ul id="following">
     <div class="group_label">Following</div>
+    
+    <?php
+    foreach ($followed_groups as $group) {
+        ?>
+    <li class="ui-widget-content" group_id="<?php echo($group['id']); ?>"><?php echo($group['name']); ?></li>
+    <?php
+    }
+    ?>
 </ul>
