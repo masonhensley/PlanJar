@@ -33,12 +33,6 @@ function destroy_selectables() {
     $('#followed_groups').selectable('destroy');
 }
 
-function create_selectables(mode) {
-    create_selectable('#friends_group', mode);
-    create_selectable('#joined_groups', mode);
-    create_selectable('#followed_groups', mode);
-}
-
 function create_selectable(ul_element, mode) {
     if (mode == 'standard') {
         // Set up the Selectable instance with default options (the shown
@@ -100,6 +94,12 @@ function create_selectable(ul_element, mode) {
             }
         });
     }
+}
+
+function create_selectables(mode) {
+    create_selectable('#friends_group', mode);
+    create_selectable('#joined_groups', mode);
+    create_selectable('#followed_groups', mode);
 }
 
 
