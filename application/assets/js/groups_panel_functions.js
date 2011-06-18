@@ -13,7 +13,7 @@ function create_selectable(ul_element) {
     // Make the list tiems selectable.
     $(ul_element + ' li').click(function() {
         if ($(this).hasClass('group_selected')) {
-            if ($(ul_element + ' li').hasClass('group_selected') && $(ul_element + ' li') != this) {
+            if ($(ul_element + ' li').hasClass('group_selected') && $(ul_element + ' li') != $(this)) {
                 $(this).removeClass('group_selected');
             }
         } else {
