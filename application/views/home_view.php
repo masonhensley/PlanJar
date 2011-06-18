@@ -106,8 +106,9 @@ $state = $user_place_info['geoplugin_regionCode'];
                     {
                         ?> 
                         <a href="#plan">
-                                <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
-                                    <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;">
+                                <!-- <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
+                                    <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;"> 
+                                -->
                                         <?php
                                         echo $plan->name . "  |  ";
                                         $date_string = date('D', strtotime($plan->date));
