@@ -24,9 +24,8 @@ $(function() {
     //On Click Event
     $("ul.tabs li").click(function() {
 
-        $("ul.tabs li").removeClass("active"); //Remove any "active" class
-        $(this).addClass("active"); //Add "active" class to selected tab
-        $(".tab_content").hide(); //Hide all tab content
+        $("ul.tabs li").removeClass("day_selected"); //Remove any "active" class
+        $(this).addClass("day_selected"); //Add "active" class to selected tab
 
         return false;
     });

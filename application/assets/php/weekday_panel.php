@@ -4,7 +4,7 @@
     <li>
         <a href="0">Today</a>
     </li>
-    
+
     <?php
     $days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
     for ($i = 1; $i < 7; ++$i)
