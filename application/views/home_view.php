@@ -14,6 +14,7 @@ $state = $user_place_info['geoplugin_regionCode'];
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/home_tabs.js"></script>
 
         <!-- Load GeoPlugin api -->
         <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
@@ -93,30 +94,34 @@ $state = $user_place_info['geoplugin_regionCode'];
                 <div class="right_top">
                     <a href="/home/logout">Log out.</a>
                 </div>
-                <div class="right_bottom">
+                <div id="myplans" class="right_bottom">
                     <div style="width:auto; height:33px; text-align: center;">
                         <font>Plans</font>
                     </div>
                     <!-- this function loads the user events into the right panel -->
+
+
                     <?php
                     foreach ($result as $plan)
                     {
                         ?> 
-                        <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
-                            <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;">
-                                <?php
-                                echo $plan->name . "  |  ";
-                                $date_string = date('D', strtotime($plan->date));
-                                echo $date_string;
-                                ?>
-                            </div>
-                            <?php
-                            echo "<p>";
-                            $date_string = date('l', strtotime($plan->date));
-                            echo $date_string . " " . $plan->time_of_day;
-                            echo "</p>";
-                            ?>
-                        </div>
+                        <li><a href="#plan">
+                                <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
+                                    <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto; text-align: center;">
+                                        <?php
+                                        echo $plan->name . "  |  ";
+                                        $date_string = date('D', strtotime($plan->date));
+                                        echo $date_string;
+                                        ?>
+                                    </div>
+                                    <?php
+                                    echo "<p>";
+                                    $date_string = date('l', strtotime($plan->date));
+                                    echo $date_string . " " . $plan->time_of_day;
+                                    echo "</p>";
+                                    ?>
+                                </div>
+                            </a></li>
                         <?php
                     }
                     ?>
