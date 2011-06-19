@@ -14,10 +14,12 @@ class Load_events extends CI_Model
 
         // pull all user's current events
         $query = 
-       "SELECT plans.time_of_day, plans.date, places.name 
+       "SELECT plans.time_of_day, plans.date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
+        LEFT JOIN plan_categories
+        ON plan_categories.id=plans.category_id
         WHERE plans.user_id=$user_id";
 
         // pull data
