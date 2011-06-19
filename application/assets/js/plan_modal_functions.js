@@ -144,18 +144,18 @@ function plan_location_autocomplete() {
 
 // Only allows input chosen from an autocomplete.
 // All three arguments are DOM element names (as strings).
-function lock_to_autocomplete(textbox, id, name) {
+function lock_to_autocomplete(textbox_name, id_name, name_name) {
     // Get the id stored in the hidden field.
-    var id = $(id).val();
+    var id = $(id_name).val();
     
     if (id == '') {
         // If id is empty, clear the location box.
-        $(textbox).val('');
+        $(textbox_name).val('');
         
     } else {
         // A location was previously selected, so repopulate the location box with that
         // name (saved locally) This should make it clear to the user that
         // only a chosen item can be submitted.
-        $(textbox).val($(name).val());
+        $(textbox_name).val($(name_name).val());
     }
 }
