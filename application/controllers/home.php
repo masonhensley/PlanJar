@@ -189,16 +189,16 @@ class Home extends CI_Controller
         $date->add(new DateInterval('P' . $this->input->get('plan_day_group') . 'D'));
 
         // Add the plan entry to the database.
-        $query_string = "INSERT INTO plans VALUES (DEFAULT, ?, ?, ?, ?, ?)";
-        $question_marks = array(
-            $this->input->get('plan_location_id'),
-            $user->id,
-            $date->format('Y-m-d'),
-            $this->input->get('plan_time_group'),
-            $this->input->get('plan_category_id')
+        $data = array(
+            'id' => 'DEFAULT',
+            'place_id' => $this->input->get('plan_location_id'),
+            'user_id' => $user->id,
+            'date' => $date->format('Y-m-d'),
+            'time_of_day' => $this->input->get('plan_time_group'),
+            'category_id' => $this->input->get('plan_category_id')
         );
-        $query = $this->db->query($query_string, $question_marks);
-        echo($this->db->last_query());
+        $query = $this->db->insert('plans', $data);
+        echo($this->db->insert_id());
     }
 
 }
