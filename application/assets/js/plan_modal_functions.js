@@ -2,7 +2,7 @@ $(function() {
     initialize_plan_modal();
     
     // Initialize the location force function.
-    $('#plan_location').blur(force_school);
+    $('#plan_location').blur(force_location);
 });
 
 function initialize_plan_modal() {
