@@ -1,7 +1,7 @@
 $(function() {
     $( "#plans" ).tabs({
         select: function(event, ui) {  
-            $("#weekdays").tabs("select","#tabs-2");
+            $("#tabs").tabs("select","#tabs-2");
         }
     });
     
