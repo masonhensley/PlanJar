@@ -136,6 +136,7 @@ function plan_location_autocomplete() {
                         url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=' + escape(JSON.stringify(my_filters)),
                         data: options,
                         dataType: 'jsonp',
+                        jsonp: 'jsonp',
                         success : function(data) {
                             console.log(JSON.parse(data));
                         }
