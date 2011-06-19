@@ -151,12 +151,11 @@ function initialize_plan_modal() {
                     alert(data);
                 }
             });
-            
         },
         errorPlacement: function (error, element) {
             return true;
         }
-    })
+    });
     
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
