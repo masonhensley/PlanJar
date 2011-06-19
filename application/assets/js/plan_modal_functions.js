@@ -2,7 +2,7 @@ $(function() {
     initialize_plan_modal();
     
     // Initialize the location force function.
-    $('#plan_location').blur(force_location);
+    $('#plan_location').blur(lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name'));
 });
 
 function initialize_plan_modal() {
@@ -133,35 +133,29 @@ function plan_location_autocomplete() {
                 response(response_json);
             });
         },
-        // When an item is selected, update the location text as well as the hidden
-        // id field.
+        // When an item is selected, update the location text as well as the hidden fields.
         select: function (event, ui) {
             $('#plan_location').val(ui.item.value);
             $('#plan_location_id').val(ui.item.id);
+            $('#plan_location_name').val(ui.item.value);
         }
     });
 }
 
-// Should be run on #plan_location onblur.
-// Ensures only a valid location can be submitted.
-function force_location() {
-    // Get the location id stored in the hidden field.
-    var id = $('#plan_location_id').val();
+// Only allows input chosen from an autocomplete.
+// All three arguments are DOM element names (as strings).
+function lock_to_autocomplete(textbox, id, name) {
+    // Get the id stored in the hidden field.
+    var id = $(id).val();
     
     if (id == '') {
         // If id is empty, clear the location box.
-        $('#plan_location').val('');
+        $(textbox).val('');
         
     } else {
         // A location was previously selected, so repopulate the location box with that
-        // name (pulled from the server) This should make it clear to the user that
-        // only a chosen location can be submitted.
-        $.get('/home/get_location_by_id', {
-            "id": id
-        }, function(data) {
-            if (data != 'error') {
-                $('#plan_location').val(data);
-            }
-        });
+        // name (saved locally) This should make it clear to the user that
+        // only a chosen item can be submitted.
+        $(textbox).val($(name).val());
     }
 }
