@@ -202,7 +202,7 @@ class Home extends CI_Controller
             echo($this->db->last_query());
         } else
         {
-            echo('failed to add plan');
+            echo('failed: ' + $this->db->last_query());
         }
     }
 
