@@ -4,5 +4,4 @@ $(function() {
             $("#tabs").tabs("select","#tabs-2");
         }
     });
-    
 });
