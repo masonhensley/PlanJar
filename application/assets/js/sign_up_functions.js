@@ -219,6 +219,7 @@ $(document).ready(function() {
         select: function (event, ui) {
             $('#su_school').val(ui.item.value);
             $('#su_school_id').val(ui.item.id);
+            $('#su_school_name').val(ui.item.value)
         }
     });
     
