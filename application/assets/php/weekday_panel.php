@@ -1,6 +1,6 @@
 <!-- this populates the tabs with right right days -->
 
-<ul class="tabs">
+<ul class="weekdays">
     <li>
         <a href="0">Today</a>
     </li>
