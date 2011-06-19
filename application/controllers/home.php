@@ -162,6 +162,21 @@ class Home extends CI_Controller
     {
         $this->load->view('foo3_view');
     }
+    
+    public function get_location_by_id() {
+        $this->load->database();
+        $query_string = "SELECT name FROM places WHERE id = ? LIMIT 1";
+        $query = $this->db->query($query_string, array($this->input->get('id')));
+        
+        if ($query->num_rows() == 0) {
+            // Return an error if no entries come up.
+            echo('error');
+        } else {
+            // Return the first result.
+            $row = $query->row_array();
+            echo($row['name']);
+        }
+    }
 
 }
 

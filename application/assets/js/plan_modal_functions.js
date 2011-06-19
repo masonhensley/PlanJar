@@ -1,5 +1,8 @@
 $(function() {
     initialize_plan_modal();
+    
+    // Initialize the location force function.
+    $('#plan_location').blur(force_school);
 });
 
 function initialize_plan_modal() {
