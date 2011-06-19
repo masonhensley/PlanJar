@@ -146,7 +146,8 @@ function initialize_plan_modal() {
         submitHandler: function (form) {
             alert('submitted');
         },
-        invalidHandler: function (form, validator) {
+        errorPlacement: function (error, element) {
+            return true;
         }
     })
     
