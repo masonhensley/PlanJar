@@ -104,7 +104,6 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <div id="plans">
                         <ul>
                             <?php
-                            var_dump($result);
                             $tracker = 0;
                             foreach ($result as $plan)
                             {
@@ -122,6 +121,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                                             <?php
                                             echo "<p>";
                                             $date_string = date('l', strtotime($plan->date));
+                                            echo $plan->category . "<br/>";
                                             echo $date_string . " " . $plan->time_of_day;
                                             echo "</p>";
                                             ?>
