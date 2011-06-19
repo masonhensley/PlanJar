@@ -14,21 +14,21 @@ $(function() {
         //collapsible: true
     });
 
-    $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
-    .removeClass( "ui-corner-all ui-corner-top" )
-    .addClass( "ui-corner-bottom" );
+    //$( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+    //.removeClass( "ui-corner-all ui-corner-top" )
+    //.addClass( "ui-corner-bottom" );
     
     // Set up the day of the week tabs.
-    $("ul.tabs li:first").addClass("day_selected").show(); //Activate first tab
+    $("ul.weekdays li:first").addClass("day_selected").show(); //Activate first tab
 
     //On Click Event
-    $("ul.tabs li").click(function() {
+    $("ul.weekdays li").click(function() {
 
-        $("ul.tabs li.day_selected").removeClass("day_selected"); //Remove any "day_selected" class
+        $("ul.weekdays li.day_selected").removeClass("day_selected"); //Remove any "day_selected" class
         $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
         // Call the callback function.
-        on_day_change($('ul.tabs li.day_selected a').attr('href'));
+        on_day_change($('ul.weekdays li.day_selected a').attr('href'));
 
         return false;
     });
