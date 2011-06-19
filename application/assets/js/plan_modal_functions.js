@@ -135,12 +135,14 @@ function plan_location_autocomplete() {
                     $.ajax({
                         url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=' + escape(JSON.stringify(my_filters)),
                         data: options,
-                        dataType: 'jsonp',
+                        dataType: 'json',
                         success : function(data) {
-                            console.log($.parseJSON(data));
+                            console.log(JSON.parse(data));
                         }
                     });
                 }
+                
+                response(response_json);
             });
         },
         // When an item is selected, update the location text as well as the hidden
