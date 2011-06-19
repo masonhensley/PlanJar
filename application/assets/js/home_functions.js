@@ -11,7 +11,7 @@ $(function() {
     location_data();
    
     $( "#tabs" ).tabs({
-        collapsible: true
+        //collapsible: true
     });
 
     $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
