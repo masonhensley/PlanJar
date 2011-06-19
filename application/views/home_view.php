@@ -110,7 +110,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                                 ?> 
                                 <li>
                                     <a href="<?php echo $tracker; ?>">
-                                        <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
+                                        <div style="text-align: left; width:auto; height: auto; ">
                                             <div id="day_display" style="width:100%; height: auto;"> 
                                                 <?php
                                                 echo $plan->name . "  |  ";
