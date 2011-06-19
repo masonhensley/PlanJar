@@ -14,8 +14,8 @@ function initialize_plan_modal() {
     // Start the plan dialog box closed.
     $('#plan_content').dialog({
         autoOpen: false,
-        width: 700,
-        height: 300,
+        width: 600,
+        height: 250,
         resizable: false,
         show: 'clip',
         hide: 'explode'
