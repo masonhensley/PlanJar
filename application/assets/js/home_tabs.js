@@ -1,10 +1,9 @@
 $(function() {
-    $( "#plans" ).tabs();
-    $( ".selector" ).tabs({
+    $( "#plans" ).tabs({
         select: function(event, ui) {  
-      $("#tabs").tabs("select","#tabs-2");
-      alert("this is working");
-    }
+            $("#tabs").tabs("select","#tabs-2");
+            alert("this is working");
+        }
     });
     
 });
