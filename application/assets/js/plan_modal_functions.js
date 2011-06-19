@@ -144,7 +144,7 @@ function initialize_plan_modal() {
             plan_day_group: 'required'
         },
         submitHandler: function (form) {
-            $.get('/home/submit_plan', form.serialize(), function (data) {
+            $.get('/home/submit_plan', $(form).serialize(), function (data) {
                 if (data == 'success') {
                     $('#plan_content').dialog('close');
                 } else {

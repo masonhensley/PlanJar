@@ -188,6 +188,7 @@ class Home extends CI_Controller
         $date = new DateTime();
         $date->add(new DateInterval('P' . $this->input->get('plan_day_group') . 'D'));
 
+        // Add the plan entry to the database.
         $query_string = "INSERT INTO plans VALUES (DEFAULT, ?, ?, ?, ?, ?)";
         $question_marks = array(
             $this->input->get('plan_location_id'),
@@ -198,10 +199,10 @@ class Home extends CI_Controller
         );
         if ($this->db->simple_query($query_string, $question_marks))
         {
-            echo('success');
+            echo($this->db->last_query());
         } else
         {
-            echo('INSERT failed');
+            echo('failed to add plan');
         }
     }
 
