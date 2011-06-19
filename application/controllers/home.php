@@ -197,13 +197,8 @@ class Home extends CI_Controller
             $this->input->get('plan_time_group'),
             $this->input->get('plan_category_id')
         );
-        if ($this->db->simple_query($query_string, $question_marks))
-        {
-            echo($this->db->last_query());
-        } else
-        {
-            echo('failed: ' + $this->db->last_query());
-        }
+        $query = $this->db->query($query_string, $question_marks);
+        echo($this->db->last_query());
     }
 
 }
