@@ -1,6 +1,11 @@
 // Run when then DOM is loaded
 $(document).ready(function() {
     
+    // Force the plan location and category fields to be chosen from the autocomplete.
+    $('#su_school').blur(function() {
+        lock_to_autocomplete('#su_school', '#su_school_id', '#su_school_name');
+    });
+    
     // Initialize the log in Validator instance.
     $('#log_in').validate({
         rules: {
@@ -230,26 +235,20 @@ function get_year()
     return d.getFullYear();
 }
 
-// Should be run on #su_school onblur.
-// Ensures only a valid school can be submitted.
-function force_school() {
-    // Get the school id stored in the hidden field.
-    var id = $('#su_school_id').val();
+// Only allows input chosen from an autocomplete.
+// All three arguments are DOM element names (as strings).
+function lock_to_autocomplete(textbox_name, id_name, name_name) {
+    // Get the id stored in the hidden field.
+    var id = $(id_name).val();
     
     if (id == '') {
-        // If id is empty, clear the school box.
-        $('#su_school').val('');
+        // If id is empty, clear the location box.
+        $(textbox_name).val('');
         
     } else {
-        // A school was previously selected, so repopulate the school box with that
-        // name (pulled from the server) This should make it clear to the user that
-        // only a chosen school can be submitted.
-        $.get('/login/get_school_by_id', {
-            "id": id
-        }, function(data) {
-            if (data != 'error') {
-                $('#su_school').val(data);
-            }
-        });
+        // A location was previously selected, so repopulate the location box with that
+        // name (saved locally) This should make it clear to the user that
+        // only a chosen item can be submitted.
+        $(textbox_name).val($(name_name).val());
     }
 }

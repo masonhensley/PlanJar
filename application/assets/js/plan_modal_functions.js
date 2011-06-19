@@ -1,8 +1,13 @@
 $(function() {
     initialize_plan_modal();
     
-    // Initialize the location force function.
-    $('#plan_location').blur(lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name'));
+    // Force the plan location and category fields to be chosen from the autocomplete.
+    $('#plan_location').blur(function() {
+        lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name');
+    });
+    $('#plan_category').blur(function() {
+        lock_to_autocomplete('#plan_category', '#plan_category_id', '#plan_category_name');
+    });
 });
 
 function initialize_plan_modal() {
