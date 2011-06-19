@@ -30,8 +30,8 @@ $(function() {
         // Call the callback function.
         //on_day_change($('ul.weekdays li.day_selected a').attr('href'));
 
-        return false;
-    });
+      //  return false;
+    //});
     
 // End of ready function.
 });
