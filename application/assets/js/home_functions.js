@@ -19,16 +19,16 @@ $(function() {
     //.addClass( "ui-corner-bottom" );
     
     // Set up the day of the week tabs.
-    $("ul.weekdays li:first").addClass("day_selected").show(); //Activate first tab
+    //$("ul.weekdays li:first").addClass("day_selected").show(); //Activate first tab
 
     //On Click Event
-    $("ul.weekdays li").click(function() {
+    //$("ul.weekdays li").click(function() {
 
-        $("ul.weekdays li.day_selected").removeClass("day_selected"); //Remove any "day_selected" class
-        $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
+      //  $("ul.weekdays li.day_selected").removeClass("day_selected"); //Remove any "day_selected" class
+        //$(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
         // Call the callback function.
-        on_day_change($('ul.weekdays li.day_selected a').attr('href'));
+        //on_day_change($('ul.weekdays li.day_selected a').attr('href'));
 
         return false;
     });
