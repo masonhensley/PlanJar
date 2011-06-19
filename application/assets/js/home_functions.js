@@ -10,7 +10,7 @@ $(function() {
     // places map
     location_data();
    
-    $( "#tabs" ).tabs({
+    $( "#weekdays" ).tabs({
         //collapsible: true
     });
 
