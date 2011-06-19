@@ -144,7 +144,7 @@ function plan_location_autocomplete() {
 
 // Should be run on #plan_location onblur.
 // Ensures only a valid location can be submitted.
-function force_school() {
+function force_location() {
     // Get the location id stored in the hidden field.
     var id = $('#plan_location_id').val();
     
