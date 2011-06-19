@@ -138,13 +138,20 @@ function initialize_plan_modal() {
     // Initialize the Validator plugin for the plan location.
     $('#make_plan').validate({
         rules: {
-            plan_location: 'required',
-            plan_category: 'required',
+            plan_location_id: 'required',
+            plan_category_id: 'required',
             plan_time_group: 'required',
             plan_day_group: 'required'
         },
         submitHandler: function (form) {
-            alert('submitted');
+            $.get('/home/submit_plan', form.serialize(), function (data) {
+                if (data == 'success') {
+                    $('#plan_content').dialog('close');
+                } else {
+                    alert(data);
+                }
+            });
+            
         },
         errorPlacement: function (error, element) {
             return true;

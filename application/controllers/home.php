@@ -21,7 +21,7 @@ class Home extends CI_Controller
             $this->load->model('load_groups');
             $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
             $followed_groups = $this->load_groups->get_groups(json_decode($user_info->followed_groups));
-            
+
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
                 'result' => $result,
@@ -162,19 +162,46 @@ class Home extends CI_Controller
     {
         $this->load->view('foo3_view');
     }
-    
-    public function get_location_by_id() {
+
+    public function get_location_by_id()
+    {
         $this->load->database();
         $query_string = "SELECT name FROM places WHERE id = ? LIMIT 1";
         $query = $this->db->query($query_string, array($this->input->get('id')));
-        
-        if ($query->num_rows() == 0) {
+
+        if ($query->num_rows() == 0)
+        {
             // Return an error if no entries come up.
             echo('error');
-        } else {
+        } else
+        {
             // Return the first result.
             $row = $query->row_array();
             echo($row['name']);
+        }
+    }
+
+    public function submit_plan()
+    {
+        $this->load->database();
+        $user = $this->ion_auth->get_user();
+        $date = new DateTime();
+        $date->add(new DateInterval('P' . $this->input->get('plan_day_group') . 'D'));
+
+        $query_string = "INSERT INTO plans VALUES (DEFAULT, ?, ?, ?, ?, ?)";
+        $question_marks = array(
+            $this->input->get('plan_location_id'),
+            $user->id,
+            $date->format('Y-m-d'),
+            $this->input->get('plan_time_group'),
+            $this->input->get('plan_category_id')
+        );
+        if ($this->db->simple_query($query_string, $question_marks))
+        {
+            echo('success');
+        } else
+        {
+            echo('INSERT failed');
         }
     }
 

@@ -82,8 +82,8 @@
         <input type="submit" value="Go"/>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
-        <input id="plan_location_name" name="plan_location_name" type="hidden"/>
+        <input id="plan_location_name" type="hidden"/>
         <input id="plan_category_id" name="plan_category_id" type="hidden"/>
-        <input id="plan_category_name" name="plan_category_name" type="hidden"/>
+        <input id="plan_category_name" type="hidden"/>
     </form>
 </div>
