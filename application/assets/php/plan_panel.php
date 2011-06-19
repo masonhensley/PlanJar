@@ -5,17 +5,17 @@
         <table>
             <tr>
                 <td>
-                <div class="in-field_block">
-                    <label for="plan_location">Where are you going?</label>
-                    <input type="text" id="plan_location" name="plan_location" class="textbox"/>
-                </div>
-            </td>
-            <td>
-                <div class="in-field_block">
-                    <label for="plan_category">What are you doing?</label>
-                    <input type="text" id="plan_category" name="plan_category" class="textbox"/>
-                </div>
-            </td>
+                    <div class="in-field_block">
+                        <label for="plan_location">Where are you going?</label>
+                        <input type="text" id="plan_location" name="plan_location" class="textbox"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="in-field_block">
+                        <label for="plan_category">What are you doing?</label>
+                        <input type="text" id="plan_category" name="plan_category" class="textbox"/>
+                    </div>
+                </td>
             </tr>
 
             <tr><td><div style="height:20px; width:10px;"></div></td></tr>
@@ -41,13 +41,7 @@
                     <label for="plan_night">night</label>
                     <input type="radio" id="plan_night" value="night" name="plan_time_group" />
 
-                    <label for="plan_late_night">late night</lab
-                    
-                    
-                    
-                    
-                    
-                    el>
+                    <label for="plan_late_night">late night</label>
                     <input type="radio" id="plan_late_night" value="late_night" name="plan_time_group" />
                 </div>
             </center>
@@ -84,7 +78,7 @@
                 </td>
             </tr>
         </table>
-        
+
         <input type="submit" value="Go"/>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
