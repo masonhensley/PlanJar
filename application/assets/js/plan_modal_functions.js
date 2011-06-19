@@ -2,7 +2,9 @@ $(function() {
     initialize_plan_modal();
     
     // Initialize the location force function.
-    $('#plan_location').blur(lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name'));
+    $('#plan_location').blur(function() {
+        lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name');
+    });
 });
 
 function initialize_plan_modal() {
@@ -145,10 +147,10 @@ function plan_location_autocomplete() {
 // Only allows input chosen from an autocomplete.
 // All three arguments are DOM element names (as strings).
 function lock_to_autocomplete(textbox_name, id_name, name_name) {
-    alert(textbox_name);
     // Get the id stored in the hidden field.
     var id = $(id_name).val();
     
+    alert('id: ' + id);
     if (id == '') {
         // If id is empty, clear the location box.
         $(textbox_name).val('');
