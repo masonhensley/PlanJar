@@ -32,7 +32,7 @@
                 <td colspan="2">
             <center>
                 <div id="plan_time" class="radio">
-                    <label for="morning">morning</label>
+                    <label for="plan_morning">morning</label>
                     <input type="radio" id="plan_morning" value="morning" name="plan_time_group" />
 
                     <label for="plan_afternoon">afternoon</label>
