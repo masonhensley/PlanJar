@@ -14,9 +14,9 @@ $(function() {
         //collapsible: true
         });
 
-    //$( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
-    //.removeClass( "ui-corner-all ui-corner-top" )
-    //.addClass( "ui-corner-bottom" );
+    $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+    .removeClass( "ui-corner-all ui-corner-top" )
+    .addClass( "ui-corner-bottom" );
     
     // Set up the day of the week tabs.
     $("ul.weekdays li:first").addClass("day_selected").show(); //Activate first tab
