@@ -104,6 +104,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <div id="plans">
                         <ul>
                             <?php
+                            var_dump($result);
                             $tracker = 0;
                             foreach ($result as $plan)
                             {
