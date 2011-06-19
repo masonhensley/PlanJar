@@ -5,17 +5,6 @@
         <table>
             <tr>
                 <td>
-                    Start typing the name of where you want to go.
-                    If we don't find your location, don't worry about it.
-                </td>
-                <td>
-                    Start typing what you plan on doing.
-                    Choose an option from the menu.
-                </td>
-            </tr>
-
-            <tr>
-                <td>
                     <div class="in-field_block">
                         <label for="plan_location">Where are you going?</label>
                         <input type="text" id="plan_location" name="plan_location" class="textbox"/>
@@ -33,8 +22,10 @@
 
             <tr>
                 <td colspan="2">
-                    Choose the time of day.
-                </td>
+            <center>
+                When are you going?
+            </center>
+            </td>
             </tr>
 
             <tr>
@@ -57,8 +48,6 @@
             </td>
             </tr>
 
-            <tr><td colspan="2">What day?</td></tr>
-            
             <tr>
                 <td colspan="2">
                     <div id="plan_day" class="radio">
