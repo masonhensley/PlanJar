@@ -101,34 +101,36 @@ $state = $user_place_info['geoplugin_regionCode'];
                     </div>
                     <!-- this function loads the user events into the right panel -->
 
-                    <div id="radio">
-                        <?php
-                        $tracker = 0;
-                        foreach ($result as $plan)
-                        {
-                            ?> 
-                            <input type="button" id="<?php echo $tracker;
-                        $tracker++; ?>" /><label for="<?php echo $tracker; ?>">
-                                <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
-                                    <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto;"> 
-                                        <?php
-                                        echo $plan->name . "  |  ";
-                                        $date_string = date('D', strtotime($plan->date));
-                                        echo $date_string;
-                                        ?>
-                                    </div>
-                                    <?php
-                                    echo "<p>";
-                                    $date_string = date('l', strtotime($plan->date));
-                                    echo $date_string . " " . $plan->time_of_day;
-                                    echo "</p>";
-                                    ?>
-                                </div>
-                            </label>
-
+                    <div id="plans">
+                        <ul>
                             <?php
-                        }
-                        ?>
+                            $tracker = 0;
+                            foreach ($result as $plan)
+                            {
+                                ?> 
+                                <li>
+                                    <a href="<?php echo $tracker; ?>">
+                                        <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
+                                            <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto;"> 
+                                                <?php
+                                                echo $plan->name . "  |  ";
+                                                $date_string = date('D', strtotime($plan->date));
+                                                echo $date_string;
+                                                ?>
+                                            </div>
+                                            <?php
+                                            echo "<p>";
+                                            $date_string = date('l', strtotime($plan->date));
+                                            echo $date_string . " " . $plan->time_of_day;
+                                            echo "</p>";
+                                            ?>
+                                        </div>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
                     </div>
 
 
