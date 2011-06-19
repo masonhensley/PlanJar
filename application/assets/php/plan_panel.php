@@ -5,17 +5,21 @@
         <table>
             <tr>
                 <td>
-                    <div class="in-field_block">
-                        <label for="plan_location">Where are you going?</label>
-                        <input type="text" id="plan_location" name="plan_location" class="textbox"/>
-                    </div>
-                </td>
-                <td>
-                    <div class="in-field_block">
-                        <label for="plan_category">What are you doing?</label>
-                        <input type="text" id="plan_category" name="plan_category" class="textbox"/>
-                    </div>
-                </td>
+            <center>
+                <div class="in-field_block">
+                    <label for="plan_location">Where are you going?</label>
+                    <input type="text" id="plan_location" name="plan_location" class="textbox"/>
+                </div>
+            </center>
+            </td>
+            <td>
+            <center>
+                <div class="in-field_block">
+                    <label for="plan_category">What are you doing?</label>
+                    <input type="text" id="plan_category" name="plan_category" class="textbox"/>
+                </div>
+            </center>
+            </td>
             </tr>
 
             <tr><td><div style="height:20px; width:10px;"></div></td></tr>
