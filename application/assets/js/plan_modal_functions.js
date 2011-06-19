@@ -150,8 +150,8 @@ function lock_to_autocomplete(textbox_name, id_name, name_name) {
     // Get the id stored in the hidden field.
     var id = $(id_name).val();
     
-    alert('id: ' + id);
     if (id == '') {
+        alert('empty id');
         // If id is empty, clear the location box.
         $(textbox_name).val('');
         
