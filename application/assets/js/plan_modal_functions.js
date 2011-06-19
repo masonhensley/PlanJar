@@ -103,28 +103,13 @@ function plan_location_autocomplete() {
                     // If additional places are required, fetch places from Factual. Pick fields needed
                     // by the autocomplete from the resulting JSON and add them to response_json array.
                     var my_filters = {
-                        "$and":[{
-                            "$loc":{
-                                "$within":{
-                                    "$center":[[myLatitude, myLongitude],5000]
-                                }
+                        "$loc":{
+                            "$within":{
+                                "$center":[[myLatitude, myLongitude],5000]
                             }
                         },
-
-                        {
-                            "$or":[{
-                                "category":{
-                                    "$bw":"Arts"
-                                }
-                            },
-
-                            {
-                                "category":{
-                                    "$bw":"Food"
-                                }
-                            }]
-                        }]
-                    }
+                        "$search": request.term
+                    };
                         
 
                     var options = {
@@ -152,4 +137,28 @@ function plan_location_autocomplete() {
             $('#plan_location_id').val(ui.item.id);
         }
     });
+}
+
+// Should be run on #plan_location onblur.
+// Ensures only a valid location can be submitted.
+function force_school() {
+    // Get the location id stored in the hidden field.
+    var id = $('#plan_location_id').val();
+    
+    if (id == '') {
+        // If id is empty, clear the location box.
+        $('#plan_location').val('');
+        
+    } else {
+        // A location was previously selected, so repopulate the location box with that
+        // name (pulled from the server) This should make it clear to the user that
+        // only a chosen location can be submitted.
+        $.get('/home/get_location_by_id', {
+            "id": id
+        }, function(data) {
+            if (data != 'error') {
+                $('#plan_location').val(data);
+            }
+        });
+    }
 }
