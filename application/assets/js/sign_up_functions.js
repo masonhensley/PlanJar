@@ -20,7 +20,7 @@ $(document).ready(function() {
         // Submit and redirect
         submitHandler: function(form) {
             // Send the form information to the try_login function.
-            $.get('/login/try_log_in', $('#log_in').serialize(), function(data) {
+            $.get('/login/try_log_in', form.serialize(), function(data) {
                 // Redirect or display the error.
                 if (data != 'error')  {
                     window.location.href = data;
@@ -117,7 +117,7 @@ $(document).ready(function() {
         // Submit and redirect
         submitHandler: function(form) {
             // Send the form information to the try_sign_up function.
-            $.get('/login/try_sign_up', $('#sign_up').serialize(), function(data) {
+            $.get('/login/try_sign_up', form.serialize(), function(data) {
                 // Redirect or display an error.
                 if (data != 'error')  {
                     window.location.href = data;
