@@ -104,6 +104,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <div id="plans">
                         <ul>
                             <?php
+                            var_dump($result);
                             $tracker = 0;
                             foreach ($result as $plan)
                             {
@@ -111,7 +112,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                                 <li>
                                     <a href="<?php echo $tracker; ?>">
                                         <div style="border: 2px solid #000; font-size: 12px; text-align: left; width:auto; height: auto; ">
-                                            <div id="day_display" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; width:100%; height: auto;"> 
+                                            <div id="day_display" style="width:100%; height: auto;"> 
                                                 <?php
                                                 echo $plan->name . "  |  ";
                                                 $date_string = date('D', strtotime($plan->date));
