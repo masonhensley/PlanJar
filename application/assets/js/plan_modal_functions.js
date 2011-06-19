@@ -59,6 +59,7 @@ function initialize_plan_modal() {
             select: function (event, ui) {
                 $('#plan_category').val(ui.item.value);
                 $('#plan_category_id').val(ui.item.id);
+                $('#plan_category_name').val(ui.item.value);
             }
         });
         
