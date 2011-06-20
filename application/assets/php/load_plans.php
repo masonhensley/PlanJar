@@ -5,7 +5,7 @@
         foreach ($result as $plan) {
             ?> 
             <li>
-                <a href="#" plan_id="<?php echo $plan->id; ?>">
+                <a href="<?php $tracker ?>" plan_id="<?php echo $plan->id; ?>">
                     <div style="text-align: left; width:auto; height: auto; ">
                         <div id="day_display" style="width:100%; height: auto;"> 
                             <?php
