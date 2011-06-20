@@ -62,7 +62,7 @@ function initialize_plan_modal() {
                         },
                         "$search": request.term
                     };
-                        
+
 
                     var options = {
                         api_key: 'SIKk9ulwxwodsqkZwpxfmbJr7EtuVHjwNyx2JO8pzGMCNBtsJPW3GcWZTJUhJ7ee',
@@ -72,7 +72,7 @@ function initialize_plan_modal() {
                     $.ajax({
                         url: 'http://api.factual.com/v2/tables/s4OOB4/read?filters=' + escape(JSON.stringify(my_filters)),
                         data: options,
-                        dataType: 'json',
+                        dataType: 'jsonp',
                         success : function(data) {
                             console.log(JSON.parse(data));
                         }
