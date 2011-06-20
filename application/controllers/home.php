@@ -219,6 +219,10 @@ class Home extends CI_Controller
         $this->input->get('selected_day') .
         '</p>');
     }
+    
+    public function get_plan_data(){
+        
+    }
 
 }
 

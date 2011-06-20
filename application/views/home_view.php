@@ -83,7 +83,9 @@ $state = $user_place_info['geoplugin_regionCode'];
                         </div>
 
                         <div id="data_tab" style="background-color: white;  width: 555px; height:250px;">
+                           
                             <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
+                          
                         </div>
 
                     </div>

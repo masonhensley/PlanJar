@@ -14,7 +14,7 @@ class Load_plans extends CI_Model
 
         // pull all user's current events
         $query = 
-       "SELECT plans.time_of_day, plans.date, places.name, plan_categories.category
+       "SELECT plans.id plans.time_of_day, plans.date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
