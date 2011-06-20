@@ -15,7 +15,7 @@ $state = $user_place_info['geoplugin_regionCode'];
         <script type="text/javascript" src="/application/assets/js/plan_modal_functions.js"></script>
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-        
+
         <!-- include plan tab code -->
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
@@ -103,12 +103,45 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <div style="width:auto; height:33px; text-align: center;">
                         <font>Plans</font>
                     </div>
-                    
+
                     <!-- this function loads the user events into the right panel -->
-                    <?php 
+                    <div id="plans">
+                        <ul>
+                            <?php
+                            $tracker = 0;
+                            foreach ($plans as $plan) {
+                                ?> 
+                                <li>
+                                    <a href="<?php echo $tracker; ?>">
+                                        <div style="text-align: left; width:auto; height: auto; ">
+                                            <div id="day_display" style="width:100%; height: auto;"> 
+                                                <?php
+                                                echo $plan->name . "  |  ";
+                                                $date_string = date('D', strtotime($plan->date));
+                                                echo $date_string;
+                                                ?>
+                                            </div>
+                                            <?php
+                                            echo "<p>";
+                                            $date_string = date('l', strtotime($plan->date));
+                                            echo $plan->category . "<br/>";
+                                            echo $date_string . " " . $plan->time_of_day;
+                                            echo "</p>";
+                                            ?>
+                                        </div>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
+
+                    <!--
                     var_dump($result);
                     $plans = $result;
-                    include(APPPATH . 'assets/php/load_plans.php'); ?>
+                    include(APPPATH . 'assets/php/load_plans.php');
+                    ?> -->
                 </div>
             </div>
 
