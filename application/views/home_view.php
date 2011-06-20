@@ -86,7 +86,6 @@ $state = $user_place_info['geoplugin_regionCode'];
                             <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
                         </div>
 
-
                     </div>
                 </div>
                 <div class="center_board">
@@ -109,6 +108,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                         <ul>
                             <?php
                             $tracker = 0;
+                            var_dump($result);
                             foreach ($result as $plan)
                             {
                                 ?> 
