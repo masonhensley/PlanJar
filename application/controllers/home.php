@@ -240,12 +240,7 @@ class Home extends CI_Controller
         $result = $query_result->result();
         
         var_dump($result);
-          
-         
-          
          
     }
-
 }
-
 ?>
