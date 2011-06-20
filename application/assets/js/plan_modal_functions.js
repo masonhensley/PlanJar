@@ -134,7 +134,6 @@ function initialize_plan_modal() {
         
     // Auto select the appropriate day.
     $('#plan_day [value=' + current_day_offset + ']').click();
-    alert(current_day_offset);
     
     // Initialize the Validator plugin for the plan location.
     $('#make_plan').validate({
