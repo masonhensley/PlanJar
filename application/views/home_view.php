@@ -104,10 +104,11 @@ $state = $user_place_info['geoplugin_regionCode'];
                     </div>
 
                    <?php
-                    var_dump($result);
+                   // include the ordered plan tabs for the right hand panel
                     $plans = $result;
                     include(APPPATH . 'assets/php/load_plans.php');
                     ?> 
+                    
                 </div>
             </div>
 
