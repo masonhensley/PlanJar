@@ -2,7 +2,7 @@
     <ul>
         <?php
         $tracker = 0;
-        foreach ($result as $plan) {
+        foreach ($plans as $plan) {
             ?> 
             <li>
                 <a href="<?php echo $tracker; ?>">
