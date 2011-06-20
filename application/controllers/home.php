@@ -12,6 +12,7 @@ class Home extends CI_Controller
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
+            // load plans by id
             $this->load->model('load_plans');
             $user_info = $this->ion_auth->get_user();
             $user_id = $user_info->id;
