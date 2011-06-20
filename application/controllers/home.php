@@ -181,6 +181,7 @@ class Home extends CI_Controller
         }
     }
 
+    // Adds a plan entry to the database.
     public function submit_plan()
     {
         $this->load->database();
@@ -188,7 +189,6 @@ class Home extends CI_Controller
         $date = new DateTime();
         $date->add(new DateInterval('P' . $this->input->get('plan_day_group') . 'D'));
 
-        // Add the plan entry to the database.
         $data = array(
             'id' => 'DEFAULT',
             'place_id' => $this->input->get('plan_location_id'),
@@ -197,8 +197,16 @@ class Home extends CI_Controller
             'time_of_day' => $this->input->get('plan_time_group'),
             'category_id' => $this->input->get('plan_category_id')
         );
+
         $query = $this->db->insert('plans', $data);
-        echo($this->db->insert_id());
+
+        if ($query)
+        {
+            echo('success');
+        } else
+        {
+            echo('error');
+        }
     }
 
 }
