@@ -131,9 +131,6 @@ function initialize_plan_modal() {
     // Make the time/day radios buttons.
     $('#plan_time').buttonset();
     $('#plan_day').buttonset();
-        
-    // Auto select the appropriate day.
-    $('#plan_day [value=' + current_day_offset + ']').click();
     
     // Initialize the Validator plugin for the plan location.
     $('#make_plan').validate({
