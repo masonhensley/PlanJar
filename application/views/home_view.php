@@ -70,7 +70,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <?php include(APPPATH . 'assets/php/weekday_panel.php'); ?>
                 </div>
 
-                <div class="center_graph">
+<!--                <div class="center_graph">-->
                     <div id = "map_data_tabs" class="tabs-bottom">
                         <ul>
                             <li><a href="#map_tab">Map</a></li>
@@ -89,7 +89,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                         </div>
 
                     </div>
-                </div>
+<!--                </div>-->
                 <div class="center_board">
                     <!-- Event list -->
                     <?php include(APPPATH . 'assets/php/events_panel.php'); ?>
