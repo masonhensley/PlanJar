@@ -6,9 +6,9 @@ $(function() {
             }, function (data) {
                 // Replace the data and show the data tab.
                 $('#data_tab').html(data);
-                if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
-                    $("#map_data_tabs").tabs('select', '#data_tab');
-                }
+               // if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
+               //     $("#map_data_tabs").tabs('select', '#data_tab');
+              //  }
             });
         }
     });
