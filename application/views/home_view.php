@@ -16,7 +16,7 @@ $state = $user_place_info['geoplugin_regionCode'];
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
-        
+
         <!-- include plan tab code -->
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
@@ -86,8 +86,6 @@ $state = $user_place_info['geoplugin_regionCode'];
                             <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
                         </div>
 
-
-
                     </div>
                 </div>
                 <div class="center_board">
@@ -110,7 +108,9 @@ $state = $user_place_info['geoplugin_regionCode'];
                         <ul>
                             <?php
                             $tracker = 0;
-                            foreach ($result as $plan) {
+                            var_dump($result);
+                            foreach ($result as $plan)
+                            {
                                 ?> 
                                 <li>
                                     <a href="<?php echo $tracker; ?>">
