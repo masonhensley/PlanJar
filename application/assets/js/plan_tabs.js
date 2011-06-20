@@ -3,7 +3,7 @@ $(function() {
         select: function(event, ui){
          
             $.get('/home/get_plan_data', {
-                'plan_selected': $(ui.index).attr("id")
+                'plan_selected': $(ui.tab.id)
             }, function (data) {
                 // Replace the data and show the data tab.
                 alert(data);
