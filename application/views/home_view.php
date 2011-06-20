@@ -70,26 +70,30 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <?php include(APPPATH . 'assets/php/weekday_panel.php'); ?>
                 </div>
 
-<!--                <div class="center_graph">-->
-                    <div id = "map_data_tabs" class="tabs-bottom">
-                        <ul>
-                            <li><a href="#map_tab">Map</a></li>
-                            <li><a href="#data_tab">Data</a></li>
-                        </ul>
+                <!--                <div class="center_graph">-->
+                <div id = "map_data_tabs" class="tabs-bottom">
+                    <ul>
+                        <li><a href="#map_tab">Map</a></li>
+                        <li><a href="#data_tab">Data</a></li>
+                    </ul>
 
-                        <!-- Google Map Div -->
-                        <div id="map_tab" style="width:555px; height:250px;" >
-                            <div id="map" style="width:555px; height:250px;"></div>
-                        </div>
+                    <!-- Google Map Div -->
+                    <div id="map_tab" style="width:555px; height:250px;" >
+                        <div id="map" style="width:555px; height:250px;"></div>
+                    </div>
 
-                        <div id="data_tab" style="background-color: white;  width: 555px; height:250px;">
-                           
-                            <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
-                          
-                        </div>
+                    <div id="data_tab" style="background-color: white;  width: 555px; height:250px;">
+
+                        <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
 
                     </div>
-<!--                </div>-->
+
+                </div>
+                <!--                </div>-->
+
+                <!--Account for the tabs overflowing below the div-->
+                <div style="height:31px, width: 100%, background-color: red"></div>
+
                 <div class="center_board">
                     <!-- Event list -->
                     <?php include(APPPATH . 'assets/php/events_panel.php'); ?>
@@ -105,12 +109,12 @@ $state = $user_place_info['geoplugin_regionCode'];
                         <font>Plans</font>
                     </div>
 
-                   <?php
-                   // include the ordered plan tabs for the right hand panel
+                    <?php
+                    // include the ordered plan tabs for the right hand panel
                     $plans = $result;
                     include(APPPATH . 'assets/php/load_plans.php');
                     ?> 
-                    
+
                 </div>
             </div>
 
