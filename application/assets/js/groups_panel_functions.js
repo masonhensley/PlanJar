@@ -41,7 +41,7 @@ function on_groups_change(selected_groups) {
         'selected_day': $('#day_tabs .day_selected a').attr('href')
     }, function (data) {
         // Replace the data and show the data tab.
-        $('#data_tab').replace(data)
+        $('#data_tab_inner').replace(data)
         $("#map_data_tabs").tabs('select', '#data_tab');
     });
 }
