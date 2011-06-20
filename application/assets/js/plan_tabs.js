@@ -14,6 +14,4 @@ function pull_plan_data(event, ui){
             $("#map_data_tabs").tabs('select', '#data_tab');
         }
     });
-            
-    return false;
 }
