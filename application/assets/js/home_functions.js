@@ -9,29 +9,7 @@ $(function() {
     
     // places map
     location_data();
-
-// End of ready function.
 });
-
-
-// This function takes the user's latitude and longitude and passes them
-// to the yahoo reverse geocoding api and returns JSON encoded string of
-// relevent info.  This is saved in global variables at top.'
-function reverse_geocode_user()
-{
-    $.ajax({
-        url: 'http://where.yahooapis.com/geocode',
-        data: {
-            location: myLatitude+'+'+myLongitude,
-            appid: '5CXRiH44',
-            flags: 'J'
-        },
-        dataType: 'jsonp',
-        success: function(data) {
-            alert(data);
-        }
-    });
-}
 
 var initialLocation;
 var browserSupportFlag;
