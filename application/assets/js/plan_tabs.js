@@ -2,8 +2,10 @@ $(function() {
     $( "#plans" ).tabs({
         select: function(event, ui){
          
+         $(this).addClass('active_plan');
+         
             $.get('/home/get_plan_data', {
-                'plan_selected': ui.item.id
+                'plan_selected': $('.active_plan').attr('id')
             }, function (data) {
                 // Replace the data and show the data tab.
                 alert(data);
@@ -12,6 +14,8 @@ $(function() {
                     $("#map_data_tabs").tabs('select', '#data_tab');
                 }
             });
+            
+            $(this).removeClass('active_plan');
         
         }
     });
