@@ -148,12 +148,11 @@ function initialize_plan_modal() {
     
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
-        alert('there');
-        $('#plan_content').dialog('open');
         // Update the selected day.
-        $('#plan_day [value=' + day_index + ']').click();
+        var selected_day = $('#day_tabs ul.tabs li.day_selected a').attr('href');
+        $('#plan_day [value=' + selected_day + ']').click();
         
-        
+        $('#plan_content').dialog('open');
     });
 }
 
