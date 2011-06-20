@@ -129,15 +129,14 @@ function initialize_plan_modal() {
     // Auto-select the time of day.
     var date = new Date();
     var hours = date.getHours();
-    alert(hours);
     if (hours < 5) {
-        $('#plan_late_night').select();
+        $('#plan_late_night').click();
     } else if (hours < 11) {
-        $('#plan_morning').select();
+        $('#plan_morning').click();
     } else if (hours < 18) {
-        $('#plan_afternoon').select();
+        $('#plan_afternoon').click();
     } else {
-        $('#plan_night').select();
+        $('#plan_night').click();
     }
     
     // Initialize the Validator plugin for the plan location.
