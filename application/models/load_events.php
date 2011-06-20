@@ -23,7 +23,7 @@ class Load_events extends CI_Model
         WHERE plans.user_id=$user_id AND GETDATE()<plans.date";
 
         // pull data
-        $query_result = $this->db->query($query);
+        //$query_result = $this->db->query($query);
         $result = $query_result->result();
 
         return $result;
