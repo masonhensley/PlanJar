@@ -213,7 +213,7 @@ class Home extends CI_Controller
     public function get_group_day_data()
     {
         echo('<p>selected groups: ' .
-        $this->input->get('selected_groups') .
+        vardump($this->input->get('selected_groups')) .
         '</p><p>selected day: ' .
         $this->input->get('selected_day') .
         '</p>');
