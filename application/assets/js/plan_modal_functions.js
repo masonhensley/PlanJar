@@ -74,7 +74,7 @@ function initialize_plan_modal() {
                     $.ajax({
                         url: 'http://api.factual.com/v2/tables/s4OOB4/read',
                         data: options,
-                        dataType: 'jsonp',
+                        dataType: 'json',
                         success : function(data) {
                             console.log(JSON.parse(data));
                         }
