@@ -1,10 +1,10 @@
 $(function() {
     $( "#plans" ).tabs({
-        select: get_plan_data()
+        select: pull_plan_data()
     });
 });
 
-function get_plan_data(event, ui){
+function pull_plan_data(event, ui){
     
     $.get('/home/get_plan_data', {
         'plan_selected': $('#plans .ui-state-active a').attr('plan_id')
