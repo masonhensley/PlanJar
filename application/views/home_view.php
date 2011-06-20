@@ -110,7 +110,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                         <ul>
                             <?php
                             $tracker = 0;
-                            foreach ($plans as $plan) {
+                            foreach ($result as $plan) {
                                 ?> 
                                 <li>
                                     <a href="<?php echo $tracker; ?>">
