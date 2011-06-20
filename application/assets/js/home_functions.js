@@ -38,9 +38,7 @@ $(function() {
 
 function on_day_change(day_index) {
     // Auto select the appropriate day for the plan modal.
-    if (!$('#plan_content').dialog('isOpen')) {
-        $('#plan_day [value=' + day_index + ']').click();
-    }
+    $('#plan_day [value=' + day_index + ']').click();
 }
 
 
