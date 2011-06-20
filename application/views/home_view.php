@@ -78,9 +78,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                     </ul>
 
                     <!-- Google Map Div -->
-                    <div id="map_tab" style="width:555px; height:250px;" >
-                        <div id="map" style="width:300px; height:100px">rgergerg</div>
-                    </div>
+                    <div id="map_tab" style="width:555px; height:250px;" ></div>
 
                     <div id="data_tab" style="background-color: white;  width: 555px; height:250px;">
 
