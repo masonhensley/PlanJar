@@ -221,7 +221,23 @@ class Home extends CI_Controller
     }
     
     public function get_plan_data(){
+        $this->load->database();
+        $plan = $this->input->get('plan_selected');
         
+        // pull all user's current events
+        $query = 
+       "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
+        FROM plans 
+        LEFT JOIN places 
+        ON plans.place_id=places.id 
+        LEFT JOIN plan_categories
+        ON plan_categories.id=plans.category_id
+        WHERE plans.id=$plan";
+
+        // pull data
+        $query_result = $this->db->query($query);
+        $result = $query_result->result();
+        return $result;
     }
 
 }
