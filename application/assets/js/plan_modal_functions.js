@@ -1,13 +1,5 @@
 $(function() {
     initialize_plan_modal();
-    
-    // Force the plan location and category fields to be chosen from the autocomplete.
-    $('#plan_location').blur(function() {
-        lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name');
-    });
-    $('#plan_category').blur(function() {
-        lock_to_autocomplete('#plan_category', '#plan_category_id', '#plan_category_name');
-    });
 });
 
 // Sets up the modal.
@@ -176,4 +168,15 @@ function lock_to_autocomplete(textbox_name, id_name, name_name) {
         // only a chosen item can be submitted.
         $(textbox_name).val($(name_name).val());
     }
+    
+    // Force the plan location and category fields to be chosen from the autocomplete.
+    $('#plan_location').blur(function() {
+        lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name');
+    });
+    $('#plan_category').blur(function() {
+        lock_to_autocomplete('#plan_category', '#plan_category_id', '#plan_category_name');
+    });
+    
+    // Select today.
+    $('#plan_day :first').click();
 }
