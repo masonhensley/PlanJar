@@ -11,8 +11,6 @@ function get_plan_data(event, ui){
     }, function (data) {
         alert(data);
     });
-    
-    
+
     $("#map_data_tabs").tabs("select","#data_tab");
-    $('#data_tab').html();   
 }
