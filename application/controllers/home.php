@@ -237,7 +237,8 @@ class Home extends CI_Controller
         // pull data
         $query_result = $this->db->query($query);
         $result = $query_result->result();
-        return $result;
+        
+        var_dump($result);
     }
 
 }
