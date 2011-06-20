@@ -225,8 +225,9 @@ class Home extends CI_Controller
         $plan = $this->input->get('plan_selected');
         
         echo $plan;
-        /*
+        
         // pull all user's current events
+        /*
         $query = 
        "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
         FROM plans 
@@ -242,6 +243,8 @@ class Home extends CI_Controller
         
         var_dump($result);
           */
+         
+          
          
     }
 
