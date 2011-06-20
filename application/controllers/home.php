@@ -23,6 +23,7 @@ class Home extends CI_Controller
             $followed_groups = $this->load_groups->get_groups(json_decode($user_info->followed_groups));
 
             // Pass the necessary information to the view.
+            var_dump($result);
             $this->load->view('home_view', array(
                 'result' => $result,
                 'joined_groups' => $joined_groups,
