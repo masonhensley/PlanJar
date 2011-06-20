@@ -1,9 +1,9 @@
 $(function() {
     // Make the groups selectable.
-    make_selectable();
+    make_groups_selectable();
 });
 
-function make_selectable() {
+function make_groups_selectable() {
     $('div.group_selectable_wrapper li').click(function() {
         // Make the list tiems togglable.
         if ($(this).hasClass('group_selected')) {
@@ -35,4 +35,11 @@ function make_selectable() {
 
 // Callback function
 function on_groups_change(selected_groups) {
+    // Get the data based on groups and the day from the server.
+    $.get('/home/get_group_day_data', {
+        'selected_groups': selected_groups,
+        'selected_day': $('#day_tabs .day_selected a').attr('href')
+    }, function (data) {
+        alert('chart data: ' + data);
+    });
 }
