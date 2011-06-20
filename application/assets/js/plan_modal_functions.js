@@ -68,7 +68,7 @@ function initialize_plan_modal() {
                     var options = {
                         api_key: 'SIKk9ulwxwodsqkZwpxfmbJr7EtuVHjwNyx2JO8pzGMCNBtsJPW3GcWZTJUhJ7ee',
                         limit: place_limit,
-                        filters: my_filters
+                        filters: JSON.stringify(my_filters)
                     };
 
                     $.ajax({
