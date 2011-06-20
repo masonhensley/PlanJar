@@ -12,14 +12,8 @@ function make_groups_selectable() {
             $(this).addClass('group_selected');
         }
         
-        // Initialize the group list.
-        var selected_groups = ([]);
-        $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
-            selected_groups.push($(element).attr('group_id'));
-        });
-        
         // Call the callback function.
-        on_groups_change(selected_groups);
+        on_groups_change();
     });
     
     // Initialize the clear all and select all button actions.
@@ -35,15 +29,17 @@ function make_groups_selectable() {
 
 // Callback function
 function on_groups_change(selected_groups) {
-    // Get the data based on groups and the day from the server.
-    $.get('/home/get_group_day_data', {
-        'selected_groups': selected_groups,
-        'selected_day': $('#day_tabs .day_selected a').attr('href')
-    }, function (data) {
-        // Replace the data and show the data tab.
-        $('#data_tab').html(data)
-        if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
-            $("#map_data_tabs").tabs('select', '#data_tab');
-        }
+    // Switch to the data tab if it isn't active and update the data.
+    if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
+        $("#map_data_tabs").tabs('select', '#data_tab');
+    }
+    get_group_day_data();
+}
+
+// Returns a list of selected groups.
+function selected_groups() {
+    var return_list = ([]);
+    $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
+        return_list.push($(element).attr('group_id'));
     });
 }

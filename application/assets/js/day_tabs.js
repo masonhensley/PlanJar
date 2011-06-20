@@ -22,4 +22,9 @@ function setup_day_tabs() {
 
 // Callback function
 function on_day_change(day_index) {
+    // Switch to the data tab if it isn't active and update the data.
+    if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
+        $("#map_data_tabs").tabs('select', '#data_tab');
+    }
+    get_group_day_data();
 }

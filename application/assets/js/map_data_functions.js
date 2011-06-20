@@ -12,3 +12,17 @@ function initialize_map_data_tabs() {
     .removeClass("ui-corner-all ui-corner-top")
     .addClass("ui-corner-bottom");
 }
+
+// Get the data based on groups and the day from the server.
+function get_group_day_data () {
+    $.get('/home/get_group_day_data', {
+        'selected_groups': selected_groups,
+        'selected_day': $('#day_tabs .day_selected a').attr('href')
+    }, function (data) {
+        // Replace the data and show the data tab.
+        $('#data_tab').html(data)
+        if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
+            $("#map_data_tabs").tabs('select', '#data_tab');
+        }
+    });
+}
