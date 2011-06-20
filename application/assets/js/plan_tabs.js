@@ -2,7 +2,7 @@ $(function() {
     $( "#plans" ).tabs({
         select: function(event, ui){
             $.get('/home/get_plan_data', {
-                'plan_selected': $("#plans .ui-state-active").attr("id")
+                'plan_selected': $(".ui-state-active").attr("id")
             }, function (data) {
                 // Replace the data and show the data tab.
                 alert(data);
