@@ -67,11 +67,12 @@ function initialize_plan_modal() {
 
                     var options = {
                         api_key: 'SIKk9ulwxwodsqkZwpxfmbJr7EtuVHjwNyx2JO8pzGMCNBtsJPW3GcWZTJUhJ7ee',
-                        limit: place_limit
+                        limit: place_limit,
+                        filters: my_filters
                     };
 
                     $.ajax({
-                        url: 'rhttp://api.factual.com/v2/tables/s4OOB4/read?filters=' + escape(JSON.stringify(my_filters)),
+                        url: 'rhttp://api.factual.com/v2/tables/s4OOB4/read',
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
