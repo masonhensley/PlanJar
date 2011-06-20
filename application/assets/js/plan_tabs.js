@@ -7,7 +7,7 @@ $(function() {
 function get_plan_data(event, ui){
     
     $.get('/home/get_plan_data', {
-        'plan selected': $('#plans .ui-state-active a').attr('plan_id')
+        'plan_selected': $('#plans .ui-state-active a').attr('plan_id')
     }, function (data) {
         alert(data);
     });
