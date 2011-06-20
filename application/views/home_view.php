@@ -92,7 +92,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                 <!--                </div>-->
 
                 <!--Account for the tabs overflowing below the div-->
-                <div style="height:31px, width: 100%, background-color: red"></div>
+                <div style="height:31px; width: 100%; background-color: red"></div>
 
                 <div class="center_board">
                     <!-- Event list -->
