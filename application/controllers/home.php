@@ -208,6 +208,11 @@ class Home extends CI_Controller
             echo('error');
         }
     }
+    
+    // Returns chart data based on the selected groups and day
+    public function get_group_day_data() {
+        
+    }
 
 }
 
