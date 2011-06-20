@@ -1,7 +1,7 @@
 $(function() {
     $( "#plans" ).tabs({
         select: function(event, ui) {  
-            $("#tabs").tabs("select","#tabs-2");
+            $("#map_data_tabs").tabs("select","#data_tab");
         }
     });
 });
