@@ -9,8 +9,6 @@ $(function() {
     
     // places map
     location_data();
-
-// End of ready function.
 });
 
 var initialLocation;
