@@ -2,7 +2,7 @@ $(function() {
     $( "#plans" ).tabs({
         select: function(event, ui){
          
-         $(this).addClass('active_plan');
+            $(this).addClass('active_plan');
          
             $.get('/home/get_plan_data', {
                 'plan_selected': $('.active_plan').attr('id')
