@@ -19,16 +19,16 @@ $(function() {
     .addClass( "ui-corner-bottom" );
     
     // Set up the day of the week tabs.
-    $("ul.tabs li:first").addClass("day_selected").show(); //Activate first tab
+    $("#day_tabs ul.tabs li:first").addClass("day_selected").show(); //Activate first tab
 
     //On Click Event
-    $("ul.tabs li").click(function() {
+    $("#day_tabs ul.tabs li").click(function() {
 
-        $("ul.tabs li.day_selected").removeClass("day_selected"); //Remove any "day_selected" class
+        $("#day_tabs ul.tabs li.day_selected").removeClass("day_selected"); //Remove any "day_selected" class
         $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
         // Call the callback function.
-        on_day_change($('ul.tabs li.day_selected a').attr('href'));
+        on_day_change($('#day_tabs ul.tabs li.day_selected a').attr('href'));
 
         return false;
     });
@@ -37,7 +37,8 @@ $(function() {
 });
 
 function on_day_change(day_index) {
-    current_day_offset = day_index;
+    // Auto select the appropriate day for the plan modal.
+    $('#plan_day [value=' + day_index + ']').click();
 }
 
 
