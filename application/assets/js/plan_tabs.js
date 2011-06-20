@@ -6,7 +6,7 @@ $(function() {
 
 function pull_plan_data(event, ui){
     $.get('/home/get_plan_data', {
-        'plan_selected': $(ui.item).attr('plan_id')
+        'plan_selected': ui.item.plan_id
     }, function (data) {
         // Replace the data and show the data tab.
         $('#data_tab').html(data)
