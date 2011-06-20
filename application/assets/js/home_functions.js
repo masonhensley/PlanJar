@@ -26,9 +26,6 @@ function location_data() {
                 myLatitude=position.coords.latitude;
                 myLongitude=position.coords.longitude;
                 
-                // sets variables myCity, myAddress
-                reverse_geocode_user();
-                
                 mapThisGoogle(position.coords.latitude, position.coords.longitude);
             }, 
             // next function is the error callback
