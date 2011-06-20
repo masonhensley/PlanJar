@@ -72,7 +72,7 @@ function initialize_plan_modal() {
                     };
 
                     $.ajax({
-                        url: 'rhttp://api.factual.com/v2/tables/s4OOB4/read',
+                        url: 'http://api.factual.com/v2/tables/s4OOB4/read',
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
