@@ -55,12 +55,12 @@ function initialize_plan_modal() {
                     // If additional places are required, fetch places from Factual. Pick fields needed
                     // by the autocomplete from the resulting JSON and add them to response_json array.
                     var my_filters = {
+                        "$search": request.term,
                         "$loc":{
                             "$within":{
                                 "$center":[[myLatitude, myLongitude],5000]
                             }
-                        },
-                        "$search": request.term
+                        }
                     };
 
 
@@ -70,7 +70,7 @@ function initialize_plan_modal() {
                     };
 
                     $.ajax({
-                        url: 'rhttp:/api.factual.com/v2/tables/s4OOB4/read?filters=' + escape(JSON.stringify(my_filters)),
+                        url: 'rhttp://api.factual.com/v2/tables/s4OOB4/read?filters=' + escape(JSON.stringify(my_filters)),
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
