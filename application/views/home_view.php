@@ -15,7 +15,8 @@ $state = $user_place_info['geoplugin_regionCode'];
         <script type="text/javascript" src="/application/assets/js/plan_modal_functions.js"></script>
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-
+        <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
+        
         <!-- include plan tab code -->
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
@@ -70,18 +71,18 @@ $state = $user_place_info['geoplugin_regionCode'];
                 </div>
 
                 <div class="center_graph">
-                    <div id = "tabs" class="tabs-bottom">
+                    <div id = "map_data_tabs" class="tabs-bottom">
                         <ul>
-                            <li><a href="#tabs-1">Map</a></li>
-                            <li><a href="#tabs-2">Data</a></li>
+                            <li><a href="#map_tab">Map</a></li>
+                            <li><a href="#data_tab">Data</a></li>
                         </ul>
 
                         <!-- Google Map Div -->
-                        <div id="tabs-1" style="width:555px; height:250px;" >
+                        <div id="map_tab" style="width:555px; height:250px;" >
                             <div id="map" style="width:555px; height:250px;"></div>
                         </div>
 
-                        <div id="tabs-2" style="background-color: white;  width: 555px; height:250px;">
+                        <div id="data_tab" style="background-color: white;  width: 555px; height:250px;">
                             <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
                         </div>
 
