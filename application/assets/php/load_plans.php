@@ -5,7 +5,7 @@
         foreach ($result as $plan) {
             ?> 
             <li>
-                <a href="<?php echo($tracker++)?>" id="<?php echo $plan->id; ?>">
+                <a href="<?php echo($tracker++)?>" id="<?php echo $plan->id; ?>" class ="plan_tab_object">
                     <div style="text-align: left; width:auto; height: auto; ">
                         <div id="day_display" style="width:100%; height: auto;"> 
                             <?php
