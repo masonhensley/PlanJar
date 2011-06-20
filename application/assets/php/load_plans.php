@@ -10,7 +10,7 @@
                         <div id="day_display" style="width:100%; height: auto;"> 
                             <?php
                             echo $plan->name . "  |  ";
-                            $date_string = date('D (dd)', strtotime($plan->date));
+                            $date_string = date('D (d)', strtotime($plan->date));
                             echo $date_string;
                             ?>
                         </div>
