@@ -106,6 +106,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                     
                     <!-- this function loads the user events into the right panel -->
                     <?php 
+                    var_dump($result);
                     $plans = $result;
                     include(APPPATH . 'assets/php/load_plans.php'); ?>
                 </div>
