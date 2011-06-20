@@ -189,7 +189,7 @@ div.group_selectable_wrapper ul div.group_label {
 }
 
 /* used for bottom up tabs */
-#map_data_tabs { height: 100% } 
+#map_data_tabs { height: 300px } 
 .tabs-bottom { position: relative; } 
 .tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
 .tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
