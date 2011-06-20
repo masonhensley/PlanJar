@@ -1,6 +1,6 @@
 <?php
 
-class Load_events extends CI_Model
+class Load_plans extends CI_Model
 {
 
     function __construct()

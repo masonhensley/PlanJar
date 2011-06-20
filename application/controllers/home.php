@@ -15,7 +15,7 @@ class Home extends CI_Controller
             $this->load->model('load_plans');
             $user_info = $this->ion_auth->get_user();
             $user_id = $user_info->id;
-            $result = $this->load_events->getPlans($user_id);
+            $result = $this->load_plans->getPlans($user_id);
 
             // Lookup the groups by id.
             $this->load->model('load_groups');
