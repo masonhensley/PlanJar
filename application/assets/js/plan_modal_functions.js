@@ -129,6 +129,7 @@ function initialize_plan_modal() {
     // Auto-select the time of day.
     var date = new Date();
     var hours = date.getHours();
+    alert(hours);
     if (hours < 5) {
         $('#plan_late_night').select();
     } else if (hours < 11) {
