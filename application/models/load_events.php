@@ -20,7 +20,7 @@ class Load_events extends CI_Model
         ON plans.place_id=places.id 
         LEFT JOIN plan_categories
         ON plan_categories.id=plans.category_id
-        WHERE plans.user_id=$user_id";
+        WHERE plans.user_id=$user_id" AND plans.date>GETDATE();
 
         // pull data
         $query_result = $this->db->query($query);
