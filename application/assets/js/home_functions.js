@@ -37,6 +37,7 @@ $(function() {
 });
 
 function on_day_change(day_index) {
+    alert(day_index);
     current_day_offset = day_index;
 }
 
