@@ -208,10 +208,15 @@ class Home extends CI_Controller
             echo('error');
         }
     }
-    
+
     // Returns chart data based on the selected groups and day
-    public function get_group_day_data() {
-        
+    public function get_group_day_data()
+    {
+        echo('<p>selected groups: ' .
+        $this->input->get('selected_groups') .
+        '</p><p>selected day: ' .
+        $this->input->get('selected_day') .
+        '</p>');
     }
 
 }
