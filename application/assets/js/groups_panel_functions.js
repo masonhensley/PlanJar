@@ -35,6 +35,7 @@ function make_groups_selectable() {
 
 // Callback function
 function on_groups_change(selected_groups) {
+    alert(selected_groups);
     // Get the data based on groups and the day from the server.
     $.get('/home/get_group_day_data', {
         'selected_groups': selected_groups,
