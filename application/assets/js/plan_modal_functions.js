@@ -148,6 +148,7 @@ function initialize_plan_modal() {
     
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
+        alert('here');
         // Update the selected day.
         $('#plan_day [value=' + day_index + ']').click();
         
