@@ -1,6 +1,6 @@
 $(function() {
     $( "#plans" ).tabs({
-        //select: pull_plan_data
+        select: pull_plan_data
     });
 });
 
