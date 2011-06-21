@@ -1,5 +1,4 @@
 <?php
-
 // prevent direct script access
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -238,13 +237,30 @@ class Home extends CI_Controller
 
         // pull data
         $query_result = $this->db->query($query);
-        
-        foreach($query_result->result() as $row)
+
+        // initialize plan information
+        $time_of_day;
+        $date;
+        $name;
+
+        foreach ($query_result->result() as $row)
         {
-            echo $row->time_of_day;
-            echo $row->date;
-            echo $row->name;
+            // populate variables
+            $time_of_day = $row->time_of_day;
+            $date = $row->date;
+            $name = $row->name;
+            $category = $row->category;
         }
+        
+        // html to replace the data div
+        $htmlString ="
+        <div>
+        Plan: $category at $name <br/>
+        Time: $date $time_of_day
+
+        </div>";
+        
+        echo $htmlString;
     }
 
     // Return a list of plans visible to the user.
@@ -255,10 +271,10 @@ class Home extends CI_Controller
         // Get a list of users based on the selected groups.
         $user = $this->ion_auth->get_user();
         $group_list = $this->input->get('selected_groups');
-        
+
         $query_string = "SELECT joined_users, following_users FROM groups";
-        
-        
+
+
         if ($user_list)
         {
             $friends_key = array_search('friends', $user_list);
@@ -273,5 +289,4 @@ class Home extends CI_Controller
     }
 
 }
-
 ?>
