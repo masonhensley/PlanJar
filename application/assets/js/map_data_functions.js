@@ -7,7 +7,7 @@ function initialize_map_data_tabs() {
     $("#map_data_tabs").tabs({
         collapsible: true,
         fx: {
-            opacity: 'toggle',
+            height: 'toggle',
             duration: 'slow'
         }
     });
