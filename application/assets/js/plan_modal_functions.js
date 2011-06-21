@@ -110,8 +110,8 @@ function initialize_plan_modal() {
                                 }
                                 
                                 // Call the response function with the response JSON.
-                                //response(response_json);
-                                response(([]));
+                                alert(response_json);
+                                response(response_json);
                             }
                         },
                         jsonp: 'jsoncallback'
