@@ -54,7 +54,7 @@ function initialize_plan_modal() {
                 // Call the response function with the a copy of the response JSON.
                 var temp = response_json.slice(0);
                 temp.push({
-                    label: 'Loading Factual results...', 
+                    label: 'Expanding search results...', 
                     value: '', 
                     id: ''
                 });
@@ -84,19 +84,25 @@ function initialize_plan_modal() {
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
+                            console.log(data);
                             if (data.status != 'ok') {
                                 alert('factual error');
                             } else {
                                 data = data.response;
-                                console.log(data);
                                 if (data.rows > 0) {
                                     data = data.data;
                                     $.map(data, function (item) {
-                                        var category_name = item[12];
-                                        if (category_name != null) {
-                                            category_name = ' (' + item[12] + ')';
+                                        var category = item[12];
+                                        var category_name = '';
+                                        if (category != null) {
+                                            var last_gt = item[12].lastIndexOf('>');
+                                            if (last_gt != -1) {
+                                                category = category.substr(last_gt + 1);
+                                            }
+                                            category = $.trim(category);
+                                            category_name = ' (' + category + ')';
                                         } else {
-                                            category_name = ''
+                                            category = ''
                                         }
                                         
                                         var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
@@ -104,9 +110,19 @@ function initialize_plan_modal() {
                                         response_json.push({
                                             label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
                                             value: item[2],
-                                            id: 'factual'
+                                            id: 'factual',
+                                            name: item[2],
+                                            latitude: item[15],
+                                            longitude: item[16],
+                                            'category': category
                                         });
                                     }); 
+                                } else {
+                                    response_json.push({
+                                        label: "You've stumped us. Create a new place.", 
+                                        value: '', 
+                                        id: ''
+                                    });
                                 }
                                 
                                 // Call the response function with the response JSON.
@@ -123,6 +139,19 @@ function initialize_plan_modal() {
             $('#plan_location').val(ui.item.value);
             $('#plan_location_id').val(ui.item.id);
             $('#plan_location_name').val(ui.item.value);
+            
+            // Set the additional hidden fields only if the selected place is from Factual.
+            $('#new_place_name').val('');
+            $('#new_place_category').val('');
+            $('#new_place_latitude').val('');
+            $('#new_place_longitude').val('');
+            
+            if (ui.item.name != undefined) {
+                $('#new_place_name').val(ui.item.name);
+                $('#new_place_category').val(ui.item.category);
+                $('#new_place_latitude').val(ui.item.latitude);
+                $('#new_place_longitude').val(ui.item.longitude);
+            }
         }
     });
         

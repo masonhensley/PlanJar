@@ -85,5 +85,9 @@
         <input id="plan_location_name" type="hidden"/>
         <input id="plan_category_id" name="plan_category_id" type="hidden"/>
         <input id="plan_category_name" type="hidden"/>
+        <input id="new_place_name" name="new_place_name" type="hidden"/>
+        <input id="new_place_category" name="new_place_category" type="hidden"/>
+        <input id="new_place_latitude" name="new_place_latitude" type="hidden"/>
+        <input id="new_place_longitude" name="new_place_longitude" type="hidden"/>
     </form>
 </div>
