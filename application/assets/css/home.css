@@ -236,3 +236,8 @@ div.group_selectable_wrapper ul div.group_label {
     list-style-type: none;
     border: 1px solid black;
 }
+
+.selected_plan{
+    background-color: grey;
+    color:purple;
+}
