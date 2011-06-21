@@ -28,7 +28,7 @@ function make_groups_selectable() {
 }
 
 // Callback function
-function on_groups_change(selected_groups) {
+function on_groups_change() {
     // Switch to the data tab if it isn't active and update the data.
     if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
         $("#map_data_tabs").tabs('select', '#data_tab');

@@ -242,5 +242,10 @@ class Home extends CI_Controller
         var_dump($result);
          
     }
+    
+    // Return a list of plans visible to the user.
+    public function get_visible_plans() {
+        echo('waiting on');
+    }
 }
 ?>

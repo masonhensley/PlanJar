@@ -94,7 +94,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                 <div style="height:31px; width: 100%; background-color: red"></div>
 
                 <!-- List of all plans visible given user parameters -->
-                <div id="all_plans_panel" class="center_board"></div>
+                <div id="visible_plans_panel" class="center_board"></div>
                 
             </div>
 
