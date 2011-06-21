@@ -16,7 +16,7 @@ function initialize_plan_panel(){
                 'plan_selected': $('.selected_plan').attr('plan_id')
             }, function (data) {
                 
-                organize_data(data);
+                htmlString = organize_data(data);
                 
                 // Replace the data and show the data tab.
                 $('#data_tab').html(data);
@@ -35,4 +35,6 @@ function organize_data(){
     var time_of_day = data['time_of_day'];
     
     var htmlString = "You are going to" + name + " at " + time_of_day;
+    
+    return htmlString;
 }
