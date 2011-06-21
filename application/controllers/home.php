@@ -238,11 +238,9 @@ class Home extends CI_Controller
 
         // pull data
         $query_result = $this->db->query($query);
-        $result = $query_result->result();
-
-        while ($row = mysql_fetch_assoc($result))
+        foreach($query_result->result() as $row)
         {
-            echo $row['name'];
+            echo $row->name;
         }
     }
 
