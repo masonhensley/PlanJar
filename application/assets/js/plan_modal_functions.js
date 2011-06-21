@@ -75,7 +75,21 @@ function initialize_plan_modal() {
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
-                            console.log(data);
+                            if (data.status != 'ok') {
+                                alert('factual error');
+                            } else {
+                                data = data.response;
+                                if (data.rows > 0) {
+                                    data = data.data;
+                                    $.map(data, function (item) {
+                                        return {
+                                            label: '*' + item[3] + ' (' + item[12] + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                            value: item[3],
+                                            id: 5
+                                        };
+                                    });
+                                }
+                            }
                         },
                         jsonp: 'jsoncallback'
                     });
