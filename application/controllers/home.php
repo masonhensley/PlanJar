@@ -248,7 +248,7 @@ class Home extends CI_Controller
             // populate variables
             $time_of_day = $row->time_of_day;
             // get rid of the "-"
-            $time_of_day = str_replace("-", " ", $time_of_day);
+            $time_of_day = str_replace("_", " ", $time_of_day);
             
             $date = $row->date;
             $date = date('mm/dd', strtotime($date));
