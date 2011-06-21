@@ -92,11 +92,11 @@ function initialize_plan_modal() {
                                     data = data.data;
                                     $.map(data, function (item) {
                                         var category = item[12];
-                                        var category_name;
+                                        var category_name = '';
                                         if (category != null) {
                                             var last_gt = item[12].substr(item[12].lastIndexOf('>'));
                                             if (last_gt != -1) {
-                                                category = category_name.substr(last_gt);
+                                                category = category.substr(last_gt);
                                             }
                                             category = $.trim();
                                             category_name = ' (' + category + ')';
