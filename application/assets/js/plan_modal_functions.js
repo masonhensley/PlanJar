@@ -58,7 +58,7 @@ function initialize_plan_modal() {
                     value: '', 
                     id: ''
                 });
-                response(temp); 
+                response(temp);
                     
                 if (place_limit > 0) {
                     // If additional places are required, fetch places from Factual. Pick fields needed
@@ -196,6 +196,7 @@ function initialize_plan_modal() {
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
         // Update the selected day.
+        alert('here');
         var selected_day = $('#day_tabs ul.tabs li.day_selected a').attr('href');
         $('#plan_day [value=' + selected_day + ']').click();
         
