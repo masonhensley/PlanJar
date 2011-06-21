@@ -254,7 +254,7 @@ class Home extends CI_Controller
         
         // html to replace the data div
         $htmlString ="
-        <div>
+        <div><font color=\"purple\" size=\"40px\">
         Plan: $category at $name <br/>
         Time: $date $time_of_day
 
