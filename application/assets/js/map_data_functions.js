@@ -11,6 +11,7 @@ function initialize_map_data_tabs() {
             duration: 'slow'
         }
     });
+    
 
     // Make the tabs go on the bottom.
     $("#map_data_tabs .tabs-bottom .ui-tabs-nav, #map_data_tabs .tabs-bottom .ui-tabs-nav > *")
