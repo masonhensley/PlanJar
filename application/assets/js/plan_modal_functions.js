@@ -76,7 +76,7 @@ function initialize_plan_modal() {
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
-                            console.log(JSON.parse(data));
+                            console.log(data);
                         },
                         jsonp: 'jsoncallback'
                     });
