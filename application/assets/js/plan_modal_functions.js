@@ -88,13 +88,12 @@ function initialize_plan_modal() {
                                 alert('factual error');
                             } else {
                                 data = data.response;
-                                console.log(data);
                                 if (data.rows > 0) {
                                     data = data.data;
                                     $.map(data, function (item) {
                                         var category_name = item[12];
                                         if (category_name != null) {
-                                            category_name = ' (' + item[12] + ')';
+                                            category_name = ' (' + $.trim(item[12].substr(lastIndexOf('>'))) + ')';
                                         } else {
                                             category_name = ''
                                         }
@@ -108,7 +107,7 @@ function initialize_plan_modal() {
                                             name: item[2],
                                             latitude: item[15],
                                             longitude: item[16],
-                                            category: 'category'
+                                            category: category_name
                                         });
                                     }); 
                                 } else {
