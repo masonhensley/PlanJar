@@ -239,8 +239,7 @@ class Home extends CI_Controller
         $query_result = $this->db->query($query);
         $result = $query_result->result();
         
-        var_dump($result);
-         
+        return json_encode($result);
     }
     
     // Return a list of plans visible to the user.

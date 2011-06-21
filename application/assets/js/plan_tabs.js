@@ -31,7 +31,7 @@ function initialize_plan_panel(){
 }
 
 function organize_data(data){
-    alert(data);
+    alert(JSON.stringify(data));
     var name = data['name'];
     var time_of_day = data['time_of_day'];
     
