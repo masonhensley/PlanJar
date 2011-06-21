@@ -240,13 +240,11 @@ class Home extends CI_Controller
         $result = $query_result->result();
         $rows = array();
         
-        while($r = mysql_fetch_assoc($result))
+        while($r = mysql_fetch_array($result))
         {
             $rows[] = $r;
         }
-        
-        
-        
+
         echo json_encode($rows);
     }
     
