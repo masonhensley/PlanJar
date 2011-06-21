@@ -16,12 +16,8 @@ function initialize_plan_panel(){
                 'plan_selected': $('.selected_plan').attr('plan_id')
             }, function (data) {
                 
-                // Create the html string to replace the data view
-                alert(data);
-                htmlString = organize_data(data);
-                
                 // Replace the data and show the data tab.
-                $('#data_tab').html(htmlString);
+                $('#data_tab').html(data);
                 
                 // select the data tab
                 if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
@@ -29,19 +25,4 @@ function initialize_plan_panel(){
                 }
             }); 
     });    
-    
-}
-
-function organize_data(data){
-    data = $.parseJSON(data);
-    
-    // set up variables for data view
-    var name = data.name;
-    var time_of_day = data.time_of_day;
-    var date = data.date;
-    var category = data.category
-    
-    var htmlString = "You are going to " + name + " at " + time_of_day;
-    
-    return htmlString;
 }
