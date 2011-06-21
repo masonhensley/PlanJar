@@ -77,7 +77,8 @@ function initialize_plan_modal() {
                         dataType: 'jsonp',
                         success : function(data) {
                             console.log(JSON.parse(data));
-                        }
+                        },
+                        jsonp: 'jsoncallback'
                     });
                 }
                 
