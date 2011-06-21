@@ -1,5 +1,13 @@
 $(function() {
-    $( "#plans" ).tabs({
+    initialize_plan_panel();
+});
+
+function initialize_plan_panel(){
+    
+}
+
+/*
+$( "#plans" ).tabs({
         select: function(event, ui){
          
             $(this).addClass('active_plan');
@@ -19,8 +27,5 @@ $(function() {
         
         }
     });
-});
-
-function pull_plan_data(event, ui){
     
-}
+    */
