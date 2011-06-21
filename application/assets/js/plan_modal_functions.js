@@ -82,6 +82,7 @@ function initialize_plan_modal() {
                                 alert('factual error');
                             } else {
                                 data = data.response;
+                                console.log(data);
                                 if (data.rows > 0) {
                                     data = data.data;
                                     $.map(data, function (item) {
