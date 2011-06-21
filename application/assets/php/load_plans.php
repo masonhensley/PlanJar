@@ -11,7 +11,7 @@
             $date_string1 = date('D (d)', strtotime($plan->date));
             $date_string2 = date('l', strtotime($plan->date));
             ?> 
-            <li class ="plan_content">
+            <li class ="plan_content" plan_id="<?php echo $id; ?>" >
                 <?php
                 echo $name . "  |  " . $date_string1;
                 echo "<hr/>";
