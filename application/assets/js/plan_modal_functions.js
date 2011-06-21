@@ -52,7 +52,7 @@ function initialize_plan_modal() {
                 }
                 
                 // Call the response function with the response JSON.
-                var temp = response_json;
+                var temp = response_json.slice(0);
                 temp.push({
                     label: 'Loading Factual results...', 
                     value: '', 
