@@ -55,8 +55,7 @@ function initialize_plan_modal() {
                     // If additional places are required, fetch places from Factual. Pick fields needed
                     // by the autocomplete from the resulting JSON and add them to response_json array.
                     var my_filters = {
-                        //"$search": request.term,
-                        "$search": "sushi",
+                        "$search": request.term,
                         "$loc":{
                             "$within":{
                                 "$center":[[myLatitude, myLongitude],5000]
@@ -76,7 +75,7 @@ function initialize_plan_modal() {
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
-                            console.log(JSON.parse(data));
+                            console.log(data.response.data);
                         },
                         jsonp: 'jsoncallback'
                     });
