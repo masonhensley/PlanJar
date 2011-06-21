@@ -50,6 +50,9 @@ function initialize_plan_modal() {
                         };
                     });
                 }
+                
+                // Call the response function with the response JSON.
+                response(response_json); 
                     
                 if (place_limit > 0) {
                     // If additional places are required, fetch places from Factual. Pick fields needed
@@ -79,22 +82,30 @@ function initialize_plan_modal() {
                                 alert('factual error');
                             } else {
                                 data = data.response;
+                                console.log(data);
                                 if (data.rows > 0) {
                                     data = data.data;
                                     $.map(data, function (item) {
+                                        var category_name = item[12];
+                                        if (category_name != null) {
+                                            category_name = ' (' + item[12] + ')';
+                                        } else {
+                                            category_name = ''
+                                        }
                                         response_json.push({
-                                            label: '*' + item[3] + ' (' + item[12] + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
-                                            value: item[3],
+                                            label: '*' + item[2] + category_name + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                            value: item[2],
                                             id: 5
                                         });
                                     });
+                                    
+                                    // Call the response function with the response JSON.
+                                    response(response_json); 
                                 }
                             }
                         },
                         jsonp: 'jsoncallback'
                     });
-                    // Call the response function with the response JSON.
-                    response(response_json); 
                 }
             });
         },
