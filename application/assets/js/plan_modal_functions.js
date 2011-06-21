@@ -87,8 +87,8 @@ function initialize_plan_modal() {
                                     data = data.data;
                                     $.map(data, function (item) {
                                         response_json.push({
-                                            label: '*' + item[3] + ' (' + item[12] + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
-                                            value: item[3],
+                                            label: '*' + item[2] + ' (' + item[12] + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                            value: item[2],
                                             id: 5
                                         });
                                     });
