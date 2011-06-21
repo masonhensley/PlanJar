@@ -1,31 +1,26 @@
-<div id="plans">
-    <ul>
+<div class="plans_wrapper">
+    <ul id="active_plans">
         <?php
-        $tracker = 0;
-        foreach ($result as $plan) {
+        $id = $plan->id;
+        $name = $plan->name;
+        $category = $plan->category;
+        $time = $plan->time_of_day;
+        $date_string1 = date('D (d)', strtotime($plan->date));
+        $date_string2 = date('l', strtotime($plan->date));
+
+        foreach ($result as $plan)
+        {
             ?> 
-            <li>
-                <a href="<?php echo($tracker++)?>" plan_id="<?php echo $plan->id; ?>" class ="plan_tab_object">
-                    <div style="text-align: left; width:auto; height: auto; ">
-                        <div id="day_display" style="width:100%; height: auto;"> 
-                            <?php
-                            echo $plan->name . "  |  ";
-                            $date_string = date('D (d)', strtotime($plan->date));
-                            echo $date_string;
-                            ?>
-                        </div>
-                        <?php
-                        echo "<p>";
-                        $date_string = date('l', strtotime($plan->date));
-                        echo $plan->category . "<br/>";
-                        echo $date_string . " " . $plan->time_of_day;
-                        echo "</p>";
-                        ?>
-                    </div>
-                </a>
+            <li class ="plan_content">
+                <?php
+                echo $name . "  |  " . $date_string1;
+                echo "<hr/>";
+                echo "<p>";
+                echo $category . "<br/>";
+                echo $date_string2 . " " . $time;
+                echo "</p>";
+                ?>
             </li>
-            <?php
-        }
-        ?>
+        <?php } ?>
     </ul>
 </div>
