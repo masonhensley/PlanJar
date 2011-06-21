@@ -239,12 +239,10 @@ class Home extends CI_Controller
         // pull data
         $query_result = $this->db->query($query);
         
-       $selected_plan = $query_result->result();
-       
-       echo $selected_plan->time_of_day;
-        
         foreach($query_result->result() as $row)
         {
+            echo $row->time_of_day;
+            echo $row->date;
             echo $row->name;
         }
     }
