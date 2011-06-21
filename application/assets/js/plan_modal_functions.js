@@ -92,8 +92,10 @@ function initialize_plan_modal() {
                                         } else {
                                             category_name = ''
                                         }
+                                        
+                                        var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
                                         response_json.push({
-                                            label: '*' + item[2] + category_name + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                            label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
                                             value: item[2],
                                             id: 5
                                         });
@@ -222,4 +224,10 @@ function lock_to_autocomplete(textbox_name, id_name, name_name) {
     
     // Select today.
     $('#plan_day :first').click();
+}
+
+function get_distance_between(lat0, long0, lat1, long1) {
+    return ((Math.acos(Math.sin(lat0 * Math.PI / 180) * Math.sin(lat1 * Math.PI / 180) 
+        + Math.cos(lat0 * Math.PI / 180) * Math.cos(lat1 * Math.PI / 180) * Math.cos((long0 - long1)
+            * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
 }
