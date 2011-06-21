@@ -100,7 +100,7 @@ $state = $user_place_info['geoplugin_regionCode'];
 
             <div class="right" >
                 <div class="right_top">
-                    Welcome <?php echo $username ?>
+                    <br/>Welcome <?php echo $username ?><br/>
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div id="myplans" class="right_bottom">
