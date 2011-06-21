@@ -213,7 +213,7 @@ class Home extends CI_Controller
     // Returns chart data based on the selected groups and day
     public function get_group_day_data()
     {
-        echo('<p>selected groups: ' .
+        echo('<p>selected groups ^^' .
         var_dump($this->input->get('selected_groups')) .
         '</p><p>selected day: ' .
         $this->input->get('selected_day') .
