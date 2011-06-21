@@ -235,6 +235,7 @@ div.group_selectable_wrapper ul div.group_label {
 .plan_content{
     list-style-type: none;
     border: 1px solid black;
+    top:10px;
 }
 
 .selected_plan{
