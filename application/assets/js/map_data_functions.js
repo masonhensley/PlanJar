@@ -5,8 +5,13 @@ $(function() {
 // Initializes the map/data tabs.
 function initialize_map_data_tabs() {
     $("#map_data_tabs").tabs({
-        collapsible: true
+        collapsible: true,
+        fx: {
+            opacity: 'toggle',
+            duration: 'slow'
+        }
     });
+    
 
     // Make the tabs go on the bottom.
     $("#map_data_tabs .tabs-bottom .ui-tabs-nav, #map_data_tabs .tabs-bottom .ui-tabs-nav > *")

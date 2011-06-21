@@ -13,7 +13,7 @@ $( "#plans" ).tabs({
             $(this).addClass('active_plan');
          
             $.get('/home/get_plan_data', {
-                'plan_selected': $('.active_plan').attr('id')
+                'plan_selected': $('.active_plan').attr('plan_id')
             }, function (data) {
                 // Replace the data and show the data tab.
                 alert(data);
