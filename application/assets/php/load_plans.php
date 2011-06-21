@@ -15,10 +15,8 @@
                 <?php
                 echo $name . "  |  " . $date_string1;
                 echo "<hr/>";
-                echo "<p>";
                 echo $category . "<br/>";
                 echo $date_string2 . " " . $time;
-                echo "</p>";
                 ?>
             </li>
         <?php } ?>
