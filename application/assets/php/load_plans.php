@@ -3,6 +3,7 @@
         <?php
         foreach ($result as $plan)
         {
+            // make easy to read variables
             $id = $plan->id;
             $name = $plan->name;
             $category = $plan->category;
