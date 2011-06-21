@@ -1,5 +1,5 @@
 <div class="plans_wrapper">
-    <ul id="active_plans">
+    <ul class="active_plans">
         <?php
         foreach ($result as $plan)
         {

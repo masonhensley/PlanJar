@@ -219,12 +219,15 @@ div.group_selectable_wrapper ul div.group_label {
 
 /* overwrites the data tab's styles */
 #data_tab {
- color: black   
+    color: black   
 }
 
 /* CSS for right panel plans*/
 .plans_wrapper{
     text-align: center;
+}
+
+.active_plans{
     margin:0px;
     padding:0px;
 }
