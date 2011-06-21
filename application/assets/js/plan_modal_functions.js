@@ -104,13 +104,12 @@ function initialize_plan_modal() {
                                         response_json.push({
                                             label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
                                             value: item[2],
-                                            id: 5
+                                            id: 'factual'
                                         });
                                     }); 
                                 }
                                 
                                 // Call the response function with the response JSON.
-                                alert(response_json);
                                 response(response_json);
                             }
                         },
