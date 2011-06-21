@@ -238,8 +238,11 @@ class Home extends CI_Controller
 
         // pull data
         $query_result = $this->db->query($query);
+        
         foreach($query_result->result() as $row)
         {
+            echo $row->time_of_day;
+            echo $row->date;
             echo $row->name;
         }
     }
