@@ -1,5 +1,5 @@
 <div class="plans_wrapper">
-    <ul id="active_plans">
+    <ul class="active_plans">
         <?php
         foreach ($result as $plan)
         {
@@ -15,10 +15,8 @@
                 <?php
                 echo $name . "  |  " . $date_string1;
                 echo "<hr/>";
-                echo "<p>";
                 echo $category . "<br/>";
                 echo $date_string2 . " " . $time;
-                echo "</p>";
                 ?>
             </li>
         <?php } ?>
