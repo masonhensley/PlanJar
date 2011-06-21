@@ -1,15 +1,14 @@
 <div class="plans_wrapper">
     <ul id="active_plans">
         <?php
-        $id = $plan->id;
-        $name = $plan->name;
-        $category = $plan->category;
-        $time = $plan->time_of_day;
-        $date_string1 = date('D (d)', strtotime($plan->date));
-        $date_string2 = date('l', strtotime($plan->date));
-
         foreach ($result as $plan)
         {
+            $id = $plan->id;
+            $name = $plan->name;
+            $category = $plan->category;
+            $time = $plan->time_of_day;
+            $date_string1 = date('D (d)', strtotime($plan->date));
+            $date_string2 = date('l', strtotime($plan->date));
             ?> 
             <li class ="plan_content">
                 <?php
