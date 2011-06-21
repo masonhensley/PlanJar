@@ -7,7 +7,7 @@ function initialize_plan_panel(){
         
         // Make the list tiems togglable.
         if ($(this).hasClass('plan_content')) {
-            alert("working");
+            $(this).addClass('selected_plan');
         }
         
         // Call the callback function.
