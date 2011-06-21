@@ -53,15 +53,8 @@ function initialize_plan_modal() {
                 
                 // Call the response function with the a copy of the response JSON.
                 var temp = response_json.slice(0);
-                if (place_count == 0) {
-                    temp.push({
-                        label: 'No results found in our database', 
-                        value: '', 
-                        id: ''
-                    });
-                }
                 temp.push({
-                    label: 'Loading Factual results...', 
+                    label: 'Expanding search results...', 
                     value: '', 
                     id: ''
                 });
@@ -120,7 +113,7 @@ function initialize_plan_modal() {
                                     }); 
                                 } else {
                                     response_json.push({
-                                        label: 'No results found on Factual', 
+                                        label: "You've stumped us. Create a new place.", 
                                         value: '', 
                                         id: ''
                                     });
