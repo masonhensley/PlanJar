@@ -14,7 +14,7 @@ function setup_day_tabs() {
         $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
         // Call the callback function.
-        on_day_change($('#day_tabs ul.tabs li.day_selected a').attr('href'));
+        on_day_change();
 
         return false;
     });
@@ -27,4 +27,8 @@ function on_day_change(day_index) {
         $("#map_data_tabs").tabs('select', '#data_tab');
     }
     get_group_day_data();
+}
+
+function get_selected_day() {
+    $('#day_tabs ul.tabs li.day_selected a').attr('href')
 }

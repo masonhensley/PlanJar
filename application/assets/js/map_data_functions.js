@@ -23,7 +23,7 @@ function initialize_map_data_tabs() {
 function get_group_day_data () {
     $.get('/home/get_group_day_data', {
         'selected_groups': get_selected_groups(),
-        'selected_day': $('#day_tabs .day_selected a').attr('href')
+        'selected_day': get_selected_day()
     }, function (data) {
         // Replace the data and show the data tab.
         $('#data_tab').html(data)
