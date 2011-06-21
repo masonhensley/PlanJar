@@ -32,13 +32,15 @@ function initialize_plan_panel(){
 }
 
 function organize_data(data){
+    data = $.parseJSON(data);
+    
     // set up variables for data view
     var name = data.name;
     var time_of_day = data.time_of_day;
     var date = data.date;
     var category = data.category
     
-    var htmlString = "You are going to" + name + " at " + time_of_day;
+    var htmlString = "You are going to " + name + " at " + time_of_day;
     
     return htmlString;
 }
