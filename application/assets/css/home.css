@@ -225,9 +225,10 @@ div.group_selectable_wrapper ul div.group_label {
 /* CSS for right panel plans*/
 .plans_wrapper{
     text-align: center;
+    margin:0px;
+    padding:0px;
 }
 
 .plan_content{
     list-style-type: none;
-    margin-left: 0px;
 }
