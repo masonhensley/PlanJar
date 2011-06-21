@@ -84,6 +84,7 @@ function initialize_plan_modal() {
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
+                            consolg.log(data);
                             if (data.status != 'ok') {
                                 alert('factual error');
                             } else {
@@ -140,7 +141,7 @@ function initialize_plan_modal() {
             $('#plan_location_name').val(ui.item.value);
             
             // Add a Factual place to the PlanJar database.
-            if (ui.item.latitude != undefined) {
+            if (ui.item.name != undefined) {
                 alert(ui.item.latitude + ', ' + ui.item.longitude + ', ' + ui.item.name + ', ' + ui.item.category);
             }
         }
