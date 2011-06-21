@@ -93,10 +93,9 @@ function initialize_plan_modal() {
                         },
                         jsonp: 'jsoncallback'
                     });
+                    // Call the response function with the response JSON.
+                    response(response_json); 
                 }
-                
-                // Call the response function with the response JSON.
-                response(response_json);
             });
         },
         // When an item is selected, update the location text as well as the hidden fields.
