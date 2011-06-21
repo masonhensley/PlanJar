@@ -15,8 +15,10 @@ function initialize_plan_panel(){
         $.get('/home/get_plan_data', {
                 'plan_selected': $('.selected_plan').attr('plan_id')
             }, function (data) {
+                
+                organize_data(data);
+                
                 // Replace the data and show the data tab.
-                alert(data);
                 $('#data_tab').html(data);
                 
                 // select the data tab
@@ -25,4 +27,12 @@ function initialize_plan_panel(){
                 }
             }); 
     });    
+    
+}
+
+function organize_data(){
+    var name = data['name'];
+    var time_of_day = data['time_of_day'];
+    
+    var htmlString = "You are going to" + name + " at " + time_of_day;
 }
