@@ -247,16 +247,21 @@ class Home extends CI_Controller
         {
             // populate variables
             $time_of_day = $row->time_of_day;
+            // get rid of the "-"
+            $time_of_day = str_replace("-", " ", $time_of_day);
+            
             $date = $row->date;
             $name = $row->name;
             $category = $row->category;
+            
         }
         
         // html to replace the data div
         $htmlString ="
         <div><font color=\"purple\" size=\"40px\">
-        Plan: $category at $name <br/>
-        Time: $date $time_of_day
+        $category at $name <br/>
+        $time_of_day <br/>
+        $date 
 
         </div>";
         
