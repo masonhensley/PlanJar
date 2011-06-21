@@ -16,7 +16,7 @@ $state = $user_place_info['geoplugin_regionCode'];
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
-        <script type="text/javascript" src="/application/assets/js/all_plans_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/visible_plans_functions.js"></script>
 
         <!-- include plan tab code -->
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
