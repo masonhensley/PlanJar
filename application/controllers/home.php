@@ -245,7 +245,20 @@ class Home extends CI_Controller
     
     // Return a list of plans visible to the user.
     public function get_visible_plans() {
-        echo('waiting on');
+        $this->load->database();
+        
+        // Get a list of users based on the selected groups.
+        $user = $this->ion_auth->get_user();
+        $user_list = json_decode($this->input->get('selected_groups'));
+        $friends_key = array_search('friends', $user_list);
+        if ($friends_key !== false) {
+            unset($user_list[$friends_key]);
+            $user_list = array_merge($user_list, $user->following);
+        }
+        
+        echo(var_dump($user_list));
+        
+        
     }
 }
 ?>
