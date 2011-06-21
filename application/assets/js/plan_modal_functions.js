@@ -228,6 +228,6 @@ function lock_to_autocomplete(textbox_name, id_name, name_name) {
 
 function get_distance_between(lat0, long0, lat1, long1) {
     return ((Math.acos(Math.sin(lat0 * Math.PI / 180) * Math.sin(lat1 * Math.PI / 180) 
-        + Math.cos(lat0 * Math.PI / 180) * Math.cos(lat1 * Math.PI / 180) * Math.cos(long0 - long1)
-        * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515;
+        + Math.cos(lat0 * Math.PI / 180) * Math.cos(lat1 * Math.PI / 180) * Math.cos((long0 - long1)
+            * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
 }
