@@ -239,7 +239,8 @@ class Home extends CI_Controller
         // pull data
         $query_result = $this->db->query($query);
         $result = $query_result->result();
-        echo $result->name;
+        echo $result['name'];
+       
     }
 
     // Return a list of plans visible to the user.
