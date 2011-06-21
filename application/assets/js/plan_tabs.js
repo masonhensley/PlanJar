@@ -32,7 +32,7 @@ function initialize_plan_panel(){
 }
 
 function organize_data(data){
-    data = $.parseJSON(data);
+    var data = $.parseJSON(data);
     
     // set up variables for data view
     var name = data.name;
