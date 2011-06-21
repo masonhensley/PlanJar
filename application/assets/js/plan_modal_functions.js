@@ -154,15 +154,6 @@ function initialize_plan_modal() {
             }
         }
     });
-    
-    $.get('/home/add_place', {
-        name: ui.item.name,
-        category: ui.item.category,
-        latitude: ui.item.latitude,
-        longitude: ui.item.longitude
-    }, function (data) {
-        alert(data);
-    });
         
     // Initialize the plan category autocomplete instance.
     $('#plan_category').autocomplete({
