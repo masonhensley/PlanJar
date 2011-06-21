@@ -82,11 +82,11 @@ function initialize_plan_modal() {
                                 if (data.rows > 0) {
                                     data = data.data;
                                     $.map(data, function (item) {
-                                        return {
+                                        response_json.push({
                                             label: '*' + item[3] + ' (' + item[12] + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
                                             value: item[3],
                                             id: 5
-                                        };
+                                        });
                                     });
                                 }
                             }
