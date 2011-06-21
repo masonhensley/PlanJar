@@ -222,7 +222,11 @@ div.group_selectable_wrapper ul div.group_label {
  color: black   
 }
 
+/* CSS for right panel plans*/
+.plans_wrapper{
+    text-align: center;
+}
+
 .plan_content{
     list-style-type: none;
-    
 }
