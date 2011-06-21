@@ -244,8 +244,6 @@ class Home extends CI_Controller
         {
             echo $row['name'];
         }
-
-        echo $result['name'];
     }
 
     // Return a list of plans visible to the user.
