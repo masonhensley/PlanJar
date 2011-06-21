@@ -54,6 +54,11 @@ function initialize_plan_modal() {
                 // Call the response function with the a copy of the response JSON.
                 var temp = response_json.slice(0);
                 temp.push({
+                    label: 'No results found in our database', 
+                    value: '', 
+                    id: ''
+                });
+                temp.push({
                     label: 'Loading Factual results...', 
                     value: '', 
                     id: ''
@@ -104,9 +109,19 @@ function initialize_plan_modal() {
                                         response_json.push({
                                             label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
                                             value: item[2],
-                                            id: 'factual'
+                                            id: 'factual',
+                                            name: item[2],
+                                            latitude: item[15],
+                                            longitude: item[16],
+                                            category: 'category'
                                         });
                                     }); 
+                                } else {
+                                    response_json.push({
+                                        label: 'No results found on Factual', 
+                                        value: '', 
+                                        id: ''
+                                    });
                                 }
                                 
                                 // Call the response function with the response JSON.
@@ -123,6 +138,11 @@ function initialize_plan_modal() {
             $('#plan_location').val(ui.item.value);
             $('#plan_location_id').val(ui.item.id);
             $('#plan_location_name').val(ui.item.value);
+            
+            // Add a Factual place to the PlanJar database.
+            if (ui.item.latitude != undefined) {
+                alert(ui.item.latitude + ', ' + ui.item.longitude + ', ' + ui.item.name + ', ' + ui.item.category);
+            }
         }
     });
         
