@@ -100,6 +100,7 @@ function initialize_plan_modal() {
                                         }
                                         
                                         var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
+                                        
                                         response_json.push({
                                             label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
                                             value: item[2],
@@ -109,7 +110,8 @@ function initialize_plan_modal() {
                                 }
                                 
                                 // Call the response function with the response JSON.
-                                response(response_json);
+                                //response(response_json);
+                                response(([]));
                             }
                         },
                         jsonp: 'jsoncallback'
