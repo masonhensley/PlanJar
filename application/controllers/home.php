@@ -240,7 +240,7 @@ class Home extends CI_Controller
         $query_result = $this->db->query($query);
         $result = $query_result->result();
 
-        while ($row = mysql_fetch_assoc($query_result))
+        while ($row = mysql_fetch_assoc($result))
         {
             echo $row['name'];
         }
