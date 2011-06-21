@@ -258,7 +258,7 @@ class Home extends CI_Controller
 
         // Get a list of users based on the selected groups.
         $user = $this->ion_auth->get_user();
-        $user_list = json_decode($this->input->get('selected_groups'));
+        $user_list = $this->input->get('selected_groups');
         if ($user_list)
         {
             $friends_key = array_search('friends', $user_list);
