@@ -1,4 +1,5 @@
 <?php
+
 // prevent direct script access
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -14,12 +15,12 @@ class Home extends CI_Controller
             // load plans by id
             $this->load->model('load_plans');
             $user_info = $this->ion_auth->get_user();
-            $user_id = $user_info->id; 
+            $user_id = $user_info->id;
             $result = $this->load_plans->getPlans($user_id);
 
             // retrieve other useful variables for view
             $username = $user_info->username;
-            
+
             // Lookup the groups by id.
             $this->load->model('load_groups');
             $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
@@ -191,7 +192,7 @@ class Home extends CI_Controller
         $user = $this->ion_auth->get_user();
         $date = new DateTime();
         $date->add(new DateInterval('P' . $this->input->get('plan_day_group') . 'D'));
-
+        
         $data = array(
             'id' => 'DEFAULT',
             'place_id' => $this->input->get('plan_location_id'),
@@ -200,6 +201,21 @@ class Home extends CI_Controller
             'time_of_day' => $this->input->get('plan_time_group'),
             'category_id' => $this->input->get('plan_category_id')
         );
+
+        // Add the place to the database if a Factual place was selected.
+        if ($this->input->get('new_place_name') != '')
+        {
+            $query_string = "INSERT INTO places VALUES (DEFAULT, ?, ?, ?, ?)";
+            $query = $this->db->query($query_string, array(
+                        $this->input->get('new_place_name'),
+                        $this->input->get('new_place_latitude'),
+                        $this->input->get('new_place_longitude'),
+                        $this->input->get('new_place_category')
+                    ));
+            
+            // Overwrite the place id with the new place.
+            $data['place_id'] = $this->db->insert_id();
+        }
 
         $query = $this->db->insert('plans', $data);
 
@@ -252,25 +268,24 @@ class Home extends CI_Controller
             $time_of_day = $row->time_of_day;
             // get rid of the "-"
             $time_of_day = str_replace("_", " ", $time_of_day);
-            
+
             $date = $row->date;
             $date = date('m/d', strtotime($date));
-            
-            
+
+
             $name = $row->name;
             $category = $row->category;
-            
         }
-        
+
         // html to replace the data div
-        $htmlString ="
+        $htmlString = "
         <div><font color=\"purple\" size=\"30px\">
         $category at $name <br/>
         $time_of_day <br/>
         $date 
 
         </div>";
-        
+
         echo $htmlString;
     }
 
@@ -300,4 +315,5 @@ class Home extends CI_Controller
     }
 
 }
+
 ?>

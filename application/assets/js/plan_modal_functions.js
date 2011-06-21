@@ -140,11 +140,28 @@ function initialize_plan_modal() {
             $('#plan_location_id').val(ui.item.id);
             $('#plan_location_name').val(ui.item.value);
             
-            // Add a Factual place to the PlanJar database.
+            // Set the additional hidden fields only if the selected place is from Factual.
+            $('#new_place_name').val('');
+            $('#new_place_category').val('');
+            $('#new_place_latitude').val('');
+            $('#new_place_longitude').val('');
+            
             if (ui.item.name != undefined) {
-                alert(ui.item.latitude + ', ' + ui.item.longitude + ', ' + ui.item.name + ', ' + ui.item.category);
+                $('#new_place_name').val(ui.item.name);
+                $('#new_place_category').val(ui.item.category);
+                $('#new_place_latitude').val(ui.item.latitude);
+                $('#new_place_longitude').val(ui.item.longitude);
             }
         }
+    });
+    
+    $.get('/home/add_place', {
+        name: ui.item.name,
+        category: ui.item.category,
+        latitude: ui.item.latitude,
+        longitude: ui.item.longitude
+    }, function (data) {
+        alert(data);
     });
         
     // Initialize the plan category autocomplete instance.
