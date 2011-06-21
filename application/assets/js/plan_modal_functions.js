@@ -96,6 +96,7 @@ function initialize_plan_modal() {
                                         var category_name = '';
                                         if (category != null) {
                                             var last_gt = item[12].substr(item[12].lastIndexOf('>'));
+                                            alert(last_gt);
                                             if (last_gt != -1) {
                                                 category = category.substr(last_gt);
                                             }
