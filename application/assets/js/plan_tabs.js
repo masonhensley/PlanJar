@@ -7,44 +7,41 @@ function initialize_plan_panel(){
         
         // Make the list tiems togglable.
         if ($(this).hasClass('plan_content')) {
+            $('.plan_content').removeClass('selected_plan');
             $(this).addClass('selected_plan');
         }
         
-        // Call the callback function.
-        on_groups_change();
-    });
-    
-    // Initialize the clear all and select all button actions.
-    $('#clear_all_groups').click(function() {
-        $('div.group_selectable_wrapper li.group_selected').removeClass('group_selected');
-        on_groups_change();
-    });
-    $('#select_all_groups').click(function() {
-        $('div.group_selectable_wrapper li').addClass('group_selected');
-        on_groups_change();
-    });
-}
-
-/*
-$( "#plans" ).tabs({
-        select: function(event, ui){
-         
-            $(this).addClass('active_plan');
-         
-            $.get('/home/get_plan_data', {
-                'plan_selected': $('.active_plan').attr('plan_id')
+        // fetch the data about the plan and display it in the data div
+        $.get('/home/get_plan_data', {
+                'plan_selected': $('.selected_plan').attr('plan_id')
             }, function (data) {
-                // Replace the data and show the data tab.
+                
+                // Create the html string to replace the data view
                 alert(data);
-                $('#data_tab').html(data);
+                htmlString = organize_data(data);
+                
+                // Replace the data and show the data tab.
+                $('#data_tab').html(htmlString);
+                
+                // select the data tab
                 if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
                     $("#map_data_tabs").tabs('select', '#data_tab');
                 }
-            });
-            
-            $(this).removeClass('active_plan');
-        
-        }
-    });
+            }); 
+    });    
     
-    */
+}
+
+function organize_data(data){
+    data = $.parseJSON(data);
+    
+    // set up variables for data view
+    var name = data.name;
+    var time_of_day = data.time_of_day;
+    var date = data.date;
+    var category = data.category
+    
+    var htmlString = "You are going to " + name + " at " + time_of_day;
+    
+    return htmlString;
+}

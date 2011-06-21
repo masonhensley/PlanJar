@@ -238,6 +238,6 @@ div.group_selectable_wrapper ul div.group_label {
 }
 
 .selected_plan{
-    background-color: grey;
+    background-color: #84b8d9;
     color:purple;
 }
