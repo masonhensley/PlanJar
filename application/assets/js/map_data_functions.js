@@ -8,7 +8,7 @@ function initialize_map_data_tabs() {
         collapsible: true,
         fx: {
             height: 'toggle',
-            duration: 'slow'
+            duration: 'fast'
         }
     });
     
