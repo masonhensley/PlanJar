@@ -17,6 +17,7 @@ function initialize_plan_panel(){
             }, function (data) {
                 
                 // Create the html string to replace the data view
+                alert(data);
                 htmlString = organize_data(data);
                 
                 // Replace the data and show the data tab.
@@ -32,7 +33,7 @@ function initialize_plan_panel(){
 }
 
 function organize_data(data){
-    var data = $.parseJSON(data);
+    data = $.parseJSON(data);
     
     // set up variables for data view
     var name = data.name;
