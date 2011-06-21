@@ -6,10 +6,8 @@ function initialize_plan_panel(){
     $('div.plans_wrapper li').click(function() {
         
         // Make the list tiems togglable.
-        if ($(this).hasClass('group_selected')) {
-            $(this).removeClass('group_selected');
-        } else {
-            $(this).addClass('group_selected');
+        if ($(this).hasClass('plan_content')) {
+            alert("working");
         }
         
         // Call the callback function.
