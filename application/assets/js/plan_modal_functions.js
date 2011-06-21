@@ -51,8 +51,8 @@ function initialize_plan_modal() {
                     });
                 }
                 
-                // Call the response function with the response JSON.
-                var temp = response_json;
+                // Call the response function with the a copy of the response JSON.
+                var temp = response_json.slice(0);
                 temp.push({
                     label: 'Loading Factual results...', 
                     value: '', 
@@ -100,16 +100,17 @@ function initialize_plan_modal() {
                                         }
                                         
                                         var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
+                                        
                                         response_json.push({
                                             label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
                                             value: item[2],
-                                            id: 5
+                                            id: 'factual'
                                         });
-                                    });
-                                    
-                                    // Call the response function with the response JSON.
-                                    response(response_json); 
+                                    }); 
                                 }
+                                
+                                // Call the response function with the response JSON.
+                                response(response_json);
                             }
                         },
                         jsonp: 'jsoncallback'
@@ -196,7 +197,6 @@ function initialize_plan_modal() {
     // Initialize the make-a-plan modal.
     $('#make_a_plan').click(function() {
         // Update the selected day.
-        alert('here');
         var selected_day = $('#day_tabs ul.tabs li.day_selected a').attr('href');
         $('#plan_day [value=' + selected_day + ']').click();
         
