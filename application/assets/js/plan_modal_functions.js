@@ -93,7 +93,7 @@ function initialize_plan_modal() {
                                     $.map(data, function (item) {
                                         var category_name = item[12];
                                         if (category_name != null) {
-                                            var last_gt = item[12].substr(lastIndexOf('>'));
+                                            var last_gt = item[12].substr(item[12].lastIndexOf('>'));
                                             if (last_gt != -1) {
                                                 category_name = category_name.substr(last_gt);
                                             }
