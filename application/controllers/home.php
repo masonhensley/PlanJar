@@ -219,15 +219,16 @@ class Home extends CI_Controller
         $this->input->get('selected_day') .
         '</p>');
     }
-    
-    public function get_plan_data(){
+
+    public function get_plan_data()
+    {
         $this->load->database();
         $plan = $this->input->get('plan_selected');
-        
+
         // pull all user's current events
-        
-        $query = 
-       "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
+
+        $query =
+                "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -239,33 +240,38 @@ class Home extends CI_Controller
         $query_result = $this->db->query($query);
         $result = $query_result->result();
         $rows = array();
-        
-        while($r = mysql_fetch_assoc($result))
+
+        while ($r = mysql_fetch_assoc($result))
         {
             $rows[] = $r;
         }
-        
-        
-        
+
+
+
         echo json_encode($rows);
     }
-    
+
     // Return a list of plans visible to the user.
-    public function get_visible_plans() {
+    public function get_visible_plans()
+    {
         $this->load->database();
-        
+
         // Get a list of users based on the selected groups.
         $user = $this->ion_auth->get_user();
         $user_list = json_decode($this->input->get('selected_groups'));
-        $friends_key = array_search('friends', $user_list);
-        if ($friends_key !== false) {
-            unset($user_list[$friends_key]);
-            $user_list = array_merge($user_list, $user->following);
+        if ($user_list)
+        {
+            $friends_key = array_search('friends', $user_list);
+            if ($friends_key !== false)
+            {
+                unset($user_list[$friends_key]);
+                $user_list = array_merge($user_list, $user->following);
+            }
         }
-        
+
         echo(var_dump($user_list));
-        
-        
     }
+
 }
+
 ?>

@@ -34,6 +34,8 @@ function on_groups_change() {
         $("#map_data_tabs").tabs('select', '#data_tab');
     }
     get_group_day_data();
+    
+    populate_visible_plans_panel();
 }
 
 // Returns a list of selected groups.
