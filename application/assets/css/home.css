@@ -221,3 +221,8 @@ div.group_selectable_wrapper ul div.group_label {
 #data_tab {
  color: black   
 }
+
+.plan_content{
+    list-style-type: none;
+    
+}
