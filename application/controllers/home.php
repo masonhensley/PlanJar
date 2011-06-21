@@ -238,17 +238,10 @@ class Home extends CI_Controller
 
         // pull data
         $query_result = $this->db->query($query);
-        $result = $query_result->result();
-        $rows = array();
-
-        while ($r = mysql_fetch_assoc($result))
+        foreach($query_result->result() as $row)
         {
-            $rows[] = $r;
+            echo $row->name;
         }
-
-
-
-        echo json_encode($rows);
     }
 
     // Return a list of plans visible to the user.
