@@ -51,7 +51,7 @@ function initialize_plan_modal() {
                     });
                 }
                 
-                // Call the response function with the response JSON.
+                // Call the response function with the a copy of the response JSON.
                 var temp = response_json.slice(0);
                 temp.push({
                     label: 'Loading Factual results...', 
@@ -105,11 +105,11 @@ function initialize_plan_modal() {
                                             value: item[2],
                                             id: 5
                                         });
-                                    });
-                                    
-                                    // Call the response function with the response JSON.
-                                    response(response_json); 
+                                    }); 
                                 }
+                                
+                                // Call the response function with the response JSON.
+                                response(response_json);
                             }
                         },
                         jsonp: 'jsoncallback'
