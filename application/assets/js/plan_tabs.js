@@ -19,7 +19,7 @@ function initialize_plan_panel(){
                 htmlString = organize_data(data);
                 
                 // Replace the data and show the data tab.
-                $('#data_tab').html(data);
+                $('#data_tab').html(htmlString);
                 
                 // select the data tab
                 if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
