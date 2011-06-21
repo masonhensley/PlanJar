@@ -234,8 +234,7 @@ class Home extends CI_Controller
         ON plans.place_id=places.id 
         LEFT JOIN plan_categories
         ON plan_categories.id=plans.category_id
-        WHERE plans.id=$plan
-        ORDER BY date ASC";
+        WHERE plans.id=$plan";
 
         // pull data
         $query_result = $this->db->query($query);
