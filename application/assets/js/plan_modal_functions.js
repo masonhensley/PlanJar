@@ -53,7 +53,12 @@ function initialize_plan_modal() {
                 
                 // Call the response function with the response JSON.
                 var temp = response_json;
-                response(temp.push({{label: 'Loading Factual results...', value: '', id: ''}})); 
+                temp.push({
+                    label: 'Loading Factual results...', 
+                    value: '', 
+                    id: ''
+                });
+                response(temp); 
                     
                 if (place_limit > 0) {
                     // If additional places are required, fetch places from Factual. Pick fields needed
