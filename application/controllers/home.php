@@ -265,7 +265,7 @@ class Home extends CI_Controller
             if ($friends_key !== false)
             {
                 unset($user_list[$friends_key]);
-                $user_list = array_merge($user_list, $user->following);
+                $user_list = array_merge($user_list, json_decode($user->following);
             }
         }
 
