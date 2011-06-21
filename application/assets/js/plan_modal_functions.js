@@ -50,6 +50,9 @@ function initialize_plan_modal() {
                         };
                     });
                 }
+                
+                // Call the response function with the response JSON.
+                response(response_json); 
                     
                 if (place_limit > 0) {
                     // If additional places are required, fetch places from Factual. Pick fields needed
@@ -88,13 +91,14 @@ function initialize_plan_modal() {
                                             id: 5
                                         });
                                     });
+                                    
+                                    // Call the response function with the response JSON.
+                                    response(response_json); 
                                 }
                             }
                         },
                         jsonp: 'jsoncallback'
                     });
-                    // Call the response function with the response JSON.
-                    response(response_json); 
                 }
             });
         },
