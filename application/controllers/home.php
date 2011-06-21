@@ -251,7 +251,7 @@ class Home extends CI_Controller
             $time_of_day = str_replace("_", " ", $time_of_day);
             
             $date = $row->date;
-            $date = date('d/m', strtotime($date));
+            $date = date('m/d', strtotime($date));
             
             
             $name = $row->name;
