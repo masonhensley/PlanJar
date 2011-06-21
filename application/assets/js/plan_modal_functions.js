@@ -86,8 +86,14 @@ function initialize_plan_modal() {
                                 if (data.rows > 0) {
                                     data = data.data;
                                     $.map(data, function (item) {
+                                        var category_name = item[12];
+                                        if (category_name != null) {
+                                            category_name = ' (' + item[12] + ')';
+                                        } else {
+                                            category_name = ''
+                                        }
                                         response_json.push({
-                                            label: '*' + item[2] + ' (' + item[12] + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                            label: '*' + item[2] + category_name + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
                                             value: item[2],
                                             id: 5
                                         });
