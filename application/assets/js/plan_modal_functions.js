@@ -91,16 +91,17 @@ function initialize_plan_modal() {
                                 if (data.rows > 0) {
                                     data = data.data;
                                     $.map(data, function (item) {
-                                        var category_name = item[12];
-                                        if (category_name != null) {
+                                        var category = item[12];
+                                        var category_name;
+                                        if (category != null) {
                                             var last_gt = item[12].substr(item[12].lastIndexOf('>'));
                                             if (last_gt != -1) {
-                                                category_name = category_name.substr(last_gt);
+                                                category = category_name.substr(last_gt);
                                             }
-                                            category_name = $.trim();
-                                            category_name = ' (' + a + ')';
+                                            category = $.trim();
+                                            category_name = ' (' + category + ')';
                                         } else {
-                                            category_name = ''
+                                            category = ''
                                         }
                                         
                                         var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
@@ -112,7 +113,7 @@ function initialize_plan_modal() {
                                             name: item[2],
                                             latitude: item[15],
                                             longitude: item[16],
-                                            category: category_name
+                                            'category': category
                                         });
                                     }); 
                                 } else {
