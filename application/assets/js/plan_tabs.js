@@ -1,5 +1,34 @@
 $(function() {
-    $( "#plans" ).tabs({
+    initialize_plan_panel();
+});
+
+function initialize_plan_panel(){
+    $('div.plans_wrapper li').click(function() {
+        
+        // Make the list tiems togglable.
+        if ($(this).hasClass('group_selected')) {
+            $(this).removeClass('group_selected');
+        } else {
+            $(this).addClass('group_selected');
+        }
+        
+        // Call the callback function.
+        on_groups_change();
+    });
+    
+    // Initialize the clear all and select all button actions.
+    $('#clear_all_groups').click(function() {
+        $('div.group_selectable_wrapper li.group_selected').removeClass('group_selected');
+        on_groups_change();
+    });
+    $('#select_all_groups').click(function() {
+        $('div.group_selectable_wrapper li').addClass('group_selected');
+        on_groups_change();
+    });
+}
+
+/*
+$( "#plans" ).tabs({
         select: function(event, ui){
          
             $(this).addClass('active_plan');
@@ -19,8 +48,5 @@ $(function() {
         
         }
     });
-});
-
-function pull_plan_data(event, ui){
     
-}
+    */
