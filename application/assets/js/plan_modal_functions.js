@@ -97,11 +97,9 @@ function initialize_plan_modal() {
                                         if (category != null) {
                                             var last_gt = item[12].lastIndexOf('>');
                                             if (last_gt != -1) {
-                                                alert(category);
-                                                alert(category.substr(last_gt + 1));
                                                 category = category.substr(last_gt + 1);
                                             }
-                                            category = $.trim();
+                                            category = $.trim(category);
                                             category_name = ' (' + category + ')';
                                         } else {
                                             category = ''
