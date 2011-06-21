@@ -53,11 +53,13 @@ function initialize_plan_modal() {
                 
                 // Call the response function with the a copy of the response JSON.
                 var temp = response_json.slice(0);
-                temp.push({
-                    label: 'No results found in our database', 
-                    value: '', 
-                    id: ''
-                });
+                if (place_count == 0) {
+                    temp.push({
+                        label: 'No results found in our database', 
+                        value: '', 
+                        id: ''
+                    });
+                }
                 temp.push({
                     label: 'Loading Factual results...', 
                     value: '', 
