@@ -47,8 +47,6 @@ body {
 .left_bottom{
     width:100%;
     height:600px;
-    border-right:black;
-    border:1px solid #000000;
     
     background-color:white;
 }
