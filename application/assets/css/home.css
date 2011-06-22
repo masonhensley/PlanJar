@@ -217,11 +217,6 @@ div.group_selectable_wrapper ul div.group_label {
 #plan_day .ui-button-text-only .ui-button-text { padding: .4em .4em; }
 #plan_day  .ui-widget { font-size: .85em; }
 
-/* overwrites the data tab's styles */
-#data_tab {
-    color: black   
-}
-
 /* CSS for right panel plans*/
 .plans_wrapper{
     text-align: center;

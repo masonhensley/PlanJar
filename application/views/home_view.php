@@ -84,11 +84,11 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <!-- Google Map Div -->
                     <div id="map_tab" style="width:555px; height:250px;" ></div>
 
-                    <div id="data_tab" style="background-color: white;  width: 555px; height:250px;">
+                    <div id="data_tab" style="background-color: white; color: black; width: 555px; height:250px;">
                         <p>Select at least one group on the left to see more detailed information.</p>
                     </div>
 
-                    <div id="plan_data_tab" style="background-color: white;  width: 555px; height:250px;">
+                    <div id="plan_data_tab" style="background-color: white; color:black; width: 555px; height:250px;">
                         <p>Select one of your plans on the right to see more detailed information.</p>
                     </div>
 
