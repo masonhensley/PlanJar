@@ -279,14 +279,14 @@ class Home extends CI_Controller
         var_dump($group_list, $day);
         
         // this converts the selected day to the equivalent sql representation
-        $date = new DateTime();
+        //$date = new DateTime();
         //$date->add(new DateInterval('P' . $day . 'D'));
-        $date->format('Y-m-d');
+        //$date->format('Y-m-d');
 
-        $groups_string;
-        $index = 0;
-        $where_string = "";
-        $where_string .= "groups.id=" . $group_list[0];
+        //$groups_string;
+        //$index = 0;
+        //$where_string = "";
+        //$where_string .= "groups.id=" . $group_list[0];
 
         
         // creates the where clause
