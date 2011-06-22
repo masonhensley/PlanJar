@@ -287,6 +287,7 @@ class Home extends CI_Controller
         $where_string .= "groups.id=" . $group_list[0];
 
         echo $group_list;
+        echo $day;
         
         // creates the where clause
         /*
