@@ -2,7 +2,7 @@ $(function() {
     populate_visible_plans_panel(); 
 });
 
-// Populates the list of plans.
+// Populates the list of plans every time a weekday or group is selected
 function populate_visible_plans_panel() {
     $.get('/home/get_visible_plans', {
         'selected_groups': get_selected_groups(),
