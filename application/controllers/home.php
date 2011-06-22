@@ -280,10 +280,7 @@ class Home extends CI_Controller
         $date->add(new DateInterval('P' . $this->input->get('selected_day') . 'D'));
         $date->format('Y-m-d');
         
-        var_dump($group_list, $selected_day);
-        
-        $query_string = "SELECT joined_users, following_users FROM groups";
-
+        var_dump($group_list, $date);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
