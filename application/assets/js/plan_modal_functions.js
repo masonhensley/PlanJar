@@ -18,6 +18,7 @@ function initialize_plan_modal() {
     $('#plan_content div.in-field_block label').inFieldLabels();
         
     // Initialize the plan location autocomplete instance.
+    var item_selected = false;
     $('#plan_location').autocomplete({
         minLength: 2,
         source: function (request, response) {
@@ -27,6 +28,9 @@ function initialize_plan_modal() {
                 latitude: myLatitude,
                 longitude: myLongitude
             }, function (data) {
+                // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
+                var item_selected = true;
+                
                 // Parse the JSON text.
                 data = $.parseJSON(data);
                     
@@ -126,7 +130,9 @@ function initialize_plan_modal() {
                                 }
                                 
                                 // Call the response function with the response JSON.
-                                response(response_json);
+                                if (!item_selected) {
+                                    response(response_json);
+                                }
                             }
                         },
                         jsonp: 'jsoncallback'
@@ -221,6 +227,9 @@ function initialize_plan_modal() {
             $.get('/home/submit_plan', $(form).serialize(), function (data) {
                 if (data == 'success') {
                     $('#plan_content').dialog('close');
+                    // Refresh th eplan list.
+                    populate_plan_panel();
+                    alert('updated');
                 } else {
                     alert(data);
                 }

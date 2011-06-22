@@ -93,7 +93,7 @@ $state = $user_place_info['geoplugin_regionCode'];
 
                 <!-- List of all plans visible given user parameters -->
                 <div id="visible_plans_panel" class="center_board"></div>
-                
+
             </div>
 
             <div class="right" >
@@ -106,11 +106,8 @@ $state = $user_place_info['geoplugin_regionCode'];
                         <font>Plans</font>
                     </div>
 
-                    <?php
-                    // include the ordered plan tabs for the right hand panel
-                    $plans = $result;
-                    include(APPPATH . 'assets/php/load_plans.php');
-                    ?> 
+                    <!-- Where the plans go -->
+                    <div class="plans_wrapper"></div>
 
                 </div>
             </div>

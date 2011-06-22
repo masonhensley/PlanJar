@@ -12,16 +12,10 @@ class Home extends CI_Controller
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
-            // load plans by id
-            $this->load->model('load_plans');
-            $user_info = $this->ion_auth->get_user();
-            $user_id = $user_info->id;
-            $result = $this->load_plans->getPlans($user_id);
-
             // retrieve other useful variables for view
             $firstname = $user_info->first_name;
             $lastname = $user_info->last_name;
-            
+
             // Lookup the groups by id.
             $this->load->model('load_groups');
             $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
@@ -31,7 +25,6 @@ class Home extends CI_Controller
             $this->load->view('home_view', array(
                 'firstname' => $firstname,
                 'lastname' => $lastname,
-                'result' => $result,
                 'joined_groups' => $joined_groups,
                 'followed_groups' => $followed_groups)
             );
@@ -169,24 +162,6 @@ class Home extends CI_Controller
         $this->load->view('foo3_view');
     }
 
-    public function get_location_by_id()
-    {
-        $this->load->database();
-        $query_string = "SELECT name FROM places WHERE id = ? LIMIT 1";
-        $query = $this->db->query($query_string, array($this->input->get('id')));
-
-        if ($query->num_rows() == 0)
-        {
-            // Return an error if no entries come up.
-            echo('error');
-        } else
-        {
-            // Return the first result.
-            $row = $query->row_array();
-            echo($row['name']);
-        }
-    }
-
     // Adds a plan entry to the database.
     public function submit_plan()
     {
@@ -314,6 +289,15 @@ class Home extends CI_Controller
         }
 
         echo(var_dump($user_list));
+    }
+
+    // Returns a list of the user's plans.
+    public function get_my_plans()
+    {
+        $this->load->model('load_plans');
+        $user_info = $this->ion_auth->get_user();
+        $user_id = $user_info->id;
+        $result = $this->load_plans->getPlans($user_id);
     }
 
 }
