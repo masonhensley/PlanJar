@@ -1,3 +1,4 @@
+<hr/>
 Filter by group
 <hr/>
 
