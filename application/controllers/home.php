@@ -1,5 +1,4 @@
 <?php
-
 // prevent direct script access
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -299,8 +298,27 @@ class Home extends CI_Controller
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $result = $this->load_plans->getPlans($user_id);
+        ?>
+
+        <ul class="active_plans">
+            <?php
+            foreach ($result as $plan)
+            {
+                // make easy to read variables
+                $id = $plan->id;
+                $name = $plan->name;
+                $category = $plan->category;
+                $time = $plan->time_of_day;
+                $date_string1 = date('D', strtotime($plan->date));
+                ?> 
+
+                <li class ="plan_content" plan_id="<?php echo $id; ?>" >
+                    <?php echo $name . "  |  " . $date_string1; ?>
+                </li>
+
+            <?php } ?>
+        </ul> <?php
     }
 
 }
-
-?>
+    ?>
