@@ -165,6 +165,7 @@ function initialize_plan_modal() {
                 // Convert each item in the JSON from the server to the required JSON
                 // form for the autocomplete and pass the result through the response
                 // handler.
+                alert(data);
                 data = $.parseJSON(data);
                 if (data.count > 0) {
                     data = data.data;
@@ -176,7 +177,6 @@ function initialize_plan_modal() {
                         };
                     }));
                 } else {
-                    alert(data.data);
                     response({
                         label: "No results found for '" + request.term + "'",
                         value: '',
