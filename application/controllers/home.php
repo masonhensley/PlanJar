@@ -275,14 +275,16 @@ class Home extends CI_Controller
         // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         
+        
+        
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
         $date->add(new DateInterval('P' . $this->input->get('selected_day') . 'D'));
         $date->format('Y-m-d');
         
-        var_dump($group_list, $date);
+        var_dump($group_list[0], $date);
         
-        $query_string = "SELECT groups.joined_users, users.id, ";
+        $query_string = "SELECT groups.id, groups.joined_users, users.id, ";
     }
 
     // Returns HTML for the list of the user's plans (right panel)
