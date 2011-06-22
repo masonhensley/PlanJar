@@ -283,8 +283,23 @@ class Home extends CI_Controller
         $date->format('Y-m-d');
         
         var_dump($group_list[0], $date);
+        $groups_string;
+        $index = 0;
         
-        $query_string = "SELECT groups.id, groups.joined_users, users.id, ";
+        // creates the where clause
+        while($group_list[$index])
+        {
+            $where_string .= "groups.id=" . $group_list[$index];
+            $index++;
+            if($group_list[$index])
+            {
+                $where_string .= ", OR ";
+            }
+        }
+        
+        $query_string = "SELECT groups.id, groups.joined_users, users.id
+        FROM groups
+        WHERE $where_string";
     }
 
     // Returns HTML for the list of the user's plans (right panel)
