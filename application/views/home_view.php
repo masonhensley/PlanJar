@@ -89,7 +89,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                     </div>
                     
                     <div id="plan_data_tab" style="background-color: white;  width: 555px; height:250px;">
-                        <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
+                        <img style="width:555px; height:250px;" src="http://alexsah.com/wp-content/uploads/2008/10/epicze4.jpg" />
                     </div>
 
                 </div>

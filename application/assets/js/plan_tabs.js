@@ -1,6 +1,6 @@
 $(function() {
     populate_plan_panel();
-    $("div.plans_wrapper ul.tabs li:first").addClass("day_selected").show(); //Activate first tab
+    $("div.plans_wrapper ul.tabs li:first").addClass("day_selected") //Activate first tab
 });
 
 // Populates the plan panel
