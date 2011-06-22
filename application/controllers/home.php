@@ -144,7 +144,7 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            echo(json_encode(array(
+            echo(json_encode(array(array(
                 'category' => "No results found for '$needle'",
                 'id' => ''
             )));
