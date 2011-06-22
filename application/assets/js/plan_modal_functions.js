@@ -129,6 +129,7 @@ function initialize_plan_modal() {
                                 }
                                 
                                 // Call the response function with the response JSON.
+                                alert('before factual response, selected: ' + item_selected);
                                 if (!item_selected) {
                                     response(response_json);
                                 }
@@ -142,6 +143,7 @@ function initialize_plan_modal() {
         // When an item is selected, update the location text as well as the hidden fields.
         select: function (event, ui) {
             item_selected = true;
+            alert('item just selected');
             
             $('#plan_location').val(ui.item.value);
             $('#plan_location_id').val(ui.item.id);
