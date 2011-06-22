@@ -176,8 +176,10 @@ function initialize_plan_modal() {
                     }));
                 } else {
                     response({
-                        label: "No results found for '" + request.term + "'"
-                        });
+                        label: "No results found for '" + request.term + "'",
+                        value: '',
+                        id: ''
+                    });
                 }
             });
         },
