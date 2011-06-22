@@ -341,6 +341,7 @@ class Home extends CI_Controller
             'latitude' => $this->input->get('latitude'),
             'longitude' => $this->input->get('longitude')
         ));
+        echo($this->input->get('latitude'));
     }
 
 }

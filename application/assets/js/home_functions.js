@@ -27,6 +27,8 @@ function location_data() {
                 $.get('/home/update_user_location', {
                     latitude: myLatitude,
                     longitude: myLongitude
+                }, function (data) {
+                    alert(data);
                 });
                 
                 mapThisGoogle(position.coords.latitude, position.coords.longitude);
