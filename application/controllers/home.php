@@ -302,7 +302,7 @@ class Home extends CI_Controller
         FROM groups
         WHERE $where_string";
         
-        var_dump($query_string);
+        var_dump($query_string, $where_string);
         
     }
 
