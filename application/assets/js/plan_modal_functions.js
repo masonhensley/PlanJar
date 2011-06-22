@@ -171,6 +171,11 @@ function initialize_plan_modal() {
                         value: '',
                         id: ''
                     });
+                    alert({
+                        label: "No results found for '" + request.term + "'",
+                        value: '',
+                        id: ''
+                    }.stringify());
                 } else {
                     data = $.parseJSON(data);
                     response($.map(data, function (item) {
