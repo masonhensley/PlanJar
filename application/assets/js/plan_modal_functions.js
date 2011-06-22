@@ -167,6 +167,7 @@ function initialize_plan_modal() {
                 // handler.
                 data = $.parseJSON(data);
                 if (data.count > 0) {
+                    data = data.data;
                     response($.map(data, function (item) {
                         return {
                             label: item.category,
@@ -175,6 +176,7 @@ function initialize_plan_modal() {
                         };
                     }));
                 } else {
+                    data = data.data;
                     response(([]).push({
                         label: "No results found for '" + request.term + "'",
                         value: '',
