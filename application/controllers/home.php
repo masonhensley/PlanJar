@@ -304,7 +304,7 @@ class Home extends CI_Controller
         FROM groups
         WHERE $where_string";
 
-        var_dump($where_string, $day);
+        var_dump($where_string, $day, $group_list);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
