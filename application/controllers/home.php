@@ -275,7 +275,9 @@ class Home extends CI_Controller
         // Get a list of users based on the selected groups.
         $user_list = $this->ion_auth->get_user();
         $group_list = $this->input->get('selected_groups');
-        var_dump($group_list);
+        $selected_day = $this->input->get('selected_day');
+        
+        var_dump($group_list, $selected_day);
         
         $query_string = "SELECT joined_users, following_users FROM groups";
 
