@@ -1,6 +1,6 @@
 $(function() {
     populate_plan_panel();
-    $("div.plans_wrapper ul.tabs li:first").addClass("selected_plan"); //Activate first tab
+    $("div.plans_wrapper li:first").addClass("selected_plan"); //Activate first tab
 });
 
 // Populates the plan panel
