@@ -175,11 +175,11 @@ function initialize_plan_modal() {
                         };
                     }));
                 } else {
-                    response(([]).push({
+                    response({
                         label: "No results found for '" + request.term + "'",
                         value: '',
                         id: ''
-                    }));
+                    });
                 }
             });
         },
