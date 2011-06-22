@@ -27,6 +27,9 @@ function initialize_plan_modal() {
                 latitude: myLatitude,
                 longitude: myLongitude
             }, function (data) {
+                // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
+                var item_selected = false;
+                
                 // Parse the JSON text.
                 data = $.parseJSON(data);
                     
@@ -126,7 +129,9 @@ function initialize_plan_modal() {
                                 }
                                 
                                 // Call the response function with the response JSON.
-                                response(response_json);
+                                if (!item_selected) {
+                                    response(response_json);
+                                }
                             }
                         },
                         jsonp: 'jsoncallback'
@@ -136,6 +141,8 @@ function initialize_plan_modal() {
         },
         // When an item is selected, update the location text as well as the hidden fields.
         select: function (event, ui) {
+            item_selected = true;
+            
             $('#plan_location').val(ui.item.value);
             $('#plan_location_id').val(ui.item.id);
             $('#plan_location_name').val(ui.item.value);
