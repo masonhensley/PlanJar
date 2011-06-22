@@ -276,7 +276,7 @@ class Home extends CI_Controller
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
 
-        var_dump($group_list, $day);
+        var_dump(json_decode($group_list), $day);
 
         // this converts the selected day to the equivalent sql representation
         //$date = new DateTime();
