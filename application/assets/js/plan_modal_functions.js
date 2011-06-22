@@ -18,7 +18,7 @@ function initialize_plan_modal() {
     $('#plan_content div.in-field_block label').inFieldLabels();
         
     // Initialize the plan location autocomplete instance.
-    var item_selected = false;
+    var item_selected;
     $('#plan_location').autocomplete({
         minLength: 2,
         source: function (request, response) {
@@ -29,7 +29,7 @@ function initialize_plan_modal() {
                 longitude: myLongitude
             }, function (data) {
                 // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
-                var item_selected = true;
+                item_selected = false;
                 
                 // Parse the JSON text.
                 data = $.parseJSON(data);
