@@ -4,6 +4,7 @@
         foreach ($result as $plan)
         {
             // make easy to read variables
+            // not all variables are used
             $id = $plan->id;
             $name = $plan->name;
             $category = $plan->category;
