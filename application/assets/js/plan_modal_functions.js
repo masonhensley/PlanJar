@@ -142,6 +142,8 @@ function initialize_plan_modal() {
         },
         // When an item is selected, update the location text as well as the hidden fields.
         select: function (event, ui) {
+            item_selected = true;
+            
             $('#plan_location').val(ui.item.value);
             $('#plan_location_id').val(ui.item.id);
             $('#plan_location_name').val(ui.item.value);
