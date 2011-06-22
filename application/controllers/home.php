@@ -285,7 +285,7 @@ class Home extends CI_Controller
         var_dump($group_list[0], $date);
         $groups_string;
         $index = 0;
-        $where_string;
+        $where_string = "";
         
         // creates the where clause
         while($group_list[$index])
