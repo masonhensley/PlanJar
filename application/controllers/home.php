@@ -277,18 +277,15 @@ class Home extends CI_Controller
         $day = $this->input->get('selected_day');
 
         var_dump($group_list, $day);
-        
+
         // this converts the selected day to the equivalent sql representation
         //$date = new DateTime();
         //$date->add(new DateInterval('P' . $day . 'D'));
         //$date->format('Y-m-d');
-
         //$groups_string;
         //$index = 0;
         //$where_string = "";
         //$where_string .= "groups.id=" . $group_list[0];
-
-        
         // creates the where clause
         /*
           while($group_list[$index])
@@ -332,8 +329,19 @@ class Home extends CI_Controller
                 <li class ="plan_content" plan_id="<?php echo $id; ?>" >
                     <?php echo $name . "  |  " . $date_string1; ?>
                 </li>
-                <?php } ?>
+            <?php } ?>
         </ul> <?php
-        }
     }
+
+    // Updates the user's location
+    public function update_user_location()
+    {
+        $user = $this->ion_auth->get_user();
+        $this->ion_auth->update_user($user->id, array(
+            'latitude' => $this->input->get('latitude'),
+            'longitude' => $this->input->get('longitude')
+        ));
+    }
+
+}
     ?>

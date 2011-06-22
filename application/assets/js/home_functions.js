@@ -1,12 +1,9 @@
 var myLatitude;
 var myLongitude;
-var myCity;
-var myAddress;
 var current_day_offset = 0;
 
 // Run when the DOM is loaded.
 $(function() {
-    
     // places map
     location_data();
 });
@@ -25,6 +22,12 @@ function location_data() {
             {  
                 myLatitude=position.coords.latitude;
                 myLongitude=position.coords.longitude;
+                
+                // Update the user's profile with the new information.
+                $.get('/home/update_user_location', {
+                    latitude: myLatitude,
+                    longitude: myLongitude
+                });
                 
                 mapThisGoogle(position.coords.latitude, position.coords.longitude);
             }, 
@@ -46,21 +49,6 @@ function location_data() {
                         break;
                 }
             });
-    }
-}
-
-function mapServiceProvider(latitude,longitude)
-{
-    // querystring function from prettycode.org: 
-    // http://prettycode.org/2009/04/21/javascript-query-string/
- 
-    if (window.location.querystring['serviceProvider']=='Yahoo')
-    {
-        mapThisYahoo(latitude,longitude);
-    }
-    else
-    {
-        mapThisGoogle(latitude,longitude);
     }
 }
 
