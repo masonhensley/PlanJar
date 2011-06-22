@@ -39,7 +39,7 @@ $state = $user_place_info['geoplugin_regionCode'];
 
             <div class="left" >
                 <div class="left_top">
-                    logo goes here
+                    <img src="/Planjar logo.png" />
                 </div>
                 <div class="left_bottom">
                     <!-- Group panel -->

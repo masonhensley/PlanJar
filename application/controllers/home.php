@@ -282,7 +282,7 @@ class Home extends CI_Controller
         
         var_dump($group_list, $date);
         
-        $query_string = "SELECT groups.joined_users, ";
+        $query_string = "SELECT groups.joined_users, users.id, ";
     }
 
     // Returns HTML for the list of the user's plans (right panel)
