@@ -19,8 +19,9 @@ class Home extends CI_Controller
             $result = $this->load_plans->getPlans($user_id);
 
             // retrieve other useful variables for view
-            $username = $user_info->username;
-
+            $firstname = $user_info->first_name;
+            $lastname = $user_info->last_name;
+            
             // Lookup the groups by id.
             $this->load->model('load_groups');
             $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
@@ -28,7 +29,8 @@ class Home extends CI_Controller
 
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
-                'username' => $username,
+                'firstname' => $firstname,
+                'lastname' => $lastname,
                 'result' => $result,
                 'joined_groups' => $joined_groups,
                 'followed_groups' => $followed_groups)
