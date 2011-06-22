@@ -166,13 +166,19 @@ function initialize_plan_modal() {
                 // form for the autocomplete and pass the result through the response
                 // handler.
                 data = $.parseJSON(data);
-                response($.map(data, function (item) {
-                    return {
-                        label: item.category,
-                        value: item.category,
-                        id: item.id
-                    };
-                }));
+                if (data.count > 0) {
+                    response($.map(data, function (item) {
+                        return {
+                            label: item.category,
+                            value: item.category,
+                            id: item.id
+                        };
+                    }));
+                } else {
+                    response({
+                        label: "No results found for '" + request.term + "'"
+                        });
+                }
             });
         },
         // When an item is selected, update the location text as well as the hidden

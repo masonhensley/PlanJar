@@ -144,13 +144,12 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            echo(json_encode(array(array(
-                'category' => "No results found for '$needle'",
-                'id' => ''
-            ))));
+            echo('error');
         } else
         {
-            echo(json_encode($return_array));
+            echo(json_encode(array(
+                'data' => $return_array,
+                'count' => count($return_array))));
         }
     }
 
@@ -195,7 +194,7 @@ class Home extends CI_Controller
         $user = $this->ion_auth->get_user();
         $date = new DateTime();
         $date->add(new DateInterval('P' . $this->input->get('plan_day_group') . 'D'));
-        
+
         $data = array(
             'id' => 'DEFAULT',
             'place_id' => $this->input->get('plan_location_id'),
@@ -215,7 +214,7 @@ class Home extends CI_Controller
                         $this->input->get('new_place_longitude'),
                         $this->input->get('new_place_category')
                     ));
-            
+
             // Overwrite the place id with the new place.
             $data['place_id'] = $this->db->insert_id();
         }
