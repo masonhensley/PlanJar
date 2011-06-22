@@ -176,6 +176,7 @@ function initialize_plan_modal() {
                         };
                     }));
                 } else {
+                    alert(data.data);
                     response({
                         label: "No results found for '" + request.term + "'",
                         value: '',
