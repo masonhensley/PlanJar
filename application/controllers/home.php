@@ -338,7 +338,7 @@ class Home extends CI_Controller
     {
         $user = $this->ion_auth->get_user();
         $this->ion_auth->update_user($user->id, array(
-            'latitude' => $this->input->get('latitude'),
+            'latitude' => 5,
             'longitude' => $this->input->get('longitude')
         ));
         echo($this->input->get('latitude'));
