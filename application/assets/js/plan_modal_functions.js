@@ -18,7 +18,7 @@ function initialize_plan_modal() {
     $('#plan_content div.in-field_block label').inFieldLabels();
         
     // Initialize the plan location autocomplete instance.
-    var item_selected = false;
+    var item_selected;
     $('#plan_location').autocomplete({
         minLength: 2,
         source: function (request, response) {
@@ -29,7 +29,7 @@ function initialize_plan_modal() {
                 longitude: myLongitude
             }, function (data) {
                 // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
-                var item_selected = true;
+                item_selected = false;
                 
                 // Parse the JSON text.
                 data = $.parseJSON(data);
@@ -142,6 +142,8 @@ function initialize_plan_modal() {
         },
         // When an item is selected, update the location text as well as the hidden fields.
         select: function (event, ui) {
+            item_selected = true;
+            
             $('#plan_location').val(ui.item.value);
             $('#plan_location_id').val(ui.item.id);
             $('#plan_location_name').val(ui.item.value);
