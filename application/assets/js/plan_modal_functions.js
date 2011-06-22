@@ -165,10 +165,14 @@ function initialize_plan_modal() {
                 // Convert each item in the JSON from the server to the required JSON
                 // form for the autocomplete and pass the result through the response
                 // handler.
-                alert(data);
-                data = $.parseJSON(data);
-                if (data.count > 0) {
-                    data = data.data;
+                if (data == 'no results') {
+                    response({
+                        label: "No results found for '" + request.term + "'",
+                        value: '',
+                        id: ''
+                    });
+                } else {
+                    data = $.parseJSON(data);
                     response($.map(data, function (item) {
                         return {
                             label: item.category,
@@ -176,12 +180,6 @@ function initialize_plan_modal() {
                             id: item.id
                         };
                     }));
-                } else {
-                    response({
-                        label: "No results found for '" + request.term + "'",
-                        value: '',
-                        id: ''
-                    });
                 }
             });
         },

@@ -144,12 +144,10 @@ class Home extends CI_Controller
         // Check for no results.
         if (!isset($return_array))
         {
-            echo('error');
+            echo('no results');
         } else
         {
-            echo(json_encode(array(
-                'data' => $return_array,
-                'count' => count($return_array))));
+            echo(json_encode($return_array));
         }
     }
 
