@@ -77,7 +77,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                 <div id = "map_data_tabs" class="tabs-bottom">
                     <ul>
                         <li><a href="#map_tab">Map</a></li>
-                        <li><a href="#data_tab">Data</a></li>
+                        <li><a href="#data_tab">Group Data</a></li>
                         <li><a href="#plan_data_tab">Plan Data</a></li>
                     </ul>
 
