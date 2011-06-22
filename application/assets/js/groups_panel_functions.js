@@ -44,5 +44,6 @@ function get_selected_groups() {
     $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
         return_list.push($(element).attr('group_id'));
     });
+    alert(return_list);
     return return_list;
 }
