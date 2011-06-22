@@ -300,6 +300,9 @@ class Home extends CI_Controller
         $query_string = "SELECT groups.id, groups.joined_users, users.id
         FROM groups
         WHERE $where_string";
+        
+        var_dump($query_string);
+        
     }
 
     // Returns HTML for the list of the user's plans (right panel)
