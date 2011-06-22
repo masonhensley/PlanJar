@@ -147,7 +147,7 @@ class Home extends CI_Controller
             echo(json_encode(array(array(
                 'category' => "No results found for '$needle'",
                 'id' => ''
-            )));
+            ))));
         } else
         {
             echo(json_encode($return_array));
