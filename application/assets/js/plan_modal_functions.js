@@ -28,7 +28,7 @@ function initialize_plan_modal() {
                 longitude: myLongitude
             }, function (data) {
                 // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
-                var item_selected = false;
+                var item_selected = true;
                 
                 // Parse the JSON text.
                 data = $.parseJSON(data);
