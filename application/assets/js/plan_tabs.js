@@ -3,6 +3,8 @@ $(function() {
 });
 
 function initialize_plan_panel(){
+    populate_plan_panel();
+    
     $('div.plans_wrapper li').click(function() {
         
         // Make the list tiems togglable.

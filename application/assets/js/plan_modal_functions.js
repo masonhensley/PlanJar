@@ -221,6 +221,8 @@ function initialize_plan_modal() {
             $.get('/home/submit_plan', $(form).serialize(), function (data) {
                 if (data == 'success') {
                     $('#plan_content').dialog('close');
+                    // Refresh th eplan list.
+                    populate_plan_panel();
                 } else {
                     alert(data);
                 }
