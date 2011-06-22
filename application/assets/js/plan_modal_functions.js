@@ -88,7 +88,6 @@ function initialize_plan_modal() {
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
-                            console.log(data);
                             if (data.status != 'ok') {
                                 alert('factual error');
                             } else {
