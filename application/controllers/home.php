@@ -286,6 +286,8 @@ class Home extends CI_Controller
         $where_string = "";
         $where_string .= "groups.id=" . $group_list[0];
 
+        echo $group_list;
+        
         // creates the where clause
         /*
           while($group_list[$index])
@@ -303,8 +305,6 @@ class Home extends CI_Controller
         $query_string = "SELECT groups.id, groups.joined_users, users.id
         FROM groups
         WHERE $where_string";
-
-        var_dump($where_string, $day, $group_list);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
