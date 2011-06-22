@@ -166,13 +166,11 @@ function initialize_plan_modal() {
                 // form for the autocomplete and pass the result through the response
                 // handler.
                 if (data == 'no results') {
-                    var foo = ([]);
-                    foo.push({
+                    response([{
                         label: "No results found for '" + request.term + "'",
                         value: '',
                         id: ''
-                    })
-                    response(foo);
+                    }]);
                 } else {
                     data = $.parseJSON(data);
                     response($.map(data, function (item) {
