@@ -231,7 +231,6 @@ function initialize_plan_modal() {
                     $('#plan_content').dialog('close');
                     // Refresh th eplan list.
                     populate_plan_panel();
-                    alert('updated');
                 } else {
                     alert(data);
                 }
