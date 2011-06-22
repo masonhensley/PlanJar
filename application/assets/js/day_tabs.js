@@ -32,5 +32,5 @@ function on_day_change(day_index) {
 }
 
 function get_selected_day() {
-    $('#day_tabs ul.tabs li.day_selected a').attr('href')
+    return $('#day_tabs ul.tabs li.day_selected a').attr('href')
 }
