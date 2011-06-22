@@ -12,7 +12,7 @@ class Home extends CI_Controller
         if ($this->ion_auth->logged_in())
         {
             $user_info = $this->ion_auth->get_user();
-            
+
             // retrieve other useful variables for view
             $firstname = $user_info->first_name;
             $lastname = $user_info->last_name;
@@ -275,37 +275,36 @@ class Home extends CI_Controller
         // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
-        
+
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
-        $date->add(new DateInterval('P' . $day . 'D'));
+        //$date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
-        
+
         $groups_string;
         $index = 0;
         $where_string = "";
         $where_string .= "groups.id=" . $group_list[0];
-        
+
         // creates the where clause
         /*
-        while($group_list[$index])
-        {
-            $where_string .= "groups.id=" . $group_list[$index];
-            $index++;
-            if($group_list[$index])
-            {
-                $where_string .= ", OR ";
-            }
-        }
-        */
-          
-         
+          while($group_list[$index])
+          {
+          $where_string .= "groups.id=" . $group_list[$index];
+          $index++;
+          if($group_list[$index])
+          {
+          $where_string .= ", OR ";
+          }
+          }
+         */
+
+
         $query_string = "SELECT groups.id, groups.joined_users, users.id
         FROM groups
         WHERE $where_string";
-        
+
         var_dump($query_string, $where_string);
-        
     }
 
     // Returns HTML for the list of the user's plans (right panel)
@@ -332,10 +331,8 @@ class Home extends CI_Controller
                 <li class ="plan_content" plan_id="<?php echo $id; ?>" >
                     <?php echo $name . "  |  " . $date_string1; ?>
                 </li>
-
-            <?php } ?>
+                <?php } ?>
         </ul> <?php
+        }
     }
-
-}
     ?>
