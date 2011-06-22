@@ -1,4 +1,5 @@
 $(function() {
+    initialize_plan_panel();
     populate_plan_panel();
 });
 
@@ -6,7 +7,6 @@ $(function() {
 function populate_plan_panel() {
     $.get('/home/get_my_plans', function (data) {
         $('div.plans_wrapper').html(data);
-        initialize_plan_panel();
     });
 }
 
