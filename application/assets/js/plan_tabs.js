@@ -1,6 +1,7 @@
 $(function() {
     populate_plan_panel();
     initialize_plan_panel();
+    $("div.plans_wrapper li:first").addClass("selected_plan"); //Activate first tab
 });
 
 // Populates the plan panel
@@ -12,7 +13,6 @@ function populate_plan_panel() {
 
 // Sets up the plan panel
 function initialize_plan_panel(){
-    $("div.plans_wrapper li:first").addClass("selected_plan"); //Activate first tab
     $('div.plans_wrapper li').click(function() {
         
         // Make the list tiems togglable.
