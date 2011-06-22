@@ -26,7 +26,7 @@ $state = $user_place_info['geoplugin_regionCode'];
         <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
-        
+
         <!-- Load visible plans code -->
         <script type="text/javascript" src="/application/assets/js/visible_plans_functions.js"></script>
 
@@ -85,11 +85,11 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <div id="map_tab" style="width:555px; height:250px;" ></div>
 
                     <div id="data_tab" style="background-color: white;  width: 555px; height:250px;">
-                        <img style="width:555px; height:250px;" src="http://farm1.static.flickr.com/172/412815146_eaa71e212f.jpg" />
+                        <p>Select at least one group on the left to see more detailed information.</p>
                     </div>
-                    
+
                     <div id="plan_data_tab" style="background-color: white;  width: 555px; height:250px;">
-                        <img style="width:555px; height:250px;" src="http://alexsah.com/wp-content/uploads/2008/10/epicze4.jpg" />
+                        <p>Select one of your plans on the right to see more detailed information.</p>
                     </div>
 
                 </div>
