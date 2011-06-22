@@ -276,6 +276,8 @@ class Home extends CI_Controller
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
 
+        var_dump($group_list, $day);
+        
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
         //$date->add(new DateInterval('P' . $day . 'D'));
@@ -286,8 +288,6 @@ class Home extends CI_Controller
         $where_string = "";
         $where_string .= "groups.id=" . $group_list[0];
 
-        echo $group_list;
-        echo $day;
         
         // creates the where clause
         /*
