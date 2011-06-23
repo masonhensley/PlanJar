@@ -296,7 +296,7 @@ class Home extends CI_Controller
             $index++;
         }
         
-        var_dump($group_list[0], $day);
+        var_dump($where_string);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
