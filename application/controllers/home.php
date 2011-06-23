@@ -276,17 +276,13 @@ class Home extends CI_Controller
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
 
-        var_dump($group_list, $day);
 
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
 
-        // creates the where clause
-        
-        
-        vardump($group_list, $day);
+        var_sdump($group_list, $day);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
