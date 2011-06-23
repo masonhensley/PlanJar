@@ -275,16 +275,28 @@ class Home extends CI_Controller
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
 
-
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
+       
         
-        $query = "SELECT friends.follow_id, groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
-        FROM groups, friends ";
-               
+        $user_id = $this->ion_auth->get_user()->id;
+        
+        $query = "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
+        FROM groups
+        LEFT JOIN friends
+        ON friends.user_id=$user_id 
+        WHERE groups.id=$group_list[0] OR groups.id=$group_list[1]";
+        
+        
+        // construct the WHERE clause
         $where_string = "WERE ";
+        if(in_array('friends', $group_list))
+        {
+            
+        }
+       
         $index = 0;
         while(isset($group_list[$index]))
         {
