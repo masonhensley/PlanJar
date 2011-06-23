@@ -286,7 +286,7 @@ class Home extends CI_Controller
         // creates the where clause
         
         
-        vardump($group_list[0], $day);
+        vardump($group_list, $day);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
