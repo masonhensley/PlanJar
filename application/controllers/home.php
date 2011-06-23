@@ -223,8 +223,7 @@ class Home extends CI_Controller
 
         // pull all user's current events
 
-        $query =
-                "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
+        $query = "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -282,20 +281,18 @@ class Home extends CI_Controller
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
         
-        $query = "SELECT groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
-        FROM groups";
+        $query = "SELECT friends.follow_id, groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
+        FROM groups, friends ";
                
         $where_string = "WERE ";
         $index = 0;
         while(isset($group_list[$index]))
         {
             $where_string .= "groups.id=" . $group_list[$index];
-            
             if($index != sizeof($group_list)-1)
             {
                 $where_string .= ", OR ";
             }
-            
             $index++;
         }
         
