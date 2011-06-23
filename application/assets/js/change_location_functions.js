@@ -3,7 +3,7 @@ function initialize_change_location_modal() {
     {
         autoOpen: false,
         width: 600,
-        height: 250,
+        height: 500,
         resizable: false,
         show: 'clip',
         hide: 'explode'
