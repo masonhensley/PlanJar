@@ -28,7 +28,10 @@ function location_data() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
-                    if (data != 'success') {
+                    if (data == 'prompt new location') {
+                        // Open the change location dialog.
+                        $('#change_location_content').dialog('open');
+                    } else if (ddata != 'success') {
                         alert(data);
                     }
                 });
