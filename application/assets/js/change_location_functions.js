@@ -1,7 +1,3 @@
-$(function () {
-    initialize_change_location_modal();
-})
-
 function initialize_change_location_modal() {
     $('#change_location_content').dialog(
     {
