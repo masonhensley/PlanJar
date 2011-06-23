@@ -1,4 +1,6 @@
+// Perform all change of location modal initialization
 function initialize_change_location_modal() {
+    // Initialize the dialog.
     $('#change_location_content').dialog(
     {
         autoOpen: false,
@@ -12,31 +14,11 @@ function initialize_change_location_modal() {
     // Set up the in-field labels.
     $('#change_location_content label').inFieldLabels();
     
-    // Current location
-    var change_location_latlng = new google.maps.LatLng(myLatitude, myLongitude);
-    
-    // Set up the autocomplete.
-    $('#change_location_search').autocomplete({
-        minLength: 2,
-        source: function (request, response) {
-            $.ajax({
-                url: 'https://maps.googleapis.com/maps/api/place/autocomplete/json',
-                dataType: 'jsonp',
-                data: {
-                    input: request.term,
-                    sensor: false,
-                    key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
-                    location: change_location_latlng,
-                    jsonp: 'json'
-                }
-            });
-        },
-        success: function (data) {
-            console.log(data);
-        }
-    });
+    // Initialize a marker array.
+    var marker_array = ([]);
     
     // Set up the map.
+    var change_location_latlng = new google.maps.LatLng(myLatitude, myLongitude);
     var change_location_options = {
         zoom: 13,
         center: change_location_latlng,
@@ -45,11 +27,43 @@ function initialize_change_location_modal() {
         
     var change_location_map = new google.maps.Map(document.getElementById("change_location_map"), change_location_options);
             
-    var new_location_marker = new google.maps.Marker({
+    var change_location_marker = new google.maps.Marker({
         position: change_location_latlng, 
         map: change_location_map, 
         draggable: true,
         title:"Your location!"
+    });
+    
+    // Set up the autocomplete.
+    $('#change_location_search').autocomplete({
+        minLength: 2,
+        source: function (request, response) {
+            var places_request = {
+                location: change_location_latlng,
+                radius: 10000,
+                name: request.term
+            }
+            
+            var places_service = new google.maps.places.PlacesService(change_location_map);
+            places_service.search(places_request, function (results, status) {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    console.log(results);
+                    $.map(results, function (entry) {
+                        console.log(entry);
+                    })
+                    
+                    
+                    for (var i = 0; i < results.length; i++) {
+                        var place = results[i];
+                        //createMarker(results[i]);
+                        
+                    }
+                }
+            });
+        },
+        success: function (data) {
+            console.log(data);
+        }
     });
     
     $('#change_location').click(function () {
