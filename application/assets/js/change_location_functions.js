@@ -1,13 +1,9 @@
-$(function () {
-    initialize_change_location_modal();
-})
-
 function initialize_change_location_modal() {
     $('#change_location_content').dialog(
     {
         autoOpen: false,
         width: 600,
-        height: 250,
+        height: 500,
         resizable: false,
         show: 'clip',
         hide: 'explode'
