@@ -43,6 +43,10 @@ function initialize_change_location_modal() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
+                    $.map(results, function (entry) {
+                        console.log(entry);
+                    })
+                    
                     
                     for (var i = 0; i < results.length; i++) {
                         var place = results[i];
