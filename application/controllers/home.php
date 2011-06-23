@@ -288,19 +288,9 @@ class Home extends CI_Controller
         $where_string .= "groups.id=" . $group_list[0];
         // creates the where clause
 
-        while ($group_list[$index] != null)
-        {
-            $where_string .= "groups.id=" . $group_list[$index];
-            $index++;
-            if ($group_list[$index] != null)
-            {
-                $where_string .= ", OR ";
-            }
-        }
+       $where_string = implode(", OR ", $where_string);
         
         vardump($where_string);
-
-
 
 //        $query_string = "SELECT groups.id, groups.joined_users, users.id
 //        FROM groups
