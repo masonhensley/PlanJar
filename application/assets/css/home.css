@@ -170,20 +170,20 @@ div.group_selectable_wrapper ul div.group_label {
 }
 
 /* Used for the in-field labels. */
-#make_plan div.in-field_block {
+div.in-field_block {
     position:relative;
     height:30px;
     width:200px;
     float:left;
 }
-#make_plan div.in-field_block label {
+div.in-field_block label {
     position:absolute;
     top:3px;
     left:5px;
     font:normal 18px Arial;
     color: #999999;
 }
-#make_plan input.textbox {
+#make_plan input.textbox, #change_location_content .textbox {
     height:30px;
     width:200px;
 }
