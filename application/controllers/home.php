@@ -297,7 +297,7 @@ class Home extends CI_Controller
                 $where_string .= ", OR ";
             }
         }
-        
+
         vardump($where_string);
 
 
@@ -338,16 +338,36 @@ class Home extends CI_Controller
     // Updates the user's location
     public function update_user_location()
     {
+        $new_lat = $this->input->get('latitude');
+        $new_long = $this->input->get('longitude');
+
         $user = $this->ion_auth->get_user();
-        $result = $this->ion_auth->update_user($user->id, array(
-            'latitude' => $this->input->get('latitude'),
-            'longitude' => $this->input->get('longitude')
-        ));
-        if ($result) {
-            echo('success');
-        } else {
-            echo('failed to update user location in profile');
+
+        $delta_distance = get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
+        if ($delta_distance > 10)
+        {
+            echo('prompt new location');
+        } else
+        {
+            $result = $this->ion_auth->update_user($user->id, array(
+                        'latitude' => $new_lat,
+                        'longitude' => $new_long
+                    ));
+            if ($result)
+            {
+                echo('success');
+            } else
+            {
+                echo('failed to update user location in profile');
+            }
         }
+    }
+
+    private function get_distance_between($lat0, $long0, $lat1, $long1)
+    {
+        return ((acos(sin($lat0 * pi / 180) * sin($lat1 * pi / 180)
+                + cos($lat0 * pi / 180) * cos($lat1 * pi / 180) * cos(($long0 - $long1)
+                        * pi / 180)) * 180 / pi) * 60 * 1.1515);
     }
 
 }
