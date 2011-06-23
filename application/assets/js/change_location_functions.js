@@ -1,4 +1,6 @@
+// Perform all change of location modal initialization
 function initialize_change_location_modal() {
+    // Initialize the dialog.
     $('#change_location_content').dialog(
     {
         autoOpen: false,
@@ -11,6 +13,9 @@ function initialize_change_location_modal() {
     
     // Set up the in-field labels.
     $('#change_location_content label').inFieldLabels();
+    
+    // Initialize a marker array.
+    var marker_array = ([]);
     
     // Set up the map.
     var change_location_latlng = new google.maps.LatLng(myLatitude, myLongitude);
