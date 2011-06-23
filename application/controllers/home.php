@@ -276,28 +276,30 @@ class Home extends CI_Controller
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
 
-        echo var_dump($group_list);
+        var_dump($group_list, $day);
 
         // this converts the selected day to the equivalent sql representation
-        //$date = new DateTime();
-        //$date->add(new DateInterval('P' . $day . 'D'));
-        //$date->format('Y-m-d');
-        //$groups_string;
-        //$index = 0;
-        //$where_string = "";
-        //$where_string .= "groups.id=" . $group_list[0];
+        $date = new DateTime();
+        $date->add(new DateInterval('P' . $day . 'D'));
+        $date->format('Y-m-d');
+        $groups_string;
+        $index = 0;
+        $where_string = "";
+        $where_string .= "groups.id=" . $group_list[0];
         // creates the where clause
-        /*
-          while($group_list[$index])
-          {
-          $where_string .= "groups.id=" . $group_list[$index];
-          $index++;
-          if($group_list[$index])
-          {
-          $where_string .= ", OR ";
-          }
-          }
-         */
+
+        while ($group_list[$index])
+        {
+            $where_string .= "groups.id=" . $group_list[$index];
+            $index++;
+            if ($group_list[$index])
+            {
+                $where_string .= ", OR ";
+            }
+        }
+        
+        vardump($where_string);
+
 
 
 //        $query_string = "SELECT groups.id, groups.joined_users, users.id
