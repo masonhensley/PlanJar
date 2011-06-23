@@ -282,14 +282,7 @@ class Home extends CI_Controller
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
         
-        $index = 0;
-        while($group_list[$index])
-        {
-            echo $group_list[$index];
-            $index++;
-        }
-        
-        var_dump($group_list, $day);
+        var_dump($group_list[0], $day);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
