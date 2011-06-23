@@ -333,7 +333,7 @@ class Home extends CI_Controller
 
         $user = $this->ion_auth->get_user();
 
-        $delta_distance = get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
+        $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
         if ($delta_distance > 10)
         {
             echo('prompt new location');
@@ -353,7 +353,7 @@ class Home extends CI_Controller
         }
     }
 
-    private function get_distance_between($lat0, $long0, $lat1, $long1)
+    private function _get_distance_between($lat0, $long0, $lat1, $long1)
     {
         return ((acos(sin($lat0 * pi / 180) * sin($lat1 * pi / 180)
                 + cos($lat0 * pi / 180) * cos($lat1 * pi / 180) * cos(($long0 - $long1)
