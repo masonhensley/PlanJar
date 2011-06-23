@@ -279,25 +279,27 @@ class Home extends CI_Controller
         var_dump($group_list, $day);
 
         // this converts the selected day to the equivalent sql representation
-        //$date = new DateTime();
-        //$date->add(new DateInterval('P' . $day . 'D'));
-        //$date->format('Y-m-d');
-        //$groups_string;
-        //$index = 0;
-        //$where_string = "";
-        //$where_string .= "groups.id=" . $group_list[0];
+        $date = new DateTime();
+        $date->add(new DateInterval('P' . $day . 'D'));
+        $date->format('Y-m-d');
+        $groups_string;
+        $index = 0;
+        $where_string = "";
+        $where_string .= "groups.id=" . $group_list[0];
         // creates the where clause
-        /*
-          while($group_list[$index])
-          {
-          $where_string .= "groups.id=" . $group_list[$index];
-          $index++;
-          if($group_list[$index])
-          {
-          $where_string .= ", OR ";
-          }
-          }
-         */
+
+        while ($group_list[$index])
+        {
+            $where_string .= "groups.id=" . $group_list[$index];
+            $index++;
+            if ($group_list[$index])
+            {
+                $where_string .= ", OR ";
+            }
+        }
+        
+        vardump($where_string);
+
 
 
 //        $query_string = "SELECT groups.id, groups.joined_users, users.id
@@ -343,8 +345,9 @@ class Home extends CI_Controller
         ));
         echo($this->input->get('test'));
     }
-    
-    public function get_test() {
+
+    public function get_test()
+    {
         echo("<p>CodeIgniter's get: " . $this->input->get('test') . '</p><p>$_GET: ' . $_GET['test']);
         echo('<p>');
         phpinfo();
