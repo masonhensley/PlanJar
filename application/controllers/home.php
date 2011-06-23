@@ -337,6 +337,5 @@ class Home extends CI_Controller
             echo('failed to update user location in profile');
         }
     }
-
 }
     ?>
