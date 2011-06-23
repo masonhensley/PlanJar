@@ -288,11 +288,11 @@ class Home extends CI_Controller
         $where_string .= "groups.id=" . $group_list[0];
         // creates the where clause
 
-        while ($group_list[$index])
+        while ($group_list[$index] != null)
         {
             $where_string .= "groups.id=" . $group_list[$index];
             $index++;
-            if ($group_list[$index])
+            if ($group_list[$index] != null)
             {
                 $where_string .= ", OR ";
             }
