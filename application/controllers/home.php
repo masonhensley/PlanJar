@@ -341,7 +341,11 @@ class Home extends CI_Controller
             'latitude' => $this->input->get('latitude'),
             'longitude' => $this->input->get('longitude')
         ));
-        echo($_GET['test']);
+        echo($this->input->get('test'));
+    }
+    
+    public function get_test() {
+        echo("<p>CodeIgniter's get: " . $this->input->get('test') . '</p><p>$_GET: ' . $_GET['test']);
     }
 
 }
