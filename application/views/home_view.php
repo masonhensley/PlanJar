@@ -62,7 +62,6 @@ $state = $user_place_info['geoplugin_regionCode'];
 
                     <div class="center_top_right">
                         <!-- New plan panel -->
-                        <input type="button" id="make_a_plan" style="top:50%;" value="Make a plan"/>
                         <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
                     </div>
 
@@ -105,8 +104,11 @@ $state = $user_place_info['geoplugin_regionCode'];
 
             <div class="right" >
                 <div class="right_top">
-                    <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                     <br/>Welcome, <?php echo $firstname . " " . $lastname ?><br/>
+                    
+                    <!-- Change location modal -->
+                    <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
+                    
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div id="myplans" class="right_bottom">

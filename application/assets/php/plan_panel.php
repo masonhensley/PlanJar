@@ -1,3 +1,5 @@
+<input type="button" id="make_a_plan" style="top:50%;" value="Make a plan"/>
+
 <div id="plan_content" title="Make a plan.">
 
     <form id="make_plan">
