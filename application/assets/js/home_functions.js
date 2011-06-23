@@ -25,8 +25,9 @@ function location_data() {
                 
                 // Update the user's profile with the new information.
                 $.get('/home/update_user_location', {
-                    'latitude': myLatitude,
-                    'longitude': myLongitude
+                    latitude: myLatitude,
+                    longitude: myLongitude,
+                    test: 'foo'
                 }, function (data) {
                     alert(data);
                 });
