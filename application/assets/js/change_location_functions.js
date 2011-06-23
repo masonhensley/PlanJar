@@ -9,9 +9,34 @@ function initialize_change_location_modal() {
         hide: 'explode'
     });
     
-    // Set up the map.
+    // Set up the in-field labels.
+    $('#change_location_content label').inFieldLabels();
+    
+    // Current location
     var change_location_latlng = new google.maps.LatLng(myLatitude, myLongitude);
     
+    // Set up the autocomplete.
+    $('#change_location_search').autocomplete({
+        minLength: 2,
+        source: function (request, response) {
+            $.ajax({
+                url: 'https://maps.googleapis.com/maps/api/place/autocomplete/json',
+                dataType: 'jsonp',
+                data: {
+                    input: request.term,
+                    sensor: false,
+                    key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
+                    location: change_location_latlng,
+                    jsonp: 'json'
+                }
+            });
+        },
+        success: function (data) {
+            console.log(data);
+        }
+    });
+    
+    // Set up the map.
     var change_location_options = {
         zoom: 13,
         center: change_location_latlng,
