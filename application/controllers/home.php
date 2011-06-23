@@ -273,7 +273,6 @@ class Home extends CI_Controller
         $this->load->database();
 
         // this contains a list of ids for the groups selected
-        // as well as the selected day
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
 
@@ -283,11 +282,19 @@ class Home extends CI_Controller
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
-
+        $groups_string;
+        $index = 0;
+        $where_string = "";
+        $where_string .= "groups.id=" . $group_list[0];
         // creates the where clause
-        
 
-        vardump($group_list, $date);
+       $where_string = implode(", OR ", $where_string);
+        
+        vardump($where_string);
+
+//        $query_string = "SELECT groups.id, groups.joined_users, users.id
+//        FROM groups
+//        WHERE $where_string";
     }
 
     // Returns HTML for the list of the user's plans (right panel)
@@ -316,15 +323,15 @@ class Home extends CI_Controller
                 </li>
             <?php } ?>
         </ul> <?php
-        }
+    }
 
-        // Updates the user's location
-        public function update_user_location()
-        {
-            $new_lat = $this->input->get('latitude');
-            $new_long = $this->input->get('longitude');
+    // Updates the user's location
+    public function update_user_location()
+    {
+        $new_lat = $this->input->get('latitude');
+        $new_long = $this->input->get('longitude');
 
-            $user = $this->ion_auth->get_user();
+        $user = $this->ion_auth->get_user();
 
         $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
         if ($delta_distance > 10)
@@ -338,22 +345,13 @@ class Home extends CI_Controller
                     ));
             if ($result)
             {
-                echo('prompt new location');
+                echo('success');
             } else
             {
-                $result = $this->ion_auth->update_user($user->id, array(
-                            'latitude' => $new_lat,
-                            'longitude' => $new_long
-                        ));
-                if ($result)
-                {
-                    echo('success');
-                } else
-                {
-                    echo('failed to update user location in profile');
-                }
+                echo('failed to update user location in profile');
             }
         }
+    }
 
     private function _get_distance_between($lat0, $long0, $lat1, $long1)
     {
@@ -362,5 +360,5 @@ class Home extends CI_Controller
                         * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
     }
 
-    }
+}
     ?>
