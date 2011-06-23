@@ -41,10 +41,12 @@ function initialize_change_location_modal() {
             var places_service = new google.maps.places.PlacesService(change_location_map);
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    console.log(results);
+                    
                     for (var i = 0; i < results.length; i++) {
                         var place = results[i];
                         //createMarker(results[i]);
-                        console.log(results[i]);
+                        
                     }
                 }
             });
