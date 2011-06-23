@@ -282,8 +282,6 @@ class Home extends CI_Controller
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
         
-        
-        
         var_dump($group_list[0], $day);
     }
 
