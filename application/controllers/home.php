@@ -284,11 +284,9 @@ class Home extends CI_Controller
         $date->format('Y-m-d');
         $groups_string;
         $index = 0;
-        $where_string = "";
-        $where_string .= "groups.id=" . $group_list[0];
+        
         // creates the where clause
-
-       $where_string = implode(", OR ", $where_string);
+       $where_string = implode(", OR ", $group_list);
         
         vardump($where_string);
 
