@@ -282,6 +282,8 @@ class Home extends CI_Controller
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
         
+        $query = "SELECT ";
+               
         $where_string = "WERE ";
         $index = 0;
         while(isset($group_list[$index]))
@@ -296,7 +298,9 @@ class Home extends CI_Controller
             $index++;
         }
         
-        var_dump($where_string);
+        $query .= $where_string;
+        
+        var_dump($query);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
