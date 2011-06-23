@@ -355,9 +355,9 @@ class Home extends CI_Controller
 
     private function _get_distance_between($lat0, $long0, $lat1, $long1)
     {
-        return ((acos(sin($lat0 * pi / 180) * sin($lat1 * pi / 180)
-                + cos($lat0 * pi / 180) * cos($lat1 * pi / 180) * cos(($long0 - $long1)
-                        * pi / 180)) * 180 / pi) * 60 * 1.1515);
+        return ((acos(sin($lat0 * pi() / 180) * sin($lat1 * pi() / 180)
+                + cos($lat0 * pi() / 180) * cos($lat1 * pi() / 180) * cos(($long0 - $long1)
+                        * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
     }
 
 }
