@@ -282,10 +282,17 @@ class Home extends CI_Controller
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
         
+        $where_string = "WERE";
         $index = 0;
         while(isset($group_list[$index]))
         {
-            echo $group_list[$index];
+            $where_string .= "groups.id=" . $group_list[$index];
+            
+            if($index != sizeof($group_list)-1)
+            {
+                $where_string .= ", OR ";
+            }
+            
             $index++;
         }
         
