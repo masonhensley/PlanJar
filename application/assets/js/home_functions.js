@@ -28,7 +28,9 @@ function location_data() {
                     latitude: myLatitude,
                     longitude: myLongitude
                 }, function (data) {
-                    alert(data);
+                    if (data != 'success') {
+                        alert(data);
+                    }
                 });
                 
                 mapThisGoogle(position.coords.latitude, position.coords.longitude);

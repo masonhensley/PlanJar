@@ -337,18 +337,15 @@ class Home extends CI_Controller
     public function update_user_location()
     {
         $user = $this->ion_auth->get_user();
-        $this->ion_auth->update_user($user->id, array(
+        $result = $this->ion_auth->update_user($user->id, array(
             'latitude' => $this->input->get('latitude'),
             'longitude' => $this->input->get('longitude')
         ));
-        echo($this->input->get('test'));
-    }
-    
-    public function get_test() {
-        echo("<p>CodeIgniter's get: " . $this->input->get('test') . '</p><p>$_GET: ' . $_GET['test']);
-        echo('<p>');
-        phpinfo();
-        echo('</p>');
+        if ($result) {
+            echo('success');
+        } else {
+            echo('failed to update user location in profile');
+        }
     }
 
 }
