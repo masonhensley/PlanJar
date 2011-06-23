@@ -31,7 +31,7 @@ function location_data() {
                     if (data == 'prompt new location') {
                         // Open the change location dialog.
                         $('#change_location_content').dialog('open');
-                    } else if (ddata != 'success') {
+                    } else if (data != 'success') {
                         alert(data);
                     }
                 });
