@@ -105,6 +105,7 @@ $state = $user_place_info['geoplugin_regionCode'];
 
             <div class="right" >
                 <div class="right_top">
+                    <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                     <br/>Welcome, <?php echo $firstname . " " . $lastname ?><br/>
                     <a href="/home/logout">Log out.</a>
                 </div>
