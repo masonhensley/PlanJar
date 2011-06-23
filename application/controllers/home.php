@@ -282,7 +282,8 @@ class Home extends CI_Controller
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
         
-        $query = "SELECT ";
+        $query = "SELECT groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
+        FROM groups";
                
         $where_string = "WERE ";
         $index = 0;
