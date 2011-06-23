@@ -285,6 +285,7 @@ class Home extends CI_Controller
         $index = 0;
         while(isset($group_list[$index]))
         {
+            echo $group_list[$index];
             $index++;
         }
         
