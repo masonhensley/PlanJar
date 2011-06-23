@@ -27,11 +27,9 @@ function initialize_change_location_modal() {
                     sensor: false,
                     key: 'AIzaSyCYUQ0202077EncqTobwmahQzAY8DwGqa4',
                     location: change_location_latlng,
-                    jsonp: 'jsoncallback'
+                    jsonp: 'json'
                 }
             });
-            
-            response(([]));
         },
         success: function (data) {
             console.log(data);
