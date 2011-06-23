@@ -35,7 +35,7 @@ function initialize_change_location_modal() {
         source: function (request, response) {
             var places_request = {
                 location: change_location_latlng,
-                radius: 5000000
+                radius: 5000
             }
             
             var places_service = new google.maps.places.PlacesService(change_location_map);
