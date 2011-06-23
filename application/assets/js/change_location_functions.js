@@ -30,6 +30,8 @@ function initialize_change_location_modal() {
                     jsonp: 'jsoncallback'
                 }
             });
+            
+            response(([]));
         },
         success: function (data) {
             console.log(data);
