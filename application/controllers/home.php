@@ -283,7 +283,7 @@ class Home extends CI_Controller
         $date->format('Y-m-d');
         
         $index = 0;
-        while($group_list[$index])
+        while($group_list[$index] != null)
         {
             echo $group_list[$index];
             $index++;
