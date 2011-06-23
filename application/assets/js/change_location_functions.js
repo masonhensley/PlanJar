@@ -35,7 +35,7 @@ function initialize_change_location_modal() {
         source: function (request, response) {
             var places_request = {
                 location: change_location_latlng,
-                radius: 5000000,
+                radius: 10000,
                 name: request.term
             }
             
