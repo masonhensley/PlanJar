@@ -29,6 +29,8 @@ $state = $user_place_info['geoplugin_regionCode'];
 
         <!-- Load visible plans code -->
         <script type="text/javascript" src="/application/assets/js/visible_plans_functions.js"></script>
+        
+        <script type="text/javascript" src="/application/assets/js/change_location_functions.js"></script>
 
 
     </head>
