@@ -346,6 +346,9 @@ class Home extends CI_Controller
     
     public function get_test() {
         echo("<p>CodeIgniter's get: " . $this->input->get('test') . '</p><p>$_GET: ' . $_GET['test']);
+        echo('<p>');
+        phpinfo();
+        echo('</p>');
     }
 
 }
