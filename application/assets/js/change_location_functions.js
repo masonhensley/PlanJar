@@ -44,7 +44,7 @@ function initialize_change_location_modal() {
                     for (var i = 0; i < results.length; i++) {
                         var place = results[i];
                         //createMarker(results[i]);
-                        colsole.log(results[i]);
+                        console.log(results[i]);
                     }
                 }
             });
