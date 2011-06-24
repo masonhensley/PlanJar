@@ -246,7 +246,7 @@ class Home extends CI_Controller
             // get rid of the "-"
             $time_of_day = str_replace("_", " ", $time_of_day);
 
-            $date = $row->date;
+            $date = $row->plan_date;
             $date = date('m/d', strtotime($date));
 
 
