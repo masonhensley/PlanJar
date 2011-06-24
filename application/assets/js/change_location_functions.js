@@ -8,7 +8,7 @@ function initialize_change_location_modal() {
         height: 500,
         resizable: false,
         show: function (dialog) {
-            $(dialog).show('clip', {}, function () {
+            $(dialog).show('clip', {}, 500, function () {
                 alert('memememe');
             })
         },
@@ -74,10 +74,7 @@ function initialize_change_location_modal() {
     });
     
     $('#change_location').click(function () {
-        //$('#change_location_content').dialog('open');
-        $('#change_location_content').show('clip', {}, 500, function() {
-            alert('finarry!');
-        });
+        $('#change_location_content').dialog('open');
         return false;
     });
 }
