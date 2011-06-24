@@ -7,7 +7,12 @@ function initialize_change_location_modal() {
         width: 600,
         height: 500,
         resizable: false,
-        show: 'clip',
+        show: function (event, ui) {
+            $(this).show('clip', function() {
+                alert('complete');
+                change_location_map.checkResize();
+            })
+        },
         hide: 'explode'
     });
     
@@ -38,7 +43,6 @@ function initialize_change_location_modal() {
     $('#change_location_search').autocomplete({
         minLength: 2,
         source: function (request, response) {
-            change_location_map.checkResize();
             var places_request = {
                 location: change_location_latlng,
                 radius: 10000,
