@@ -4,7 +4,9 @@ $(function() {
 
 // Perform all change of location modal initialization
 function initialize_change_location_modal() {
-    $('#change_location_content').draggable();
+    $('#change_location_content').draggable({
+        handle: '#change_location_content .modal_title'
+    });
     
     // Set up the in-field labels.
     $('#change_location_content label').inFieldLabels();
