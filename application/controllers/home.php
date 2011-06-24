@@ -315,7 +315,7 @@ class Home extends CI_Controller
                 $index++;
             }
 
-            $query .= "ON $condition_clause
+            $query .= " ON $condition_clause
             LEFT JOIN places
             ON places.id=plans.place_id";
             
