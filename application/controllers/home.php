@@ -304,6 +304,7 @@ class Home extends CI_Controller
                 {
                     $condition_clause .= "OR groups.id=" . $group_list[$index];
                 }
+                $index++;
             }
 
             $query .= "ON $condition_clause
