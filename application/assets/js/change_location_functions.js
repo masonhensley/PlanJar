@@ -27,12 +27,12 @@ function initialize_change_location_modal() {
         
     var change_location_map = new google.maps.Map(document.getElementById("change_location_map"), change_location_options);
             
-    var change_location_marker = new google.maps.Marker({
+    marker_array.push(new google.maps.Marker({
         position: change_location_latlng, 
         map: change_location_map, 
         draggable: true,
         title:"Your location!"
-    });
+    }));
     
     // Set up the autocomplete.
     $('#change_location_search').autocomplete({
@@ -55,7 +55,7 @@ function initialize_change_location_modal() {
                     
                     for (var i = 0; i < results.length; i++) {
                         var place = results[i];
-                        //createMarker(results[i]);
+                    //createMarker(results[i]);
                         
                     }
                 }
