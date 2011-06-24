@@ -279,29 +279,29 @@ class Home extends CI_Controller
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
         $date->format('Y-m-d');
-
+        $index = 0;  // index used to access $group_list
         $user_id = $this->ion_auth->get_user()->id;
 
-        $query = "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
+        if (isset($group_list[$index]))
+        {
+            $query = "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
         FROM groups
         LEFT JOIN friends
-        ON friends.user_id=$user_id ";
+        ON friends.user_id=$user_id 
+        WERE ";    
+        }
 
-        // construct the WHERE clause
-        $where_string = "WERE ";
-
-        $index = 0;
         while (isset($group_list[$index]))
         {
             if ($group_list[$index] != "friends")
             {
-                 $where_string .= "groups.id=" . $group_list[$index];
-            if ($index != sizeof($group_list) - 1)
-            {
-                $where_string .= ", OR ";
+                $where_string .= "groups.id=" . $group_list[$index];
+                if ($index != sizeof($group_list) - 1)
+                {
+                    $where_string .= ", OR ";
+                }
+                $index++;
             }
-            $index++;
-            }        
         }
 
         $query .= $where_string;
