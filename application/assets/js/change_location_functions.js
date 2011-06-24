@@ -14,6 +14,7 @@ function initialize_change_location_modal() {
         },
         hide: 'explode'
     });
+    $('#change_location_content').dialog('option', 'show', function() {alert('hi');});
     
     // Set up the in-field labels.
     $('#change_location_content label').inFieldLabels();
@@ -71,12 +72,7 @@ function initialize_change_location_modal() {
     });
     
     $('#change_location').click(function () {
-        //$('#change_location_content').dialog('open');
-        $('#change_location_content').animate({
-            display: 'toggle'
-        }, 'fast', function() {
-            alert('done');
-        })
+        $('#change_location_content').dialog('open');
         return false;
     });
 }
