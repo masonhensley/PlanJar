@@ -240,3 +240,8 @@ div.in-field_block label {
     width: 500px;
     height: 500px;
 }
+
+.modal_title {
+    height: 30px;
+    border: solid white;
+}
