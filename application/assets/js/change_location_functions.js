@@ -4,22 +4,7 @@ $(function() {
 
 // Perform all change of location modal initialization
 function initialize_change_location_modal() {
-    // Initialize the dialog.
-//    $('#change_location_content').dialog(
-//    {
-//        autoOpen: false,
-//        width: 600,
-//        height: 500,
-//        resizable: false,
-//        show: function (dialog) {
-//            alert('here at least');
-//            $(dialog).show('clip', {}, function () {
-//                alert('memememe');
-//            })
-//        },
-//        hide: 'explode'
-//    });
-//    });
+    $('#change_location_content').draggable();
     
     // Set up the in-field labels.
     $('#change_location_content label').inFieldLabels();
