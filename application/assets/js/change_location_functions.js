@@ -74,7 +74,6 @@ function initialize_change_location_modal() {
     
     $('#change_location').click(function () {
         show_change_location_modal();
-        
         return false;
     });
     
@@ -91,5 +90,5 @@ function show_change_location_modal() {
 }
 
 function hide_change_location_modal() {
-    $('#change_location_content').hide('fast', 'clip');
+    $('#change_location_content').hide('fast');
 }
