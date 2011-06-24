@@ -76,6 +76,7 @@ function initialize_change_location_modal() {
     
     $('#change_location').click(function () {
         $('#change_location_content').dialog('open');
+        google.maps.event.trigger(change_location_map, 'resize')
         return false;
     });
 }
