@@ -1,3 +1,7 @@
+$(function() {
+    initialize_change_location_modal();
+});
+
 // Perform all change of location modal initialization
 function initialize_change_location_modal() {
     // Initialize the dialog.
