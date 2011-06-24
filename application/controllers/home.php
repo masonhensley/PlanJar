@@ -295,14 +295,22 @@ class Home extends CI_Controller
             //plans.user_id=friends.follow_id OR groups.joined_users
             if(in_array("friends", $group_list))
             {
-                $condition_clause .= " plans.user_id=friends.follow_id ";
+                $condition_clause .= " plans.user_id=friends.follow_id";
+                if(count($group_list) > 1)
+                {
+                    $condition_clause .= " OR ";
+                }
             }
             
             while (isset($group_list[$index]))
-            {
+            { 
                 if ($group_list[$index] != "friends")
                 {
-                    $condition_clause .= "OR groups.id=" . $group_list[$index];
+                    $condition_clause .= "groups.id=" . $group_list[$index];
+                }
+                if(count($group_list) - 1 != $index)
+                {
+                    $condition_clause .= " OR ";
                 }
                 $index++;
             }
