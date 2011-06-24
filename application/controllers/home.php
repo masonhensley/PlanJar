@@ -294,10 +294,10 @@ class Home extends CI_Controller
             {
                 if ($group_list[$index] != "friends")
                 {
-                    $where_string .= "groups.id=" . $group_list[$index];
+                    $query .= "groups.id=" . $group_list[$index];
                     if ($index != sizeof($group_list) - 1)
                     {
-                        $where_string .= ", OR ";
+                        $query .= ", OR ";
                     }
                     $index++;
                 }
