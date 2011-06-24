@@ -267,6 +267,7 @@ class Home extends CI_Controller
     }
 
     // Return a list of plans visible to the user.
+    // This code is sweet
     public function get_visible_plans()
     {
         $this->load->database();
