@@ -282,7 +282,7 @@ class Home extends CI_Controller
         $index = 0;  // index used to access $group_list
         $user_id = $this->ion_auth->get_user()->id;
 
-        if (isset($group_list))
+        if (isset($group_list[0]))
         {
             $query = "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
         FROM groups
