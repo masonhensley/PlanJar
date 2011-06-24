@@ -72,7 +72,8 @@ function initialize_change_location_modal() {
     });
     
     $('#change_location').click(function () {
-        $('#change_location_content').dialog('open');
+        //$('#change_location_content').dialog('open');
+        $('#change_location_content').show('clip', {}, 500, function() {alert('finarry!');});
         return false;
     });
 }
