@@ -166,11 +166,3 @@ h1 {
     font:normal 18px Arial;
     color: #999999;
 }
-
-/* change locatino panel */
-#change_location_content {
-    display: none;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-}
