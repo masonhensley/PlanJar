@@ -102,7 +102,7 @@ $state = $user_place_info['geoplugin_regionCode'];
             <div class="right" >
                 <div class="right_top">
                     <br/>Welcome, <?php echo $firstname . " " . $lastname . "<br/>";
-                    echo $city . ", " . $state . "<br/>";
+                    echo "Using location: " . $city . ", " . $state . "<br/>";
                    
                     // Change location modal
                     include(APPPATH . 'assets/php/change_location_panel.php'); ?>
