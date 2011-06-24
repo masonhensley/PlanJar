@@ -8,7 +8,7 @@ function initialize_change_location_modal() {
         height: 500,
         resizable: false,
         show: function (event, ui) {
-            $(this).show('slide', function() {
+            $(this).show('clip', function() {
                 alert('complete');
                 change_location_map.checkResize();
             });
