@@ -11,7 +11,11 @@ function initialize_change_location_modal() {
             $(this).show('fast', function() {
                 alert('complete');
                 change_location_map.checkResize();
-            })
+            });
+        },
+        resizeStop: function (event, ui) {
+            alert('stop complete');
+            change_location_map.checkResize();
         },
         hide: 'explode'
     });
