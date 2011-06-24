@@ -53,7 +53,7 @@ class Home extends CI_Controller
 
         // pull all user's current events
         $query =
-                "SELECT plans.time_of_day, plans.date, places.name 
+                "SELECT plans.time_of_day, plans.plan_date, places.name 
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -223,7 +223,7 @@ class Home extends CI_Controller
 
         // pull all user's current events
 
-        $query = "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
+        $query = "SELECT plans.id, plans.time_of_day, plans.plan_date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -268,7 +268,8 @@ class Home extends CI_Controller
 
     // Return a list of plans visible to the user.
     // This code is sweet
-    public function get_visible_plans()
+    // called from "visible_plans_functions.js"
+    public function load_popular_locations()
     {
         $this->load->database();
 
