@@ -233,4 +233,6 @@ div.in-field_block label {
     position: absolute;
     left: 50%;
     top: 50%;
+    background-color: #333333;
+    color: white;
 }
