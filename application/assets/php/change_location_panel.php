@@ -8,5 +8,5 @@
         <input type="text" id="change_location_search" class="textbox"/>
     </div>
 
-    <div id="change_location_map" style="width:100%; height:80%"></div>
+    <div id="change_location_map" style="width:90%; height:75%"></div>
 </div>
