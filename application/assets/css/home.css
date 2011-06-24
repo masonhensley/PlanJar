@@ -235,4 +235,6 @@ div.in-field_block label {
     top: 50%;
     background-color: #333333;
     color: white;
+    width: 500px;
+    height: 300px;
 }

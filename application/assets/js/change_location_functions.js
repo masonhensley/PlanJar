@@ -73,10 +73,23 @@ function initialize_change_location_modal() {
     });
     
     $('#change_location').click(function () {
-        $('#change_location_content').show('fast', function() {
-            alert('shown');
-        });
-        google.maps.event.trigger(change_location_map, 'resize')
+        show_change_location_modal();
+        
         return false;
     });
+    
+    $('#close_change_location').click(function () {
+        hide_change_location_modal();
+    });
+    
+}
+
+function show_change_location_modal() {
+    $('#change_location_content').show('fast', 'clip', function() {
+            google.maps.event.trigger(change_location_map, 'resize');
+        });
+}
+
+function hide_change_location_modal() {
+    $('#change_location_content').hide('fast', 'clip');
 }
