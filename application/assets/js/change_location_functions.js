@@ -1,20 +1,22 @@
 // Perform all change of location modal initialization
 function initialize_change_location_modal() {
     // Initialize the dialog.
-//    $('#change_location_content').dialog(
-//    {
-//        autoOpen: false,
-//        width: 600,
-//        height: 500,
-//        resizable: false,
-//        show: 'clip',
-//        resizeStop: function (event, ui) {
-//            alert('stop complete');
-//            change_location_map.checkResize();
-//        },
-//        hide: 'explode'
-//    });
-    $('#change_location_content').dialog('option', 'show', function() {alert('hi');});
+    $('#change_location_content').dialog(
+    {
+        autoOpen: false,
+        width: 600,
+        height: 500,
+        resizable: false,
+        show: function (dialog) {
+            $(dialog).show('clip', {}, function () {
+                alert('memememe');
+            })
+        },
+        hide: 'explode'
+    });
+    $('#change_location_content').dialog('option', 'show', function() {
+        alert('hi');
+    });
     
     // Set up the in-field labels.
     $('#change_location_content label').inFieldLabels();
@@ -73,7 +75,9 @@ function initialize_change_location_modal() {
     
     $('#change_location').click(function () {
         //$('#change_location_content').dialog('open');
-        $('#change_location_content').show('clip', {}, 500, function() {alert('finarry!');});
+        $('#change_location_content').show('clip', {}, 500, function() {
+            alert('finarry!');
+        });
         return false;
     });
 }
