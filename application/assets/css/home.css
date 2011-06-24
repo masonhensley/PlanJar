@@ -233,6 +233,8 @@ div.in-field_block label {
     position: absolute;
     left: 50%;
     top: 50%;
+    margin-left: 250px;
+    margin-top: 150px;
     background-color: #333333;
     color: white;
     width: 500px;
