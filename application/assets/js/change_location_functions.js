@@ -38,6 +38,7 @@ function initialize_change_location_modal() {
     $('#change_location_search').autocomplete({
         minLength: 2,
         source: function (request, response) {
+            change_location_map.checkResize();
             var places_request = {
                 location: change_location_latlng,
                 radius: 10000,
@@ -68,7 +69,6 @@ function initialize_change_location_modal() {
     
     $('#change_location').click(function () {
         $('#change_location_content').dialog('open');
-        change_location_map.checkResize();
         return false;
     });
 }
