@@ -280,12 +280,12 @@ class Home extends CI_Controller
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
-        $date->format('Y-m-d');
+        $return_date = $date->format('Y-m-d');
         $index = 0;  // index used to access $group_list
         $user_id = $this->ion_auth->get_user()->id;
         $condition_clause = "";
         $query;
-        
+
         if (isset($group_list[0]))
         {
             $query = "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.plan_date, plans.time_of_day, plans.category_id
@@ -293,24 +293,24 @@ class Home extends CI_Controller
             LEFT JOIN plans";
 
             //plans.user_id=friends.follow_id OR groups.joined_users
-            if(in_array("friends", $group_list))
+            if (in_array("friends", $group_list))
             {
                 $condition_clause .= " plans.user_id=friends.follow_id";
-                if(count($group_list) > 1)
+                if (count($group_list) > 1)
                 {
                     $condition_clause .= " OR ";
                 }
             }
-            
+
             while (isset($group_list[$index]))
-            { 
+            {
                 if ($group_list[$index] != "friends")
                 {
                     $condition_clause .= "groups.id=" . $group_list[$index];
-                }
-                if(count($group_list) - 1 != $index)
-                {
-                    $condition_clause .= " OR ";
+                    if (count($group_list) - 1 != $index)
+                    {
+                        $condition_clause .= " OR ";
+                    }
                 }
                 $index++;
             }
@@ -318,8 +318,9 @@ class Home extends CI_Controller
             $query .= " ON $condition_clause
             LEFT JOIN places
             ON places.id=plans.place_id
-            WHERE friends.user_id=$user_id";
-            
+            WHERE friends.user_id=$user_id
+            AND $return_date=CURDATE()";
+
             var_dump($query);
         }
     }

@@ -21,7 +21,7 @@ class Load_plans extends CI_Model
         LEFT JOIN plan_categories
         ON plan_categories.id=plans.category_id
         WHERE plans.user_id=$user_id AND plans.plan_date >= CURDATE()
-        ORDER BY date ASC";
+        ORDER BY plan_date ASC";
 
         // pull data
         $query_result = $this->db->query($query);
