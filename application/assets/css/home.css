@@ -3,7 +3,7 @@ body {
     text-align:center;
 }
 .container {
-    top:70px;
+    padding-top:10px;
     width:1024px;
     height:100%;
 }
