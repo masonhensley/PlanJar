@@ -7,13 +7,7 @@ function initialize_change_location_modal() {
         width: 600,
         height: 500,
         resizable: false,
-        show: function (event, ui) {
-            alert('show');
-            $(this).show('clip', function() {
-                alert('complete');
-                change_location_map.checkResize();
-            });
-        },
+        show: 'clip',
         resizeStop: function (event, ui) {
             alert('stop complete');
             change_location_map.checkResize();
@@ -77,7 +71,12 @@ function initialize_change_location_modal() {
     });
     
     $('#change_location').click(function () {
-        $('#change_location_content').dialog('open');
+        //$('#change_location_content').dialog('open');
+        $('#change_location_content').animate({
+            display: 'inline'
+        }, 'fast', function() {
+            alert('done');
+        })
         return false;
     });
 }
