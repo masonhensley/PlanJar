@@ -48,7 +48,7 @@ function initialize_change_location_modal() {
                 location: change_location_latlng,
                 radius: 10000,
                 name: request.term
-            }
+            };
             
             var places_service = new google.maps.places.PlacesService(change_location_map);
             places_service.search(places_request, function (results, status) {
@@ -56,7 +56,7 @@ function initialize_change_location_modal() {
                     console.log(results);
                     $.map(results, function (entry) {
                         console.log(entry);
-                    })
+                    });
                     
                     
                     for (var i = 0; i < results.length; i++) {
