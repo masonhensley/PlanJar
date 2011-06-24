@@ -12,7 +12,7 @@
         <input type="text" id="change_location_search" class="textbox"/>
     </div>
 
-    <div id="change_location_map" style="width:90%; height:75%"></div>
+    <div id="change_location_map" style="width:50%; height:50%"></div>
     <br/>
     <input type="button" id="close_change_location" value="Close"/>
 </div>
