@@ -1,21 +1,12 @@
+$(function() {
+    initialize_change_location_modal();
+});
+
 // Perform all change of location modal initialization
 function initialize_change_location_modal() {
-    // Initialize the dialog.
-//    $('#change_location_content').dialog(
-//    {
-//        autoOpen: false,
-//        width: 600,
-//        height: 500,
-//        resizable: false,
-//        show: function (dialog) {
-//            alert('here at least');
-//            $(dialog).show('clip', {}, function () {
-//                alert('memememe');
-//            })
-//        },
-//        hide: 'explode'
-//    });
-//    });
+    $('#change_location_content').draggable({
+        handle: '#change_location_content .modal_title'
+    });
     
     // Set up the in-field labels.
     $('#change_location_content label').inFieldLabels();
@@ -73,7 +64,6 @@ function initialize_change_location_modal() {
     });
     
     $('#change_location').click(function () {
-        return false;
         show_change_location_modal();
         return false;
     });

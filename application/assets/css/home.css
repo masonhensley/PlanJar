@@ -233,8 +233,15 @@ div.in-field_block label {
     position: absolute;
     left: 50%;
     top: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
     background-color: #333333;
     color: white;
     width: 500px;
-    height: 300px;
+    height: 500px;
+}
+
+.modal_title {
+    height: 30px;
+    border: solid white;
 }

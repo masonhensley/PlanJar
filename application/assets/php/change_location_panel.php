@@ -1,6 +1,10 @@
 <a href="#" id="change_location">Change location</a>
 
-<div id="change_location_content" title="Change your location.">
+<div id="change_location_content">
+    <div class="modal_title">
+        Change your location.
+    </div>
+    
     <p>Your approximate current location is below.</p>
 
     <div class="in-field_block">
