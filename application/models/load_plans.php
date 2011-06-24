@@ -14,13 +14,13 @@ class Load_plans extends CI_Model
 
         // pull all user's current events
         $query = 
-       "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
+       "SELECT plans.id, plans.time_of_day, plans.plan_date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
         LEFT JOIN plan_categories
         ON plan_categories.id=plans.category_id
-        WHERE plans.user_id=$user_id AND plans.date >= CURDATE()
+        WHERE plans.user_id=$user_id AND plans.plan_date >= CURDATE()
         ORDER BY date ASC";
 
         // pull data
