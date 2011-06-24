@@ -280,7 +280,7 @@ class Home extends CI_Controller
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
-        $date->format('Y-m-d');
+        $return_date = $date->format('Y-m-d');
         $index = 0;  // index used to access $group_list
         $user_id = $this->ion_auth->get_user()->id;
         $condition_clause = "";
@@ -319,7 +319,7 @@ class Home extends CI_Controller
             LEFT JOIN places
             ON places.id=plans.place_id
             WHERE friends.user_id=$user_id
-            AND $date=CURDATE()";
+            AND $return_date=CURDATE()";
 
             var_dump($query);
         }
