@@ -8,6 +8,7 @@ function initialize_change_location_modal() {
         height: 500,
         resizable: false,
         show: function (dialog) {
+            alert('here at least');
             $(dialog).show('clip', {}, function () {
                 alert('memememe');
             })
