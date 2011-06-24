@@ -1,19 +1,19 @@
 // Perform all change of location modal initialization
 function initialize_change_location_modal() {
     // Initialize the dialog.
-    $('#change_location_content').dialog(
-    {
-        autoOpen: false,
-        width: 600,
-        height: 500,
-        resizable: false,
-        show: 'clip',
-        resizeStop: function (event, ui) {
-            alert('stop complete');
-            change_location_map.checkResize();
-        },
-        hide: 'explode'
-    });
+//    $('#change_location_content').dialog(
+//    {
+//        autoOpen: false,
+//        width: 600,
+//        height: 500,
+//        resizable: false,
+//        show: 'clip',
+//        resizeStop: function (event, ui) {
+//            alert('stop complete');
+//            change_location_map.checkResize();
+//        },
+//        hide: 'explode'
+//    });
     $('#change_location_content').dialog('option', 'show', function() {alert('hi');});
     
     // Set up the in-field labels.
