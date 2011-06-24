@@ -341,7 +341,7 @@ class Home extends CI_Controller
                 $name = $plan->name;
                 $category = $plan->category;
                 $time = $plan->time_of_day;
-                $date_string1 = date('D', strtotime($plan->date));
+                $date_string1 = date('D', strtotime($plan->plan_date));
                 ?> 
 
                 <li class ="plan_content" plan_id="<?php echo $id; ?>" >
