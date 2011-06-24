@@ -282,7 +282,7 @@ class Home extends CI_Controller
         $date->format('Y-m-d');
         $index = 0;  // index used to access $group_list
         $user_id = $this->ion_auth->get_user()->id;
-        $condition_clause;
+        $condition_clause = "";
         $query;
         
         if (isset($group_list[0]))
