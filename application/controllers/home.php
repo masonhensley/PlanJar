@@ -282,31 +282,29 @@ class Home extends CI_Controller
         $index = 0;  // index used to access $group_list
         $user_id = $this->ion_auth->get_user()->id;
 
-        if (isset($group_list[$index]))
+        if (isset($group_list))
         {
             $query = "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.date, plans.time_of_day, plans.category_id
         FROM groups
         LEFT JOIN friends
         ON friends.user_id=$user_id 
-        WERE ";    
-        }
+        WERE ";
 
-        while (isset($group_list[$index]))
-        {
-            if ($group_list[$index] != "friends")
+            while (isset($group_list[$index]))
             {
-                $where_string .= "groups.id=" . $group_list[$index];
-                if ($index != sizeof($group_list) - 1)
+                if ($group_list[$index] != "friends")
                 {
-                    $where_string .= ", OR ";
+                    $where_string .= "groups.id=" . $group_list[$index];
+                    if ($index != sizeof($group_list) - 1)
+                    {
+                        $where_string .= ", OR ";
+                    }
+                    $index++;
                 }
-                $index++;
             }
+
+            var_dump($query);
         }
-
-        $query .= $where_string;
-
-        var_dump($query);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
