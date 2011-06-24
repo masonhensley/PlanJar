@@ -226,3 +226,11 @@ div.in-field_block label {
     background-color: #84b8d9;
     color:purple;
 }
+
+/* change location panel */
+#change_location_content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
