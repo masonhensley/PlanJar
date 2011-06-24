@@ -7,14 +7,16 @@ function initialize_change_location_modal() {
         width: 600,
         height: 500,
         resizable: false,
-        show: 'clip',
-        resizeStop: function (event, ui) {
-            alert('stop complete');
-            change_location_map.checkResize();
+        show: function (dialog) {
+            $(dialog).show('clip', {}, 500, function () {
+                alert('memememe');
+            })
         },
         hide: 'explode'
     });
-    $('#change_location_content').dialog('option', 'show', function() {alert('hi');});
+    $('#change_location_content').dialog('option', 'show', function() {
+        alert('hi');
+    });
     
     // Set up the in-field labels.
     $('#change_location_content label').inFieldLabels();
