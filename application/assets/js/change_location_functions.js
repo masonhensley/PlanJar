@@ -73,6 +73,7 @@ function initialize_change_location_modal() {
     });
     
     $('#change_location').click(function () {
+        return false;
         show_change_location_modal();
         return false;
     });
@@ -84,7 +85,7 @@ function initialize_change_location_modal() {
 }
 
 function show_change_location_modal() {
-    $('#change_location_content').show('fast', 'clip', function() {
+    $('#change_location_content').show('fast', function() {
             google.maps.event.trigger(change_location_map, 'resize');
         });
 }
