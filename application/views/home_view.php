@@ -29,7 +29,7 @@ $state = $user_place_info['geoplugin_regionCode'];
 
         <!-- Load visible plans code -->
         <script type="text/javascript" src="/application/assets/js/visible_plans_functions.js"></script>
-        
+
         <script type="text/javascript" src="/application/assets/js/change_location_functions.js"></script>
 
 
@@ -54,11 +54,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                 <div class="center_top">
 
                     <div class ="center_top_left">
-                        <font style="float:left;">
-                        <?php
-                        echo $city . ", " . $state . "<br/>";
-                        ?><font style="font-size:10px;"><?php echo "And now your address is in our database.  WHAT THE FUCK YOU GONA DO ABOUT IT?"; ?></font>
-                        </font>
+
                     </div>
 
                     <div class="center_top_right">
@@ -105,11 +101,12 @@ $state = $user_place_info['geoplugin_regionCode'];
 
             <div class="right" >
                 <div class="right_top">
-                    <br/>Welcome, <?php echo $firstname . " " . $lastname ?><br/>
-                    
-                    <!-- Change location modal -->
-                    <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
-                    
+                    <br/>Welcome, <?php echo $firstname . " " . $lastname . "<br/>";
+                    echo $city . ", " . $state . "<br/>";
+                   
+                    // Change location modal
+                    include(APPPATH . 'assets/php/change_location_panel.php'); ?>
+
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div id="myplans" class="right_bottom">
