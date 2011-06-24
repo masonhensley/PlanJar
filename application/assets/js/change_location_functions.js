@@ -73,6 +73,7 @@ function initialize_change_location_modal() {
     });
     
     $('#change_location').click(function () {
+        return false;
         show_change_location_modal();
         return false;
     });
