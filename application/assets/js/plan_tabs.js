@@ -15,7 +15,7 @@ function initialize_plan_panel(){
     $('div.plans_wrapper li').click(function() {
         
         // Make the list tiems togglable.
-        if($(this).hasClass('selected_plan')){
+        if($(this).hasClass('selected_plan')) {
             $(this).removeClass('selected_plan');
         }else{
             $('.plan_content').removeClass('selected_plan');
