@@ -81,14 +81,10 @@ $state = $user_place_info['geoplugin_regionCode'];
                     <div id="map_tab" style="width:555px; height:250px;" >
                         <?php
                         // Change location panel
-                        include(APPPATH . 'assets/php/change_location_header.php');
+                        include(APPPATH . 'assets/php/change_location_panel.php');
                         ?>
                         <br/>
                         <div id="map" style="width:100%; height:200px;"></div>
-                        <?php
-                        // Change location panel
-                        include(APPPATH . 'assets/php/change_location_footer.php');
-                        ?>
                     </div>
 
                     <div id="data_tab" style="background-color: white; color: black; width: 555px; height:250px;">
