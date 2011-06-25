@@ -2,11 +2,11 @@ var myLatitude;
 var myLongitude;
 var current_day_offset = 0;
 
+// Instantiate the change location object.
+var change_location_object = new change_location();
+
 // Run when the DOM is loaded.
 $(function() {
-    // Instantiate the change location object.
-    var change_location_object = new change_location();
-    
     // places map
     location_data();
 });
