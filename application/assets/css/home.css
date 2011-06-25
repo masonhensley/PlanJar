@@ -239,6 +239,7 @@ div.in-field_block label {
     color: white;
     width: 500px;
     height: 500px;
+    padding: 10px;
 }
 
 .modal_title {

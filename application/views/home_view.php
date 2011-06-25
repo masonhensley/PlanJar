@@ -107,6 +107,7 @@ $state = $user_place_info['geoplugin_regionCode'];
                     // Change location modal
                     include(APPPATH . 'assets/php/change_location_panel.php'); ?>
 
+                    <br/>
                     <a href="/home/logout">Log out.</a>
                 </div>
                 <div id="myplans" class="right_bottom">
