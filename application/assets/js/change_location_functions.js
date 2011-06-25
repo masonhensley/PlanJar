@@ -45,6 +45,7 @@ function initialize_change_location_modal() {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
                     clear_markers(marker_array);
+                    console.log('pre map');
                     $.map(results, function (entry) {
                         add_marker(entry);
                     });
@@ -85,5 +86,5 @@ function clear_markers(marker_array) {
 }
 
 function add_marker(data) {
-    console.log(data);
+    console.log(data.geometry.location);
 }
