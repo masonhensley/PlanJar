@@ -44,7 +44,7 @@ function initialize_change_location_modal() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
-                    clear_markers();
+                    clear_markers(marker_array);
                     $.map(results, function (entry) {
                         add_marker(entry);
                     });
