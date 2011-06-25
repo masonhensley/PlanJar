@@ -87,7 +87,7 @@ function clear_markers(marker_array) {
 
 function add_marker(data, marker_array) {
     var new_marker = new google.maps.Marker({
-        map: change_location_map,
+        'map': change_location_map,
         position: new google.maps.LatLng({
             lat: data.geometry.location.Ha,
             lng: data.geometry.location.Ia
