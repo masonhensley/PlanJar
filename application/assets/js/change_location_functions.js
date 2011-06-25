@@ -3,7 +3,7 @@ $(function() {
     
     // Assign the click event(s).
     $('#change_location').click(function () {
-        change_locatino_object.show_panels();
+        change_location_object.show_panels();
         return false;
     });
 });
