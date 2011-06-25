@@ -282,6 +282,10 @@ class Home extends CI_Controller
         $query = $this->load_plans->loadUserLocations($group_list, $day, $user_id);
         
         echo $query;
+        echo "<hr/>";
+        $query_result = $this->db->query($query);
+        var_dump($query_result);
+        
     }
 
     // Returns HTML for the list of the user's plans (right panel)
