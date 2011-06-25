@@ -4,7 +4,7 @@ $(function() {
 
 function initialize_change_location_panels() {
     $('#change_location').click(function () {
-        show_change_location_panels();
+        //show_change_location_panels();
         return false;
     });
     
