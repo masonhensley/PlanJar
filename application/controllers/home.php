@@ -177,7 +177,7 @@ class Home extends CI_Controller
             'user_id' => $user->id,
             'date' => $date->format('Y-m-d'),
             'time_of_day' => $this->input->get('plan_time_group'),
-            'category_id' => $this->input->get('plan_category')
+            'category' => $this->input->get('plan_category')
         );
 
         // Add the place to the database if a Factual place was selected.
