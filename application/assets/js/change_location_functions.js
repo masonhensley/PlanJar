@@ -3,12 +3,12 @@ $(function() {
     
     // Assign the click event(s).
     $('#change_location').click(function () {
-        change_location_object.show_panels();
+        change_location_object.show_panel();
         return false;
     });
     
     $('#close_change_location').click(function () {
-        change_location_object.hide_panels();
+        change_location_object.hide_panel();
     });
 });
 
@@ -63,7 +63,7 @@ function change_location() {
     //
     
     // Shows the panels.
-    this.show_panels = function() {
+    this.show_panel = function() {
         // Switch to the map tab.
         if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
             $("#map_data_tabs").tabs('select', '#map_tab');
@@ -76,7 +76,7 @@ function change_location() {
     }
     
     // Hides the panels.
-    this.hide_panels = function () {
+    this.hide_panel = function () {
         $('div.change_location_panel').hide('fast');
         
         $('#map_tab').animate({
