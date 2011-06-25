@@ -44,16 +44,10 @@ function initialize_change_location_modal() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
+                    clear_markers();
                     $.map(results, function (entry) {
-                        console.log(entry);
+                        add_marker(entry);
                     });
-                    
-                    
-                    for (var i = 0; i < results.length; i++) {
-                        var place = results[i];
-                    //createMarker(results[i]);
-                        
-                    }
                 }
             });
         },
@@ -81,4 +75,15 @@ function show_change_location_modal() {
 
 function hide_change_location_modal() {
     $('#change_location_content').hide('fast');
+}
+
+function clear_markers(marker_array) {
+    $.map(marker_array, function (entry) {
+        entry.setMap(null);
+    });
+    marker_array = ([]);
+}
+
+function add_marker(data) {
+    console.log(data);
 }
