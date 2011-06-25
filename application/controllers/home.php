@@ -175,13 +175,11 @@ class Home extends CI_Controller
             'id' => 'DEFAULT',
             'place_id' => $this->input->get('plan_location_id'),
             'user_id' => $user->id,
-            'date' => $date->format('Y-m-d'),
+            'plan_date' => $date->format('Y-m-d'),
             'time_of_day' => $this->input->get('plan_time_group'),
             'category_id' => $this->input->get('plan_category_id')
         );
         
-        echo('got here');
-
         // Add the place to the database if a Factual place was selected.
         if ($this->input->get('new_place_name') != '')
         {
@@ -198,7 +196,6 @@ class Home extends CI_Controller
         }
 
         $query = $this->db->insert('plans', $data);
-        echo($this->db->last_query());
 
         if ($query)
         {
