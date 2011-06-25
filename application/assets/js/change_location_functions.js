@@ -4,7 +4,7 @@ $(function() {
 
 function initialize_change_location_panels() {
     $('#change_location').click(function () {
-        //show_change_location_panels();
+        show_change_location_panels();
         return false;
     });
     
@@ -18,7 +18,7 @@ function show_change_location_panels() {
         $("#map_data_tabs").tabs('select', '#map_tab');
     }
     
-    $('div.change_location_panel').show('fast', 'clip');
+    //$('div.change_location_panel').show('fast', 'clip');
 }
 
 // Perform all change of location modal initialization
