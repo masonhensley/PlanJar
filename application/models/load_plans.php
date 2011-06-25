@@ -29,7 +29,7 @@ class Load_plans extends CI_Model
         return $result;
     }
     
-    function loadUserPlans($group_list, $day, $user_id)
+    function loadUserLocations($group_list, $day, $user_id)
     {
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
