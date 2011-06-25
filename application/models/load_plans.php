@@ -67,9 +67,7 @@ class Load_plans extends CI_Model
         <div><font color=\"purple\" size=\"30px\">
         $category at $name <br/>
         $time_of_day <br/>
-        $date 
-
-        </div>";
+        $date </div>";
 
         return $htmlString;
     }
