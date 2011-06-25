@@ -236,7 +236,7 @@ function initialize_plan_modal() {
             });
         },
         errorPlacement: function (error, element) {
-            alert(error);
+            console.log(error);
             //return true;
         }
     });
