@@ -216,54 +216,13 @@ class Home extends CI_Controller
         '</p>');
     }
 
-    public function get_plan_data()
+    public function load_selected_plan_data()
     {
         $this->load->database();
         $plan = $this->input->get('plan_selected');
-
-        // pull all user's current events
-
-        $query = "SELECT plans.id, plans.time_of_day, plans.plan_date, places.name, plan_categories.category
-        FROM plans 
-        LEFT JOIN places 
-        ON plans.place_id=places.id 
-        LEFT JOIN plan_categories
-        ON plan_categories.id=plans.category_id
-        WHERE plans.id=$plan";
-
-        // pull data
-        $query_result = $this->db->query($query);
-
-        // initialize plan information
-        $time_of_day;
-        $date;
-        $name;
-
-        foreach ($query_result->result() as $row)
-        {
-            // populate variables
-            $time_of_day = $row->time_of_day;
-            // get rid of the "-"
-            $time_of_day = str_replace("_", " ", $time_of_day);
-
-            $date = $row->plan_date;
-            $date = date('m/d', strtotime($date));
-
-
-            $name = $row->name;
-            $category = $row->category;
-        }
-
-        // html to replace the data div
-        $htmlString = "
-        <div><font color=\"purple\" size=\"30px\">
-        $category at $name <br/>
-        $time_of_day <br/>
-        $date 
-
-        </div>";
-
-        echo $htmlString;
+        $this->load->model('load_plans');
+        $returnHtml = $this->load_plans->loadPlanData($plan);
+        echo $returnHtml;
     }
 
     // Return a list of plans visible to the user.
