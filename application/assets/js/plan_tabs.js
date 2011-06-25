@@ -12,7 +12,6 @@ function populate_plan_panel() {
 
 // Sets up the plan panel
 function initialize_plan_panel(){
-    $("div.plans_wrapper li:first").addClass("selected_plan"); //Activate first tab
     $('div.plans_wrapper li').click(function() {
         
         // Make the list tiems togglable.
@@ -22,13 +21,13 @@ function initialize_plan_panel(){
         }
         
         get_plan_data();
-        on_plan_select();
+        select_data_tab();
     });    
 }
 
-// Callback function
-function on_plan_select() {
-    // select the plan data tab
+// select the plan data tab
+function select_data_tab() {
+    
     if ($("#map_data_tabs .ui-state-active a").attr('href') != '#plan_data_tab') {
         $("#map_data_tabs").tabs('select', '#plan_data_tab');
     }
