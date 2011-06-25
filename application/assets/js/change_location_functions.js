@@ -8,7 +8,7 @@ function initialize_change_location_panels() {
     });
     
     // Set up the in-field labels.
-    $('#change_location_content label').inFieldLabels();
+    $('div.change_location_panel label').inFieldLabels();
 }
 
 function show_change_locations_panels() {
