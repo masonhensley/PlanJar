@@ -5,6 +5,7 @@ $(function() {
 function initialize_change_location_panels() {
     $('#change_location').click(function () {
         show_change_locations_panels();
+        return false;
     });
     
     // Set up the in-field labels.
