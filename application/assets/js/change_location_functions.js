@@ -37,7 +37,7 @@ function change_location() {
         minLength: 2,
         source: function (request, response) {
             var places_request = {
-                location: change_location_latlng,
+                location: new google.maps.LatLng(myLatitude, myLongitude),
                 radius: 10000,
                 name: request.term
             };
