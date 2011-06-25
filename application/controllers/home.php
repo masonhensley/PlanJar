@@ -276,7 +276,14 @@ class Home extends CI_Controller
         // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
-
+        $user_id = $this->ion_auth->get_user()->id;
+        
+        $this->load->model('load_plans');
+        $query = $this->load_plans->loadUserPlans($group_list, $day, $user_id);
+        
+        echo $query;
+        
+        /*
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
@@ -323,6 +330,8 @@ class Home extends CI_Controller
 
             var_dump($query);
         }
+        */
+         
     }
 
     // Returns HTML for the list of the user's plans (right panel)
