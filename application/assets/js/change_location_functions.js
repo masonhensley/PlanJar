@@ -69,7 +69,7 @@ function change_location() {
             $("#map_data_tabs").tabs('select', '#map_tab');
         }
         $('#map_tab').animate({
-            height: '350px'
+            height: (250 + $('div.change_location_panel').css('height')) + 'px'
         });
     
         $('div.change_location_panel').show('fast');
