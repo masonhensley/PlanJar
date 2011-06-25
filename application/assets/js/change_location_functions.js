@@ -4,7 +4,7 @@ $(function() {
 
 function initialize_change_location_panels() {
     $('#change_location').click(function () {
-        show_change_locations_panels();
+        show_change_location_panels();
         return false;
     });
     
@@ -12,7 +12,7 @@ function initialize_change_location_panels() {
     $('div.change_location_panel label').inFieldLabels();
 }
 
-function show_change_locations_panels() {
+function show_change_location_panels() {
     // Switch to the map tab.
     if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
         $("#map_data_tabs").tabs('select', '#map_tab');
