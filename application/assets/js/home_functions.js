@@ -4,9 +4,6 @@ var current_day_offset = 0;
 
 // Run when the DOM is loaded.
 $(function() {
-    // Instantiate the change location object.
-    var change_location_object = new change_location();
-    
     // places map
     location_data();
 });
@@ -33,7 +30,7 @@ function location_data() {
                 }, function (data) {
                     if (data == 'prompt new location') {
                         // Open the change location dialog.
-                        change_location_object.show_panel();
+                        //change_location_object.show_panel();
                         $('#change_location_content').dialog('open');
                     } else if (data != 'success') {
                         alert(data);
