@@ -1,3 +1,5 @@
+var change_location_object = new change_location();
+
 $(function() {
     // Assign the click event(s).
     $('#change_location').click(function () {
