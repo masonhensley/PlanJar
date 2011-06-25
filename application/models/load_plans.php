@@ -58,8 +58,6 @@ class Load_plans extends CI_Model
 
             $date = $row->plan_date;
             $date = date('m/d', strtotime($date));
-
-
             $name = $row->name;
             $category = $row->category;
         }
