@@ -83,7 +83,8 @@ $state = $user_place_info['geoplugin_regionCode'];
                         // Change location panel
                         include(APPPATH . 'assets/php/change_location_header.php');
                         ?>
-                        <div id="map"></div>
+                        <br/>
+                        <div id="map" style="width:100%; height:200px;"></div>
                         <?php
                         // Change location panel
                         include(APPPATH . 'assets/php/change_location_footer.php');
