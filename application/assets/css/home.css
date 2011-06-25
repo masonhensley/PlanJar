@@ -229,7 +229,7 @@ div.in-field_block label {
 
 /* change location panel */
 #change_location_content {
-    
+    display: none;
     position: absolute;
     left: 50%;
     top: 50%;
