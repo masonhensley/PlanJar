@@ -23,7 +23,6 @@ function initialize_plan_panel(){
         }
         $("#map_data_tabs").tabs('select', '#plan_data_tab');
         get_plan_data();
-        //select_data_tab();
     });    
 }
 
@@ -41,6 +40,8 @@ function get_plan_data() {
         'plan_selected': $('.selected_plan').attr('plan_id')
     }, function (data) {
         // Replace the data and show the data tab.
-        $('#plan_data_tab').html(data);
+        if(('div.plans_wrapper').hasClass('selected_plan')){
+            $('#plan_data_tab').html(data);
+        }
     });
 }
