@@ -221,8 +221,8 @@ class Home extends CI_Controller
         $this->load->database();
         $plan = $this->input->get('plan_selected');
         $this->load->model('load_plans');
-        $returnHtml = $this->load_plans->loadPlanData($plan);
-        echo $returnHtml;
+        $return = $this->load_plans->loadPlanData($plan);
+        echo $return;
     }
 
     // Return a list of plans visible to the user.

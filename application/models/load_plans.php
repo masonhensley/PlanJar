@@ -32,7 +32,6 @@ class Load_plans extends CI_Model
     function loadPlanData($plan)
     {
         // pull all user's current events
-
         $query = "SELECT plans.id, plans.time_of_day, plans.plan_date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
@@ -64,7 +63,7 @@ class Load_plans extends CI_Model
 
         // html to replace the data div
         $htmlString = "
-        <div><font color=\"purple\" size=\"30px\">
+        <div><font color=\"purple\" size=\"20px\">
         $category at $name <br/>
         $time_of_day <br/>
         $date </div>";
