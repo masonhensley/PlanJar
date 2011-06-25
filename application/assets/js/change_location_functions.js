@@ -1,6 +1,23 @@
 $(function() {
     });
 
+function initialize_change_location_panels() {
+    $('#change_location').click(function () {
+        show_change_locations_panels();
+    });
+    
+    
+}
+
+function show_change_locations_panels() {
+    // Switch to the map tab.
+    if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
+        $("#map_data_tabs").tabs('select', '#map_tab');
+    }
+    
+    $('div.change_location_panel').show('fast');
+}
+
 // Perform all change of location modal initialization
 function initialize_change_location_modal() {
     $('#change_location_content').draggable({

@@ -78,7 +78,17 @@ $state = $user_place_info['geoplugin_regionCode'];
                     </ul>
 
                     <!-- Google Map Div -->
-                    <div id="map_tab" style="width:555px; height:250px;" ></div>
+                    <div id="map_tab" style="width:555px; height:250px;" >
+                        <?php
+                        // Change location panel
+                        include(APPPATH . 'assets/php/change_location_header.php');
+                        ?>
+                        <div id="map"></div>
+                        <?php
+                        // Change location panel
+                        include(APPPATH . 'assets/php/change_location_footer.php');
+                        ?>
+                    </div>
 
                     <div id="data_tab" style="background-color: white; color: black; width: 555px; height:250px;">
                         <p>Select at least one group on the left to see more detailed information.</p>
@@ -101,12 +111,13 @@ $state = $user_place_info['geoplugin_regionCode'];
 
             <div class="right" >
                 <div class="right_top">
-                    <br/>Welcome, <?php echo $firstname . " " . $lastname . "<br/>";
-                    echo "Using location: " . $city . ", " . $state . "<br/>";
-                   
-                    // Change location modal
-                    include(APPPATH . 'assets/php/change_location_panel.php'); ?>
+                    <br/>Welcome, <?php
+                        echo $firstname . " " . $lastname . "<br/>";
+                        echo "Using location: " . $city . ", " . $state . "<br/>";
+                        ?>
 
+
+                    <a href="#" id="change_location">Change location</a>
                     <br/>
                     <a href="/home/logout">Log out.</a>
                 </div>

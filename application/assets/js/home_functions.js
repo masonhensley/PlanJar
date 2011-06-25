@@ -71,7 +71,7 @@ function mapThisGoogle(latitude,longitude)
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
         
-    map = new google.maps.Map(document.getElementById("map_tab"), myOptions);
+    map = new google.maps.Map(document.getElementById("map"), myOptions);
             
     your_location_marker = new google.maps.Marker({
         position: myLatlng, 
