@@ -319,7 +319,7 @@ class Home extends CI_Controller
             LEFT JOIN places
             ON places.id=plans.place_id
             WHERE friends.user_id=$user_id
-            AND $return_date=CURDATE()";
+            AND $return_date=plans.plan_date";
 
             var_dump($query);
         }
