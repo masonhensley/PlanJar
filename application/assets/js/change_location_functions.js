@@ -37,7 +37,7 @@ function change_location() {
         minLength: 2,
         source: function (request, response) {
             var places_request = {
-                location: change_location_latlng,
+                location: new google.maps.LatLng(myLatitude, myLongitude),
                 radius: 10000,
                 name: request.term
             };
@@ -69,7 +69,7 @@ function change_location() {
             $("#map_data_tabs").tabs('select', '#map_tab');
         }
         $('#map_tab').animate({
-            height: '350px'
+            height: (250 + $('div.change_location_panel').height()) + 'px'
         });
     
         $('div.change_location_panel').show('fast');
