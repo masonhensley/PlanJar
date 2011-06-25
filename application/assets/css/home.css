@@ -182,7 +182,7 @@ div.in-field_block label {
     font:normal 18px Arial;
     color: #999999;
 }
-#make_plan input.textbox, #change_location_content .textbox {
+#make_plan input.textbox, div.change_location_panel .textbox {
     height:30px;
     width:200px;
 }
