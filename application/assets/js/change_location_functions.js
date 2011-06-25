@@ -95,5 +95,5 @@ function add_marker(data, marker_array, map) {
         title: data.name
     })
     marker_array.push(new_marker);
-    console.log(data.geometry.location);
+    console.log(marker_array);
 }
