@@ -5,6 +5,9 @@ $(function() {
 
 function make_groups_selectable() {
     $('div.group_selectable_wrapper li').click(function() {
+        // unselect plan on right panel
+        $('.plan_content').removeClass('selected_plan');
+        
         // Make the list tiems togglable.
         if ($(this).hasClass('group_selected')) {
             $(this).removeClass('group_selected');
