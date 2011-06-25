@@ -42,7 +42,7 @@ function change_location() {
                 name: request.term
             };
             
-            var places_service = new google.maps.places.PlacesService(change_location_map);
+            var places_service = new google.maps.places.PlacesService(map);
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
