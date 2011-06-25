@@ -15,13 +15,15 @@ function initialize_plan_panel(){
     $('div.plans_wrapper li').click(function() {
         
         // Make the list tiems togglable.
-        if ($(this).hasClass('plan_content')) {
+        if($(this).hasClass('selected_plan')){
+            $(this).removeClass('selected_plan');
+        }else if ($(this).hasClass('plan_content')) {
             $('.plan_content').removeClass('selected_plan');
             $(this).addClass('selected_plan');
         }
-        
+        $("#map_data_tabs").tabs('select', '#plan_data_tab');
         get_plan_data();
-        select_data_tab();
+        //select_data_tab();
     });    
 }
 
