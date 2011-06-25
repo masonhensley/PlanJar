@@ -68,7 +68,9 @@ function change_location() {
         if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
             $("#map_data_tabs").tabs('select', '#map_tab');
         }
-    $('#map_tab').animate({height: '500px'})
+        $('#map_tab').animate({
+            height: '350px'
+        });
     
         $('div.change_location_panel').show('fast');
     }
@@ -76,6 +78,10 @@ function change_location() {
     // Hides the panels.
     this.hide_panels = function () {
         $('div.change_location_panel').hide('fast');
+        
+        $('#map_tab').animate({
+            height: '250px'
+        });
     }
 }
 
