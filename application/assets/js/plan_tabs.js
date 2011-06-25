@@ -21,8 +21,8 @@ function initialize_plan_panel(){
             $('.plan_content').removeClass('selected_plan');
             $(this).addClass('selected_plan');
             get_plan_data();
+            $("#map_data_tabs").tabs('select', '#plan_data_tab');
         }
-        $("#map_data_tabs").tabs('select', '#plan_data_tab');
     });    
 }
 
