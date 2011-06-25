@@ -85,6 +85,15 @@ function clear_markers(marker_array) {
     marker_array = ([]);
 }
 
-function add_marker(data) {
+function add_marker(data, marker_array) {
+    var new_marker = new google.maps.Marker({
+        map: change_location_map,
+        position: new google.maps.LatLng({
+            lat: data.geometry.location.Ha,
+            lng: data.geometry.location.Ia
+        }),
+        title: data.name
+    })
+    marker_array.push(new_marker);
     console.log(data.geometry.location);
 }
