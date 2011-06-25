@@ -1,20 +1,25 @@
 $(function() {
     var change_location_object = new change_location();
+    
+    // Assign the click event(s).
+    $('#change_location').click(function () {
+        change_locatino_object.show_panels();
+        return false;
+    });
 });
 
 // Change location object.
 function change_location() {
-    /* Constructor */
-    // Assign the onclick event.
-    $('#change_location').click(function () {
-        this.show_panels();
-        return false;
-    });
-    
+    /*
+     Constructor
+    */
+   
     // Set up the in-field labels.
     $('div.change_location_panel label').inFieldLabels();
     
-    /* Methods */
+    /*
+     Methods
+    */
     // Shows the panels.
     this.show_panels = function() {
         // Switch to the map tab.
