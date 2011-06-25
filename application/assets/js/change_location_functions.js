@@ -1,5 +1,5 @@
 $(function() {
-});
+    });
 
 // Perform all change of location modal initialization
 function initialize_change_location_modal() {
@@ -47,7 +47,7 @@ function initialize_change_location_modal() {
                     clear_markers(marker_array);
                     console.log('pre map');
                     $.map(results, function (entry) {
-                        add_marker(entry);
+                        add_marker(entry, marker_array, change_location_map);
                     });
                 }
             });
@@ -70,8 +70,8 @@ function initialize_change_location_modal() {
 
 function show_change_location_modal() {
     $('#change_location_content').show('fast', function() {
-            google.maps.event.trigger(change_location_map, 'resize');
-        });
+        google.maps.event.trigger(change_location_map, 'resize');
+    });
 }
 
 function hide_change_location_modal() {
@@ -85,9 +85,9 @@ function clear_markers(marker_array) {
     marker_array = ([]);
 }
 
-function add_marker(data, marker_array) {
+function add_marker(data, marker_array, map) {
     var new_marker = new google.maps.Marker({
-        'map': change_location_map,
+        map: map,
         position: new google.maps.LatLng({
             lat: data.geometry.location.Ha,
             lng: data.geometry.location.Ia
