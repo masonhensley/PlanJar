@@ -38,11 +38,11 @@ class Load_plans extends CI_Model
         $index = 0;  // index used to access $group_list
             
         $condition_clause = "";
-        $query;
+        $query = "";
 
         if (isset($group_list[0]))
         {
-            $query = "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.plan_date, plans.time_of_day, plans.category_id
+            $query .= "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.plan_date, plans.time_of_day, plans.category_id
             FROM friends, groups
             LEFT JOIN plans";
 
