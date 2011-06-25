@@ -68,6 +68,7 @@ function change_location() {
         if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
             $("#map_data_tabs").tabs('select', '#map_tab');
         }
+    $('#map_tab').animate({height: '500px'})
     
         $('div.change_location_panel').show('fast');
     }
