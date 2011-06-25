@@ -20,15 +20,14 @@ function initialize_plan_panel(){
         }else if ($(this).hasClass('plan_content')) {
             $('.plan_content').removeClass('selected_plan');
             $(this).addClass('selected_plan');
+            get_plan_data();
         }
         $("#map_data_tabs").tabs('select', '#plan_data_tab');
-        get_plan_data();
     });    
 }
 
 // select the plan data tab
 function select_data_tab() {
-    
     if ($("#map_data_tabs .ui-state-active a").attr('href') != '#plan_data_tab') {
         $("#map_data_tabs").tabs('select', '#plan_data_tab');
     }
@@ -40,8 +39,6 @@ function get_plan_data() {
         'plan_selected': $('.selected_plan').attr('plan_id')
     }, function (data) {
         // Replace the data and show the data tab.
-        if(('div.plans_wrapper').hasClass('selected_plan')){
-            $('#plan_data_tab').html(data);
-        }
+        $('#plan_data_tab').html(data);  
     });
 }
