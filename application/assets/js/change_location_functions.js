@@ -71,6 +71,11 @@ function change_location() {
     
         $('div.change_location_panel').show('fast');
     }
+    
+    // Hides the panels.
+    this.hide_panels = function () {
+        $('div.change_location_panel').hide('fast');
+    }
 }
 
     
