@@ -10,6 +10,7 @@ function populate_visible_plans_panel() {
             'selected_day': get_selected_day()
         }, function (data) {
             $('#visible_plans_panel').html(data); 
+            alert(data);
         });
     });
 }
