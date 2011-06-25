@@ -1,6 +1,6 @@
-var change_location_object = new change_location();
-
 $(function() {
+    var change_location_object = new change_location();
+    
     // Assign the click event(s).
     $('#change_location').click(function () {
         change_location_object.show_panel();
@@ -42,7 +42,7 @@ function change_location() {
                 name: request.term
             };
             
-            var places_service = new google.maps.places.PlacesService(change_location_map);
+            var places_service = new google.maps.places.PlacesService(map);
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
