@@ -1,5 +1,6 @@
 $(function() {
-    });
+    initialize_change_location_panels();
+});
 
 function initialize_change_location_panels() {
     $('#change_location').click(function () {
