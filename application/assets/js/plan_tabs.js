@@ -19,19 +19,14 @@ function initialize_plan_panel(){
         if(!addclass)
         {
             $(this).addClass('selected_plan');
+            get_plan_data();
             if ($("#map_data_tabs .ui-state-active a").attr('href') != '#plan_data_tab' ) {
                 $("#map_data_tabs").tabs('select', '#plan_data_tab');
             }
         }else{
             $("#map_data_tabs").tabs('select', '#plan_data_tab');
         }
-        get_plan_data();
     });    
-}
-
-// select the plan data tab
-function select_data_tab() {
-    
 }
 
 // fetch the data about the plan and display it in the plan data div
