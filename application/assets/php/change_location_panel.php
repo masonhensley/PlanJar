@@ -13,7 +13,7 @@
     </div>
 
     <br/>
-    <div id="change_location_map" style="width:50%; height:50%"></div>
+    <div id="change_location_map" style="width:100%; height:60%"></div>
     <br/>
     <input type="button" id="close_change_location" value="Close"/>
 </div>
