@@ -28,7 +28,7 @@ function change_location() {
         }
     
         // Show the panels.
-        $('div.change_location_panel').show('fast', 'clip');
+        $('div.change_location_panel').show('fast');
     }
 }
 
