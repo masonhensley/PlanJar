@@ -4,7 +4,7 @@ $(function() {
 
 // Populates the list of plans every time a weekday or group is selected
 function populate_visible_plans_panel() {
-    $('div.plans_wrapper li').click(function() {
+    $('div.group_selectable_wrapper').click(function() {
         $.get('/home/load_popular_locations', {
             'selected_groups': get_selected_groups(),
             'selected_day': get_selected_day()
