@@ -59,7 +59,7 @@ function initialize_plan_modal() {
                 var temp = response_json.slice(0);
                 temp.push({
                     label: 'Expanding search results...', 
-                    value: '', 
+                    value: '',
                     id: ''
                 });
                 response(temp);
@@ -236,7 +236,8 @@ function initialize_plan_modal() {
             });
         },
         errorPlacement: function (error, element) {
-            return true;
+            alert(error);
+            //return true;
         }
     });
     
