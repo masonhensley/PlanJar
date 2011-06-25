@@ -13,16 +13,14 @@ function populate_plan_panel() {
 // Sets up the plan panel
 function initialize_plan_panel(){
     $('div.plans_wrapper li').click(function() {
-        
-        // Make the list tiems togglable.
-        if($(this).hasClass('selected_plan')) {
-            $(this).removeClass('selected_plan');
-        }else{
-            $('.plan_content').removeClass('selected_plan');
+        var addclass = $(this).hasClass('selected_plan');
+        $('.selected_plan').removeClass('selected_plan');
+        //$('.plan_content').removeClass('selected_plan');
+        if(addclass)
+        {
             $(this).addClass('selected_plan');
-            get_plan_data();
-            $("#map_data_tabs").tabs('select', '#plan_data_tab');
         }
+        get_plan_data();
     });    
 }
 
