@@ -26,7 +26,7 @@ function change_location() {
     
     // Push the current location onto the marker list.
     marker_array.push(new google.maps.Marker({
-        position: change_location_latlng, 
+        position: new google.maps.LatLng(myLatitude, myLongitude), 
         map: map,
         draggable: true,
         title:"Your location!"
