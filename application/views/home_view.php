@@ -11,7 +11,11 @@ $state = $user_place_info['geoplugin_regionCode'];
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
+        
+        <!-- Group Panel and day tabs -->
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
+        
         <script type="text/javascript" src="/application/assets/js/plan_modal_functions.js"></script>
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -19,7 +23,7 @@ $state = $user_place_info['geoplugin_regionCode'];
 
         <!-- include plan tab code -->
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
-        <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
+        
         <script type="text/javascript" src="/application/assets/validation-1.8.1/jquery.validate.min.js"></script>
 
         <!-- Load GeoPlugin api -->
