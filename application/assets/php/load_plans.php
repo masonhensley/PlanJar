@@ -12,7 +12,7 @@
             $date_string1 = date('D', strtotime($plan->date));
             
             ?> 
-        <div class = right_panel_plan>
+        <div class = "right_panel_plan">
             <li class ="plan_content" plan_id="<?php echo $id; ?>" >
                 <?php
                 echo $name . "  |  " . $date_string1;
