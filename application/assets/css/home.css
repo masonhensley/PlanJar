@@ -47,7 +47,7 @@ body {
 .left_bottom{
     width:100%;
     height:600px;
-    
+
     background-color:white;
 }
 
@@ -230,4 +230,10 @@ div.in-field_block label {
 div.change_location_panel {
     display: none;
     height: 45px;
+}
+
+.right_panel_plan{
+    top:10px;
+    height:100%;
+    width:90%;
 }
