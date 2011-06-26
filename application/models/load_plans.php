@@ -39,7 +39,7 @@ class Load_plans extends CI_Model
         LEFT JOIN plan_categories
         ON plan_categories.id=plans.category_id
         WHERE plans.id=$plan";
-
+       
         // pull data
         $query_result = $this->db->query($query);
 
