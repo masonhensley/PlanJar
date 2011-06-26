@@ -223,6 +223,7 @@ class Home extends CI_Controller
         $plan = $this->input->get('plan_selected');
         $this->load->model('load_plans');
         $return = $this->load_plans->loadPlanData($plan);
+        
         echo $return;
     }
 
