@@ -46,7 +46,7 @@ function change_location() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
-                    clear_markers(this.marker_array);
+                    this.clear_markers();
                     console.log('pre map');
                     $.map(results, function (entry) {
                         marker_array.push(new google.maps.Marker({
@@ -91,18 +91,14 @@ function change_location() {
             height: '250px'
         });
     }
-}
-
     
-    
-    
-
-
-function clear_markers(marker_array) {
-    $.map(marker_array, function (entry) {
-        entry.setMap(null);
-    });
-    marker_array = ([]);
+    // Remove all markers and update the map accordingly.
+    this.clear_markers = function () {
+        $.map(this.marker_array, function (entry) {
+            entry.setMap(null);
+        });
+        this.marker_array = ([]);
+    }
 }
 
 function add_marker(data, marker_array, map) {
