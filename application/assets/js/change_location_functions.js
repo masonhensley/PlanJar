@@ -1,5 +1,5 @@
 $(function() {
-    var change_location_object = new change_location();
+    change_location_object = new change_location();
     
     // Assign the click event(s).
     $('#change_location').click(function () {
@@ -46,18 +46,18 @@ function change_location() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
-                    this.clear_markers();
+                    change_location_object.clear_markers();
                     console.log('pre map');
                     $.map(results, function (entry) {
-                        marker_array.push(new google.maps.Marker({
+                        change_location_object.marker_array.push(new google.maps.Marker({
                             map: map,
                             position: new google.maps.LatLng({
                                 lat: entry.geometry.location.Ha,
                                 lng: entry.geometry.location.Ia
                             }),
-                            title: data.name
+                            title: entry.name
                         }));
-                        console.log(marker_array);
+                        console.log(change_location_object.marker_array);
                     });
                 }
             });
