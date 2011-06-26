@@ -218,10 +218,12 @@ class Home extends CI_Controller
 
     public function load_selected_plan_data()
     {
+        echo "<script>alert('fuck');</script>";
         $this->load->database();
         $plan = $this->input->get('plan_selected');
         $this->load->model('load_plans');
         $return = $this->load_plans->loadPlanData($plan);
+        
         echo $return;
     }
 
