@@ -214,12 +214,13 @@ div.in-field_block label {
 .active_plans{
     margin:0px;
     padding:0px;
+    padding-top: 10px;
 }
 
 .plan_content{
     list-style-type: none;
     border: 1px solid black;
-    padding-top: 10px;
+    
 }
 
 .selected_plan{
