@@ -104,6 +104,7 @@ class Load_plans extends CI_Model
                 $index++;
             }
 
+            // if there are groups selected, generate a query to pull all user ids
             $index = 0; // reinitialize index
             if (isset($group_ids_selected[$index]))
             {
@@ -132,9 +133,21 @@ class Load_plans extends CI_Model
                         }
                     }
                 }
+                
             }
+            
+            $plan_query = "SELECT plans.place_id, plans.user_id, plans.date, plans.time_of_day, plans.category_id, places.id, places.name
+                FROM plans
+                LEFT JOIN places ON plans.place_id=places.id
+                WHERE plans.date=$return_date AND ";
+            
+            foreach($id_array as $id)
+            {
+                $plan_query .= "plans.user_id=$id OR ";
+            }
+            substr($plan_query, strlen($plan_query)-4, 4);
         }
-        var_dump($id_array);
+        var_dump($plan_query);
     }
 
 }
