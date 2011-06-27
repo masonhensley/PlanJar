@@ -22,7 +22,7 @@ function setup_day_tabs() {
 }
 
 // Callback function
-function on_day_change(day_index) {
+function on_day_change() {
     // Switch to the data tab if it isn't active and update the data.
     if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
         $("#map_data_tabs").tabs('select', '#data_tab');
@@ -31,11 +31,7 @@ function on_day_change(day_index) {
     load_visible_plans()
 }
 
-
-// I moved this to home_functions.js because it is needed earlier
-
 // returns the selected day number (relative to current date)
-
 function get_selected_day() {
     return $('#day_tabs ul.tabs li.day_selected a').attr('href');
 }
