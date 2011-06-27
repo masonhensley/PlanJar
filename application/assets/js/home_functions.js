@@ -99,7 +99,8 @@ function get_groups() {
     return return_list;
 }
 
-function get_day() {
+// Gets the currently selected day offset (0-based)
+function get_selected_day() {
     return $('#day_tabs ul.tabs li.day_selected a').attr('href');
 }
 

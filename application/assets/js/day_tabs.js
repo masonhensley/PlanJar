@@ -15,9 +15,9 @@ function setup_day_tabs() {
         
         // Call the callback function.
         on_day_change();
+        
         // update the visible plans for the selected day
         load_visible_plans();
-        return false;
     });
 }
 
@@ -29,10 +29,5 @@ function on_day_change() {
     }
     //get_group_day_data();
     load_visible_plans()
-}
-
-// returns the selected day number (relative to current date)
-function get_selected_day() {
-    return $('#day_tabs ul.tabs li.day_selected a').attr('href');
 }
 
