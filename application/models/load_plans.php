@@ -119,10 +119,7 @@ class Load_plans extends CI_Model
                 $query_result = $this->db->query($group_query);
                 foreach($query_result as $row)
                 {
-                    foreach($row as $users_selected)
-                    {
-                        $id_array[] = $users_selected;
-                    }
+                    echo $row[0];
                 }
             }
         }
