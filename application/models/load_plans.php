@@ -125,7 +125,7 @@ class Load_plans extends CI_Model
                 }
             }
         }
-        var_dump($id_array);
+        //var_dump($id_array);
     }
 }
 ?>
