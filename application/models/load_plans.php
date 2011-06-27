@@ -126,7 +126,7 @@ class Load_plans extends CI_Model
                     {
                         foreach ($row as $ids)
                         {
-                            if (!in_array($ids, $id_array))
+                            if (!in_array($ids, $id_array) && $ids != $user_id)
                             {
                                 $id_array[] = $ids;
                             }
