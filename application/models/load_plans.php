@@ -92,7 +92,7 @@ class Load_plans extends CI_Model
                     $id_array[] = $row->follow_id;
                 }
             }
-            
+
             // next generate the query for a list of ids for all the people in the groups selected
             $group_ids_selected = array();
             while (isset($group_list[$index]))
@@ -104,7 +104,7 @@ class Load_plans extends CI_Model
                 $index++;
             }
 
-            // if there are groups selected, generate a query to pull all user ids
+            // if there are groups selected, generate a query to pull all user ids joined in the selected groups
             $index = 0; // reinitialize index
             if (isset($group_ids_selected[$index]))
             {
@@ -133,23 +133,33 @@ class Load_plans extends CI_Model
                         }
                     }
                 }
-                
             }
-            
+
             $plan_query = "SELECT plans.place_id, plans.user_id, plans.plan_date, plans.time_of_day, plans.category_id, places.id, places.name
                 FROM plans
                 LEFT JOIN places ON plans.place_id=places.id
                 WHERE plans.plan_date='$return_date' AND (";
-            
-            foreach($id_array as $id)
+
+            foreach ($id_array as $id)
             {
                 $plan_query .= "plans.user_id=$id OR ";
             }
-            $plan_query = substr($plan_query, 0, strlen($plan_query)-4);
+            $plan_query = substr($plan_query, 0, strlen($plan_query) - 4);
             $plan_query .= ")";
-            var_dump($plan_query);
+            $evaluated_plans = $this->db->query($plan_query);
+            $evaluated_plans = $evaluated_plans->result();
+            
+            // populate the
+            foreach ($evaluated_plans as $plan)
+            {
+                ?>
+                <div class = "plan_shown">
+                    <?php echo $plan->name; ?>
+                </div>
+                <?php
+            }
         }
     }
-}
 
+}
 ?>
