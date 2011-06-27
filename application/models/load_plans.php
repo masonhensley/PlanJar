@@ -139,7 +139,7 @@ class Load_plans extends CI_Model
             $plan_query = "SELECT plans.place_id, plans.user_id, plans.plan_date, plans.time_of_day, plans.category_id, places.id, places.name
                 FROM plans
                 LEFT JOIN places ON plans.place_id=places.id
-                WHERE plans.plan_date=STR_TO_DATE($return_date) AND (";
+                WHERE plans.plan_date=\'$return_date\' AND (";
             
             foreach($id_array as $id)
             {
