@@ -117,7 +117,6 @@ class Load_plans extends CI_Model
                     $index++;
                 }
                 $query_result = $this->db->query($group_query);
-                var_dump($group_query);
                 foreach($query_result->result() as $row)
                 {
                     $row = json_decode($row->joined_users);
