@@ -119,7 +119,7 @@ class Load_plans extends CI_Model
                 $query_result = $this->db->query($group_query);
                 foreach($query_result as $row)
                 {
-                    echo $row[0];
+                    var_dump($row);
                 }
             }
         }
