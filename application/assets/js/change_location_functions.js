@@ -53,8 +53,8 @@ function initialize_change_location_panel() {
                             }),
                             title: entry.name
                         }));
-                        console.log(change_location_marker_array);
                     });
+                    console.log(change_location_marker_array);
                 }
             });
         },
