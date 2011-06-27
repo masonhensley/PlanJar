@@ -45,7 +45,6 @@ function initialize_change_location_panel() {
                     clear_change_location_markers();
                     console.log('pre map');
                     $.map(results, function (entry) {
-                        console.log(entry.geometry.location.Ha + ', ' + entry.geometry.location.Ia);
                         change_location_marker_array.push(new google.maps.Marker({
                             map: map,
                             position: new google.maps.LatLng(entry.geometry.location.Ha, entry.geometry.location.Ia),
