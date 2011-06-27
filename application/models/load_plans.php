@@ -13,8 +13,8 @@ class Load_plans extends CI_Model
         $this->load->database();
 
         // pull all user's current events
-        $query = 
-       "SELECT plans.id, plans.time_of_day, plans.plan_date, places.name, plan_categories.category
+        $query =
+                "SELECT plans.id, plans.time_of_day, plans.plan_date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -28,7 +28,7 @@ class Load_plans extends CI_Model
         $result = $query_result->result();
         return $result;
     }
-    
+
     function loadPlanData($plan)
     {
         // pull all user's current events
@@ -39,7 +39,7 @@ class Load_plans extends CI_Model
         LEFT JOIN plan_categories
         ON plan_categories.id=plans.category_id
         WHERE plans.id=$plan";
-       
+
         // pull data
         $query_result = $this->db->query($query);
 
@@ -70,7 +70,7 @@ class Load_plans extends CI_Model
 
         return $htmlString;
     }
-    
+
     function loadUserLocations($group_list, $day, $user_id)
     {
         // this converts the selected day to the equivalent sql representation
@@ -78,48 +78,55 @@ class Load_plans extends CI_Model
         $date->add(new DateInterval('P' . $day . 'D'));
         $return_date = $date->format('Y-m-d');
         $index = 0;  // index used to access $group_list
-            
-        $condition_clause = "";
-        $query = "";
-
+        $id_array = array(); // an array of all the user ids that will be included in the pull
+        
         if (isset($group_list[0]))
         {
-            $query .= "SELECT friends.user_id, friends.follow_id, groups.joined_users, plans.place_id, plans.plan_date, plans.time_of_day, plans.category_id
-            FROM friends, groups
-            LEFT JOIN plans";
-
-            //plans.user_id=friends.follow_id OR groups.joined_users
+            // first get a list of ids to find plans with and append it to the id_array
             if (in_array("friends", $group_list))
             {
-                $condition_clause .= " plans.user_id=friends.follow_id";
-                if (count($group_list) > 1)
+                $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
+                $query_result = $this->db->query($friend_query);
+                foreach ($query_result as $row)
                 {
-                    $condition_clause .= " OR ";
+                    $id_array[] = $row->follow_id;
                 }
             }
-
+            // next generate the query for a list of ids for all the people in the groups selected
+            $group_ids_selected = array();
             while (isset($group_list[$index]))
             {
                 if ($group_list[$index] != "friends")
                 {
-                    $condition_clause .= "groups.id=" . $group_list[$index];
-                    if (count($group_list) - 1 != $index)
-                    {
-                        $condition_clause .= " OR ";
-                    }
+                    $group_ids_selected[] = $group_list[$index];
                 }
                 $index++;
             }
 
-            $query .= " ON $condition_clause
-            LEFT JOIN places
-            ON places.id=plans.place_id
-            WHERE friends.user_id=$user_id
-            AND $return_date=plans.plan_date";
+            $index = 0; // reinitialize index
+            if (isset($group_ids_selected[$index]))
+            {
+                $group_query = "SELECT joined_users FROM groups WHERE ";
+                while (isset($group_ids_selected[$index]))
+                {
+                    $group_query .= "id=$group_ids_selected[$index]";
+                    if (count($group_ids_selected) - 1 != $index)
+                    {
+                        $group_query .= " OR ";
+                    }
+                    $index++;
+                }
+                $query_result = $this->db->query($group_query);
+                foreach($query_result as $row)
+                {
+                    foreach($row as $users_selected)
+                    {
+                        $id_array[] = $users_selected;
+                    }
+                }
+            }
         }
-        
-        return $query;
+        var_dump($id_array);
     }
 }
-
 ?>
