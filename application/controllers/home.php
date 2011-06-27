@@ -42,7 +42,7 @@ class Home extends CI_Controller
         redirect('/login/');
     }
 
-    // load and return user event data
+    // load and return user plan data
     public function loadMyEvents()
     {
         $this->load->database();
@@ -52,8 +52,7 @@ class Home extends CI_Controller
         $user_id = $user_info->id;
 
         // pull all user's current events
-        $query =
-                "SELECT plans.time_of_day, plans.plan_date, places.name 
+        $query = "SELECT plans.time_of_day, plans.plan_date, places.name 
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -218,12 +217,10 @@ class Home extends CI_Controller
 
     public function load_selected_plan_data()
     {
-        echo "<script>alert('fuck');</script>";
         $this->load->database();
         $plan = $this->input->get('plan_selected');
         $this->load->model('load_plans');
-        $return = $this->load_plans->loadPlanData($plan);
-        
+        $return = $this->load_plans->loadPlanData($plan);   
         echo $return;
     }
 
@@ -246,7 +243,6 @@ class Home extends CI_Controller
         echo "<hr/>";
         $query_result = $this->db->query($query);
         var_dump($query_result);
-        
     }
 
     // Returns HTML for the list of the user's plans (right panel)

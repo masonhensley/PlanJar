@@ -15,7 +15,8 @@ function setup_day_tabs() {
         
         // Call the callback function.
         on_day_change();
-
+        // update the visible plans for the selected day
+        load_visible_plans();
         return false;
     });
 }
@@ -26,12 +27,16 @@ function on_day_change(day_index) {
     if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
         $("#map_data_tabs").tabs('select', '#data_tab');
     }
-    get_group_day_data();
-    
-    populate_visible_plans_panel();
+    //get_group_day_data();
+    load_visible_plans()
 }
 
+
+// I moved this to home_functions.js because it is needed earlier
+
 // returns the selected day number (relative to current date)
+
 function get_selected_day() {
-    return $('#day_tabs ul.tabs li.day_selected a').attr('href')
+    return $('#day_tabs ul.tabs li.day_selected a').attr('href');
 }
+

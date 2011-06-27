@@ -17,16 +17,22 @@ function make_groups_selectable() {
         
         // Call the callback function.
         on_groups_change();
+        // Update the visible plans for the selected groups
+        load_visible_plans();
     });
     
     // Initialize the clear all and select all button actions.
     $('#clear_all_groups').click(function() {
         $('div.group_selectable_wrapper li.group_selected').removeClass('group_selected');
         on_groups_change();
+        // update visible plans
+        load_visible_plans();
     });
     $('#select_all_groups').click(function() {
         $('div.group_selectable_wrapper li').addClass('group_selected');
         on_groups_change();
+        // update visible plans
+        load_visible_plans();
     });
 }
 
@@ -37,11 +43,14 @@ function on_groups_change() {
         $("#map_data_tabs").tabs('select', '#data_tab');
     }
     get_group_day_data();
-    
-    populate_visible_plans_panel();
+    load_visible_plans()
 }
 
+// I moved this to home_functions because it is needed earlier
+
+
 // Returns a list of selected groups.
+
 function get_selected_groups() {
     var return_list = ([]);
     $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
@@ -49,3 +58,4 @@ function get_selected_groups() {
     });
     return return_list;
 }
+
