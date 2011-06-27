@@ -136,16 +136,17 @@ class Load_plans extends CI_Model
                 
             }
             
-            $plan_query = "SELECT plans.place_id, plans.user_id, plans.date, plans.time_of_day, plans.category_id, places.id, places.name
+            $plan_query = "SELECT plans.place_id, plans.user_id, plans.plan_date, plans.time_of_day, plans.category_id, places.id, places.name
                 FROM plans
                 LEFT JOIN places ON plans.place_id=places.id
-                WHERE plans.date=$return_date AND ";
+                WHERE plans.plan_date=$return_date AND (";
             
             foreach($id_array as $id)
             {
                 $plan_query .= "plans.user_id=$id OR ";
             }
             $plan_query = substr($plan_query, 0, strlen($plan_query)-4);
+            $plan_query .= ")";
             var_dump($plan_query);
         }
     }
