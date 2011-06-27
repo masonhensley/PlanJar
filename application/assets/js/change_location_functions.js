@@ -1,31 +1,27 @@
 $(function() {
-    change_location_object = new change_location();
+    initialize_change_location_panel();
     
     // Assign the click event(s).
     $('#change_location').click(function () {
-        change_location_object.show_panel();
+        show_change_location_panel();
         return false;
     });
     
     $('#close_change_location').click(function () {
-        change_location_object.hide_panel();
+        hide_change_location_panel();
     });
 });
 
-// Change location object.
-function change_location() {
-    // Variables
-    //
-    var marker_array = ([]);
-     
-    // Constructor
-    //
+// Initializes the change location panel.
+function initialize_change_location_panel() {
+    // Keep track of all markers.
+    var change_location_marker_array = ([]);
     
     // Set up the in-field labels.
     $('div.change_location_panel label').inFieldLabels();
     
     // Push the current location onto the marker list.
-    marker_array.push(new google.maps.Marker({
+    change_location_marker_array.push(new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude), 
         map: map,
         draggable: true,
@@ -49,7 +45,7 @@ function change_location() {
                     change_location_object.clear_markers();
                     console.log('pre map');
                     $.map(results, function (entry) {
-                        change_location_object.marker_array.push(new google.maps.Marker({
+                        change_location_marker_array.push(new google.maps.Marker({
                             map: map,
                             position: new google.maps.LatLng({
                                 lat: entry.geometry.location.Ha,
@@ -57,7 +53,7 @@ function change_location() {
                             }),
                             title: entry.name
                         }));
-                        console.log(change_location_object.marker_array);
+                        console.log(change_location_marker_array);
                     });
                 }
             });
@@ -66,39 +62,36 @@ function change_location() {
             console.log(data);
         }
     });
-    
-    // Methods
-    //
-    
-    // Shows the panels.
-    this.show_panel = function() {
-        // Switch to the map tab.
-        if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
-            $("#map_data_tabs").tabs('select', '#map_tab');
-        }
-        $('#map_tab').animate({
-            height: (250 + $('div.change_location_panel').height()) + 'px'
-        });
-    
-        $('div.change_location_panel').show('fast');
+}
+
+// Shows the panel.
+function show_change_location_panel() {
+    // Switch to the map tab.
+    if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
+        $("#map_data_tabs").tabs('select', '#map_tab');
     }
+    $('#map_tab').animate({
+        height: (250 + $('div.change_location_panel').height()) + 'px'
+    });
     
-    // Hides the panels.
-    this.hide_panel = function () {
-        $('div.change_location_panel').hide('fast');
+    $('div.change_location_panel').show('fast');
+}
+
+// Hides the panel.
+function hide_change_location_panel() {
+    $('div.change_location_panel').hide('fast');
         
-        $('#map_tab').animate({
-            height: '250px'
-        });
-    }
+    $('#map_tab').animate({
+        height: '250px'
+    });
+}
     
-    // Remove all markers and update the map accordingly.
-    this.clear_markers = function () {
-        $.map(this.marker_array, function (entry) {
-            entry.setMap(null);
-        });
-        this.marker_array = ([]);
-    }
+// Remove all markers and update the map accordingly.
+function clear_change_location_markers () {
+    $.map(change_location_marker_array, function (entry) {
+        entry.setMap(null);
+    });
+    change_location_marker_array = ([]);
 }
 
 function add_marker(data, marker_array, map) {
