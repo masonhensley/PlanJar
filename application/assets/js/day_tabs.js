@@ -33,9 +33,8 @@ function on_day_change(day_index) {
 
 
 // I moved this to home_functions.js because it is needed earlier
-/*
+
 // returns the selected day number (relative to current date)
 function get_selected_day() {
     return $('#day_tabs ul.tabs li.day_selected a').attr('href')
 }
-*/

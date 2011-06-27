@@ -48,7 +48,7 @@ function on_groups_change() {
 
 // I moved this to home_functions because it is needed earlier
 
-/*
+
 // Returns a list of selected groups.
 function get_selected_groups() {
     var return_list = ([]);
@@ -57,4 +57,3 @@ function get_selected_groups() {
     });
     return return_list;
 }
-*/
