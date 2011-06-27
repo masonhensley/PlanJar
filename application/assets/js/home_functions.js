@@ -85,7 +85,7 @@ function mapThisGoogle(latitude,longitude)
 function load_visible_plans(){
     $.get('/home/load_popular_locations', {
             'selected_groups': get_selected_groups(),
-            'selected_day': $('#day_tabs ul.tabs li.day_selected a').attr('href')
+            'selected_day': get_selected_day()
         }, function (data) {
             $('#visible_plans_panel').html(data); 
         });
@@ -98,3 +98,8 @@ function get_selected_groups() {
     });
     return return_list;
 }
+
+function get_selected_day() {
+    return $('#day_tabs ul.tabs li.day_selected a').attr('href');
+}
+
