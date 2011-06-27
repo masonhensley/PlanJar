@@ -121,11 +121,14 @@ class Load_plans extends CI_Model
                 foreach($query_result->result() as $row)
                 {
                     $row = json_decode($row->joined_users);
-                    var_dump($row);
+                    foreach($row as $ids)
+                    {
+                        $id_array[] = $ids;
+                    }
                 }
             }
         }
-        //var_dump($id_array);
+        var_dump($id_array);
     }
 }
 ?>
