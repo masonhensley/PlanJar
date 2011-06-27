@@ -148,19 +148,25 @@ class Load_plans extends CI_Model
             $plan_query .= ")";
             $evaluated_plans = $this->db->query($plan_query);
             $evaluated_plans = $evaluated_plans->result();
-            
+
+
+            $location_ids = array();  // Use this variable to store the location ids that are shown to prevent duplicates
             // populate the
             echo "<hr/><br/>";
             foreach ($evaluated_plans as $plan)
             {
-                ?>
-                <div class = "plan_shown">
-                    <?php 
-                    echo $plan->name;
-                    echo "<br/><hr/><br/>";
+                if (!in_array($plan->place_id, $location_ids))
+                {
+                    $location_ids[] = $plan->place_id;
                     ?>
-                </div>
-                <?php
+                    <div class = "plan_shown">
+                        <?php
+                        echo $plan->name;
+                        echo "<br/><hr/><br/>";
+                        ?>
+                    </div>
+                    <?php
+                }
             }
         }
     }
