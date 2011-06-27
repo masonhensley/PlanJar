@@ -41,9 +41,7 @@ function initialize_change_location_panel() {
             var places_service = new google.maps.places.PlacesService(map);
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    console.log(results);
                     clear_change_location_markers();
-                    console.log('pre map');
                     $.map(results, function (entry) {
                         var temp_marker = new google.maps.Marker({
                             map: map,
@@ -92,7 +90,11 @@ function clear_change_location_markers () {
     $.map(change_location_marker_array, function (entry) {
         entry.setMap(null);
     });
+    console.log('before delete');
+    console.log(change_location_marker_array);
     change_location_marker_array = ([]);
+    console.log('after delete');
+    console.log(change_location_marker_array);
 }
 
 function add_marker(data, marker_array, map) {
@@ -105,7 +107,4 @@ function add_marker(data, marker_array, map) {
         title: data.name
     })
     marker_array.push(new_marker);
-    console.log(marker_array);
 }
-
-// Creates a 
