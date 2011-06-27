@@ -99,3 +99,8 @@ function get_selected_groups() {
     });
     return return_list;
 }
+
+// returns the selected day number (relative to current date)
+function get_selected_day() {
+    return $('#day_tabs ul.tabs li.day_selected a').attr('href')
+}
