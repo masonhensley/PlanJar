@@ -107,3 +107,5 @@ function add_marker(data, marker_array, map) {
     marker_array.push(new_marker);
     console.log(marker_array);
 }
+
+// Creates a 

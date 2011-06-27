@@ -18,6 +18,8 @@ function setup_day_tabs() {
         
         // update the visible plans for the selected day
         load_visible_plans();
+        
+        return false;
     });
 }
 
