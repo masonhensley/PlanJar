@@ -12,11 +12,11 @@ $(function() {
     });
 });
 
+// Keep track of all markers.
+var change_location_marker_array = ([]);
+
 // Initializes the change location panel.
-function initialize_change_location_panel() {
-    // Keep track of all markers.
-    var change_location_marker_array = ([]);
-    
+function initialize_change_location_panel() {    
     // Set up the in-field labels.
     $('div.change_location_panel label').inFieldLabels();
     
