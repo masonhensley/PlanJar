@@ -146,10 +146,9 @@ class Load_plans extends CI_Model
                 $plan_query .= "plans.user_id=$id OR ";
             }
             $plan_query = substr($plan_query, 0, strlen($plan_query)-4);
+            var_dump($plan_query);
         }
-        var_dump($plan_query);
     }
-
 }
 
 ?>
