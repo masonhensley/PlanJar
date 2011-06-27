@@ -45,11 +45,15 @@ function initialize_change_location_panel() {
                     clear_change_location_markers();
                     console.log('pre map');
                     $.map(results, function (entry) {
-                        change_location_marker_array.push(new google.maps.Marker({
+                        var temp_marker = new google.maps.Marker({
                             map: map,
                             position: new google.maps.LatLng(entry.geometry.location.Ha, entry.geometry.location.Ia),
                             title: entry.name
-                        }));
+                        });
+                        temp_marker.dblclick = function (mouse_event) {
+                            console.log(mouse_event);
+                        }
+                        change_location_marker_array.push(temp_marker);
                     });
                     console.log(change_location_marker_array);
                 }
