@@ -150,13 +150,14 @@ class Load_plans extends CI_Model
             $evaluated_plans = $evaluated_plans->result();
             
             // populate the
+            echo "<hr/><br/>";
             foreach ($evaluated_plans as $plan)
             {
                 ?>
                 <div class = "plan_shown">
                     <?php 
                     echo $plan->name;
-                    echo "<hr/><br/>";
+                    echo "<br/><hr/><br/>";
                     ?>
                 </div>
                 <?php
