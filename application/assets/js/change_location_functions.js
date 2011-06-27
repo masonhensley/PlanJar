@@ -42,7 +42,7 @@ function initialize_change_location_panel() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
-                    change_location_object.clear_markers();
+                    clear_change_location_markers();
                     console.log('pre map');
                     $.map(results, function (entry) {
                         change_location_marker_array.push(new google.maps.Marker({
