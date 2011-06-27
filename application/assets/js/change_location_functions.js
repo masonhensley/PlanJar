@@ -50,9 +50,10 @@ function initialize_change_location_panel() {
                             position: new google.maps.LatLng(entry.geometry.location.Ha, entry.geometry.location.Ia),
                             title: entry.name
                         });
-                        temp_marker.dblclick = function (mouse_event) {
-                            console.log(mouse_event);
-                        }
+                        temp_marker.setIcon('foo');
+//                        temp_marker.dblclick = function (mouse_event) {
+//                            console.log(mouse_event);
+//                        };
                         change_location_marker_array.push(temp_marker);
                     });
                     console.log(change_location_marker_array);
