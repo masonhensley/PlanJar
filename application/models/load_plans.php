@@ -86,8 +86,8 @@ class Load_plans extends CI_Model
             if (in_array("friends", $group_list))
             {
                 $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
-                $query_result = $this->db->query($friend_query)->result();
-                foreach ($query_result as $row)
+                $query_result = $this->db->query($friend_query);
+                foreach ($query_result->result() as $row)
                 {
                     $id_array[] = $row->follow_id;
                 }
@@ -116,8 +116,8 @@ class Load_plans extends CI_Model
                     }
                     $index++;
                 }
-                $query_result = $this->db->query($group_query)->result();
-                foreach($query_result as $row)
+                $query_result = $this->db->query($group_query);
+                foreach($query_result->result() as $row)
                 {
                     $row = json_decode($row->joined_users);
                     var_dump($row);
