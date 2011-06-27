@@ -1,9 +1,11 @@
+/*
 $(function() {
     populate_visible_plans_panel(); 
 });
 
 // Populates the list of plans every time a weekday or group is selected
 function populate_visible_plans_panel() {
+
     $('.group_selectable_wrapper').click(function() {
         $.get('/home/load_popular_locations', {
             'selected_groups': get_selected_groups(),
@@ -12,4 +14,6 @@ function populate_visible_plans_panel() {
             $('#visible_plans_panel').html(data); 
         });
     });
+
 }
+*/

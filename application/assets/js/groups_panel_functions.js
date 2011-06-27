@@ -17,16 +17,22 @@ function make_groups_selectable() {
         
         // Call the callback function.
         on_groups_change();
+        // Update the visible plans for the selected groups
+        load_visible_plans();
     });
     
     // Initialize the clear all and select all button actions.
     $('#clear_all_groups').click(function() {
         $('div.group_selectable_wrapper li.group_selected').removeClass('group_selected');
         on_groups_change();
+        // update visible plans
+        load_visible_plans();
     });
     $('#select_all_groups').click(function() {
         $('div.group_selectable_wrapper li').addClass('group_selected');
         on_groups_change();
+        // update visible plans
+        load_visible_plans();
     });
 }
 

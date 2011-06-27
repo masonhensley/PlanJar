@@ -15,7 +15,8 @@ function setup_day_tabs() {
         
         // Call the callback function.
         on_day_change();
-
+        // update the visible plans for the selected day
+        load_visible_plans();
         return false;
     });
 }
