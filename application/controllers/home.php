@@ -42,7 +42,7 @@ class Home extends CI_Controller
         redirect('/login/');
     }
 
-    // load and return user event data
+    // load and return user plan data
     public function loadMyEvents()
     {
         $this->load->database();
@@ -52,8 +52,7 @@ class Home extends CI_Controller
         $user_id = $user_info->id;
 
         // pull all user's current events
-        $query =
-                "SELECT plans.time_of_day, plans.plan_date, places.name 
+        $query = "SELECT plans.time_of_day, plans.plan_date, places.name 
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
