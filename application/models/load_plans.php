@@ -79,7 +79,7 @@ class Load_plans extends CI_Model
         $return_date = $date->format('Y-m-d');
         $index = 0;  // index used to access $group_list
         $id_array = array(); // an array of all the user ids that will be included in the pull
-        
+
         if (isset($group_list[0]))
         {
             // first get a list of ids to find plans with and append it to the id_array
@@ -117,17 +117,22 @@ class Load_plans extends CI_Model
                     $index++;
                 }
                 $query_result = $this->db->query($group_query);
-                foreach($query_result->result() as $row)
+                foreach ($query_result->result() as $row)
                 {
                     $row = json_decode($row->joined_users);
-                    foreach($row as $ids)
+                    if (isset($row))
                     {
-                        $id_array[] = $ids;
+                        foreach ($row as $ids)
+                        {
+                            $id_array[] = $ids;
+                        }
                     }
                 }
             }
         }
         var_dump($id_array);
     }
+
 }
+
 ?>
