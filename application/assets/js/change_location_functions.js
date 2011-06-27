@@ -1,31 +1,27 @@
 $(function() {
-    change_location_object = new change_location();
+    initialize_change_location_panel();
     
     // Assign the click event(s).
     $('#change_location').click(function () {
-        change_location_object.show_panel();
+        show_change_location_panel();
         return false;
     });
     
     $('#close_change_location').click(function () {
-        change_location_object.hide_panel();
+        hide_change_location_panel();
     });
 });
 
-// Change location object.
-function change_location() {
-    // Variables
-    //
-    var marker_array = ([]);
-     
-    // Constructor
-    //
-    
+// Keep track of all markers.
+var change_location_marker_array = ([]);
+
+// Initializes the change location panel.
+function initialize_change_location_panel() {    
     // Set up the in-field labels.
     $('div.change_location_panel label').inFieldLabels();
     
     // Push the current location onto the marker list.
-    marker_array.push(new google.maps.Marker({
+    change_location_marker_array.push(new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude), 
         map: map,
         draggable: true,
@@ -46,19 +42,21 @@ function change_location() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     console.log(results);
-                    change_location_object.clear_markers();
+                    clear_change_location_markers();
                     console.log('pre map');
                     $.map(results, function (entry) {
-                        change_location_object.marker_array.push(new google.maps.Marker({
+                        var temp_marker = new google.maps.Marker({
                             map: map,
-                            position: new google.maps.LatLng({
-                                lat: entry.geometry.location.Ha,
-                                lng: entry.geometry.location.Ia
-                            }),
+                            position: new google.maps.LatLng(entry.geometry.location.Ha, entry.geometry.location.Ia),
                             title: entry.name
-                        }));
-                        console.log(change_location_object.marker_array);
+                        });
+                        temp_marker.setIcon('foo');
+//                        temp_marker.dblclick = function (mouse_event) {
+//                            console.log(mouse_event);
+//                        };
+                        change_location_marker_array.push(temp_marker);
                     });
+                    console.log(change_location_marker_array);
                 }
             });
         },
@@ -66,39 +64,36 @@ function change_location() {
             console.log(data);
         }
     });
-    
-    // Methods
-    //
-    
-    // Shows the panels.
-    this.show_panel = function() {
-        // Switch to the map tab.
-        if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
-            $("#map_data_tabs").tabs('select', '#map_tab');
-        }
-        $('#map_tab').animate({
-            height: (250 + $('div.change_location_panel').height()) + 'px'
-        });
-    
-        $('div.change_location_panel').show('fast');
+}
+
+// Shows the panel.
+function show_change_location_panel() {
+    // Switch to the map tab.
+    if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
+        $("#map_data_tabs").tabs('select', '#map_tab');
     }
+    $('#map_tab').animate({
+        height: (250 + $('div.change_location_panel').height()) + 'px'
+    });
     
-    // Hides the panels.
-    this.hide_panel = function () {
-        $('div.change_location_panel').hide('fast');
+    $('div.change_location_panel').show('fast');
+}
+
+// Hides the panel.
+function hide_change_location_panel() {
+    $('div.change_location_panel').hide('fast');
         
-        $('#map_tab').animate({
-            height: '250px'
-        });
-    }
+    $('#map_tab').animate({
+        height: '250px'
+    });
+}
     
-    // Remove all markers and update the map accordingly.
-    this.clear_markers = function () {
-        $.map(this.marker_array, function (entry) {
-            entry.setMap(null);
-        });
-        this.marker_array = ([]);
-    }
+// Remove all markers and update the map accordingly.
+function clear_change_location_markers () {
+    $.map(change_location_marker_array, function (entry) {
+        entry.setMap(null);
+    });
+    change_location_marker_array = ([]);
 }
 
 function add_marker(data, marker_array, map) {
