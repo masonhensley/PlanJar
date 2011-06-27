@@ -50,7 +50,6 @@ function on_groups_change() {
 
 
 // Returns a list of selected groups.
-
 function get_selected_groups() {
     var return_list = ([]);
     $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
