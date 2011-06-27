@@ -92,6 +92,7 @@ class Load_plans extends CI_Model
                     $id_array[] = $row->follow_id;
                 }
             }
+            
             // next generate the query for a list of ids for all the people in the groups selected
             $group_ids_selected = array();
             while (isset($group_list[$index]))
@@ -124,7 +125,10 @@ class Load_plans extends CI_Model
                     {
                         foreach ($row as $ids)
                         {
-                            $id_array[] = $ids;
+                            if (!in_array($ids, $id_array))
+                            {
+                                $id_array[] = $ids;
+                            }
                         }
                     }
                 }
