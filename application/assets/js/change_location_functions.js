@@ -79,9 +79,8 @@ function initialize_change_location_panel() {
                     } else if (change_location_marker_array.length == 1) {
                         map.setCenter(change_location_marker_array[0].location);
                         map.setZoom(13);
+                        console.log(change_location_marker_array[0].location);
                     }
-                    
-                    console.log(bounds);
                     
                 }
             });
