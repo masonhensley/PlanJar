@@ -113,18 +113,19 @@ function get_selected_day() {
     return $('#day_tabs ul.tabs li.day_selected a').attr('href');
 }
 
-// Return the city based off the coordinates.
-function get_current_user_city() {
+// Return the city based off the user's coordinates.
+function update_current_city_name() {
     var geocoder = new google.maps.Geocoder();
     var request = {
         location: new google.maps.LatLng(myLatitude, myLongitude)
     }
     
     geocoder.geocode(request, function (result, status) {
+        console.log(status + ' ' + google.maps.Geocoder.OK);
         if (status == google.maps.Geocoder.OK) {
             console.log(result);
         }
-    })
+    });
 }
 
 /* .....................Global map functions and vars..................... */
@@ -139,3 +140,5 @@ function clear_map_markers () {
     
     map_marker_array.length = 0;
 }
+
+function 
