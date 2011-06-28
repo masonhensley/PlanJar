@@ -44,9 +44,7 @@ function initialize_change_location_panel() {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     // Clear all markers and add the new ones.
                     clear_change_location_markers();
-                    
-                    console.log(results);
-                    
+                                        
                     // Step through the results.
                     $.map(results, function (entry) {
                         // Create the marker.
@@ -65,7 +63,6 @@ function initialize_change_location_panel() {
                         change_location_marker_array.push(temp_marker);
                     });
                     
-                    console.log(change_location_marker_array.length);
                     if (change_location_marker_array.length > 1) {
                         // Calculate the necessary viewport.
                         var min_lat = get_min_marker(true);
@@ -77,9 +74,7 @@ function initialize_change_location_panel() {
                             new google.maps.LatLng(min_lat, min_lng),
                             new google.maps.LatLng(max_lat, max_lng)
                             );
-                                
-                        console.log(bounds);
-                            
+                                                    
                         map.fitBounds(bounds);
                     } else if (change_location_marker_array.length == 1) {
                         map.setCenter(change_location_marker_array[0].position);
