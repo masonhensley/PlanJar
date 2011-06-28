@@ -107,3 +107,16 @@ function get_selected_day() {
     return $('#day_tabs ul.tabs li.day_selected a').attr('href');
 }
 
+// Return the city based off the coordinates.
+function get_current_user_city() {
+    var geocoder = new google.maps.Geocoder();
+    var request = {
+        location: new google.maps.LatLng(myLatitude, myLongitude)
+    }
+    
+    geocoder.geocode(request, function (result, status) {
+        if (status == google.maps.Geocoder.OK) {
+            console.log(result);
+        }
+    })
+}
