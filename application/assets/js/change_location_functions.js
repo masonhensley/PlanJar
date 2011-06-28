@@ -63,6 +63,7 @@ function initialize_change_location_panel() {
                         change_location_marker_array.push(temp_marker);
                     });
                     
+                    console.log(change_location_marker_array.length);
                     if (change_location_marker_array.length > 1) {
                         // Calculate the necessary viewport.
                         var min_lat = get_min_marker(true);
@@ -75,12 +76,12 @@ function initialize_change_location_panel() {
                             new google.maps.LatLng(max_lat, max_lng)
                             );
                                 
-                                console.log(bounds);
+                        console.log(bounds);
                             
                         map.fitBounds(bounds);
                     } else if (change_location_marker_array.length == 1) {
                         map.setCenter(change_location_marker_array[0].position);
-                        map.setZoom(12);
+                        map.setZoom(11);
                     }
                     
                 }
