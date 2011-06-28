@@ -283,12 +283,11 @@ class Home extends CI_Controller
             echo('prompt new location');
             return;
         }
-        
+
         $result = $this->ion_auth->update_user($user->id, array(
                     'latitude' => $new_lat,
-                    'longitude' => $new_long
-                ));
-        
+                    'longitude' => $new_long));
+
         if ($result)
         {
             echo('success');

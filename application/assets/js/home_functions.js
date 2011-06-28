@@ -33,6 +33,7 @@ function location_data() {
                         // Open the change location dialog.
                         show_change_location_panel();
                         $('#change_location_content').dialog('open');
+                        alert('Your new location estimate is more than 10 miles away from your last location. Please update your location.');
                     } else if (data != 'success') {
                         alert(data);
                     }
