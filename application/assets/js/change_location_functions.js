@@ -98,4 +98,6 @@ function clear_change_location_markers () {
     $.map(change_location_marker_array, function (entry) {
         entry.setMap(null);
     });
+    
+    change_location_marker_array = ([]);
 }
