@@ -126,6 +126,7 @@ function update_current_city_name() {
     geocoder.geocode(request, function (result, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             result = result[0].address_components;
+            console.log(result);
             console.log(result[2].long_name + ', ' + result[4].short_name);
         }
     });
