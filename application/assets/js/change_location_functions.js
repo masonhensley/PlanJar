@@ -44,8 +44,8 @@ function initialize_change_location_panel() {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     // Clear all markers and add the new ones.
                     clear_change_location_markers();
-                    console.log('the next output should be ([])');
-                    console.log(change_location_marker_array);
+                    
+                    // Step through the results.
                     $.map(results, function (entry) {
                         // Create the marker.
                         var temp_marker = new google.maps.Marker({
@@ -62,6 +62,20 @@ function initialize_change_location_panel() {
                         // Add the marker to the marker list.
                         change_location_marker_array.push(temp_marker);
                     });
+                    
+                    // Calculate the necessary viewport.
+                    var min_lat = get_min_marker(true);
+                    var min_lng = get_min_marker(false);
+                    var max_lat = get_max_marker(true);
+                    var max_lng = get_max_marker(false);
+                    
+                    var bounds = new google.maps.LatLngBounds(
+                        new google.maps.LatLng(min_lat, min_lng),
+                        new google.maps.LatLng(max_lat, max_lng)
+                        );
+                            
+                    map.fitBounds(bounds);       
+                    
                 }
             });
         },
@@ -101,6 +115,45 @@ function clear_change_location_markers () {
         entry.setMap(null);
     });
     
-    //change_location_marker_array = ([]);
     change_location_marker_array.clear();
+}
+
+function get_min_marker(lat_lng) {
+    var min = 360;
+    
+    if (lat_lng) {
+        $.map(change_location_marker_array, function (item) {
+            if (item.position.lat() < min) {
+                min = item.position.lat();
+            }
+        });
+    } else {
+        $.map(change_location_marker_array, function (item) {
+            if (item.position.lng() < min) {
+                min = item.position.lng();
+            }
+        });
+    }
+    
+    return min;
+}
+
+function get_max_marker(lat_lng) {
+    var max = -360;
+    
+    if (lat_lng) {
+        $.map(change_location_marker_array, function (item) {
+            if (item.position.lat() > max) {
+                max = item.position.lat();
+            }
+        });
+    } else {
+        $.map(change_location_marker_array, function (item) {
+            if (item.position.lng() > max) {
+                max = item.position.lng();
+            }
+        });
+    }
+    
+    return max;
 }
