@@ -31,9 +31,10 @@ function location_data() {
                 }, function (data) {
                     if (data == 'prompt new location') {
                         // Open the change location dialog.
+                        alert('Your new location estimate is more than 10 miles away from your last location. Please update your location.');
+
                         show_change_location_panel();
                         $('#change_location_content').dialog('open');
-                        alert('Your new location estimate is more than 10 miles away from your last location. Please update your location.');
                     } else if (data != 'success') {
                         alert(data);
                     }
