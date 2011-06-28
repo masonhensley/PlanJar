@@ -96,6 +96,7 @@ function hide_change_location_panel() {
 // Remove all markers and update the map accordingly.
 function clear_change_location_markers () {
     $.map(change_location_marker_array, function (entry) {
+        console.log(entry.title);
         entry.setMap(null);
     });
     
