@@ -21,15 +21,17 @@ function initialize_change_location_panel() {
     $('div.change_location_panel label').inFieldLabels();
     
     // Push the current location onto the marker list.
-    change_location_marker_array.push(new google.maps.Marker({
+    var temp_marker = new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude), 
         map: map,
         draggable: true,
         title:"Your location!"
-    }));
+    });
+    
+    change_location_marker_array.push(temp_marker);
     
     // Assign the click event.
-    google.maps.event.addListener(change_location_marker_array[0], 'click', change_location_marker_click);
+    google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
     
     // Set up the autocomplete.
     $('#change_location_search').autocomplete({
