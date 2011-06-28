@@ -24,7 +24,7 @@ function initialize_change_location_panel() {
     var temp_marker = new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude), 
         map: map,
-        //draggable: true,
+        draggable: true,
         title:"Your location!"
     });
     
@@ -60,7 +60,9 @@ function initialize_change_location_panel() {
                         });
                         
                         // Assign the click event.
-                        google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
+                        google.maps.event.addListener(temp_marker, 'click', function() {
+                            alert('clicked');
+                        });
                         
                         // Add the marker to the marker list.
                         change_location_marker_array.push(temp_marker);
