@@ -34,7 +34,7 @@ function initialize_change_location_panel() {
         source: function (request, response) {
             var places_request = {
                 location: new google.maps.LatLng(myLatitude, myLongitude),
-                radius: 10000,
+                radius: 1000,
                 name: request.term,
                 type: ['locality']
             };
@@ -78,7 +78,7 @@ function initialize_change_location_panel() {
                         map.fitBounds(bounds);
                     } else if (change_location_marker_array.length == 1) {
                         map.setCenter(change_location_marker_array[0].position);
-                        map.setZoom(11);
+                        map.setZoom(10);
                     }
                     
                 }
