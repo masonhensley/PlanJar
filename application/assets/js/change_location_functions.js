@@ -28,6 +28,8 @@ function initialize_change_location_panel() {
         title:"Your location!"
     });
     
+    console.log(temp_marker);
+    
     change_location_marker_array.push(temp_marker);
     
     // Assign the click event.
