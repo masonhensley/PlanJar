@@ -24,7 +24,7 @@ function initialize_change_location_panel() {
     var temp_marker = new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude), 
         map: map,
-        draggable: true,
+        //draggable: true,
         title:"Your location!"
     });
     
