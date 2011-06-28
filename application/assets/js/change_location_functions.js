@@ -13,7 +13,7 @@ $(function() {
 });
 
 // Keep track of all markers.
-var change_location_marker_array = ([]);
+var change_location_marker_array = [];
 
 // Initializes the change location panel.
 function initialize_change_location_panel() {    
@@ -115,7 +115,7 @@ function clear_change_location_markers () {
         entry.setMap(null);
     });
     
-    change_location_marker_array.clear();
+    change_location_marker_array = [];
 }
 
 function get_min_marker(lat_lng) {
