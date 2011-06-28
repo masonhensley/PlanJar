@@ -268,7 +268,7 @@ class Home extends CI_Controller
         </ul> <?php
     }
 
-    // Tries to update the user's location
+    // Update the user's location
     public function update_user_location()
     {
         $new_lat = $this->input->get('latitude');
@@ -276,21 +276,20 @@ class Home extends CI_Controller
 
         $user = $this->ion_auth->get_user();
 
-        // Only check the distance if the location is trying to automatically update
-        $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
-        if ($this->input->get('auto') == 'true' && $delta_distance > 10)
-        {
-            echo('prompt new location');
-            return;
-        }
-
         $result = $this->ion_auth->update_user($user->id, array(
                     'latitude' => $new_lat,
                     'longitude' => $new_long));
 
         if ($result)
         {
-            echo('success');
+            $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
+            if ($delta_distance > 1)
+            {
+                echo('We have adjusted your location by ' + $delta_distance + ' miles. Please change your location if this seems off.');
+            } else
+            {
+                echo('success');
+            }
         } else
         {
             echo('failed to update user location in profile');

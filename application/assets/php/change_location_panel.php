@@ -1,5 +1,5 @@
 <div class="change_location_panel">
-    <p><center>Your approximate location is shown. Update your location below by clicking on a marker. Search by city or zip code.</center></p>
+    <p><center>Your approximate location is shown. Change your location by searching for your city below and clicking on a marker.</center></p>
 
 <div class="in-field_block">
     <label for="change_location_search">Enter a new location.</label>
