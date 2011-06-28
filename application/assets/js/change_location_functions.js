@@ -115,7 +115,7 @@ function clear_change_location_markers () {
         entry.setMap(null);
     });
     
-    change_location_marker_array = [];
+    change_location_marker_array.length = 1;
 }
 
 function get_min_marker(lat_lng) {
