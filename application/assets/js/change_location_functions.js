@@ -46,8 +46,6 @@ function initialize_change_location_panel() {
                     clear_change_location_markers();
                     console.log('the next output should be ([])');
                     console.log(change_location_marker_array);
-                    change_location_marker_array = ([]);
-                    console.log(change_location_marker_array);
                     $.map(results, function (entry) {
                         // Create the marker.
                         var temp_marker = new google.maps.Marker({
@@ -103,5 +101,6 @@ function clear_change_location_markers () {
         entry.setMap(null);
     });
     
-    change_location_marker_array = ([]);
+    //change_location_marker_array = ([]);
+    change_location_marker_array.clear();
 }
