@@ -35,7 +35,8 @@ function initialize_change_location_panel() {
             var places_request = {
                 location: new google.maps.LatLng(myLatitude, myLongitude),
                 radius: 10000,
-                name: request.term
+                name: request.term,
+                type: ['locality']
             };
             
             var places_service = new google.maps.places.PlacesService(map);
