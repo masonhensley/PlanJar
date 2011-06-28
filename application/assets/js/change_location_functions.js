@@ -45,7 +45,7 @@ function initialize_change_location_panel() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     // Clear all markers and add the new ones.
-                    clear_change_location_markers();
+                    clear_location_markers();
                                         
                     // Step through the results.
                     $.map(results, function (entry) {
@@ -113,6 +113,8 @@ function hide_change_location_panel() {
     $('#map_tab').animate({
         height: '250px'
     });
+    
+    clear_map_markers();
 }
 
 function get_min_marker(lat_lng) {
