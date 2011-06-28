@@ -101,6 +101,8 @@ function show_change_location_panel() {
     });
     
     $('div.change_location_panel').show('fast');
+    
+    $('#change_location_search').select();
 }
 
 // Hides the panel.
