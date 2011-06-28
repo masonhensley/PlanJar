@@ -175,6 +175,7 @@ function change_location_marker_click(mouse_event) {
             alert(data);
         } else {
             alert('Location successfully changed.');
+            hide_change_location_panel();
             myLatitude = mouse_event.latLng.lat();
             myLongitude = mouse_event.latLng.lng();
         }
