@@ -43,6 +43,8 @@ function initialize_change_location_panel() {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     // Clear all markers and add the new ones.
                     clear_change_location_markers();
+                    console.log('the next output should be ([])');
+                    console.log(change_location_marker_array);
                     $.map(results, function (entry) {
                         // Create the marker.
                         var temp_marker = new google.maps.Marker({
@@ -59,8 +61,6 @@ function initialize_change_location_panel() {
                         // Add the marker to the marker list.
                         change_location_marker_array.push(temp_marker);
                     });
-                    console.log('after map');
-                    console.log(change_location_marker_array);
                 }
             });
         },
