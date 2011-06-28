@@ -42,6 +42,7 @@ function initialize_change_location_panel() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     // Clear all markers and add the new ones.
+                    console.log(results);
                     clear_change_location_markers();
                     console.log('the next output should be ([])');
                     console.log(change_location_marker_array);
