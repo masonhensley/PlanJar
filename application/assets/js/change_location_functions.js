@@ -28,6 +28,9 @@ function initialize_change_location_panel() {
         title:"Your location!"
     }));
     
+    // Assign the click event.
+    google.maps.event.addListener(change_location_marker_array[0], 'click', change_location_marker_click);
+    
     // Set up the autocomplete.
     $('#change_location_search').autocomplete({
         minLength: 2,
@@ -55,18 +58,7 @@ function initialize_change_location_panel() {
                         });
                         
                         // Assign the click event.
-                        google.maps.event.addListener(temp_marker, 'click', function (mouse_event) {
-                            // Update the user's coordinates.
-                            $.get('/home/update_user_location', {
-                                auto: false,
-                                latitude: mouse_event.latLng.lat(),
-                                longitude: mouse_event.latLng.lng()
-                            }, function (data) {
-                                if (data != 'success') {
-                                    alert(data);
-                                }
-                            })
-                        });
+                        google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
                         
                         // Add the marker to the marker list.
                         change_location_marker_array.push(temp_marker);
@@ -169,4 +161,22 @@ function get_max_marker(lat_lng) {
     }
     
     return max;
+}
+
+// Handles a change of location marker click
+function change_location_marker_click(mouse_event) {
+    // Update the user's coordinates.
+    $.get('/home/update_user_location', {
+        auto: false,
+        latitude: mouse_event.latLng.lat(),
+        longitude: mouse_event.latLng.lng()
+    }, function (data) {
+        if (data != 'success') {
+            alert(data);
+        } else {
+            alert('Location successfully changed.');
+            myLatitude = mouse_event.latLng.lat();
+            myLongitude = mouse_event.latLng.lng();
+        }
+    });
 }
