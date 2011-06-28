@@ -26,16 +26,9 @@ function location_data() {
                 // Update the user's profile with the new information.
                 $.get('/home/update_user_location', {
                     latitude: myLatitude,
-                    longitude: myLongitude,
-                    auto: true
+                    longitude: myLongitude
                 }, function (data) {
-                    if (data == 'prompt new location') {
-                        // Open the change location dialog.
-                        alert('Your new location estimate is more than 10 miles away from your last location. Please update your location.');
-
-                        show_change_location_panel();
-                        $('#change_location_content').dialog('open');
-                    } else if (data != 'success') {
+                    if (data != 'success') {
                         alert(data);
                     }
                 });
