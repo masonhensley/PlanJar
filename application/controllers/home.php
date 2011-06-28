@@ -283,7 +283,7 @@ class Home extends CI_Controller
         if ($result)
         {
             $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
-            if ($delta_distance > 1)
+            if ($delta_distance > 1 && $this->input->get('auto') == 'true')
             {
                 echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
             } else
