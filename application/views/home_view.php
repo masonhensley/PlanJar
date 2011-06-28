@@ -107,7 +107,7 @@
             <div class="right" >
                 <div class="right_top">
                     <br/>Welcome,
-                    <?php echo $firstname . " " . $lastname . "<br/>"; ?>
+                    <?php echo $firstname . " " . $lastname; ?>
                     <br/>
                     <div id="using_location"></div>
 
