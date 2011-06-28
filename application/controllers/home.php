@@ -178,7 +178,7 @@ class Home extends CI_Controller
             'time_of_day' => $this->input->get('plan_time_group'),
             'category_id' => $this->input->get('plan_category_id')
         );
-        
+
         // Add the place to the database if a Factual place was selected.
         if ($this->input->get('new_place_name') != '')
         {
@@ -220,7 +220,7 @@ class Home extends CI_Controller
         $this->load->database();
         $plan = $this->input->get('plan_selected');
         $this->load->model('load_plans');
-        $return = $this->load_plans->loadPlanData($plan);   
+        $return = $this->load_plans->loadPlanData($plan);
         echo $return;
     }
 
@@ -235,7 +235,7 @@ class Home extends CI_Controller
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
         $user_id = $this->ion_auth->get_user()->id;
-        
+
         $this->load->model('load_plans');
         $this->load_plans->loadUserLocations($group_list, $day, $user_id);
     }
@@ -268,7 +268,7 @@ class Home extends CI_Controller
         </ul> <?php
     }
 
-    // Updates the user's location
+    // Tries to update the user's location
     public function update_user_location()
     {
         $new_lat = $this->input->get('latitude');
@@ -276,10 +276,14 @@ class Home extends CI_Controller
 
         $user = $this->ion_auth->get_user();
 
-        $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
-        if ($delta_distance > 10)
+        // Only check the distance if the location is trying to automatically update.
+        if ($this->input->get('auto'))
         {
-            echo('prompt new location');
+            $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
+            if ($delta_distance > 10)
+            {
+                echo('prompt new location');
+            }
         } else
         {
             $result = $this->ion_auth->update_user($user->id, array(

@@ -26,11 +26,12 @@ function location_data() {
                 // Update the user's profile with the new information.
                 $.get('/home/update_user_location', {
                     latitude: myLatitude,
-                    longitude: myLongitude
+                    longitude: myLongitude,
+                    auto: true
                 }, function (data) {
                     if (data == 'prompt new location') {
                         // Open the change location dialog.
-                        //change_location_object.show_panel();
+                        show_change_location_panel();
                         $('#change_location_content').dialog('open');
                     } else if (data != 'success') {
                         alert(data);

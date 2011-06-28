@@ -55,8 +55,17 @@ function initialize_change_location_panel() {
                         });
                         
                         // Assign the click event.
-                        google.maps.event.addListener(temp_marker, 'click', function() {
-                            alert('here');
+                        google.maps.event.addListener(temp_marker, 'click', function (mouse_event) {
+                            // Update the user's coordinates.
+                            $.get('/home/update_user_location', {
+                                auto: false,
+                                latitude: mouse_event.lat(),
+                                longitude: mouse_event.lng()
+                            }, function (data) {
+                                if (data != 'success') {
+                                    alert(data);
+                                }
+                            })
                         });
                         
                         // Add the marker to the marker list.
