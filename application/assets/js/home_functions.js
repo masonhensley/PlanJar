@@ -121,8 +121,8 @@ function update_current_city_name() {
     }
     
     geocoder.geocode(request, function (result, status) {
-        console.log(status + ' ' + google.maps.Geocoder.OK);
-        if (status == google.maps.Geocoder.OK) {
+        console.log(status + ' ' + google.maps.GeocoderStatus.OK);
+        if (status == google.maps.GeocoderStatus.OK) {
             console.log(result);
         }
     });
