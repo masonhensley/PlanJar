@@ -47,7 +47,7 @@ function initialize_change_location_panel() {
                         // Create the marker.
                         var temp_marker = new google.maps.Marker({
                             map: map,
-                            position: new google.maps.LatLng(entry.geometry.location.Ha, entry.geometry.location.Ia),
+                            position: new google.maps.LatLng(entry.geometry.location.lat(), entry.geometry.location.lng()),
                             title: entry.name
                         });
                         
