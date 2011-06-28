@@ -10,6 +10,8 @@ function setup_day_tabs() {
     //On Click Event
     $("#day_tabs ul.tabs li").click(function() {
 
+        $('.selected_plan').removeClass('selected_plan'); // remove selected plan on right panel
+
         $("#day_tabs ul.tabs li.day_selected").removeClass("day_selected"); //Remove any "day_selected" class
         $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         

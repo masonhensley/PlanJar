@@ -15,7 +15,6 @@ function initialize_plan_panel(){
     $('div.plans_wrapper li').click(function() {
         addclass = $(this).hasClass('selected_plan');
         $('.selected_plan').removeClass('selected_plan');
-        //$('.plan_content').removeClass('selected_plan');
         if(!addclass)
         {
             $(this).addClass('selected_plan');
