@@ -140,5 +140,3 @@ function clear_map_markers () {
     
     map_marker_array.length = 0;
 }
-
-function 
