@@ -74,11 +74,13 @@ function initialize_change_location_panel() {
                             new google.maps.LatLng(min_lat, min_lng),
                             new google.maps.LatLng(max_lat, max_lng)
                             );
+                                
+                                console.log(bounds);
                             
                         map.fitBounds(bounds);
                     } else if (change_location_marker_array.length == 1) {
                         map.setCenter(change_location_marker_array[0].position);
-                        map.setZoom(13);
+                        map.setZoom(12);
                     }
                     
                 }
