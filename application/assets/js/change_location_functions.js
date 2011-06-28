@@ -63,6 +63,9 @@ function initialize_change_location_panel() {
                         change_location_marker_array.push(temp_marker);
                     });
                     
+                    console.log('length: ' + change_location_marker_array.length);
+                    console.log(change_location_marker_array);
+                    
                     if (change_location_marker_array.length > 1) {
                         // Calculate the necessary viewport.
                         var min_lat = get_min_marker(true);
