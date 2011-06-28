@@ -162,8 +162,7 @@ class Load_plans extends CI_Model
                     <div class = "plan_shown">
                         <?php
                         echo $plan->name;
-                        var_dump($location_ids);
-                        echo "<br/><hr/><br/>";
+                        echo "<br/><hr/>";
                         
                         ?>
                     </div>
