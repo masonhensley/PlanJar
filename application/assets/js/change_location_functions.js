@@ -12,9 +12,6 @@ $(function() {
     });
 });
 
-// Keep track of all markers.
-var change_location_marker_array = [];
-
 // Initializes the change location panel.
 function initialize_change_location_panel() {    
     // Set up the in-field labels.
@@ -30,7 +27,7 @@ function initialize_change_location_panel() {
     
     console.log(temp_marker);
     
-    change_location_marker_array.push(temp_marker);
+    map_marker_array.push(temp_marker);
     
     // Assign the click event.
     google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
@@ -67,10 +64,10 @@ function initialize_change_location_panel() {
                         });
                         
                         // Add the marker to the marker list.
-                        change_location_marker_array.push(temp_marker);
+                        map_marker_array.push(temp_marker);
                     });
                     
-                    if (change_location_marker_array.length > 1) {
+                    if (map_marker_array.length > 1) {
                         // Calculate the necessary viewport.
                         var min_lat = get_min_marker(true);
                         var min_lng = get_min_marker(false);
@@ -83,8 +80,8 @@ function initialize_change_location_panel() {
                             );
                                                     
                         map.fitBounds(bounds);
-                    } else if (change_location_marker_array.length == 1) {
-                        map.setCenter(change_location_marker_array[0].position);
+                    } else if (map_marker_array.length == 1) {
+                        map.setCenter(map_marker_array[0].position);
                         map.setZoom(10);
                     }
                     
@@ -119,27 +116,18 @@ function hide_change_location_panel() {
         height: '250px'
     });
 }
-    
-// Remove all markers and update the map accordingly.
-function clear_change_location_markers () {
-    $.map(change_location_marker_array, function (entry) {
-        entry.setMap(null);
-    });
-    
-    change_location_marker_array.length = 0;
-}
 
 function get_min_marker(lat_lng) {
     var min = 360;
     
     if (lat_lng) {
-        $.map(change_location_marker_array, function (item) {
+        $.map(map_marker_array, function (item) {
             if (item.position.lat() < min) {
                 min = item.position.lat();
             }
         });
     } else {
-        $.map(change_location_marker_array, function (item) {
+        $.map(map_marker_array, function (item) {
             if (item.position.lng() < min) {
                 min = item.position.lng();
             }
@@ -153,13 +141,13 @@ function get_max_marker(lat_lng) {
     var max = -360;
     
     if (lat_lng) {
-        $.map(change_location_marker_array, function (item) {
+        $.map(map_marker_array, function (item) {
             if (item.position.lat() > max) {
                 max = item.position.lat();
             }
         });
     } else {
-        $.map(change_location_marker_array, function (item) {
+        $.map(map_marker_array, function (item) {
             if (item.position.lng() > max) {
                 max = item.position.lng();
             }

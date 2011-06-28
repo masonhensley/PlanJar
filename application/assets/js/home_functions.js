@@ -76,12 +76,20 @@ function mapThisGoogle(latitude,longitude)
         
     map = new google.maps.Map(document.getElementById("map"), myOptions);
             
-    your_location_marker = new google.maps.Marker({
+    var temp_marker = new google.maps.Marker({
         position: myLatlng, 
         map: map, 
         draggable: true,
         title:"Your location!"
     });
+    
+    // Assign the click event.
+    google.maps.event.addListener(temp_marker, 'click', function() {
+        alert('clicked');
+    });
+    
+    // Add the marker to the marker list.
+    map_marker_array.push(temp_marker);
 }
 
 // populates the popular location main panel
@@ -119,4 +127,17 @@ function get_current_user_city() {
             console.log(result);
         }
     })
+}
+
+/* .....................Global map functions and vars..................... */
+// Keep track of all markers.
+var map_marker_array = [];
+
+// Remove all markers and updates the map accordingly.
+function clear_map_markers () {
+    $.map(map_marker_array, function (entry) {
+        entry.setMap(null);
+    });
+    
+    map_marker_array.length = 0;
 }
