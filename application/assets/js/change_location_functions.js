@@ -63,18 +63,23 @@ function initialize_change_location_panel() {
                         change_location_marker_array.push(temp_marker);
                     });
                     
-                    // Calculate the necessary viewport.
-                    var min_lat = get_min_marker(true);
-                    var min_lng = get_min_marker(false);
-                    var max_lat = get_max_marker(true);
-                    var max_lng = get_max_marker(false);
+                    if (change_location_marker_array.length > 1) {
+                        // Calculate the necessary viewport.
+                        var min_lat = get_min_marker(true);
+                        var min_lng = get_min_marker(false);
+                        var max_lat = get_max_marker(true);
+                        var max_lng = get_max_marker(false);
                     
-                    var bounds = new google.maps.LatLngBounds(
-                        new google.maps.LatLng(min_lat, min_lng),
-                        new google.maps.LatLng(max_lat, max_lng)
-                        );
+                        var bounds = new google.maps.LatLngBounds(
+                            new google.maps.LatLng(min_lat, min_lng),
+                            new google.maps.LatLng(max_lat, max_lng)
+                            );
                             
-                    map.fitBounds(bounds);
+                        map.fitBounds(bounds);
+                    } else if (change_location_marker_array.length == 1) {
+                        map.setCenter(change_location_marker_array[1].location);
+                        map.setZoom(13);
+                    }
                     
                     console.log(bounds);
                     
@@ -116,7 +121,7 @@ function clear_change_location_markers () {
         entry.setMap(null);
     });
     
-    change_location_marker_array.length = 1;
+    change_location_marker_array.length = 0;
 }
 
 function get_min_marker(lat_lng) {
