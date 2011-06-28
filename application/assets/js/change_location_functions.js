@@ -44,7 +44,7 @@ function initialize_change_location_panel() {
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     // Clear all markers and add the new ones.
-                    clear_location_markers();
+                    clear_map_markers();
                                         
                     // Step through the results.
                     $.map(results, function (entry) {
