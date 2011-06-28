@@ -41,23 +41,31 @@ function initialize_change_location_panel() {
             var places_service = new google.maps.places.PlacesService(map);
             places_service.search(places_request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    // Clear all markers and add the new ones.
                     clear_change_location_markers();
+                    console.log('the next output should be ([])');
+                    console.log(change_location_marker_array);
                     $.map(results, function (entry) {
+                        // Create the marker.
                         var temp_marker = new google.maps.Marker({
                             map: map,
-                            position: new google.maps.LatLng(entry.geometry.location.Ha, entry.geometry.location.Ia),
+                            position: new google.maps.LatLng(entry.geometry.location.lat(), entry.geometry.location.lng()),
                             title: entry.name
                         });
+                        
+                        // Assign the click event.
                         google.maps.event.addListener(temp_marker, 'click', function() {
                             alert('here');
                         });
+                        
+                        // Add the marker to the marker list.
                         change_location_marker_array.push(temp_marker);
                     });
-                    console.log(change_location_marker_array);
                 }
             });
         },
         success: function (data) {
+            console.log('success');
             console.log(data);
         }
     });
@@ -88,23 +96,9 @@ function hide_change_location_panel() {
 // Remove all markers and update the map accordingly.
 function clear_change_location_markers () {
     $.map(change_location_marker_array, function (entry) {
+        console.log(entry.title);
         entry.setMap(null);
     });
-    console.log('before delete');
-    console.log(change_location_marker_array);
+    
     change_location_marker_array = ([]);
-    console.log('after delete');
-    console.log(change_location_marker_array);
-}
-
-function add_marker(data, marker_array, map) {
-    var new_marker = new google.maps.Marker({
-        map: map,
-        position: new google.maps.LatLng({
-            lat: data.geometry.location.Ha,
-            lng: data.geometry.location.Ia
-        }),
-        title: data.name
-    })
-    marker_array.push(new_marker);
 }
