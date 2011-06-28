@@ -85,11 +85,11 @@ function mapThisGoogle(latitude,longitude)
 // populates the popular location main panel
 function load_visible_plans(){
     $.get('/home/load_popular_locations', {
-            'selected_groups': get_groups(),
-            'selected_day': get_selected_day()
-        }, function (data) {
-            $('#visible_plans_panel').html(data); 
-        });
+        'selected_groups': get_groups(),
+        'selected_day': get_selected_day()
+    }, function (data) {
+        $('#visible_plans_panel').html(data); 
+    });
 }
 
 function get_groups() {

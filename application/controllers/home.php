@@ -8,21 +8,21 @@ class Home extends CI_Controller
 
     public function index()
     {
-        // if user is logged in, load home view, otherwise logout
+// if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
             $user_info = $this->ion_auth->get_user();
 
-            // retrieve other useful variables for view
+// retrieve other useful variables for view
             $firstname = $user_info->first_name;
             $lastname = $user_info->last_name;
 
-            // Lookup the groups by id.
+// Lookup the groups by id.
             $this->load->model('load_groups');
             $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
             $followed_groups = $this->load_groups->get_groups(json_decode($user_info->followed_groups));
 
-            // Pass the necessary information to the view.
+// Pass the necessary information to the view.
             $this->load->view('home_view', array(
                 'firstname' => $firstname,
                 'lastname' => $lastname,
@@ -35,37 +35,37 @@ class Home extends CI_Controller
         }
     }
 
-    // logs user out and redirects to login page
+// logs user out and redirects to login page
     public function logout()
     {
         $this->ion_auth->logout();
         redirect('/login/');
     }
 
-    // load and return user plan data
+// load and return user plan data
     public function loadMyEvents()
     {
         $this->load->database();
 
-        // get user info from ion_auth
+// get user info from ion_auth
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
 
-        // pull all user's current events
+// pull all user's current events
         $query = "SELECT plans.time_of_day, plans.plan_date, places.name 
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
         WHERE plans.user_id=$user_id";
 
-        // pull data
+// pull data
         $query_result = $this->db->query($query);
         $row = $query_result->row();
 
         return $row;
     }
 
-    // Checks the PlanJar Places database for matching places.
+// Checks the PlanJar Places database for matching places.
     public function find_places()
     {
         $this->load->database();
@@ -84,32 +84,32 @@ class Home extends CI_Controller
         }
         $like_clauses = substr($like_clauses, 0, -5);
 
-        // Check the PlanJar database. (Query string courtesy of Wells.)
+// Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT places.id, ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude * PI() / 180) 
   + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
   * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, places.name, places.category 
   FROM places WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
 
-        // Return a JSON array.
+// Return a JSON array.
         foreach ($query->result_array() as $row)
         {
-            // Append to the return array.
+// Append to the return array.
             $return_array[] = $row;
         }
 
-        // Check for no results.
+// Check for no results.
         if (!isset($return_array))
         {
             echo(json_encode(array('count' => 0)));
         } else
         {
-            // Return a JSON array with count and data members.
+// Return a JSON array with count and data members.
             echo(json_encode(array('count' => count($return_array), 'data' => $return_array)));
         }
     }
 
-    // Checks the plan cotegories with the server.
+// Checks the plan cotegories with the server.
     public function find_plan_categories()
     {
         $this->load->database();
@@ -125,18 +125,18 @@ class Home extends CI_Controller
         }
         $like_clauses = substr($like_clauses, 0, -4);
 
-        // Check the PlanJar database.
+// Check the PlanJar database.
         $query_string = "SELECT id, category FROM plan_categories WHERE $like_clauses LIMIT 10";
         $query = $this->db->query($query_string);
 
-        // Return a JSON array.
+// Return a JSON array.
         foreach ($query->result_array() as $row)
         {
-            // Append to the return array.
+// Append to the return array.
             $return_array[] = $row;
         }
 
-        // Check for no results.
+// Check for no results.
         if (!isset($return_array))
         {
             echo('no results');
@@ -146,7 +146,7 @@ class Home extends CI_Controller
         }
     }
 
-    // For Mason to fuck with...
+// For Mason to fuck with...
     public function foo()
     {
         $this->load->view('foo_view');
@@ -162,7 +162,7 @@ class Home extends CI_Controller
         $this->load->view('foo3_view');
     }
 
-    // Adds a plan entry to the database.
+// Adds a plan entry to the database.
     public function submit_plan()
     {
         $this->load->database();
@@ -179,7 +179,7 @@ class Home extends CI_Controller
             'category_id' => $this->input->get('plan_category_id')
         );
 
-        // Add the place to the database if a Factual place was selected.
+// Add the place to the database if a Factual place was selected.
         if ($this->input->get('new_place_name') != '')
         {
             $query_string = "INSERT INTO places VALUES (DEFAULT, ?, ?, ?, ?)";
@@ -190,7 +190,7 @@ class Home extends CI_Controller
                         $this->input->get('new_place_category')
                     ));
 
-            // Overwrite the place id with the new place.
+// Overwrite the place id with the new place.
             $data['place_id'] = $this->db->insert_id();
         }
 
@@ -205,7 +205,7 @@ class Home extends CI_Controller
         }
     }
 
-    // Returns chart data based on the selected groups and day
+// Returns chart data based on the selected groups and day
     public function get_group_day_data()
     {
         echo('<p>selected groups ^^' .
@@ -224,14 +224,14 @@ class Home extends CI_Controller
         echo $return;
     }
 
-    // Return a list of plans visible to the user.
-    // This code is sweet
-    // called from "visible_plans_functions.js"
+// Return a list of plans visible to the user.
+// This code is sweet
+// called from "visible_plans_functions.js"
     public function load_popular_locations()
     {
         $this->load->database();
 
-        // this contains a list of ids for the groups selected
+// this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
         $user_id = $this->ion_auth->get_user()->id;
@@ -240,7 +240,7 @@ class Home extends CI_Controller
         $this->load_plans->loadUserLocations($group_list, $day, $user_id);
     }
 
-    // Returns HTML for the list of the user's plans (right panel)
+// Returns HTML for the list of the user's plans (right panel)
     public function get_my_plans()
     {
         $this->load->model('load_plans');
@@ -276,27 +276,25 @@ class Home extends CI_Controller
 
         $user = $this->ion_auth->get_user();
 
-        // Only check the distance if the location is trying to automatically update.
-        if ($this->input->get('auto'))
+        // Only check the distance if the location is trying to automatically update
+        $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
+        if ($this->input->get('auto') && $delta_distance > 10)
         {
-            $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
-            if ($delta_distance > 10)
-            {
-                echo('prompt new location');
-            }
+            echo('prompt new location');
+            return;
+        }
+        
+        $result = $this->ion_auth->update_user($user->id, array(
+                    'latitude' => $new_lat,
+                    'longitude' => $new_long
+                ));
+        
+        if ($result)
+        {
+            echo('success');
         } else
         {
-            $result = $this->ion_auth->update_user($user->id, array(
-                        'latitude' => $new_lat,
-                        'longitude' => $new_long
-                    ));
-            if ($result)
-            {
-                echo('success');
-            } else
-            {
-                echo('failed to update user location in profile');
-            }
+            echo('failed to update user location in profile');
         }
     }
 
