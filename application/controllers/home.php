@@ -278,9 +278,8 @@ class Home extends CI_Controller
 
         // Only check the distance if the location is trying to automatically update
         $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
-        if ($this->input->get('auto') && $delta_distance > 10)
+        if ($this->input->get('auto') === 'true' && $delta_distance > 10)
         {
-            echo($this->input->get('auto'));
             echo('prompt new location');
             return;
         }
