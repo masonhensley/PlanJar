@@ -59,8 +59,8 @@ function initialize_change_location_panel() {
                             // Update the user's coordinates.
                             $.get('/home/update_user_location', {
                                 auto: false,
-                                latitude: mouse_event.lat(),
-                                longitude: mouse_event.lng()
+                                latitude: mouse_event.latLng.lat(),
+                                longitude: mouse_event.latLng.lng()
                             }, function (data) {
                                 if (data != 'success') {
                                     alert(data);
