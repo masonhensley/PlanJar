@@ -45,6 +45,8 @@ function initialize_change_location_panel() {
                     // Clear all markers and add the new ones.
                     clear_change_location_markers();
                     
+                    console.log(results);
+                    
                     // Step through the results.
                     $.map(results, function (entry) {
                         // Create the marker.
