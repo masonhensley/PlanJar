@@ -28,7 +28,7 @@ function initialize_plan_panel(){
             // close the tab when an active plan is clicked on again
             $("#plan_data_tab").hide();
             var replace_div = "<div id=\"plan_data_tab\" style=\"background-color: white; color:black; width: 555px; height:250px;\"> <p>Select one of your plans on the right to see more detailed information.</p></div>";
-            $('.data_container').html(replace_div);  
+            $('#plan_data_tab').html(replace_div);  
         }
     });    
 }
@@ -39,6 +39,6 @@ function get_plan_data() {
         'plan_selected': $('.selected_plan').attr('plan_id')
     }, function (data) {
         // Replace the data and show the data tab.
-        $('.data_container').html(data);  
+        $('#plan_data_tab').html(data);  
     });
 }
