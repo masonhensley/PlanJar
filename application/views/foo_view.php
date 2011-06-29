@@ -7,7 +7,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <style type="text/css">
-            #map_data_tabs {
+            #map_data_tabs li {
                 float: left;
                 list-style: none;
             }
