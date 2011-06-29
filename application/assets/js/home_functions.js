@@ -108,7 +108,7 @@ function get_selected_groups() {
 
 // Gets the currently selected day offset (0-based)
 function get_selected_day() {
-    return $('div.days_panel .day.day_selected').attr('day_offset');
+    return $('.days_panel .day.day_selected').attr('day_offset');
 }
 
 // Return the city based off the user's coordinates.
