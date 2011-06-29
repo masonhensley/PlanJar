@@ -13,7 +13,7 @@
             }
 
             #map_data_tabs li {
-                width: 50px;
+                width: 75px;
             }
 
             div.map_data_content {
