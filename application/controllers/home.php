@@ -253,7 +253,7 @@ class Home extends CI_Controller
 
                 <div class ="plan_content" plan_id="<?php echo $id; ?>" >
                     <?php echo $name . "  |  " . $date_string1; ?>
-                </div>
+                </div><br/>
             <?php } ?>
         </div> <?php
     }

@@ -228,8 +228,6 @@ body{
 }
 
 .plan_content{
-    position:relative;
-    bottom:10px;
     width:90%;
     height:100%;
     margin:auto;
