@@ -12,6 +12,25 @@ function populate_plan_panel() {
 
 // Sets up the plan panel
 function initialize_plan_panel(){
+    // hide_data_containers()
+    // show_data_container('#map_data')
+    
+    $('div.plan_content').click(function() {
+        if(!$(this).hasClass('selected_plan'))
+        {
+            $('.selected_plan').removeClass('selected_plan');
+            $(this).addClass('selected_plan');
+            show_data_container('#plan_data');
+        }else{
+            $(this).removeClass('selected_plan');
+            hide_data_containers();
+            // replace with a select plan message
+            var replace_div = "<div id=\"plan_data_tab\" style=\"background-color: white; color:black; width: 555px; height:250px;\"> <p>Select one of your plans on the right to see more detailed information.</p></div>";
+            $('#plan_data_tab').html(replace_div); 
+        }
+    });   
+    
+    /*
     $('div.plan_content').click(function() {
         addclass = $(this).hasClass('selected_plan'); // check to see if the clicked plan was already selected
         $('.selected_plan').removeClass('selected_plan'); // remove the selected plan class regardless
@@ -34,6 +53,7 @@ function initialize_plan_panel(){
             $('#plan_data_tab').html(replace_div);  
         }
     });    
+    */
 }
 
 // fetch the data about the plan and display it in the plan data div
