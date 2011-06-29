@@ -25,7 +25,7 @@
                 border-color: black;
             }
 
-            div.map_data_content_wrapper {
+            #map_data_content_wrapper {
                 width: 500px;
                 height: 400px;
             }
