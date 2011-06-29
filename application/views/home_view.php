@@ -61,7 +61,9 @@
                     <div class="day"></div>
                     <div class="day"></div>
                     <div class="day"></div>
-                    //<?php include(APPPATH . '/assets/php/weekday_panel.php'); ?>
+                    <!--
+                    <?php include(APPPATH . '/assets/php/weekday_panel.php'); ?>
+                    -->
                 </div>
                 <div class="top_left_plans"></div>
                 <div class="ad_box">
