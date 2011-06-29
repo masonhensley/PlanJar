@@ -1,27 +1,16 @@
 <!-- this populates the tabs with right right days -->
 
 <div id="day_tabs">
-    <ul class="tabs">
-        <li>
-            <a href="0">Today</a>
-        </li>
+    <div class="day_tab" day_offset="0">Today</div>
 
-        <?php
-        $days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-        for ($i = 1; $i < 7; ++$i)
-        {
-            ?>
-            <li>
-                <a href="<?php echo($i); ?>"><?php
-        // Format the displayed day name (e.g. Tue - 9).
-        $day_name = $days[(date('w') + $i) % 7];
-        $day_name .= ' - ' . (date('j') + $i);
-        echo($day_name);
-            ?>
-                </a>
-            </li>
-            <?php
-        }
+    <?php
+    $date = new DateTime();
+    for ($i = 1; $i < 7; ++$i)
+    {
+        $date->add(new DateInterval('P1D'));
         ?>
-    </ul>
+        <div class="day_tab" day_offset="<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></div>
+        <?php
+    }
+    ?>
 </div>
