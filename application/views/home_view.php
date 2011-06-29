@@ -67,6 +67,9 @@
                 <div class ="right_header">
                     My Plans
                 </div>
+                <div class="plans_wrapper">
+                    
+                </div>
             </div>
         </div>
     </body>
