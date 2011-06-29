@@ -69,11 +69,11 @@ body{
 }
 
 .data_tab {
+    position:relative;    
     border-left: 1px solid black;
     border-right: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     float:left;
-    position:relative;
     margin-right:5px;
     width:100px;
     height:100%;
@@ -108,8 +108,9 @@ body{
     background-color:white;
 }*/
 
-.data_container{    
-    width: 100%;
+.data_container{   
+    position:relative;
+    width: 598px;
     height: 300px;
     border-bottom: 1px solid black;
     background-color:white;
