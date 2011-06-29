@@ -107,7 +107,7 @@ body{
     height: 300px;
     border-bottom: 1px solid black;
     background-color:white;
-    display: none;
+/*    display: none;*/
 }
 
 .days_panel{
