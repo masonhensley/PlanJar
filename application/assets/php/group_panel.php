@@ -1,38 +1,32 @@
-<hr/>
-Filter by group
-<hr/>
-
 <input type="button" id="select_all_groups" value="Select all"/>
 <input type="button" id="clear_all_groups" value="Clear all"/>
 
-<div class="group_selectable_wrapper">
-    <ul id="friends_group">
-        <li class="ui-widget-content" group_id="friends">Friends</li>
-    </ul>
+<div class="groups_wrapper">
+    <div class="selectable_group" group_id="friends">Friends</div>
 
-    <ul id="joined_groups">
-        <div class="group_label">Joined</div>
+    <div class="group_label">Joined</div>
 
-        <?php
-        foreach ($joined_groups as $group)
-        {
-            ?>
-            <li class="ui-widget-content" group_id="<?php echo($group['id']); ?>"><?php echo($group['name']); ?></li>
-            <?php
-        }
+    <?php
+    foreach ($joined_groups as $group)
+    {
         ?>
-    </ul>
-
-    <ul id="followed_groups">
-        <div class="group_label">Following</div>
-
+        <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
+            <?php echo($group['name']); ?>
+        </div>
         <?php
-        foreach ($followed_groups as $group)
-        {
-            ?>
-            <li class="ui-widget-content" group_id="<?php echo($group['id']); ?>"><?php echo($group['name']); ?></li>
-            <?php
-        }
+    }
+    ?>
+
+    <div class="group_label">Following</div>
+
+    <?php
+    foreach ($followed_groups as $group)
+    {
         ?>
-    </ul>
+        <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
+            <?php echo($group['name']); ?>
+        </div>
+        <?php
+    }
+    ?>
 </div>
