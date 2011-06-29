@@ -31,6 +31,7 @@ function on_day_change() {
     if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
         $("#map_data_tabs").tabs('select', '#data_tab');
     }
+    $('.selected_plan').removeClass('selected_plan');
     get_group_day_data();
     load_visible_plans()
 }

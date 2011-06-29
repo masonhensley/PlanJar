@@ -29,31 +29,6 @@ function initialize_plan_panel(){
             $('#plan_data_tab').html(replace_div); 
         }
     });   
-    
-    /*
-    $('div.plan_content').click(function() {
-        addclass = $(this).hasClass('selected_plan'); // check to see if the clicked plan was already selected
-        $('.selected_plan').removeClass('selected_plan'); // remove the selected plan class regardless
-        
-        // if the plan clicked on was not already selected
-        if(!addclass)
-        {
-            $(this).addClass('selected_plan');
-            get_plan_data();
-            // open the tab if it isn't already open
-            if (!$("#plan_data_tab").hasClass('tab_selected')) {
-                $(".data_container").hide();
-                $("#plan_data_tab").addClass('tab_selected');
-                $("#plan_data").show();
-            }
-        }else{
-            // close the tab when an active plan is clicked on again
-            $("#plan_data_tab").hide();
-            var replace_div = "<div id=\"plan_data_tab\" style=\"background-color: white; color:black; width: 555px; height:250px;\"> <p>Select one of your plans on the right to see more detailed information.</p></div>";
-            $('#plan_data_tab').html(replace_div);  
-        }
-    });    
-    */
 }
 
 // fetch the data about the plan and display it in the plan data div
