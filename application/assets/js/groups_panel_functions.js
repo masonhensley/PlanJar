@@ -38,7 +38,7 @@ function initialize_selectable_groups() {
 
 // Callback function
 function on_groups_change() {
-    show_data_container('#group_data');
+    show_data_container('#plan_data');
     
     get_group_day_data();
     load_visible_plans()
