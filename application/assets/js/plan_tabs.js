@@ -13,9 +13,10 @@ function populate_plan_panel() {
 // Sets up the plan panel
 function initialize_plan_panel(){
     $('div.plan_content').click(function() {
-        addclass = $(this).hasClass('selected_plan');
-        $('.selected_plan').removeClass('selected_plan');
+        addclass = $(this).hasClass('selected_plan'); // check to see if the clicked plan was already selected
+        $('.selected_plan').removeClass('selected_plan'); // remove the selected plan class regardless
         
+        // if the plan clicked on was not already selected
         if(!addclass)
         {
             $(this).addClass('selected_plan');
