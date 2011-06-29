@@ -22,9 +22,9 @@ function initialize_plan_panel(){
             get_plan_data();
             // open the tab if it isn't already open
             if (!$("#plan_data_tab").hasClass('tab_selected')) {
-                $(".data_tab").hide();
+                $(".data_container").hide();
                 $("#plan_data_tab").addClass('tab_selected');
-                $("#plan_data_tab").show();
+                $("#plan_data").show();
             }
         }else{
             // close the tab when an active plan is clicked on again
@@ -41,6 +41,6 @@ function get_plan_data() {
         'plan_selected': $('.selected_plan').attr('plan_id')
     }, function (data) {
         // Replace the data and show the data tab.
-        $('#plan_data_tab').html(data);  
+        $('#plan_data').html(data);  
     });
 }
