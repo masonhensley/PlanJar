@@ -69,13 +69,10 @@ body{
 }
 
 .data_tab {
-    position:relative;
-    
+    position:relative;    
     border-left: 1px solid black;
     border-right: 1px solid black;
-    border-top: 1px solid black;
     float:left;
-    
     margin-right:5px;
     width:100px;
     height:100%;
