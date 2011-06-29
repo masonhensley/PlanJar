@@ -90,16 +90,17 @@ function mapThisGoogle(latitude,longitude)
 // populates the popular location main panel
 function load_visible_plans(){
     $.get('/home/load_popular_locations', {
-        'selected_groups': get_groups(),
+        'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
     }, function (data) {
         $('#visible_plans_panel').html(data); 
     });
 }
 
-function get_groups() {
-    var return_list = ([]);
-    $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
+// Returns a list of selected groups.
+function get_selected_groups() {
+    var return_list = [];
+    $('.group_wrapper .selected_group').each(function (index, element) {
         return_list.push($(element).attr('group_id'));
     });
     return return_list;
