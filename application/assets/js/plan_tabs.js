@@ -20,7 +20,7 @@ function initialize_plan_panel(){
             $(this).addClass('selected_plan');
             get_plan_data();
             // open the tab if it isn't already open
-            if ($("#map_data_tab").hasClass('tab_selected')) {
+            if (!$("#map_data_tab").hasClass('tab_selected')) {
                 $("#map_data_tab").show();
             }
         }else{
