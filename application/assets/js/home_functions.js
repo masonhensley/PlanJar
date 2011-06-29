@@ -80,9 +80,6 @@ function mapThisGoogle(latitude,longitude)
         title:"Your location!"
     });
     
-    // Assign the click event.
-    google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
-    
     // Add the marker to the marker list.
     map_marker_array.push(temp_marker);
 }
