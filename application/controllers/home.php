@@ -239,7 +239,7 @@ class Home extends CI_Controller
         $result = $this->load_plans->getPlans($user_id);
         ?>
 
-        <ul class="active_plans">
+        <div class="active_plans">
             <?php
             foreach ($result as $plan)
             {
@@ -255,7 +255,7 @@ class Home extends CI_Controller
                     <?php echo $name . "  |  " . $date_string1; ?>
                 </div>
             <?php } ?>
-        </ul> <?php
+        </div> <?php
     }
 
     // Update the user's location
