@@ -100,7 +100,7 @@ function load_visible_plans(){
 // Returns a list of selected groups.
 function get_selected_groups() {
     var return_list = [];
-    $('.group_wrapper .selected_group').each(function (index, element) {
+    $('.selectable_group.selected_group').each(function (index, element) {
         return_list.push($(element).attr('group_id'));
     });
     return return_list;
