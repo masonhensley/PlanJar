@@ -7,11 +7,16 @@
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <style type="text/css">
+            #map_data_tabs {
+                float: left;
+                list-style: none;
+            }
             div.map_data_content {
                 display: none;
                 width: 500px;
                 height: 400px;
-                border: 2px;
+                border: 2px solid;
+                border-color: black;
             }
         </style>
 
@@ -31,7 +36,7 @@
                 $('#map_data_tabs li').click(function (event_object) {
                     if ($(this).hasClass('tab_selected')) {
                         $(this).removeClass('tab_selected');
-                        $($(this).attr('assoc_div')).hide('fast');
+                        $('div.map_data_content').hide('fast');
                     } else {
                         $(this).addClass('tab_selected');
                         $($(this).attr('assoc_div')).show('fast');
