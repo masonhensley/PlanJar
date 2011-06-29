@@ -51,7 +51,7 @@
                         $('#map_data_tabs li').removeClass('tab_selected');
                         $(this).addClass('tab_selected');
                         $('div.map_data_content').hide('fast');
-                        $($(this).attr('assoc_div')).show('fast', 'clip');
+                        $($(this).attr('assoc_div')).show('fast');
                     }
                 });
             }
