@@ -4,15 +4,20 @@ $(function() {
 
 // Sets up the modal.
 function initialize_plan_modal() {
-    // Start the plan dialog box closed.
-    $('#plan_content').dialog({
-        autoOpen: false,
-        width: 600,
-        height: 250,
-        resizable: false,
-        show: 'clip',
-        hide: 'explode'
+    // Click event
+    $('#create_plan').click(function () {
+        $('#plan_content').show('fast');
     });
+    
+//    // Start the plan dialog box closed.
+//    $('#plan_content').dialog({
+//        autoOpen: false,
+//        width: 600,
+//        height: 250,
+//        resizable: false,
+//        show: 'clip',
+//        hide: 'explode'
+//    });
     
     // Initialize the in-field labels.
     $('#plan_content div.in-field_block label').inFieldLabels();

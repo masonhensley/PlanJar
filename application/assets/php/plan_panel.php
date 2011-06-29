@@ -1,9 +1,6 @@
-<input type="button" id="make_a_plan" style="top:50%;" value="Make a plan"/>
-
-<div id="plan_content" title="Make a plan.">
+<div id="plan_content">
 
     <form id="make_plan">
-
         <table>
             <tr>
                 <td>
@@ -20,7 +17,7 @@
                 </td>
             </tr>
 
-            <tr><td><div style="height:20px; width:10px;"></div></td></tr>
+            <br/><br/>
 
             <tr>
                 <td colspan="2">
@@ -55,23 +52,16 @@
                     <div id="plan_day" class="radio">
                         <center>
                             <label for="0">Today - <?php echo(date('j')); ?></label>
-                            <input type="radio" id="0" value="0" name="plan_day_group" />
+                            <input type="radio"  value="0" name="plan_day_group" />
 
                             <?php
-                            $days = array('Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat');
+                            $date = new DateTime();
                             for ($i = 1; $i < 7; ++$i)
                             {
+                                $date->add(new DateInterval('P1D'));
                                 ?>
-
-                                <label for="<?php echo($i); ?>">
-                                    <?php
-                                    // Format the displayed day name (e.g. Tue - 9).
-                                    $day_name = $days[(date('w') + $i) % 7];
-                                    $day_name .= ' - ' . (date('j') + $i);
-                                    echo($day_name);
-                                    ?>
-                                </label>
-                                <input type="radio" id="<?php echo($i); ?>" value="<?php echo($i); ?>" name="plan_day_group" />
+                                <label for="0"><?php echo($date->format('D - j')); ?></label>
+                                <input type="radio" value="<?php echo($i); ?>" name="plan_day_group" />
                                 <?php
                             }
                             ?>

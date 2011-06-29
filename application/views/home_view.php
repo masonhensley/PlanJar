@@ -39,7 +39,7 @@
                 <div class="left_header">
                     My Groups
                 </div>
-                
+
                 <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
             </div>
             <div class ="center">
@@ -48,11 +48,11 @@
                     <div class="data_tab" assoc_div="#group_data">Group Data</div>
                     <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
                 </div>
-                
+
                 <div id="map_data" class ="data_container"></div>
                 <div id="group_data" class ="data_container"></div>
                 <div id="plan_data" class ="data_container"></div>
-                
+
                 <div class="days_panel">
                     <div class="left_day_arrow"></div>
                     <div class="right_day_arrow"></div>
@@ -67,7 +67,8 @@
             </div>
             <div class ="right">
                 <div class ="right_header">
-                    My Plans
+                    My Plans <input type="button" id="create_plan" value="+"/>
+                    <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
                 </div>
                 <div class="plans_wrapper"></div>
             </div>
