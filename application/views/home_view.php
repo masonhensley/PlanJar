@@ -46,7 +46,7 @@
                     <div id="group_data_tab" class="data_tab">Group Data</div>
                     <div id="plan_data_tab" class="data_tab">Plan Data</div>
                 </div>
-                <div id="map_data_tab" class ="data_container"></div>
+                <div id="map_data_tab" class ="data_container" style="display:inline"></div>
                 <div id="group_data_tab" class ="data_container"></div>
                 <div id="plan_data_tab" class ="data_container"></div>
                 
