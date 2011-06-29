@@ -124,7 +124,7 @@ function update_current_city_name() {
     });
 }
 
-/* .....................Global map functions and vars..................... */
+/* .....................Global functions and vars..................... */
 // Keep track of all markers.
 var map_marker_array = [];
 
