@@ -25,7 +25,7 @@
             }
 
             .tab_selected {
-                color: gray;
+                background: purple;
             }
         </style>
 
@@ -35,11 +35,9 @@
             });
             
             function initialize_map_data_tabs() {
-                // Hide all content.
-                $('#')
-                
                 // Initial select
                 $('#map_data_tabs li:first').addClass('tab_selected');
+                $($('#map_data_tabs li:first').attr('assoc_div')).show('fast');
                 
                 // Click handler.
                 $('#map_data_tabs li').click(function (event_object) {
