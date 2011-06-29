@@ -12,7 +12,7 @@ function populate_plan_panel() {
 
 // Sets up the plan panel
 function initialize_plan_panel(){
-    $('div.plans_wrapper').click(function() {
+    $('div.plan_content').click(function() {
         addclass = $(this).hasClass('selected_plan');
         $('.selected_plan').removeClass('selected_plan');
         if(!addclass)
