@@ -118,7 +118,7 @@ body {
     width: 14%;
     height: 100%;
     float: left;
-    background: gray;
+    background: lightgray;
 }
 
 #day_tabs .day_selected {
