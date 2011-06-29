@@ -25,7 +25,7 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
 
-        <title></title>
+        <title>PlanJar | Home</title>
     </head>
     <body>
         <div class ="top_panel">
@@ -42,11 +42,12 @@
             </div>
             <div class ="center">
                 <div class="tab_bar">
-                    <div id ="map_data_tab" class="data_tab">Map</div>
-                    <div id="group_data_tab" class="data_tab">Group Data</div>
-                    <div id="plan_data_tab" class="data_tab">Plan Data</div>
+                    <div class="data_tab" assoc_div="#map_data_tab">Map</div>
+                    <div class="data_tab" assoc_div="#group_data_tab">Group Data</div>
+                    <div class="data_tab" assoc_div="#plan_data_tab">Plan Data</div>
                 </div>
-                <div id="map_data_tab" class ="data_container" style="display:inline"></div>
+                
+                <div id="map_data_tab" class ="data_container"></div>
                 <div id="group_data_tab" class ="data_container"></div>
                 <div id="plan_data_tab" class ="data_container"></div>
                 

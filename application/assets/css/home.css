@@ -80,6 +80,11 @@ body{
     background-color:white;
 }
 
+.tab_selected {
+    background-color: purple;
+    color: white;
+}
+
 /*.map_tab{
     float:left;
     width:100px;
