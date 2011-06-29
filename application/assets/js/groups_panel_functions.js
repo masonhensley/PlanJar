@@ -4,15 +4,15 @@ $(function() {
 });
 
 function initialize_selectable_groups() {
-    $('div.group_selectable_wrapper li').click(function() {
+    $('.groups_wrapper .selectable_group').click(function() {
         // unselect plan on right panel
         $('.plan_content').removeClass('selected_plan');
         
-        // Make the list tiems togglable.
-        if ($(this).hasClass('group_selected')) {
-            $(this).removeClass('group_selected');
+        // Make the list items togglable.
+        if ($(this).hasClass('selected_group')) {
+            $(this).removeClass('selected_group');
         } else {
-            $(this).addClass('group_selected');
+            $(this).addClass('selected_group');
         }
         
         // Call the callback function.
@@ -23,13 +23,13 @@ function initialize_selectable_groups() {
     
     // Initialize the clear all and select all button actions.
     $('#clear_all_groups').click(function() {
-        $('div.group_selectable_wrapper li.group_selected').removeClass('group_selected');
+        $('.group_wrapper .selected_group').removeClass('selected_group');
         on_groups_change();
         // update visible plans
         load_visible_plans();
     });
     $('#select_all_groups').click(function() {
-        $('div.group_selectable_wrapper li').addClass('group_selected');
+        $('.group_wrapper .selected_group').addClass('selected_group');
         on_groups_change();
         // update visible plans
         load_visible_plans();
@@ -44,17 +44,5 @@ function on_groups_change() {
     }
     get_group_day_data();
     load_visible_plans()
-}
-
-// I moved this to home_functions because it is needed earlier
-
-
-// Returns a list of selected groups.
-function get_selected_groups() {
-    var return_list = ([]);
-    $('div.group_selectable_wrapper li.group_selected').each(function (index, element) {
-        return_list.push($(element).attr('group_id'));
-    });
-    return return_list;
 }
 
