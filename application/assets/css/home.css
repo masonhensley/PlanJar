@@ -204,3 +204,10 @@ body{
     text-align:center;
     background-color:white;
 }
+
+/* ------------------- PLAN CONTENT -------------- */
+.plan_content{
+    width:90%;
+    height:100%;
+    margin:auto;
+}

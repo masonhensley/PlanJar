@@ -251,9 +251,9 @@ class Home extends CI_Controller
                 $date_string1 = date('D', strtotime($plan->plan_date));
                 ?> 
 
-                <li class ="plan_content" plan_id="<?php echo $id; ?>" >
+                <div class ="plan_content" plan_id="<?php echo $id; ?>" >
                     <?php echo $name . "  |  " . $date_string1; ?>
-                </li>
+                </div>
             <?php } ?>
         </ul> <?php
     }
