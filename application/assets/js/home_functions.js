@@ -147,7 +147,8 @@ function show_data_container(data_div) {
         hide_data_containers();
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
         $(data_div).show('clip', {}, 'fast', function () {
-            console.log('done');
+            console.log('resized');
+            google.maps.event.trigger(map, 'resize');
         });
     }
 }
