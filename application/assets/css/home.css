@@ -115,12 +115,13 @@ body {
     height: 32px;
 }
 
-#day_tabs.day_tab {
+#day_tabs .day_tab {
+    width: 14%;
     float: left;
     background: gray;
 }
 
-#day_tabs.day_selected {
+#day_tabs .day_selected {
     background: purple;
     color: white;
 }
