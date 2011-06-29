@@ -25,7 +25,7 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
 
-        <title></title>
+        <title>PlanJar | Home</title>
     </head>
     <body>
         <div class ="top_panel">
