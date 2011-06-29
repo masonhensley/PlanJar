@@ -23,13 +23,13 @@ function initialize_selectable_groups() {
     
     // Initialize the clear all and select all button actions.
     $('#clear_all_groups').click(function() {
-        $('.group_wrapper .selected_group').removeClass('selected_group');
+        $('.groups_wrapper .selected_group').removeClass('selected_group');
         on_groups_change();
         // update visible plans
         load_visible_plans();
     });
     $('#select_all_groups').click(function() {
-        $('.group_wrapper .selected_group').addClass('selected_group');
+        $('.groups_wrapper .selected_group').addClass('selected_group');
         on_groups_change();
         // update visible plans
         load_visible_plans();
