@@ -13,15 +13,21 @@
             }
 
             #map_data_tabs li {
-                width: 75px;
+                width: 100px;
+                text-align: center;
+                border: 1px;
+                border-color: black;
             }
 
             div.map_data_content {
                 display: none;
-                width: 500px;
-                height: 400px;
                 border: 2px solid;
                 border-color: black;
+            }
+
+            div.map_data_content_wrapper {
+                width: 500px;
+                height: 400px;
             }
 
             .tab_selected {
@@ -61,10 +67,12 @@
             <li assoc_div="#plan_data_tab">Plan Data</li>
         </ul>
 
-        <div id="map_tab" class="map_data_content">stuff</div>
+        <div id="map_data_content_wrapper">
+            <div id="map_tab" class="map_data_content">stuff</div>
 
-        <div id="group_data_tab" class="map_data_content">other stuff</div>
+            <div id="group_data_tab" class="map_data_content">other stuff</div>
 
-        <div id="plan_data_tab" class="map_data_content">even more stuff</div>
+            <div id="plan_data_tab" class="map_data_content">even more stuff</div>
+        </div>
     </body>
 </html>
