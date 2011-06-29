@@ -32,15 +32,24 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 1024px;
-    height :1000px;
+    height :100%;
 }
 
 /* -------------- LEFT PANEL ---------------- */ 
 .left{
     float:left;
     width: 195px;
-    height: 100%;
-    background-color: #C6AEC7;
+    height: 961px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.left_header{
+    border-bottom: 1px solid black;
+    width:100%;
+    height:30px;
+    text-align: center;
+    background-color:white;
 }
 
 /* ---------------- CENTER PANEL ---------------- */
@@ -49,12 +58,14 @@ body{
     margin-left:5px;
     width:600px;
     height: 100%;
-    background-color:#C6AEC7;
+    border-bottom: 1px solid black;
 }
 
 .tab_bar{
     width:100%;
     height:30px;
+    position:relative;
+    
     background-color:#F8F8F8;
 }
 
@@ -62,96 +73,120 @@ body{
     float:left;
     width:100px;
     height:100%;
-    background-color:black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    background-color:white;
 }
 
 .group_data_tab{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
     float:left;
     position:relative;
     margin-left:5px;
     width:100px;
     height:100%;
-    background-color:black;
-
+    background-color:white;
 }
 
 .plan_data_tab{  
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
     float:left;
     position:relative;
     margin-left:5px;
     width:100px;
     height:100%;
-    background-color:black;
+    background-color:white;
 }
 
-.map{
+.data_container{    
     width: 100%;
-    height: 400px;
-    background-color:lightblue;
+    height: 300px;
+    border-bottom: 1px solid black;
+    background-color:white;
 }
+
+
 
 .days_panel{
     width:100%;
     height:30px;
+    text-align:center;
+    border-bottom: 1px solid black;
     background-color: white;
 }
 
 .day{
-    float:left;
-    position:relative;
-    margin-left: 6px;
-    width: 11%;
+    display: inline-block;
+    vertical-align: middle;
+    width: 70px;
     height:100%;
-    background-color:black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color:white;
 }
 
 .left_day_arrow{
     float:left;
-    position:relative;
-    width:5%;
+    width:30px;
     height:100%;
-    background-color: springgreen;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    background-color: white;
 }
 
 .right_day_arrow{
+    display: inline-block;
+    vertical-align: middle;
     float:right;
-    position:relative;
-    width:5%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    width:30px;
     height:100%;
-    background-color: springgreen;
+    background-color: white;
 }
 
-.popular_locations_panel{
-    
-}
-
-.top_plans{
+.top_left_plans{
     float:left;
-    width:50%;
+    width:49%;
     height:300px;
-    background-color: salmon;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: white;
 }
 
 .ad_box{
     float:right;
-    width:50%;
+    text-align:center;
+    width:49%;
     height:300px;
-    background-color: seagreen;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: white;
 }
 
 .bottom_left_plans{
     float:left;
-    width:50%;
+    width:49%;
     height:300px;
-    background-color:brown;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color:white;
 }
 
 .bottom_right_plans{
     float:right;
-    width:50%;
+    width:49%;
     height:300px;
-    background-color: orangered;
-    
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    background-color: white;
 }
 
 .plan{
@@ -166,6 +201,15 @@ body{
     margin-left: 5px;
     left: 5px;
     width:195px;
-    height:100%;
-    background-color:#C6AEC7;
+    height:961px;
+    border: 1px solid black;
+    background-color:white;
+}
+
+.right_header{
+    border-bottom: 1px solid black;
+    width:100%;
+    height:30px;
+    text-align:center;
+    background-color:white;
 }
