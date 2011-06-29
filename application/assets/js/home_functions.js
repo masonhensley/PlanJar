@@ -139,3 +139,16 @@ function clear_map_markers () {
     
     map_marker_array.length = 0;
 }
+
+function hide_data_containers() {
+    $('.tab_bar .data_tab').removeClass('tab_selected');
+    $('.data_container').hide();
+}
+
+function show_data_container(data_div) {
+    if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
+        hide_data_containers();
+        $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
+        $(data_div).show('fast');
+    }
+}

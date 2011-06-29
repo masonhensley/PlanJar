@@ -22,21 +22,11 @@ function initialize_map_data_tabs() {
     });
 }
 
-function hide_data_containers() {
-    $('.tab_bar .data_tab').removeClass('tab_selected');
-    $('.data_container').hide();
-}
-
-function show_data_container(data_div) {
-    if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
-        hide_data_containers();
-        $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
-        $(data_div).show('fast');
-    }
-}
-
 // Get the data based on groups and the day from the server.
 function get_group_day_data () {
+    console.log(get_selected_groups());
+    console.log(get_selected_day);
+    
     $.get('/home/get_group_day_data', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
