@@ -42,15 +42,14 @@
             </div>
             <div class ="center">
                 <div class="tab_bar">
-                    <div class ="map_tab">                 
-                    </div>
-                    <div class="group_data_tab">
-                    </div>
-                    <div class="plan_data_tab">
-                    </div>
+                    <div class ="map_tab">Map</div>
+                    <div class="group_data_tab">Group Data</div>
+                    <div class="plan_data_tab">Plan Data</div>
                 </div>
-                <div class ="data_container">
-                </div>
+                <div id="map_data_tab" class ="data_container"></div>
+                <div id="group_data_tab" class ="data_container"></div>
+                <div id="plan_data_tab" class ="data_container"></div>
+                
                 <div class="days_panel">
                     <div class="left_day_arrow"></div>
                     <div class="right_day_arrow"></div>

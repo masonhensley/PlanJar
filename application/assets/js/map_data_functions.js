@@ -4,19 +4,22 @@ $(function() {
 
 // Initializes the map/data tabs.
 function initialize_map_data_tabs() {
-    $("#map_data_tabs").tabs({
-        collapsible: true,
-        fx: {
-            height: 'toggle',
-            duration: 'fast'
+    // Initial select
+    $('div.tab_bar ').addClass('tab_selected');
+    $($('#map_data_tabs li:first').attr('assoc_div')).show('fast');
+                
+    // Click handler.
+    $('#map_data_tabs li').click(function (event_object) {
+        if ($(this).hasClass('tab_selected')) {
+            $(this).removeClass('tab_selected');
+            $('div.map_data_content').hide('fast');
+        } else {
+            $('#map_data_tabs li').removeClass('tab_selected');
+            $(this).addClass('tab_selected');
+            $('div.map_data_content').hide('fast');
+            $($(this).attr('assoc_div')).show('fast');
         }
     });
-    
-
-    // Make the tabs go on the bottom.
-    $("#map_data_tabs .tabs-bottom .ui-tabs-nav, #map_data_tabs .tabs-bottom .ui-tabs-nav > *")
-    .removeClass("ui-corner-all ui-corner-top")
-    .addClass("ui-corner-bottom");
 }
 
 // Get the data based on groups and the day from the server.

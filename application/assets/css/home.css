@@ -78,19 +78,7 @@ body{
     background-color:white;
 }
 
-.group_data_tab{
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    float:left;
-    position:relative;
-    margin-left:5px;
-    width:100px;
-    height:100%;
-    background-color:white;
-}
-
-.plan_data_tab{  
+.group_data_tab, .plan_data_tab {
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-top: 1px solid black;
@@ -107,9 +95,8 @@ body{
     height: 300px;
     border-bottom: 1px solid black;
     background-color:white;
+    display: none;
 }
-
-
 
 .days_panel{
     width:100%;
