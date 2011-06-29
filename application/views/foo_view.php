@@ -11,12 +11,21 @@
                 float: left;
                 list-style: none;
             }
+
+            #map_data_tabs li {
+                width: 50px;
+            }
+
             div.map_data_content {
                 display: none;
                 width: 500px;
                 height: 400px;
                 border: 2px solid;
                 border-color: black;
+            }
+
+            .tab_selected {
+                color: gray;
             }
         </style>
 
@@ -39,6 +48,7 @@
                         $('div.map_data_content').hide('fast');
                     } else {
                         $(this).addClass('tab_selected');
+                        $('div.map_data_content').hide('fast');
                         $($(this).attr('assoc_div')).show('fast');
                     }
                 });
