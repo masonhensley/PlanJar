@@ -107,8 +107,7 @@ function get_groups() {
 
 // Gets the currently selected day offset (0-based)
 function get_selected_day() {
-    console.log($('#day_tabs .day_tab .day_selected').attr('day_offset'));
-    return $('#day_tabs .day_tab .day_selected').attr('day_offset');
+    return $('#day_tabs .day_tab.day_selected').attr('day_offset');
 }
 
 // Return the city based off the user's coordinates.
