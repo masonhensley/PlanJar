@@ -20,6 +20,7 @@ function initialize_plan_panel(){
         {
             $('.selected_plan').removeClass('selected_plan');
             $(this).addClass('selected_plan');
+            get_plan_data();
             show_data_container('#plan_data');
         }else{
             $(this).removeClass('selected_plan');
