@@ -5,14 +5,14 @@ $(function() {
 // Initializes the day of the week tabs.
 function setup_day_tabs() {
     // Set up the day of the week tabs.
-    $("#day_tabs .day_tab:first").addClass("day_selected").select(); //Activate first tab
+    $("#days_panel .day:first").addClass("day_selected").select(); //Activate first tab
 
     //On Click Event
-    $("#day_tabs .day_tab").click(function() {
+    $("#days_panel .day").click(function() {
 
         $('.selected_plan').removeClass('selected_plan'); // remove selected plan on right panel
 
-        $("#day_tabs .day_selected").removeClass("day_selected"); //Remove any "day_selected" class
+        $("#days_panel .day_selected").removeClass("day_selected"); //Remove any "day_selected" class
         $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
         // Call the callback function.

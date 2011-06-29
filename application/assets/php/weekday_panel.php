@@ -8,7 +8,7 @@ for ($i = 1; $i < 7; ++$i)
 {
     $date->add(new DateInterval('P1D'));
     ?>
-    <div class="day" day_offset="<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></div>
+    <div class="day" day_offset="<?php echo($i); ?>"><?php echo($date->format('D-j')); ?></div>
     <?php
 }
 ?>
