@@ -49,9 +49,9 @@
                     <div class="data_tab" assoc_div="#plan_data_tab">Plan Data</div>
                 </div>
                 
-                <div id="map_data_tab" class ="data_container"></div>
-                <div id="group_data_tab" class ="data_container"></div>
-                <div id="plan_data_tab" class ="data_container"></div>
+                <div id="map_data" class ="data_container"></div>
+                <div id="group_data" class ="data_container"></div>
+                <div id="plan_data" class ="data_container"></div>
                 
                 <div class="days_panel">
                     <div class="left_day_arrow"></div>
