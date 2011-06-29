@@ -20,12 +20,12 @@ function initialize_plan_panel(){
             $(this).addClass('selected_plan');
             get_plan_data();
             // open the tab if it isn't already open
-            if ($("#map_data_tabs .ui-state-active a").attr('href') != '#plan_data_tab' ) {
-                $("#map_data_tabs").tabs('select', '#plan_data_tab');
+            if (!$("#map_data_tab").hasClass('tab_selected')) {
+                $("#map_data_tab").show();
             }
         }else{
             // close the tab when an active plan is clicked on again
-            $("#map_data_tabs").tabs('select', '#plan_data_tab');
+            $("#map_data_tab").hide();
             var replace_div = "<div id=\"plan_data_tab\" style=\"background-color: white; color:black; width: 555px; height:250px;\"> <p>Select one of your plans on the right to see more detailed information.</p></div>";
             $('#plan_data_tab').html(replace_div);  
         }
