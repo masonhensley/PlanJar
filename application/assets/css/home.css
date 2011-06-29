@@ -52,6 +52,21 @@ body{
     background-color:white;
 }
 
+.group_label {
+    font-size: 1.3em;
+}
+
+.selectable_group {
+    width: 100%;
+    height: 30px;
+    background-color: lightgray;
+}
+
+.selected_group {
+    background-color: purple;
+    color: white;
+}
+
 /* ---------------- CENTER PANEL ---------------- */
 .center{
     float:left;
@@ -85,28 +100,6 @@ body{
     background-color: purple;
     color: white;
 }
-
-/*.map_tab{
-    float:left;
-    width:100px;
-    height:100%;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    background-color:white;
-}
-
-.group_data_tab, .plan_data_tab {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    float:left;
-    position:relative;
-    margin-left:5px;
-    width:100px;
-    height:100%;
-    background-color:white;
-}*/
 
 .data_container{   
     position:relative;
@@ -228,7 +221,7 @@ body{
 
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper{
-    
+
 }
 
 .plan_content{

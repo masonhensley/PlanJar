@@ -39,6 +39,8 @@
                 <div class="left_header">
                     My Groups
                 </div>
+                
+                <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
             </div>
             <div class ="center">
                 <div class="tab_bar">

@@ -1,9 +1,9 @@
 $(function() {
     // Make the groups selectable.
-    make_groups_selectable();
+    initialize_selectable_groups();
 });
 
-function make_groups_selectable() {
+function initialize_selectable_groups() {
     $('div.group_selectable_wrapper li').click(function() {
         // unselect plan on right panel
         $('.plan_content').removeClass('selected_plan');
