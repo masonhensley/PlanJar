@@ -228,9 +228,12 @@ body{
 }
 
 .plan_content{
+    position:relative;
+    top:10px;
     width:90%;
     height:100%;
     margin:auto;
+    border: 1px solid black;
 }
 
 .active_plans{
