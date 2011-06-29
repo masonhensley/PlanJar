@@ -31,6 +31,8 @@ function get_group_day_data () {
     }, function (data) {
         // Replace the data and show the data tab.
         $('#group_data').html(data);
-        $('#group_data').show('fast');
+        $('#group_data').show('clip', {}, 'fast', function() {
+            console.log('done');
+        });
     });
 }
