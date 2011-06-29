@@ -152,16 +152,6 @@ class Home extends CI_Controller
         $this->load->view('foo_view');
     }
 
-    public function foo2()
-    {
-        $this->load->view('foo2_view');
-    }
-
-    public function foo3()
-    {
-        $this->load->view('foo3_view');
-    }
-
 // Adds a plan entry to the database.
     public function submit_plan()
     {
