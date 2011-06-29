@@ -15,12 +15,14 @@ function initialize_plan_panel(){
     $('div.plan_content').click(function() {
         addclass = $(this).hasClass('selected_plan');
         $('.selected_plan').removeClass('selected_plan');
+        
         if(!addclass)
         {
             $(this).addClass('selected_plan');
             get_plan_data();
             // open the tab if it isn't already open
             if (!$("#plan_data_tab").hasClass('tab_selected')) {
+                $(".data_tab").hide();
                 $("#plan_data_tab").addClass('tab_selected');
                 $("#plan_data_tab").show();
             }
