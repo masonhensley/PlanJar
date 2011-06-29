@@ -29,9 +29,7 @@ function get_group_day_data () {
         'selected_day': get_selected_day()
     }, function (data) {
         // Replace the data and show the data tab.
-        $('#data_tab').html(data);
-        if ($("#map_data_tabs .ui-state-active a").attr('href') != '#data_tab') {
-            $("#map_data_tabs").tabs('select', '#data_tab');
-        }
+        $('#group_data').html(data);
+        $('#group_data').show('fast');
     });
 }
