@@ -66,7 +66,7 @@ class Load_plans extends CI_Model
         <div style=\"font-size:35px; color:darkblue; text-align: center;\">
         $category at $name <br/>
         $time_of_day <br/>
-        $date </div><br/><br/><div style=\"width:100%; font-size: 20px; height:40px; text-align:center;\">Invite Friends</div>";
+        $date </div><br/><br/><div style=\"width:100%; font-size: 20px; height:40px; text-align:center;\">Invite Friends<br>Delete Plan</div>";
         
 
         return $htmlString;
