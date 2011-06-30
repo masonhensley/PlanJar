@@ -43,13 +43,13 @@
             </div>
             <div class ="center">
                 <div class="tab_bar">
+                    <div class="data_tab" assoc_div="#group_data">Group Data</div> 
                     <div class="data_tab" assoc_div="#map_data">Map</div>
-                    <div class="data_tab" assoc_div="#group_data">Group Data</div>
                     <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
                 </div>
 
                 <div id="map_data" class ="data_container">
-                    <div id="map" style="width: 100%; height: 100%;"></div>
+                    <div id="map" style="width: 100%; height: 100%"></div>
                 </div>
                 <div id="group_data" class ="data_container"></div>
                 <div id="plan_data" class ="data_container"></div>

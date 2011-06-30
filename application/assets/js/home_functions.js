@@ -143,6 +143,7 @@ function hide_data_containers() {
 }
 
 function show_data_container(data_div) {
+    console.log($('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected'));
     if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
         hide_data_containers();
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
