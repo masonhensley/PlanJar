@@ -30,8 +30,8 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <div class ="planjar_log_box">
+                    <a href="/home/logout">Log out.</a>
                 </div>
-                <a href="/home/logout">Log out.</a>
             </div>
         </div>
         <div class ="container">
