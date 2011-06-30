@@ -6,7 +6,6 @@ $(function() {
 function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
-        console.log(get_selected_day());
         $('#plan_day [value=' + get_selected_day() + ']').click();
         $('#create_plan_content').show('fast');
     });
@@ -25,6 +24,7 @@ function initialize_plan_modal() {
                 latitude: myLatitude,
                 longitude: myLongitude
             }, function (data) {
+                console.log(data);
                 // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
                 item_selected = false;
                 
