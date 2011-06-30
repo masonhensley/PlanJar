@@ -142,14 +142,13 @@ function hide_data_containers() {
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div) {
+    // If the wrapper is hidden, show it.
+    if ($('.data_container_wrapper').css('display') == 'none') {
+        $('.data_container_wrapper').show('blind', {}, 'fast');
+    }
+    
     // Only show a container if it's not already selected.
     if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
-        
-        // If the wrapper is hidden, show it.
-        if ($('.data_container_wrapper').css('display') == 'none') {
-            $('.data_container_wrapper').show('blind', {}, 'fast');
-        }
-        
         // Hide all data containers.
         $('.data_container').hide('slide', {}, 'fast');
         
