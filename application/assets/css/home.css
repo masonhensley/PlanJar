@@ -9,7 +9,7 @@ body{
 .top_panel{
     height: 40px;
     width:100%;
-    background-color:  #9E7BFF;
+    background-color:  purple;
 }
 
 .inside_top_panel{
@@ -67,6 +67,7 @@ body{
     padding: 5px;
     color: purple;
     background-color:white;
+    text-align:center;
 }
 
 .selected_group {
