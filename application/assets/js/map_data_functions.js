@@ -5,18 +5,15 @@ $(function() {
 // Initializes the map/data tabs.
 function initialize_map_data_tabs() {
     // Initial select
-    show_data_container('#goup_data');
+    show_data_container('#group_data');
                 
     // Click handler.
     $('div.tab_bar .data_tab').click(function (event_object) {
         if ($(this).hasClass('tab_selected')) {
-            $(this).removeClass('tab_selected');
-            $('div.data_container').hide('fast');
+            hide_data_containers();
         } else {
             $('div.tab_bar .data_tab').removeClass('tab_selected');
-            $(this).addClass('tab_selected');
-            $('div.data_container').hide('fast');
-            $($(this).attr('assoc_div')).show('fast');
+            show_data_container($(this).attr('assoc_div'))
         }
     });
 }
