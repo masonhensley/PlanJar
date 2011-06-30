@@ -18,8 +18,7 @@ function initialize_plan_modal() {
     $('#plan_location').autocomplete({
         minLength: 2,
         source: function (request, response) {
-            response({label: 'foo', value: 'foo', id: '3'})
-            console.log('responded');
+            console.log(response);
             // Get places from the PlanJar server.
             $.get('/home/find_places', {
                 needle: request.term,
