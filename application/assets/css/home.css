@@ -207,9 +207,13 @@ body{
     background-color:blueviolet;
 }
 
+/*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
 .plan_shown{
-    width:90%;
     text-align:center;
+}
+
+.plan_shown_selected{
+    
 }
 
 /* ------------------ RIGHT PANEL -----------------------*/
