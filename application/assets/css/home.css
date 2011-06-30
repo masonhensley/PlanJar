@@ -207,6 +207,11 @@ body{
     background-color:blueviolet;
 }
 
+.plan_shown{
+    width:90%;
+    text-align:center;
+}
+
 /* ------------------ RIGHT PANEL -----------------------*/
 .right{
     float:left;
