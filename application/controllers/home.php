@@ -248,11 +248,10 @@ class Home extends CI_Controller
             $name = $plan->name;
             $category = $plan->category;
             $time = $plan->time_of_day;
-            echo $plan->plan_date;
             $date = date('l', strtotime($plan->plan_date));
             if($date_organizer != $date)
             {
-                echo $date;
+                echo $date . "<br/>";
             }
             $date_organizer = $date;
             ?> 
