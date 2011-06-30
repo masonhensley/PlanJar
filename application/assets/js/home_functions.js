@@ -6,6 +6,11 @@ var current_day_offset = 0;
 $(function() {
     // places map
     location_data();
+    
+    $('#view_current_location').click(function () {
+        show_data_container('#map_data');
+       map_user_position(); 
+    });
 });
 
 var initialLocation;
