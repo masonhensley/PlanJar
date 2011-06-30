@@ -137,19 +137,16 @@ function clear_map_markers () {
 // Hides all data containers
 function hide_data_containers() {
     $('.tab_bar .data_tab').removeClass('tab_selected');
-    $('.data_container').hide('blind', {}, 'fast');
+    $('.data_container').hide('slide', {}, 'fast');
 }
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div) {
     // Only show a container if it's not already selected.
     if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
-        // Hide the data containers quickly (no animation).
-        $('.tab_bar .data_tab').removeClass('tab_selected');
-        $('.data_container').hide();
     
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
-        $(data_div).show('blind', {}, 'slow', function () {
+        $(data_div).show('slide', {}, 'slow', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
             google.maps.event.trigger(map, 'resize');
             map_user_position();
