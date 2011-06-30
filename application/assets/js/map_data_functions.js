@@ -12,7 +12,6 @@ function initialize_map_data_tabs() {
         if ($(this).hasClass('tab_selected')) {
             hide_data_containers();
         } else {
-            $('div.tab_bar .data_tab').removeClass('tab_selected');
             show_data_container($(this).attr('assoc_div'))
         }
     });

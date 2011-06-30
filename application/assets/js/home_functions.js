@@ -137,13 +137,15 @@ function clear_map_markers () {
 // Hides all data containers
 function hide_data_containers() {
     $('.tab_bar .data_tab').removeClass('tab_selected');
-    $('.data_container').hide('drop', {}, 'fast');
+    $('.data_container').hide('slide', {}, 'fast');
+    $('data_container_wrapper').hide('blind', {}, 'fast');
 }
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div) {
-    // If the wrapper is hidden, show it.
-    if ($('.data_container_wrapper').css('display') == 'none') {
+    // If no tab is selected, show the wrapper.
+    console.log($('foo') == false);
+    if (!$('.data_container').selected()) {
         $('.data_container_wrapper').show('blind', {}, 'fast');
     }
     
