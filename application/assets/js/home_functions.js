@@ -137,19 +137,36 @@ function clear_map_markers () {
 // Hides all data containers
 function hide_data_containers() {
     $('.tab_bar .data_tab').removeClass('tab_selected');
-    $('.data_container').hide('blind', {}, 'fast');
+    $('.data_container').hide('slide', {}, 'fast', function () {
+        $('data_container_wrapper').hide('blind', {}, 'fast');
+    });
 }
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div) {
-    // Only show a container if it's not already selected.
-    if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
-        // Hide the data containers quickly (no animation).
+    // If no tab is selected, show the wrapper.
+    if (!$('.tab_bar .data_tab').hasClass('tab_selected')) {
+        $('.data_container_wrapper').show('blind', {}, 'fast', function () {
+            show_data_container_helper(data_div);
+        });
+    } else {
+        show_data_container_helper(data_div);
+    }
+}
+
+// Displays the data panel within the wrapper
+function show_data_container_helper(data_div) {
+    // Only show a container if it's not already visible.
+    if ($(data_div).css('display') == 'none') {
+        // Hide any visible data containers.
+        $('.data_container :visible').hide('slide', {}, 'fast');
+        
+        // Select the appropriate tab.
         $('.tab_bar .data_tab').removeClass('tab_selected');
-        $('.data_container').hide();
-    
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
-        $(data_div).show('blind', {}, 'slow', function () {
+        
+        // Show the appropriate container
+        $(data_div).show('slide', {}, 'fast', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
             google.maps.event.trigger(map, 'resize');
             map_user_position();
