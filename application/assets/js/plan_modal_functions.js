@@ -221,7 +221,7 @@ function initialize_plan_modal() {
         submitHandler: function (form) {
             $.get('/home/submit_plan', $(form).serialize(), function (data) {
                 if (data == 'success') {
-                    $('#create_plan_content').dialog('close');
+                    $('#create_plan_content').hide();
                     // Refresh th eplan list.
                     populate_plan_panel();
                 } else {
@@ -230,7 +230,6 @@ function initialize_plan_modal() {
             });
         },
         errorPlacement: function (error, element) {
-            console.log(error + '-' + element);
             // Don't show errors.
             return true;
         }
