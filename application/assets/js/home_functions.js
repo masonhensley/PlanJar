@@ -144,7 +144,7 @@ function hide_data_containers() {
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div) {
     // If no tab is selected, show the wrapper.
-    console.log($('foo') == false);
+    console.log($('foo') == []);
     if (!$('.data_container').selected()) {
         $('.data_container_wrapper').show('blind', {}, 'fast');
     }
