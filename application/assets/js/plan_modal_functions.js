@@ -49,7 +49,6 @@ function initialize_plan_modal() {
                             id: item.id
                         };
                     });
-                    console.log(response_json);
                 }
                 
                 // Call the response function with the a copy of the response JSON.
@@ -59,7 +58,8 @@ function initialize_plan_modal() {
                     value: '',
                     id: ''
                 });
-                response(temp);
+                response(response_json);
+                //response(temp);
                     
                 if (place_limit > 0) {
                     // If additional places are required, fetch places from Factual. Pick fields needed
