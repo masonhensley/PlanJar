@@ -276,8 +276,6 @@ class Home extends CI_Controller
                     'latitude' => $new_lat,
                     'longitude' => $new_long));
 
-        echo($this->_get_distance_between(30, 90, 31, 91) . '/');
-
         if ($result)
         {
             $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
