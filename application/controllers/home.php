@@ -237,7 +237,7 @@ class Home extends CI_Controller
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $result = $this->load_plans->getPlans($user_id);
-        $date_organizer;
+        $date_organizer = "lol";
         ?>
 
         <div class="active_plans"><?php
