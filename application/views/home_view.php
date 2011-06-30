@@ -33,8 +33,8 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <div class ="planjar_logo_box">
-                    <a href="/home/logout">Log out</a>
-                    <a href="#" id="change_location">Change location</a>
+                    <a href="/home/logout" link="white" vlink="white" alink="white">Log out</a>
+                    <a href="#" id="change_location" link="white" vlink="white" alink="white">Change location</a>
                 </div>
             </div>
         </div>
