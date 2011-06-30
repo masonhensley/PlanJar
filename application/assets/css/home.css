@@ -237,6 +237,7 @@ body{
     top: 50%;
     margin-top: -125px;
     background-color: lightpink;
+    padding: 5px;
 }
 .in-field_block {
     position:relative;

@@ -6,7 +6,6 @@ $(function() {
 function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
-        console.log(get_selected_day());
         $('#plan_day [value=' + get_selected_day() + ']').click();
         $('#create_plan_content').show('fast');
     });
@@ -19,6 +18,8 @@ function initialize_plan_modal() {
     $('#plan_location').autocomplete({
         minLength: 2,
         source: function (request, response) {
+            response({label: 'foo', value: 'foo', id: '3'})
+            console.log('responded');
             // Get places from the PlanJar server.
             $.get('/home/find_places', {
                 needle: request.term,
