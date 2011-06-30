@@ -5,7 +5,7 @@ $(function() {
 // Initializes the map/data tabs.
 function initialize_map_data_tabs() {
     // Initial select
-    show_data_container($('.tab_bar:first').attr('assoc_div'));
+    show_data_container('#goup_data');
                 
     // Click handler.
     $('div.tab_bar .data_tab').click(function (event_object) {
