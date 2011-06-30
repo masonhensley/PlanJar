@@ -92,16 +92,18 @@ function initialize_change_location_panel() {
 
 // Shows the panel.
 function show_change_location_panel() {
-    // Switch to the map tab.
-    show_data_container('#map_data');
-    $('#map_data').animate({
-        height: ($('#plan_data').height() + $('.change_location_panel').height()) + 'px'
-    });
+    if ($('.chane_location_panel').css('display') == 'none') {
+        // Switch to the map tab.
+        show_data_container('#map_data');
+        $('#map_data').animate({
+            height: ($('#plan_data').height() + $('.change_location_panel').height()) + 'px'
+        });
     
-    $('.change_location_panel').show('fast');
+        $('.change_location_panel').show('fast');
     
-    // Auto-select the search box.
-    $('#change_location_search').select();
+        // Auto-select the search box.
+        $('#change_location_search').select();
+    }
 }
 
 // Hides the panel.
