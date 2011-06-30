@@ -36,6 +36,8 @@
                     <a href="/home/logout" style="color:white;">Log out</a><br/>
                     <a href="#" id="change_location" style="color:white">Change location</a>
                     <a href="#" id="view_current_location" style="color: white;">View current location</a>
+                    
+                    <div id="using_location" style="float: right"></div>
                 </div>
             </div>
         </div>
