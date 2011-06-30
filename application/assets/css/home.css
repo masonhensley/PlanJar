@@ -249,7 +249,7 @@ body{
     font:normal 18px Arial;
     color: #999999;
 }
-#create_plan input.textbox, .change_location_panel .textbox {
+#create_plan_content input.textbox, .change_location_panel .textbox {
     height:30px;
     width:200px;
 }
