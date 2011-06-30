@@ -34,12 +34,10 @@ function initialize_plan_panel(){
 
 // fetch the data about the plan and display it in the plan data div
 function get_plan_data() {
-    alert($('.selected_plan').attr('plan_id'));
     $.get('/home/load_selected_plan_data', {
         'plan_selected': $('.selected_plan').attr('plan_id')
     }, function (data) {
         // Replace the data and show the data tab.
-        alert(data);
         $('#plan_data').html(data);
     });
 }
