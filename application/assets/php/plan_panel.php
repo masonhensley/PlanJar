@@ -21,10 +21,9 @@
 
                 <tr>
                     <td colspan="2">
-                <center>
-                    When are you going?
-                </center>
-                </td>
+                        <br/><br/>
+                        When are you going?
+                    </td>
                 </tr>
 
                 <tr>
