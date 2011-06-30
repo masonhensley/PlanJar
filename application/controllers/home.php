@@ -237,26 +237,31 @@ class Home extends CI_Controller
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $result = $this->load_plans->getPlans($user_id);
+        $date;
         ?>
 
-        <div class="active_plans">
-            <?php
-            foreach ($result as $plan)
+        <div class="active_plans"><?php
+        foreach ($result as $plan)
+        {
+            // make easy to read variables
+            $id = $plan->id;
+            $name = $plan->name;
+            $category = $plan->category;
+            $time = $plan->time_of_day;
+            echo $plan->plan_date;
+            $date = date('l', strtotime($plan->plan_date));
+            if($date_organizer != $date)
             {
-                // make easy to read variables
-                $id = $plan->id;
-                $name = $plan->name;
-                $category = $plan->category;
-                $time = $plan->time_of_day;
-                echo $plan->plan_date;
-                $date_string1 = date('D', strtotime($plan->plan_date));
-                ?> 
+                echo $date;
+            }
+            $date_organizer = $date;
+            ?> 
 
-                <div class ="plan_content" plan_id="<?php echo $id; ?>" >
-                    <?php echo $name . "  |  " . $date_string1; ?>
-                </div><br/>
-            <?php } ?>
-        </div> <?php
+                <div class ="plan_content" plan_id="<?php echo $id; ?>" ><?php
+            echo $name;
+            echo "</div><br/>";
+        }
+        echo "</div>";
     }
 
     // Update the user's location
@@ -296,4 +301,4 @@ class Home extends CI_Controller
     }
 
 }
-    ?>
+?>

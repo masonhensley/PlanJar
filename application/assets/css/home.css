@@ -233,7 +233,7 @@ body{
 
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper{
-
+    text-align: center;
 }
 
 .plan_content{
