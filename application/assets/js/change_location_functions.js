@@ -1,6 +1,9 @@
 $(function() {
     initialize_change_location_panel();
-    
+});
+
+// Initializes the change location panel.
+function initialize_change_location_panel() {
     // Assign the click event(s).
     $('#change_location').click(function () {
         show_change_location_panel();
@@ -10,12 +13,9 @@ $(function() {
     $('#close_change_location').click(function () {
         hide_change_location_panel();
     });
-});
-
-// Initializes the change location panel.
-function initialize_change_location_panel() {    
+    
     // Set up the in-field labels.
-    $('div.change_location_panel label').inFieldLabels();
+    $('.change_location_panel label').inFieldLabels();
     
     // Push the current location onto the marker list.
     var temp_marker = new google.maps.Marker({
@@ -93,15 +93,14 @@ function initialize_change_location_panel() {
 // Shows the panel.
 function show_change_location_panel() {
     // Switch to the map tab.
-    if ($("#map_data_tabs .ui-state-active a").attr('href') != '#map_tab') {
-        $("#map_data_tabs").tabs('select', '#map_tab');
-    }
+    show_data_container('#map_data');
     $('#map_tab').animate({
-        height: (250 + $('div.change_location_panel').height()) + 'px'
+        height: ($('#map_tab').height() + $('.change_location_panel').height()) + 'px'
     });
     
-    $('div.change_location_panel').show('fast');
+    $('.change_location_panel').show('fast');
     
+    // Auto-select the search box.
     $('#change_location_search').select();
 }
 
@@ -110,7 +109,7 @@ function hide_change_location_panel() {
     $('div.change_location_panel').hide('fast');
         
     $('#map_tab').animate({
-        height: '250px'
+        height: '301px'
     });
     
     clear_map_markers();

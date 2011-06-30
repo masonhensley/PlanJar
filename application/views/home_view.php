@@ -10,14 +10,14 @@
         <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
 
         <!-- Encapsulated JS files -->
-        
+
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_modal_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
-        
+
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -34,6 +34,7 @@
             <div class = "inside_top_panel">
                 <div class ="planjar_log_box">
                     <a href="/home/logout">Log out.</a>
+                    <a href="#" id="change_location">Change location</a>
                 </div>
             </div>
         </div>
@@ -53,6 +54,7 @@
                 </div>
 
                 <div id="map_data" class ="data_container">
+                    <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                     <div id="map" style="width: 100%; height: 100%"></div>
                 </div>
                 <div id="group_data" class ="data_container"></div>
@@ -67,7 +69,7 @@
                 <div class="ad_box">
                     <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/>
                 </div>
-                
+
                 <div class="bottom_right_plans"></div>              
             </div>
             <div class ="right">
