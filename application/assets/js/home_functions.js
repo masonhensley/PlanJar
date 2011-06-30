@@ -77,8 +77,6 @@ function mapThisGoogle(latitude,longitude)
     };
         
     map = new google.maps.Map(document.getElementById("map"), myOptions);
-            
-    map_user_position();
 }
 
 // populates the popular location main panel
