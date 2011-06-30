@@ -256,7 +256,7 @@ class Home extends CI_Controller
                 echo "<hr>";
             }
             $date_organizer = $date;
-            echo "<div class =\"plan_content\" plan_id=\" echo $id; ?>\" >";
+            echo "<div class =\"plan_content\" plan_id=\"$id\" >";
             echo $name;
             echo "</div>";
             echo "<div id=\"plan_padding\" style =\"width:100%; height:10px;\"></div>";
