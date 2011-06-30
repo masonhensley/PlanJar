@@ -18,12 +18,14 @@ body{
 }
 
 .top_panel_page_span{
-    text-align:center;
-    margin-right: 0px;
+    margin-right: auto;
+    margin-left: auto;
     height: 100%;
 }
 
-.top
+.top_links{
+    text-align: center;
+}
 
 /* -----------------MAIN CONTAINER ----------------------*/
 .container{
