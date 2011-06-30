@@ -37,6 +37,7 @@ function location_data() {
                 }, function (data) {
                     if (data != 'success') {
                         alert(data);
+                        map_user_location();
                     }
                 });
                 
