@@ -149,9 +149,9 @@ function show_data_container(data_div) {
         $('.data_container_wrapper').show('blind', {}, 'fast', function () {
             show_data_container_helper(data_div);
         });
+    } else {
+        show_data_container_helper(data_div);
     }
-    
-    show_data_container_helper(data_div);
 }
 
 // Displays the data panel within the wrapper
