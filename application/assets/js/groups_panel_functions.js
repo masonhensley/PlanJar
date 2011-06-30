@@ -29,7 +29,7 @@ function initialize_selectable_groups() {
         load_visible_plans();
     });
     $('#select_all_groups').click(function() {
-        $('.groups_wrapper .selected_group').addClass('selected_group');
+        $('.groups_wrapper .selectable_group').addClass('selected_group');
         on_groups_change();
         // update visible plans
         load_visible_plans();
