@@ -94,6 +94,8 @@ body{
     position:relative;    
     float:left;
     border-top: 1px inset black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     margin-right:5px;
     width:100px;
     height:100%;
