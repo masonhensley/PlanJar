@@ -24,6 +24,7 @@ function location_data() {
                 myLongitude=position.coords.longitude;
                 
                 // Update the user's profile with the new information.
+                console.log(myLatitude + ' ' + myLongitude);
                 $.get('/home/update_user_location', {
                     latitude: myLatitude,
                     longitude: myLongitude,
@@ -152,7 +153,6 @@ function show_data_container(data_div) {
         $(data_div).show('clip', {}, 'fast', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
             google.maps.event.trigger(map, 'resize');
-            console.log('resized');
         });
     }
 }
