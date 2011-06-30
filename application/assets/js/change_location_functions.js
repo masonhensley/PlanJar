@@ -6,7 +6,6 @@ $(function() {
 function initialize_change_location_panel() {
     // Assign the click event(s).
     $('#change_location').click(function () {
-        alert('here');
         show_change_location_panel();
         return false;
     });
@@ -97,7 +96,7 @@ function show_change_location_panel() {
     show_data_container('#map_data');
     $('#map_tab').animate({
         //height: ($('#map_tab').height() + $('.change_location_panel').height()) + 'px'
-        height: '400px'
+        height: '500px'
     });
     
     $('.change_location_panel').show('fast');
