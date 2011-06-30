@@ -137,8 +137,9 @@ function clear_map_markers () {
 // Hides all data containers
 function hide_data_containers() {
     $('.tab_bar .data_tab').removeClass('tab_selected');
-    $('.data_container').hide('slide', {}, 'fast');
-    $('data_container_wrapper').hide('blind', {}, 'fast');
+    $('.data_container').hide('slide', {}, 'fast', function () {
+        $('data_container_wrapper').hide('blind', {}, 'fast');
+    });
 }
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
