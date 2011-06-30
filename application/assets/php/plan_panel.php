@@ -1,5 +1,4 @@
 <div id="create_plan_content">
-
     <form id="make_plan">
         <table>
             <tr>
@@ -16,8 +15,6 @@
                     </div>
                 </td>
             </tr>
-
-            <br/><br/>
 
             <tr>
                 <td colspan="2">
