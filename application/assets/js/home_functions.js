@@ -152,6 +152,7 @@ function show_data_container(data_div) {
         $(data_div).show('clip', {}, 'fast', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
             google.maps.event.trigger(map, 'resize');
+            console.log('resized');
         });
     }
 }
