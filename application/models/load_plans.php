@@ -63,10 +63,10 @@ class Load_plans extends CI_Model
 
         // html to replace the data div
         $htmlString = "
-        <div><font color=\"purple\" size=\"12px\">
+        <div style=\"font-size:14px; color:red;\">
         $category at $name <br/>
         $time_of_day <br/>
-        $date </font></div>";
+        $date </div>";
 
         return $htmlString;
     }
