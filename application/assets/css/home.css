@@ -237,12 +237,13 @@ body{
 }
 
 .plan_content{
-    background-color:lightblue;
     width:90%;
     height:100%;
     margin:auto;
     border: 1px solid black;
     padding: 5px;
+    color: purple;
+    background-color:white;
 }
 
 .active_plans{
@@ -250,6 +251,5 @@ body{
 }
 
 .selected_plan{
-    background-color: white;
-    color: purple;
+    background-color:lightblue;
 }
