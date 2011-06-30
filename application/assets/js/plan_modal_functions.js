@@ -8,8 +8,7 @@ function initialize_plan_modal() {
     $('#create_plan').click(function () {
         $('#plan_day [value=' + get_selected_day() + ']').click();
         $('#plan_location').select();
-        console.log($('#make_plan input[type="text"]'));
-        $('#create_plan_content input [type="hidden"], #create_plan_content input [type="hidden"]').val('');
+        $('#create_plan_content input[type="hidden"], #create_plan_content input[type="hidden"]').val('');
         
         $('#create_plan_content').show('fast');
     });
