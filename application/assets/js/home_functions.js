@@ -74,9 +74,6 @@ function mapThisGoogle(latitude,longitude)
     map = new google.maps.Map(document.getElementById("map"), myOptions);
             
     map_user_position();
-    
-    // Add the marker to the marker list.
-    map_marker_array.push(temp_marker);
 }
 
 // populates the popular location main panel
