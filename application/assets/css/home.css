@@ -1,6 +1,4 @@
 /*--------------GLOBAL ---------------- */
-
-
 body{
     background-color: #F8F8F8 ;
 }
@@ -9,7 +7,7 @@ body{
 .top_panel{
     height: 40px;
     width:100%;
-    background-color:  #9E7BFF;
+    background-color:#F0F8FF;
 }
 
 .inside_top_panel{
@@ -25,7 +23,7 @@ body{
     margin-left: 50px;
     height: 30px;
     width: 100px;
-    background-color: white;
+    color:white;
 }
 
 /* -----------------MAIN CONTAINER ----------------------*/
@@ -67,6 +65,7 @@ body{
     padding: 5px;
     color: purple;
     background-color:white;
+    text-align:center;
 }
 
 .selected_group {
