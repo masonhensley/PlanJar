@@ -63,9 +63,10 @@
                 </div>
                 <div class="top_left_plans"></div>
                 <div class="ad_box">
+                </div>
+                <div class="bottom_left_plans">
                     <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/>
                 </div>
-                <div class="bottom_left_plans"></div>
                 <div class="bottom_right_plans"></div>              
             </div>
             <div class ="right">
