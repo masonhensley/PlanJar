@@ -43,7 +43,7 @@
             </div>
             <div class ="center">
                 <div class="tab_bar">
-                    <div class="data_tab" assoc_div="#group_data">Group Data</div>
+                    <div class="data_tab" assoc_div="#group_data">Group Data</div> 
                     <div class="data_tab" assoc_div="#map_data">Map</div>
                     <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
                 </div>
