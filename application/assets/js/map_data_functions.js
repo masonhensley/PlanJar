@@ -20,7 +20,6 @@ function initialize_map_data_tabs() {
 
 // Get the data based on groups and the day from the server.
 function get_group_day_data () {
-    
     $.get('/home/get_group_day_data', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
