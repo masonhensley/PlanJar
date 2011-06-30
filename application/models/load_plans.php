@@ -1,3 +1,6 @@
+<!-- SELECT LOCATION JAVASCRIPT -->
+<script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
+
 <?php
 
 class Load_plans extends CI_Model
@@ -179,4 +182,3 @@ class Load_plans extends CI_Model
 
 }
 ?>
-<script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
