@@ -19,9 +19,9 @@ body{
 
 .planjar_logo_box{
     position:relative;
-    margin-left: 50px;
-    height: 30px;
-    width: 100px;
+    margin-right: 50px;
+    height: 100%;
+    width: 500px;
 }
 
 /* -----------------MAIN CONTAINER ----------------------*/
