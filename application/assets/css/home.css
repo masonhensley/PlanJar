@@ -17,13 +17,11 @@ body{
     margin-right: auto;
 }
 
-.planjar_log_box{
+.planjar_logo_box{
     position:relative;
-    top:5px;
     margin-left: 50px;
     height: 30px;
     width: 100px;
-    color:white;
 }
 
 /* -----------------MAIN CONTAINER ----------------------*/
