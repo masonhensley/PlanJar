@@ -17,6 +17,8 @@ function initialize_plan_modal() {
     $('#cancel_plan').click(function () {
         $('#create_plan_content').hide();
     })
+    
+    $('#create_plan_content').draggable({handle: '.draggable_title_bar'});
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();

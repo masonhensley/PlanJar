@@ -258,6 +258,11 @@ body{
     height:30px;
     width:200px;
 }
+#create_plan_content .draggable_title_bar {
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+}
 
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper{

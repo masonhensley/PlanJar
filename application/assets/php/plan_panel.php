@@ -1,4 +1,6 @@
 <div id="create_plan_content">
+    <div class="draggable_title_bar">Make a plan</div>
+    
     <form id="make_plan">
         <table>
             <tr>
