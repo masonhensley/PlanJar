@@ -13,6 +13,7 @@
         <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
             <?php echo($group['name']); ?>
         </div>
+        <div id="group_padding" style="width:100%; height:10px;"></div>
         <?php
     }
     ?>
@@ -26,6 +27,7 @@
         <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
             <?php echo($group['name']); ?>
         </div>
+        <div id="group_padding" style="width:100%; height:10px;"></div>
         <?php
     }
     ?>
