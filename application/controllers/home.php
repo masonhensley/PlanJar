@@ -259,7 +259,7 @@ class Home extends CI_Controller
             echo "<div class =\"plan_content\" plan_id=\" echo $id; ?>\" >";
             echo $name;
             echo "</div>";
-            echo "<div id=\"plan_padding\" style =\"width:100%; height:5px;\"></div>";
+            echo "<div id=\"plan_padding\" style =\"width:100%; height:10px;\"></div>";
         }
         echo "</div>";
     }
