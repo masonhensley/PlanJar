@@ -27,9 +27,7 @@ function setup_day_tabs() {
 
 // Callback function
 function on_day_change() {
-    show_data_container('#group_data')
-    
-    $('.selected_plan').removeClass('selected_plan');
+    show_data_container('#group_data');
     get_group_day_data();
     load_visible_plans()
 }
