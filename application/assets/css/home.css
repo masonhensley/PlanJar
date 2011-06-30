@@ -215,7 +215,8 @@ body{
     margin-left: 5px;
     left: 5px;
     width:195px;
-    height:961px;
+    min-height: 800px;
+    height:100%;
     border: 1px solid black;
     background-color:white;
 }
