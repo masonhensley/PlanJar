@@ -230,6 +230,7 @@ function initialize_plan_modal() {
             });
         },
         errorPlacement: function (error, element) {
+            console.log(error + '-' + element);
             // Don't show errors.
             return true;
         }
