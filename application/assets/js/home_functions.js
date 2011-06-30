@@ -9,7 +9,7 @@ $(function() {
     
     $('#view_current_location').click(function () {
         show_data_container('#map_data');
-       map_user_position(); 
+        map_user_position(); 
     });
 });
 
@@ -149,6 +149,7 @@ function show_data_container(data_div) {
         $(data_div).show('clip', {}, 'fast', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
             google.maps.event.trigger(map, 'resize');
+            map_user_position();
         });
     }
 }
