@@ -70,10 +70,10 @@
             <div class ="right">
                 <div class ="right_header">
                     My Plans <input type="button" id="create_plan" value="+"/>
-                    <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
                 </div>
                 <div class="plans_wrapper"></div>
             </div>
         </div>
+        <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
     </body>
 </html>
