@@ -95,7 +95,7 @@ function show_change_location_panel() {
     // Switch to the map tab.
     show_data_container('#map_data');
     $('#map_data').animate({
-        height: ($('#map_tab').height() + $('.change_location_panel').height()) + 'px'
+        height: ($('#plan_data').height() + $('.change_location_panel').height()) + 'px'
     });
     
     $('.change_location_panel').show('fast');
