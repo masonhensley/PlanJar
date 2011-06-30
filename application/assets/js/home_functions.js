@@ -146,15 +146,15 @@ function show_data_container(data_div) {
     // If no tab is selected, show the wrapper.
     if (!$('.tab_bar .data_tab').hasClass('tab_selected')) {
         $('.data_container_wrapper').show('blind', {}, 'fast', function () {
-            show_data_container_helper();
+            show_data_container_helper(data_div);
         });
     }
     
-    show_data_container_helper();
+    show_data_container_helper(data_div);
 }
 
 // Displays the data panel within the wrapper
-function show_data_container_helper() {
+function show_data_container_helper(data_div) {
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
         // Hide any visible data containers.
