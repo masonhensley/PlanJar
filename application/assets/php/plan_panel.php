@@ -1,5 +1,10 @@
 <div id="create_plan_content">
-    <div class="draggable_title_bar">Make a plan</div>
+    <div class="draggable_title_bar">
+        <div style="float: left">Make a plan</div>
+        <div style="float: right">
+            <input type="button" id="cancel_plan" value="X"/>
+        </div>
+    </div>
 
     <center>
         <form id="make_plan">
@@ -69,7 +74,6 @@
             </table>
 
             <input type="submit" value="Go"/>
-            <input type="button" id="cancel_plan" value="Cancel"/>
 
             <input id="plan_location_id" name="plan_location_id" type="hidden"/>
             <input id="plan_location_name" type="hidden"/>
