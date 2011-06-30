@@ -6,21 +6,12 @@ $(function() {
 function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
+        $('#plan_day [value=' + get_selected_day() + ']').click();
         $('#create_plan_content').show('fast');
     });
-    
-//    // Start the plan dialog box closed.
-//    $('#plan_content').dialog({
-//        autoOpen: false,
-//        width: 600,
-//        height: 250,
-//        resizable: false,
-//        show: 'clip',
-//        hide: 'explode'
-//    });
-    
+
     // Initialize the in-field labels.
-    $('#plan_content div.in-field_block label').inFieldLabels();
+    $('#create_plan_content div.in-field_block label').inFieldLabels();
         
     // Initialize the plan location autocomplete instance.
     var item_selected;
@@ -203,10 +194,6 @@ function initialize_plan_modal() {
             $('#plan_category_name').val(ui.item.value);
         }
     });
-        
-    // Make the time/day radios buttons.
-    $('#plan_time').buttonset();
-    $('#plan_day').buttonset();
     
     // Auto-select the time of day.
     var date = new Date();
@@ -232,7 +219,7 @@ function initialize_plan_modal() {
         submitHandler: function (form) {
             $.get('/home/submit_plan', $(form).serialize(), function (data) {
                 if (data == 'success') {
-                    $('#plan_content').dialog('close');
+                    $('#create_plan_content').dialog('close');
                     // Refresh th eplan list.
                     populate_plan_panel();
                 } else {
@@ -241,18 +228,8 @@ function initialize_plan_modal() {
             });
         },
         errorPlacement: function (error, element) {
-            console.log(error);
-            //return true;
+            return true;
         }
-    });
-    
-    // Initialize the make-a-plan modal.
-    $('#make_a_plan').click(function() {
-        // Update the selected day.
-        var selected_day = $('#day_tabs ul.tabs li.day_selected a').attr('href');
-        $('#plan_day [value=' + selected_day + ']').click();
-        
-        $('#plan_content').dialog('open');
     });
 }
 
