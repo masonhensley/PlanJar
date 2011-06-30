@@ -162,7 +162,7 @@ class Load_plans extends CI_Model
                     ?>
                     <div class = "plan_shown">
                         <?php
-                        echo "<hr/><br/>";
+                        echo "<hr/>";
                         echo $plan->name;
                         echo "<br/><hr/>";
                         
