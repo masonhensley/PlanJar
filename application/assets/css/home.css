@@ -7,7 +7,7 @@ body{
 .top_panel{
     height: 40px;
     width:100%;
-    background-color:#AFEEEE;
+    background-color:#DDA0DD;
 }
 
 .inside_top_panel{
@@ -96,7 +96,7 @@ body{
     margin-right:5px;
     width:100px;
     height:100%;
-    background-color:#AFEEEE;
+    background-color:#F0F8FF;
     text-align: center;
 }
 
