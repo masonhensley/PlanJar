@@ -237,6 +237,8 @@ body{
 }
 
 .plan_content{
+    position:relative;
+    top:5px;
     width:90%;
     height:100%;
     margin:auto;
