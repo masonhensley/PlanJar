@@ -149,7 +149,7 @@ function show_data_container(data_div) {
         $('.data_container').hide();
     
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
-        $(data_div).show('blind', {}, 'fast', function () {
+        $(data_div).show('blind', {}, 'slow', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
             google.maps.event.trigger(map, 'resize');
             map_user_position();
