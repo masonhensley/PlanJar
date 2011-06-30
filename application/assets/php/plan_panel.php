@@ -72,6 +72,7 @@
         </table>
 
         <input type="submit" value="Go"/>
+        <input type="button" id="cancel_plan" value="Cancel"/>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
         <input id="plan_location_name" type="hidden"/>

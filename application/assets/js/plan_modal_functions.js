@@ -12,6 +12,10 @@ function initialize_plan_modal() {
         
         $('#create_plan_content').show('fast');
     });
+    
+    $('#cancel_plan').click(function () {
+        $('#create_plan_content').hide();
+    })
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();
