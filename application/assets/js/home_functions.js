@@ -24,7 +24,6 @@ function location_data() {
                 myLongitude=position.coords.longitude;
                 
                 // Update the user's profile with the new information.
-                console.log(myLatitude + ' ' + myLongitude);
                 $.get('/home/update_user_location', {
                     latitude: myLatitude,
                     longitude: myLongitude,
