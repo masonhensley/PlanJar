@@ -1,6 +1,6 @@
 <div id="create_plan_content">
     <div class="draggable_title_bar">Make a plan</div>
-    
+
     <form id="make_plan">
         <table>
             <tr>
@@ -50,8 +50,8 @@
                 <td colspan="2">
                     <div id="plan_day" class="radio">
                         <center>
-                            <label for="0">Today - <?php echo(date('j')); ?></label>
-                            <input type="radio"  value="0" name="plan_day_group" />
+                            <label for="plan_day_0">Today - <?php echo(date('j')); ?></label>
+                            <input type="radio"  id="plan_day_0" value="0" name="plan_day_group" />
 
                             <?php
                             $date = new DateTime();
@@ -59,8 +59,8 @@
                             {
                                 $date->add(new DateInterval('P1D'));
                                 ?>
-                                <label for="0"><?php echo($date->format('D - j')); ?></label>
-                                <input type="radio" value="<?php echo($i); ?>" name="plan_day_group" />
+                                <label for="plan_day_<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></label>
+                                <input type="radio" id="plan_day_<?php echo($i); ?>"value="<?php echo($i); ?>" name="plan_day_group" />
                                 <?php
                             }
                             ?>
