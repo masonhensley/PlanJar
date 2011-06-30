@@ -9,6 +9,8 @@ function initialize_plan_modal() {
         $('#plan_day [value=' + get_selected_day() + ']').click();
         $('#create_plan_content').show('fast');
     });
+    
+    $('#plan_location').select();
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();
@@ -18,8 +20,6 @@ function initialize_plan_modal() {
     $('#plan_location').autocomplete({
         minLength: 2,
         source: function (request, response) {
-            response({label: 'foo', value: 'foo', id: '3'})
-            console.log('responded');
             // Get places from the PlanJar server.
             $.get('/home/find_places', {
                 needle: request.term,

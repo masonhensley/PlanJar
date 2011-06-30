@@ -23,6 +23,7 @@
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
 
         <title>PlanJar | Home</title>
     </head>
