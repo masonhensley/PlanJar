@@ -146,7 +146,8 @@ function show_data_container(data_div) {
     if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
     
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
-        $(data_div).show('slide', {}, 'slow', function () {
+        hide_data_containers();
+        $(data_div).show('slide', {}, 'fast', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
             google.maps.event.trigger(map, 'resize');
             map_user_position();
