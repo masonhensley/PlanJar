@@ -249,18 +249,17 @@ class Home extends CI_Controller
             $category = $plan->category;
             $time = $plan->time_of_day;
             $date = date('l', strtotime($plan->plan_date));
-            if($date_organizer != $date)
+            if ($date_organizer != $date)
             {
                 echo "<hr>";
                 echo $date . "<br>";
                 echo "<hr>";
             }
             $date_organizer = $date;
-            ?> 
-
-                <div class ="plan_content" plan_id="<?php echo $id; ?>" ><?php
+            echo "<div class =\"plan_content\" plan_id=\" echo $id; ?>\" >";
             echo $name;
             echo "</div>";
+            echo "<div id=\"plan_padding\" style =\"width:100%; height:5px;\"></div>";
         }
         echo "</div>";
     }
