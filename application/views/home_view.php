@@ -56,7 +56,7 @@
 
                 <div id="map_data" class ="data_container">
                     <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
-                    <div id="map" style="width: 100%"></div>
+                    <div id="map"></div>
                 </div>
                 <div id="group_data" class ="data_container"></div>
                 <div id="plan_data" class ="data_container"></div>

@@ -121,6 +121,11 @@ body{
     display: none;
 }
 
+#map {
+    width: 100%;
+    height: 300px;
+}
+
 .days_panel{
     width:100%;
     height:30px;
