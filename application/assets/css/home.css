@@ -165,7 +165,7 @@ body{
 .top_left_plans{
     float:left;
     width:49%;
-    height:100%;
+    height:600px;
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
