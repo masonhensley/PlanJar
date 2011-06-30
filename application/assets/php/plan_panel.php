@@ -1,4 +1,4 @@
-<div id="plan_content">
+<div id="create_plan_content">
 
     <form id="make_plan">
         <table>
