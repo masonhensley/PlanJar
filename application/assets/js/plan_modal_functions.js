@@ -7,10 +7,11 @@ function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
         $('#plan_day [value=' + get_selected_day() + ']').click();
+        $('#plan_location').select();
+        $('#create_plan_content input [type="hidden"], #create_plan_content input [type="hidden"]').val('');
+        
         $('#create_plan_content').show('fast');
     });
-    
-    $('#plan_location').select();
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();
