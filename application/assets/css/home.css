@@ -93,6 +93,7 @@ body{
 .data_tab {
     position:relative;    
     float:left;
+    border-top: 1px inset black;
     margin-right:5px;
     width:100px;
     height:100%;
