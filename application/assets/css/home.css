@@ -1,6 +1,4 @@
 /*--------------GLOBAL ---------------- */
-
-
 body{
     background-color: #F8F8F8 ;
 }
@@ -9,7 +7,7 @@ body{
 .top_panel{
     height: 40px;
     width:100%;
-    background-color:  purple;
+    background-color:#F0F8FF;
 }
 
 .inside_top_panel{
