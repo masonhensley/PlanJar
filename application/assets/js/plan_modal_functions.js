@@ -9,6 +9,7 @@ function initialize_plan_modal() {
         $('#plan_day [value=' + get_selected_day() + ']').click();
         $('#plan_location').select();
         $('#create_plan_content input[type="text"], #create_plan_content input[type="hidden"]').val('');
+        $('#plan_location, #plan_category').blur();
         
         $('#create_plan_content').show('fast');
     });
