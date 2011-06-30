@@ -108,7 +108,7 @@ function show_change_location_panel() {
 function hide_change_location_panel() {
     $('div.change_location_panel').hide('fast');
         
-    $('#map_tab').animate({
+    $('#map_data').animate({
         height: $('#plan_data').height()
     });
     
