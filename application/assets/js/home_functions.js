@@ -91,7 +91,7 @@ function load_visible_plans(){
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
     }, function (data) {
-        $('#visible_plans_panel').html(data); 
+        $('.top_left_plans').html(data); 
     });
 }
 
