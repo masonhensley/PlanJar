@@ -161,7 +161,7 @@ function map_user_position() {
     map_marker_array.push(new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude),
         map: map,
-        title: 'Your location!'
+        title: 'Your location'
     }));
     
     map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));

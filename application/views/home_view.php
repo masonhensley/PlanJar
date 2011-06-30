@@ -33,11 +33,11 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <div class ="top_panel_page_span">
-                    <div id="using_location" style="float: left"></div>
+                    <div id="using_location" style="float:left; position:relative; top:15px;"></div>
                     <div class="top_links">
-                        <a href="/home/logout" style="color:white;">Log out</a>
-                        <a href="#" id="change_location" style="color:white">Change location</a>
-                        <a href="#" id="view_current_location" style="color: white;">View current location</a>
+                        <a href="/home/logout" style="color:white; text-decoration: none;">Log out</a>
+                        <a href="#" id="change_location" style="color:white; text-decoration: none;">Change location</a>
+                        <a href="#" id="view_current_location" style="color: white; text-decoration: none;">View current location</a>
                     </div>
                 </div>
             </div>
