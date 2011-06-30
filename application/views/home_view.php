@@ -33,7 +33,9 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <div class ="top_panel_page_span">
-                    <div id="using_location" style="float:left; position:relative; top:15px;"></div>
+                    <div id="using_location" style="float:left; position:relative; top:15px;">
+                        Hello, <?php echo " " . $username; ?>
+                    </div>
                     <div class="top_links">
                         <a href="/home/logout" style="color:white; text-decoration: none;">Log out</a>
                         <a href="#" id="change_location" style="color:white; text-decoration: none;">Change location</a>
