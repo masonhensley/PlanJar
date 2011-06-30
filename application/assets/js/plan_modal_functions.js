@@ -6,7 +6,7 @@ $(function() {
 function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
-        $('#plan_content').show('fast');
+        $('#create_plan_content').show('fast');
     });
     
 //    // Start the plan dialog box closed.
