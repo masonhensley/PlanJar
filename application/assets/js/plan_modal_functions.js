@@ -18,6 +18,8 @@ function initialize_plan_modal() {
     $('#plan_location').autocomplete({
         minLength: 2,
         source: function (request, response) {
+            response({label: 'foo', value: 'foo', id: '3'})
+            consolg.log('responded');
             // Get places from the PlanJar server.
             $.get('/home/find_places', {
                 needle: request.term,
@@ -58,8 +60,7 @@ function initialize_plan_modal() {
                     value: '',
                     id: ''
                 });
-                response(response_json);
-                //response(temp);
+                response(temp);
                     
                 if (place_limit > 0) {
                     // If additional places are required, fetch places from Factual. Pick fields needed
