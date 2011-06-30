@@ -33,7 +33,7 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <div class ="planjar_logo_box">
-                    <a href="/home/logout" style="color:white;">Log out</a>
+                    <a href="/home/logout" style="color:white;">Log out</a><br/>
                     <a href="#" id="change_location" style="color:white">Change location</a>
                     <a href="#" id="view_current_location" style="color: white;">View current location</a>
                 </div>
