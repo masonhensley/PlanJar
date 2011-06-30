@@ -7,6 +7,6 @@ function show_selected_location() {
        $('.selected_location').removeClass('selected_location');
        $(this).addClass('selected_location');
        hide_data_containers();
-       show_data_container('#plan_data');   
+       show_data_container('#location_data');  
     });
 }
