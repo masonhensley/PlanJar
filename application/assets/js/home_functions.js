@@ -73,12 +73,7 @@ function mapThisGoogle(latitude,longitude)
         
     map = new google.maps.Map(document.getElementById("map"), myOptions);
             
-    var temp_marker = new google.maps.Marker({
-        position: myLatlng, 
-        map: map, 
-        draggable: true,
-        title:"Your location!"
-    });
+    map_user_position();
     
     // Add the marker to the marker list.
     map_marker_array.push(temp_marker);
@@ -154,4 +149,18 @@ function show_data_container(data_div) {
             google.maps.event.trigger(map, 'resize');
         });
     }
+}
+
+// Puts the user's position on the map and centers to it.'
+function map_user_position() {
+    clear_map_markers();
+    
+    map_marker_array.push(new google.maps.Marker({
+        position: new google.maps.LatLng(myLatitude, myLongitude),
+        map: map,
+        title: 'Your location!'
+    }));
+    
+    map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
+    map.setZoom(14);
 }
