@@ -24,7 +24,6 @@ function initialize_plan_modal() {
                 latitude: myLatitude,
                 longitude: myLongitude
             }, function (data) {
-                console.log(data);
                 // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
                 item_selected = false;
                 
@@ -50,6 +49,7 @@ function initialize_plan_modal() {
                             id: item.id
                         };
                     });
+                    console.log(response_json);
                 }
                 
                 // Call the response function with the a copy of the response JSON.
