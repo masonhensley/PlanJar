@@ -153,7 +153,7 @@ class Load_plans extends CI_Model
 
             $location_ids = array();  // Use this variable to store the location ids that are shown to prevent duplicates
             // populate the
-            echo "<hr/><br/>";
+
             foreach ($evaluated_plans as $plan)
             {
                 if (!in_array($plan->place_id, $location_ids))
@@ -162,6 +162,7 @@ class Load_plans extends CI_Model
                     ?>
                     <div class = "plan_shown">
                         <?php
+                        echo "<hr/><br/>";
                         echo $plan->name;
                         echo "<br/><hr/>";
                         
