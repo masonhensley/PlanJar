@@ -109,6 +109,11 @@ body{
     color: white;
 }
 
+.change_location_panel {
+    display: none;
+    height: 45px;
+}
+
 .data_container{   
     position:relative;
     width: 598px;
