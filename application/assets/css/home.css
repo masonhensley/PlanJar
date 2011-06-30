@@ -212,8 +212,8 @@ body{
     text-align:center;
 }
 
-.plan_shown_selected{
-    
+.selected_location{
+    background-color:lightgoldenrodyellow;
 }
 
 /* ------------------ RIGHT PANEL -----------------------*/

@@ -16,6 +16,7 @@
         <script type="text/javascript" src="/application/assets/js/plan_modal_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
+        <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -63,9 +64,9 @@
                 </div>
                 <div class="top_left_plans"></div>
                 <div class="ad_box">
+                    <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/>
                 </div>
                 <div class="bottom_left_plans">
-                    <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/>
                 </div>
                 <div class="bottom_right_plans"></div>              
             </div>

@@ -162,7 +162,7 @@ class Load_plans extends CI_Model
                     $location_ids[] = $plan->place_id;
                     ?>
                     <div class = "plan_shown">
-                        <div id="number_rank" style="float:left; width:10px; height:10px;"><?php echo $plan_tracker; $plan_tracker++; ?></div>
+                        <div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center"><?php echo $plan_tracker; $plan_tracker++; ?></div>
                         <?php
                         echo "<hr/>";
                         echo $plan->name; 
