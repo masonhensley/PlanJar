@@ -164,7 +164,7 @@ class Load_plans extends CI_Model
                         <?php
                         echo "<hr/>";
                         echo $plan->name; 
-                        echo "<br/> - x friends attending - view map ";
+                        echo " - x friends attending -";
                         echo "<br/><hr/>";
                         
                         ?>
