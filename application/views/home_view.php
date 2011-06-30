@@ -34,7 +34,7 @@
             <div class = "inside_top_panel">
                 <div class ="top_panel_page_span">
                     <div class="top_links">
-                    <a href="/home/logout" style="color:white;">Log out</a><br/>
+                    <a href="/home/logout" style="color:white;">Log out</a>
                     <a href="#" id="change_location" style="color:white">Change location</a>
                     <a href="#" id="view_current_location" style="color: white;">View current location</a>
                     
