@@ -10,7 +10,7 @@ function initialize_plan_modal() {
         $('#create_plan_content').show('fast');
     });
     
-    $('#plan_location').select();
+    $('#plan_location').click();
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();
