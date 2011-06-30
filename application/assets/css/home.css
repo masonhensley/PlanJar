@@ -17,10 +17,13 @@ body{
     margin-right: auto;
 }
 
-.planjar_logo_box{
+.top_panel_page_span{
+    text-align:center;
     margin-right: 0px;
     height: 100%;
 }
+
+.top
 
 /* -----------------MAIN CONTAINER ----------------------*/
 .container{
