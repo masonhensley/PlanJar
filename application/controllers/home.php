@@ -186,7 +186,6 @@ class Home extends CI_Controller
 
         $query = $this->db->insert('plans', $data);
 
-        echo($this->db->last_query());
         if ($query)
         {
             echo('success');
