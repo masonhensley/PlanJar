@@ -6,6 +6,11 @@ var current_day_offset = 0;
 $(function() {
     // places map
     location_data();
+    
+    $('#view_current_location').click(function () {
+        show_data_container('#map_data');
+       map_user_position(); 
+    });
 });
 
 var initialLocation;
@@ -73,15 +78,7 @@ function mapThisGoogle(latitude,longitude)
         
     map = new google.maps.Map(document.getElementById("map"), myOptions);
             
-    var temp_marker = new google.maps.Marker({
-        position: myLatlng, 
-        map: map, 
-        draggable: true,
-        title:"Your location!"
-    });
-    
-    // Add the marker to the marker list.
-    map_marker_array.push(temp_marker);
+    map_user_position();
 }
 
 // populates the popular location main panel
@@ -154,4 +151,18 @@ function show_data_container(data_div) {
             google.maps.event.trigger(map, 'resize');
         });
     }
+}
+
+// Puts the user's position on the map and centers to it.'
+function map_user_position() {
+    clear_map_markers();
+    
+    map_marker_array.push(new google.maps.Marker({
+        position: new google.maps.LatLng(myLatitude, myLongitude),
+        map: map,
+        title: 'Your location!'
+    }));
+    
+    map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
+    map.setZoom(14);
 }
