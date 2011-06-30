@@ -209,7 +209,6 @@ class Home extends CI_Controller
     {
         $this->load->database();
         $plan = $this->input->get('plan_selected');
-        ?> <script>alert(<?php echo $plan; ?>)</script> <?php
         $this->load->model('load_plans');
         $return = $this->load_plans->loadPlanData($plan);
         echo $return;
