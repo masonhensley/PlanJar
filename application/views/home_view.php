@@ -31,6 +31,7 @@
             <div class = "inside_top_panel">
                 <div class ="planjar_log_box">
                 </div>
+                <a href="/home/logout">Log out.</a>
             </div>
         </div>
         <div class ="container">

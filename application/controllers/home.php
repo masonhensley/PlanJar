@@ -270,13 +270,13 @@ class Home extends CI_Controller
         $new_lat = $this->input->get('latitude');
         $new_long = $this->input->get('longitude');
 
-        echo("$new_lat $new_long");
-
         $user = $this->ion_auth->get_user();
 
         $result = $this->ion_auth->update_user($user->id, array(
                     'latitude' => $new_lat,
                     'longitude' => $new_long));
+
+        echo("$user->latitude / $user->longitude");
 
         if ($result)
         {
