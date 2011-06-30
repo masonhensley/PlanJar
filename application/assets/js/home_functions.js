@@ -144,7 +144,10 @@ function hide_data_containers() {
 function show_data_container(data_div) {
     // Only show a container if it's not already selected.
     if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
-        hide_data_containers();
+        // Hide the data containers quickly (no animation).
+        $('.tab_bar .data_tab').removeClass('tab_selected');
+        $('.data_container').hide('blind', {}, 'fast');
+    
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
         $(data_div).show('blind', {}, 'fast', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
