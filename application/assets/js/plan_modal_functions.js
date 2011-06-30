@@ -18,7 +18,11 @@ function initialize_plan_modal() {
         $('#create_plan_content').hide();
     })
     
+    // Make it draggable (with a handler).
     $('#create_plan_content').draggable({handle: '.draggable_title_bar'});
+    
+    // Buttonset
+    $('#create_plan_content .radio').buttonset();
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();
