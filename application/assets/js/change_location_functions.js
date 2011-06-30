@@ -92,7 +92,7 @@ function initialize_change_location_panel() {
 
 // Shows the panel.
 function show_change_location_panel() {
-    if ($('.chane_location_panel').css('display') == 'none') {
+    if ($('.change_location_panel').css('display') == 'none') {
         // Switch to the map tab.
         show_data_container('#map_data');
         $('#map_data').animate({
