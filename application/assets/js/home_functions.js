@@ -146,7 +146,7 @@ function show_data_container(data_div) {
     if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
         // Hide the data containers quickly (no animation).
         $('.tab_bar .data_tab').removeClass('tab_selected');
-        $('.data_container').hide('blind', {}, 'fast');
+        $('.data_container').hide();
     
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
         $(data_div).show('blind', {}, 'fast', function () {
