@@ -144,10 +144,20 @@ function hide_data_containers() {
 function show_data_container(data_div) {
     // Only show a container if it's not already selected.
     if (!$('.tab_bar [assoc_div="' + data_div + '"]').hasClass('tab_selected')) {
-    
+        
+        // If the wrapper is hidden, show it.
+        if ($('.data_container_wrapper').css('display') == 'none') {
+            $('.data_container_wrapper').show('blind', {}, 'fast');
+        }
+        
+        // Hide all data containers.
+        $('.data_container').hide('slide', {}, 'fast');
+        
+        // Select the appropriate tab.
         $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
-        hide_data_containers();
-        $(data_div).show('drop', {}, 'fast', function () {
+        
+        // Show the appropriate container
+        $(data_div).show('slide', {}, 'fast', function () {
             // Resize the map after the animation finishes to eliminate the missing tile erros.
             google.maps.event.trigger(map, 'resize');
             map_user_position();

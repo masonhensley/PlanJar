@@ -47,7 +47,7 @@
                         My Groups
                     </div>
 
-                <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
+                    <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
                 </div>
                 <div class ="center">
                     <div class="tab_bar">
@@ -58,17 +58,20 @@
                     </div>
 
                     <div id="map_data" class ="data_container">
-                    <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
+                        <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                         <div id="map"></div>
                     </div>
-                    <div id="group_data" class ="data_container"></div>
-                    <div id="plan_data" class ="data_container"></div>
-                    <div id="location_data" class ="data_container"></div>
+
+                    <div class="data_container_wrapper">
+                        <div id="group_data" class ="data_container"></div>
+                        <div id="plan_data" class ="data_container"></div>
+                        <div id="location_data" class ="data_container"></div>
+                    </div>
 
                     <div class="days_panel">
                         <div class="left_day_arrow"></div>
                         <div class="right_day_arrow"></div>
-                    <?php include(APPPATH . '/assets/php/weekday_panel.php'); ?>
+                        <?php include(APPPATH . '/assets/php/weekday_panel.php'); ?>
                     </div>
                     <div class="top_left_plans"></div>
                     <div class="ad_box">
@@ -84,6 +87,6 @@
                     <div class="plans_wrapper"></div>
                 </div>
             </div>
-        <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
+            <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
     </body>
 </html>
