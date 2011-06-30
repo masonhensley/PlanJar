@@ -3,7 +3,6 @@ $(function() {
 });
 
 function show_selected_location() {
-    
     $('div.plan_shown').click(function() {
         alert('success');
        $('.selected_location').removeClass('selected_loactoin');
