@@ -6,6 +6,7 @@ $(function() {
 function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
+        console.log(get_selected_day());
         $('#plan_day [value=' + get_selected_day() + ']').click();
         $('#create_plan_content').show('fast');
     });
@@ -228,8 +229,17 @@ function initialize_plan_modal() {
             });
         },
         errorPlacement: function (error, element) {
+            // Don't show errors.
             return true;
         }
+    });
+    
+    // Force the plan location and category fields to be chosen from the autocomplete.
+    $('#plan_location').blur(function() {
+        lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name');
+    });
+    $('#plan_category').blur(function() {
+        lock_to_autocomplete('#plan_category', '#plan_category_id', '#plan_category_name');
     });
 }
 
@@ -249,17 +259,6 @@ function lock_to_autocomplete(textbox_name, id_name, name_name) {
         // only a chosen item can be submitted.
         $(textbox_name).val($(name_name).val());
     }
-    
-    // Force the plan location and category fields to be chosen from the autocomplete.
-    $('#plan_location').blur(function() {
-        lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name');
-    });
-    $('#plan_category').blur(function() {
-        lock_to_autocomplete('#plan_category', '#plan_category_id', '#plan_category_name');
-    });
-    
-    // Select today.
-    $('#plan_day :first').click();
 }
 
 function get_distance_between(lat0, long0, lat1, long1) {
