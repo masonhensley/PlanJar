@@ -244,10 +244,10 @@ body{
 }
 
 .active_plans{
-    
+    background-color: lightblue;
 }
 
 .selected_plan{
-    background-color: grey;
+    background-color: white;
     color: purple;
 }
