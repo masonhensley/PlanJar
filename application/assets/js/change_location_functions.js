@@ -6,7 +6,7 @@ $(function() {
 function initialize_change_location_panel() {
     // Assign the click event(s).
     $('#change_location').click(function () {
-        return false;
+        alert('here');
         show_change_location_panel();
         return false;
     });
