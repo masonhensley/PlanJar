@@ -169,7 +169,7 @@ class Home extends CI_Controller
             'category_id' => $this->input->get('plan_category_id')
         );
 
-// Add the place to the database if a Factual place was selected.
+        // Add the place to the database if a Factual place was selected.
         if ($this->input->get('new_place_name') != '')
         {
             $query_string = "INSERT INTO places VALUES (DEFAULT, ?, ?, ?, ?)";
@@ -180,12 +180,13 @@ class Home extends CI_Controller
                         $this->input->get('new_place_category')
                     ));
 
-// Overwrite the place id with the new place.
+            // Overwrite the place id with the new place.
             $data['place_id'] = $this->db->insert_id();
         }
 
         $query = $this->db->insert('plans', $data);
 
+        echo($this->db->last_query());
         if ($query)
         {
             echo('success');
