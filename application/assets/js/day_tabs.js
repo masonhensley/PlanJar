@@ -30,6 +30,15 @@ function setup_day_tabs() {
             return false;
         });
     });
+    
+    // Left and right arrows
+    $('.left_day_arrow').click(function () {
+        if ($('.day:first').attr('day_offset') != 0) {
+            
+        } else {
+            alert('nope');
+        }
+    });
 }
 
 // Callback function
