@@ -1,0 +1,77 @@
+/* ---------- GLOBAL ------------*/
+body{
+    background-color: #F3F6FF;
+    margin: 0px;
+}
+
+/* ---------- TOP PANEL ----------- */
+.top_panel{
+    height: 40px;
+    width:100%;
+    background-color:#4682B4;
+}
+
+.inside_top_panel{
+    width:1024px;
+    height:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top_links{
+    width:100%;
+    text-align: right;
+    height:100%;
+    position:relative;
+    top:10px;
+}
+
+/* ---------- CONTAINER ---------- */
+
+.container{
+    position:relative;
+    top:10px;
+    width:1024px;
+    height:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#F3F6FF;
+}
+
+.tab_container{
+    width:100%;
+    height:40px;
+   background-color:#F3F6FF;
+}
+
+.tab{
+    width:100px;
+    height:100%;
+    margin-right: 10px;
+    display: inline-block;
+    background-color:lightgreen;
+    border: 1px solid black;
+}
+
+.page_content{
+    position:relative;
+    top:1px;
+    width:100%;
+    height:100%;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.left{
+    width:50%;
+    float:left;
+    height:100%;
+    background-color:white;
+}
+
+.right{
+    width:50%;
+    height:100%;
+    float:right;
+    background-color: white;
+}
