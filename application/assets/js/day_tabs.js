@@ -17,7 +17,9 @@ function initialize_day_tabs() {
     
     $('.right_day_arrow').click(function () {
         var current_offset = $('.day:first').attr('day_offset');
-        get_new_days(parseInt(current_offset) + 7);
+        $('.seven_days').hide('slide', {}, 'fast', function() {
+            get_new_days(parseInt(current_offset) + 7);
+        });
     });
 }
 
