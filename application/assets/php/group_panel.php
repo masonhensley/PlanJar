@@ -1,5 +1,5 @@
-<input type="button" id="select_all_groups" value="Select all"/>
-<input type="button" id="clear_all_groups" value="Clear all"/>
+<input type="button" id="select_all_groups" value="Select all" style="position:relative; top: 5px;"/>
+<input type="button" id="clear_all_groups" value="Clear all" style="position:relative; top: 5px;"/>
 <div id="group_padding" style="width:100%; height:10px;"></div>
 <div class="groups_wrapper">
     <div class="selectable_group" group_id="friends">Friends</div>
