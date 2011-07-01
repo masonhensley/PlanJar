@@ -6,7 +6,10 @@ $(function() {
 function initialize_change_location_panel() {
     // Assign the click event(s).
     $('#change_location').click(function () {
-        show_change_location_panel();
+        if ($('.change_location_panel').css('display') == 'none') {
+            // Switch to the map tab.
+            show_data_container('#map_data', show_change_location_panel);
+        }
         return false;
     });
     
@@ -85,18 +88,14 @@ function initialize_change_location_panel() {
 
 // Shows the panel.
 function show_change_location_panel() {
-    if ($('.change_location_panel').css('display') == 'none') {
-        // Switch to the map tab.
-        show_data_container('#map_data');
-        $('.data_container_wrapper').animate({
-            height: ($('.change_location_panel').height() + 300) + 'px'
-        });
+    $('.data_container_wrapper').animate({
+        height: ($('.change_location_panel').height() + 300) + 'px'
+    });
     
-        $('.change_location_panel').show('fast');
+    $('.change_location_panel').show('fast');
     
-        // Auto-select the search box.
-        $('#change_location_search').select();
-    }
+    // Auto-select the search box.
+    $('#change_location_search').select();
 }
 
 // Hides the panel.
