@@ -176,6 +176,7 @@ class Load_plans extends CI_Model
                 $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
                 $number_of_friends_query .= ")";
                 $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
+                var_dump($number_of_friends_query);
                 $result = $this->db->query($plan_query);
                 //$number_of_friends_result = $result->result();
                 $friend_count = $result->num_rows();
@@ -186,7 +187,7 @@ class Load_plans extends CI_Model
                         $plan_tracker++; ?></div><?php
                 echo "<hr/>";
                 echo $plan;
-                echo "<br/>$friend_count friends attending";
+                echo "<br/>$friend_count attending";
                 echo "<br/><hr/>";
                         ?>
                 </div>
