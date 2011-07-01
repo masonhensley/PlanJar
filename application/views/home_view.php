@@ -44,6 +44,7 @@
                 </div>
 
             </div>
+        </div>
             <div class ="container">
                 <div class ="left">
                     <div class="left_header">
