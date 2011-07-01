@@ -45,51 +45,51 @@
 
             </div>
         </div>
-            <div class ="container">
-                <div class ="left">
-                    <div class="left_header">
-                        My Groups
-                    </div>
-                    
-                    <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
+        <div class ="container">
+            <div class ="left">
+                <div class="left_header">
+                    My Groups
                 </div>
-                <div class ="center">
-                    <div class="tab_bar">
-                        <div class="data_tab" assoc_div="#group_data">Group Data</div>
-                        <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
-                        <div class="data_tab" assoc_div="#location_data">Location Data</div>
-                        <div class="data_tab" assoc_div="#map_data">Map</div>
-                    </div>
 
-                    <div class="data_container_wrapper">
-                        <div id="group_data" class ="data_container"></div>
-                        <div id="plan_data" class ="data_container"></div>
-                        <div id="location_data" class ="data_container"></div>
-                        <div id="map_data" class ="data_container">
-                            <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
-                            <div id="map"></div>
-                        </div>
-                    </div>
-
-                    <div class="days_panel">
-                        <div class="left_day_arrow"></div>
-                        <div class="right_day_arrow"></div>
-                        <div class="seven_days"></div>
-                    </div>
-                    <div class="top_left_plans">Popular Locations</div>
-                    <div class="ad_box">
-                        <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/>
-                    </div>
-
-                    <div class="bottom_right_plans"></div>              
-                </div>
-                <div class ="right">
-                    <div class ="right_header">
-                        My Plans <input type="button" id="create_plan" value="+"/>
-                    </div>
-                    <div class="plans_wrapper"></div>
-                </div>
+                <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
             </div>
-            <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
+            <div class ="center">
+                <div class="tab_bar">
+                    <div class="data_tab" assoc_div="#group_data">Group Data</div>
+                    <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
+                    <div class="data_tab" assoc_div="#location_data">Location Data</div>
+                    <div class="data_tab" assoc_div="#map_data">Map</div>
+                </div>
+
+                <div class="data_container_wrapper">
+                    <div id="group_data" class ="data_container"></div>
+                    <div id="plan_data" class ="data_container"></div>
+                    <div id="location_data" class ="data_container"></div>
+                    <div id="map_data" class ="data_container">
+                        <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
+                        <div id="map"></div>
+                    </div>
+                </div>
+
+                <div class="days_panel">
+                    <div class="left_day_arrow"><</div>
+                    <div class="right_day_arrow">></div>
+                    <div class="seven_days"></div>
+                </div>
+                <div class="top_left_plans">Popular Locations</div>
+                <div class="ad_box">
+                    <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/>
+                </div>
+
+                <div class="bottom_right_plans"></div>              
+            </div>
+            <div class ="right">
+                <div class ="right_header">
+                    My Plans <input type="button" id="create_plan" value="+"/>
+                </div>
+                <div class="plans_wrapper"></div>
+            </div>
+        </div>
+        <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
     </body>
 </html>
