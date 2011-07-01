@@ -154,33 +154,42 @@ class Load_plans extends CI_Model
             $evaluated_plans = $evaluated_plans->result();
 
             $location_ids = array();  // Use this variable to store the location ids that are shown to prevent duplicates
-            foreach($evaluated_plans as $plan)
-            {
-                if(!in_array($plan->place_id, $location_ids))
-                {
-                    $location_ids[] = $plan->place_id;
-                }
-            }
-            
-            $plan_tracker = 1; // keeps track of what plan number
-
             foreach ($evaluated_plans as $plan)
             {
                 if (!in_array($plan->place_id, $location_ids))
                 {
-                    $location_ids[] = $plan->place_id;
-                    ?>
-                    <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
-                            <?php echo $plan_tracker;
-                            $plan_tracker++; ?></div><?php
-                    echo "<hr/>";
-                    echo $plan->name;
-                    echo "<br/>x friends attending";
-                    echo "<br/><hr/>";
-                            ?>
-                    </div>
-                    <?php
+                    $location_ids["$plan->place_id"] = "$plan->name";
                 }
+            }
+
+            $plan_tracker = 1; // keeps track of what plan number
+
+            foreach ($location_ids as $id => $plan)
+            {
+                $number_of_friends_query = "SELECT plans.user_id, plans.place_id, friends.user_id FROM plans LEFT JOIN friends ON ";
+                foreach ($id_array as $ids)
+                {
+                    $number_of_friends_query .= "plans.user_id=$ids OR "; // contsruct the "or" clauses to check all user ids for everything selected
+                }
+                $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
+                $number_of_friends_query .= "WHERE plans.place_id=$id AND plans.plan_date=$return_date";
+                
+                $number_of_friends_query = $this->db->query($plan_query);
+                $number_of_friends_query = $number_of_friends_query->result();
+                
+                $friend_count = mysql_num_rows($number_of_friends_query);
+                
+                ?>
+                <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
+                        <?php echo $plan_tracker;
+                        $plan_tracker++; ?></div><?php
+                echo "<hr/>";
+                echo $plan->name;
+                echo "<br/>$friend_count friends attending";
+                echo "<br/><hr/>";
+                        ?>
+                </div>
+                <?php
             }
         }
     }
