@@ -169,6 +169,7 @@ function show_data_container_helper(data_div) {
     if ($(data_div).css('display') == 'none') {
         console.log('invisible. hiding visible containers');
         
+        console.log($('.data_container:visible').length);
         // Hide any visible data containers.
         $('.data_container:visible').hide('slide', {}, 'fast', function() {
             console.log('finished hiding containers. showing container');
