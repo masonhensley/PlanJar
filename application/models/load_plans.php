@@ -70,7 +70,7 @@ class Load_plans extends CI_Model
         $category at $name <br/>
         $time_of_day <br/>
         $date </div><br/><br/><div style=\"width:100%; font-size: 20px; height:40px; text-align:center;\">Invite Friends<br>Delete Plan</div>";
-        
+
 
         return $htmlString;
     }
@@ -157,22 +157,21 @@ class Load_plans extends CI_Model
             $location_ids = array();  // Use this variable to store the location ids that are shown to prevent duplicates
             // populate the
             $plan_tracker = 1;
-            
+
             foreach ($evaluated_plans as $plan)
             {
                 if (!in_array($plan->place_id, $location_ids))
                 {
                     $location_ids[] = $plan->place_id;
                     ?>
-                    <div class = "plan_shown">
-                        <div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center"><?php echo $plan_tracker; $plan_tracker++; ?></div>
-                        <?php
-                        echo "<hr/>";
-                        echo $plan->name; 
-                        echo "<br/>x friends attending";
-                        echo "<br/><hr/>";
-                        
-                        ?>
+                    <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
+                            <?php echo $plan_tracker;
+                            $plan_tracker++; ?></div><?php
+                    echo "<hr/>";
+                    echo $plan->name;
+                    echo "<br/>x friends attending";
+                    echo "<br/><hr/>";
+                            ?>
                     </div>
                     <?php
                 }
