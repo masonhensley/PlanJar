@@ -23,8 +23,9 @@ a{
 
 .top_panel_left{
     height:100%;
-    width:50%;
+    width:300px;
     float:left;
+    text-align: center;
 }
 
 .inside_top_panel{
