@@ -1,6 +1,12 @@
 /*--------------GLOBAL ---------------- */
 body{
-    background-color: #C6DEFF ;
+    background-color: lightgray;
+}
+
+a{
+    color:white; text-decoration: none;
+    padding:5px;
+    border: 1px solid white;
 }
 
 /* ---------- TOP PANEL ----------- */
