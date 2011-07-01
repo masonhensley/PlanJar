@@ -8,7 +8,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <!-- CSS -->
-        <link rel=stylesheet href="/application/assets/css/dashboard_style.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
 
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs_functions.js"></script>
