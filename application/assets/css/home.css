@@ -10,6 +10,12 @@ a{
     border: 1px solid white;
 }
 
+/* This is for the div class = "text", not a global operator */
+.text{
+    position:relative;
+    top:10px;
+}
+
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     height: 40px;
