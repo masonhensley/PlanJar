@@ -35,7 +35,7 @@
                 <div class ="top_panel_page_span">
                     <div id="show_name" style="float:left; position:relative; ">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <div id="using_location" style="float:left; position:relative; top:15px;">
-                        
+
                     </div>
                     <div class="top_links">
                         <a href="/home/logout" style="">Log out</a>
@@ -60,15 +60,14 @@
                         <div class="data_tab" assoc_div="#map_data">Map</div>
                     </div>
 
-                    <div id="map_data" class ="data_container">
-                        <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
-                        <div id="map"></div>
-                    </div>
-
                     <div class="data_container_wrapper">
                         <div id="group_data" class ="data_container"></div>
                         <div id="plan_data" class ="data_container"></div>
                         <div id="location_data" class ="data_container"></div>
+                        <div id="map_data" class ="data_container">
+                            <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
+                            <div id="map"></div>
+                        </div>
                     </div>
 
                     <div class="days_panel">
