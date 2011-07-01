@@ -93,5 +93,8 @@
             </div>
         </div>
         <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
+        <div class="bottom_links">
+            Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
+        </div>
     </body>
 </html>
