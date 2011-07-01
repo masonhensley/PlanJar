@@ -41,5 +41,5 @@ function get_plan_data() {
 // this is for when a plan is deselected for whatever reason
 function show_empty_plan_data()
 {
-    $('#plan_data').html('Select a plan on the right to see more information.'); 
+    $('#plan_data').html('Select a plan on the right to see more information. Success Yo'); 
 }
