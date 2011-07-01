@@ -156,20 +156,21 @@ function show_data_container(data_div) {
 
 // Displays the data panel within the wrapper
 function show_data_container_helper(data_div) {
+    // Select the appropriate tab.
+    $('.tab_bar .data_tab').removeClass('tab_selected');
+    $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
+    
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
+        
         // Hide any visible data containers.
-        $('.data_container :visible').hide('slide', {}, 'fast');
-        
-        // Select the appropriate tab.
-        $('.tab_bar .data_tab').removeClass('tab_selected');
-        $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
-        
-        // Show the appropriate container
-        $(data_div).show('slide', {}, 'fast', function () {
-            // Resize the map after the animation finishes to eliminate the missing tile erros.
-            google.maps.event.trigger(map, 'resize');
-            map_user_position();
+        $('.data_container:visible').hide('slide', {}, 'fast', function() {
+            // Show the appropriate container
+            $(data_div).show('slide', {}, 'fast', function () {
+                // Resize the map after the animation finishes to eliminate the missing tile erros.
+                google.maps.event.trigger(map, 'resize');
+                map_user_position();
+            });
         });
     }
 }
