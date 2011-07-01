@@ -300,5 +300,22 @@ class Home extends CI_Controller
                         * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
     }
 
+    // Returns a set of 7 weekday tabs based on the supplied parameter.
+    public function get_weekday_tab_set()
+    {
+        $start = $this->input->get('starting_offset');
+
+        $div_string = '<div class="day" day_offset="' . $start . '"><div class="day_text">Today</div></div>';
+
+        $date = new DateTime();
+        for ($i = 1; $i < 7; ++$i)
+        {
+            $date->add(new DateInterval('P1D'));
+            $div_string .= '<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $date->format('D - j') . '</div></div>';
+        }
+        
+        echo($div_string);
+    }
+
 }
 ?>

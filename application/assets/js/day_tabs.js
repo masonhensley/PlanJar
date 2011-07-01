@@ -4,6 +4,13 @@ $(function() {
 
 // Initializes the day of the week tabs.
 function setup_day_tabs() {
+    // Populate the initial days.
+    $.get('/home/get_weekday_tab_set', {
+        starting_offset: 0
+    }, function (data) {
+        $('.seven_days').html(data);
+    });
+    
     // Set up the day of the week tabs.
     $("div.days_panel .day:first").addClass("day_selected").select(); //Activate first tab
 

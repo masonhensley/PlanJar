@@ -38,6 +38,7 @@ function location_data() {
                     if (data != 'success') {
                         alert(data);
                         map_user_position();
+                        show_data_container('#map_data');
                     }
                 });
                 
@@ -175,6 +176,8 @@ function show_data_container_helper(data_div, callback) {
         } else {
             show_data_container_helper_2(data_div, callback);
         }
+    } else {
+        callback();
     }
 }
 
