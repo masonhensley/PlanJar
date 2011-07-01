@@ -194,6 +194,12 @@ a{
     background-color: white;
 }
 
+.seven_days {
+    float: left;
+    height: 100%;
+    width: 300px;
+}
+
 .top_left_plans{
     float:left;
     width:49%;
