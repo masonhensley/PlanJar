@@ -33,7 +33,7 @@ function initialize_change_location_panel() {
     google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
     
     // Get data when the input is changed.
-    $('#change_location_search').change(function () {
+    $('#change_location_search').bind('keyup', function () {
         var places_request = {
             location: new google.maps.LatLng(myLatitude, myLongitude),
             radius: 1000,
