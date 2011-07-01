@@ -23,7 +23,7 @@ function initialize_plan_panel(){
             $(this).removeClass('selected_plan');
             // replace with a select plan message
             //var replace_div = "<div id=\"plan_data_tab\" style=\"background-color: white; color:black; width: 555px; height:250px;\"> <p>Select one of your plans on the right to see more detailed information.</p></div>";
-            $('#plan_data').html('Select a plan on the right to see more information.'); 
+            show_empty_plan_data();
         }
     });   
 }
@@ -36,4 +36,10 @@ function get_plan_data() {
         // Replace the data and show the data tab.
         $('#plan_data').html(data);
     });
+}
+
+// this is for when a plan is deselected for whatever reason
+function show_empty_plan_data()
+{
+    $('#plan_data').html('Select a plan on the right to see more information.'); 
 }

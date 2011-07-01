@@ -72,7 +72,6 @@
                         <div id="map"></div>
                     </div>
                 </div>
-
                 <div class="days_panel">
                     <div class="left_day_arrow"><</div>
                     <div class="right_day_arrow">></div>
