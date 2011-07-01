@@ -114,12 +114,12 @@ a{
     margin-right:5px;
     width:100px;
     height:100%;
-    background-color:#F3F6FF;
+    background-color:#DFFFD1;
     text-align: center;
 }
 
 .tab_selected {
-    background-color: purple;
+    background-color: #56AD8C;
     color: white;
 }
 
