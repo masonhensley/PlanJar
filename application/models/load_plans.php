@@ -132,7 +132,7 @@ class Load_plans extends CI_Model
                         {
                             if (!in_array($ids, $id_array) && $ids != $user_id)
                             {
-                                $id_array[] = $ids;
+                                $id_array[] = $ids; // contsruct the list of ids with no duplicates for any of the groups or friends
                             }
                         }
                     }
@@ -146,17 +146,23 @@ class Load_plans extends CI_Model
 
             foreach ($id_array as $id)
             {
-                $plan_query .= "plans.user_id=$id OR ";
+                $plan_query .= "plans.user_id=$id OR "; // contsruct the "or" clauses to check all user ids for everything selected
             }
-            $plan_query = substr($plan_query, 0, strlen($plan_query) - 4);
+            $plan_query = substr($plan_query, 0, strlen($plan_query) - 4); // This cuts off the last "OR" and adds ")"
             $plan_query .= ")";
             $evaluated_plans = $this->db->query($plan_query);
             $evaluated_plans = $evaluated_plans->result();
 
-
             $location_ids = array();  // Use this variable to store the location ids that are shown to prevent duplicates
-            // populate the
-            $plan_tracker = 1;
+            foreach($evaluated_plans as $plan)
+            {
+                if(!in_array($plan->place_id, $location_ids))
+                {
+                    $location_ids[] = $plan->place_id;
+                }
+            }
+            
+            $plan_tracker = 1; // keeps track of what plan number
 
             foreach ($evaluated_plans as $plan)
             {
