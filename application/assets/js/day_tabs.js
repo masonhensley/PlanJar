@@ -9,26 +9,26 @@ function setup_day_tabs() {
         starting_offset: 0
     }, function (data) {
         $('.seven_days').html(data);
-    });
-    
-    // Set up the day of the week tabs.
-    $("div.days_panel .day:first").addClass("day_selected").select(); //Activate first tab
-
-    //On Click Event
-    $("div.days_panel .day").click(function() {
-
-        $('.selected_plan').removeClass('selected_plan'); // remove selected plan on right panel
-
-        $("div.days_panel .day_selected").removeClass("day_selected"); //Remove any "day_selected" class
-        $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
-        // Call the callback function.
-        on_day_change();
+        // Set up the day of the week tabs.
+        $("div.days_panel .day:first").addClass("day_selected").select(); //Activate first tab
+
+        //On Click Event
+        $("div.days_panel .day").click(function() {
+
+            $('.selected_plan').removeClass('selected_plan'); // remove selected plan on right panel
+
+            $("div.days_panel .day_selected").removeClass("day_selected"); //Remove any "day_selected" class
+            $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
         
-        // update the visible plans for the selected day
-        load_visible_plans();
+            // Call the callback function.
+            on_day_change();
         
-        return false;
+            // update the visible plans for the selected day
+            load_visible_plans();
+        
+            return false;
+        });
     });
 }
 
