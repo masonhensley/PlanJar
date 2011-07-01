@@ -168,14 +168,14 @@ class Load_plans extends CI_Model
 
             foreach ($location_ids as $id => $plan)
             {
-                $number_of_friends_query = "SELECT plans.user_id, plans.place_id FROM plans WHERE (";
+                $number_of_friends_query = "SELECT user_id, place_id FROM plans WHERE (";
                 foreach ($id_array as $ids)
                 {
-                    $number_of_friends_query .= "plans.user_id=$ids OR "; // contsruct the "or" clauses to check all user ids for everything selected
+                    $number_of_friends_query .= "user_id=$ids OR "; // contsruct the "or" clauses to check all user ids for everything selected
                 }
                 $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
                 $number_of_friends_query .= ")";
-                $number_of_friends_query .= " AND plans.place_id=$id AND plans.plan_date=$return_date";
+                $number_of_friends_query .= " AND place_id=$id AND plan_date=\'$return_date\'";
                 $result = $this->db->query($plan_query);
                 $number_of_friends_result = $result->result();
                 var_dump($number_of_friends_query);
