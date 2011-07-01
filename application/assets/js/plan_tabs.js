@@ -22,8 +22,8 @@ function initialize_plan_panel(){
         }else{
             $(this).removeClass('selected_plan');
             // replace with a select plan message
-            var replace_div = "<div id=\"plan_data_tab\" style=\"background-color: white; color:black; width: 555px; height:250px;\"> <p>Select one of your plans on the right to see more detailed information.</p></div>";
-            $('#plan_data').html(replace_div); 
+            //var replace_div = "<div id=\"plan_data_tab\" style=\"background-color: white; color:black; width: 555px; height:250px;\"> <p>Select one of your plans on the right to see more detailed information.</p></div>";
+            $('#plan_data').html('Select a plan on the right to see more information.'); 
         }
     });   
 }
