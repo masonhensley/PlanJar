@@ -1,6 +1,19 @@
 $(function() {
-    show_data_container('#friends_content');
+    initialize_dashboard_tabs();
 });
+
+// Initializes the map/data tabs.
+function initialize_dashboard_tabs() {
+    // Initial select
+    show_data_container('#friends_content');
+                
+    // Click handler.
+    $('.tab_container .tab').click(function () {
+        if (!$(this).hasClass('tab_selected')) {
+            show_data_container($(this).attr('assoc_div'))
+        }
+    });
+}
 
 // Shows the data container specified in the argument.
 function show_data_container(data_div, callback) {
