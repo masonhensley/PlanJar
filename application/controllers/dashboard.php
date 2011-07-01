@@ -37,6 +37,11 @@ class Dashboard extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
+    
+    // Return HTML for the users the user is following.
+    public function get_following() {
+        $query_string = "SELECT ";
+    }
 
 }
 

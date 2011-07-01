@@ -9,6 +9,7 @@
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
 
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs_functions.js"></script>
@@ -30,7 +31,17 @@
             </div>
 
             <div id="friends_content" class="page_content">
-                <div class="left">
+                <div class="radio">
+                    <center>
+                        <label for="friends_following">Following</label>
+                        <input type="radio" id="friends_following" value="following" name="following_follower_group"/>
+                        <label for="friends_followers">Followers</label>
+                        <input type="radio" id="friends_followers" value="followers" name="following_follower_group"/>
+                    </center>
+                </div>
+                <hr/>
+
+                <div class="friends_list">
                 </div>
                 <div class="right">
                 </div>
