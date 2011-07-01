@@ -307,6 +307,7 @@ class Home extends CI_Controller
 
         $date = new DateTime();
         $date->add(new DateInterval('P' . $start . 'D'));
+        
         for ($i = 0; $i < 7; ++$i)
         {
             if ($start == 0 && $i == 0) {
@@ -315,7 +316,7 @@ class Home extends CI_Controller
                 $display_date = $date->format('D - j');
             }
             
-            $div_string .= '<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>';
+            echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
             $date->add(new DateInterval('P1D'));
         }
 
