@@ -176,10 +176,10 @@ class Load_plans extends CI_Model
                 $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
                 $number_of_friends_query .= ")";
                 $number_of_friends_query .= " AND plans.place_id=$id AND plans.plan_date=$return_date";
-                $number_of_friends_query = $this->db->query($plan_query);
-                $number_of_friends_result = $number_of_friends_query->result();
+                $result = $this->db->query($plan_query);
+                $number_of_friends_result = $result->result();
                 var_dump($number_of_friends_query);
-                $friend_count = $number_of_friends_query->num_rows;
+                $friend_count = $number_of_friends_result->num_rows;
                 
                 ?>
                 <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
