@@ -179,7 +179,7 @@ class Load_plans extends CI_Model
                 var_dump($number_of_friends_query);
                 $result = $this->db->query($plan_query);
                 $friend_count = $result->num_rows();
-                
+                var_dump($friend_count);
                 ?>
                 <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
                         <?php echo $plan_tracker;
