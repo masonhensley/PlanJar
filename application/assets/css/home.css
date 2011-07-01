@@ -11,7 +11,7 @@ a{
 }
 
 /* This is for the div class = "text", not a global operator */
-.text{
+.day_text{
     position:relative;
     top:5px;
 }
