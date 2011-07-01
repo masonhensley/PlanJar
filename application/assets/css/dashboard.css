@@ -68,15 +68,15 @@ body{
     display: none;
 }
 
-.left{
-    width:50%;
+.friends_list{
+    width:30%;
     float:left;
     height:100%;
     background-color:white;
 }
 
 .right{
-    width:50%;
+    width:70%;
     height:100%;
     float:right;
     background-color: white;
