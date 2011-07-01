@@ -28,6 +28,7 @@ function show_data_container(data_div, callback) {
         
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
+        console.log('not visible');
         if ($('.page_content:visible').length > 0) {
             // Hide any visible data containers.
             $('.page_content:visible').hide('slide', {}, 'fast', function() {
