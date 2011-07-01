@@ -3,6 +3,12 @@ body{
     background-color: lightgray;
 }
 
+a{
+    color:white; text-decoration: none;
+    padding:5px;
+    border: 1px solid white;
+}
+
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     height: 40px;
