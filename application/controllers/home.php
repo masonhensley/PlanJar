@@ -198,11 +198,17 @@ class Home extends CI_Controller
 // Returns chart data based on the selected groups and day
     public function get_group_day_data()
     {
-        echo('<p>selected groups ^^' .
-        var_dump($this->input->get('selected_groups')) .
-        '</p><p>selected day: ' .
-        $this->input->get('selected_day') .
-        '</p>');
+        $selected_groups = $this->input->get('selected_groups');
+        $selected_day = $this->input->get('selected_day');
+
+        if ($selected_groups)
+        {
+            var_dump($selected_groups);
+            echo('Selected groups ^^<br/>Selected day: ' . $selected_day);
+        } else
+        {
+            echo('Select groups on the left to see more information.');
+        }
     }
 
     public function load_selected_plan_data()
@@ -307,15 +313,17 @@ class Home extends CI_Controller
 
         $date = new DateTime();
         $date->add(new DateInterval('P' . $start . 'D'));
-        
+
         for ($i = 0; $i < 7; ++$i)
         {
-            if ($start == 0 && $i == 0) {
+            if ($start == 0 && $i == 0)
+            {
                 $display_date = 'Today';
-            } else {
+            } else
+            {
                 $display_date = $date->format('D - j');
             }
-            
+
             echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
             $date->add(new DateInterval('P1D'));
         }
