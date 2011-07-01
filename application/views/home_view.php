@@ -50,7 +50,7 @@
                     <div class="left_header">
                         My Groups
                     </div>
-                    <br/>
+                    
                     <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
                 </div>
                 <div class ="center">
