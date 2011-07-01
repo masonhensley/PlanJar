@@ -7,6 +7,8 @@ function initialize_selectable_groups() {
     $('.groups_wrapper .selectable_group').click(function() {
         // unselect plan on right panel
         $('.plan_content').removeClass('selected_plan');
+        // clear the plan data
+        show_empty_plan_data();
         
         // Make the list items togglable.
         if ($(this).hasClass('selected_group')) {
