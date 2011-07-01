@@ -165,7 +165,7 @@ class Load_plans extends CI_Model
             }
 
             $plan_tracker = 1; // keeps track of what plan number
-
+            $friend_count = 0;
             foreach ($location_ids as $id => $plan)
             {
                 $number_of_friends_query = "SELECT user_id, place_id FROM plans WHERE (";
@@ -178,7 +178,6 @@ class Load_plans extends CI_Model
                 $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
                 var_dump($number_of_friends_query);
                 $result = $this->db->query($plan_query);
-                //$number_of_friends_result = $result->result();
                 $friend_count = $result->num_rows();
                 
                 ?>
