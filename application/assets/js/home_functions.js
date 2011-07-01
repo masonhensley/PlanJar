@@ -176,6 +176,8 @@ function show_data_container_helper(data_div, callback) {
         } else {
             show_data_container_helper_2(data_div, callback);
         }
+    } else {
+        callback();
     }
 }
 
