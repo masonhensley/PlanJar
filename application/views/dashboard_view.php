@@ -22,20 +22,23 @@
         </div>
         <div class="container">
             <div class="tab_container">
-                <div class="tab" assoc_div="">Friends</div>
-                <div class="tab" assoc_div="groups">Groups</div>
-                <div class="tab" assoc_div="plans">Plans</div>
-                <div class="tab" assoc_div="profile">Profile</div>
-                <div class="tab" assoc_div="settings">Settings</div>
+                <div class="tab" assoc_div="friends_content">Friends</div>
+                <div class="tab" assoc_div="groups_content">Groups</div>
+                <div class="tab" assoc_div="plans_content">Plans</div>
+                <div class="tab" assoc_div="profile_content">Profile</div>
+                <div class="tab" assoc_div="settings_content">Settings</div>
             </div>
-            
-            <div class = "page_content">
+
+            <div id="friends_content" class="page_content">
                 <div class="left">
                 </div>
-
                 <div class="right">
-                </div> 
+                </div>
             </div>
+            <div id="groups_content" class="page_content"></div>
+            <div id="plans_content" class="page_content"></div>
+            <div id="profile_content" class="page_content"></div>
+            <div id="settings_content" class="page_content"></div>
         </div>
     </body>
 </html>
