@@ -34,13 +34,13 @@ function show_data_container(data_div, callback) {
             // Hide any visible data containers.
             $('.page_content:visible').hide('slide', {}, 'fast', function() {
                 // Show the panel.
-                $(data_div).show('slide', {}, 'fast', function () {
+                $(data_div).show('fold', {}, 'slow', function () {
                     callback();
                 });
             });
         } else {
             // Show the panel.
-            $(data_div).show('slide', {}, 'fast', function () {
+            $(data_div).show('fold', {}, 'fast', function () {
                 callback();
             });
         }
