@@ -84,7 +84,7 @@ class Load_plans extends CI_Model
         $index = 0;  // index used to access $group_list
         $id_array = array(); // an array of all the user ids that will be included in the pull
 
-        if (isset($group_list[0]))
+        if (isset($group_list[0])) //  group_list is a list of group ids selected
         {
             // first get a list of ids to find plans with and append it to the id_array
             if (in_array("friends", $group_list))
@@ -103,7 +103,7 @@ class Load_plans extends CI_Model
             {
                 if ($group_list[$index] != "friends")
                 {
-                    $group_ids_selected[] = $group_list[$index];
+                    $group_ids_selected[] = $group_list[$index]; // populate an array of selected group ids
                 }
                 $index++;
             }
@@ -125,20 +125,21 @@ class Load_plans extends CI_Model
                 $query_result = $this->db->query($group_query);
                 foreach ($query_result->result() as $row)
                 {
-                    $row = json_decode($row->joined_users);
-                    if (isset($row))
+                    $row = json_decode($row->joined_users); 
+                    if (isset($row)) // for each list of user ids joined in a group selected, add them to id_array
                     {
                         foreach ($row as $ids)
                         {
                             if (!in_array($ids, $id_array) && $ids != $user_id)
                             {
-                                $id_array[] = $ids; // contsruct the list of ids with no duplicates for any of the groups or friends
+                                $id_array[] = $ids; // contsruct the list of ids with no duplicates for any of the groups and friends that are selected
                             }
                         }
                     }
                 }
             }
 
+            // generate query to pull relevant locations for the groups selected
             $plan_query = "SELECT plans.place_id, plans.user_id, plans.plan_date, plans.time_of_day, plans.category_id, places.id, places.name
                 FROM plans
                 LEFT JOIN places ON plans.place_id=places.id
@@ -148,6 +149,7 @@ class Load_plans extends CI_Model
             {
                 $plan_query .= "plans.user_id=$id OR "; // contsruct the "or" clauses to check all user ids for everything selected
             }
+            
             $plan_query = substr($plan_query, 0, strlen($plan_query) - 4); // This cuts off the last "OR" and adds ")"
             $plan_query .= ")";
             $evaluated_plans = $this->db->query($plan_query);
@@ -166,16 +168,17 @@ class Load_plans extends CI_Model
 
             foreach ($location_ids as $id => $plan)
             {
-                $number_of_friends_query = "SELECT plans.user_id, plans.place_id, friends.user_id FROM plans LEFT JOIN friends ON ";
+                $number_of_friends_query = "SELECT plans.user_id, plans.place_id FROM plans WHERE ";
                 foreach ($id_array as $ids)
                 {
-                    $number_of_friends_query .= "plans.user_id=$ids OR "; // contsruct the "or" clauses to check all user ids for everything selected
+                    $number_of_friends_query .= "(plans.user_id=$ids OR "; // contsruct the "or" clauses to check all user ids for everything selected
                 }
                 $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
-                $number_of_friends_query .= " WHERE plans.place_id=$id AND plans.plan_date=$return_date";
+                $number_of_friends_query .= ")";
+                $number_of_friends_query .= " AND plans.place_id=$id AND plans.plan_date=$return_date";
                 $number_of_friends_query = $this->db->query($plan_query);
                 $number_of_friends_result = $number_of_friends_query->result();
-                
+                var_dump($number_of_friends_query);
                 $friend_count = $number_of_friends_query->num_rows;
                 
                 ?>
