@@ -10,7 +10,8 @@ function initialize_dashboard_tabs() {
     // Click handler.
     $('.tab_container .tab').click(function () {
         if (!$(this).hasClass('tab_selected')) {
-            show_data_container($(this).attr('assoc_div'))
+            console.log('to show: ' + $(this).attr('assoc_div'));
+            show_data_container($(this).attr('assoc_div'));
         }
     });
 }
