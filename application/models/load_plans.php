@@ -184,7 +184,7 @@ class Load_plans extends CI_Model
                         <?php echo $plan_tracker;
                         $plan_tracker++; ?></div><?php
                 echo "<hr/>";
-                echo $plan->name;
+                echo $plan;
                 echo "<br/>$friend_count friends attending";
                 echo "<br/><hr/>";
                         ?>
