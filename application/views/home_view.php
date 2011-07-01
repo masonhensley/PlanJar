@@ -74,7 +74,7 @@
                     <div class="days_panel">
                         <div class="left_day_arrow"></div>
                         <div class="right_day_arrow"></div>
-                        <?php include(APPPATH . '/assets/php/weekday_panel.php'); ?>
+                        <div class="seven_days"></div>
                     </div>
                     <div class="top_left_plans">Popular Locations</div>
                     <div class="ad_box">
