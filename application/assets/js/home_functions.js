@@ -146,10 +146,13 @@ function hide_data_containers() {
 function show_data_container(data_div) {
     // If no tab is selected, show the wrapper.
     if (!$('.tab_bar .data_tab').hasClass('tab_selected')) {
+        console.log('no selected tabs. showing wrapper');
         $('.data_container_wrapper').show('blind', {}, 'fast', function () {
+            console.log('wrapper shown. continuing')
             show_data_container_helper(data_div);
         });
     } else {
+        console.log('tab already selected. continuing');
         show_data_container_helper(data_div);
     }
 }
@@ -159,6 +162,8 @@ function show_data_container_helper(data_div) {
     // Select the appropriate tab.
     $('.tab_bar .data_tab').removeClass('tab_selected');
     $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
+    
+    console.log($('.tab_bar [assoc_div="' + data_div + '"]') + ' selected');
     
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
