@@ -24,7 +24,7 @@ function show_data_container(data_div, callback) {
     
     // Select the appropriate tab.
     $('.tab_container .tab').removeClass('tab_selected');
-    $('.tab_container [assoc_div="' + data_div + '"]').addClass('tab_selected');
+    $('.tab_container .tab[assoc_div="' + data_div + '"]').addClass('tab_selected');
         
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
