@@ -99,12 +99,12 @@ $config['remember_users'] = true;
 /**
  * How long to remember the user (seconds)
  * */
-$config['user_expire'] = 86500;
+$config['user_expire'] = 345600;
 
 /**
  * Extend the users cookies everytime they auto-login
  * */
-$config['user_extend_on_login'] = false;
+$config['user_extend_on_login'] = true;
 
 /**
  * Type of email to send (HTML or text)
