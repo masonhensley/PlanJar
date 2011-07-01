@@ -178,10 +178,6 @@ class Load_plans extends CI_Model
                 $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
                 $result = $this->db->query($number_of_friends_query);
                 $count = $result->num_rows();
-                //var_dump($count);
-                
-                
-          
                 
                 ?>
                 <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
