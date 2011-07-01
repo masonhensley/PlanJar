@@ -143,19 +143,24 @@ function hide_data_containers() {
 }
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
-function show_data_container(data_div) {
+function show_data_container(data_div, callback) {
     // If no tab is selected, show the wrapper.
     if (!$('.tab_bar .data_tab').hasClass('tab_selected')) {
         $('.data_container_wrapper').show('blind', {}, 'fast', function () {
-            show_data_container_helper(data_div);
+            show_data_container_helper(data_div, callback);
         });
     } else {
-        show_data_container_helper(data_div);
+        show_data_container_helper(data_div, callback);
     }
 }
 
 // Displays the data panel within the wrapper
-function show_data_container_helper(data_div) {
+function show_data_container_helper(data_div, callback) {
+    // Make callback optional.
+    if (callback === undefined) {
+        callback = function() {};
+    }
+    
     // Select the appropriate tab.
     $('.tab_bar .data_tab').removeClass('tab_selected');
     $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
@@ -165,18 +170,20 @@ function show_data_container_helper(data_div) {
         if ($('.data_container:visible').length > 0) {
             // Hide any visible data containers.
             $('.data_container:visible').hide('slide', {}, 'fast', function() {
-                show_data_container_helper_2(data_div);
+                show_data_container_helper_2(data_div, callback);
             });
         } else {
-            show_data_container_helper_2(data_div);
+            show_data_container_helper_2(data_div, callback);
         }
     }
 }
 
 // Shows the correct container and resizes the map.
-function show_data_container_helper_2(data_div) {
+function show_data_container_helper_2(data_div, callback) {
     // Show the appropriate container
     $(data_div).show('slide', {}, 'fast', function () {
+        callback();
+        
         // Resize the map after the animation finishes to eliminate the missing tile errors.
         google.maps.event.trigger(map, 'resize');
         map_user_position();
