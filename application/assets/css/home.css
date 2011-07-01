@@ -1,6 +1,6 @@
 /*--------------GLOBAL ---------------- */
 body{
-    background-color: #F8F8F8 ;
+    background-color: #C6DEFF ;
 }
 
 /* ---------- TOP PANEL ----------- */
@@ -24,8 +24,11 @@ body{
 }
 
 .top_links{
-    width:595px;
-    text-align: center;
+    width:100%;
+    text-align: right;
+    height:100%;
+    position:relative;
+    top:15px;
 }
 
 /* -----------------MAIN CONTAINER ----------------------*/
