@@ -173,7 +173,7 @@ class Load_plans extends CI_Model
                 }
                 $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
                 $number_of_friends_query .= "WHERE plans.place_id=$id AND plans.plan_date=$return_date";
-                var_dump($plan_query);
+                var_dump($number_of_friends_query);
                 $number_of_friends_query = $this->db->query($plan_query);
                 $number_of_friends_result = $number_of_friends_query->result();
                 
