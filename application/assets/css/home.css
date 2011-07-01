@@ -56,6 +56,7 @@ a{
     min-height: 800px;
     border: 1px solid black;
     background-color: white;
+    text-align: center;
 }
 
 .left_header{
@@ -68,6 +69,9 @@ a{
 
 .group_label {
     font-size: 1.3em;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .selectable_group {
