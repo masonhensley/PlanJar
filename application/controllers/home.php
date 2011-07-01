@@ -319,8 +319,6 @@ class Home extends CI_Controller
             echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
             $date->add(new DateInterval('P1D'));
         }
-
-        echo($div_string);
     }
 
 }
