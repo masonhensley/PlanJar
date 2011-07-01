@@ -11,7 +11,7 @@ function initialize_friends_list() {
         populate_following();
     });
     $('#friends_following').click(function() {
-        populate_followers
+        populate_followers();
     });
 }
 
