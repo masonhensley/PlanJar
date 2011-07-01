@@ -17,7 +17,6 @@ function initialize_day_tabs() {
     
     $('.right_day_arrow').click(function () {
         var current_offset = $('.day:first').attr('day_offset');
-        console.log(current_offset);
         get_new_days(parseInt(current_offset) + 7);
     });
 }
@@ -53,7 +52,7 @@ function on_day_change() {
 
 function get_new_days(offset) {
     $.get('/home/get_weekday_tab_set', {
-        starting_offset: 0
+        starting_offset: offset
     }, function (data) {
         $('.seven_days').html(data);
         initialize_day_tab_rules();
