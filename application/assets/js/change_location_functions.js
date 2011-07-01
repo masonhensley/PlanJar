@@ -152,6 +152,7 @@ function get_max_marker(lat_lng) {
 
 // Handles a change of location marker click
 function change_location_marker_click(mouse_event) {
+    alert('clicked');
     // Update the user's coordinates.
     $.get('/home/update_user_location', {
         auto: false,
