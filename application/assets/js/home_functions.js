@@ -137,7 +137,7 @@ function clear_map_markers () {
 // Hides all data containers
 function hide_data_containers() {
     $('.tab_bar .data_tab').removeClass('tab_selected');
-    $('.data_container').hide('slide', {}, 'fast', function () {
+    $('.data_container:visible').hide('slide', {}, 'fast', function () {
         $('data_container_wrapper').hide('blind', {}, 'fast');
     });
 }
