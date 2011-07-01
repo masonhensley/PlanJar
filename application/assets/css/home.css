@@ -13,7 +13,7 @@ a{
 /* This is for the div class = "text", not a global operator */
 .text{
     position:relative;
-    top:10px;
+    top:5px;
 }
 
 /* ---------- TOP PANEL ----------- */
@@ -100,7 +100,7 @@ a{
     height:30px;
     position:relative;
     border-bottom: 1px solid black;
-    background-color:#F8F8F8;
+    background-color:#F3F6FF;
 }
 
 .data_tab {
