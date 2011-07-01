@@ -167,12 +167,16 @@ function show_data_container_helper(data_div) {
     
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
+        console.log('invisible. hiding visible containers');
         
         // Hide any visible data containers.
         $('.data_container:visible').hide('slide', {}, 'fast', function() {
+            console.log('finished hiding containers. showing container');
+            
             // Show the appropriate container
             $(data_div).show('slide', {}, 'fast', function () {
-                // Resize the map after the animation finishes to eliminate the missing tile erros.
+                console.log('finished showing container');
+                // Resize the map after the animation finishes to eliminate the missing tile errors.
                 google.maps.event.trigger(map, 'resize');
                 map_user_position();
             });
