@@ -53,6 +53,11 @@ body{
     border: 1px solid black;
 }
 
+.tab_selected {
+    background-color: purple;
+    color: white;
+}
+
 .page_content{
     position:relative;
     top:1px;
@@ -60,6 +65,7 @@ body{
     height:100%;
     border: 1px solid black;
     background-color: white;
+    display: none;
 }
 
 .left{
