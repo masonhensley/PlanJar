@@ -103,7 +103,7 @@ function show_change_location_panel() {
 function hide_change_location_panel() {
     $('div.change_location_panel').hide('fast');
         
-    $('#data_container_wrapper').animate({
+    $('.data_container_wrapper').animate({
         height: '300px'
     });
     
