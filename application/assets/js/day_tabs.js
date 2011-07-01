@@ -36,7 +36,7 @@ function setup_day_tabs() {
         var current_offset = $('.day:first').attr('day_offset');
         if (current_offset != 0) {
             $.get('/home/get_weekday_tab_set', {
-                starting_offset: current_offset - 7
+                starting_offset: parseInt(current_offset) - 7
             }, function(data) {
                 $('.seven_days').html(data);
             });
@@ -45,7 +45,7 @@ function setup_day_tabs() {
     $('.right_day_arrow').click(function () {
         var current_offset = $('.day:first').attr('day_offset');
         $.get('/home/get_weekday_tab_set', {
-            starting_offset: current_offset + 7
+            starting_offset: parseInt(current_offset) + 7
         }, function(data) {
             $('.seven_days').html(data);
         });

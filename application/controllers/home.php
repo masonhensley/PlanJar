@@ -305,15 +305,20 @@ class Home extends CI_Controller
     {
         $start = $this->input->get('starting_offset');
 
-        $div_string = '<div class="day" day_offset="' . $start . '"><div class="day_text">Today</div></div>';
-
         $date = new DateTime();
-        for ($i = 1; $i < 7; ++$i)
+        $date->add(new DateInterval('P' . $start . 'D'));
+        for ($i = 0; $i < 7; ++$i)
         {
+            if ($start == 0 && $i == 0) {
+                $display_date = 'Today';
+            } else {
+                $display_date = $date->format('D - j');
+            }
+            
+            $div_string .= '<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>';
             $date->add(new DateInterval('P1D'));
-            $div_string .= '<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $date->format('D - j') . '</div></div>';
         }
-        
+
         echo($div_string);
     }
 
