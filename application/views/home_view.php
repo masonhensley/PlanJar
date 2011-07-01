@@ -76,7 +76,7 @@
                         <div class="right_day_arrow"></div>
                         <?php include(APPPATH . '/assets/php/weekday_panel.php'); ?>
                     </div>
-                    <div class="top_left_plans">Top Locations</div>
+                    <div class="top_left_plans">Popular Locations</div>
                     <div class="ad_box">
                         <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/>
                     </div>
