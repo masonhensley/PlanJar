@@ -33,11 +33,22 @@ function setup_day_tabs() {
     
     // Left and right arrows
     $('.left_day_arrow').click(function () {
-        if ($('.day:first').attr('day_offset') != 0) {
-            
-        } else {
-            alert('nope');
+        var current_offset = $('.day:first').attr('day_offset');
+        if (current_offset != 0) {
+            $.get('/home/get_weekday_tab_set', {
+                starting_offset: current_offset - 7
+            }, function(data) {
+                $('.seven_days').html(data);
+            });
         }
+    });
+    $('.right_day_arrow').click(function () {
+        var current_offset = $('.day:first').attr('day_offset');
+        $.get('/home/get_weekday_tab_set', {
+            starting_offset: current_offset + 7
+        }, function(data) {
+            $('.seven_days').html(data);
+        });
     });
 }
 
@@ -47,4 +58,3 @@ function on_day_change() {
     get_group_day_data();
     load_visible_plans()
 }
-
