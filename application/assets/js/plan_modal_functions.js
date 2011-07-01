@@ -98,7 +98,6 @@ function initialize_plan_modal() {
                         data: options,
                         dataType: 'jsonp',
                         success : function(data) {
-                            console.log(data);
                             if (data.status != 'ok') {
                                 alert('factual error');
                             } else {
@@ -128,7 +127,8 @@ function initialize_plan_modal() {
                                             name: item[2],
                                             latitude: item[15],
                                             longitude: item[16],
-                                            'category': category
+                                            'category': category,
+                                            factual_id: item[1]
                                         });
                                     }); 
                                 } else {
@@ -158,17 +158,19 @@ function initialize_plan_modal() {
             $('#plan_location_id').val(ui.item.id);
             $('#plan_location_name').val(ui.item.value);
             
-            // Set the additional hidden fields only if the selected place is from Factual.
+            // Clear and set the additional hidden fields only if the selected place is from Factual.
             $('#new_place_name').val('');
             $('#new_place_category').val('');
             $('#new_place_latitude').val('');
             $('#new_place_longitude').val('');
+            $('#new_place_factual_id').val('');
             
             if (ui.item.name != undefined) {
                 $('#new_place_name').val(ui.item.name);
                 $('#new_place_category').val(ui.item.category);
                 $('#new_place_latitude').val(ui.item.latitude);
                 $('#new_place_longitude').val(ui.item.longitude);
+                $('#new_place_factual_id').val(ui.item.factual_id);
             }
         }
     });

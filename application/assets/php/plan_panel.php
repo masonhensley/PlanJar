@@ -83,6 +83,7 @@
             <input id="new_place_category" name="new_place_category" type="hidden"/>
             <input id="new_place_latitude" name="new_place_latitude" type="hidden"/>
             <input id="new_place_longitude" name="new_place_longitude" type="hidden"/>
+            <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
         </form>
     </center>
 </div>

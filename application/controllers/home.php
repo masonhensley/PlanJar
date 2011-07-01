@@ -172,18 +172,31 @@ class Home extends CI_Controller
         // Add the place to the database if a Factual place was selected.
         if ($this->input->get('new_place_name') != '')
         {
-            $query_string = "INSERT INTO places VALUES (DEFAULT, ?, ?, ?, ?)";
-            $query = $this->db->query($query_string, array(
-                        $this->input->get('new_place_name'),
-                        $this->input->get('new_place_latitude'),
-                        $this->input->get('new_place_longitude'),
-                        $this->input->get('new_place_category')
-                    ));
+            // If the Factual ID was already in the database, use the ID of that entry instead of creating a new place.
+            $query_string = "SELECT id FROM places WHERE factual_id = ?";
+            $query = $this->db->query($query_string, array($this->input->get('new_place_factual_id')));
+            if ($query->num_rows() > 0)
+            {
+                $row = $query->row();
+                $data['place_id'] = $row->id;
+            } else
+            {
+                // Add the new place.
+                $query_string = "INSERT INTO places VALUES (DEFAULT, ?, ?, ?, ?, ?)";
+                $query = $this->db->query($query_string, array(
+                            $this->input->get('new_place_factual_id'),
+                            $this->input->get('new_place_name'),
+                            $this->input->get('new_place_latitude'),
+                            $this->input->get('new_place_longitude'),
+                            $this->input->get('new_place_category')
+                        ));
 
-            // Overwrite the place id with the new place.
-            $data['place_id'] = $this->db->insert_id();
+                // Overwrite the place id with the new place.
+                $data['place_id'] = $this->db->insert_id();
+            }
         }
 
+        // Add the plan.
         $query = $this->db->insert('plans', $data);
 
         if ($query)
