@@ -88,8 +88,8 @@ function show_change_location_panel() {
     if ($('.change_location_panel').css('display') == 'none') {
         // Switch to the map tab.
         show_data_container('#map_data');
-        $('#map_data').animate({
-            height: ($('#plan_data').height() + $('.change_location_panel').height()) + 'px'
+        $('.data_container_wrapper').animate({
+            height: ($('#plan_data').height() + 300) + 'px'
         });
     
         $('.change_location_panel').show('fast');
@@ -104,7 +104,7 @@ function hide_change_location_panel() {
     $('div.change_location_panel').hide('fast');
         
     $('#map_data').animate({
-        height: $('#plan_data').height()
+        height: '300px'
     });
     
     clear_map_markers();

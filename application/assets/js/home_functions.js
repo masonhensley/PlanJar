@@ -138,7 +138,6 @@ function clear_map_markers () {
 function hide_data_containers() {
     $('.tab_bar .data_tab').removeClass('tab_selected');
     $('.data_container:visible').hide('slide', {}, 'fast', function () {
-        console.log('hiding wrapper');
         $('.data_container_wrapper').hide('blind', {}, 'fast');
     });
 }
