@@ -175,7 +175,7 @@ class Load_plans extends CI_Model
                 $number_of_friends_query .= "WHERE plans.place_id=$id AND plans.plan_date=$return_date";
                 
                 $number_of_friends_query = $this->db->query($plan_query);
-                $number_of_friends_query = $number_of_friends_query->result();
+                $number_of_friends_result = $number_of_friends_query->result();
                 
                 $friend_count = mysql_num_rows($number_of_friends_query);
                 
