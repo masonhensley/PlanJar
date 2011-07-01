@@ -32,8 +32,13 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <div id="show_name" style="float:left; position:relative; ">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
-                <div id="using_location" style="float:left; position:relative; top:15px;">Using location:</div>
+                <div class ="top_panel_left">
+                    <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
+                    <div id="location_conainer_top">
+                        <div id="using_location">Using location:</div>
+                    </div>
+                </div>
+
                 <div class="top_links">
                     <a href="#" id="change_location" style="color:white; text-decoration: none;">Change location |</a>
                     <a href="#" id="view_current_location" style="color: white; text-decoration: none;">View current location |</a>

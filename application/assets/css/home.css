@@ -21,6 +21,12 @@ a{
     background-color:#4682B4;
 }
 
+.top_panel_left{
+    height:100%;
+    width:50%;
+    float:left;
+}
+
 .inside_top_panel{
     width:1024px;
     height:100%;
