@@ -169,20 +169,26 @@ function show_data_container_helper(data_div) {
     if ($(data_div).css('display') == 'none') {
         console.log('invisible. hiding visible containers');
         
-        console.log($('.data_container:visible').length);
-        // Hide any visible data containers.
-        $('.data_container:visible').hide('slide', {}, 'fast', function() {
-            console.log('finished hiding containers. showing container');
-            
-            // Show the appropriate container
-            $(data_div).show('slide', {}, 'fast', function () {
-                console.log('finished showing container');
-                // Resize the map after the animation finishes to eliminate the missing tile errors.
-                google.maps.event.trigger(map, 'resize');
-                map_user_position();
+        if ($('.data_container:visible').length > 0) {
+            // Hide any visible data containers.
+            $('.data_container:visible').hide('slide', {}, 'fast', function() {
+                show_data_container_helper_2();
             });
-        });
+        } else {
+            show_data_container_helper_2();
+        }
     }
+}
+
+// Shows the correct container and resizes the map.
+function show_data_container_helper_2() {
+    // Show the appropriate container
+    $(data_div).show('slide', {}, 'fast', function () {
+        console.log('finished showing container');
+        // Resize the map after the animation finishes to eliminate the missing tile errors.
+        google.maps.event.trigger(map, 'resize');
+        map_user_position();
+    });
 }
 
 // Puts the user's position on the map and centers to it.'
