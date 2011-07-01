@@ -172,16 +172,16 @@ function show_data_container_helper(data_div) {
         if ($('.data_container:visible').length > 0) {
             // Hide any visible data containers.
             $('.data_container:visible').hide('slide', {}, 'fast', function() {
-                show_data_container_helper_2();
+                show_data_container_helper_2(data_div);
             });
         } else {
-            show_data_container_helper_2();
+            show_data_container_helper_2(data_div);
         }
     }
 }
 
 // Shows the correct container and resizes the map.
-function show_data_container_helper_2() {
+function show_data_container_helper_2(data_div) {
     // Show the appropriate container
     $(data_div).show('slide', {}, 'fast', function () {
         console.log('finished showing container');
