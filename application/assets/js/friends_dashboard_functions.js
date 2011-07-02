@@ -10,7 +10,7 @@ function initialize_friends_list() {
     $('#friends_following').click(function() {
         populate_following();
     });
-    $('#friends_following').click(function() {
+    $('#friends_followers').click(function() {
         populate_followers();
     });
 }
