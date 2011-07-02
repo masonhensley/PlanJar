@@ -54,7 +54,6 @@ class Dashboard extends CI_Controller
         foreach ($query->result() as $row)
         {
             var_dump($row);
-            $temp_user = $this->ion_auth->get_user($row->user_id);
             ?>
             <div class="following_entry" following_id="<?php echo($temp_user->id); ?>">
                 <div class="following_name">
