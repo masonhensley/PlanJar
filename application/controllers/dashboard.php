@@ -76,7 +76,7 @@ class Dashboard extends CI_Controller
         foreach ($query->result() as $row)
         {
             ?>
-            <div class="follower_entry" follower_id="<?php echo($row->follow_id); ?>">
+            <div class="follower_entry" follower_id="<?php echo($row->user_id); ?>">
                 <div class="follower_name">
                     <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
