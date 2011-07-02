@@ -44,17 +44,15 @@ class Dashboard extends CI_Controller
         $this->load->database();
         $user = $this->ion_auth->get_user();
 
-        $query_string = "SELECT user_meta.first_name, user_meta.last_name " .
+        $query_string = "SELECT user_meta.first_name, user_meta.last_name, friends.follow_id " .
                 "FROM friends LEFT JOIN  user_meta " .
                 "ON friends.follow_id = user_meta.user_id WHERE friends.user_id = ?";
         $query = $this->db->query($query_string, array($user->id));
 
-        echo($this->db->last_query());
-
         foreach ($query->result() as $row)
         {
             ?>
-            <div class="following_entry" following_id="<?php echo($row->id); ?>">
+            <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
                 <div class="following_name">
                     <?php echo($row->last_name . ', ' . $row->last_name); ?>
                 </div>
