@@ -37,12 +37,54 @@ class Dashboard extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
-    
+
     // Return HTML for the users the user is following.
-    public function get_following() {
-        $query_string = "SELECT ";
+    public function get_following()
+    {
+        $this->load->database();
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "SELECT user_meta.first_name, user_meta.last_name, friends.follow_id " .
+                "FROM friends LEFT JOIN  user_meta " .
+                "ON friends.follow_id = user_meta.user_id WHERE friends.user_id = ? " .
+                "ORDER BY user_meta.last_name ASC";
+        $query = $this->db->query($query_string, array($user->id));
+
+        foreach ($query->result() as $row)
+        {
+            ?>
+            <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
+                <div class="following_name">
+                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
+                </div>
+            </div>
+            <?php
+        }
+    }
+
+    public function get_followers()
+    {
+        $this->load->database();
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "SELECT user_meta.first_name, user_meta.last_name, friends.user_id " .
+                "FROM friends LEFT JOIN  user_meta " .
+                "ON friends.user_id = user_meta.user_id WHERE friends.follow_id = ? " .
+                "ORDER BY user_meta.last_name ASC";
+        $query = $this->db->query($query_string, array($user->id));
+        echo($this->db->last_query());
+
+        foreach ($query->result() as $row)
+        {
+            ?>
+            <div class="follower_entry" follower_id="<?php echo($row->user_id); ?>">
+                <div class="follower_name">
+                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
+                </div>
+            </div>
+            <?php
+        }
     }
 
 }
-
 ?>

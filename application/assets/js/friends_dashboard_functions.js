@@ -3,6 +3,10 @@ $(function() {
 });
 
 function initialize_friends_list() {
+    // Initial select.
+    $('#friends_following').select();
+    populate_following();
+    
     // Buttonset
     $('.radio').buttonset();
     
@@ -10,7 +14,7 @@ function initialize_friends_list() {
     $('#friends_following').click(function() {
         populate_following();
     });
-    $('#friends_following').click(function() {
+    $('#friends_followers').click(function() {
         populate_followers();
     });
 }
@@ -22,5 +26,7 @@ function populate_following() {
 }
 
 function populate_followers() {
-    
+    $.get('/dashboard/get_followers', function (data) {
+        $('.friends_list').html(data);
+    });
 }
