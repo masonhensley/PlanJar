@@ -10,7 +10,6 @@ function delete_user_plan() {
             // Replace the data and show the data tab.
             $('#plan_data').html(data);
             populate_plan_panel();
-            alert('success');
         }); 
     });
 }
