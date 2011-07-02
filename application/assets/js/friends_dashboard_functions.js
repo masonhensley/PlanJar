@@ -12,7 +12,6 @@ function initialize_friends_list() {
     
     // Button click events
     $('#friends_following').click(function() {
-        console.log('clicked');
         populate_following();
     });
     $('#friends_followers').click(function() {
