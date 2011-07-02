@@ -55,7 +55,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
                 <div class="following_name">
-                    <?php echo($row->fisrt_name . ', ' . $row->last_name); ?>
+                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
