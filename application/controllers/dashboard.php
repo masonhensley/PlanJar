@@ -49,8 +49,8 @@ class Dashboard extends CI_Controller
                 "ON friends.follow_id = user_meta.user_id WHERE friends.user_id = ?";
         $query = $this->db->query($query_string, array($user->id));
 
-        echo($query_string);
-        
+        echo($this->db->last_query());
+
         foreach ($query->result() as $row)
         {
             ?>
