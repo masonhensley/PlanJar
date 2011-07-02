@@ -3,11 +3,16 @@ $(function() {
 });
 
 function initialize_friends_list() {
+    // Initial select.
+    $('#friends_following').select();
+    populate_following();
+    
     // Buttonset
     $('.radio').buttonset();
     
     // Button click events
     $('#friends_following').click(function() {
+        console.log('clicked');
         populate_following();
     });
     $('#friends_followers').click(function() {
