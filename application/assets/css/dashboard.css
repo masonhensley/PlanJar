@@ -68,14 +68,18 @@ body{
     display: none;
 }
 
-.friends_list{
+#friends_content .left {
     width:30%;
     float:left;
     height:100%;
     background-color:white;
 }
 
-.right{
+.friends_list{
+    width: 100%;
+}
+
+#friends_content .right{
     width:70%;
     height:100%;
     float:right;

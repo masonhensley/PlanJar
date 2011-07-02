@@ -67,7 +67,6 @@ $config['columns'] = array(
     'longitude',
     'joined_groups',
     'followed_groups',
-    'following',
     'phone');
 
 /**

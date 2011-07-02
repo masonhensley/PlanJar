@@ -37,12 +37,31 @@ class Dashboard extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
-    
+
     // Return HTML for the users the user is following.
-    public function get_following() {
-        $query_string = "SELECT ";
+    public function get_following()
+    {
+        $this->load->database();
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "SELECT user_meta.first_name, user_meta.last_name " .
+                "FROM friends LEFT JOIN  user_meta " .
+                "ON friends.follow_id = user_meta.user_id WHERE friends.user_id = ?";
+        $query = $this->db->query($query_string, array($user->id));
+
+        foreach ($query->result() as $row)
+        {
+            var_dump($row);
+            $temp_user = $this->ion_auth->get_user($row->user_id);
+            ?>
+            <div class="following_entry" following_id="<?php echo($temp_user->id); ?>">
+                <div class="following_name">
+                    <?php echo($temp_user->last_name . ', ' . $temp_user->last_name); ?>
+                </div>
+            </div>
+            <?php
+        }
     }
 
 }
-
 ?>
