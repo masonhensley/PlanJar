@@ -1,5 +1,6 @@
 <!-- SELECT LOCATION JAVASCRIPT -->
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
+<script type="text/javascript" src="/application/assets/js/delete_plan_button.js"></script>
 
 <?php
 
@@ -74,6 +75,15 @@ class Load_plans extends CI_Model
 
 
         return $htmlString;
+    }
+    
+    // function to delete plan from database
+    function deletePlan($plan)
+    {
+        $query = "DELETE FROM plans WHERE plans.id=$plan";
+        $this->db->query($query);
+        $return_string = "<div id=\"container\" style=\"width:50px; height:50px; position:relative; top:40px; margin-right:auto; margin-left:auto;\">Plan Deleted</div>";
+        return $return_string;
     }
 
     function loadUserLocations($group_list, $day, $user_id)
