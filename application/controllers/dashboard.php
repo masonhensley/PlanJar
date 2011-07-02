@@ -53,11 +53,10 @@ class Dashboard extends CI_Controller
         
         foreach ($query->result() as $row)
         {
-            var_dump($row);
             ?>
-            <div class="following_entry" following_id="<?php echo($temp_user->id); ?>">
+            <div class="following_entry" following_id="<?php echo($row->id); ?>">
                 <div class="following_name">
-                    <?php echo($temp_user->last_name . ', ' . $temp_user->last_name); ?>
+                    <?php echo($row->last_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
