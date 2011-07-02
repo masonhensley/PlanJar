@@ -46,7 +46,8 @@ class Dashboard extends CI_Controller
 
         $query_string = "SELECT user_meta.first_name, user_meta.last_name, friends.follow_id " .
                 "FROM friends LEFT JOIN  user_meta " .
-                "ON friends.follow_id = user_meta.user_id WHERE friends.user_id = ?";
+                "ON friends.follow_id = user_meta.user_id WHERE friends.user_id = ? " .
+        "ORDER BY user_meta.last_name ASC";
         $query = $this->db->query($query_string, array($user->id));
 
         foreach ($query->result() as $row)
@@ -54,7 +55,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
                 <div class="following_name">
-                    <?php echo($row->last_name . ', ' . $row->last_name); ?>
+                    <?php echo($row->fisrt_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php

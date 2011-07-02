@@ -79,6 +79,12 @@ body{
     width: 100%;
 }
 
+.following_entry {
+ width: 100%;
+ height: 20px;
+ border: 1px solid black;
+}
+
 #friends_content .right{
     width:70%;
     height:100%;
