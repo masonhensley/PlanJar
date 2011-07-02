@@ -13,7 +13,8 @@
 
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs_functions.js"></script>
-
+<script type="text/javascript" src="/application/assets/js/friends_dashboard_functions.js"></script>
+        
         <title>PlanJar | Dashboard</title>
     </head>
     <body>
