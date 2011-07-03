@@ -63,11 +63,12 @@ a{
     text-align: center;
     position:relative; 
     top:30px;
-    border-left: none;
+    border-right: none;
 }
 
 .left_header{
     border-bottom: 1px solid black;
+    border-right: 1px solid black;
     width:100%;
     height:30px;
     text-align: center;
@@ -268,6 +269,7 @@ a{
 
 .right_header{
     border-bottom: 1px solid black;
+    border-left: 1px solid black;
     width:100%;
     height:30px;
     text-align:center;
