@@ -63,6 +63,7 @@ a{
     text-align: center;
     position:relative; 
     top:30px;
+    border-bottom:none;
     border-right: none;
 }
 
@@ -264,7 +265,7 @@ a{
     border: 1px solid black;
     position:relative;
     top:30px;
-    border-right: none;
+    border-left: none;
 }
 
 .right_header{
