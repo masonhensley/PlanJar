@@ -58,8 +58,7 @@ a{
 .left{
     float:left;
     width: 202px;
-    height: 100%;
-    min-height: 800px;
+    min-height: 600px;
     border: 1px solid black;
     text-align: center;
     position:relative; 
@@ -260,8 +259,7 @@ a{
     margin-left: 5px;
     left: 5px;
     width:207px;
-    min-height: 800px;
-    height:100%;
+    min-height: 600px;
     border: 1px solid black;
     position:relative;
     top:30px;
