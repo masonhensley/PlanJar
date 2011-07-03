@@ -64,6 +64,7 @@ a{
     text-align: center;
     position:relative; 
     top:30px;
+    border-left: none;
 }
 
 .left_header{
@@ -264,6 +265,7 @@ a{
     border: 1px solid black;
     position:relative;
     top:30px;
+    border-left: none;
 }
 
 .right_header{
@@ -271,7 +273,6 @@ a{
     width:100%;
     height:30px;
     text-align:center;
-    background-color:white;
 }
 
 /* Create plan CSS */
