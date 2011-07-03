@@ -50,7 +50,7 @@
         <div class ="container">
             <div class ="left">
                 <div class="left_header">
-                    My Groups
+                    Groups
                 </div>
 
                 <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
@@ -86,7 +86,7 @@
             </div>
             <div class ="right">
                 <div class ="right_header">
-                    My Plans <input type="button" id="create_plan" value="+"/>
+                    Plans <input type="button" id="create_plan" value="+"/>
                 </div>
                 <div class="plans_wrapper"></div>
             </div>

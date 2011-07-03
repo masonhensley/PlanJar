@@ -239,7 +239,8 @@ class Home extends CI_Controller
         $this->load->database();
         $plan = $this->input->get('plan_selected');
         $this->load->model('load_plans');
-        $this->load_plans->deletePlan($plan);
+        $return_str = $this->load_plans->deletePlan($plan);
+        echo $return_str;
     }
 
 // Return a list of plans visible to the user.
