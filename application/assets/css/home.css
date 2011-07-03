@@ -263,7 +263,7 @@ a{
     border: 1px solid black;
     position:relative;
     top:30px;
-    border-left: none;
+    border-right: none;
 }
 
 .right_header{
