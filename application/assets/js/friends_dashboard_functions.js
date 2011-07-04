@@ -12,6 +12,7 @@ function initialize_friends_list() {
     
     // Button click events
     $('#friends_following').click(function() {
+        $('#friends_content .right').html('');
         populate_following();
     });
     $('#friends_followers').click(function() {
@@ -42,4 +43,6 @@ function make_followers_selectable() {
             $('#friends_content .right').html(data);
         });
     });
+    
+    $('.follower_entry:first').click();
 }
