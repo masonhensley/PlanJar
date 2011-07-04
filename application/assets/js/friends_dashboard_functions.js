@@ -33,7 +33,7 @@ function populate_followers() {
 }
 
 function make_followers_selectable() {
-    alert('ran');
+    console.log($('.follower_entry'));
     $('.follower_entry').click(function() {
         alert('clicked');
         $('.follower_entry.selected_follower').removeClass('selected_follower');
