@@ -4,7 +4,7 @@ $(function() {
 
 function initialize_friends_list() {
     // Initial select.
-    $('#friends_following').select();
+    $('#friends_following').click();
     populate_following();
     
     // Buttonset
