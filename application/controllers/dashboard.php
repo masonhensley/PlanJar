@@ -84,6 +84,11 @@ class Dashboard extends CI_Controller
             <?php
         }
     }
+    
+    public function get_follower_details() {
+        $follower_id = $this->input->get('follower_id');
+        echo("Information for user id $follower_id...");
+    }
 
 }
 ?>

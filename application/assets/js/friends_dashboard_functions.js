@@ -34,9 +34,12 @@ function populate_followers() {
 
 function make_followers_selectable() {
     $('.follower_entry').click(function() {
-        alert('clicked');
         $('.follower_entry.selected_follower').removeClass('selected_follower');
         $(this).addClass('selected_follower');
-        console.log($(this).attr('follower_id'));
+        $.get('/dashboard/get_follower_details', {
+            follower_id: $(this).attr('follower_id')
+        }, function (data) {
+            $('#friends_content .right').html(data);
+        });
     });
 }
