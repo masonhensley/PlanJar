@@ -4,6 +4,10 @@ $(function() {
 });
 
 function initialize_selectable_groups() {
+    // Buttonset
+    $('.radio').buttonSet();
+    $('select_one_group').select();
+    
     $('.groups_wrapper .selectable_group').click(function() {
         // unselect plan on right panel
         $('.plan_content').removeClass('selected_plan');

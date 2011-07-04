@@ -30,3 +30,7 @@ function populate_followers() {
         $('.friends_list').html(data);
     });
 }
+
+function make_followers_selectable() {
+    
+}
