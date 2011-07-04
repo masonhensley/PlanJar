@@ -45,7 +45,7 @@
 
                     <div class="friends_list">
                     </div>
-                </div
+                </div>
                 <div class="right">
                 </div>
             </div>
