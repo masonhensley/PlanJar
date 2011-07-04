@@ -6,25 +6,15 @@ $(function() {
 function initialize_selectable_groups() {
     // Buttonset
     $('.radio').buttonset();
-    $('select_one_group').select();
+    $('#select_one_group').select();
     
-    $('.groups_wrapper .selectable_group').click(function() {
-        // unselect plan on right panel
-        $('.plan_content').removeClass('selected_plan');
-        // clear the plan data
-        show_empty_plan_data();
-        
-        // Make the list items togglable.
-        if ($(this).hasClass('selected_group')) {
-            $(this).removeClass('selected_group');
-        } else {
-            $(this).addClass('selected_group');
-        }
-        
-        // Call the callback function.
-        on_groups_change();
-        // Update the visible plans for the selected groups
-        load_visible_plans();
+    initialize_one_group_select();
+    
+    $('#select_one_group').click(function () {
+        initialize_one_group_select();
+    });
+    $('#select_mult_groups').click(function () {
+        initialize_mult_groups_select();
     });
     
     // Initialize the clear all and select all button actions.
@@ -49,3 +39,32 @@ function on_groups_change() {
     load_visible_plans()
 }
 
+function initialize_one_group_select() {
+    $('.groups_wrapper .selectable_group').unbind('click');
+    $('.groups_wrapper .selectable_group').click(function() {
+        $('.groups_wrapper .selectable_group.selected_group').removeClass('selected_group');
+        $(this).addClass('selected_group');
+    });
+}
+
+function initialize_mult_groups_select() {
+    $('.groups_wrapper .selectable_group').unbind('click');
+    $('.groups_wrapper .selectable_group').click(function() {
+        // unselect plan on right panel
+        //$('.plan_content').removeClass('selected_plan');
+        // clear the plan data
+        show_empty_plan_data();
+        
+        // Make the list items togglable.
+        if ($(this).hasClass('selected_group')) {
+            $(this).removeClass('selected_group');
+        } else {
+            $(this).addClass('selected_group');
+        }
+        
+        // Call the callback function.
+        on_groups_change();
+        // Update the visible plans for the selected groups
+        load_visible_plans();
+    });
+}
