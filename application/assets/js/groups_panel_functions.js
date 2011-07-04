@@ -5,7 +5,7 @@ $(function() {
 
 function initialize_selectable_groups() {
     // Buttonset
-    $('.radio').buttonSet();
+    $('.radio').buttonset();
     $('select_one_group').select();
     
     $('.groups_wrapper .selectable_group').click(function() {
