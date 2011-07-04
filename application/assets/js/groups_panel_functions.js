@@ -26,7 +26,7 @@ function initialize_selectable_groups() {
     });
     $('#select_all_groups').click(function() {
         $('.groups_wrapper .selectable_group').addClass('selected_group');
-        $('#select_mult_group').click();
+        $('#select_mult_groups').click();
         on_groups_change();
         // update visible plans
         load_visible_plans();
