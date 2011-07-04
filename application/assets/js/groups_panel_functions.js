@@ -46,7 +46,7 @@ function initialize_one_group_select() {
     $('.groups_wrapper .selectable_group').click(function() {
         $('.groups_wrapper .selectable_group.selected_group').removeClass('selected_group');
         $(this).addClass('selected_group');
-        on_groups_change
+        on_groups_change();
     });
 }
 
