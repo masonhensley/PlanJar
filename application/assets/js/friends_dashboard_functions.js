@@ -31,6 +31,7 @@ function populate_followers() {
     $.get('/dashboard/get_followers', function (data) {
         $('.friends_list').html(data);
     });
+    make_followers_selectable();
 }
 
 function make_followers_selectable() {
