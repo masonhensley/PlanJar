@@ -17,6 +17,8 @@ function initialize_friends_list() {
     $('#friends_followers').click(function() {
         populate_followers();
     });
+    
+    make_followers_selectable();
 }
 
 function populate_following() {
@@ -32,5 +34,9 @@ function populate_followers() {
 }
 
 function make_followers_selectable() {
-    
+    $('.following_entry').click(function() {
+        $('.following_entry.selected_follower').removeClass('selected_follower');
+        $(this).addClass('selected_follower');
+        console.log($(this).attr('follower_id'));
+    });
 }
