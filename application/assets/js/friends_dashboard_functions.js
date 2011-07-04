@@ -28,12 +28,11 @@ function populate_following() {
 function populate_followers() {
     $.get('/dashboard/get_followers', function (data) {
         $('.friends_list').html(data);
+        make_followers_selectable();
     });
-    make_followers_selectable();
 }
 
 function make_followers_selectable() {
-    console.log($('.follower_entry'));
     $('.follower_entry').click(function() {
         alert('clicked');
         $('.follower_entry.selected_follower').removeClass('selected_follower');
