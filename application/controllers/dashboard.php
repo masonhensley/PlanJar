@@ -15,15 +15,11 @@ class Dashboard extends CI_Controller
 
             // Lookup the groups by id.
             $this->load->model('load_groups');
-            $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
-            $followed_groups = $this->load_groups->get_groups(json_decode($user_info->followed_groups));
 
             // Pass the necessary information to the view.
             $this->load->view('dashboard_view', array(
                 'firstname' => $firstname,
-                'lastname' => $lastname,
-                'joined_groups' => $joined_groups,
-                'followed_groups' => $followed_groups)
+                'lastname' => $lastname)
             );
         } else
         {
@@ -84,8 +80,9 @@ class Dashboard extends CI_Controller
             <?php
         }
     }
-    
-    public function get_follower_details() {
+
+    public function get_follower_details()
+    {
         $follower_id = $this->input->get('follower_id');
         echo("Information for user id $follower_id...");
     }
