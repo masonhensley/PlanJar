@@ -1,3 +1,4 @@
+<div id="group_padding" style="width:100%; height:10px;"></div>
 <div class="radio">
     <label for="select_one_group">Select one</label>
     <input type="radio" id="select_one_group" name="select_one_mult_group" />
@@ -7,7 +8,6 @@
 
 <div id="group_padding" style="width:100%; height:10px;"></div>
 <div class="groups_wrapper">
-    <div class="selectable_group" group_id="friends">Friends</div>
     <div id="group_padding" style="width:100%; height:10px;"></div>
     <div class="group_label">Joined</div>
     <div id="group_padding" style="width:100%; height:10px;"></div>
@@ -22,8 +22,9 @@
         <?php
     }
     ?>
-
     <div class="group_label">Following</div>
+    <div id="group_padding" style="width:100%; height:10px;"></div>
+    <div class="selectable_group" group_id="friends">Friends</div>
     <div id="group_padding" style="width:100%; height:10px;"></div>
     <?php
     foreach ($followed_groups as $group)
