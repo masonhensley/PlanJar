@@ -85,7 +85,12 @@ body{
     border: 1px solid black;
     padding: 5px;
     color: purple;
-    vertical-alin: middle;
+    vertical-align: middle;
+}
+
+.selected_follower {
+    background-color: purple;
+    color: white;
 }
 
 #friends_content .right{

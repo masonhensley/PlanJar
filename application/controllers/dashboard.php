@@ -72,7 +72,6 @@ class Dashboard extends CI_Controller
                 "ON friends.user_id = user_meta.user_id WHERE friends.follow_id = ? " .
                 "ORDER BY user_meta.last_name ASC";
         $query = $this->db->query($query_string, array($user->id));
-        echo($this->db->last_query());
 
         foreach ($query->result() as $row)
         {
@@ -84,6 +83,11 @@ class Dashboard extends CI_Controller
             </div>
             <?php
         }
+    }
+    
+    public function get_follower_details() {
+        $follower_id = $this->input->get('follower_id');
+        echo("Information for user id $follower_id...");
     }
 
 }
