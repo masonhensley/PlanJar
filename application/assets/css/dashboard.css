@@ -107,6 +107,11 @@ body{
     float:left;
 }
 
+in-field_block label {
+    top: 3px;
+    left: 4px;
+}
+
 .in-field_block .textbox {
     height:30px;
     width:200px;
