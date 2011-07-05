@@ -108,6 +108,7 @@ body{
 }
 
 in-field_block label {
+    position: absolute;
     top: 3px;
     left: 4px;
 }
