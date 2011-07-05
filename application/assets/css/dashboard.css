@@ -107,7 +107,7 @@ body{
     float:left;
 }
 
-in-field_block label {
+.in-field_block label {
     position: absolute;
     top: 3px;
     left: 4px;
