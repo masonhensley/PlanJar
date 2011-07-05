@@ -26,7 +26,9 @@ class Home extends CI_Controller
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
                 'firstname' => $firstname,
-                'lastname' => $lastname)
+                'lastname' => $lastname,
+                'joined_groups' => $joined_groups,
+                'followed_groups' => $followed_groups)
             );
         } else
         {
