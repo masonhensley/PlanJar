@@ -17,8 +17,8 @@ class Home extends CI_Controller
             // retrieve other useful variables for view
             $firstname = $user_info->first_name;
             $lastname = $user_info->last_name;
-            $joined_groups = $this->load_groups->joined_groups;
-            $followed_groups = $this->load_groups->followed_groups;
+            $joined_groups = $this->load_groups->joined_groups();
+            $followed_groups = $this->load_groups->followed_groups();
 
             // Lookup the groups by id.
             $this->load->model('load_groups');
