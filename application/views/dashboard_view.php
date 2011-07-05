@@ -47,7 +47,7 @@
 
                     <div id="find_friends">
                         <div class="in-field_block">
-                            <label for="friend_search"></label>
+                            <label for="friend_search">Search for people to follow.</label>
                             <input type="text" class="textbox" id="friend_search" />
                         </div>
                     </div>
