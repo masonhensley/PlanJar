@@ -43,7 +43,10 @@
                     </div>
 
                     <div id="find_friends">
-                        <input type="text" id="friend_search" />
+                        <div class="in-field_block">
+                            <label for="friend_search"></label>
+                            <input type="text" id="friend_search" />
+                        </div>
                     </div>
                     <hr/>
 

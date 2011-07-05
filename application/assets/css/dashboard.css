@@ -99,3 +99,10 @@ body{
     float:right;
     background-color: white;
 }
+
+.in-field_block {
+    position:relative;
+    height:30px;
+    width:200px;
+    float:left;
+}
