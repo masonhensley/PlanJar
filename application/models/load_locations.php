@@ -2,6 +2,7 @@
 
 class Load_locations extends CI_Model
 {
+
     function loadUserLocations($group_list, $day, $user_id)
     {
         // this converts the selected day to the equivalent sql representation
@@ -16,12 +17,7 @@ class Load_locations extends CI_Model
             // first get a list of ids to find plans with and append it to the id_array
             if (in_array("friends", $group_list))
             {
-                $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
-                $query_result = $this->db->query($friend_query);
-                foreach ($query_result->result() as $row)
-                {
-                    $id_array[] = $row->follow_id;
-                }
+                get_friend_ids($user_id, $id_array); // adds user ids to $id_array
             }
 
             // next generate the query for a list of ids for all the people in the groups selected
@@ -52,7 +48,7 @@ class Load_locations extends CI_Model
                 $query_result = $this->db->query($group_query);
                 foreach ($query_result->result() as $row)
                 {
-                    $row = json_decode($row->joined_users); 
+                    $row = json_decode($row->joined_users);
                     if (isset($row)) // for each list of user ids joined in a group selected, add them to id_array
                     {
                         foreach ($row as $ids)
@@ -76,7 +72,7 @@ class Load_locations extends CI_Model
             {
                 $plan_query .= "plans.user_id=$id OR "; // contsruct the "or" clauses to check all user ids for everything selected
             }
-            
+
             $plan_query = substr($plan_query, 0, strlen($plan_query) - 4); // This cuts off the last "OR" and adds ")"
             $plan_query .= ")";
             $evaluated_plans = $this->db->query($plan_query);
@@ -105,7 +101,6 @@ class Load_locations extends CI_Model
                 $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
                 $result = $this->db->query($number_of_friends_query);
                 $count = $result->num_rows();
-                
                 ?>
                 <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
                         <?php echo $plan_tracker;
@@ -118,6 +113,16 @@ class Load_locations extends CI_Model
                 </div>
                 <?php
             }
+        }
+    }
+
+    function get_friend_ids($user_id, $id_array)
+    {
+        $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
+        $query_result = $this->db->query($friend_query);
+        foreach ($query_result->result() as $row)
+        {
+            $id_array[] = $row->follow_id;
         }
     }
 }
