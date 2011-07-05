@@ -1,3 +1,4 @@
+<div id="group_padding" style="width:100%; height:10px;"></div>
 <div class="radio">
     <label for="select_one_group">Select one</label>
     <input type="radio" id="select_one_group" name="select_one_mult_group" />
