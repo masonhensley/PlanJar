@@ -20,6 +20,8 @@ function initialize_friends_list() {
         $('#find_friends').css('display', 'none');
         populate_followers();
     });
+    
+    $('.in-field_block label').inFieldLabels();
 }
 
 function populate_following() {

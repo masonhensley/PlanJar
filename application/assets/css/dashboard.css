@@ -106,3 +106,8 @@ body{
     width:200px;
     float:left;
 }
+
+.in-field_block .textbox {
+    height:30px;
+    width:200px;
+}
