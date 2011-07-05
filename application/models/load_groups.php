@@ -9,24 +9,35 @@ class Load_groups extends CI_Model
         parent::__construct();
     }
 
-    // Returns a list of [id, name] pairs for each group id passed in.
-    // Accepts a list of group id's
-    function get_groups($group_id_list)
+    function joined_groups()
     {
-        $this->load->database();
+        $user = $this->ion_auth->get_user();
+        $query_string = "SELECT group_relationships.group_id, groups.name FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id " .
+                "WHERE group_relationships.user_joined_id = ?";
+        $query = $this->db->query($query_string, array($user->id));
 
         $return_array = array();
-
-        if (count($group_id_list) != 0)
+        foreach ($query->result() as $row)
         {
-            $where_clause = implode("' OR id = '", $group_id_list);
-            $query_string = "SELECT id, name FROM groups WHERE id = '$where_clause'";
-            $query = $this->db->query($query_string);
+            $return_array[] = array('id' => $row->group_id,
+                'name' => $row->name);
+        }
 
-            foreach ($query->result() as $row)
-            {
-                $return_array[] = array('id' => $row->id, 'name' => $row->name);
-            }
+        return $return_array;
+    }
+
+    function followed_groups()
+    {
+        $user = $this->ion_auth->get_user();
+        $query_string = "SELECT group_relationships.group_id, groups.name FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id " .
+                "WHERE group_relationships.user_following_id = ?";
+        $query = $this->db->query($query_string, array($user->id));
+
+        $return_array = array();
+        foreach ($query->result() as $row)
+        {
+            $return_array[] = array('id' => $row->group_id,
+                'name' => $row->name);
         }
 
         return $return_array;

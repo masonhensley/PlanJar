@@ -15,6 +15,9 @@
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/friends_dashboard_functions.js"></script>
 
+        <!-- jQuery plugins -->
+        <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
+
         <title>PlanJar | Dashboard</title>
     </head>
     <body>
@@ -41,6 +44,14 @@
                             <input type="radio" id="friends_followers" value="followers" name="following_follower_group"/>
                         </center>
                     </div>
+
+                    <div id="find_friends">
+                        <div class="in-field_block">
+                            <label for="friend_search">Search for people to follow.</label>
+                            <input type="text" class="textbox" id="friend_search" />
+                        </div>
+                    </div>
+                    <br/>
                     <hr/>
 
                     <div class="friends_list">

@@ -11,6 +11,7 @@
     <div id="group_padding" style="width:100%; height:10px;"></div>
     <div class="group_label">Joined</div>
     <div id="group_padding" style="width:100%; height:10px;"></div>
+    
     <?php
     foreach ($joined_groups as $group)
     {

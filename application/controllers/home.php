@@ -11,16 +11,17 @@ class Home extends CI_Controller
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
         {
+            $this->load->model('load_groups');
             $user_info = $this->ion_auth->get_user();
 
             // retrieve other useful variables for view
             $firstname = $user_info->first_name;
             $lastname = $user_info->last_name;
+            $joined_groups = $this->load_groups->joined_groups();
+            $followed_groups = $this->load_groups->followed_groups();
 
             // Lookup the groups by id.
             $this->load->model('load_groups');
-            $joined_groups = $this->load_groups->get_groups(json_decode($user_info->joined_groups));
-            $followed_groups = $this->load_groups->get_groups(json_decode($user_info->followed_groups));
 
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
@@ -232,7 +233,7 @@ class Home extends CI_Controller
         $return = $this->load_plans->loadPlanData($plan);
         echo $return;
     }
-    
+
     // permanently deletes plan
     public function delete_plan()
     {
