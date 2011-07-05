@@ -48,6 +48,7 @@
                             <input type="text" id="friend_search" />
                         </div>
                     </div>
+                    <br/>
                     <hr/>
 
                     <div class="friends_list">
