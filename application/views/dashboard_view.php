@@ -41,6 +41,10 @@
                             <input type="radio" id="friends_followers" value="followers" name="following_follower_group"/>
                         </center>
                     </div>
+
+                    <div id="find_friends">
+                        <input type="text" id="friend_search" />
+                    </div>
                     <hr/>
 
                     <div class="friends_list">

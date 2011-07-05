@@ -99,3 +99,7 @@ body{
     float:right;
     background-color: white;
 }
+
+#find_friends {
+    display: none;
+}
