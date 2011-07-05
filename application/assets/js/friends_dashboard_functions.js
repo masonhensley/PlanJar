@@ -13,9 +13,11 @@ function initialize_friends_list() {
     // Button click events
     $('#friends_following').click(function() {
         $('#friends_content .right').html('');
+        $('#find_friends').css('display', 'inline');
         populate_following();
     });
     $('#friends_followers').click(function() {
+        $('#find_friends').css('display', 'none');
         populate_followers();
     });
 }
