@@ -5,7 +5,7 @@ $(function() {
 // Initializes the map/data tabs.
 function initialize_dashboard_tabs() {
     // Initial select
-    show_data_container('#friends_content');
+    show_data_container('#following_content');
                 
     // Click handler.
     $('.tab_container .tab').click(function () {
