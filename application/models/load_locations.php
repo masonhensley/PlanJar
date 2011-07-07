@@ -24,7 +24,7 @@ class Load_locations extends CI_Model
             $group_ids_selected = array();
             while (isset($group_list[$index]))
             {
-                if ($group_list[$index] != "friends")
+                if ($group_list[$index] != "friends") // ignore the friends tab as it is already dealt with
                 {
                     $group_ids_selected[] = $group_list[$index]; // populate an array of selected group ids
                 }
@@ -116,13 +116,14 @@ class Load_locations extends CI_Model
         }
     }
 
-    function get_friend_ids($user_id, $id_array)
+    function get_friend_ids($user_id, &$id_array)
     {
         $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
         $query_result = $this->db->query($friend_query);
         foreach ($query_result->result() as $row)
         {
             $id_array[] = $row->follow_id;
+            // something minor
         }
     }
 }
