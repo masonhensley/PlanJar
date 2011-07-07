@@ -36,7 +36,7 @@
             </div>
 
             <div id="following_content" class="page_content">
-                <?php include(APPATH . '/assets/php/dashboard_following.php'); ?>
+                <?php include(APPPATH . '/assets/php/dashboard_following.php'); ?>
             </div>
 
             <div id="followers_content" class="page_content">
