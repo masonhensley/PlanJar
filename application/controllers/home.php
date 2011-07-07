@@ -251,12 +251,12 @@ class Home extends CI_Controller
     {
         $this->load->database();
 
-// this contains a list of ids for the groups selected
+        // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
         $user_id = $this->ion_auth->get_user()->id;
 
-        $this->load->model('load_plans');
+        $this->load->model('load_locations');
         $this->load_plans->loadUserLocations($group_list, $day, $user_id);
     }
 
