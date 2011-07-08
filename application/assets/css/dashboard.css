@@ -140,7 +140,7 @@ body{
 
 .following_entry .remove_following {
     float: right;
-    width: 50px;
+    width: 70px;
     background-color: red;
     color: white;
 }
