@@ -206,3 +206,4 @@ function map_user_position() {
     map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
     map.setZoom(14);
 }
+

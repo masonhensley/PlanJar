@@ -1,5 +1,4 @@
 <!-- SELECT LOCATION JAVASCRIPT -->
-<script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
 <script type="text/javascript" src="/application/assets/js/delete_plan_button.js"></script>
 
 <?php
