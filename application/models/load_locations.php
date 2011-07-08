@@ -41,7 +41,10 @@ class Load_locations extends CI_Model
                 $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
             }
 
-           $location_ids = $this-> get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
+            if(isset($id_array))
+            {
+                           $location_ids = $this-> get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
+            }
 
             $plan_tracker = 1; // keeps track of what plan number is being used
             $friend_count = 0;
