@@ -206,3 +206,12 @@ function map_user_position() {
     map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
     map.setZoom(14);
 }
+
+
+function show_selected_location() {
+    $('div.plan_shown').click(function() {
+       $('.selected_location').removeClass('selected_location');
+       $(this).addClass('selected_location');
+       show_data_container('#location_data');  
+    });
+}
