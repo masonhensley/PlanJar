@@ -21,7 +21,7 @@ class Load_locations extends CI_Model
             }
 
             // next generate the query for a list of ids for all the people in the groups selected
-            var_dump($id_array);
+            
             $group_ids_selected = array();
             while (isset($group_list[$index]))
             {
@@ -35,11 +35,14 @@ class Load_locations extends CI_Model
             // if there are groups selected, generate a query to pull all user ids joined in the selected groups
             $index = 0; // reinitialize index
             $user_ids = null;
-            var_dump($id_array);
+             var_dump($id_array);
             if (isset($group_ids_selected[$index]))
             {
                 $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
             }
+            
+            var_dump($id_array);
+            
 
             
             // generate query to pull relevant locations for the groups selected
@@ -55,8 +58,6 @@ class Load_locations extends CI_Model
 
             $plan_query = substr($plan_query, 0, strlen($plan_query) - 4); // This cuts off the last "OR" and adds ")"
             $plan_query .= ")";
-            
-            var_dump($plan_query);
             
             $evaluated_plans = $this->db->query($plan_query);
             $evaluated_plans = $evaluated_plans->result();
@@ -121,7 +122,6 @@ class Load_locations extends CI_Model
     // this function updates the $id_array with members joined in groups selected
     function get_user_ids($user_id, $group_ids_selected, $id_array)
     {
-        var_dump($id_array);
         $group_query = "SELECT user_joined_id FROM group_relationships WHERE";
         foreach($group_ids_selected as $id)
         {
