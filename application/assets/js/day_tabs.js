@@ -36,16 +36,12 @@ function initialize_day_tab_rules() {
         // Call the callback function.
         on_day_change();
         
-        // update the visible plans for the selected day
-        load_visible_plans();
-        
         return false;
     });
 }
 
 // Callback function
 function on_day_change() {
-    alert('day_change');
     show_data_container('#group_data');
     get_group_day_data();
     load_visible_plans()
