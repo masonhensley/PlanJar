@@ -7,8 +7,8 @@ function populate_following_list() {
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
         
-        // Remove handler.
-        $('.following_entry .remove_following').click(function () {
+        // Click handler.
+        $('#follow_search .remove_following').click(function () {
             $.get('/dashboard/remove_following', {
                 following_id: $(this).parent().attr('following_id')
             }, function (data) {
