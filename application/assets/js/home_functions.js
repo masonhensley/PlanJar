@@ -84,6 +84,7 @@ function mapThisGoogle(latitude,longitude)
 
 // populates the popular location main panel
 function load_visible_plans(){
+    console.log(get_selected_groups);
     $.get('/home/load_popular_locations', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
