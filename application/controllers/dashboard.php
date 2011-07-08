@@ -74,17 +74,19 @@ class Dashboard extends CI_Controller
                         <div class="user_picture"></div>
 
                         <div class="grad_year">
-                <?php echo('Class of ' . $row->grad_year); ?>
+                            <center>
+                                <?php echo('Class of ' . $row->grad_year); ?>
+                            </center>
                         </div>
                     </div>
 
                     <div class="search_entry_right">
                         <div class="user_name">
-                <?php echo($row->first_name . ' ' . $row->last_name); ?>
+                            <?php echo($row->first_name . ' ' . $row->last_name); ?>
                         </div>
 
                         <div class="user_school">
-                <?php echo($row->school); ?>
+                            <?php echo($row->school); ?>
                         </div>
                     </div>
                 </div>
@@ -110,7 +112,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
                 <div class="following_name">
-            <?php echo($row->first_name . ', ' . $row->last_name); ?>
+                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
@@ -133,7 +135,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="follower_entry" follower_id="<?php echo($row->user_id); ?>">
                 <div class="follower_name">
-            <?php echo($row->first_name . ', ' . $row->last_name); ?>
+                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
