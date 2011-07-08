@@ -7,9 +7,14 @@
         </div>
     </div>
 
-    <div class="friends_list">
+    <div class="follow_search">
     </div>
 </div>
 
 <div class="right">
+    <div class="right_header">
+        People you're following...
+    </div>
+
+    <div id="following_list"></div>
 </div>

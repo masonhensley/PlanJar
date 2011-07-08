@@ -73,7 +73,13 @@ body{
     float:left;
     height:100%;
     background-color:white;
-    border: 1px;
+    border: 1px solid black;
+}
+
+#follow_search {
+    width: 100%;
+    height: 800px;
+    border: 1px solid black;
 }
 
 #following_content .right {
@@ -81,11 +87,16 @@ body{
     float:right;
     height:100%;
     background-color:white;
-    border: 1px;
+    border: 1px solid black;
 }
 
-.friends_list{
+#following_content .right_header {
+    height: 30px;
+}
+
+#following_list{
     width: 100%;
+    border: 1px solid black;
 }
 
 .following_entry, .follower_entry {
