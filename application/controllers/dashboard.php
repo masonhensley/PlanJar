@@ -66,7 +66,7 @@ class Dashboard extends CI_Controller
 
             foreach ($query->result() as $row)
             {
-                _echo_following_entry($row);
+                $this->_echo_following_entry($row);
             }
         }
     }
@@ -108,7 +108,7 @@ class Dashboard extends CI_Controller
 
         foreach ($query->result() as $row)
         {
-            _echo_following_entry($row, true);
+           $this-> _echo_following_entry($row, true);
         }
     }
 
