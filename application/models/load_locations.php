@@ -17,7 +17,7 @@ class Load_locations extends CI_Model
             // first get a list of ids to find plans with and append it to the id_array
             if (in_array("friends", $group_list))
             {
-                $this->get_friend_ids($user_id, &$id_array); // adds user ids to $id_array
+                $id_array = get_friend_ids($user_id, $id_array); // adds user ids to $id_array
             }
 
             // next generate the query for a list of ids for all the people in the groups selected
@@ -116,14 +116,17 @@ class Load_locations extends CI_Model
         }
     }
 
-    function get_friend_ids($user_id, &$id_array)
+    // This function returns an array of friend user ids (if the friend tab is selected)
+    function get_friend_ids($user_id, $id_array)
     {
+        $return_id_array = $id_array;
         $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
         $query_result = $this->db->query($friend_query);
         foreach ($query_result->result() as $row)
         {
-            $id_array[] = $row->follow_id;
+            $return_id_array[] = $row->follow_id;
         }
+        return $return_id_array;
     }
 }
 ?>
