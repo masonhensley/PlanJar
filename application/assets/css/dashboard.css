@@ -4,6 +4,10 @@ body{
     margin: 0px;
 }
 
+a{
+    color:white; text-decoration: none;
+}
+
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     height: 40px;
