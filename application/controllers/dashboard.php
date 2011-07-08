@@ -100,7 +100,7 @@ class Dashboard extends CI_Controller
         $this->load->database();
         $user = $this->ion_auth->get_user();
 
-        $query_string = "SELECT user_meta.first_name, user_meta.last_name, friends.follow_id " .
+        $query_string = "user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
                 "FROM friends LEFT JOIN  user_meta " .
                 "ON friends.follow_id = user_meta.user_id WHERE friends.user_id = ? " .
                 "ORDER BY user_meta.last_name ASC";
