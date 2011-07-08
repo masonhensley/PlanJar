@@ -44,37 +44,7 @@ class Load_locations extends CI_Model
             if (isset($id_array[0]))
             {
                 $location_ids = $this->get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
-
-
-                $plan_tracker = 1; // keeps track of what plan number is being used
-                $friend_count = 0;
-
-                foreach ($location_ids as $id => $plan) // for each location, figure out how many of the people in $id_array are going (acquaintances)
-                {
-                    $number_of_friends_query = "SELECT user_id, place_id FROM plans WHERE (";
-                    foreach ($id_array as $ids)
-                    {
-                        $number_of_friends_query .= "user_id=$ids OR "; // contsruct the "or" clauses to check all user ids for everything selected
-                    }
-                    $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
-                    $number_of_friends_query .= ")";
-                    $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
-
-
-                    $result = $this->db->query($number_of_friends_query);
-                    $count = $result->num_rows();
-                    ?>
-                    <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
-                            <?php echo $plan_tracker;
-                            $plan_tracker++; ?></div><?php
-                    echo "<hr/>";
-                    echo $plan;
-                    echo "<br/>$count people in selected groups are attending";
-                    echo "<br/><hr/>";
-                            ?>
-                    </div>
-                    <?php
-                }
+                $this->load_tabs($location_ids, $id_array, $return_date);
             }
         }
     }
@@ -147,8 +117,40 @@ class Load_locations extends CI_Model
                 $location_ids["$plan->place_id"] = "$plan->name";
             }
         }
-
         return $location_ids;
+    }
+
+    function load_tabs($location_ids, $id_array, $return_date)
+    {
+        $plan_tracker = 1; // keeps track of what plan number is being used
+        $friend_count = 0;
+
+        foreach ($location_ids as $id => $plan) // for each location, figure out how many of the people in $id_array are going (acquaintances)
+        {
+            $number_of_friends_query = "SELECT user_id, place_id FROM plans WHERE (";
+            foreach ($id_array as $ids)
+            {
+                $number_of_friends_query .= "user_id=$ids OR "; // contsruct the "or" clauses to check all user ids for everything selected
+            }
+            $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
+            $number_of_friends_query .= ")";
+            $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
+
+
+            $result = $this->db->query($number_of_friends_query);
+            $count = $result->num_rows();
+            ?>
+            <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
+                    <?php echo $plan_tracker;
+                    $plan_tracker++; ?></div><?php
+            echo "<hr/>";
+            echo $plan;
+            echo "<br/>$count people in selected groups are attending";
+            echo "<br/><hr/>";
+                    ?>
+            </div>
+            <?php
+        }
     }
 
 }
