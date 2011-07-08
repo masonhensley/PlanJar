@@ -140,12 +140,12 @@ class Dashboard extends CI_Controller
             if ($removable)
             {
                 ?>
-                <div class="remove_following">Un-follow</div>
+                <div class="remove_following">- Unfollow</div>
                 <?php
             } else
             {
                 ?>
-                <div class="add_following">Follow</div>
+                <div class="add_following">+ Follow</div>
                 <?php
             }
             ?>
