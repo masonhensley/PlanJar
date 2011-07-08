@@ -21,6 +21,7 @@ class Load_locations extends CI_Model
             }
 
             // next generate the query for a list of ids for all the people in the groups selected
+            var_dump($id_array);
             $group_ids_selected = array();
             while (isset($group_list[$index]))
             {
