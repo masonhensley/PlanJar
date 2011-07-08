@@ -53,7 +53,10 @@ class Load_locations extends CI_Model
 
             foreach ($id_array as $id)
             {
-                $plan_query .= "plans.user_id=$id OR "; // contsruct the "or" clauses to check all user ids for everything selected
+                if(isset($id))
+                {
+                    $plan_query .= "plans.user_id=$id OR "; // contsruct the "or" clauses to check all user ids for everything selected
+                }
             }
 
             $plan_query = substr($plan_query, 0, strlen($plan_query) - 4); // This cuts off the last "OR" and adds ")"
