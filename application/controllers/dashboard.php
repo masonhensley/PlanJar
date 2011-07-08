@@ -112,7 +112,7 @@ class Dashboard extends CI_Controller
     public function remove_following()
     {
         $user = $this->ion_auth->get_user();
-        $query_string = "REMOVE FROM friends WHERE user_id = ? AND follow_id = ?";
+        $query_string = "DELETE FROM friends WHERE user_id = ? AND follow_id = ?";
         $query = $this->db->query($query_string, array($user->id, $this->input->get('following_id')));
         
         echo($this->db->last_query());
