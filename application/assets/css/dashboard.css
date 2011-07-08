@@ -125,12 +125,22 @@ body{
     width: 60%
 }
 
-.following_entry, .follower_entry {
+.following_entry {
     height: 30px;
     border: 1px solid black;
     padding: 5px;
     color: purple;
     vertical-align: middle;
+}
+
+.following_entry .following_name {
+    float: left;
+    width: 50%;
+}
+
+.following_entry .remove_following {
+    background-color: red;
+    color: white;
 }
 
 .selected_follower {

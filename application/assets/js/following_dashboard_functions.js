@@ -6,6 +6,16 @@ $(function() {
 function populate_following_list() {
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
+        
+        // Remove handler.
+        $('.following_entry .remove_following').click(function () {
+            console.log('removing');
+            $.get('/dashboard/remove_following', {
+                following_id: $(this).attr('following_id')
+            }, function () {
+                populate_following_list();
+            });
+        })
     });
 }
 
@@ -23,10 +33,10 @@ function initialize_follow_search() {
             $('.follow_search_entry').click(function () {
                 $.get('/dashboard/add_following', {
                     following_id: $(this).attr('user_id')
-                }, function (data) {
+                }, function () {
+                    $('#follow_search').html('');
                     $('#friend_search').val('');
                     $('#friend_search').blur();
-                    console.log(data);
                 });
             });
         });
