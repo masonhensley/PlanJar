@@ -36,8 +36,7 @@ class Load_locations extends CI_Model
             $user_ids = null;
             if (isset($group_ids_selected[$index]))
             {
-                $id_array = $this->get_user_ids($group_ids_selected, $id_array);
-                
+                $id_array = $this->get_user_ids($group_ids_selected, $id_array); // populate $id_array with the group member ids               
             }
 
             // generate query to pull relevant locations for the groups selected
@@ -94,6 +93,12 @@ class Load_locations extends CI_Model
         }
     }
 
+    
+    
+    
+    
+    
+    
     // This function returns an array of friend user ids (if the friend tab is selected)
     function get_friend_ids($user_id, $id_array)
     {
@@ -107,6 +112,7 @@ class Load_locations extends CI_Model
         return $return_id_array;
     }
     
+    // this function updates the $id_array with members joined in groups selected
     function get_user_ids($group_ids_selected, $id_array)
     {
         $group_query = "SELECT user_joined_id FROM group_relationships WHERE";
@@ -116,13 +122,11 @@ class Load_locations extends CI_Model
         }
         $group_query = substr($group_query, 0, strlen($group_query) - 4);  // trim off the last "OR" before querying
         $query_result = $this->db->query($group_query);
-        
         // generate the list of user ids from the
         foreach($query_result->result() as $row)
         {
             $id_array[] = $row->user_joined_id;
         }
-        
          return $id_array;
     }
 }
