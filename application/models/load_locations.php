@@ -123,7 +123,6 @@ class Load_locations extends CI_Model
         foreach ($query_result->result() as $row)
         {
             $id_array[] = $row->follow_id;
-            // something minor
         }
     }
 }

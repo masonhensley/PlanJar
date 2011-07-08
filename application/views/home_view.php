@@ -40,6 +40,7 @@
                 </div>
 
                 <div class="top_links">
+                    <a href="/dashboard/" id="dashboard" style="color:white; text-decoration: none; font-size:20px;">Dashboard |</a>
                     <a href="#" id="change_location" style="color:white; text-decoration: none;">Change location |</a>
                     <a href="#" id="view_current_location" style="color: white; text-decoration: none;">View current location |</a>
                     <a href="/home/logout" style="">Log out</a>
