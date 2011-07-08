@@ -259,7 +259,7 @@ class Home extends CI_Controller
         $user_id = $this->ion_auth->get_user()->id;
 
         $this->load->model('load_locations');
-        $this->load_plans->loadUserLocations($group_list, $day, $user_id);
+        $this->load_locations->loadUserLocations($group_list, $day, $user_id);
     }
 
 // Returns HTML for the list of the user's plans (right panel)
