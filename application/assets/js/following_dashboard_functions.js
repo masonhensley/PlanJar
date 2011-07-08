@@ -1,5 +1,6 @@
 $(function() {
     initialize_following_list();
+    initialize_follow_search();
 });
 
 function initialize_following_list() {
