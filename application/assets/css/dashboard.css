@@ -68,11 +68,20 @@ body{
     display: none;
 }
 
-#friends_content .left {
-    width:30%;
+#following_content .left {
+    width:48%;
     float:left;
     height:100%;
     background-color:white;
+    border: 1px;
+}
+
+#following_content .right {
+    width:48%;
+    float:right;
+    height:100%;
+    background-color:white;
+    border: 1px;
 }
 
 .friends_list{

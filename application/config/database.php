@@ -44,15 +44,15 @@ if (!defined('BASEPATH'))
 $active_group = 'default';
 $active_record = TRUE;
 
-//$db['default']['hostname'] = 'localhost:/tmp/mysql/caroline.sock';
-//$db['default']['username'] = 'garnet';
-//$db['default']['password'] = 'Jc1GI8gm';
-//$db['default']['database'] = 'caroline';
+$db['default']['hostname'] = 'localhost:/tmp/mysql/caroline.sock';
+$db['default']['username'] = 'garnet';
+$db['default']['password'] = 'Jc1GI8gm';
+$db['default']['database'] = 'caroline';
 
-$db['default']['hostname'] = 'db01-share';
-$db['default']['username'] = 'CodeIgniter-7777';
-$db['default']['password'] = 'phpFogMyAdminPass11';
-$db['default']['database'] = 'planjar-phpfogapp-com';
+//$db['default']['hostname'] = 'db01-share';
+//$db['default']['username'] = 'CodeIgniter-7777';
+//$db['default']['password'] = 'phpFogMyAdminPass11';
+//$db['default']['database'] = 'planjar-phpfogapp-com';
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
