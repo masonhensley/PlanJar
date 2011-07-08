@@ -138,7 +138,7 @@ class Load_locations extends CI_Model
         {
             if ($row->user_joined_id != $user_id)
             {
-                if (isset($user_id))
+                if (isset($row->user_joined_id))
                 {
                     $id_array[] = $row->user_joined_id;
                 }
