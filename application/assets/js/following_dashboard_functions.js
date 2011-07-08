@@ -10,7 +10,7 @@ function populate_following_list() {
         // Click handler.
         $('#following_list .remove_following').click(function () {
             $.get('/dashboard/remove_following', {
-                following_id: $(this).parent().attr('following_id')
+                following_id: $(this).parent().attr('user_id')
             }, function (data) {
                 console.log(data);
                 populate_following_list();
@@ -30,7 +30,7 @@ function initialize_follow_search() {
             $('#follow_search').html(data);
             
             // Click handler.
-            $('.follow_search_entry').click(function () {
+            $('#follow_search .following_entry').click(function () {
                 $.get('/dashboard/add_following', {
                     following_id: $(this).attr('user_id')
                 }, function () {
