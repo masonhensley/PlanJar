@@ -40,9 +40,6 @@ class Load_locations extends CI_Model
             {
                 $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
             }
-            var_dump($id_array);
-
-
 
 
             // generate query to pull relevant locations for the groups selected
