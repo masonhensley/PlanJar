@@ -60,8 +60,9 @@ class Load_locations extends CI_Model
             $plan_query = substr($plan_query, 0, strlen($plan_query) - 4); // This cuts off the last "OR" and adds ")"
             $plan_query .= ")";
 
-            $evaluated_plans = $this->db->query($plan_query);
-            $evaluated_plans = $evaluated_plans->result();
+            var_dump($plan_query);
+            //$evaluated_plans = $this->db->query($plan_query);
+            //$evaluated_plans = $evaluated_plans->result();
 
             /*
             $location_ids = array();  // Use this variable to store the location ids that are shown to prevent duplicates
