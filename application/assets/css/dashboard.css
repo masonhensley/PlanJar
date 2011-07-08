@@ -96,7 +96,11 @@ body{
 
 #following_list{
     width: 100%;
-    border: 1px solid black;
+}
+
+#follow_search {
+    width: 100%;
+    height: 80%;
 }
 
 .following_entry, .follower_entry {

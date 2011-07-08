@@ -34,6 +34,19 @@ class Dashboard extends CI_Controller
         redirect('/login/');
     }
 
+    public function follow_search()
+    {
+        $needle = $this->input->get('needle');
+        $needle_array = explode(' ', $needle);
+        
+        $this->load->model('load_groups');
+        $joined_groups = $this->load_groups->joined_groups();
+
+        $query_string = "SELECT user_meta.first_name, user_meta.last_name, school_data.school " .
+                "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
+                "WHERE (user_meta.user_id";
+    }
+
     // Return HTML for the users the user is following.
     public function get_following()
     {
@@ -51,7 +64,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
                 <div class="following_name">
-                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
+            <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
@@ -74,7 +87,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="follower_entry" follower_id="<?php echo($row->user_id); ?>">
                 <div class="follower_name">
-                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
+            <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
