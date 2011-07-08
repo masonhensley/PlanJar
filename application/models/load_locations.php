@@ -105,7 +105,6 @@ class Load_locations extends CI_Model
         $plan_query = substr($plan_query, 0, strlen($plan_query) - 4); // This cuts off the last "OR" and adds ")"
         $plan_query .= ")";
 
-
         $evaluated_plans = $this->db->query($plan_query);
         $evaluated_plans = $evaluated_plans->result();
 
@@ -136,7 +135,6 @@ class Load_locations extends CI_Model
             $number_of_friends_query .= ")";
             $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
 
-
             $result = $this->db->query($number_of_friends_query);
             $count = $result->num_rows();
             ?>
@@ -152,8 +150,6 @@ class Load_locations extends CI_Model
             <?php
         }
     }
-
 }
-
 ?>
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
