@@ -130,7 +130,7 @@ class Load_locations extends CI_Model
         }
         $group_query = substr($group_query, 0, strlen($group_query) - 4);  // trim off the last "OR" before querying
         var_dump($group_query);
-        /*
+        
         $query_result = $this->db->query($group_query);
         // generate the list of user ids from the
         foreach($query_result->result() as $row)
@@ -140,10 +140,7 @@ class Load_locations extends CI_Model
                 $id_array[] = $row->user_joined_id;
             }
         }
-        
          return $id_array;
-         * 
-         */
     }
          
 }
