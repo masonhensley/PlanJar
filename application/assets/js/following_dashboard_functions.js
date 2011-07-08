@@ -9,7 +9,16 @@ function initialize_following_list() {
 }
 
 function initialize_follow_search() {
+    // In-field labels;
+    $('.in-field_block label').inFieldLabels();
     
+    $('#friend_search').keyup(function () {
+        $.get('/dashboard/follow_search', {
+            needle: $(this).val()
+        }, function (data) {
+            $('#follow_search').html(data);
+        });
+    });
 }
 
 //function initialize_friends_list() {
