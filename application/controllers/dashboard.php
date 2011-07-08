@@ -101,8 +101,8 @@ class Dashboard extends CI_Controller
         $user = $this->ion_auth->get_user();
 
         $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
-                "FROM (friends LEFT JOIN  user_meta ON friends.follow_id = user_meta.user_id) " .
-                "LEFT JOIN school_data ON user_meta.school_id = school_data.id" .
+                "FROM friends LEFT JOIN  user_meta ON friends.follow_id = user_meta.user_id " .
+                "LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
                 "WHERE friends.user_id = ? " .
                 "ORDER BY user_meta.last_name ASC";
         $query = $this->db->query($query_string, array($user->id));
