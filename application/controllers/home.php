@@ -105,12 +105,12 @@ class Home extends CI_Controller
             echo(json_encode(array('count' => 0)));
         } else
         {
-// Return a JSON array with count and data members.
+            // Return a JSON array with count and data members.
             echo(json_encode(array('count' => count($return_array), 'data' => $return_array)));
         }
     }
 
-// Checks the plan cotegories with the server.
+    // Checks the plan cotegories with the server.
     public function find_plan_categories()
     {
         $this->load->database();
@@ -249,8 +249,10 @@ class Home extends CI_Controller
 // called from "visible_plans_functions.js"
     public function load_popular_locations()
     {
+        // load the database and model
         $this->load->database();
-
+        $this->load-model('load_plans');
+        
         // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
