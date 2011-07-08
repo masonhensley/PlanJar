@@ -35,16 +35,16 @@ class Load_locations extends CI_Model
             // if there are groups selected, generate a query to pull all user ids joined in the selected groups
             $index = 0; // reinitialize index
             $user_ids = null;
-             var_dump($id_array);
+  
             if (isset($group_ids_selected[$index]))
             {
                 $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
             }
-            
             var_dump($id_array);
-            
 
             
+
+            /*
             // generate query to pull relevant locations for the groups selected
             $plan_query = "SELECT plans.place_id, plans.user_id, plans.plan_date, plans.time_of_day, plans.category_id, places.id, places.name
                 FROM plans
@@ -97,6 +97,7 @@ class Load_locations extends CI_Model
                 </div>
                 <?php
             }
+            */
         }
     }
 
@@ -128,6 +129,8 @@ class Load_locations extends CI_Model
             $group_query .= " group_id=$id OR";
         }
         $group_query = substr($group_query, 0, strlen($group_query) - 4);  // trim off the last "OR" before querying
+        var_dump($group_query);
+        /*
         $query_result = $this->db->query($group_query);
         // generate the list of user ids from the
         foreach($query_result->result() as $row)
@@ -139,6 +142,9 @@ class Load_locations extends CI_Model
         }
         
          return $id_array;
+         * 
+         */
     }
+         
 }
 ?>
