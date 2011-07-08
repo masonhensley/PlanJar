@@ -10,7 +10,7 @@ function populate_following_list() {
         // Click handler.
         $('#following_list .remove_following').click(function () {
             $.get('/dashboard/remove_following', {
-                following_id: $(this).parent().attr('following_id')
+                following_id: $(this).parent().attr('user_id')
             }, function (data) {
                 console.log(data);
                 populate_following_list();
