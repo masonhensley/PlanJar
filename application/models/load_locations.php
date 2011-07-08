@@ -154,4 +154,6 @@ class Load_locations extends CI_Model
     }
 
 }
+
 ?>
+<script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
