@@ -59,7 +59,7 @@ $config['join'] = 'user_id';
 $config['columns'] = array(
     'first_name',
     'last_name',
-    'school',
+    'school_id',
     'sex',
     'birthday',
     'grad_year',
