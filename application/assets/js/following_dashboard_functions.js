@@ -8,6 +8,10 @@ function initialize_following_list() {
     });
 }
 
+function initialize_follow_search() {
+    
+}
+
 //function initialize_friends_list() {
 //    // Button click events
 //    $('#friends_following').click(function() {
