@@ -9,14 +9,14 @@ class Dashboard extends CI_Controller
         {
             $user_info = $this->ion_auth->get_user();
 
-            // retrieve other useful variables for view
+// retrieve other useful variables for view
             $firstname = $user_info->first_name;
             $lastname = $user_info->last_name;
 
-            // Lookup the groups by id.
+// Lookup the groups by id.
             $this->load->model('load_groups');
 
-            // Pass the necessary information to the view.
+// Pass the necessary information to the view.
             $this->load->view('dashboard_view', array(
                 'firstname' => $firstname,
                 'lastname' => $lastname)
@@ -27,7 +27,7 @@ class Dashboard extends CI_Controller
         }
     }
 
-    // logs user out and redirects to login page
+// logs user out and redirects to login page
     public function logout()
     {
         $this->ion_auth->logout();
@@ -64,7 +64,7 @@ class Dashboard extends CI_Controller
 
             $query = $this->db->query($query_string);
 
-            //echo($this->db->last_query());
+//echo($this->db->last_query());
 
             foreach ($query->result() as $row)
             {
@@ -75,18 +75,18 @@ class Dashboard extends CI_Controller
                             <div class="user_picture"></div>
 
                             <div class="grad_year">
-                                <?php echo('Class of ' . $row->grad_year); ?>
+                <?php echo('Class of ' . $row->grad_year); ?>
                             </div>
                         </center>
                     </div>
 
                     <div class="search_entry_right">
                         <div class="user_name">
-                            <?php echo($row->first_name . ' ' . $row->last_name); ?>
+                <?php echo($row->first_name . ' ' . $row->last_name); ?>
                         </div>
 
                         <div class="user_school">
-                            <?php echo($row->school); ?>
+                <?php echo($row->school); ?>
                         </div>
                     </div>
                 </div>
@@ -97,14 +97,6 @@ class Dashboard extends CI_Controller
 
     public function add_following()
     {
-        $query_string = "INSERT INTO friends VALUES (DEFAULT, ?, ?)";
-
-        $user = $this->ion_auth->get_user();
-        $query = $this->db->query($query_string, array($user->id, $this->input->get('following_id')));
-    }
-
-    public function remove_following()
-    {
         $user = $this->ion_auth->get_user();
 
         $query_string = "SELECT * FROM friends WHERE user_id = ? AND follow_id = ?";
@@ -112,12 +104,19 @@ class Dashboard extends CI_Controller
 
         if ($query->num_rows() == 0)
         {
-            $query_string = "REMOVE FROM friends WHERE user_id = ? AND follow_id = ?";
+            $query_string = "INSERT INTO friends VALUES (DEFAULT, ?, ?)";
             $query = $this->db->query($query_string, array($user->id, $this->input->get('following_id')));
         }
     }
 
-    // Return HTML for the users the user is following.
+    public function remove_following()
+    {
+        $user = $this->ion_auth->get_user();
+        $query_string = "REMOVE FROM friends WHERE user_id = ? AND follow_id = ?";
+        $query = $this->db->query($query_string, array($user->id, $this->input->get('following_id')));
+    }
+
+// Return HTML for the users the user is following.
     public function get_following()
     {
         $this->load->database();
