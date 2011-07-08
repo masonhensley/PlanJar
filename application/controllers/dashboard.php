@@ -37,7 +37,7 @@ class Dashboard extends CI_Controller
     public function follow_search()
     {
         $user = $this->ion_auth->get_user();
-        
+
         $needle = trim($this->input->get('needle'));
         if ($needle != '')
         {
@@ -68,7 +68,7 @@ class Dashboard extends CI_Controller
 
             foreach ($query->result() as $row)
             {
-                $this->_echo_following_entry($row);
+                $this->_echo_user_follow_entry($row, 'add following');
             }
         }
     }
@@ -111,15 +111,39 @@ class Dashboard extends CI_Controller
 
         foreach ($query->result() as $row)
         {
-            $this->_echo_following_entry($row, true);
+            $this->_echo_user_follow_entry($row, 'remove following');
         }
     }
 
-    private function _echo_following_entry($row, $removable = false)
+    public function get_followers()
+    {
+        $this->load->database();
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
+                "FROM friends LEFT JOIN  user_meta ON friends.user_id = user_meta.user_id " .
+                "LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
+                "WHERE friends.follow_id = ? " .
+                "ORDER BY user_meta.last_name ASC";
+        $query = $this->db->query($query_string, array($user->id));
+
+        foreach ($query->result() as $row)
+        {
+            $this->_echo_user_follow_entry($row);
+        }
+    }
+
+    public function get_follower_details()
+    {
+        $follower_id = $this->input->get('follower_id');
+        echo("Information for user id $follower_id...");
+    }
+
+    private function _echo_user_follow_entry($row, $option = '')
     {
         ?>
-        <div class="following_entry" user_id="<?php echo($row->user_id); ?>">
-            <div class="following_entry_left">
+        <div class="user_follow_entry" user_id="<?php echo($row->user_id); ?>">
+            <div class="user_follow_entry_left">
                 <center>
                     <div class="user_picture"></div>
 
@@ -129,7 +153,7 @@ class Dashboard extends CI_Controller
                 </center>
             </div>
 
-            <div class="following_entry_middle">
+            <div class="user_follow_entry_middle">
                 <div class="user_name">
                     <?php echo($row->first_name . ' ' . $row->last_name); ?>
                 </div>
@@ -139,44 +163,20 @@ class Dashboard extends CI_Controller
                 </div>
             </div>
             <?php
-            if ($removable)
+            if ($option == 'remove following')
             {
                 ?>
                 <div class="remove_following">- Unfollow</div>
                 <?php
-            } else
+            } else if ($option == 'add following')
             {
                 ?>
                 <div class="add_following">+ Follow</div>
                 <?php
             }
             ?>
-
         </div>
         <?php
-    }
-
-    public function get_followers()
-    {
-        $this->load->database();
-        $user = $this->ion_auth->get_user();
-
-        $query_string = "SELECT user_meta.first_name, user_meta.last_name, friends.user_id " .
-                "FROM friends LEFT JOIN  user_meta " .
-                "ON friends.user_id = user_meta.user_id WHERE friends.follow_id = ? " .
-                "ORDER BY user_meta.last_name ASC";
-        $query = $this->db->query($query_string, array($user->id));
-
-        foreach ($query->result() as $row)
-        {
-            
-        }
-    }
-
-    public function get_follower_details()
-    {
-        $follower_id = $this->input->get('follower_id');
-        echo("Information for user id $follower_id...");
     }
 
 }
