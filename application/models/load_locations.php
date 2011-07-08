@@ -144,10 +144,10 @@ class Load_locations extends CI_Model
     
     function get_user_ids($group_ids_selected, $id_array)
     {
-        $group_query = "SELECT user_joined_id FROM group_relationships WHERE group_id=12 OR group_id=13";
+        $group_query = "SELECT user_joined_id FROM group_relationships WHERE";
         foreach($group_ids_selected as $id)
         {
-            $group_query .= "group_id=$id OR ";
+            $group_query .= " group_id=$id OR";
         }
         $group_query = substr($group_query, 0, strlen($group_query) - 4); 
         var_dump($group_query);
