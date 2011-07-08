@@ -116,7 +116,7 @@ class Load_locations extends CI_Model
         }
     }
 
-    function get_friend_ids($user_id, &$id_array)
+    function get_friend_ids($user_id, $id_array)
     {
         $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
         $query_result = $this->db->query($friend_query);
