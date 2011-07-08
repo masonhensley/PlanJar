@@ -128,7 +128,7 @@ class Load_locations extends CI_Model
         {
             $group_query .= " group_id=$id OR";
         }
-        $group_query = substr($group_query, 0, strlen($group_query) - 4);  // trim off the last "OR" before querying
+        $group_query = substr($group_query, 0, strlen($group_query) - 3);  // trim off the last "OR" before querying
         var_dump($group_query);
         
         $query_result = $this->db->query($group_query);
