@@ -70,7 +70,7 @@ class Dashboard extends CI_Controller
             {
                 ?>
                 <div class="follow_search_entry" user_id="<?php echo($row->user_id); ?>">
-                    <div class="left">
+                    <div class="search_entry_left">
                         <div class="user_picture"></div>
 
                         <div class="grad_year">
@@ -78,7 +78,7 @@ class Dashboard extends CI_Controller
                         </div>
                     </div>
 
-                    <div class="right">
+                    <div class="search_entry_right">
                         <div class="user_name">
                 <?php echo($row->first_name . ' ' . $row->last_name); ?>
                         </div>
