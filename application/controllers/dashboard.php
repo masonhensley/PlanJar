@@ -58,10 +58,10 @@ class Dashboard extends CI_Controller
 
         $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
                 "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
-                "WHERE (?) OR (?)";
+                "WHERE ($first_name_where) OR ($last_name_where)";
 
-        $query = $this->db->query($query_string, array($first_name_where, $last_name_where));
-        
+        $query = $this->db->query($query_string);
+
         echo($this->db->last_query());
 
         foreach ($query->result() as $row)
