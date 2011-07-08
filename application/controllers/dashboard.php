@@ -64,33 +64,9 @@ class Dashboard extends CI_Controller
 
             $query = $this->db->query($query_string);
 
-//echo($this->db->last_query());
-
             foreach ($query->result() as $row)
             {
-                ?>
-                <div class="follow_search_entry" user_id="<?php echo($row->user_id); ?>">
-                    <div class="search_entry_left">
-                        <center>
-                            <div class="user_picture"></div>
-
-                            <div class="grad_year">
-                <?php echo('Class of ' . $row->grad_year); ?>
-                            </div>
-                        </center>
-                    </div>
-
-                    <div class="search_entry_right">
-                        <div class="user_name">
-                <?php echo($row->first_name . ' ' . $row->last_name); ?>
-                        </div>
-
-                        <div class="user_school">
-                <?php echo($row->school); ?>
-                        </div>
-                    </div>
-                </div>
-                <?php
+                _echo_following_entry($row);
             }
         }
     }
@@ -114,7 +90,7 @@ class Dashboard extends CI_Controller
         $user = $this->ion_auth->get_user();
         $query_string = "DELETE FROM friends WHERE user_id = ? AND follow_id = ?";
         $query = $this->db->query($query_string, array($user->id, $this->input->get('following_id')));
-        
+
         echo($this->db->last_query());
     }
 
@@ -132,16 +108,45 @@ class Dashboard extends CI_Controller
 
         foreach ($query->result() as $row)
         {
-            ?>
-            <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
-                <div class="following_name">
-            <?php echo($row->first_name . ' ' . $row->last_name); ?>
+            _echo_following_entry($row, true);
+        }
+    }
+
+    private function _echo_following_entry($row, $delete_visible = false)
+    {
+        ?>
+        <div class="following_entry" user_id="<?php echo($row->user_id); ?>">
+            <div class="following_entry_left">
+                <center>
+                    <div class="user_picture"></div>
+
+                    <div class="grad_year">
+                        <?php echo('Class of ' . $row->grad_year); ?>
+                    </div>
+                </center>
+            </div>
+
+            <div class="following_entry_middle">
+                <div class="user_name">
+                    <?php echo($row->first_name . ' ' . $row->last_name); ?>
                 </div>
 
-                <div class="remove_following">Unfollow</div>
+                <div class="user_school">
+                    <?php echo($row->school); ?>
+                </div>
             </div>
             <?php
-        }
+            if ($delete_visible)
+            {
+                $display_val = 'block';
+            } else
+            {
+                $display_val = 'none';
+            }
+            ?>
+            <div class="remove_following" style="display: <?php echo($display_val); ?>">Un-follow</div>
+        </div>
+        <?php
     }
 
     public function get_followers()
@@ -157,13 +162,7 @@ class Dashboard extends CI_Controller
 
         foreach ($query->result() as $row)
         {
-            ?>
-            <div class="follower_entry" follower_id="<?php echo($row->user_id); ?>">
-                <div class="follower_name">
-            <?php echo($row->first_name . ', ' . $row->last_name); ?>
-                </div>
-            </div>
-            <?php
+            
         }
     }
 
