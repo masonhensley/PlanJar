@@ -64,7 +64,7 @@ class Dashboard extends CI_Controller
 
             $query = $this->db->query($query_string);
 
-            echo($this->db->last_query());
+            //echo($this->db->last_query());
 
             foreach ($query->result() as $row)
             {
