@@ -36,57 +36,60 @@ class Dashboard extends CI_Controller
 
     public function follow_search()
     {
-        $needle = $this->input->get('needle');
-        $needle_array = explode(' ', $needle);
-
-        $this->load->model('load_groups');
-        $joined_groups = $this->load_groups->joined_groups();
-
-        $first_name_where = '';
-        $last_name_where = '';
-        foreach ($needle_array as $cur_needle)
+        $needle = trim($this->input->get('needle'));
+        if ($needle != '')
         {
-            $first_name_where .= "user_meta.first_name LIKE '%%$cur_needle%%' OR ";
-            $last_name_where .= "user_meta.last_name LIKE '%%$cur_needle%%' OR ";
-        }
+            $needle_array = explode(' ', $needle);
 
-        if (count($needle_array) > 0)
-        {
-            $first_name_where = substr($first_name_where, 0, -4);
-            $last_name_where = substr($last_name_where, 0, -4);
-        }
+            $this->load->model('load_groups');
+            $joined_groups = $this->load_groups->joined_groups();
 
-        $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
-                "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
-                "WHERE ($first_name_where) OR ($last_name_where)";
+            $first_name_where = '';
+            $last_name_where = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $first_name_where .= "user_meta.first_name LIKE '%%$cur_needle%%' OR ";
+                $last_name_where .= "user_meta.last_name LIKE '%%$cur_needle%%' OR ";
+            }
 
-        $query = $this->db->query($query_string);
+            if (count($needle_array) > 0)
+            {
+                $first_name_where = substr($first_name_where, 0, -4);
+                $last_name_where = substr($last_name_where, 0, -4);
+            }
 
-        echo($this->db->last_query());
+            $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
+                    "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
+                    "WHERE ($first_name_where) OR ($last_name_where)";
 
-        foreach ($query->result() as $row)
-        {
-            ?>
-            <div class="follow_search_entry" user_id="<?php echo($row->user_id); ?>">
-                <div class="left">
-                    <div class="user_picture"></div>
+            $query = $this->db->query($query_string);
 
-                    <div class="grad_year">
-                        <?php echo('Class of ' . $row->grad_year); ?>
+            echo($this->db->last_query());
+
+            foreach ($query->result() as $row)
+            {
+                ?>
+                <div class="follow_search_entry" user_id="<?php echo($row->user_id); ?>">
+                    <div class="left">
+                        <div class="user_picture"></div>
+
+                        <div class="grad_year">
+                <?php echo('Class of ' . $row->grad_year); ?>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="user_name">
+                <?php echo($row->first_name . ' ' . $row->last_name); ?>
+                        </div>
+
+                        <div class="user_school">
+                <?php echo($row->school); ?>
+                        </div>
                     </div>
                 </div>
-
-                <div class="right">
-                    <div class="user_name">
-                        <?php echo($row->first_name . ' ' . $row->last_name); ?>
-                    </div>
-
-                    <div class="user_school">
-                        <?php echo($row->school); ?>
-                    </div>
-                </div>
-            </div>
-            <?php
+                <?php
+            }
         }
     }
 
@@ -107,7 +110,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
                 <div class="following_name">
-                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
+            <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
@@ -130,7 +133,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="follower_entry" follower_id="<?php echo($row->user_id); ?>">
                 <div class="follower_name">
-                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
+            <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
