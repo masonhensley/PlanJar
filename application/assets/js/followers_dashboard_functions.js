@@ -16,7 +16,7 @@ function make_followers_selectable() {
         $.get('/dashboard/get_follower_details', {
             follower_id: $(this).attr('user_id')
         }, function (data) {
-            $('#friends_content .right').html(data);
+            $('#followers_content .right').html(data);
         });
     });
 }

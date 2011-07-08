@@ -151,7 +151,13 @@ a{
     height: 800px;
 }
 .selected_follower {
-    border: 4px dotted purple;
+    border: 4px inset purple;
+}
+#followers_content .right {
+    width: 48%;
+    float: right;
+    height: 100%;
+    border: 1px solid black;
 }
 
 /* in-field labels */
