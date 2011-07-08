@@ -4,6 +4,10 @@ body{
     margin: 0px;
 }
 
+a{
+    color:white; text-decoration: none;
+}
+
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     height: 40px;
@@ -16,6 +20,7 @@ body{
     height:100%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .top_links{

@@ -246,7 +246,7 @@ class Home extends CI_Controller
 
     // Return a list of plans visible to the user.
     // This code is sweet
-    // called from "visible_plans_functions.js"
+    // called from "home_functions.js"
     public function load_popular_locations()
     {
         // load the database and model
