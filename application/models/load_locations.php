@@ -94,7 +94,7 @@ class Load_locations extends CI_Model
                         $plan_tracker++; ?></div><?php
                 echo "<hr/>";
                 echo $plan;
-                echo "<br/>$count attending";
+                echo "<br/>$count people in selected groups are attending";
                 echo "<br/><hr/>";
                         ?>
                 </div>
