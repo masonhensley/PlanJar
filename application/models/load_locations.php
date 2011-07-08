@@ -34,11 +34,13 @@ class Load_locations extends CI_Model
             // if there are groups selected, generate a query to pull all user ids joined in the selected groups
             $index = 0; // reinitialize index
             $user_ids = null;
+            var_dump($id_array);
             if (isset($group_ids_selected[$index]))
             {
                 $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
             }
 
+            
             // generate query to pull relevant locations for the groups selected
             $plan_query = "SELECT plans.place_id, plans.user_id, plans.plan_date, plans.time_of_day, plans.category_id, places.id, places.name
                 FROM plans
@@ -118,6 +120,7 @@ class Load_locations extends CI_Model
     // this function updates the $id_array with members joined in groups selected
     function get_user_ids($user_id, $group_ids_selected, $id_array)
     {
+        var_dump($id_array);
         $group_query = "SELECT user_joined_id FROM group_relationships WHERE";
         foreach($group_ids_selected as $id)
         {
@@ -133,6 +136,7 @@ class Load_locations extends CI_Model
                 $id_array[] = $row->user_joined_id;
             }
         }
+        
          return $id_array;
     }
 }
