@@ -151,8 +151,7 @@ a{
     height: 800px;
 }
 .selected_follower {
-    background-color: purple;
-    color: white;
+    border: 4px dotted purple;
 }
 
 /* in-field labels */
