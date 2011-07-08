@@ -15,9 +15,9 @@ class Load_locations extends CI_Model
         if (isset($group_list[0])) //  group_list is a list of group ids selected
         {
             // first get a list of ids to find plans with and append it to the id_array
-            if (in_array("friends", &$group_list))
+            if (in_array("friends", $group_list))
             {
-                get_friend_ids($user_id, $id_array); // adds user ids to $id_array
+                get_friend_ids($user_id, &$id_array); // adds user ids to $id_array
             }
 
             // next generate the query for a list of ids for all the people in the groups selected
