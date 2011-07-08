@@ -1,9 +1,9 @@
 $(function() {
-    initialize_following_list();
+    populate_following_list();
     initialize_follow_search();
 });
 
-function initialize_following_list() {
+function populate_following_list() {
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
     });
@@ -18,9 +18,21 @@ function initialize_follow_search() {
             needle: $(this).val()
         }, function (data) {
             $('#follow_search').html(data);
+            
+            // Click handler.
+            $('.follow_search_entry').click(function () {
+                $.get('/dashboard/add_following', {
+                    following_id: $(this).attr('user_id')
+                }, function (data) {
+                    $('#friend_search').val('');
+                    $('#friend_search').blur();
+                    console.log(data);
+                });
+            });
         });
     });
 }
+
 
 //function initialize_friends_list() {
 //    // Button click events

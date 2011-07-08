@@ -72,11 +72,11 @@ class Dashboard extends CI_Controller
                 <div class="follow_search_entry" user_id="<?php echo($row->user_id); ?>">
                     <div class="search_entry_left">
                         <center>
-                        <div class="user_picture"></div>
+                            <div class="user_picture"></div>
 
-                        <div class="grad_year">
-                            <?php echo('Class of ' . $row->grad_year); ?>
-                        </div>
+                            <div class="grad_year">
+                                <?php echo('Class of ' . $row->grad_year); ?>
+                            </div>
                         </center>
                     </div>
 
@@ -93,6 +93,14 @@ class Dashboard extends CI_Controller
                 <?php
             }
         }
+    }
+
+    public function add_following()
+    {
+        $query_string = "INSERT INTO friends VALUES (DEFAULT, ?, ?)";
+
+        $user = $this->ion_auth->get_user();
+        $query = $this->db->query($query_string, array($user->id, $this->input->get('following_id')));
     }
 
     // Return HTML for the users the user is following.
@@ -112,7 +120,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="following_entry" following_id="<?php echo($row->follow_id); ?>">
                 <div class="following_name">
-                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
+            <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
@@ -135,7 +143,7 @@ class Dashboard extends CI_Controller
             ?>
             <div class="follower_entry" follower_id="<?php echo($row->user_id); ?>">
                 <div class="follower_name">
-                    <?php echo($row->first_name . ', ' . $row->last_name); ?>
+            <?php echo($row->first_name . ', ' . $row->last_name); ?>
                 </div>
             </div>
             <?php
