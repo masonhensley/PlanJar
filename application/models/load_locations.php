@@ -63,6 +63,7 @@ class Load_locations extends CI_Model
             $evaluated_plans = $this->db->query($plan_query);
             $evaluated_plans = $evaluated_plans->result();
 
+            /*
             $location_ids = array();  // Use this variable to store the location ids that are shown to prevent duplicates
             foreach ($evaluated_plans as $plan)
             {
@@ -86,7 +87,7 @@ class Load_locations extends CI_Model
                 $number_of_friends_query .= ")";
                 $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
                 
-                /*
+               
                 $result = $this->db->query($number_of_friends_query);
                 $count = $result->num_rows();
                 ?>
@@ -100,9 +101,10 @@ class Load_locations extends CI_Model
                         ?>
                 </div>
                 <?php
-                 * 
-                 */
+                 
             }
+             * 
+             */
         }
     }
 
