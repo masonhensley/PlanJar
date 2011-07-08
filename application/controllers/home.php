@@ -19,7 +19,7 @@ class Home extends CI_Controller
             $lastname = $user_info->last_name;
             $joined_groups = $this->load_groups->joined_groups();
             $followed_groups = $this->load_groups->followed_groups();
-
+            // chay
             // Lookup the groups by id.
             $this->load->model('load_groups');
 
