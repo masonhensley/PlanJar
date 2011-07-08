@@ -141,8 +141,9 @@ class Load_locations extends CI_Model
         }
         
          return $id_array;
-    }
          * 
          */
+    }
+         
 }
 ?>
