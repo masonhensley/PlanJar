@@ -251,7 +251,7 @@ class Home extends CI_Controller
     {
         // load the database and model
         $this->load->database();
-        $this->load->model('load_plans');
+        $this->load->model('load_locations');
         
         // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
