@@ -45,6 +45,7 @@ function initialize_day_tab_rules() {
 
 // Callback function
 function on_day_change() {
+    alert('day_change');
     show_data_container('#group_data');
     get_group_day_data();
     load_visible_plans()
