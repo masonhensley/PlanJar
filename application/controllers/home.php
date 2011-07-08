@@ -229,7 +229,7 @@ class Home extends CI_Controller
     {
         $this->load->database();
         $plan = $this->input->get('plan_selected');
-        $this->load->model('load_plans');
+        $this->load_model('load_plans');
         $return = $this->load_plans->loadPlanData($plan);
         echo $return;
     }
