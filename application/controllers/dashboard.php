@@ -61,6 +61,8 @@ class Dashboard extends CI_Controller
                 "WHERE (?) OR (?)";
 
         $query = $this->db->query($query_string, array($first_name_where, $last_name_where));
+        
+        echo($this->db->last_query());
 
         foreach ($query->result() as $row)
         {
