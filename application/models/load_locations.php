@@ -41,7 +41,7 @@ class Load_locations extends CI_Model
                 $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
             }
 
-            if (isset($id_array))
+            if (isset($id_array[0]))
             {
                 $location_ids = $this->get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
 
