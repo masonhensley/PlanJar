@@ -104,32 +104,32 @@ a{
     height: 80%;
 }
 
-/* following entry */
-.following_entry {
+/* follow entry */
+.user_follow_entry {
     width: 100%;
     height: 75px;
     border: 1px solid black;
 }
-.following_entry .following_entry_left {
+.user_follow_entry .user_follow_entry_left {
     float: left;
     width: 90px;
 }
-.following_entry .user_picture {
+.user_follow_entry .user_picture {
     width: 50px;
     height: 50px;
     background-color: lightgrey;
 }
-.following_entry .following_entry_middle {
+.user_follow_entry .user_follow_entry_middle {
     float: left;
     width: 40%
 }
-.following_entry .remove_following {
+.user_follow_entry .remove_following {
     float: right;
     width: 70px;
     background-color: red;
     color: white;
 }
-.following_entry .add_following {
+.user_follow_entry .add_following {
     float: right;
     width: 70px;
     background-color: purple;
@@ -137,6 +137,19 @@ a{
 }
 
 /* follower tab */
+#followers_content .left {
+    width: 48%;
+    float: left;
+    height: 100%;
+    border: 1px solid black;
+}
+#followers_content .left_header {
+    width: 100%;
+}
+#followers_list {
+    width: 100%;
+    height: 800px;
+}
 .selected_follower {
     background-color: purple;
     color: white;
