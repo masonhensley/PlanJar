@@ -37,6 +37,7 @@ function initialize_follow_search() {
                 }, function () {
                     $('#follow_search').html('');
                     $('#friend_search').val('');
+                    populate_following_list();
                     $('#friend_search').blur();
                 });
             });
