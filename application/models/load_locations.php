@@ -133,6 +133,7 @@ class Load_locations extends CI_Model
                 $id_array[] = $row->user_joined_id;
             }
         }
+        var_dump($id_array);
          return $id_array;
     }
 }
