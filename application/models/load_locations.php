@@ -128,7 +128,7 @@ class Load_locations extends CI_Model
         // generate the list of user ids from the
         foreach($query_result->result() as $row)
         {
-            if($row->joined_user_id != $user_id)
+            if($row->user_joined_id != $user_id)
             {
                 $id_array[] = $row->user_joined_id;
             }
