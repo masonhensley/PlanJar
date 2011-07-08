@@ -137,6 +137,20 @@ a{
     color: white;
 }
 
+.following_entry .remove_following {
+    float: right;
+    width: 70px;
+    background-color: red;
+    color: white;
+}
+
+.following_entry .add_following {
+    float: right;
+    width: 70px;
+    background-color: purple;
+    color: white;
+}
+
 .selected_follower {
     background-color: purple;
     color: white;

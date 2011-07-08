@@ -113,7 +113,7 @@ class Dashboard extends CI_Controller
         }
     }
 
-    private function _echo_following_entry($row, $delete_visible = false)
+    private function _echo_following_entry($row, $removable = false)
     {
         ?>
         <div class="following_entry" user_id="<?php echo($row->user_id); ?>">
@@ -137,15 +137,19 @@ class Dashboard extends CI_Controller
                 </div>
             </div>
             <?php
-            if ($delete_visible)
+            if ($removable)
             {
-                $display_val = 'block';
+                ?>
+                <div class="remove_following">- Unfollow</div>
+                <?php
             } else
             {
-                $display_val = 'none';
+                ?>
+                <div class="add_following">+ Follow</div>
+                <?php
             }
             ?>
-            <div class="remove_following" style="display: <?php echo($display_val); ?>">Un-follow</div>
+
         </div>
         <?php
     }
