@@ -132,6 +132,7 @@ class Load_locations extends CI_Model
         var_dump($group_query);
         
         $query_result = $this->db->query($group_query);
+        var_dump($query_result->result());
         // generate the list of user ids from the
         foreach($query_result->result() as $row)
         {
