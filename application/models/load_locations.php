@@ -31,10 +31,19 @@ class Load_locations extends CI_Model
                 $index++;
             }
 
+            
+            
+            
+            
             // if there are groups selected, generate a query to pull all user ids joined in the selected groups
             $index = 0; // reinitialize index
+            $user_ids = null;
             if (isset($group_ids_selected[$index]))
             {
+                $user_ids = $this->get_user_ids($group_ids_selected, $id_array);
+                
+                
+                /*
                 $group_query = "SELECT joined_users FROM groups WHERE ";
                 while (isset($group_ids_selected[$index]))
                 {
@@ -60,7 +69,11 @@ class Load_locations extends CI_Model
                         }
                     }
                 }
+                 */
             }
+            
+            
+            
 
             // generate query to pull relevant locations for the groups selected
             $plan_query = "SELECT plans.place_id, plans.user_id, plans.plan_date, plans.time_of_day, plans.category_id, places.id, places.name
@@ -127,6 +140,18 @@ class Load_locations extends CI_Model
             $return_id_array[] = $row->follow_id;
         }
         return $return_id_array;
+    }
+    
+    function get_user_ids($group_ids_selected, $id_array)
+    {
+        $group_query = "SELECT user_joined_id FROM group_relationships WHERE group_id=12 OR group_id=13";
+        foreach($group_ids_selected as $id)
+        {
+            $group_query .= "group_id=$id OR ";
+        }
+        $group_query = substr($group_query, 0, strlen($group_query) - 4); 
+        var_dump($group_query);
+         return true;
     }
 }
 ?>
