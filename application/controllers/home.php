@@ -209,7 +209,7 @@ class Home extends CI_Controller
         }
     }
 
-// Returns chart data based on the selected groups and day
+    // Returns chart data based on the selected groups and day
     public function get_group_day_data()
     {
         $selected_groups = $this->input->get('selected_groups');
@@ -244,9 +244,9 @@ class Home extends CI_Controller
         echo $return_str;
     }
 
-// Return a list of plans visible to the user.
-// This code is sweet
-// called from "visible_plans_functions.js"
+    // Return a list of plans visible to the user.
+    // This code is sweet
+    // called from "visible_plans_functions.js"
     public function load_popular_locations()
     {
         // load the database and model
@@ -262,7 +262,7 @@ class Home extends CI_Controller
         $this->load_locations->loadUserLocations($group_list, $day, $user_id);
     }
 
-// Returns HTML for the list of the user's plans (right panel)
+    // Returns HTML for the list of the user's plans (right panel)
     public function get_my_plans()
     {
         $this->load->model('load_plans');

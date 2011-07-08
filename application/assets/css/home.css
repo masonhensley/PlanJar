@@ -334,9 +334,9 @@ a{
 }
 
 .bottom_links{
-    width:100%;
+    width:1024px;
+    margin-left:auto;
+    margin-right:auto;
     height:40px;
-    background-color:black;
-    color:white;
     text-align:center;        
 }
