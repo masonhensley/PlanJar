@@ -139,6 +139,8 @@ body{
 }
 
 .following_entry .remove_following {
+    float: right;
+    width: 50px;
     background-color: red;
     color: white;
 }
