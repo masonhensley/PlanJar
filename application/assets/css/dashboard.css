@@ -73,6 +73,7 @@ a{
     display: none;
 }
 
+/* following tab */
 #following_content .left {
     width:48%;
     float:left;
@@ -80,13 +81,11 @@ a{
     background-color:white;
     border: 1px solid black;
 }
-
 #follow_search {
     width: 100%;
     height: 800px;
     border: 1px solid black;
 }
-
 #following_content .right {
     width:48%;
     float:right;
@@ -94,56 +93,42 @@ a{
     background-color:white;
     border: 1px solid black;
 }
-
 #following_content .right_header {
     height: 30px;
 }
-
 #following_list{
     width: 100%;
 }
-
 #follow_search {
     width: 100%;
     height: 80%;
 }
 
+/* following entry */
 .following_entry {
     width: 100%;
     height: 75px;
     border: 1px solid black;
 }
-
 .following_entry .following_entry_left {
     float: left;
     width: 90px;
 }
-
 .following_entry .user_picture {
     width: 50px;
     height: 50px;
     background-color: lightgrey;
 }
-
 .following_entry .following_entry_middle {
     float: left;
     width: 40%
 }
-
 .following_entry .remove_following {
     float: right;
     width: 70px;
     background-color: red;
     color: white;
 }
-
-.following_entry .remove_following {
-    float: right;
-    width: 70px;
-    background-color: red;
-    color: white;
-}
-
 .following_entry .add_following {
     float: right;
     width: 70px;
@@ -151,24 +136,24 @@ a{
     color: white;
 }
 
+/* follower tab */
 .selected_follower {
     background-color: purple;
     color: white;
 }
 
+/* in-field labels */
 .in-field_block {
     position:relative;
     height:30px;
     width:200px;
     float:left;
 }
-
 .in-field_block label {
     position: absolute;
     top: 4px;
     left: 4px;
 }
-
 .in-field_block .textbox {
     height:30px;
     width:200px;
