@@ -30,7 +30,7 @@ function initialize_follow_search() {
             $('#follow_search').html(data);
             
             // Click handler.
-            $('#follow_search .following_entry').click(function () {
+            $('#follow_search .add_following').click(function () {
                 $.get('/dashboard/add_following', {
                     following_id: $(this).attr('user_id')
                 }, function () {
