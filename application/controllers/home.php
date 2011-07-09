@@ -303,19 +303,19 @@ class Home extends CI_Controller
         $new_long = $this->input->get('longitude');
 
         $user = $this->ion_auth->get_user();
-
         $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
 
-        if ($delta_distance > 20 && $this->input->get('auto') == 'true')
+        if ($this->input->get('auto') == 'false')
         {
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
-
-            echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
-        } else
+        } else if ($delta_distance > 20)
         {
-            echo('success');
+            $this->ion_auth->update_user($user->id, array(
+                'latitude' => $new_lat,
+                'longitude' => $new_long));
+            echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
         }
     }
 
