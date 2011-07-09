@@ -125,14 +125,14 @@ a{
 }
 .user_follow_entry .remove_following {
     float: right;
-    width: 90px;
+    width: 80px;
     background-color: red;
     color: white;
     padding: 3px;
 }
 .user_follow_entry .add_following {
     float: right;
-    width: 90px;
+    width: 80px;
     background-color: purple;
     color: white;
     padding: 3px;
