@@ -46,7 +46,7 @@ class Dashboard extends CI_Controller
     {
         $user = $this->ion_auth->get_user();
 
-        $query_string = "INSERT INTO friends VALUES (DEFAULT, ?, ?)";
+        $query_string = "INSERT IGNORE INTO friends VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, array(
                     $user->id,
                     $this->input->get('following_id')
