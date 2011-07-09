@@ -12,7 +12,6 @@ function populate_following_list() {
             $.get('/dashboard/remove_following', {
                 following_id: $(this).parent().attr('user_id')
             }, function (data) {
-                console.log(data);
                 populate_following_list();
             });
         })
