@@ -126,12 +126,12 @@ a{
     margin-right:5px;
     width:100px;
     height:100%;
-    background-color:#DFFFD1;
+    background-color:#bbffee;
     text-align: center;
 }
 
 .tab_selected {
-    background-color: #56AD8C;
+    background-color: navy;
     color: white;
 }
 
