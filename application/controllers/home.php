@@ -252,7 +252,7 @@ class Home extends CI_Controller
         // load the database and model
         $this->load->database();
         $this->load->model('load_locations');
-        
+
         // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
@@ -304,24 +304,18 @@ class Home extends CI_Controller
 
         $user = $this->ion_auth->get_user();
 
-        $result = $this->ion_auth->update_user($user->id, array(
-                    'latitude' => $new_lat,
-                    'longitude' => $new_long));
+        $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
 
-        if ($result)
+        if ($delta_distance > 20 && $this->input->get('auto') == 'true')
         {
-            $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
-            $delta_distance = round($delta_distance, 2);
-            if ($delta_distance > 1 && $this->input->get('auto') == 'true')
-            {
-                echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
-            } else
-            {
-                echo('success');
-            }
+            $this->ion_auth->update_user($user->id, array(
+                'latitude' => $new_lat,
+                'longitude' => $new_long));
+
+            echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
         } else
         {
-            echo('failed to update user location in profile');
+            echo('success');
         }
     }
 
