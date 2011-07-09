@@ -36,15 +36,15 @@ class Follow_ops extends CI_Model
                 $last_name_where = substr($last_name_where, 0, -4);
             }
 
-            $query_string = "1SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
+            $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
                     "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
-                    "WHERE (($first_name_where) OR ($last_name_where)) AND user_meta.user_id <> ?";
+                    "WHERE ($first_name_where) AND ($last_name_where) AND user_meta.user_id <> ?";
 
             // Generate a string to exclude people the user is already following.
             $following_ids = $this->get_following_ids();
             if (count($following_ids) > 0)
             {
-                $query_string .= " AND user_meta.id <> '" . implode("' AND user_meta.id <> '", $following_ids) . "'";
+                $query_string .= " AND user_meta.id <> '" . implode("' AND user_meta.user_id <> '", $following_ids) . "'";
             }
 
             $query = $this->db->query($query_string, array($user->id));
