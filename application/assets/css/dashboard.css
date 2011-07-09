@@ -54,13 +54,13 @@ a{
     height:100%;
     margin-right: 10px;
     display: inline-block;
-    background-color:lightgreen;
+    background-color:#bbffee;
     border: 1px solid black;
 }
 
 .tab_selected {
     background-color: purple;
-    color: white;
+    color: navy;
 }
 
 .page_content{
