@@ -38,7 +38,7 @@ class Login extends CI_Controller
                 $this->input->get('su_year');
 
         $additional_data = array(
-            'school' => $this->input->get('su_school_id'),
+            'school_id' => $this->input->get('su_school_id'),
             'sex' => $this->input->get('su_sex'),
             'first_name' => $this->input->get('su_first_name'),
             'last_name' => $this->input->get('su_last_name'),
