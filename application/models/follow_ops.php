@@ -44,7 +44,7 @@ class Follow_ops extends CI_Model
             $following_ids = $this->get_following_ids();
             if (count($following_ids) > 0)
             {
-                $query_string .= " AND user_meta.id <> '" . implode("' AND user_meta.id <> '") . "'";
+                $query_string .= " AND user_meta.id <> '" . implode("' AND user_meta.id <> '", $following_ids) . "'";
             }
 
             $query = $this->db->query($query_string, array($user->id));
