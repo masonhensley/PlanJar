@@ -21,24 +21,22 @@ class Follow_ops extends CI_Model
             $needle_array = explode(' ', $needle);
 
             // Generate query strings to cross-reference all needle terms with the first and last names in the db
-            $first_name_where = '';
-            $last_name_where = '';
+            $needle_where = '';
             foreach ($needle_array as $cur_needle)
             {
-                $first_name_where .= "user_meta.first_name LIKE '%%$cur_needle%%' OR ";
-                $last_name_where .= "user_meta.last_name LIKE '%%$cur_needle%%' OR ";
+                $needle_where .= "(user_meta.first_name LIKE '%%$cur_needle%%' OR " .
+                        "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
             }
 
-            // Trim the end of the strings
+            // Trim the end of the string
             if (count($needle_array) > 0)
             {
-                $first_name_where = substr($first_name_where, 0, -4);
-                $last_name_where = substr($last_name_where, 0, -4);
+                $needle_where = substr($needle_where, 0, -5);
             }
 
             $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
                     "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
-                    "WHERE ($first_name_where) AND ($last_name_where) AND user_meta.user_id <> ?";
+                    "WHERE ($neelde_where) AND user_meta.user_id <> ?";
 
             // Generate a string to exclude people the user is already following.
             $following_ids = $this->get_following_ids();
