@@ -36,59 +36,82 @@ class Follow_ops extends CI_Model
                 $last_name_where = substr($last_name_where, 0, -4);
             }
 
-            $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
-                    "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
-                    "WHERE (($first_name_where) OR ($last_name_where)) AND user_meta.user_id <> ?";
-            $query = $this->db->query($query_string, array($user->id));
-
-            // Echo the results
-            foreach ($query->result() as $row)
+            // Generate a string to exclude people the user is already following.
+            $following_ids = $this->get_following_ids();
+            if (count($following_ids) > 0)
             {
-                $this->user_follow_entry($row, 'add following');
+                $follow_exclude = "user_meta.id <> '" . implode("' AND user_meta.id <> '") . "'";
+
+                $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
+                        "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
+                        "WHERE (($first_name_where) OR ($last_name_where)) AND user_meta.user_id <> ? AND ($follow_exclude)";
+                $query = $this->db->query($query_string, array($user->id));
+
+                // Echo the results
+                foreach ($query->result() as $row)
+                {
+                    $this->user_follow_entry($row, 'add following');
+                }
             }
         }
-    }
 
-    // Echos a user_follow_entry, which is used as a following/follower list item
-    function user_follow_entry($row, $option = '')
-    {
-        ?>
-        <div class="user_follow_entry" user_id="<?php echo($row->user_id); ?>">
-            <div class="user_follow_entry_left">
-                <center>
-                    <div class="user_picture"></div>
+        // Return a list of following ids
+        function get_following_ids()
+        {
+            $user = $this->ion_auth->get_user();
 
-                    <div class="grad_year">
-                        <?php echo('Class of ' . $row->grad_year); ?>
+            $query_string = "SELECT follow_id FROM friends WHERE user_id = ?";
+            $query = $this->db->query($query_string, array($user->id));
+
+            $return_array = array();
+            foreach ($query->result() as $row)
+            {
+                $return_array[] = $row->follow_id;
+            }
+
+            return $return_array;
+        }
+
+        // Echos a user_follow_entry, which is used as a following/follower list item
+        function user_follow_entry($row, $option = '')
+        {
+            ?>
+            <div class="user_follow_entry" user_id="<?php echo($row->user_id); ?>">
+                <div class="user_follow_entry_left">
+                    <center>
+                        <div class="user_picture"></div>
+
+                        <div class="grad_year">
+            <?php echo('Class of ' . $row->grad_year); ?>
+                        </div>
+                    </center>
+                </div>
+
+                <div class="user_follow_entry_middle">
+                    <div class="user_name">
+            <?php echo($row->first_name . ' ' . $row->last_name); ?>
                     </div>
-                </center>
-            </div>
 
-            <div class="user_follow_entry_middle">
-                <div class="user_name">
-                    <?php echo($row->first_name . ' ' . $row->last_name); ?>
+                    <div class="user_school">
+            <?php echo($row->school); ?>
+                    </div>
                 </div>
-
-                <div class="user_school">
-                    <?php echo($row->school); ?>
-                </div>
+                <?php
+                if ($option == 'remove following')
+                {
+                    ?>
+                    <div class="remove_following">- Unfollow</div>
+                    <?php
+                } else if ($option == 'add following')
+                {
+                    ?>
+                    <div class="add_following">+ Follow</div>
+                    <?php
+                }
+                ?>
             </div>
             <?php
-            if ($option == 'remove following')
-            {
-                ?>
-                <div class="remove_following">- Unfollow</div>
-                <?php
-            } else if ($option == 'add following')
-            {
-                ?>
-                <div class="add_following">+ Follow</div>
-                <?php
-            }
-            ?>
-        </div>
-        <?php
-    }
+        }
 
-}
-?>
+    }
+    ?>
