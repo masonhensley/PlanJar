@@ -46,11 +46,8 @@ class Dashboard extends CI_Controller
     {
         $user = $this->ion_auth->get_user();
 
-        $query_string = "IF NOT EXISTS (SELECT * FROM friends WHERE user_id = ? AND follow_id = ?) " .
-                "INSERT INTO friends VALUES (DEFAULT, ?, ?)";
+        $query_string = "INSERT INTO friends VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, array(
-                    $user->id,
-                    $this->input->get('following_id'),
                     $user->id,
                     $this->input->get('following_id')
                 ));
