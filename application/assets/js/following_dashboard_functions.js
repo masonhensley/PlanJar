@@ -9,12 +9,16 @@ function populate_following_list() {
         
         // Click handler.
         $('#following_list .remove_following').click(function () {
-            $.get('/dashboard/remove_following', {
-                following_id: $(this).parent().attr('user_id')
-            }, function (data) {
-                populate_following_list();
-            });
-        })
+            if ($(this).text() == '- Unfollow') {
+                $(this).text('- You sure?');
+            } else {
+                $.get('/dashboard/remove_following', {
+                    following_id: $(this).parent().attr('user_id')
+                }, function (data) {
+                    populate_following_list();
+                });
+            }
+        });
     });
 }
 
