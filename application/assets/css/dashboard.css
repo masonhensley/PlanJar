@@ -59,8 +59,8 @@ a{
 }
 
 .tab_selected {
-    background-color: purple;
-    color: navy;
+    background-color: navy;
+    color: white;
 }
 
 .page_content{
