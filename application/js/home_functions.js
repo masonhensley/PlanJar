@@ -1,6 +1,7 @@
 $(function() {
     $('.container').click(function(){
-            $('.container').hide();
-            alert('success');
+        $('.tab_selected').removeClass('tab_selected');
+        $(this).removeClass('tab');
+        $(this).addClass('tab_selected');
     });
 });
