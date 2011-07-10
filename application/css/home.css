@@ -10,13 +10,38 @@ body{
 }
 
 .container{
-    position:relative;
     top:20px;
-    width:700px;
+    width:1024px;
     height: 800px;
     margin-left: auto;
     margin-right:auto;
-    position:relative; 
+}
+.left_side{
+    float:left;
+    width:180px;
+    height:800px;
+    background-color:white;
+    position:relative;
+    top:39px;
+}
+
+.left_tab{
+    border-top:1px solid black;
+    border-left:1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+    height:30px;
+    background-color:white;
+    color: green;
+    width:100%;
+    display:inline-block;
+    padding-top:10px;
+    background-color:beige;
+}
+
+.right_side{
+    width:844px;
+    float:right;
 }
 
 .bottom_content{
@@ -39,13 +64,13 @@ body{
 
 .tab{
     margin-right:10px;
-
     display:inline-block;
     height:auto;
     padding:10px;
     border:1px solid black;
     border-bottom: none;
-    background-color:gray
+    background-color:white;
+    color:navy;
 }
 
 .tab_selected{
@@ -66,7 +91,7 @@ body{
 }
 
 .my_music_center{
-    width:100%;
+    width:auto;
     height:100%;
     padding:15px;
     text-align:center;
@@ -86,7 +111,5 @@ body{
     padding:15px;
 }
 
-.left_side{
-    width:300px;
-    height:800px;
-}
+
+

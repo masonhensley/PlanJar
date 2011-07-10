@@ -8,10 +8,16 @@
         <title>Wells Johnston</title>
     </head>
     <body>
-        <div class="left_side">
-            
-        </div>
         <div class="container">
+            <div class="left_side">
+                <div class="youtube_videos_tab music_tab left_tab">
+                    Guitar videos
+                </div>
+                <div class="music_produced_tab music_tab left_tab" style="position:relative; top:10px;">
+                    Music Produced
+                </div>      
+            </div>
+            <div class="right_side">
             <div class="top_links">
                 <div class="tab aboutme tab_selected">
                     About me
@@ -22,7 +28,7 @@
                 <div class="tab otherstuff">
                     Other Suff
                 </div>
-                <div style="font-size:20px; color:navy;  display:inline-block; position:relative; left:200px;">
+                <div style="font-size:20px; color:lightgray;  display:inline-block; position:relative; left:320px;">
                     Wells C Johnston
                 </div>
             </div>
@@ -41,8 +47,8 @@
                         <iframe width="425" height="349" src="http://www.youtube.com/embed/x6DzydmU9Cg" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="my_music_center">
-                        <object height="81" width="80%"> <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F13562811"></param> <param name="allowscriptaccess" value="always"></param> <embed allowscriptaccess="always" height="81" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F13562811" type="application/x-shockwave-flash" width="100%"></embed> </object>  <span><a href="http://soundcloud.com/wellsjohnston/black-and-gold-wells-remix">Black and gold [wells remix]</a> by <a href="http://soundcloud.com/wellsjohnston">wellsjohnston</a></span> 
-                        <object height="81" width="100%"> <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F10799886"></param> <param name="allowscriptaccess" value="always"></param> <embed allowscriptaccess="always" height="81" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F10799886" type="application/x-shockwave-flash" width="100%"></embed> </object>  <span><a href="http://soundcloud.com/wellsjohnston/coldstep-dubstep-remix-by">Coldstep (dubstep remix by wells)</a> by <a href="http://soundcloud.com/wellsjohnston">wellsjohnston</a></span> 
+                        <object height="81" width="500px"> <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F13562811"></param> <param name="allowscriptaccess" value="always"></param> <embed allowscriptaccess="always" height="81" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F13562811" type="application/x-shockwave-flash" width="100%"></embed> </object>  <span><a href="http://soundcloud.com/wellsjohnston/black-and-gold-wells-remix">Black and gold [wells remix]</a> by <a href="http://soundcloud.com/wellsjohnston">wellsjohnston</a></span> 
+                        <object height="81" width="500px"> <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F10799886"></param> <param name="allowscriptaccess" value="always"></param> <embed allowscriptaccess="always" height="81" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F10799886" type="application/x-shockwave-flash" width="100%"></embed> </object>  <span><a href="http://soundcloud.com/wellsjohnston/coldstep-dubstep-remix-by">Coldstep (dubstep remix by wells)</a> by <a href="http://soundcloud.com/wellsjohnston">wellsjohnston</a></span> 
                     </div>
                 </div>
                 <div class="other_stuff content">
@@ -51,6 +57,7 @@
                         <iframe width="425" height="349" src="http://www.youtube.com/embed/h2u6SJ_N4p0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </body>
