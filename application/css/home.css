@@ -1,15 +1,40 @@
 .container{
-    width:1024px;
-    height: 1000px;
+    position:relative;
+    width:700px;
+    height: 800px;
     margin-left: auto;
     margin-right:auto;
-    border: 1px solid black;
     position:relative; 
-    top: 20px;
 }
 
-.header{
+.bottom_content{
+    height:100%;
     width:100%;
+    border:1px solid black;
+}
+
+.top_links{
+    position:relative;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
     height:auto;
-    text-align:center;
+}
+
+.tab{
+    display:inline-block;
+    height:auto;
+    padding:10px;
+    border:1px solid black;
+    border-bottom: none;
+    background-color:gray
+}
+
+.tab_selected{
+    display:inline-block;
+    height:auto;
+    padding:10px;
+    border:1px solid black;
+    border-bottom: none;
+    background-color:navy
 }

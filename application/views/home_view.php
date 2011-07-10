@@ -9,9 +9,20 @@
     </head>
     <body>
         <div class="container">
-            <div class="header">
-                Welcome to Wells Johnston's web page
+        <div class="top_links">
+            <div class="tab">
+                About me
             </div>
+            <div class="tab">
+                Music
+            </div>
+            <div class="tab">
+                Other
+            </div>
+        </div>
+            <div class="bottom_content">
+            </div>
+            
         </div>
     </body>
 </html>
