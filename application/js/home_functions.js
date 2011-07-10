@@ -3,5 +3,4 @@ $(function() {
             $('.container').hide();
             alert('success');
     });
-    
 });
