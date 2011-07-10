@@ -1,0 +1,15 @@
+.container{
+    width:1024px;
+    height: 1000px;
+    margin-left: auto;
+    margin-right:auto;
+    border: 1px solid black;
+    position:relative; 
+    top: 20px;
+}
+
+.header{
+    width:100%;
+    height:auto;
+    text-align:center;
+}
