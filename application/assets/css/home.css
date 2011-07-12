@@ -263,8 +263,8 @@ a{
 }
 
 .selected_location{
-    background-color:gray;
-    color:white;
+    background-color:lightgray;
+    color:navy;
 }
 
 #number_rank{
