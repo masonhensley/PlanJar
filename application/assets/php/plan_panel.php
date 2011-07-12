@@ -35,10 +35,10 @@
                     <td colspan="2">
                 <center>
                     <div id="plan_time">
-                        <div value="morning">Morning</div>
-                        <div value="afternoon">Afternoon</div>
-                        <div value="night">Night</div>
-                        <div value="late_night">Late night</div>
+                        <div plan_time="morning">Morning</div>
+                        <div plan_time="afternoon">Afternoon</div>
+                        <div plan_time="night">Night</div>
+                        <div plan_time="late_night">Late night</div>
                     </div>
                 </center>
                 </td>
