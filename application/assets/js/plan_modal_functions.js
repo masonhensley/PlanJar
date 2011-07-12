@@ -224,6 +224,8 @@ function initialize_plan_modal() {
         $('#plan_time[value=\"morning\"').click();
     } else if (hours < 18) {
         $('#plan_time[value=\"afternoon"').click();
+        console.log($('#plan_time[value=\"afternoon"'));
+        console.log('#plan_time[value=\"afternoon"');
     } else {
         $('#plan_time[value=\"night"').click();
     }
