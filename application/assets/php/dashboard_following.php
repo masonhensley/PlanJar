@@ -1,5 +1,5 @@
 <div class="left">
-    <div style="height: 40px; width: 100%">
+    <div style="height: 30px; width: 100%">
         <div class="in-field_block">
             <label for="friend_search">Search for people to follow.</label>
             <input type="text" class="textbox" id="friend_search" />
