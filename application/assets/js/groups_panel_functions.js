@@ -5,7 +5,7 @@ $(function() {
 
 function initialize_selectable_groups() {
     // Divset
-    divset('.divset_wrapper');
+    divset('#group_select_type');
     $('#select_one_group').click();
     
     initialize_one_group_select();

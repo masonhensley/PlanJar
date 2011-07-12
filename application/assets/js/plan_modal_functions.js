@@ -6,7 +6,22 @@ $(function() {
 function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
-        $('#plan_day [value=' + get_selected_day() + ']').click();
+        // Autoselects the day
+        $('#plan_day [plan_day=' + get_selected_day() + ']').click();
+        
+        // Autoselects the time of day
+        var date = new Date();
+        var hours = date.getHours();
+        if (hours < 5) {
+            $('#plan_time [plan_time=\"late_night"]').click();
+        } else if (hours < 11) {
+            $('#plan_time [plan_time=\"morning\"]').click();
+        } else if (hours < 18) {
+            $('#plan_time [plan_time=\"afternoon"]').click();
+        } else {
+            $('#plan_time[plan_time=\"night"]').click();
+        }
+        
         $('#plan_location').select();
         $('#create_plan_content input[type="text"], #create_plan_content input[type="hidden"]').val('');
         $('#plan_location, #plan_category').blur();
@@ -19,10 +34,13 @@ function initialize_plan_modal() {
     })
     
     // Make it draggable (with a handler).
-    $('#create_plan_content').draggable({handle: '.draggable_title_bar'});
+    $('#create_plan_content').draggable({
+        handle: '.draggable_title_bar'
+    });
     
-    // Buttonset
-    $('#create_plan_content .radio').buttonset();
+    // Divset
+    divset('#plan_time');
+    divset('#plan_day');
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();
@@ -212,19 +230,6 @@ function initialize_plan_modal() {
         }
     });
     
-    // Auto-select the time of day.
-    var date = new Date();
-    var hours = date.getHours();
-    if (hours < 5) {
-        $('#plan_late_night').click();
-    } else if (hours < 11) {
-        $('#plan_morning').click();
-    } else if (hours < 18) {
-        $('#plan_afternoon').click();
-    } else {
-        $('#plan_night').click();
-    }
-    
     // Initialize the Validator plugin for the plan location.
     $('#make_plan').validate({
         rules: {
@@ -234,7 +239,14 @@ function initialize_plan_modal() {
             plan_day_group: 'required'
         },
         submitHandler: function (form) {
-            $.get('/home/submit_plan', $(form).serialize(), function (data) {
+            var data_string = $(form).serialize() +
+            '&plan_time=' + $('#plan_time .divset_selected').attr('plan_time') +
+            '&plan_day=' + $('#plan_day .divset_selected').attr('plan_day');
+        
+            console.log($('#plan_day .divset_selected'));
+            console.log($('#plan_day .divset_selected').attr('plan_day'));
+        
+            $.get('/home/submit_plan', data_string, function (data) {
                 if (data == 'success') {
                     $('#create_plan_content').hide();
                     // Refresh th eplan list.

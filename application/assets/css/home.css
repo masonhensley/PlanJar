@@ -372,6 +372,7 @@ a{
     background-color: lightgray;
     color: black;
     float: left;
+    padding: 5px;
 }
 
 .divset.divset_selected {

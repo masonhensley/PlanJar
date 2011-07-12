@@ -159,14 +159,14 @@ class Home extends CI_Controller
         $this->load->database();
         $user = $this->ion_auth->get_user();
         $date = new DateTime();
-        $date->add(new DateInterval('P' . $this->input->get('plan_day_group') . 'D'));
+        $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
 
         $data = array(
             'id' => 'DEFAULT',
             'place_id' => $this->input->get('plan_location_id'),
             'user_id' => $user->id,
             'plan_date' => $date->format('Y-m-d'),
-            'time_of_day' => $this->input->get('plan_time_group'),
+            'time_of_day' => $this->input->get('plan_time'),
             'category_id' => $this->input->get('plan_category_id')
         );
 

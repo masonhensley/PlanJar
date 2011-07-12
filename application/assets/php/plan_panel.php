@@ -34,18 +34,11 @@
                 <tr>
                     <td colspan="2">
                 <center>
-                    <div id="plan_time" class="radio">
-                        <label for="plan_morning">morning</label>
-                        <input type="radio" id="plan_morning" value="morning" name="plan_time_group" />
-
-                        <label for="plan_afternoon">afternoon</label>
-                        <input type="radio" id="plan_afternoon" value="afternoon" name="plan_time_group" />
-
-                        <label for="plan_night">night</label>
-                        <input type="radio" id="plan_night" value="night" name="plan_time_group" />
-
-                        <label for="plan_late_night">late night</label>
-                        <input type="radio" id="plan_late_night" value="late_night" name="plan_time_group" />
+                    <div id="plan_time">
+                        <div plan_time="morning">Morning</div>
+                        <div plan_time="afternoon">Afternoon</div>
+                        <div plan_time="night">Night</div>
+                        <div plan_time="late_night">Late night</div>
                     </div>
                 </center>
                 </td>
@@ -53,9 +46,8 @@
 
                 <tr>
                     <td colspan="2">
-                        <div id="plan_day" class="radio">
-                            <label for="plan_day_0">Today - <?php echo(date('j')); ?></label>
-                            <input type="radio"  id="plan_day_0" value="0" name="plan_day_group" />
+                        <div id="plan_day">
+                            <div plan_day="0">Today</div>
 
                             <?php
                             $date = new DateTime();
@@ -63,8 +55,7 @@
                             {
                                 $date->add(new DateInterval('P1D'));
                                 ?>
-                                <label for="plan_day_<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></label>
-                                <input type="radio" id="plan_day_<?php echo($i); ?>"value="<?php echo($i); ?>" name="plan_day_group" />
+                                <div plan_day="<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></div>
                                 <?php
                             }
                             ?>
