@@ -262,7 +262,7 @@ a{
     color:white;
 }
 
-.number_rank{
+#number_rank{
     border: 1px solid black; 
     border-left: none; 
     float:left; width:15px; 
