@@ -262,6 +262,16 @@ a{
     color:white;
 }
 
+.number_rank{
+    border: 1px solid black; 
+    border-left: none; 
+    float:left; width:15px; 
+    height:100%; 
+    text-align: center;
+    background-color:white;
+    color:black;
+}
+
 /* ------------------ RIGHT PANEL -----------------------*/
 .right{
     float:left;

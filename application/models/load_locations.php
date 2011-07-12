@@ -139,13 +139,11 @@ class Load_locations extends CI_Model
             $count = $result->num_rows();
             ?>
             <div class = "location_tab_shown" place_id="<?php echo $id; ?>" date="<?php echo $return_date;?>">
-                <div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
+                <div id="number_rank">
                     <?php echo $plan_tracker;
                     $plan_tracker++; ?></div><?php
-            echo "<hr/>";
             echo $plan;
             echo "<br/>$count people in selected groups are attending";
-            echo "<br/><hr/>";
                     ?>
             </div>
             <?php
