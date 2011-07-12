@@ -219,15 +219,15 @@ function initialize_plan_modal() {
     var date = new Date();
     var hours = date.getHours();
     if (hours < 5) {
-        $('#plan_time[value=\"late_night"').click();
+        $('#plan_time [value=\"late_night"]').click();
     } else if (hours < 11) {
-        $('#plan_time[value=\"morning\"').click();
+        $('#plan_time [value=\"morning\"]').click();
     } else if (hours < 18) {
-        $('#plan_time[value=\"afternoon"').click();
-        console.log($('#plan_time[value=\"afternoon"'));
-        console.log('#plan_time[value=\"afternoon"');
+        $('#plan_time [value=\"afternoon"]').click();
+        console.log($('#plan_time[value=\"afternoon"]'));
+        console.log('#plan_time[value=\"afternoon"]');
     } else {
-        $('#plan_time[value=\"night"').click();
+        $('#plan_time[value=\"night"]').click();
     }
     
     // Initialize the Validator plugin for the plan location.
