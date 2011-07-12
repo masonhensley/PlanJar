@@ -14,9 +14,9 @@ class Load_location_data extends CI_Model
             LEFT JOIN plans ON friends.follow_id=plans.user_id AND plans.date=$date
             LEFT JOIN places ON places.id=plans.place_id";
             
-            $friend_query_result = $this->db->query($friend_query);
-            
-            $html_string = "$friend_query";
+            //$friend_query_result = $this->db->query($friend_query);
+            var_dump($friend_query);
+            $html_string = "hello";
            
              return $html_string;
     }
