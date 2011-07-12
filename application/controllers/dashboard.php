@@ -98,7 +98,7 @@ class Dashboard extends CI_Controller
 
         foreach ($query->result() as $row)
         {
-            if ($this->is_following($user->id, $row->user_id))
+            if ($this->follow_ops->is_following($user->id, $row->user_id))
             {
                 $this->follow_ops->user_follow_entry($row, 'following');
             } else
