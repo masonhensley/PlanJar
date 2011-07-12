@@ -8,7 +8,6 @@ function populate_followers_list() {
         
         // Click handler.
         $('#followers_list .add_following').click(function () {
-            alert('clicked');
             if ($(this).text() == '+ Follow') {
                 $(this).text('+ You sure?');
             } else {
