@@ -266,6 +266,8 @@ class Home extends CI_Controller
     {
         $this->load->database();
         $this->load->model('load_location_data');
+        $place_id = $this->input->get('place_id');
+        $date = $this->input->get('date');
     }
 
     // Returns HTML for the list of the user's plans (right panel)

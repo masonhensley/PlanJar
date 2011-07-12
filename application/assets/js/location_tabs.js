@@ -3,26 +3,23 @@ $(function() {
 });
 
 function show_selected_location() {
-    $('div.plan_shown').click(function() {
+    $('div.location_tab_shown').click(function() {
         
         if($(this).hasClass('selected_location'))
         {
-            $(this).removeClass('selected_location')
+            $(this).removeClass('selected_location');
         }else{
             $('.selected_location').removeClass('selected_location');
             $(this).addClass('selected_location');
         }
-        
-       
        
         $.get('/home/show_location_data', {
-            'plan_selected': $('.selected_plan').attr('plan_id')
+            'location_selected': $('.selected_location').attr('place_id'),
+            'date': $('.selected_location').attr('date')
         }, function (data) {
-            // Replace the data and show the data tab.
-            $('#plan_data').html(data);
-
-            show_data_container('#location_data');  
+            $('#location_data').html(data);        
         });
-            
+    
+             show_data_container('#location_data'); 
     });
 }
