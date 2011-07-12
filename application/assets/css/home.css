@@ -253,12 +253,13 @@ a{
 /*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
 .location_tab_shown{
     text-align:center;
-    background-color:yellowgreen;
-    color:white;
+    background-color:white;
+    color:navy;
 }
 
 .selected_location{
-    background-color:lightgoldenrodyellow;
+    background-color:navy;
+    color:white;
 }
 
 /* ------------------ RIGHT PANEL -----------------------*/
