@@ -261,7 +261,7 @@ class Home extends CI_Controller
         $this->load->model('load_locations');
         $this->load_locations->loadUserLocations($group_list, $day, $user_id);
     }
-    
+
     public function show_location_data()
     {
         $this->load->database();
@@ -271,7 +271,7 @@ class Home extends CI_Controller
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
         $return_string = $this->load_location_data->showLocation($place_id, $date, $user_id);
-        
+
         echo $return_string;
     }
 
@@ -323,6 +323,7 @@ class Home extends CI_Controller
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
+            echo('success');
         } else if ($delta_distance > 20)
         {
             $this->ion_auth->update_user($user->id, array(
