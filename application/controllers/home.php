@@ -268,7 +268,7 @@ class Home extends CI_Controller
         $this->load->model('load_location_data');
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
-        $return_string = $this->load_location_data->showLocation($place_it, $date);
+        $return_string = $this->load_location_data->showLocation($place_id, $date);
         
         echo $return_string;
     }
