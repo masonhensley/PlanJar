@@ -266,9 +266,11 @@ class Home extends CI_Controller
     {
         $this->load->database();
         $this->load->model('load_location_data');
+        $user = $this->ion_auth->get_user();
+        $user_id = $user->id;
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
-        $return_string = $this->load_location_data->showLocation($place_id, $date);
+        $return_string = $this->load_location_data->showLocation($place_id, $date, $user_id);
         
         echo $return_string;
     }
