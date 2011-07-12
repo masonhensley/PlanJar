@@ -258,6 +258,8 @@ a{
     margin-top:10px;
     border-top:1px solid black;
     border-bottom: 1px solid black;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 .selected_location{
@@ -274,6 +276,7 @@ a{
     text-align: center;
     background-color:white;
     color:black;
+    margin-top:-10px;
 }
 
 /* ------------------ RIGHT PANEL -----------------------*/
