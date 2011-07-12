@@ -14,7 +14,7 @@ function show_selected_location() {
         }
        
         $.get('/home/show_location_data', {
-            'location_selected': $('.selected_location').attr('place_id'),
+            'place_id': $('.selected_location').attr('place_id'),
             'date': $('.selected_location').attr('date')
         }, function (data) {
             $('#location_data').html(data);        
