@@ -6,7 +6,22 @@ $(function() {
 function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
+        // Autoselects the day
         $('#plan_day [value=' + get_selected_day() + ']').click();
+        
+        // Autoselects the time of day
+        var date = new Date();
+        var hours = date.getHours();
+        if (hours < 5) {
+            $('#plan_time [value=\"late_night"]').click();
+        } else if (hours < 11) {
+            $('#plan_time [value=\"morning\"]').click();
+        } else if (hours < 18) {
+            $('#plan_time [value=\"afternoon"]').click();
+        } else {
+            $('#plan_time[value=\"night"]').click();
+        }
+        
         $('#plan_location').select();
         $('#create_plan_content input[type="text"], #create_plan_content input[type="hidden"]').val('');
         $('#plan_location, #plan_category').blur();
@@ -214,21 +229,6 @@ function initialize_plan_modal() {
             $('#plan_category_name').val(ui.item.value);
         }
     });
-    
-    // Auto-select the time of day.
-    var date = new Date();
-    var hours = date.getHours();
-    if (hours < 5) {
-        $('#plan_time [value=\"late_night"]').click();
-    } else if (hours < 11) {
-        $('#plan_time [value=\"morning\"]').click();
-    } else if (hours < 18) {
-        $('#plan_time [value=\"afternoon"]').click();
-        console.log($('#plan_time[value=\"afternoon"]'));
-        console.log('#plan_time[value=\"afternoon"]');
-    } else {
-        $('#plan_time[value=\"night"]').click();
-    }
     
     // Initialize the Validator plugin for the plan location.
     $('#make_plan').validate({
