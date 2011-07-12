@@ -118,7 +118,7 @@ class Follow_ops extends CI_Model
     }
     
     // Returns true if $user_id is following $follow_id
-    public function isFollowing($user_id, $follow_id) {
+    public function is_following($user_id, $follow_id) {
         $query_string = "SELECT * FROM friends WHERE user_id = ? AND follow_id = ?";
         $query = $this->db->query($query_string, array($user_id, $follow_id));
         return $query->num_rows() > 0;
