@@ -371,11 +371,17 @@ a{
 .divset {
     background-color: lightgray;
     color: black;
-    float: left;
+    display:inline-block;
     padding: 5px;
 }
 
 .divset.divset_selected {
     background-color: purple;
     color: white;
+}
+
+#group_select_type{
+    height:auto;
+    width:auto;
+    text-align:center;
 }
