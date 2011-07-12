@@ -255,6 +255,10 @@ a{
     text-align:center;
     background-color:white;
     color:navy;
+    position:relative;
+    top:10px;
+    border-top:1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .selected_location{
