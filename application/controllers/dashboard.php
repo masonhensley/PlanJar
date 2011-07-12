@@ -115,6 +115,13 @@ class Dashboard extends CI_Controller
         echo("Information for user id $follower_id...");
     }
 
+    public function get_suggested_friends()
+    {
+        $user_info = $this->ion_auth->get_user();
+        $user_id = $user_info->id;
+        echo "lol";
+    }
+
 }
 
 ?>
