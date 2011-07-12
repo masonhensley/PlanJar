@@ -119,7 +119,10 @@ class Dashboard extends CI_Controller
     {
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
-        echo "lol";
+        $this->load->model('load_suggested_friends');
+        $returnHTML = $this->load_suggested_friends->suggested_friends();
+        
+        echo "$returnHTML";
     }
 
 }
