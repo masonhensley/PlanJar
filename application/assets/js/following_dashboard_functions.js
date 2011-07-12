@@ -1,6 +1,13 @@
 $(function() {
     populate_following_list();
     initialize_follow_search();
+    initialize_suggested_friends();
+    $(document).click(function(){
+        if($('.suggested_friends').hasClass('suggested_active'))
+            {
+                ('.suggested_active').removeClass('.suggested_active');
+            }
+    });
 });
 
 function populate_following_list() {
@@ -45,5 +52,23 @@ function initialize_follow_search() {
                 });
             });
         });
+    });
+}
+
+// This sets up the suggested friends list
+function initialize_suggested_friends()
+{
+    $('.suggested_friends').click(function(){
+        if($(this).hasClass('suggested_active'))
+        {
+            $(this).removeClass('suggested_active');
+            initialize_follow_search();
+        }else{
+            $(this).addClass('suggested_active');
+            $.get('/dashboard/get_suggested_friends',
+            function (data) {
+                $('#follow_search').html(data);   
+            });
+        }
     });
 }
