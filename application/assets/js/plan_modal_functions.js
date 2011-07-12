@@ -19,10 +19,12 @@ function initialize_plan_modal() {
     })
     
     // Make it draggable (with a handler).
-    $('#create_plan_content').draggable({handle: '.draggable_title_bar'});
+    $('#create_plan_content').draggable({
+        handle: '.draggable_title_bar'
+    });
     
-    // Buttonset
-    $('#create_plan_content .radio').buttonset();
+    // Divset
+    divset('#create_plan_content .divset_wrapper');
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();
@@ -234,7 +236,12 @@ function initialize_plan_modal() {
             plan_day_group: 'required'
         },
         submitHandler: function (form) {
-            $.get('/home/submit_plan', $(form).serialize(), function (data) {
+            var data_string = $(form).serialize() +
+            '&plan_time=' + $('#plan_time .divset_selected').attr('value') +
+            '&plan_day=' + $('#plan_day .divset_selected').attr('value');
+        
+            console.log(data_string);
+            $.get('/home/submit_plan', data_string, function (data) {
                 if (data == 'success') {
                     $('#create_plan_content').hide();
                     // Refresh th eplan list.
