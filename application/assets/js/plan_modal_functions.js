@@ -13,13 +13,13 @@ function initialize_plan_modal() {
         var date = new Date();
         var hours = date.getHours();
         if (hours < 5) {
-            $('#plan_time [value=\"late_night"]').click();
+            $('#plan_time [time=\"late_night"]').click();
         } else if (hours < 11) {
-            $('#plan_time [value=\"morning\"]').click();
+            $('#plan_time [time=\"morning\"]').click();
         } else if (hours < 18) {
-            $('#plan_time [value=\"afternoon"]').click();
+            $('#plan_time [time=\"afternoon"]').click();
         } else {
-            $('#plan_time[value=\"night"]').click();
+            $('#plan_time[time=\"night"]').click();
         }
         
         $('#plan_location').select();
@@ -240,8 +240,8 @@ function initialize_plan_modal() {
         },
         submitHandler: function (form) {
             var data_string = $(form).serialize() +
-            '&plan_time=' + $('#plan_time .divset_selected').attr('value') +
-            '&plan_day=' + $('#plan_day .divset_selected').attr('value');
+            '&plan_time=' + $('#plan_time .divset_selected').attr('plan_time') +
+            '&plan_day=' + $('#plan_day .divset_selected').attr('day');
         
             console.log($('#plan_time .divset_selected'));
             console.log($('#plan_time .divset_selected').attr('plan_time'));
