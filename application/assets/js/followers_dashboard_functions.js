@@ -1,13 +1,6 @@
 $(function() {
     populate_followers_list();
-    initialize_followers_list();
 });
-    
-function initialize_followers_list() {
-    $.get('/dashboard/get_followers', function (data) {
-        $('#followers_list').html(data);
-    });
-}
 
 function populate_followers_list() {
     $.get('/dashboard/get_followers', function (data) {
