@@ -42,6 +42,7 @@ class Load_location_data extends CI_Model
             $number_friends_attending friends attending <br/>
           </div> 
             ";
+        return $html;
     }
 
 }
