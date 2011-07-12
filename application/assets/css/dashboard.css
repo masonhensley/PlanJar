@@ -208,7 +208,9 @@ a{
     left: 4px;
 }
 .in-field_block .textbox {
-    height:30px;
+    position:relative;
+    top:1px;
+    height:25px;
     width:200px;
 }
 
