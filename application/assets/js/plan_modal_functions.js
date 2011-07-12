@@ -7,6 +7,8 @@ function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
         $('#plan_day [value=' + get_selected_day() + ']').click();
+        console.log('#plan_day [value=' + get_selected_day() + ']');
+        console.log($('#plan_day [value=' + get_selected_day() + ']'));
         $('#plan_location').select();
         $('#create_plan_content input[type="text"], #create_plan_content input[type="hidden"]').val('');
         $('#plan_location, #plan_category').blur();
