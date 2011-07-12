@@ -265,17 +265,19 @@ a{
 .selected_location{
     background-color:navy;
     color:white;
+    border-top:1px solid white;
+    border-bottom: 1px solid white;
 }
 
 #number_rank{
-    border: 1px solid black; 
+    border: 1px solid white; 
     border-top:none;
     border-left: none; 
     float:left; width:15px; 
     height:100%; 
     text-align: center;
-    background-color:white;
-    color:black;
+    background-color:navy;
+    color:white;
     margin-top:-10px;
 }
 
