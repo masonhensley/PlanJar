@@ -1,7 +1,7 @@
 <div class="left">
     <div style="height: 35px; width: 100%">
-        <div class="in-field_block">
-            <label for="friend_search" style="height: auto; color:gray;">Search for people to follow</label>
+        <div class="in-field_block" style="height: auto;">
+            <label for="friend_search" style=" color:gray;">Search for people to follow</label>
             <input type="text" class="textbox" id="friend_search" />
         </div>
         <div class="suggested_friends">
