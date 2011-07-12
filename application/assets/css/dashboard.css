@@ -188,7 +188,9 @@ a{
 
 .suggested_friends{
     margin-right:10px;
-    width:auto;
-    height:auto;
+    width:200px;
+    height:100%;
     text-align:center;
+    float:right;
+    border:1px solid black;
 }
