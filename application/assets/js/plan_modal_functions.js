@@ -24,8 +24,8 @@ function initialize_plan_modal() {
     });
     
     // Divset
-    divset('#plan_time .divset_wrapper');
-    divset('#plan_day .divset_wrapper');
+    divset('#plan_time');
+    divset('#plan_day');
 
     // Initialize the in-field labels.
     $('#create_plan_content div.in-field_block label').inFieldLabels();

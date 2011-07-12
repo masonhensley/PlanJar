@@ -34,7 +34,7 @@
                 <tr>
                     <td colspan="2">
                 <center>
-                    <div id="plan_time" class="divset_wrapper">
+                    <div id="plan_time">
                         <div value="morning">Morning</div>
                         <div value="afternoon">Afternoon</div>
                         <div value="night">Night</div>
@@ -46,7 +46,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <div id="plan_day" class="divset_wrapper">
+                        <div id="plan_day">
                             <div value="0">Today</div>
 
                             <?php
