@@ -6,9 +6,10 @@ class Load_location_data extends CI_Model
             $query = "SELECT id, name, category FROM places WHERE id=$place_id";
             var_dump($query);
             $query_result = $this->db->query($query);
-            $result = $query_result->result();
-            $place_name = $result->name;
-            $place_category = $result->category;
+            $row = $query_result->row();
+         
+            $place_name = $row->name;
+            $place_category = $row->category;
             $html_string = "$place_name and $place_category";
              return $html_string;
     }
