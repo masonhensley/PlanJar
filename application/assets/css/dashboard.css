@@ -137,6 +137,13 @@ a{
     color: white;
     padding: 3px;
 }
+.user_follow_entry .following {
+    float: right;
+    width: 80px;
+    background-color: green;
+    color: white;
+    padding: 3px;
+}
 
 /* follower tab */
 #followers_content .left {
