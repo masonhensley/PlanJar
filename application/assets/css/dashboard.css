@@ -181,7 +181,8 @@ a{
 }
 #groups_content .middle {
     width: 30%;
-    display: inline-block;
+    float: left;
+    margin-left: 5%;
     height: 100%;
     border: 1px solid black;
 }

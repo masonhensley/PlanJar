@@ -22,6 +22,7 @@
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/change_location_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/divset.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
