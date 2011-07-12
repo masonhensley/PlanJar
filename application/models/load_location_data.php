@@ -8,7 +8,8 @@ class Load_location_data extends CI_Model
             $result = $query_result->result();
             $place_name = $result->name;
             $place_category = $result->category;
-            var_dump($place_name, $place_category);
+            $html_string = "$place_name and $place_category";
+            return $html_string;
     }
 }
 ?>

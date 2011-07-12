@@ -19,7 +19,6 @@ function show_selected_location() {
         }, function (data) {
             $('#location_data').html(data);        
         });
-    
              show_data_container('#location_data'); 
     });
 }
