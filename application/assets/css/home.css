@@ -67,7 +67,6 @@ a{
     border: 1px solid black;
     text-align: center;
     position:relative; 
-    right:5px;
     top:30px;
     border-bottom:none;
     border-right: none;
@@ -106,7 +105,6 @@ a{
 /* ---------------- CENTER PANEL ---------------- */
 .center{
     float:left;
-    margin-left:5px;
     width:600px;
     height: auto;
     border-bottom: 1px solid black;
@@ -287,8 +285,6 @@ a{
 /* ------------------ RIGHT PANEL -----------------------*/
 .right{
     float:left;
-    margin-left: 5px;
-    left: 5px;
     width:207px;
     min-height: 600px;
     border: 1px solid black;
