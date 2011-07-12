@@ -330,6 +330,8 @@ class Home extends CI_Controller
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
             echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
+        } else {
+            echo('success');
         }
     }
 
