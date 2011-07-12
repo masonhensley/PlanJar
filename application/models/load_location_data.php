@@ -11,17 +11,17 @@ class Load_location_data extends CI_Model
         $place_name = $row->name;
         $place_category = $row->category;
 
-        $number_friends_attending = $this->getNumberFriends($user_id, $place_id);
+        $number_friends_attending = $this->getNumberFriends($user_id, $place_id, $date);
         $html_string = $this->generateHTML($number_friends_attending, $place_name, $place_category);
 
         return $html_string;
     }
 
-    function getNumberFriends($user_id, $place_id)
+    function getNumberFriends($user_id, $place_id, $date)
     {
         $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
         $friend_query = $this->db->query($friend_query);
-        $query = "SELECT plans.user_id FROM plans WHERE $place_id=plans.place_id AND (";
+        $query = "SELECT plans.user_id FROM plans WHERE plans.place_id=$place_id AND plans.plan_date=$date AND (";
 
         foreach ($friend_query->result() as $row)
         {
