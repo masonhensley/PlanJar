@@ -1,7 +1,7 @@
 <div id="group_padding" style="width:100%; height:10px;"></div>
 <div class="divset_wrapper">
     <div id="select_one_group">Select one</div>
-    <div id="select_mult_group">Select multiple</div>
+    <div id="select_mult_groups">Select multiple</div>
 </div>
 
 <div id="group_padding" style="width:100%; height:10px;"></div>
