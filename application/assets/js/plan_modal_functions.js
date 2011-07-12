@@ -243,8 +243,8 @@ function initialize_plan_modal() {
             '&plan_time=' + $('#plan_time .divset_selected').attr('plan_time') +
             '&plan_day=' + $('#plan_day .divset_selected').attr('plan_day');
         
-            console.log($('#plan_time .divset_selected'));
-            console.log($('#plan_time .divset_selected').attr('plan_time'));
+            console.log($('#plan_day .divset_selected'));
+            console.log($('#plan_day .divset_selected').attr('plan_day'));
         
             $.get('/home/submit_plan', data_string, function (data) {
                 if (data == 'success') {
