@@ -270,14 +270,14 @@ a{
 }
 
 #number_rank{
-    border: 1px solid white; 
+    border: 1px solid black; 
     border-top:none;
     border-left: none; 
     float:left; width:15px; 
     height:100%; 
     text-align: center;
-    background-color:navy;
-    color:white;
+    background-color:white;
+    color:gray;
     margin-top:-10px;
 }
 
