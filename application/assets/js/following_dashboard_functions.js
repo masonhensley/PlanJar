@@ -17,6 +17,7 @@ function populate_following_list() {
                     following_id: $(this).parent().attr('user_id')
                 }, function (data) {
                     populate_following_list();
+                    populate_followers_list();
                 });
             }
         });
