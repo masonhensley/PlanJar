@@ -21,8 +21,8 @@ function populate_followers_list() {
         });
         
         // Make followers selectable
-        $('#followers_list .user_follow_entry').click(function() {
-            $('.user_follow_entry.selected_follower').removeClass('selected_follower');
+        $('#followers_list .user_entry').click(function() {
+            $('.user_entry.selected_follower').removeClass('selected_follower');
             $(this).addClass('selected_follower');
             $.get('/dashboard/get_follower_details', {
                 follower_id: $(this).attr('user_id')

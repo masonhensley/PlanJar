@@ -105,39 +105,39 @@ a{
 }
 
 /* follow entry */
-.user_follow_entry {
+.user_entry {
     width: 100%;
     height: 75px;
     border: 1px solid black;
 }
-.user_follow_entry .user_follow_entry_left {
+.user_entry .user_entry_left {
     float: left;
     width: 90px;
 }
-.user_follow_entry .user_picture {
+.user_entry .user_picture {
     width: 50px;
     height: 50px;
     background-color: lightgrey;
 }
-.user_follow_entry .user_follow_entry_middle {
+.user_entry .user_entry_middle {
     float: left;
     width: 40%
 }
-.user_follow_entry .remove_following {
+.user_entry .remove_following {
     float: right;
     width: 80px;
     background-color: red;
     color: white;
     padding: 3px;
 }
-.user_follow_entry .add_following {
+.user_entry .add_following {
     float: right;
     width: 80px;
     background-color: purple;
     color: white;
     padding: 3px;
 }
-.user_follow_entry .following {
+.user_entry .following {
     float: right;
     width: 80px;
     background-color: green;

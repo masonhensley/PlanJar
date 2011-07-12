@@ -50,7 +50,7 @@ class Follow_ops extends CI_Model
             // Echo the results
             foreach ($query->result() as $row)
             {
-                $this->user_follow_entry($row, 'add following');
+                $this->user_entry($row, 'add following');
             }
         }
     }
@@ -72,12 +72,12 @@ class Follow_ops extends CI_Model
         return $return_array;
     }
 
-    // Echos a user_follow_entry, which is used as a following/follower list item
-    function user_follow_entry($row, $option = '')
+    // Echos a user_entry, which is used as a following/follower list item
+    function echo_user_entry($row, $option = '')
     {
         ?>
-        <div class="user_follow_entry" user_id="<?php echo($row->user_id); ?>">
-            <div class="user_follow_entry_left">
+        <div class="user_entry" user_id="<?php echo($row->user_id); ?>">
+            <div class="user_entry_left">
                 <center>
                     <div class="user_picture"></div>
 
@@ -87,7 +87,7 @@ class Follow_ops extends CI_Model
                 </center>
             </div>
 
-            <div class="user_follow_entry_middle">
+            <div class="user_entry_middle">
                 <div class="user_name">
                     <?php echo($row->first_name . ' ' . $row->last_name); ?>
                 </div>
