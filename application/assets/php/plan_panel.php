@@ -47,7 +47,7 @@
                 <tr>
                     <td colspan="2">
                         <div id="plan_day">
-                            <div value="0">Today</div>
+                            <div plan_day="0">Today</div>
 
                             <?php
                             $date = new DateTime();
@@ -55,7 +55,7 @@
                             {
                                 $date->add(new DateInterval('P1D'));
                                 ?>
-                                <div value="<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></div>
+                                <div plan_day="<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></div>
                                 <?php
                             }
                             ?>
