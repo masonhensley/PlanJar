@@ -3,22 +3,36 @@ class Load_location_data extends CI_Model
 {
     function showLocation($place_id, $date, $user_id)
     {
-            $place_query = "SELECT id, name, category FROM places WHERE id=$place_id";
+            $place_query = "SELECT id, name, category FROM places WHERE id=$place_id"; // get the name and category for the place_id and store them
             $query_result = $this->db->query($place_query);
             $row = $query_result->row();
-            
             $place_name = $row->name;
             $place_category = $row->category;
             
-            $friend_query = "SELECT plans.place_id, plans.user_id, plans.date, plans.time_of_day, friends.follow_id FROM friends where user_id=$user_id 
-            LEFT JOIN plans ON friends.follow_id=plans.user_id AND plans.date=$date
-            LEFT JOIN places ON places.id=plans.place_id";
+            $number_friends_attending = getNumberFriends($user_id);
+            
             
             //$friend_query_result = $this->db->query($friend_query);
             var_dump($friend_query);
-            $html_string = "hello";
+            $html_string = "$number_friends_attending <br/> $place_name <br/> $place_category";
            
              return $html_string;
+    }
+    
+    function getNumberFriends($user_id)
+    {
+        $friend_query =  "SELECT follow_id FROM friends WHERE user_id=$user_id";
+        $friend_query = $this->db->query($friend_query);
+        $query = "SELECT plans.user_id FROM plans WHERE ";
+        
+        foreach($friend_query->result() as $row)
+        {
+            $query .= "user_id=$row->follow_id OR ";
+        }
+        $query = substr($query, 0, strlen($query) - 3);  // trim off the last "OR" before querying
+        $result = $this->db->query($query);
+        $number_friends = $result->num_rows();
+        return $number_friends;
     }
 }
 ?>
