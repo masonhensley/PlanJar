@@ -11,7 +11,7 @@ class Load_location_data extends CI_Model
         $place_name = $row->name;
         $place_category = $row->category;
 
-        $number_friends_attending = $this->getNumberFriends($user_id);
+        $number_friends_attending = $this->getNumberFriends($user_id, $place_id);
         $html_string = $this->generateHTML($number_friends_attending, $place_name, $place_category);
 
         return $html_string;
