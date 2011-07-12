@@ -29,6 +29,7 @@ class Load_location_data extends CI_Model
         }
         $query = substr($query, 0, strlen($query) - 3);  // trim off the last "OR" before querying
         $result = $this->db->query($query);
+        var_dump($query);
         $number_friends = $result->num_rows();
         return $number_friends;
     }
