@@ -2,6 +2,12 @@ $(function() {
     populate_following_list();
     initialize_follow_search();
     initialize_suggested_friends();
+    $(document).click(function(){
+        if(!$('.suggested_friends').hasClass('suggested_active'))
+            {
+                ('.suggested_active').removeClass('.suggested_active');ß
+            }
+    });
 });
 
 function populate_following_list() {
