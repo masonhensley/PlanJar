@@ -7,8 +7,6 @@ function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
         $('#plan_day [value=' + get_selected_day() + ']').click();
-        console.log('#plan_day [value=' + get_selected_day() + ']');
-        console.log($('#plan_day [value=' + get_selected_day() + ']'));
         $('#plan_location').select();
         $('#create_plan_content input[type="text"], #create_plan_content input[type="hidden"]').val('');
         $('#plan_location, #plan_category').blur();
@@ -221,13 +219,13 @@ function initialize_plan_modal() {
     var date = new Date();
     var hours = date.getHours();
     if (hours < 5) {
-        $('#plan_late_night').click();
+        $('#plan_time [value=\"late_night"').click();
     } else if (hours < 11) {
-        $('#plan_morning').click();
+        $('#plan_time [value=\"morning\"').click();
     } else if (hours < 18) {
-        $('#plan_afternoon').click();
+        $('#plan_time [value=\"afternoon"').click();
     } else {
-        $('#plan_night').click();
+        $('#plan_time [value=\"night"').click();
     }
     
     // Initialize the Validator plugin for the plan location.
