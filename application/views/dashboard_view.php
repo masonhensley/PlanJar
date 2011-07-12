@@ -45,7 +45,9 @@
                 <?php include(APPPATH . '/assets/php/dashboard_followers.php'); ?>
             </div>
 
-            <div id="groups_content" class="page_content"></div>
+            <div id="groups_content" class="page_content">
+                <?php include(APPPATH . '/assets/php/dashboard_groups.php'); ?>
+            </div>
             <div id="plans_content" class="page_content"></div>
             <div id="profile_content" class="page_content"></div>
             <div id="settings_content" class="page_content"></div>

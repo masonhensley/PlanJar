@@ -169,6 +169,32 @@ a{
     border: 1px solid black;
 }
 
+/* group tab */
+#groups_content .left {
+    width: 30%;
+    float: left;
+    height: 100%;
+    border: 1px solid black;
+}
+#groups_content .left_header {
+    width: 100%;
+}
+#groups_content .middle {
+    width: 30%;
+    display: inline-block;
+    height: 100%;
+    border: 1px solid black;
+}
+#groups_content .right {
+    width: 30%;
+    float: right;
+    height: 100%;
+    border: 1px solid black;
+}
+#groups_content .right_header {
+    width: 100%;
+}
+
 /* in-field labels */
 .in-field_block {
     position:relative;
