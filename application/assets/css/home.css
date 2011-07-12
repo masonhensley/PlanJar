@@ -316,7 +316,7 @@ a{
     margin-left: -300px;
     top: 50%;
     margin-top: -125px;
-    background-color:#c397d1;
+    background-color:beige;
     padding: 5px;
 }
 .in-field_block {
@@ -337,9 +337,10 @@ a{
     width:200px;
 }
 #create_plan_content .draggable_title_bar {
-    height: 30px;
-    border: 1px solid black;
-    text-align: center;
+    height: 25px;
+    background-color:purple;
+    color:white;
+    font-size:18px;
 }
 
 /* ------------------- PLAN CONTENT -------------- */
