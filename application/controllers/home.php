@@ -261,6 +261,12 @@ class Home extends CI_Controller
         $this->load->model('load_locations');
         $this->load_locations->loadUserLocations($group_list, $day, $user_id);
     }
+    
+    public function show_location_data()
+    {
+        $this->load->database();
+        $this->load->model('load_location_data');
+    }
 
     // Returns HTML for the list of the user's plans (right panel)
     public function get_my_plans()

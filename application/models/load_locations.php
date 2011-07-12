@@ -138,7 +138,8 @@ class Load_locations extends CI_Model
             $result = $this->db->query($number_of_friends_query);
             $count = $result->num_rows();
             ?>
-            <div class = "plan_shown"><div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
+            <div class = "plan_shown" id="<?php echo "$id"; ?>">
+                <div id="number_rank" style="border: 1px solid black; border-left: none; float:left; width:15px; height:100%; text-align: center">
                     <?php echo $plan_tracker;
                     $plan_tracker++; ?></div><?php
             echo "<hr/>";
@@ -150,6 +151,7 @@ class Load_locations extends CI_Model
             <?php
         }
     }
+
 }
 ?>
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
