@@ -1,9 +1,7 @@
 <div id="group_padding" style="width:100%; height:10px;"></div>
-<div class="radio">
-    <label for="select_one_group">Select one</label>
-    <input type="radio" id="select_one_group" name="select_one_mult_group" />
-    <label for="select_mult_groups">Select multiple</label>
-    <input type="radio" id="select_mult_groups" name="select_one_mult_group" />
+<div class="divset_wrapper">
+    <div id="select_one_group">Select one</div>
+    <div id="select_mult_group">Select multiple</div>
 </div>
 
 <div id="group_padding" style="width:100%; height:10px;"></div>

@@ -4,8 +4,8 @@ $(function() {
 });
 
 function initialize_selectable_groups() {
-    // Buttonset
-    $('.radio').buttonset();
+    // Divset
+    divset('.divset_wrapper');
     $('#select_one_group').click();
     
     initialize_one_group_select();

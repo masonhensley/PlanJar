@@ -367,3 +367,14 @@ a{
     height:40px;
     text-align:center;        
 }
+
+.divset {
+    background-color: lightgray;
+    color: black;
+    float: left;
+}
+
+.divset.divset_selected {
+    background-color: purple;
+    color: white;
+}
