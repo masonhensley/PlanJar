@@ -4,6 +4,10 @@
             <label for="friend_search">Search for people to follow.</label>
             <input type="text" class="textbox" id="friend_search" />
         </div>
+        <div class="suggested_friends">
+            Suggested people to follow
+        </div>
+        
     </div>
 
     <div id="follow_search">
