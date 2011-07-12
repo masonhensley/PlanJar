@@ -10,6 +10,6 @@
 
 <div class="right">
     <div class="right_header">
-        Your groups
+        Find groups
     </div>
 </div>

@@ -179,6 +179,9 @@ a{
 #groups_content .left_header {
     width: 100%;
 }
+#groups_list {
+    width: 100%;
+}
 #groups_content .middle {
     width: 30%;
     float: left;

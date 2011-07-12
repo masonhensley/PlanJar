@@ -15,6 +15,7 @@
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/following_dashboard_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/followers_dashboard_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/groups_dashboard_functions.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
