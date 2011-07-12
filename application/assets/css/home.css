@@ -5,6 +5,8 @@ body{
     /* make text not selectable for the UI */
    /* -webkit-user-select: none; */
     cursor:default;
+    font-family: helvetica;
+    font-size: 15px;
 }
 
 a{
@@ -65,15 +67,12 @@ a{
     border: 1px solid black;
     text-align: center;
     position:relative; 
-    right:5px;
     top:30px;
     border-bottom:none;
     border-right: none;
 }
 
 .left_header{
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
     width:100%;
     height:30px;
     text-align: center;
@@ -106,7 +105,6 @@ a{
 /* ---------------- CENTER PANEL ---------------- */
 .center{
     float:left;
-    margin-left:5px;
     width:600px;
     height: auto;
     border-bottom: 1px solid black;
@@ -129,7 +127,8 @@ a{
     margin-right:5px;
     width:100px;
     height:100%;
-    background-color:#bbffee;
+    background-color:#F3F6FF;
+    color:navy;
     text-align: center;
 }
 
@@ -286,8 +285,6 @@ a{
 /* ------------------ RIGHT PANEL -----------------------*/
 .right{
     float:left;
-    margin-left: 5px;
-    left: 5px;
     width:207px;
     min-height: 600px;
     border: 1px solid black;
@@ -298,8 +295,6 @@ a{
 }
 
 .right_header{
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
     width:100%;
     height:30px;
     text-align:center;
@@ -315,8 +310,9 @@ a{
     margin-left: -300px;
     top: 50%;
     margin-top: -125px;
-    background-color:#c397d1;
+    background-color:beige;
     padding: 5px;
+    border: 3px solid black;
 }
 .in-field_block {
     position:relative;
@@ -336,9 +332,10 @@ a{
     width:200px;
 }
 #create_plan_content .draggable_title_bar {
-    height: 30px;
-    border: 1px solid black;
-    text-align: center;
+    height: 25px;
+    background-color:purple;
+    color:white;
+    font-size:18px;
 }
 
 /* ------------------- PLAN CONTENT -------------- */
@@ -371,11 +368,18 @@ a{
 .divset {
     background-color: lightgray;
     color: black;
-    float: left;
+    display:inline-block;
     padding: 5px;
+    border:1px solid black;
 }
 
 .divset.divset_selected {
     background-color: purple;
     color: white;
+}
+
+#group_select_type{
+    height:auto;
+    width:auto;
+    text-align:center;
 }
