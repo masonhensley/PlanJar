@@ -7,7 +7,7 @@ function initialize_plan_modal() {
     // Click event
     $('#create_plan').click(function () {
         // Autoselects the day
-        $('#plan_day [value=' + get_selected_day() + ']').click();
+        $('#plan_day [plan_day=' + get_selected_day() + ']').click();
         
         // Autoselects the time of day
         var date = new Date();
