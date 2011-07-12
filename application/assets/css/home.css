@@ -3,7 +3,7 @@ body{
     background-color: #F3F6FF;
     margin: 0px;
     /* make text not selectable for the UI */
-    -webkit-user-select: none;
+   /* -webkit-user-select: none; */
     cursor:default;
 }
 
