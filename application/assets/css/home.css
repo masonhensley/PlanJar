@@ -263,10 +263,8 @@ a{
 }
 
 .selected_location{
-    background-color:navy;
+    background-color:gray;
     color:white;
-    border-top:1px solid white;
-    border-bottom: 1px solid white;
 }
 
 #number_rank{
