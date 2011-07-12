@@ -187,10 +187,11 @@ a{
 }
 
 .suggested_friends{
-    margin-right:10px;
+    margin-right:60px;
     width:200px;
     height:100%;
     text-align:center;
     float:right;
-    border:1px solid black;
+    border-left:1px solid black;
+    border-right: 1px solid black;
 }
