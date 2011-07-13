@@ -81,7 +81,7 @@ a{
 #following_content .left {
     width:48%;
     float:left;
-    height:100%;
+    height:auto;
     background-color:white;
     border: 1px solid black;
 }
