@@ -350,8 +350,9 @@ a{
     margin:auto;
     border-top:  1px solid black;
     border-bottom:1px solid black;
-    padding: 5px;
     color: navy;
+    padding-top:5px;    
+    padding-bottom: 5px;
     background-color:#F3F6FF;
 }
 
