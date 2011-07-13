@@ -268,7 +268,6 @@ class Home extends CI_Controller
         $day = $this->input->get('selected_day');
         $user_id = $this->ion_auth->get_user()->id;
 
-        $this->load->model('load_locations');
         $this->load_locations->loadUserLocations($group_list, $day, $user_id);
     }
 

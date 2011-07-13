@@ -92,7 +92,7 @@ class Load_locations extends CI_Model
     {
         // generate query to pull relevant locations for the groups selected
         // this query will select all plans that user ids contained in $id_array have for the specified day
-        $plan_query = "SELECT plans.place_id, plans.user_id, plans.date, plans.time_of_day, plans.category_id, places.id, places.name
+        $plan_query = "SELECT plans.place_id, plans.user_id, plans.date, plans.time_of_day, plans.title, plans.event_id, places.id, places.name
                 FROM plans
                 LEFT JOIN places ON plans.place_id=places.id
                 WHERE plans.date='$return_date' AND (";
