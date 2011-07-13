@@ -92,10 +92,10 @@ class Load_locations extends CI_Model
     {
         // generate query to pull relevant locations for the groups selected
         // this query will select all plans that user ids contained in $id_array have for the specified day
-        $plan_query = "SELECT plans.place_id, plans.user_id, plans.plan_date, plans.time_of_day, plans.category_id, places.id, places.name
+        $plan_query = "SELECT plans.place_id, plans.user_id, plans.date, plans.time_of_day, plans.category_id, places.id, places.name
                 FROM plans
                 LEFT JOIN places ON plans.place_id=places.id
-                WHERE plans.plan_date='$return_date' AND (";
+                WHERE plans.date='$return_date' AND (";
 
         foreach ($id_array as $id)
         {
@@ -133,7 +133,7 @@ class Load_locations extends CI_Model
             }
             $number_of_friends_query = substr($number_of_friends_query, 0, strlen($number_of_friends_query) - 4); // This cuts off the last "OR" and adds ")"
             $number_of_friends_query .= ")";
-            $number_of_friends_query .= " AND place_id=$id AND plan_date='$return_date'";
+            $number_of_friends_query .= " AND place_id=$id AND date='$return_date'";
 
             $result = $this->db->query($number_of_friends_query);
             $count = $result->num_rows();

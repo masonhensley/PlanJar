@@ -17,14 +17,14 @@ class Load_plans extends CI_Model
 
         // pull all user's current events
         $query =
-                "SELECT plans.id, plans.time_of_day, plans.plan_date, places.name, plan_categories.category
+                "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
         LEFT JOIN plan_categories
         ON plan_categories.id=plans.category_id
-        WHERE plans.user_id=$user_id AND plans.plan_date >= CURDATE()
-        ORDER BY plan_date ASC";
+        WHERE plans.user_id=$user_id AND plans.date >= CURDATE()
+        ORDER BY date ASC";
 
         // pull data
         $query_result = $this->db->query($query);
@@ -35,7 +35,7 @@ class Load_plans extends CI_Model
     function loadPlanData($plan)
     {
         // pull all user's current events
-        $query = "SELECT plans.id, plans.time_of_day, plans.plan_date, places.name, plan_categories.category
+        $query = "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -58,7 +58,7 @@ class Load_plans extends CI_Model
             // get rid of the "-"
             $time_of_day = str_replace("_", " ", $time_of_day);
 
-            $date = $row->plan_date;
+            $date = $row->date;
             $date = date('m/d', strtotime($date));
             $name = $row->name;
             $category = $row->category;

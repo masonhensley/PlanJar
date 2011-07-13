@@ -53,7 +53,7 @@ class Home extends CI_Controller
         $user_id = $user_info->id;
 
 // pull all user's current events
-        $query = "SELECT plans.time_of_day, plans.plan_date, places.name 
+        $query = "SELECT plans.time_of_day, plans.date, places.name 
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -165,9 +165,9 @@ class Home extends CI_Controller
             'id' => 'DEFAULT',
             'place_id' => $this->input->get('plan_location_id'),
             'user_id' => $user->id,
-            'plan_date' => $date->format('Y-m-d'),
+            'date' => $date->format('Y-m-d'),
             'time_of_day' => $this->input->get('plan_time'),
-            'plan_description' => $this->input->get('description'),
+            'description' => $this->input->get('plan_description'),
             'event_id' => $this->input->get('event_id')
         );
 
@@ -303,7 +303,7 @@ class Home extends CI_Controller
             $name = $plan->name;
             $category = $plan->category;
             $time = $plan->time_of_day;
-            $date = date('l', strtotime($plan->plan_date));
+            $date = date('l', strtotime($plan->date));
             if ($date_organizer != $date)
             {
                 echo "<hr>";

@@ -21,7 +21,7 @@ class Load_location_data extends CI_Model
     {
         $friend_query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
         $friend_query = $this->db->query($friend_query);
-        $query = "SELECT plans.user_id FROM plans WHERE plans.place_id=$place_id AND plans.plan_date=$date AND (";
+        $query = "SELECT plans.user_id FROM plans WHERE plans.place_id=$place_id AND plans.date=$date AND (";
 
         foreach ($friend_query->result() as $row)
         {
