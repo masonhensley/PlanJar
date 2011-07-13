@@ -25,6 +25,7 @@ function show_data_container(data_div) {
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
         // Hide any visible data containers.
+        console.log('here');
         $('.page_content:visible').hide('slide', {}, 'fast', function() {
             // Show the panel.
             console.log('showing');
