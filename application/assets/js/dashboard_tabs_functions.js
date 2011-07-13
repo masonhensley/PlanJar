@@ -17,10 +17,6 @@ function initialize_dashboard_tabs() {
 
 // Shows the data container specified in the argument.
 function show_data_container(data_div) {
-    // Make callback optional.
-    if (callback === undefined) {
-        callback = function() {};
-    }
     
     // Select the appropriate tab.
     $('.tab_container .tab').removeClass('tab_selected');
