@@ -45,10 +45,8 @@ class Group_ops extends CI_Model
                 $already_following = substr($already_following, 0, -5);
             }
 
-            $query_string = "SELECT groups.id, groups.name " .
-                    "FROM group_relationships LEFT JOIN groups " .
-                    "ON group_relationships.group_id = groups.id " .
-                    "WHERE ($needle_where) AND ($already_following)";
+            $query_string = "SELECT id, name " .
+                    "FROM groups WHERE ($needle_where) AND ($already_following)";
 
             $query = $this->db->query($query_string);
 
