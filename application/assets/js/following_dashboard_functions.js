@@ -64,9 +64,16 @@ function initialize_suggested_friends()
             // Clear the search box
             $('#friend_search').val('');
             $('#friend_search').blur();
+            $('#friend_search').focus();
+            
             initialize_follow_search();
         }else{
             $(this).addClass('suggested_active');
+            
+            // Clear the search box
+            $('#friend_search').val('');
+            $('#friend_search').blur();
+            
             $.get('/dashboard/get_suggested_friends',
                 function (data) {
                     $('#follow_search').html(data);   
