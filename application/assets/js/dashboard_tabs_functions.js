@@ -28,6 +28,7 @@ function show_data_container(data_div) {
         console.log('here');
         console.log($('.page_content:visible'));
         if ($('.page_content:visible') == []) {
+            console.log($(data_div));
             $(data_div).show('slide', {}, 'fast', function () {
                 eval($(data_div).attr('setup_func') + "()");
             });
