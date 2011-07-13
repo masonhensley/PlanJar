@@ -12,4 +12,6 @@
     <div class="right_header">
         Find groups
     </div>
+
+    <div id="find_groups_list"></div>
 </div>

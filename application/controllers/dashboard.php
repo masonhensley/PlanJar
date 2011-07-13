@@ -130,16 +130,23 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('group_ops');
         $user = $this->ion_auth->get_user();
-        
+
         $query_string = "SELECT groups.id, groups.name " .
                 "FROM group_relationships LEFT JOIN groups " .
                 "ON group_relationships.group_id = groups.id " .
                 "WHERE group_relationships.user_following_id = ?";
         $query = $this->db->query($query_string, array($user->id));
-        
-        foreach ($query->result() as $row) {
+
+        foreach ($query->result() as $row)
+        {
             $this->group_ops->echo_group_entry($row);
         }
+    }
+
+    public function get_group_details()
+    {
+        $group_id = $this->input->get('group_id');
+        echo("Information for group $group_id");
     }
 
 }
