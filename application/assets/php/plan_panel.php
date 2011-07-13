@@ -18,8 +18,8 @@
                     </td>
                     <td>
                         <div class="in-field_block">
-                            <label for="plan_category">What are you doing?</label>
-                            <input type="text" id="plan_category" name="plan_category" class="textbox"/>
+                            <label for="plan_description">Description (optional)</label>
+                            <input type="text" id="plan_description" name="plan_description" class="textbox"/>
                         </div>
                     </td>
                 </tr>
@@ -68,8 +68,6 @@
 
             <input id="plan_location_id" name="plan_location_id" type="hidden"/>
             <input id="plan_location_name" type="hidden"/>
-            <input id="plan_category_id" name="plan_category_id" type="hidden"/>
-            <input id="plan_category_name" type="hidden"/>
             <input id="new_place_name" name="new_place_name" type="hidden"/>
             <input id="new_place_category" name="new_place_category" type="hidden"/>
             <input id="new_place_latitude" name="new_place_latitude" type="hidden"/>

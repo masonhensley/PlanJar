@@ -53,7 +53,7 @@ class Home extends CI_Controller
         $user_id = $user_info->id;
 
 // pull all user's current events
-        $query = "SELECT plans.time_of_day, plans.plan_date, places.name 
+        $query = "SELECT plans.time_of_day, plans.date, places.name 
         FROM plans 
         LEFT JOIN places 
         ON plans.place_id=places.id 
@@ -165,10 +165,20 @@ class Home extends CI_Controller
             'id' => 'DEFAULT',
             'place_id' => $this->input->get('plan_location_id'),
             'user_id' => $user->id,
-            'plan_date' => $date->format('Y-m-d'),
+            'date' => $date->format('Y-m-d'),
             'time_of_day' => $this->input->get('plan_time'),
-            'category_id' => $this->input->get('plan_category_id')
+            'description' => $this->input->get('plan_description'),
+            'event_id' => $this->input->get('event_id')
         );
+
+        // One of description and event_id must be NULL.
+        if ($data['plan_description'] == false)
+        {
+            $data['plan_description'] = NULL;
+        } else
+        {
+            $data['event_id'] = NULL;
+        }
 
         // Add the place to the database if a Factual place was selected.
         if ($this->input->get('new_place_name') != '')
@@ -293,7 +303,7 @@ class Home extends CI_Controller
             $name = $plan->name;
             $category = $plan->category;
             $time = $plan->time_of_day;
-            $date = date('l', strtotime($plan->plan_date));
+            $date = date('l', strtotime($plan->date));
             if ($date_organizer != $date)
             {
                 echo "<hr>";
@@ -330,7 +340,8 @@ class Home extends CI_Controller
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
             echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
-        } else {
+        } else
+        {
             echo('success');
         }
     }

@@ -43,7 +43,7 @@ function initialize_plan_modal() {
     divset('#plan_day');
 
     // Initialize the in-field labels.
-    $('#create_plan_content div.in-field_block label').inFieldLabels();
+    $('#create_plan_content .in-field_block label').inFieldLabels();
         
     // Initialize the plan location autocomplete instance.
     var item_selected;
@@ -193,48 +193,47 @@ function initialize_plan_modal() {
         }
     });
         
-    // Initialize the plan category autocomplete instance.
-    $('#plan_category').autocomplete({
-        // Get info from the server.
-        source: function (request, response) {
-            $.get('/home/find_plan_categories', {
-                needle: request.term
-            }, function (data) {
-                // Convert each item in the JSON from the server to the required JSON
-                // form for the autocomplete and pass the result through the response
-                // handler.
-                if (data == 'no results') {
-                    response([{
-                        label: "No results found for '" + request.term + "'",
-                        value: '',
-                        id: ''
-                    }]);
-                } else {
-                    data = $.parseJSON(data);
-                    response($.map(data, function (item) {
-                        return {
-                            label: item.category,
-                            value: item.category,
-                            id: item.id
-                        };
-                    }));
-                }
-            });
-        },
-        // When an item is selected, update the location text as well as the hidden
-        // id field.
-        select: function (event, ui) {
-            $('#plan_category').val(ui.item.value);
-            $('#plan_category_id').val(ui.item.id);
-            $('#plan_category_name').val(ui.item.value);
-        }
-    });
+    // Initialize the plan description autocomplete instance.
+    //    $('#plan_category').autocomplete({
+    //        // Get info from the server.
+    //        source: function (request, response) {
+    //            $.get('/home/find_plan_categories', {
+    //                needle: request.term
+    //            }, function (data) {
+    //                // Convert each item in the JSON from the server to the required JSON
+    //                // form for the autocomplete and pass the result through the response
+    //                // handler.
+    //                if (data == 'no results') {
+    //                    response([{
+    //                        label: "No results found for '" + request.term + "'",
+    //                        value: '',
+    //                        id: ''
+    //                    }]);
+    //                } else {
+    //                    data = $.parseJSON(data);
+    //                    response($.map(data, function (item) {
+    //                        return {
+    //                            label: item.category,
+    //                            value: item.category,
+    //                            id: item.id
+    //                        };
+    //                    }));
+    //                }
+    //            });
+    //        },
+    //        // When an item is selected, update the location text as well as the hidden
+    //        // id field.
+    //        select: function (event, ui) {
+    //            $('#plan_category').val(ui.item.value);
+    //            $('#plan_category_id').val(ui.item.id);
+    //            $('#plan_category_name').val(ui.item.value);
+    //        }
+    //    });
     
     // Initialize the Validator plugin for the plan location.
     $('#make_plan').validate({
         rules: {
             plan_location_id: 'required',
-            plan_category_id: 'required',
             plan_time_group: 'required',
             plan_day_group: 'required'
         },
@@ -242,9 +241,6 @@ function initialize_plan_modal() {
             var data_string = $(form).serialize() +
             '&plan_time=' + $('#plan_time .divset_selected').attr('plan_time') +
             '&plan_day=' + $('#plan_day .divset_selected').attr('plan_day');
-        
-            console.log($('#plan_day .divset_selected'));
-            console.log($('#plan_day .divset_selected').attr('plan_day'));
         
             $.get('/home/submit_plan', data_string, function (data) {
                 if (data == 'success') {
@@ -264,29 +260,20 @@ function initialize_plan_modal() {
     
     // Force the plan location and category fields to be chosen from the autocomplete.
     $('#plan_location').blur(function() {
-        lock_to_autocomplete('#plan_location', '#plan_location_id', '#plan_location_name');
-    });
-    $('#plan_category').blur(function() {
-        lock_to_autocomplete('#plan_category', '#plan_category_id', '#plan_category_name');
-    });
-}
-
-// Only allows input chosen from an autocomplete.
-// All three arguments are DOM element names (as strings).
-function lock_to_autocomplete(textbox_name, id_name, name_name) {
-    // Get the id stored in the hidden field.
-    var id = $(id_name).val();
+        // Get the id stored in the hidden field.
+        var id = $('#plan_location_id').val();
     
-    if (id == '') {
-        // If id is empty, clear the location box.
-        $(textbox_name).val('');
+        if (id == '') {
+            // If id is empty, clear the location box.
+            $('#plan_location').val('');
         
-    } else {
-        // A location was previously selected, so repopulate the location box with that
-        // name (saved locally) This should make it clear to the user that
-        // only a chosen item can be submitted.
-        $(textbox_name).val($(name_name).val());
-    }
+        } else {
+            // A location was previously selected, so repopulate the location box with that
+            // name (saved locally) This should make it clear to the user that
+            // only a chosen item can be submitted.
+            $('#plan_location').val($('#plan_location_name').val());
+        }
+    });
 }
 
 function get_distance_between(lat0, long0, lat1, long1) {
