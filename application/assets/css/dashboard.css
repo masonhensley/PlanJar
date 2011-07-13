@@ -213,7 +213,7 @@ a{
 }
 .group_entry .group_entry_left {
     float: left;
-    width: 95px;
+    width: 100px;
 }
 .group_entry .group_picture {
     width: 50px;
@@ -222,7 +222,7 @@ a{
 }
 .group_entry .group_entry_middle {
     float: left;
-    width: 40%;
+    width: 35%;
     height: 100%;
 }
 .group_entry .remove_following {
