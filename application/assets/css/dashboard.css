@@ -92,7 +92,7 @@ a{
 #following_content .right {
     width:48%;
     float:right;
-    height:100%;
+    height:auto;
     background-color:white;
     border: 1px solid black;
 }
@@ -155,7 +155,7 @@ a{
 #followers_content .left {
     width: 48%;
     float: left;
-    height: 100%;
+    height: auto;
     border: 1px solid black;
 }
 #followers_content .left_header {
@@ -176,7 +176,7 @@ a{
 #followers_content .right {
     width: 48%;
     float: right;
-    height: 100%;
+    height: auto;
     border: 1px solid black;
 }
 
@@ -184,7 +184,7 @@ a{
 #groups_content .left {
     width: 331px;
     float: left;
-    height: 100%;
+    height: auto;
     border: 1px solid black;
     background-color:white;
 }
@@ -203,14 +203,14 @@ a{
     width: 315px;
     float: left;
     margin-left: 20px;
-    height: 100%;
+    height: 20%;
     border: 1px solid black;
     background-color:white;
 }
 #groups_content .right {
     width: 331px;
     float: right;
-    height: 100%;
+    height: auto;
     border: 1px solid black;
     background-color:white;
 }

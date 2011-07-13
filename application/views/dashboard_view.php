@@ -42,7 +42,7 @@
                 <div class="tab" assoc_div="#settings_content">Settings</div>
             </div>
 
-            <div id="following_content" class="page_content">
+            <div id="following_content" class="page_content" setup_func="following_setup">
                 <?php include(APPPATH . '/assets/php/dashboard_following.php'); ?>
             </div>
 
