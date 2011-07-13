@@ -92,7 +92,7 @@ a{
 #following_content .right {
     width:48%;
     float:right;
-    height:20%;
+    height:auto;
     background-color:white;
     border: 1px solid black;
 }
@@ -176,7 +176,7 @@ a{
 #followers_content .right {
     width: 48%;
     float: right;
-    height: auto;
+    height: 20%;
     border: 1px solid black;
 }
 

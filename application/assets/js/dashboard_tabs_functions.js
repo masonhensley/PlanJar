@@ -24,25 +24,26 @@ function show_data_container(data_div) {
         
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
-        // Hide any visible data containers.
-        console.log('here');
-        console.log($('.page_content:visible'));
         if ($('.page_content:visible').length == 0) {
-            console.log($(data_div));
+            // No shown containers. Show the specified container.
             $(data_div).show('slide', {}, 'fast', function () {
+                // Call the setup function.
                 eval($(data_div).attr('setup_func') + "()");
             });
         } else {
+            // Hide any visible data containers.
             $('.page_content:visible').hide('slide', {}, 'fast', function() {
                 // Show the panel.
                 $(data_div).show('slide', {}, 'fast', function () {
                     if ($(data_div).attr('setup_func') != undefined) {
+                        // Call the setup function.
                         eval($(data_div).attr('setup_func') + "()");
                     }
                 });
             });
         }
     } else {
+        // Call the setup function.
         eval($(data_div).attr('setup_func') + "()");
     }
 }
