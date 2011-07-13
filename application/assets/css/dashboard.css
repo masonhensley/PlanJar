@@ -81,14 +81,13 @@ a{
 #following_content .left {
     width:48%;
     float:left;
-    height:100%;
+    height:auto;
     background-color:white;
     border: 1px solid black;
 }
 #follow_search {
     width: 100%;
     height: 800px;
-    border: 1px solid black;
 }
 #following_content .right {
     width:48%;
@@ -287,6 +286,7 @@ a{
     height:30px;
     width:200px;
     float:left;
+    top: 3px;
 }
 .in-field_block label {
     position: absolute;
@@ -296,7 +296,7 @@ a{
 }
 .in-field_block .textbox {
     position:relative;
-    top:1px;
+    top:3px;
     height:25px;
     width:200px;
 }
@@ -304,11 +304,12 @@ a{
 .suggested_friends{
     margin-right:60px;
     width:200px;
-    height:100%;
+    height:33px;
     text-align:center;
     float:right;
     border-left:1px solid black;
     border-right: 1px solid black;
+    margin-top:3px;
 }
 
 .suggested_active{
