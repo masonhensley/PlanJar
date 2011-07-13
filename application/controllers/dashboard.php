@@ -134,7 +134,7 @@ class Dashboard extends CI_Controller
         $query_string = "SELECT groups.id, groups.name, group_relationships.user_following_id " .
                 "FROM group_relationships LEFT JOIN groups " .
                 "ON group_relationships.group_id = groups.id " .
-                "WHERE group_relationships.user_following_id = ? OR group_relationships.user_joined_id = ?" .
+                "WHERE group_relationships.user_following_id = ? OR group_relationships.user_joined_id = ? " .
                 "SORT BY groups.name ASC";
         $query = $this->db->query($query_string, array($user->id, $user->id));
 
