@@ -8,8 +8,8 @@ function populate_followers_list() {
         
         // Click handler.
         $('#followers_list .add_following').click(function () {
-            if ($(this).text() == '+ Follow') {
-                $(this).text('+ You sure?');
+            if ($(this).text() == 'Follow') {
+                $(this).text('You sure?');
             } else {
                 $.get('/dashboard/add_user_following', {
                     following_id: $(this).parent().attr('user_id')

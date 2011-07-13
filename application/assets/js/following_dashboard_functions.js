@@ -76,7 +76,19 @@ function initialize_suggested_friends()
             
             $.get('/dashboard/get_suggested_friends',
                 function (data) {
-                    $('#follow_search').html(data);   
+                    $('#follow_search').html(data);
+                    $('#followers_list .add_following').click(function () {
+                        if ($(this).text() == 'Follow') {
+                            $(this).text('You sure?');
+                        } else {
+                            $.get('/dashboard/add_user_following', {
+                                following_id: $(this).parent().attr('user_id')
+                            }, function (data) {
+                                populate_following_list();
+                                initialize_suggested_friends();
+                            });
+                        }
+                    });
                 });
         }
     });

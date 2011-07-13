@@ -59,5 +59,4 @@ class Load_suggested_friends extends CI_Model
         return "";
     }
 }
-
 ?>
