@@ -367,16 +367,17 @@ a{
 }
 
 .divset {
-    background-color: lightgray;
+    background-color: white;
     color: black;
     display:inline-block;
     padding: 5px;
     border:1px solid black;
+    border-radius:30px;
 }
 
 .divset.divset_selected {
-    background-color: purple;
-    color: white;
+    background-color: lightgray;
+    color: black;
 }
 
 #group_select_type{
