@@ -27,7 +27,7 @@ function initialize_group_search() {
                         // Make groups selectable
                         $('#find_groups_list .group_entry').click(function() {
                             // Unselect other groups
-                            $('#edit_groups_list .group_entry.selected_group').removeClass('selected_group');
+                            $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
                                 
                             $('.group_entry.selected_group').removeClass('selected_group');
                             $(this).addClass('selected_group');
