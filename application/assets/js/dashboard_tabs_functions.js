@@ -36,7 +36,9 @@ function show_data_container(data_div) {
             $('.page_content:visible').hide('slide', {}, 'fast', function() {
                 // Show the panel.
                 $(data_div).show('slide', {}, 'fast', function () {
-                    eval($(data_div).attr('setup_func') + "()");
+                    if ($(data_div).attr('setup_func') != undefined) {
+                        eval($(data_div).attr('setup_func') + "()");
+                    }
                 });
             });
         }
