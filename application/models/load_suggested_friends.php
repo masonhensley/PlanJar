@@ -10,6 +10,8 @@ class Load_suggested_friends extends CI_Model
     {
         $friends_query = "SELECT follow_id FROM friends where user_id=$user_id";
         $result = $this->db->query($friends_query);
+        var_dump($friends_query);
+        
         $friend_of_friend_query = "SELECT follow_id FROM friends WHERE ";
         foreach($result->result() as $friend_id)
         {
@@ -17,6 +19,7 @@ class Load_suggested_friends extends CI_Model
         }
         $friend_of_friend_query  = substr($friend_of_friend_query , 0, strlen($friend_of_friend_query ) - 4); // This cuts off the last "OR" and adds ")"
         $friend_of_friend_ids = $this->db->query($friend_of_friend_query);
+        var_dump($friend_of_friend_query);
         
         // keep track of friend of friend ids
         $friend_of_friend_list = array();
