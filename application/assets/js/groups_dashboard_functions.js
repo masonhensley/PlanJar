@@ -16,19 +16,20 @@ function populate_edit_groups_list() {
                 $('#groups_content .middle').html(data);
             });
         });
+        
+        // Click handlers
+        $('#edit_groups_list .add_following').click(function () {
+            if ($(this).text() == '+ Follow') {
+                $(this).text('+ You sure?');
+            } else {
+                $.get('/dashboard/add_user_following', {
+                    following_id: $(this).parent().attr('user_id')
+                }, function (data) {
+                    populate_followers_list();
+                    populate_following_list();
+                });
+            }
+        });
     });
     
-// Click handlers
-//    $('#edit_groups_list .abc').click(function () {
-//            if ($(this).text() == '+ Follow') {
-//                $(this).text('+ You sure?');
-//            } else {
-//                $.get('/dashboard/add_following', {
-//                    following_id: $(this).parent().attr('user_id')
-//                }, function (data) {
-//                    populate_followers_list();
-//                    populate_following_list();
-//                });
-//            }
-//        });
 }

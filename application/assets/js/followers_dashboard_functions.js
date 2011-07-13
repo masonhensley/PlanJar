@@ -11,7 +11,7 @@ function populate_followers_list() {
             if ($(this).text() == '+ Follow') {
                 $(this).text('+ You sure?');
             } else {
-                $.get('/dashboard/add_following', {
+                $.get('/dashboard/add_user_following', {
                     following_id: $(this).parent().attr('user_id')
                 }, function (data) {
                     populate_followers_list();
