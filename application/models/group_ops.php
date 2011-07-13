@@ -9,6 +9,72 @@ class Group_ops extends CI_Model
         parent::__construct();
     }
 
+    // Search for groups to follow by name
+    function search_for_groups($needle)
+    {
+        $needle = trim($needle);
+        if ($needle != '')
+        {
+            // Break into search terms
+            $needle_array = explode(' ', $needle);
+
+            // Generate a query string to cross-reference all needle terms with the group names
+            $needle_where = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
+            }
+
+            // Trim the end of the string
+            if ($needle_where != '')
+            {
+                $needle_where = substr($needle_where, 0, -5);
+            }
+
+            // Generate a query string to exclude already followed or joined groups
+            $already_following = '';
+            $following_groups_list = $this->get_following_groups();
+            foreach ($following_groups_list as $group_id)
+            {
+                $already_following .= "groups.id <> $group_id AND ";
+            }
+
+            // Trim the end of the string
+            if ($already_following != '')
+            {
+                $already_following = substr($already_following, 0, -5);
+            }
+
+            $query_string = "SELECT id, name " .
+                    "FROM groups WHERE ($needle_where) AND ($already_following)";
+
+            $query = $this->db->query($query_string);
+
+            // Echo the results
+            foreach ($query->result() as $row)
+            {
+                $this->echo_group_entry($row, 'add following');
+            }
+        }
+    }
+
+    public function get_following_groups()
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "SELECT group_id FROM group_relationships " .
+                "WHERE user_following_id = ? OR user_joined_id = ?";
+        $query = $this->db->query($query_string, array($user->id, $user->id));
+
+        $return_array = array();
+        foreach ($query->result() as $row)
+        {
+            $return_array[] = $row->group_id;
+        }
+
+        return $return_array;
+    }
+
     // Echos a group entry.
     public function echo_group_entry($row, $option = '')
     {
@@ -34,6 +100,7 @@ class Group_ops extends CI_Model
             {
                 ?>
                 <div class="remove_following">- Unfollow</div>
+                <div class="add_joined">+ Join</div>
                 <?php
             } else if ($option == 'add following')
             {
@@ -45,10 +112,10 @@ class Group_ops extends CI_Model
                 ?>
                 <div class="following">Following</div>
                 <?php
-            } else if ($option == 'joined')
+            } else if ($option == 'remove joined')
             {
                 ?>
-                <div class="joined">Joined</div>
+                <div class="remove_joined">- Unjoin</div>
                 <?php
             }
             ?>

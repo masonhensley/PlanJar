@@ -197,6 +197,7 @@ a{
 }
 #groups_content .right_header {
     width: 100%;
+    height: 35px;
 }
 
 .group_entry {
@@ -218,7 +219,8 @@ a{
 }
 .group_entry .group_entry_middle {
     float: left;
-    width: 40%
+    width: 40%;
+    height: 100%;
 }
 .group_entry .remove_following {
     float: right;
@@ -241,6 +243,21 @@ a{
     color: white;
     padding: 3px;
 }
+.group_entry .remove_joined {
+    float: right;
+    width: 80px;
+    background-color: purple;
+    color: white;
+    padding: 3px;
+}
+.group_entry .add_joined {
+    float: right;
+    width: 80px;
+    background-color: green;
+    color: white;
+    padding: 3px;
+    margin-top: 5px;
+}
 
 /* in-field labels */
 .in-field_block {
@@ -253,6 +270,7 @@ a{
     position: absolute;
     top: 4px;
     left: 4px;
+    z-index: 1000;
 }
 .in-field_block .textbox {
     position:relative;

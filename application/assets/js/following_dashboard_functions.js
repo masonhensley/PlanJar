@@ -10,16 +10,16 @@ function populate_following_list() {
         
         // Click handler.
         $('#following_list .remove_following').click(function () {
-            if ($(this).text() == '- Unfollow') {
-                $(this).text('- You sure?');
-            } else {
+            $(this).text('+ You sure?');
+            $(this).unbind('click');
+            $(this).click(function () {
                 $.get('/dashboard/remove_following', {
                     following_id: $(this).parent().attr('user_id')
                 }, function (data) {
                     populate_following_list();
                     populate_followers_list();
                 });
-            }
+            });
         });
     });
 }
@@ -36,10 +36,10 @@ function initialize_follow_search() {
             $('#follow_search').html(data);
             
             // Click handler.
-            $('#follow_search .add_user_following').click(function () {
-                if ($(this).text() == '+ Follow') {
-                    $(this).text('+ You sure?');
-                } else {
+            $('#follow_search .add_following').click(function () {
+                $(this).text('+ You sure?');
+                $(this).unbind('click');
+                $(this).click(function () {
                     $.get('/dashboard/add_user_following', {
                         following_id: $(this).parent().attr('user_id')
                     }, function () {
@@ -48,7 +48,7 @@ function initialize_follow_search() {
                         populate_following_list();
                         $('#friend_search').blur();
                     });
-                }
+                });
             });
         });
     });
@@ -61,9 +61,19 @@ function initialize_suggested_friends()
         if($(this).hasClass('suggested_active'))
         {
             $(this).removeClass('suggested_active');
+            $('#friend_search').val('');
+            $('#follow_search').html('');
+            $('#friend_search').blur();
+            $('#friend_search').focus();
+            
             initialize_follow_search();
         }else{
             $(this).addClass('suggested_active');
+            
+            // Clear the search box
+            $('#friend_search').val('');
+            $('#friend_search').blur();
+            
             $.get('/dashboard/get_suggested_friends',
                 function (data) {
                     $('#follow_search').html(data);   
