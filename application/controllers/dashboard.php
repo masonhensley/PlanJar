@@ -42,7 +42,7 @@ class Dashboard extends CI_Controller
     }
 
     // Adds a following relationship if one doesn't already exist.
-    public function add_following()
+    public function add_user_following()
     {
         $user = $this->ion_auth->get_user();
 

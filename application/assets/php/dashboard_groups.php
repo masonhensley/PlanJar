@@ -1,6 +1,6 @@
 <div class="left">
     <div class="left_header">
-        Your groups
+        Groups you're following
     </div>
 
     <div id="edit_groups_list"></div>
