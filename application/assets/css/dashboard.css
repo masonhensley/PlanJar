@@ -295,7 +295,7 @@ a{
 }
 .in-field_block .textbox {
     position:relative;
-    top:1px;
+    top:3px;
     height:25px;
     width:200px;
 }
