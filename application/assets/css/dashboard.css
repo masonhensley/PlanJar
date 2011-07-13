@@ -4,6 +4,8 @@ body{
     margin: 0px;
     font-family: helvetica;
     font-size: 15px;
+     -webkit-user-select: none;
+    cursor:default;
 }
 
 a{
