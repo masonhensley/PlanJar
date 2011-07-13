@@ -29,8 +29,8 @@ class Load_suggested_friends extends CI_Model
         }
         
         $suggested_friends = array_count_values($friend_of_friend_list);
-        
-        return "$suggested_friends";
+        var_dump($suggested_friends);
+        return "";
     }
 }
 ?>
