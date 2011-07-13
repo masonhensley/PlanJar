@@ -26,14 +26,18 @@ function show_data_container(data_div) {
     if ($(data_div).css('display') == 'none') {
         // Hide any visible data containers.
         console.log('here');
-        $('.page_content:visible').hide('slide', {}, 'fast', function() {
-            // Show the panel.
-            console.log('showing');
-            console.log($(data_div));
+        if ($('.page_content:visible') == []) {
             $(data_div).show('slide', {}, 'fast', function () {
                 eval($(data_div).attr('setup_func') + "()");
             });
-        });
+        } else {
+            $('.page_content:visible').hide('slide', {}, 'fast', function() {
+                // Show the panel.
+                $(data_div).show('slide', {}, 'fast', function () {
+                    eval($(data_div).attr('setup_func') + "()");
+                });
+            });
+        }
     } else {
         eval($(data_div).attr('setup_func') + "()");
     }
