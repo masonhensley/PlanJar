@@ -55,8 +55,6 @@ class Load_suggested_friends extends CI_Model
             $counter++;
         }
         $query .= "END";
-        var_dump($query);
-        var_dump($suggested_friends);
         
         $result = $this->db->query($query);
         
