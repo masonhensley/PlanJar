@@ -349,12 +349,13 @@ a{
     margin:auto;
     border: 1px solid black;
     padding: 5px;
-    color: purple;
+    color: navy;
     background-color:white;
 }
 
 .selected_plan{
-    background-color:lightblue;
+    background-color:navy;
+    color:white;
 }
 
 .bottom_links{
