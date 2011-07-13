@@ -34,6 +34,7 @@ class Group_ops extends CI_Model
             {
                 ?>
                 <div class="remove_following">- Unfollow</div>
+                <div class="add_joined">+ Join</div>
                 <?php
             } else if ($option == 'add following')
             {

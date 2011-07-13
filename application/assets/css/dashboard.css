@@ -248,6 +248,14 @@ a{
     color: white;
     padding: 3px;
 }
+.group_entry .add_joined {
+    float: right;
+    width: 80px;
+    background-color: green;
+    color: white;
+    padding: 3px;
+    margin-top: 20px;
+}
 
 /* in-field labels */
 .in-field_block {
