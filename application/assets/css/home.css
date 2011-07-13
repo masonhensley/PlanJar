@@ -82,20 +82,18 @@ a{
 .group_label {
     font-size: 1.3em;
     text-align:center;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px auto 10px auto;
 }
 
 .selectable_group {
-    width:100%;
     height:100%;
-    margin:auto;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    padding: 5px;
+    padding: 5px 0px 5px;
     color: navy;
     background-color:#F3F6FF;
     text-align:center;
+    margin-bottom: 10px;
 }
 
 .selected_group {
@@ -171,7 +169,7 @@ a{
 
 .plan_deleted{
     width:50px;
-    
+
     height:50px; 
     position:relative; 
     top:40px;
