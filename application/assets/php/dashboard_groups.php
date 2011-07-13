@@ -10,7 +10,10 @@
 
 <div class="right">
     <div class="right_header">
-        Find groups
+        <div class="in-field_block" style="height: auto;">
+            <label for="group_search" style=" color:gray;">Search for groups to follow</label>
+            <input type="text" class="textbox" id="group_search" />
+        </div>
     </div>
 
     <div id="find_groups_list"></div>
