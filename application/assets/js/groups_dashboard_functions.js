@@ -46,7 +46,7 @@ function populate_edit_groups_list() {
             if ($(this).text() == '- Unjoin') {
                 $(this).text('- You sure?');
             } else {
-                $.get('/dashboard/remove_group_join', {
+                $.get('/dashboard/remove_group_joined', {
                     group_id: $(this).parent().attr('group_id')
                 }, function (data) {
                     populate_edit_groups_list();

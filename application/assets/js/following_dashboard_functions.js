@@ -37,9 +37,9 @@ function initialize_follow_search() {
             
             // Click handler.
             $('#follow_search .add_user_following').click(function () {
-                if ($(this).text() == '+ Follow') {
-                    $(this).text('+ You sure?');
-                } else {
+                $(this).text('+ You sure?');
+                $(this).unbind('click');
+                $(this).click(function () {
                     $.get('/dashboard/add_user_following', {
                         following_id: $(this).parent().attr('user_id')
                     }, function () {
@@ -48,7 +48,7 @@ function initialize_follow_search() {
                         populate_following_list();
                         $('#friend_search').blur();
                     });
-                }
+                });
             });
         });
     });
