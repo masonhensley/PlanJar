@@ -282,11 +282,11 @@ a{
 
 /* in-field labels */
 .in-field_block {
-    margin-left:5px;
+    margin-left:7px;
     width:200px;
     float:left;
     top: 3px;
-    margin-top:5px;
+    margin-top:7px;
 }
 .in-field_block label {
     position: absolute;
