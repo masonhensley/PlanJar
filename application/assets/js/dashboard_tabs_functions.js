@@ -12,6 +12,7 @@ function initialize_dashboard_tabs() {
         if (!$(this).hasClass('tab_selected')) {
             show_data_container($(this).attr('assoc_div'), function (div_name) {
                 // Call the associated initialization function.
+                alert($(div_name).attr('setup_func') + '()');
                 eval($(div_name).attr('setup_func') + '()');
             });
         }
