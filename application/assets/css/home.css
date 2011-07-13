@@ -68,8 +68,8 @@ a{
     text-align: center;
     position:relative; 
     top:30px;
-    border-bottom:none;
     border-right: none;
+    background-color:white;
 }
 
 .left_header{
@@ -87,10 +87,11 @@ a{
 }
 
 .selectable_group {
-    width:90%;
+    width:100%;
     height:100%;
     margin:auto;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     padding: 5px;
     color: navy;
     background-color:#F3F6FF;
@@ -157,6 +158,11 @@ a{
     display: none;
 }
 
+.delete_plan{
+    text-align: center;
+    height:30px;
+}
+
 #map {
     width: 100%;
     height: 300px;
@@ -183,7 +189,7 @@ a{
 }
 
 .day.day_selected {
-    background-color: purple;
+    background-color: navy;
     color: white;
 }
 
@@ -288,10 +294,10 @@ a{
     width:210px;
     min-height: 600px;
     border: 1px solid black;
-    border-bottom:none;
     position:relative;
     top:30px;
     border-left: none;
+    background-color:white;
 }
 
 .right_header{
@@ -344,18 +350,20 @@ a{
 }
 
 .plan_content{
-    width:90%;
+    width:100%;
     height:100%;
     margin:auto;
-    border: 1px solid black;
-    padding: 5px;
-    color: navy;
-    background-color:white;
+    border-top:  1px solid black;
+    border-bottom:1px solid black;
+    color: black;
+    padding-top:5px;    
+    padding-bottom: 5px;
+    background-color:#F3F6FF;
 }
 
 .selected_plan{
-    background-color:navy;
-    color:white;
+    background-color:#aaccff;
+    color:black;
 }
 
 .bottom_links{
