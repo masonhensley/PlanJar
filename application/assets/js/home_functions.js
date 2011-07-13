@@ -7,11 +7,7 @@ $(function() {
     // places map
     location_data();
     
-    $('#view_current_location').click(function () {
-        show_data_container('#map_data');
-        map_user_position(); 
-        return false;
-    });
+   
 });
 
 var initialLocation;

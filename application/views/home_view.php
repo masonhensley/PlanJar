@@ -41,10 +41,9 @@
                 </div>
                
                 <div class="top_links">
-                    <a href="/dashboard/" id="dashboard link" style="font-size:20px;">Dashboard &middot;</a>
-                    <a href="#" id="change_location" style="font-size:20px;">Change location &middot;</a>
-                    <a href="#" id="view_current_location" style="font-size:20px;">View current location &middot;</a>
-                    <a href="/home/logout" style="font-size:20px;">Log out</a>
+                    <a href="/dashboard/" id="dashboard link">Dashboard &middot;</a>
+                    <a href="#" id="change_location" >Change location &middot;</a>
+                    <a href="/home/logout" >Log out</a>
                 </div>
 
             </div>
