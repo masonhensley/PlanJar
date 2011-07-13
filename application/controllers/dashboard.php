@@ -165,7 +165,6 @@ class Dashboard extends CI_Controller
                     $this->input->get('group_id'),
                     $user->id,
                 ));
-        echo($this->db->last_query());
     }
 
     public function remove_group_following()

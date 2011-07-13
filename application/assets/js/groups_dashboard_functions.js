@@ -17,7 +17,7 @@ function initialize_group_search() {
                 $(this).unbind('click');
                 $(this).click(function () {
                     $.get('/dashboard/add_group_following', {
-                        following_id: $(this).parent().attr('group_id')
+                        group_id: $(this).parent().attr('group_id')
                     }, function () {
                         $('#find_groups_list').html('');
                         $('#group_search').val('');
