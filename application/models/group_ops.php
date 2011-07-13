@@ -45,6 +45,11 @@ class Group_ops extends CI_Model
                 ?>
                 <div class="following">Following</div>
                 <?php
+            } else if ($option == 'joined')
+            {
+                ?>
+                <div class="joined">Joined</div>
+                <?php
             }
             ?>
         </div>

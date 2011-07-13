@@ -3,7 +3,7 @@
         Your groups
     </div>
 
-    <div id="groups_list"></div>
+    <div id="edit_groups_list"></div>
 </div>
 
 <div class="middle"></div>
