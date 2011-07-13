@@ -11,6 +11,8 @@ class Load_suggested_friends extends CI_Model
         $friends_query = "SELECT follow_id FROM friends where user_id=$user_id";
         $result = $this->db->query($friends_query);
         
+        var_dump($friends_query);
+        echo "<br/><br/>";
         
         $friend_of_friend_query = "SELECT follow_id FROM friends WHERE ";
         foreach($result->result() as $friend_id)
@@ -29,9 +31,14 @@ class Load_suggested_friends extends CI_Model
         }
         
         $suggested_friends = array_count_values($friend_of_friend_list);
+        
         var_dump($suggested_friends);
+         echo "<br/><br/>";
+         
         $friend_recommendations = sort($suggested_friends, SORT_NUMERIC);
+        
         var_dump($suggested_friends);
+         echo "<br/><br/>";
         
         return "";
     }
