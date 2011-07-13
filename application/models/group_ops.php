@@ -62,7 +62,7 @@ class Group_ops extends CI_Model
             // Echo the results
             foreach ($query->result() as $row)
             {
-                $this->echo_user_entry($row, 'add following');
+                $this->echo_group_entry($row, 'add following');
             }
         }
     }
