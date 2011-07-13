@@ -131,15 +131,22 @@ class Dashboard extends CI_Controller
         $this->load->model('group_ops');
         $user = $this->ion_auth->get_user();
 
-        $query_string = "SELECT groups.id, groups.name " .
+        $query_string = "SELECT groups.id, groups.name, group_relationships.user_following_id " .
                 "FROM group_relationships LEFT JOIN groups " .
                 "ON group_relationships.group_id = groups.id " .
-                "WHERE group_relationships.user_following_id = ?";
-        $query = $this->db->query($query_string, array($user->id));
+                "WHERE group_relationships.user_following_id = ? OR group_relationships.user_joined_id = ? " .
+                "SORT BY groups.name ASC";
+        $query = $this->db->query($query_string, array($user->id, $user->id));
 
         foreach ($query->result() as $row)
         {
-            $this->group_ops->echo_group_entry($row);
+            if ($row->user_following_id == $user->id)
+            {
+                $this->group_ops->echo_group_entry($row, 'remove following');
+            } else
+            {
+                $this->group_ops->echo_group_entry($row, 'joined');
+            }
         }
     }
 
@@ -147,6 +154,25 @@ class Dashboard extends CI_Controller
     {
         $group_id = $this->input->get('group_id');
         echo("Information for group $group_id");
+    }
+
+    public function add_group_following()
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "INSERT IGNORE INTO group_relationships VALUES (DEFAULT, ?, ?, DEFAULT)";
+        $query = $this->db->query($query_string, array(
+                    $this->input->get('group_id'),
+                    $user->id,
+                ));
+    }
+
+    public function remove_group_following()
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND user_following_id = ?";
+        $query = $this->db->query($query_string, array($this->input->get('group_id'), $user->id));
     }
 
 }

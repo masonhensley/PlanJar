@@ -22,14 +22,24 @@ function populate_edit_groups_list() {
             if ($(this).text() == '+ Follow') {
                 $(this).text('+ You sure?');
             } else {
-                $.get('/dashboard/add_user_following', {
-                    following_id: $(this).parent().attr('user_id')
+                $.get('/dashboard/add_group_following', {
+                    group_id: $(this).parent().attr('group_id')
                 }, function (data) {
-                    populate_followers_list();
-                    populate_following_list();
+                    populate_edit_groups_list();
+                });
+            }
+        });
+        
+        $('#edit_groups_list .remove_following').click(function () {
+            if ($(this).text() == '- Unfollow') {
+                $(this).text('- You sure?');
+            } else {
+                $.get('/dashboard/remove_group_following', {
+                    group_id: $(this).parent().attr('group_id')
+                }, function (data) {
+                    populate_edit_groups_list();
                 });
             }
         });
     });
-    
 }
