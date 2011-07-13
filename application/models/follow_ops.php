@@ -82,7 +82,7 @@ class Follow_ops extends CI_Model
                     <div class="user_picture"></div>
 
                     <div class="grad_year">
-                        <?php echo('Class of ' . $row->grad_year); ?>
+                        <?php echo($row->grad_year); ?>
                     </div>
                 </center>
             </div>
@@ -100,12 +100,12 @@ class Follow_ops extends CI_Model
             if ($option == 'remove following')
             {
                 ?>
-                <div class="remove_following">- Unfollow</div>
+                <div class="remove_following">Unfollow</div>
                 <?php
             } else if ($option == 'add following')
             {
                 ?>
-                <div class="add_following">+ Follow</div>
+                <div class="add_following">Follow</div>
                 <?php
             } else if ($option == 'following')
             {
