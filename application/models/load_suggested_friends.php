@@ -51,10 +51,10 @@ class Load_suggested_friends extends CI_Model
         $counter = 1; 
         foreach ($suggested_friends as $id => $count)
         {
-            $query .= "WHEN $id THEN $counter";
+            $query .= "WHEN $id THEN $counter ";
             $counter++;
         }
-        $query .= " END";
+        $query .= "END";
         var_dump($query);
         var_dump($suggested_friends);
         /*
