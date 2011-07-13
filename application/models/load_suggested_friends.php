@@ -65,6 +65,8 @@ class Load_suggested_friends extends CI_Model
             {
                 $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
             }
+        }else{
+            echo "success";
         }
     }
 
