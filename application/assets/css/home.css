@@ -62,7 +62,7 @@ a{
 /* -------------- LEFT PANEL ---------------- */ 
 .left{
     float:left;
-    width: 202px;
+    width: 210px;
     min-height: 600px;
     border: 1px solid black;
     text-align: center;
@@ -285,7 +285,7 @@ a{
 /* ------------------ RIGHT PANEL -----------------------*/
 .right{
     float:left;
-    width:207px;
+    width:210px;
     min-height: 600px;
     border: 1px solid black;
     border-bottom:none;
