@@ -46,7 +46,7 @@ class Load_suggested_friends extends CI_Model
         {
             $query .= "user_meta.user_id=$id OR ";
         }
-        $query = substr($query, 0, strlen($query) - 4); // This cuts off the last "OR" and adds ")"
+        $query = substr($query, 0, strlen($query) - 3); // This cuts off the last "OR" and adds ")"
         $query .= "ORDER BY CASE user_meta.user_id ";
         $counter = 1; 
         foreach ($suggested_friends as $id => $count)
