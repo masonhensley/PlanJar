@@ -93,7 +93,7 @@ class Follow_ops extends CI_Model
                 </div>
 
                 <div class="user_school">
-                    <?php echo($row->school); ?>
+                    <?php echo $row->school . "(" .$row->grad_year .")"; ?>
                 </div>
             </div>
             <?php
