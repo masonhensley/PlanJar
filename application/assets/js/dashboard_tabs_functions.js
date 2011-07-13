@@ -35,6 +35,8 @@ function show_data_container(data_div, callback) {
         // Hide any visible data containers.
         $('.page_content:visible').hide('slide', {}, 'fast', function() {
             // Show the panel.
+            console.log('showing');
+            console.log($(data_div));
             $(data_div).show('slide', {}, 'fast', function () {
                 callback(data_div);
             });
