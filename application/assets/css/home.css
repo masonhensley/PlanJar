@@ -129,7 +129,7 @@ a{
     width:100px;
     height:100%;
     background-color:#F3F6FF;
-    color:navy;
+    color:black;
     text-align: center;
 }
 
@@ -171,6 +171,7 @@ a{
 
 .plan_deleted{
     width:50px;
+    
     height:50px; 
     position:relative; 
     top:40px;
@@ -333,7 +334,7 @@ a{
     margin-left: -300px;
     top: 50%;
     margin-top: -125px;
-    background-color:beige;
+    background-color:#E0EFFF;
     padding: 5px;
     border: 3px solid black;
 }
@@ -359,6 +360,8 @@ a{
     background-color:purple;
     color:white;
     font-size:18px;
+    padding-left:10px;
+    padding-top:3px;
 }
 
 /* ------------------- PLAN CONTENT -------------- */
@@ -409,4 +412,9 @@ a{
     height:auto;
     width:auto;
     text-align:center;
+}
+
+#cancel_plan{
+    position:relative;
+    bottom:2px;
 }
