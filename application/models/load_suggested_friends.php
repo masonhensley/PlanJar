@@ -40,7 +40,7 @@ class Load_suggested_friends extends CI_Model
         echo "<br/><br/>";
         
         asort($suggested_friends);
-        $suggested_friends = array_reverse($suggested_friends);
+        $suggested_friends = array_reverse($suggested_friends, TRUE);
         var_dump($suggested_friends);
 
         return "";
