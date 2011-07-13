@@ -3,13 +3,13 @@
         Your groups
     </div>
 
-    <div id="groups_list"></div>
+    <div id="edit_groups_list"></div>
 </div>
 
 <div class="middle"></div>
 
 <div class="right">
     <div class="right_header">
-        Your groups
+        Find groups
     </div>
 </div>

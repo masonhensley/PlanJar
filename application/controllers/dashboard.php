@@ -78,7 +78,7 @@ class Dashboard extends CI_Controller
 
         foreach ($query->result() as $row)
         {
-            $this->follow_ops->user_follow_entry($row, 'remove following');
+            $this->follow_ops->echo_user_entry($row, 'remove following');
         }
     }
 
@@ -100,10 +100,10 @@ class Dashboard extends CI_Controller
         {
             if ($this->follow_ops->is_following($user->id, $row->user_id))
             {
-                $this->follow_ops->user_follow_entry($row, 'following');
+                $this->follow_ops->echo_user_entry($row, 'following');
             } else
             {
-                $this->follow_ops->user_follow_entry($row, 'add following');
+                $this->follow_ops->echo_user_entry($row, 'add following');
             }
         }
     }
@@ -121,8 +121,25 @@ class Dashboard extends CI_Controller
         $user_id = $user_info->id;
         $this->load->model('load_suggested_friends');
         $returnHTML = $this->load_suggested_friends->suggested_friends();
-        
+
         echo "$returnHTML";
+    }
+
+    // Returns HTML for the list of groups the user is following.
+    public function get_following_groups()
+    {
+        $this->load->model('group_ops');
+        $user = $this->ion_auth->get_user();
+        
+        $query_string = "SELECT groups.id, groups.name " .
+                "FROM group_relationships LEFT JOIN groups " .
+                "ON group_relationships.group_id = groups.id " .
+                "WHERE group_relationships.user_following_id = ?";
+        $query = $this->db->query($query_string, array($user->id));
+        
+        foreach ($query->result() as $row) {
+            $this->group_ops->echo_group_entry($row);
+        }
     }
 
 }
