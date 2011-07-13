@@ -9,6 +9,81 @@ class Group_ops extends CI_Model
         parent::__construct();
     }
 
+    // Search for groups to follow by name
+    function search_for_groups($needle)
+    {
+        $needle = trim($needle);
+        if ($needle != '')
+        {
+            // Break into search terms
+            $needle_array = explode(' ', $needle);
+
+            // Generate a query string to cross-reference all needle terms with the group names
+            $needle_where = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
+            }
+
+            // Trim the end of the string
+            if ($needle_where != '')
+            {
+                $needle_where = substr($needle_where, 0, -5);
+            }
+
+            // Generate a query string to exclude already followed or joined groups
+            $already_following = '';
+            $following_groups_list = $this->get_following_groups();
+            foreach ($following_groups_list as $group_id)
+            {
+                $already_following .= "groups.id <> $group_id AND ";
+            }
+
+            // Trim the end of the string
+            if ($already_following != '')
+            {
+                $already_following = substr($already_following, 0, -5);
+            }
+
+            $query_string = "SELECT groups.id, groups.name " .
+                    "FROM group_relationships LEFT JOIN groups " .
+                    "ON group_relationships.group_id = groups.id " .
+                    "WHERE ($needle_where) AND ($already_following)";
+
+            // Generate a string to exclude people the user is already following.
+            $following_ids = $this->get_following_ids();
+            if (count($following_ids) > 0)
+            {
+                $query_string .= " AND user_meta.user_id <> '" . implode("' AND user_meta.user_id <> '", $following_ids) . "'";
+            }
+
+            $query = $this->db->query($query_string, array($user->id));
+
+            // Echo the results
+            foreach ($query->result() as $row)
+            {
+                $this->echo_user_entry($row, 'add following');
+            }
+        }
+    }
+
+    public function get_following_groups()
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "SELECT group_id FROM group_relationships " .
+                "WHERE user_following_id = ? OR user_joined_id = ?";
+        $query = $this->db->query($query_string, array($user->id, $user->id));
+
+        $return_array = array();
+        foreach ($query->result() as $row)
+        {
+            $return_array[] = $row->group_id;
+        }
+
+        return $return_array;
+    }
+
     // Echos a group entry.
     public function echo_group_entry($row, $option = '')
     {

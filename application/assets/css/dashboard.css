@@ -197,6 +197,7 @@ a{
 }
 #groups_content .right_header {
     width: 100%;
+    height: 35px;
 }
 
 .group_entry {

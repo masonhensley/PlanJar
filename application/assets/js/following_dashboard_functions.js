@@ -61,8 +61,8 @@ function initialize_suggested_friends()
         if($(this).hasClass('suggested_active'))
         {
             $(this).removeClass('suggested_active');
-            // Clear the search box
             $('#friend_search').val('');
+            $('#follow_search').html('');
             $('#friend_search').blur();
             $('#friend_search').focus();
             
