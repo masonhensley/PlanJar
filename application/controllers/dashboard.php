@@ -145,7 +145,7 @@ class Dashboard extends CI_Controller
 
     public function get_group_details()
     {
-        $group_id = $this->input->get('group_id')
+        $group_id = $this->input->get('group_id');
         echo("Information for group $group_id");
     }
 
