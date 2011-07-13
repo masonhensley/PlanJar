@@ -17,7 +17,6 @@ function initialize_dashboard_tabs() {
 
 // Shows the data container specified in the argument.
 function show_data_container(data_div) {
-    
     // Select the appropriate tab.
     $('.tab_container .tab').removeClass('tab_selected');
     $('.tab_container .tab[assoc_div="' + data_div + '"]').addClass('tab_selected');

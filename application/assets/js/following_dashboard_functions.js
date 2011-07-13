@@ -1,9 +1,13 @@
+$(function () {
+    initialize_suggested_friends();
+});
+
 function following_setup() {
     populate_following_list();
     initialize_follow_search();
-    initialize_suggested_friends();
 }
 
+// Populates the following list and assigns the click events.
 function populate_following_list() {
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
