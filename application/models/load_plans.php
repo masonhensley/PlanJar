@@ -70,7 +70,7 @@ class Load_plans extends CI_Model
         $category at $name | $time_of_day | $date
         </div><br/><br/>
         <div class=\"delete_plan_container\"style=\"font-size: 20px; text-align:left;\">
-        <div class=\"delete_plan\" style=\"float:right; text-align:center; padding:4px; position:relative; right:5px; border:1px solid black;  background-color:#DC2F2F; color:white;\">Delete Plan</div></div>";
+        <div class=\"delete_plan\">Delete Plan</div></div>";
 
         return $htmlString;
     }
