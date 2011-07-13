@@ -5,7 +5,7 @@
             <input type="text" class="textbox" id="friend_search" />
         </div>
         <div class="suggested_friends">
-            Suggested people to follow
+            <div style="position:relative; top:5px;">Suggested people to follow</div>
         </div>
         
     </div>
