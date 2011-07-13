@@ -50,15 +50,8 @@ class Group_ops extends CI_Model
                     "ON group_relationships.group_id = groups.id " .
                     "WHERE ($needle_where) AND ($already_following)";
 
-            // Generate a string to exclude people the user is already following.
-            $following_ids = $this->get_following_groups();
-            if (count($following_ids) > 0)
-            {
-                $query_string .= " AND user_meta.user_id <> '" . implode("' AND user_meta.user_id <> '", $following_ids) . "'";
-            }
+            $query = $this->db->query($query_string);
 
-            $query = $this->db->query($query_string, array($user->id));
-            
             echo($this->db->last_query());
 
             // Echo the results
