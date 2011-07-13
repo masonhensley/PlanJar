@@ -38,7 +38,7 @@ class Load_suggested_friends extends CI_Model
             echo "user $id has $count mutual friends <br/><br/>";
         }
         
-        var_dump($suggested_friends);
+        var_dump("I have a huge cock");
 
         return "";
     }
