@@ -10,37 +10,34 @@ class Load_suggested_friends extends CI_Model
 
     function suggested_friends($user_id)
     {
-        $friends_query = "SELECT follow_id FROM friends where user_id=$user_id";
+        $friends_query = "SELECT follow_id FROM friends where user_id=$user_id"; // query pulls all people you are following
         $result = $this->db->query($friends_query);
 
-        var_dump($friends_query);
-        echo "<br/><br/>";
-
-        $friend_of_friend_query = "SELECT follow_id FROM friends WHERE ";
+        $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
         foreach ($result->result() as $friend_id)
         {
-            $friend_of_friend_query .= "user_id=$friend_id->follow_id OR ";
+            $friend_of_friend_query .= "user_id=$friend_id->follow_id OR "; // long or clause for each friend id
         }
         $friend_of_friend_query = substr($friend_of_friend_query, 0, strlen($friend_of_friend_query) - 4); // This cuts off the last "OR" and adds ")"
         $friend_of_friend_ids = $this->db->query($friend_of_friend_query);
 
-
-        // keep track of friend of friend ids
-        $friend_of_friend_list = array();
+        $friend_of_friend_list = array();  // keep track of friend of friend ids
         foreach ($friend_of_friend_ids->result() as $friend_of_friend_id)
         {
-            if ($friend_of_friend_id->follow_id != $user_id)
+            if ($friend_of_friend_id->follow_id != $user_id) // this makes sure your user_id is not added to the list
             {
                 $friend_of_friend_list[] = $friend_of_friend_id->follow_id;
             }
         }
-
-        $suggested_friends = array_count_values($friend_of_friend_list);
-        var_dump($suggested_friends);
-        echo "<br/><br/>";
+        $suggested_friends = array_count_values($friend_of_friend_list);     // this turns the array of follow ids into an associative array structured: $user_id => $count
+        asort($suggested_friends); // this sorts the array by count
+        $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending 
         
-        asort($suggested_friends);
-        $suggested_friends = array_reverse($suggested_friends, TRUE);
+        foreach($suggested_friends as $id => $count)
+        {
+            echo "user $id has $count mutual friends <br/><br/>";
+        }
+        
         var_dump($suggested_friends);
 
         return "";
