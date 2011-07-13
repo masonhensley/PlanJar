@@ -36,7 +36,7 @@ function initialize_change_location_panel() {
     $('#change_location_search').bind('keyup', function () {
         var places_request = {
             location: new google.maps.LatLng(myLatitude, myLongitude),
-            radius: 1000,
+            radius: 5000,
             name: $(this).val()
         };
             
