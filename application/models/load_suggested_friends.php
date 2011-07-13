@@ -29,7 +29,7 @@ class Load_suggested_friends extends CI_Model
         }
         
         $suggested_friends = array_count_values($friend_of_friend_list);
-        $suggested_friends = sort($suggested_friends);
+        $friend_recommendations = sort($suggested_friends, SORT_NUMERIC);
         var_dump($suggested_friends);
         
         return "";
