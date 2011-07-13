@@ -10,7 +10,10 @@ function initialize_dashboard_tabs() {
     // Click handler.
     $('.tab_container .tab').click(function () {
         if (!$(this).hasClass('tab_selected')) {
-            show_data_container($(this).attr('assoc_div'));
+            show_data_container($(this).attr('assoc_div'), function (div_name) {
+                // Call the associated initialization function.
+                eval($(div_name).attr('setup_func') + '()');
+            });
         }
     });
 }
@@ -28,21 +31,14 @@ function show_data_container(data_div, callback) {
         
     // Only show a container if it's not already visible.
     if ($(data_div).css('display') == 'none') {
-        if ($('.page_content:visible').length > 0) {
-            // Hide any visible data containers.
-            $('.page_content:visible').hide('slide', {}, 'fast', function() {
-                // Show the panel.
-                $(data_div).show('slide', {}, 'fast', function () {
-                    callback();
-                });
-            });
-        } else {
+        // Hide any visible data containers.
+        $('.page_content:visible').hide('slide', {}, 'fast', function() {
             // Show the panel.
             $(data_div).show('slide', {}, 'fast', function () {
-                callback();
+                callback(data_div);
             });
-        }
+        });
     } else {
-        callback();
+        callback(data_div);
     }
 }

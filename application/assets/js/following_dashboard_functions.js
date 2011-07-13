@@ -1,8 +1,8 @@
-$(function() {
+function following_setup() {
     populate_following_list();
     initialize_follow_search();
     initialize_suggested_friends();
-});
+}
 
 function populate_following_list() {
     $.get('/dashboard/get_following', function (data) {
