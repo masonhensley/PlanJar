@@ -43,7 +43,7 @@ class Load_suggested_friends extends CI_Model
         $ordered_suggestion_list = array();
         foreach($suggested_friends as $friend_id => $count)
         {
-            $ordered_suggestion_list[$count] = $friend_id;
+            $ordered_suggestion_list[] = $count[$friend_id];
         }
         
         var_dump($ordered_suggestion_list);
