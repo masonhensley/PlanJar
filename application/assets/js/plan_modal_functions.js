@@ -128,7 +128,13 @@ function initialize_plan_modal() {
                                             category = '';
                                         }
                                         
+                                        // Vars necessary for the autocomplete entry
                                         var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
+                                        var last_index = category.lastIndexOf('>');
+                                        var category_name = category;
+                                        if (last_index != -1) {
+                                            category_name =  category.substr(last_index + 1);
+                                        }
                                         
                                         response_json.push({
                                             label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
