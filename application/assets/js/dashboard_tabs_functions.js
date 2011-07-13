@@ -26,6 +26,7 @@ function show_data_container(data_div) {
     if ($(data_div).css('display') == 'none') {
         // Hide any visible data containers.
         console.log('here');
+        console.log($('.page_content:visible'));
         if ($('.page_content:visible') == []) {
             $(data_div).show('slide', {}, 'fast', function () {
                 eval($(data_div).attr('setup_func') + "()");
