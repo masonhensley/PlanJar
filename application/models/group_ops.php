@@ -99,13 +99,13 @@ class Group_ops extends CI_Model
             if ($option == 'remove following')
             {
                 ?>
-                <div class="remove_following">- Unfollow</div>
-                <div class="add_joined">+ Join</div>
+                <div class="remove_following">Unfollow</div>
+                <div class="add_joined">Join</div>
                 <?php
             } else if ($option == 'add following')
             {
                 ?>
-                <div class="add_following">+ Follow</div>
+                <div class="add_following">Follow</div>
                 <?php
             } else if ($option == 'following')
             {
@@ -115,7 +115,7 @@ class Group_ops extends CI_Model
             } else if ($option == 'remove joined')
             {
                 ?>
-                <div class="remove_joined">- Unjoin</div>
+                <div class="remove_joined">Unjoin</div>
                 <?php
             }
             ?>

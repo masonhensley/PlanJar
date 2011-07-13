@@ -13,7 +13,7 @@ function initialize_group_search() {
             
             // Click handler.
             $('#find_groups_list .add_following').click(function () {
-                $(this).text('+ You sure?');
+                $(this).text('You sure?');
                 $(this).unbind('click');
                 $(this).click(function () {
                     $.get('/dashboard/add_group_following', {
@@ -72,7 +72,7 @@ function populate_edit_groups_list() {
 
 function group_click_handler(button_class, dashboard_function) {
     $('#edit_groups_list ' + button_class).click(function () {
-        $(this).text('- You sure?');
+        $(this).text('You sure?');
         $(this).unbind('click');
         $(this).click(function () {
             $.get('/dashboard/' + dashboard_function, {
