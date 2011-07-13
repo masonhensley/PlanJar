@@ -204,6 +204,9 @@ a{
     height: 75px;
     border: 1px solid black;
 }
+.group_entry.selected_group {
+    border: 4px inset purple;
+}
 .group_entry .group_entry_left {
     float: left;
     width: 90px;
