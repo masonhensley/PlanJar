@@ -20,7 +20,8 @@ function populate_edit_groups_list() {
         // Click handlers
         group_click_handler('.add_following', 'add_group_following');
         group_click_handler('.remove_following', 'remove_group_following');
-        group_click_handler('.remove_joined', 'remove_group_following');
+        group_click_handler('.remove_joined', 'remove_group_joined');
+        group_click_handler('.add_joined', 'add_group_joined');
     });
 }
 

@@ -183,6 +183,20 @@ class Dashboard extends CI_Controller
         $query = $this->db->query($query_string, array($this->input->get('group_id'), $user->id));
     }
 
+    public function add_group_joined()
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "UPDATE group_relationships " .
+                "SET user_following_id = DEFAULT, user_joined_id = ? " .
+                "WHERE group_id = ? AND user_following_id = ?";
+        $query = $this->db->query($query_string, array(
+                    $user->id,
+                    $this->input->get('group_id'),
+                    $user->id,
+                ));
+    }
+
 }
 
 ?>
