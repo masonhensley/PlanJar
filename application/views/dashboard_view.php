@@ -25,7 +25,8 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">  
-                <a href="/home/" style="font-size:20px;">Home</a>
+                <a href="/home/" style="font-size:20px;">Home &middot;</a>
+                <a href="/home/logout" >Log out</a>
             </div>
         </div>
         <div class="container">
