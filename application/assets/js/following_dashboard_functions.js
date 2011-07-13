@@ -25,6 +25,9 @@ function populate_following_list() {
 }
 
 function initialize_follow_search() {
+    // Clear the search box
+    $('#friend_search').val('');
+
     // In-field labels;
     $('.in-field_block label').inFieldLabels();
     
