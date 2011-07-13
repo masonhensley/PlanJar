@@ -47,11 +47,18 @@ class Load_suggested_friends extends CI_Model
             $query .= "user_meta.user_id=$id OR ";
         }
         $query = substr($query, 0, strlen($query) - 4); // This cuts off the last "OR" and adds ")"
+        $query .= "ORDER BY CASE user_meta.user_id";
+        $counter = 1; 
+        foreach ($suggested_friends as $id => $count)
+        {
+            $query .= "WHEN $id THEN $counter";
+            $counter++;
+        }
+        var_dump($query);
+        var_dump($suggested_friends);
         $result = $this->db->query($query);
         
         $this->load->model('follow_ops');
-        var_dump($suggested_friends);
-        var_dump($result);
         foreach ($result->result() as $row)
         {
             $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
