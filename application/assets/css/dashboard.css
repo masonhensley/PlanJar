@@ -241,7 +241,7 @@ a{
     color: white;
     padding: 3px;
 }
-.group_entry .remove_join {
+.group_entry .remove_joined {
     float: right;
     width: 80px;
     background-color: purple;
