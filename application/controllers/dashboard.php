@@ -115,12 +115,13 @@ class Dashboard extends CI_Controller
         echo("Information for user id $follower_id...");
     }
 
+    // this function returns html for the suggested friends list
     public function get_suggested_friends()
     {
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $this->load->model('load_suggested_friends');
-        $returnHTML = $this->load_suggested_friends->suggested_friends();
+        $returnHTML = $this->load_suggested_friends->suggested_friends($user_id);
 
         echo "$returnHTML";
     }

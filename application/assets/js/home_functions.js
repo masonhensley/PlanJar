@@ -6,8 +6,6 @@ var current_day_offset = 0;
 $(function() {
     // places map
     location_data();
-    
-   
 });
 
 var initialLocation;
