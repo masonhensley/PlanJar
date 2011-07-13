@@ -46,11 +46,11 @@
                 <?php include(APPPATH . '/assets/php/dashboard_following.php'); ?>
             </div>
 
-            <div id="followers_content" class="page_content">
+            <div id="followers_content" class="page_content" setup_func="followers_setup">
                 <?php include(APPPATH . '/assets/php/dashboard_followers.php'); ?>
             </div>
 
-            <div id="groups_content" class="page_content">
+            <div id="groups_content" class="page_content" setup_func="groups_setup">
                 <?php include(APPPATH . '/assets/php/dashboard_groups.php'); ?>
             </div>
             <div id="plans_content" class="page_content"></div>
