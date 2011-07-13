@@ -39,7 +39,7 @@ class Load_suggested_friends extends CI_Model
         var_dump($suggested_friends);
         echo "<br/><br/>";
         
-        asort($suggested_friends, SORT_DESC);
+        asort($suggested_friends);
         var_dump($suggested_friends);
 
         return "";
