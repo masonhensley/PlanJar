@@ -26,7 +26,7 @@ class Load_suggested_friends extends CI_Model
         $friend_of_friend_list = array();  // keep track of friend of friend ids
         foreach ($friend_of_friend_ids->result() as $friend_of_friend_id)
         {
-            if ($friend_of_friend_id->follow_id != $user_id && in_array($friend_of_friend_id->follow_id, $already_following)) // this makes sure your user_id or anyone you are already following is not added to the list
+            if ($friend_of_friend_id->follow_id != $user_id && !in_array($friend_of_friend_id->follow_id, $already_following)) // this makes sure your user_id or anyone you are already following is not added to the list
             {
                 $friend_of_friend_list[] = $friend_of_friend_id->follow_id;
             }
