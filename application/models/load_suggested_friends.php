@@ -66,6 +66,10 @@ class Load_suggested_friends extends CI_Model
                 $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
             }
         }else{
+            $query = "SELECT user_meta.user_id, user_meta.school_id, school_data.id, school_data.school FROM user_meta WHERE user_meta.user_id=$user_id
+             LEFT JOIN school_data ON schcool_data.id=user_meta.school_id";
+            $result = $this->db->query($query);
+            var_dump($result);
             echo "success";
         }
     }
