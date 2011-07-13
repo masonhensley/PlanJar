@@ -39,9 +39,8 @@ class Load_suggested_friends extends CI_Model
         var_dump($suggested_friends);
         echo "<br/><br/>";
         
-        $suggested_friends = array_flip($suggested_friends);
+        asort($suggested_friends);
         var_dump($suggested_friends);
-        echo "<br/><br/>";
         
         $ordered_suggestion_list = array();
         foreach($suggested_friends as $friend_id => $count)
