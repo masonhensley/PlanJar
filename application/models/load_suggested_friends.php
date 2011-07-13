@@ -56,6 +56,8 @@ class Load_suggested_friends extends CI_Model
         }
         $query .= "END";
         
+        var_dump($query);
+        
         $result = $this->db->query($query);
         
         $this->load->model('follow_ops');
