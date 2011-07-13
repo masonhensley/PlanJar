@@ -286,6 +286,7 @@ a{
     height:30px;
     width:200px;
     float:left;
+    top: 3px;
 }
 .in-field_block label {
     position: absolute;
