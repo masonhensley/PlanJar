@@ -27,7 +27,7 @@
             <div class = "inside_top_panel">
                 <div id="show_name" style="float:left;">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                 <div style="float:right">
-                    <a href="/home/" style="font-size:20px;">Home &middot;</a>
+                    <a href="/home/">Home &middot;</a>
                     <a href="/home/logout" >Log out</a>
                 </div>
             </div>
