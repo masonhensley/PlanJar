@@ -50,6 +50,7 @@ class Load_suggested_friends extends CI_Model
         $result = $this->db->query($query);
         
         $this->load->model('follow_ops');
+        var_dump($suggested_friends);
         foreach ($result->result() as $row)
         {
             $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
