@@ -4,7 +4,7 @@ body{
     margin: 0px;
     font-family: helvetica;
     font-size: 15px;
-     -webkit-user-select: none; 
+    -webkit-user-select: none; 
     cursor:default;
 }
 
@@ -162,6 +162,11 @@ a{
 }
 #followers_content .left_header {
     width: 100%;
+    text-align:center;
+    background-color:navy;
+    color:white;
+    height:25px;
+    padding-top:5px;
 }
 #followers_list {
     width: 100%;
@@ -186,6 +191,11 @@ a{
 }
 #groups_content .left_header {
     width: 100%;
+    text-align:center;
+    background-color:navy;
+    color:white;
+    height:25px;
+    padding-top:5px;
 }
 #left_groups_list {
     width: 100%;
