@@ -91,7 +91,7 @@ class Follow_ops extends CI_Model
                     {
                         echo "<br/>";
                         $id = $row->user_id;
-                        echo "$suggested_friends[$id] mutual followers";
+                        echo "$suggested_friends[$id] second-degree connections";
                     }
                     ?>
                 </div>
