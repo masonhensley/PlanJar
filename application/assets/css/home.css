@@ -92,14 +92,14 @@ a{
     margin:auto;
     border: 1px solid black;
     padding: 5px;
-    color: purple;
-    background-color:white;
+    color: navy;
+    background-color:#F3F6FF;
     text-align:center;
 }
 
 .selected_group {
-    background-color: purple;
-    color: white;
+    background-color: beige;
+    color: navy;
 }
 
 /* ---------------- CENTER PANEL ---------------- */
@@ -262,7 +262,7 @@ a{
 }
 
 .selected_location{
-    background-color:lightgray;
+    background-color:beige;
     color:navy;
 }
 
