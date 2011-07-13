@@ -25,10 +25,10 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <div id="show_name" style="float:left;">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
+                <div id="show_name" style="float:left; color:white;"><?php echo " " . $firstname . " " . $lastname ."'s Dashboard"; ?></div>
                 <div style="float:right">
-                    <a href="/home/">Home &middot;</a>
-                    <a href="/home/logout" >Log out</a>
+                    <a href="/home/" style="font-size:15px;">Home &middot;</a>
+                    <a href="/home/logout" style="font-size:15px;" >Log out</a>
                 </div>
             </div>
         </div>
