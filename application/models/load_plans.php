@@ -80,7 +80,8 @@ class Load_plans extends CI_Model
     {
         $query = "DELETE FROM plans WHERE plans.id=$plan";
         $this->db->query($query);
-        $return_string = "<div id=\"container\" style=\"width:50px; height:50px; position:relative; top:40px; margin-right:auto; margin-left:auto;\">Plan Deleted</div>";
+        $return_string = "<div id=\"container\" class=\"plan_deleted\">Plan Deleted</div>";
+        
         return $return_string;
     }
 }
