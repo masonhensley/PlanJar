@@ -41,5 +41,17 @@ function populate_edit_groups_list() {
                 });
             }
         });
+        
+        $('#edit_groups_list .remove_joined').click(function () {
+            if ($(this).text() == '- Unjoin') {
+                $(this).text('- You sure?');
+            } else {
+                $.get('/dashboard/remove_group_join', {
+                    group_id: $(this).parent().attr('group_id')
+                }, function (data) {
+                    populate_edit_groups_list();
+                });
+            }
+        });
     });
 }

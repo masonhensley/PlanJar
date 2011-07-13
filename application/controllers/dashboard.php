@@ -175,6 +175,14 @@ class Dashboard extends CI_Controller
         $query = $this->db->query($query_string, array($this->input->get('group_id'), $user->id));
     }
 
+    public function remove_group_joined()
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND user_joined_id = ?";
+        $query = $this->db->query($query_string, array($this->input->get('group_id'), $user->id));
+    }
+
 }
 
 ?>
