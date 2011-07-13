@@ -22,9 +22,9 @@ function initialize_plan_modal() {
             $('#plan_time[plan_time=\"night"]').click();
         }
         
-        $('#plan_location').select();
+        $('#plan_location').focus();
         $('#create_plan_content input[type="text"], #create_plan_content input[type="hidden"]').val('');
-        $('#plan_location, #plan_category').blur();
+        $('#plan_location, #plan_title').blur();
         
         $('#create_plan_content').show('fast');
     });
@@ -124,16 +124,8 @@ function initialize_plan_modal() {
                                     data = data.data;
                                     $.map(data, function (item) {
                                         var category = item[12];
-                                        var category_name = '';
-                                        if (category != null) {
-                                            var last_gt = item[12].lastIndexOf('>');
-                                            if (last_gt != -1) {
-                                                category = category.substr(last_gt + 1);
-                                            }
-                                            category = $.trim(category);
-                                            category_name = ' (' + category + ')';
-                                        } else {
-                                            category = ''
+                                        if (category== null) {
+                                            category = '';
                                         }
                                         
                                         var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
@@ -192,43 +184,6 @@ function initialize_plan_modal() {
             }
         }
     });
-        
-    // Initialize the plan description autocomplete instance.
-    //    $('#plan_category').autocomplete({
-    //        // Get info from the server.
-    //        source: function (request, response) {
-    //            $.get('/home/find_plan_categories', {
-    //                needle: request.term
-    //            }, function (data) {
-    //                // Convert each item in the JSON from the server to the required JSON
-    //                // form for the autocomplete and pass the result through the response
-    //                // handler.
-    //                if (data == 'no results') {
-    //                    response([{
-    //                        label: "No results found for '" + request.term + "'",
-    //                        value: '',
-    //                        id: ''
-    //                    }]);
-    //                } else {
-    //                    data = $.parseJSON(data);
-    //                    response($.map(data, function (item) {
-    //                        return {
-    //                            label: item.category,
-    //                            value: item.category,
-    //                            id: item.id
-    //                        };
-    //                    }));
-    //                }
-    //            });
-    //        },
-    //        // When an item is selected, update the location text as well as the hidden
-    //        // id field.
-    //        select: function (event, ui) {
-    //            $('#plan_category').val(ui.item.value);
-    //            $('#plan_category_id').val(ui.item.id);
-    //            $('#plan_category_name').val(ui.item.value);
-    //        }
-    //    });
     
     // Initialize the Validator plugin for the plan location.
     $('#make_plan').validate({

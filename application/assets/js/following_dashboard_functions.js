@@ -10,7 +10,7 @@ function populate_following_list() {
         
         // Click handler.
         $('#following_list .remove_following').click(function () {
-            $(this).text('+ You sure?');
+            $(this).text('You sure?');
             $(this).unbind('click');
             $(this).click(function () {
                 $.get('/dashboard/remove_following', {

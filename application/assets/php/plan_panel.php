@@ -18,8 +18,8 @@
                     </td>
                     <td>
                         <div class="in-field_block">
-                            <label for="plan_description">Description (optional)</label>
-                            <input type="text" id="plan_description" name="plan_description" class="textbox"/>
+                            <label for="plan_title">Title (optional)</label>
+                            <input type="text" id="plan_title" name="plan_title" class="textbox"/>
                         </div>
                     </td>
                 </tr>
