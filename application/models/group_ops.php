@@ -58,6 +58,8 @@ class Group_ops extends CI_Model
             }
 
             $query = $this->db->query($query_string, array($user->id));
+            
+            echo($this->db->last_query());
 
             // Echo the results
             foreach ($query->result() as $row)
