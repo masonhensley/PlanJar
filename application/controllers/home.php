@@ -167,14 +167,14 @@ class Home extends CI_Controller
             'user_id' => $user->id,
             'plan_date' => $date->format('Y-m-d'),
             'time_of_day' => $this->input->get('plan_time'),
-            'description' => $this->input->get('description'),
+            'plan_description' => $this->input->get('description'),
             'event_id' => $this->input->get('event_id')
         );
 
         // One of description and event_id must be NULL.
-        if ($data['description'] === false)
+        if ($data['plan_description'] == false)
         {
-            $data['description'] = NULL;
+            $data['plan_description'] = NULL;
         } else
         {
             $data['event_id'] = NULL;
