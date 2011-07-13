@@ -8,21 +8,22 @@ function populate_edit_groups_list() {
     });
     
     // Click handlers
-    $('#edit_groups_list .abc').click(function () {
-            if ($(this).text() == '+ Follow') {
-                $(this).text('+ You sure?');
-            } else {
-                $.get('/dashboard/add_following', {
-                    following_id: $(this).parent().attr('user_id')
-                }, function (data) {
-                    populate_followers_list();
-                    populate_following_list();
-                });
-            }
-        });
+//    $('#edit_groups_list .abc').click(function () {
+//            if ($(this).text() == '+ Follow') {
+//                $(this).text('+ You sure?');
+//            } else {
+//                $.get('/dashboard/add_following', {
+//                    following_id: $(this).parent().attr('user_id')
+//                }, function (data) {
+//                    populate_followers_list();
+//                    populate_following_list();
+//                });
+//            }
+//        });
     
-    // Make followers selectable
+    // Make groups selectable
     $('#edit_groups_list .group_entry').click(function() {
+        alert('clicked');
         $('.group_entry.selected_group').removeClass('selected_group');
         $(this).addClass('selected_group');
         $.get('/dashboard/get_group_details', {
