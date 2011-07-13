@@ -50,7 +50,7 @@ class Follow_ops extends CI_Model
             // Echo the results
             foreach ($query->result() as $row)
             {
-                $this->user_entry($row, 'add following');
+                $this->echo_user_entry($row, 'add following');
             }
         }
     }
@@ -107,7 +107,8 @@ class Follow_ops extends CI_Model
                 ?>
                 <div class="add_following">+ Follow</div>
                 <?php
-            } else if ($option == 'following') {
+            } else if ($option == 'following')
+            {
                 ?>
                 <div class="following">Following</div>
                 <?php
@@ -116,9 +117,10 @@ class Follow_ops extends CI_Model
         </div>
         <?php
     }
-    
+
     // Returns true if $user_id is following $follow_id
-    public function is_following($user_id, $follow_id) {
+    public function is_following($user_id, $follow_id)
+    {
         $query_string = "SELECT * FROM friends WHERE user_id = ? AND follow_id = ?";
         $query = $this->db->query($query_string, array($user_id, $follow_id));
         return $query->num_rows() > 0;
