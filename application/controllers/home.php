@@ -172,9 +172,9 @@ class Home extends CI_Controller
         );
 
         // One of description and event_id must be NULL.
-        if ($data['plan_description'] == false)
+        if ($data['description'] == false)
         {
-            $data['plan_description'] = NULL;
+            $data['description'] = NULL;
         } else
         {
             $data['event_id'] = NULL;
