@@ -1,6 +1,6 @@
-$(function() {
+function followers_setup() {
     populate_followers_list();
-});
+}
 
 function populate_followers_list() {
     $.get('/dashboard/get_followers', function (data) {

@@ -1,7 +1,7 @@
-$(function () {
+function groups_setup() {
     populate_edit_groups_list();
     initialize_group_search();
-});
+}
 
 function initialize_group_search() {
     // Search for groups on keyup
