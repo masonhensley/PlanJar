@@ -10,7 +10,7 @@ class Group_ops extends CI_Model
     }
 
     // Echos a group entry.
-    public function echo_group_entry($row)
+    public function echo_group_entry($row, $option = '')
     {
         ?>
         <div class="group_entry" group_id="<?php echo($row->id); ?>">
