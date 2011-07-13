@@ -187,7 +187,7 @@ a{
     float: left;
     height: 100%;
     border: 1px solid black;
-    
+    background-color:white;
 }
 #groups_content .left_header {
     width: 100%;
@@ -206,12 +206,14 @@ a{
     margin-left: 20px;
     height: 100%;
     border: 1px solid black;
+    background-color:white;
 }
 #groups_content .right {
     width: 331px;
     float: right;
     height: 100%;
     border: 1px solid black;
+    background-color:white;
 }
 #groups_content .right_header {
     width: 100%;
@@ -221,7 +223,9 @@ a{
 .group_entry {
     width: 100%;
     height: 75px;
-    border: 1px solid black;
+    border-top:1px solid black;
+    border-bottom: 1px solid black;
+    margin-top:7px;
 }
 .group_entry.selected_group {
     border: 4px inset purple;
