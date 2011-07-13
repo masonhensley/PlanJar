@@ -350,15 +350,15 @@ a{
     margin:auto;
     border-top:  1px solid black;
     border-bottom:1px solid black;
-    color: navy;
+    color: black;
     padding-top:5px;    
     padding-bottom: 5px;
     background-color:#F3F6FF;
 }
 
 .selected_plan{
-    background-color:navy;
-    color:white;
+    background-color:#aaccff;
+    color:black;
 }
 
 .bottom_links{
