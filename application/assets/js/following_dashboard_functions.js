@@ -37,7 +37,6 @@ function initialize_follow_search() {
             
             // Click handler.
             $('#follow_search .add_following').click(function () {
-                alert('clicked');
                 $(this).text('+ You sure?');
                 $(this).unbind('click');
                 $(this).click(function () {
