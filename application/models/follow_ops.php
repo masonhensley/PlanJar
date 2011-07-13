@@ -73,7 +73,7 @@ class Follow_ops extends CI_Model
     }
 
     // Echos a user_entry, which is used as a following/follower list item
-    function echo_user_entry($row, $option = '')
+    function echo_user_entry($row, $option = '', $suggested_friends=null)
     {
         ?>
         <div class="user_entry" user_id="<?php echo($row->user_id); ?>">
@@ -85,11 +85,19 @@ class Follow_ops extends CI_Model
 
             <div class="user_entry_middle">
                 <div class="user_name">
-                    <?php echo($row->first_name . ' ' . $row->last_name); ?>
+                    <?php
+                    echo($row->first_name . ' ' . $row->last_name);
+                    if ($option == 'suggested')
+                    {
+                        echo "<br/>";
+                        $id = $row->user_id;
+                        echo "$suggested_friends[$id] mutual friends";
+                    }
+                    ?>
                 </div>
 
                 <div class="user_school">
-                    <?php echo $row->school . "(" .$row->grad_year .")"; ?>
+                    <?php echo $row->school . "(" . $row->grad_year . ")"; ?>
                 </div>
             </div>
             <?php
@@ -107,6 +115,11 @@ class Follow_ops extends CI_Model
             {
                 ?>
                 <div class="following">Following</div>
+                <?php
+            } else if ($option == 'suggested')
+            {
+                ?>
+                <div class="add_following">Follow</div>
                 <?php
             }
             ?>
