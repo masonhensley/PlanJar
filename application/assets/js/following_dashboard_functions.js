@@ -36,15 +36,19 @@ function initialize_follow_search() {
             $('#follow_search').html(data);
             
             // Click handler.
-            $('#follow_search .add_following').click(function () {
-                $.get('/dashboard/add_user_following', {
-                    following_id: $(this).parent().attr('user_id')
-                }, function () {
-                    $('#follow_search').html('');
-                    $('#friend_search').val('');
-                    populate_following_list();
-                    $('#friend_search').blur();
-                });
+            $('#follow_search .add_user_following').click(function () {
+                if ($(this).text() == '+ Follow') {
+                    $(this).text('+ You sure?');
+                } else {
+                    $.get('/dashboard/add_user_following', {
+                        following_id: $(this).parent().attr('user_id')
+                    }, function () {
+                        $('#follow_search').html('');
+                        $('#friend_search').val('');
+                        populate_following_list();
+                        $('#friend_search').blur();
+                    });
+                }
             });
         });
     });
@@ -61,9 +65,9 @@ function initialize_suggested_friends()
         }else{
             $(this).addClass('suggested_active');
             $.get('/dashboard/get_suggested_friends',
-            function (data) {
-                $('#follow_search').html(data);   
-            });
+                function (data) {
+                    $('#follow_search').html(data);   
+                });
         }
     });
 }
