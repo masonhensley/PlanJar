@@ -36,7 +36,7 @@ class Load_suggested_friends extends CI_Model
         }
 
         $suggested_friends = array_count_values($friend_of_friend_list);
-
+        $suggested_friends = array_flip($suggested_friends);
         var_dump($suggested_friends);
         echo "<br/><br/>";
         
