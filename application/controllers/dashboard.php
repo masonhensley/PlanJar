@@ -145,7 +145,7 @@ class Dashboard extends CI_Controller
                 $this->group_ops->echo_group_entry($row, 'remove following');
             } else
             {
-                $this->group_ops->echo_group_entry($row, 'joined');
+                $this->group_ops->echo_group_entry($row, 'remove joined');
             }
         }
     }
