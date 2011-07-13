@@ -25,9 +25,6 @@ function populate_following_list() {
 }
 
 function initialize_follow_search() {
-    // Clear the search box
-    $('#friend_search').val('');
-
     // In-field labels;
     $('.in-field_block label').inFieldLabels();
     
@@ -64,6 +61,9 @@ function initialize_suggested_friends()
         if($(this).hasClass('suggested_active'))
         {
             $(this).removeClass('suggested_active');
+            // Clear the search box
+            $('#friend_search').val('');
+            $('#friend_search').blur();
             initialize_follow_search();
         }else{
             $(this).addClass('suggested_active');
