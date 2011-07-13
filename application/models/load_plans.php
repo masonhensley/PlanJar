@@ -17,12 +17,10 @@ class Load_plans extends CI_Model
 
         // pull all user's current events
         $query =
-                "SELECT plans.id, plans.time_of_day, plans.date, places.name, plan_categories.category
-        FROM plans 
-        LEFT JOIN places 
-        ON plans.place_id=places.id 
-        LEFT JOIN plan_categories
-        ON plan_categories.id=plans.category_id
+                "SELECT plans.id, plans.date, plans.time_of_day, date, plans.title, plans.event_id, places.name
+        FROM plans
+        LEFT JOIN places
+        ON plans.place_id=places.id
         WHERE plans.user_id=$user_id AND plans.date >= CURDATE()
         ORDER BY date ASC";
 
@@ -74,15 +72,16 @@ class Load_plans extends CI_Model
 
         return $htmlString;
     }
-    
+
     // function to delete plan from database
     function deletePlan($plan)
     {
         $query = "DELETE FROM plans WHERE plans.id=$plan";
         $this->db->query($query);
         $return_string = "<div id=\"container\" class=\"plan_deleted\">Plan Deleted</div>";
-        
+
         return $return_string;
     }
+
 }
 ?>

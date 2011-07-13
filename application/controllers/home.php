@@ -301,7 +301,7 @@ class Home extends CI_Controller
             // make easy to read variables
             $id = $plan->id;
             $name = $plan->name;
-            $category = $plan->category;
+            $category = $plan->title;
             $time = $plan->time_of_day;
             $date = date('l', strtotime($plan->date));
             if ($date_organizer != $date)
