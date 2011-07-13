@@ -10,17 +10,13 @@ function initialize_dashboard_tabs() {
     // Click handler.
     $('.tab_container .tab').click(function () {
         if (!$(this).hasClass('tab_selected')) {
-            show_data_container($(this).attr('assoc_div'), function (div_name) {
-                // Call the associated initialization function.
-                alert($(div_name).attr('setup_func') + '()');
-                eval($(div_name).attr('setup_func') + '()');
-            });
+            show_data_container($(this).attr('assoc_div'));
         }
     });
 }
 
 // Shows the data container specified in the argument.
-function show_data_container(data_div, callback) {
+function show_data_container(data_div) {
     // Make callback optional.
     if (callback === undefined) {
         callback = function() {};
@@ -38,10 +34,10 @@ function show_data_container(data_div, callback) {
             console.log('showing');
             console.log($(data_div));
             $(data_div).show('slide', {}, 'fast', function () {
-                callback(data_div);
+                eval($(data_div).attr('setup_func') + "()");
             });
         });
     } else {
-        callback(data_div);
+        eval($(data_div).attr('setup_func') + "()");
     }
 }
