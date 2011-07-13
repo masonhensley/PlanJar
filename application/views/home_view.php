@@ -26,7 +26,7 @@
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-        <script type="text/javascript" src="/application/assets/validation-1.8.1/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.min.js"></script>
         
         <title>PlanJar | Home</title>
     </head>
