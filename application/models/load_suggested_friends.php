@@ -36,6 +36,7 @@ class Load_suggested_friends extends CI_Model
             }
         } else // in the case that you are not following anyone, and there are no mutual followers
         {
+            echo "Could not find second-degree relationships.  Expanded search results to your school";
             $query = "SELECT user_meta.school_id FROM user_meta
              LEFT JOIN school_data ON school_data.id=user_meta.school_id WHERE user_meta.user_id=$user_id";
             $result = $this->db->query($query);
