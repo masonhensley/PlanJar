@@ -59,6 +59,7 @@ class Load_suggested_friends extends CI_Model
                 $query .= "END";
 
                 $result = $this->db->query($query);
+                $this->display_suggested_friends($result);
             }
         } else // in the case that you are not following anyone, and there are no mutual followers
         {
@@ -74,7 +75,7 @@ class Load_suggested_friends extends CI_Model
             WHERE school_id=$school_id LIMIT 0, 10";
             $result = $this->db->query($query);
 
-            display_suggested_friends($result);
+            $this->display_suggested_friends($result);
         }
     }
 
