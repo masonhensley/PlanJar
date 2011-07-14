@@ -238,7 +238,7 @@ function initialize_plan_modal() {
     
     // Invite click handler
     $('#invite_to_plan').click(function () {
-        $('#invite_plan_content').show('fast', 'blind', function () {})
+        $('#invite_plan_content').show('fast');
     });
     
 }
