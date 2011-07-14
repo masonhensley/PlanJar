@@ -9,6 +9,7 @@ class Load_suggested_groups extends CI_Model
     // returns an html string of groups suggested to follow
     function suggested_groups()
     {
+        $this->load->db;
         $this->get_users_following();
     }
     function get_users_following()
