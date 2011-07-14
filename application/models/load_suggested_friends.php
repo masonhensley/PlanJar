@@ -8,7 +8,7 @@ class Load_suggested_friends extends CI_Model
         parent::__construct();
     }
 
-    function suggested_friends($user_id)
+    function suggested_friends($user_id, $grad_year)
     {
         $number_of_results = 0; // this keeps track of the number of items displayed to it can be limited to 15 (or whatever)
         $display_limit = 15; // the max number of results that can be displayed for suggested friends
@@ -55,7 +55,7 @@ class Load_suggested_friends extends CI_Model
         if($number_of_results <= $display_limit)
         {
             $new_limit = $display_limit - $number_of_results;  // takes the difference so the number to display is always the same
-            $this->show_suggested_school_friends($user_id, $new_limit); // in the case that you are not following anyone, and there are no mutual followers
+            $this->show_suggested_school_friends($user_id, $new_limit, $grad_year); // in the case that you are not following anyone, and there are no mutual followers
         }
         
         
@@ -99,9 +99,9 @@ class Load_suggested_friends extends CI_Model
         return $this->db->query($query);
     }
 
-    function show_suggested_school_friends($user_id, $display_limit)
+    function show_suggested_school_friends($user_id, $display_limit, $grad_year)
     {
-        echo "<div style=\"padding-left:25px;padding-right:25px;\"=>Could not find second-degree relationships.  Expanded search results to include your school</div>";
+        echo "<div style=\"padding-left:25px;padding-right:25px;\">Expanded search results to include people in your grade.</div>";
 
         $query = "SELECT user_meta.school_id FROM user_meta
              LEFT JOIN school_data ON school_data.id=user_meta.school_id WHERE user_meta.user_id=$user_id";
@@ -112,7 +112,7 @@ class Load_suggested_friends extends CI_Model
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
             FROM user_meta 
             LEFT JOIN school_data ON user_meta.school_id=school_data.id
-            WHERE school_id=$school_id AND user_id!=$user_id LIMIT 0, 10";
+            WHERE school_id=$school_id AND user_id!=$user_id AND user_meta.grad_year=$grad_year LIMIT 0, 15";
         $result = $this->db->query($query);
         $options = "suggested_school";
         $this->display_suggested_friends($result, null, $options, 15);
