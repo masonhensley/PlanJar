@@ -178,9 +178,9 @@ class Home extends CI_Controller
             // Privacy settings enabled. Null out the plan title and add an event_id (newly created event)
             $this->load->model('event_ops');
             $data['event_id'] = $this->event_ops->create_event(
-                            $data['title'], $privacy, $this->input->get('invite_plan_user'), $this->input->get('invite_plan_group')
+                            $data['title'], $privacy, json_decode($this->input->get('invite_plan_user')), json_decode($this->input->get('invite_plan_group'))
             );
-            
+
             $data['title'] = NULL;
         } else
         {
