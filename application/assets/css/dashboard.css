@@ -174,7 +174,7 @@ a{
 }
 #followers_list {
     width: 100%;
-    height: 800px;
+    height: auto;
 }
 .selected_follower {
    background-color:beige;
