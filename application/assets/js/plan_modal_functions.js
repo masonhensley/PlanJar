@@ -203,6 +203,9 @@ function initialize_plan_modal() {
             '&plan_time=' + $('#plan_time .divset_selected').attr('plan_time') +
             '&plan_day=' + $('#plan_day .divset_selected').attr('plan_day');
         
+        console.log($('#invite_plan_user').val());
+        console.log($('#invite_plan_group').val());
+        
             $.get('/home/submit_plan', data_string, function (data) {
                 if (data == 'success') {
                     $('#create_plan_content').hide();
