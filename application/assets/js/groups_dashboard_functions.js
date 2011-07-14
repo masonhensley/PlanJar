@@ -5,7 +5,6 @@ function groups_setup() {
 
 function initialize_group_search() {
     // click handler for suggest groups
-    console.log('click handler defined');
     $('.suggest_groups').click(function(){
         if($(this).hasClass('suggest_groups_active'))
         {
@@ -19,6 +18,7 @@ function initialize_group_search() {
             });
         }
     });
+    show_suggested_init('.suggest_groups');
     
     // Search for groups on keyup
     $('#group_search').keyup(function () {
