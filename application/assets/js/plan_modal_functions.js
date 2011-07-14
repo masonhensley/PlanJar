@@ -202,9 +202,7 @@ function initialize_plan_modal() {
             var data_string = $(form).serialize();
             var data = {
                 'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-                'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
-                'invite_plan_user': $('#invite_plan_user').val(),
-                'invite_group_user': $('#invite_group_user').val()
+                'plan_day': $('#plan_day .divset_selected').attr('plan_day')
             }
         
             $.get('/home/submit_plan?' + data_string, data, function (data) {

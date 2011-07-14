@@ -62,10 +62,10 @@
 
         <div id="invite_plan_content">
             <h3>Invite people</h3>
-            <input type="text" id="invite_plan_user"/>
+            <input type="text" id="invite_plan_user" name="invite_plan_user"/>
 
             <h3>Invite groups</h3>
-            <input type="text" id="invite_plan_group"/>
+            <input type="text" id="invite_plan_group" name="invite_plan_group"/>
         </div>
 
         <hr/>
