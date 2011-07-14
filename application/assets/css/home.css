@@ -79,12 +79,6 @@ a{
 
 }
 
-.group_label {
-    font-size: 1.3em;
-    text-align:center;
-    margin: 10px auto 10px auto;
-}
-
 .selectable_group {
     height:100%;
     border-top: 1px solid black;

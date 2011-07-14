@@ -4,7 +4,6 @@
 </div>
 
 <div class="groups_wrapper">
-    <div class="group_label">Joined</div>
 
     <?php
     foreach ($joined_groups as $group)
@@ -16,7 +15,6 @@
         <?php
     }
     ?>
-    <div class="group_label">Following</div>
     <div class="selectable_group" group_id="friends">Following</div>
     <?php
     foreach ($followed_groups as $group)
