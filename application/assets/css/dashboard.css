@@ -88,7 +88,7 @@ a{
     height:auto;
     background-color:white;
     border: 1px solid black;
-    border-bottom:none;
+    min-height: 50px;
 }
 #follow_search {
     width: 100%;
