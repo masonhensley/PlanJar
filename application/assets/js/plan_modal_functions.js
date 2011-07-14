@@ -13,13 +13,13 @@ function initialize_plan_modal() {
         var date = new Date();
         var hours = date.getHours();
         if (hours < 5) {
-            $('#plan_time [plan_time=\"late_night"]').click();
+            $('#plan_time [plan_time="late_night"]').click();
         } else if (hours < 11) {
-            $('#plan_time [plan_time=\"morning\"]').click();
+            $('#plan_time [plan_time="morning"]').click();
         } else if (hours < 18) {
-            $('#plan_time [plan_time=\"afternoon"]').click();
+            $('#plan_time [plan_time="afternoon"]').click();
         } else {
-            $('#plan_time[plan_time=\"night"]').click();
+            $('#plan_time[plan_time="night"]').click();
         }
         
         $('#plan_location').focus();
@@ -247,7 +247,6 @@ function initialize_plan_modal() {
     // TokenInput
     $('#invite_plan_user').tokenInput('/home/get_followers_invite', {
         hintText: 'Invite followers...',
-        minChars: 2,
         preventDuplicates: true,
         queryParam: 'needle'
     });
