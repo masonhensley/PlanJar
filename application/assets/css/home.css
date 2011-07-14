@@ -371,7 +371,7 @@ a{
     padding-left:10px;
     padding-top:3px;
 }
-#invite_plan_content {
+#invite_plan_content, #plan_privacy_content {
     height: auto;
     display: none;
 }

@@ -266,7 +266,7 @@ function initialize_plan_modal() {
     });
     
     // divset
-    $('#privacy_wrapper').divset();
+    divset('#privacy_wrapper');
     
     // Initial privacy select
     $('#privacy_wrapper :first').click();
