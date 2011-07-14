@@ -13,59 +13,62 @@ class Load_suggested_friends extends CI_Model
         $friends_query = "SELECT follow_id FROM friends where user_id=$user_id"; // query pulls all people you are following
         $result = $this->db->query($friends_query);
 
-        $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
-        $already_following = array(); // keep track of the people you are already following
-        foreach ($result->result() as $friend_id)
+        if ($result->num_rows() > 0)
         {
-            $already_following[] = $friend_id->follow_id; // update $already_following id array
-            $friend_of_friend_query .= "user_id=$friend_id->follow_id OR "; // long or clause for each friend id
-        }
-        $friend_of_friend_query = substr($friend_of_friend_query, 0, strlen($friend_of_friend_query) - 4); // This cuts off the last "OR" and adds ")"
-        $friend_of_friend_ids = $this->db->query($friend_of_friend_query);
-
-        $friend_of_friend_list = array();  // keep track of friend of friend ids
-
-        if ($friend_of_friend_ids->num_rows() > 0)
-        {
-            foreach ($friend_of_friend_ids->result() as $friend_of_friend_id)
+            $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
+            $already_following = array(); // keep track of the people you are already following
+            foreach ($result->result() as $friend_id)
             {
-                if ($friend_of_friend_id->follow_id != $user_id && !in_array($friend_of_friend_id->follow_id, $already_following)) // this makes sure your user_id or anyone you are already following is not added to the list
+                $already_following[] = $friend_id->follow_id; // update $already_following id array
+                $friend_of_friend_query .= "user_id=$friend_id->follow_id OR "; // long or clause for each friend id
+            }
+            $friend_of_friend_query = substr($friend_of_friend_query, 0, strlen($friend_of_friend_query) - 4); // This cuts off the last "OR" and adds ")"
+            $friend_of_friend_ids = $this->db->query($friend_of_friend_query);
+
+            $friend_of_friend_list = array();  // keep track of friend of friend ids
+            if ($friend_of_friend_ids->num_rows() > 0)
+            {
+                foreach ($friend_of_friend_ids->result() as $friend_of_friend_id)
                 {
-                    $friend_of_friend_list[] = $friend_of_friend_id->follow_id;
+                    if ($friend_of_friend_id->follow_id != $user_id && !in_array($friend_of_friend_id->follow_id, $already_following)) // this makes sure your user_id or anyone you are already following is not added to the list
+                    {
+                        $friend_of_friend_list[] = $friend_of_friend_id->follow_id;
+                    }
+                }
+                $suggested_friends = array_count_values($friend_of_friend_list);     // this turns the array of follow ids into an associative array structured: $user_id => $count
+                asort($suggested_friends); // this sorts the array by count
+                $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending 
+                // this query pulls all the information needed to display suggested friends
+                $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
+                        "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
+                        "WHERE  ";
+
+                $mutual_friend_count = array(); // keep track of mutual friends to display
+                foreach ($suggested_friends as $id => $count)
+                {
+                    $query .= "user_meta.user_id=$id OR ";
+                }
+                $query = substr($query, 0, strlen($query) - 3); // This cuts off the last "OR" and adds ")"
+                $query .= "ORDER BY CASE user_meta.user_id ";
+                $counter = 1;
+                foreach ($suggested_friends as $id => $count)
+                {
+                    $query .= "WHEN $id THEN $counter ";
+                    $counter++;
+                }
+                $query .= "END";
+
+                var_dump($query);
+
+                $result = $this->db->query($query);
+                $this->load->model('follow_ops');
+                foreach ($result->result() as $row)
+                {
+                    $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
                 }
             }
-            $suggested_friends = array_count_values($friend_of_friend_list);     // this turns the array of follow ids into an associative array structured: $user_id => $count
-            asort($suggested_friends); // this sorts the array by count
-            $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending 
-            // this query pulls all the information needed to display suggested friends
-            $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
-                    "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
-                    "WHERE  ";
-
-            $mutual_friend_count = array(); // keep track of mutual friends to display
-            foreach ($suggested_friends as $id => $count)
-            {
-                $query .= "user_meta.user_id=$id OR ";
-            }
-            $query = substr($query, 0, strlen($query) - 3); // This cuts off the last "OR" and adds ")"
-            $query .= "ORDER BY CASE user_meta.user_id ";
-            $counter = 1;
-            foreach ($suggested_friends as $id => $count)
-            {
-                $query .= "WHEN $id THEN $counter ";
-                $counter++;
-            }
-            $query .= "END";
-
-            var_dump($query);
-
-            $result = $this->db->query($query);
-            $this->load->model('follow_ops');
-            foreach ($result->result() as $row)
-            {
-                $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
-            }
-        }else{
+        } else
+        {
             $query = "SELECT user_meta.user_id, user_meta.school_id, school_data.id, school_data.school FROM user_meta
              LEFT JOIN school_data ON school_data.id=user_meta.school_id WHERE user_meta.user_id=$user_id";
             //$result = $this->db->query($query);
