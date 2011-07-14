@@ -83,13 +83,8 @@ class Group_ops extends CI_Model
             <div class="group_entry_left">
                 <center>
                     <div class="group_picture"></div>
-
-                    <div class="city">
-                        City is pending
-                    </div>
                 </center>
             </div>
-
             <div class="group_entry_middle">
                 <div class="group_name">
                     <?php echo($row->name); ?>
