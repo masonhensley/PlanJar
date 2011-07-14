@@ -112,10 +112,11 @@ class Load_suggested_friends extends CI_Model
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
             FROM user_meta 
             LEFT JOIN school_data ON user_meta.school_id=school_data.id
-            WHERE school_id=$school_id AND user_id!=$user_id AND user_meta.grad_year=$grad_year LIMIT 0, 15";
-        $result = $this->db->query($query);
-        $options = "suggested_school";
-        $this->display_suggested_friends($result, null, $options, 15);
+            WHERE school_id=$school_id AND user_id!=$user_id AND user_meta.grad_year='$grad_year' LIMIT 0, 15";
+        var_dump($query);
+        //$result = $this->db->query($query);
+        //$options = "suggested_school";
+        //$this->display_suggested_friends($result, null, $options, 15);
     }
 }
 
