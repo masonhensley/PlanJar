@@ -4,8 +4,9 @@ body{
     margin: 0px;
     font-family: helvetica;
     font-size: 15px;
+    /*
     -webkit-user-select: none; 
-    cursor:default;
+    cursor:default; */
 }
 
 a{
@@ -171,7 +172,7 @@ a{
     height: 800px;
 }
 .selected_follower {
-    border: 4px inset purple;
+   background-color:beige;
 }
 #followers_content .right {
     width: 48%;
