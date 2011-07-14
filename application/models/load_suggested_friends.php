@@ -69,7 +69,7 @@ class Load_suggested_friends extends CI_Model
             }
         } else
         {
-            $query = "user_meta.school_id FROM user_meta
+            $query = "SELECT user_meta.school_id FROM user_meta
              LEFT JOIN school_data ON school_data.id=user_meta.school_id WHERE user_meta.user_id=$user_id";
             //$result = $this->db->query($query);
             var_dump($query);
