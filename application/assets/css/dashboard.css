@@ -187,6 +187,7 @@ a{
     float: left;
     height: auto;
     border: 1px solid black;
+    border-bottom:none;
     background-color:white;
 }
 #groups_content .left_header {
