@@ -198,8 +198,8 @@ a{
 #groups_content .left_header {
     width: 100%;
     text-align:center;
-    background-color:navy;
-    color:white;
+    background-color:beige;
+    color:navy;
     height:25px;
     padding-top:5px;
 }
@@ -235,7 +235,8 @@ a{
     margin-left:-10px;
 }
 .suggest_groups_active{
-    
+    background-color:navy;
+    color:white;
 }
 
 .group_entry {

@@ -27,6 +27,20 @@ function initialize_group_search() {
                 });
             });
             
+            // click handler for suggest groups
+            $('.suggest_groups').click(function(){
+                if($(this).hasClass('suggest_groups_active'))
+                {
+                    $(this).removeClass('suggest_groups_active');
+                    initialize_group_search();
+                }else{
+                    $(this).addClass('suggest_groups_active');
+                    $.get('/dashboard/suggest_groups',{}, function(data){
+                        $('#find_groups_list').html(data);
+                    })
+                }
+            });
+            
             // Make groups selectable
             $('#find_groups_list .group_entry').click(function() {
                 // Unselect other groups
