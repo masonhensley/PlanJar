@@ -58,7 +58,11 @@
 
         <hr/>
         <div id="invite_plan_content">
+            <h3>Invite people</h3>
             <input type="text" id="invite_plan_user"/>
+            
+            <h3>Invite groups</h3>
+            <input type="text" id="invite_plan_group"/>
         </div>
         <input type="button" id="invite_to_plan" value="Invite people and groups"/>
         <input type="button" id="close_invite_plan_content" value="Close"/>

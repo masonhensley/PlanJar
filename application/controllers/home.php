@@ -420,5 +420,49 @@ class Home extends CI_Controller
         }
     }
 
+    // Returns a list of people following the user (used for inviting people in a plan)
+    public function get_groups_invite()
+    {
+        $needle = trim($this->input->get('needle'));
+        if ($needle != '')
+        {
+            $user = $this->ion_auth->get_user();
+
+            // Break into search terms
+            $needle_array = explode(' ', $needle);
+
+            // Generate query strings to cross-reference all needle terms with the first and last names in the db
+            $needle_where = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $needle_where .= "(groups.name LIKE '%%$cur_needle%%' AND ";
+            }
+
+            // Trim the end of the string
+            if (count($needle_array) > 0)
+            {
+                $needle_where = substr($needle_where, 0, -5);
+            }
+
+            $query_string = "SELECT groups.id, groups.name
+                    FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id
+                    WHERE ($needle_where) AND group_relationships.user_joined_id = ?";
+
+            $query = $this->db->query($query_string, array($user->id));
+
+            // Echo the results
+            $return_array = array();
+            foreach ($query->result() as $row)
+            {
+                $return_array[] = array(
+                    'id' => $row->id,
+                    'name' => $row->name
+                );
+            }
+
+            echo(json_encode($return_array));
+        }
+    }
+
 }
 ?>
