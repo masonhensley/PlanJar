@@ -225,8 +225,11 @@ a{
 }
 .suggest_groups{
     display:inline-block;
-    height:20px;
-    width:20px;
+    height:auto;
+    width:auto;
+    border:1px solid black;
+    padding:7px;
+    margin-top:5px;
 }
 .suggest_groups_active{
     
