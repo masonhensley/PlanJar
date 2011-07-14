@@ -153,12 +153,12 @@ class Dashboard extends CI_Controller
         }
     }
 
-    public function suggest_groups()
-    {
-        $this->load->model('load_suggested_groups');
-        $returnHTML = $this->load_suggested_groups->suggested_groups();
-        echo "$returnHTML";
-    }
+//    public function suggest_groups()
+//    {
+//        $this->load->model('load_suggested_groups');
+//        $returnHTML = $this->load_suggested_groups->suggested_groups();
+//        echo "$returnHTML";
+//    }
 
     public function get_group_details()
     {
