@@ -9,7 +9,7 @@ class Load_suggested_groups extends CI_Model
     
     function suggested_groups()
     {
-        
+        return "hey";
     }
 }
 /*
