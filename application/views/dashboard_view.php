@@ -24,12 +24,11 @@
         <script type="text/javascript">
             $(function() {
                 // Load the data container from the URI
-                show_data_container('#<?php echo($initial_tab); ?>_content');
+                $('.tab_container [assoc_div="<?php echo($initial_tab); ?>"]').click();
                 
-                // Select the suggested tab is necessary.
+                // Select the suggested tab if necessary.
                 if ('<?php echo($suggested); ?>' == 'suggested') {
                     $('#<?php echo($initial_tab); ?>_content .suggested').click();
-                    console.log($('#<?php echo($initial_tab); ?>_content .suggested'));
                 }
             });
         </script>
