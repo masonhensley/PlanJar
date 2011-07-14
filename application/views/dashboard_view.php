@@ -23,7 +23,13 @@
         <!-- Select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">
             $(function() {
+                // Load the data container from the URI
                 show_data_container('#<?php echo($initial_tab); ?>_content');
+                
+                // Select the suggested tab is necessary.
+                if ($suggested == 'suggested') {
+                    $('#<?php echo($initial_tab); ?>_content .suggested').click();
+                }
             });
         </script>
 
