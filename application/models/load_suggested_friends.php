@@ -110,10 +110,10 @@ class Load_suggested_friends extends CI_Model
 
         foreach($already_following as $friend_id)
         {
-            $query .= "AND user_id!=$friend_id";
+            $query .= " AND user_id!=$friend_id";
         }
         
-        $query .= "AND user_meta.grad_year=$grad_year LIMIT 0, 15";
+        $query .= " AND user_meta.grad_year=$grad_year LIMIT 0, 15";
         var_dump($query);
 
 //$result = $this->db->query($query);
