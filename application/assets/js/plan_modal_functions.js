@@ -251,6 +251,12 @@ function initialize_plan_modal() {
         queryParam: 'needle'
     });
     
+    $('#invite_plan_group').tokenInput('/home/get_groups_invite', {
+        hintText: 'Invite joined groups...',
+        preventDuplicates: true,
+        queryParam: 'needle'
+    });
+    
 }
 
 function get_distance_between(lat0, long0, lat1, long1) {
