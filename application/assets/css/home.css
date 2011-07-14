@@ -25,16 +25,6 @@ a{
     width:100%;
     background: #111;
     background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#111));
-    /*
-    background-repeat-x: initial;
-    background-repeat-y: initial;
-    background-attachment: initial;
-    background-position-x: initial;
-    background-position-y: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: initial;
-    */
 }
 
 .top_panel_left{
