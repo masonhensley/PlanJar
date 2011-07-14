@@ -350,7 +350,7 @@ a{
     position:relative;
     height:30px;
     width:200px;
-    float:left;
+    float: left;
 }
 .in-field_block label {
     position:absolute;

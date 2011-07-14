@@ -7,15 +7,23 @@
     </div>
 
     <form id="make_plan">
-        <div class="in-field_block">
-            <label for="plan_location">Where are you going?</label>
-            <input type="text" id="plan_location" name="plan_location" class="textbox"/>
-        </div>
 
-        <div class="in-field_block">
-            <label for="plan_title">Title (optional)</label>
-            <input type="text" id="plan_title" name="plan_title" class="textbox"/>
-        </div>
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <div class="in-field_block">
+                        <label for="plan_location">Where are you going?</label>
+                        <input type="text" id="plan_location" name="plan_location" class="textbox"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="in-field_block">
+                        <label for="plan_title">Title (optional)</label>
+                        <input type="text" id="plan_title" name="plan_title" class="textbox"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
         When are you going?
         <div id="plan_day">
