@@ -3,7 +3,7 @@
 class Dashboard extends CI_Controller
 {
 
-    public function index($initial_tab)
+    public function index($initial_tab = 'following', $suggested = '')
     {
         if ($this->ion_auth->logged_in())
         {
@@ -20,7 +20,8 @@ class Dashboard extends CI_Controller
             $this->load->view('dashboard_view', array(
                 'firstname' => $firstname,
                 'lastname' => $lastname,
-                'initial_tab' => $initial_tab)
+                'initial_tab' => $initial_tab,
+                'suggested' => $suggested)
             );
         } else
         {
@@ -124,7 +125,7 @@ class Dashboard extends CI_Controller
         $grad_year = $user_info->grad_year;
         $school_id = $user_info->school_id;
         $this->load->model('load_suggested_friends');
-       $this->load_suggested_friends->suggested_friends($user_id, $grad_year, $school_id);
+        $this->load_suggested_friends->suggested_friends($user_id, $grad_year, $school_id);
     }
 
     // Returns HTML for the list of groups the user is following.
@@ -151,7 +152,7 @@ class Dashboard extends CI_Controller
             }
         }
     }
-    
+
     public function suggest_groups()
     {
         $this->load->model('load_suggested_groups');

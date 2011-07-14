@@ -19,13 +19,30 @@
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
+        
+        <!-- Calls select_correct_tab (loaded like this to fix timing errors) -->
+        <script type="text/javascript" src="/application/assets/js/dashboard_call_correct_tab.js"></script>
+
+        <!-- Functino to select the appropriate tab (value passed from PHP) -->
+        <script type="text/javascript">
+            function select_correct_tab() {
+                // Load the data container from the URI
+                $('.tab_container [assoc_div="<?php echo('#' . $initial_tab . '_content'); ?>"]').click();
+                
+                // Select the suggested tab if necessary.
+                if ('<?php echo($suggested); ?>' == 'suggested') {
+                    console.log('click called');
+                    $('#<?php echo($initial_tab); ?>_content .suggested').click();
+                }
+            }
+        </script>
 
         <title>PlanJar | Dashboard</title>
     </head>
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <div id="show_name" style="float:left; color:white; font-size:15px;"><?php echo " " . $firstname . " " . $lastname ."'s Dashboard"; ?></div>
+                <div id="show_name" style="float:left; color:white; font-size:15px;"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
                 <div style="float:right">
                     <a href="/home/" style="font-size:15px;">Home &middot;</a>
                     <a href="/dashboard/logout" style="font-size:15px;" >Log out</a>

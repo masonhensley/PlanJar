@@ -14,7 +14,7 @@
             <label for="group_search" style=" color:gray;">Search for groups to follow</label>
             <input type="text" class="textbox" id="group_search" />
         </div>
-        <div class="suggest_groups">
+        <div class="suggest_groups suggested">
             Suggest groups
         </div>
     </div>
