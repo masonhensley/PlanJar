@@ -27,7 +27,7 @@
                 show_data_container('#<?php echo($initial_tab); ?>_content');
                 
                 // Select the suggested tab is necessary.
-                if ($suggested == 'suggested') {
+                if (<?php echo($suggested); ?> == 'suggested') {
                     $('#<?php echo($initial_tab); ?>_content .suggested').click();
                 }
             });
