@@ -30,13 +30,6 @@
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
 
-        <!-- Select the appropriate tab (value passed from PHP) -->
-        <script type="text/javascript">
-            $(function() {
-                show_data_container('#' + <?php echo($initial_tab); ?> + '_content');
-            });
-        </script>
-
         <title>PlanJar | Home</title>
     </head>
     <body>

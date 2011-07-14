@@ -20,12 +20,19 @@
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
 
+        <!-- Select the appropriate tab (value passed from PHP) -->
+        <script type="text/javascript">
+            $(function() {
+                show_data_container('#' + <?php echo($initial_tab); ?> + '_content');
+            });
+        </script>
+
         <title>PlanJar | Dashboard</title>
     </head>
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <div id="show_name" style="float:left; color:white; font-size:15px;"><?php echo " " . $firstname . " " . $lastname ."'s Dashboard"; ?></div>
+                <div id="show_name" style="float:left; color:white; font-size:15px;"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
                 <div style="float:right">
                     <a href="/home/" style="font-size:15px;">Home &middot;</a>
                     <a href="/dashboard/logout" style="font-size:15px;" >Log out</a>
