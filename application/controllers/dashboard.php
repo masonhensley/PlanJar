@@ -154,7 +154,7 @@ class Dashboard extends CI_Controller
     public function suggest_groups()
     {
         $returnHTML = "<div style=\"width:50px; height:50px;\">sup</div>";
-        return "$returnHTML";
+        echo "$returnHTML";
     }
 
     public function get_group_details()
