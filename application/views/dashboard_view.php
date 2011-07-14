@@ -23,7 +23,7 @@
         <!-- Select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">
             $(function() {
-                show_data_container('#' + <?php echo($initial_tab); ?> + '_content');
+                show_data_container('#' + '<?php echo($initial_tab); ?>' + '_content');
             });
         </script>
 
