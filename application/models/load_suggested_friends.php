@@ -100,8 +100,7 @@ class Load_suggested_friends extends CI_Model
 
     function show_suggested_school_friends($user_id, $display_limit, $grad_year, $already_following, $school_id)
     {
-        echo "<div style=\"padding-top:5px; text-align:center;\">Expanded search results to include people in your grade
-            </div>";
+       
 
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
             FROM user_meta 
@@ -114,6 +113,10 @@ class Load_suggested_friends extends CI_Model
         $query .= " AND user_meta.grad_year=$grad_year LIMIT 0, 15";
         $result = $this->db->query($query);
         $options = "suggested_school";
+        if($result->num_rows() >0)
+        {
+                     echo "<div style=\"padding-top:5px; text-align:center;\">Expanded search results to include people in your grade</div>";
+        }
         $this->display_suggested_friends($result, null, $options, 15);
     }
 
