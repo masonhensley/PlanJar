@@ -230,6 +230,7 @@ a{
     border:1px solid black;
     padding:7px;
     margin-top:5px;
+    margin-left:-10px;
 }
 .suggest_groups_active{
     
