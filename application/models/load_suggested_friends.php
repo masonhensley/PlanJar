@@ -48,7 +48,7 @@ class Load_suggested_friends extends CI_Model
             WHERE school_id=$school_id LIMIT 0, 10";
             $result = $this->db->query($query);
             $options = "suggested_school";
-            $this->display_suggested_friends($result, $options);
+            $this->display_suggested_friends($result, null,$options);
         }
     }
 
