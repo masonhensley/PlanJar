@@ -8,17 +8,18 @@ class Load_suggested_friends extends CI_Model
         parent::__construct();
     }
 
-    function suggested_friends($user_id, $grad_year)
+    function suggested_friends($user_id, $grad_year, $school_id)
     {
         $number_of_results = 0; // this keeps track of the number of items displayed to it can be limited to 15 (or whatever)
         $display_limit = 15; // the max number of results that can be displayed for suggested friends
         $friends_query = "SELECT follow_id FROM friends where user_id=$user_id"; // query pulls all people you are following
         $friends_following_result = $this->db->query($friends_query);
         $suggested_friends = array();
+        $already_following = array(); // keep track of the people you are already following
         
         if ($friends_following_result->num_rows() > 0) // if you are following 1 or more people
         {
-            $already_following = array(); // keep track of the people you are already following
+            
             $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
             foreach ($friends_following_result->result() as $friend_id)
             {
@@ -55,7 +56,7 @@ class Load_suggested_friends extends CI_Model
         if($number_of_results <= $display_limit)
         {
             $new_limit = $display_limit - $number_of_results;  // takes the difference so the number to display is always the same
-            $this->show_suggested_school_friends($user_id, $new_limit, $grad_year); // in the case that you are not following anyone, and there are no mutual followers
+            $this->show_suggested_school_friends($user_id, $new_limit, $grad_year, $already_following, $school_id); // in the case that you are not following anyone, and there are no mutual followers
         }
         
         
@@ -99,15 +100,13 @@ class Load_suggested_friends extends CI_Model
         return $this->db->query($query);
     }
 
-    function show_suggested_school_friends($user_id, $display_limit, $grad_year)
+    function show_suggested_school_friends($user_id, $display_limit, $grad_year, $already_following, $school_id)
     {
-        echo "<div style=\"padding-left:25px;padding-right:25px;\">Expanded search results to include people in your grade.</div>";
+        echo "<div style=\"padding-top:5px; text-align:center;\">Expanded search results to include people in your grade
+            </div>";
 
-        $query = "SELECT user_meta.school_id FROM user_meta
-             LEFT JOIN school_data ON school_data.id=user_meta.school_id WHERE user_meta.user_id=$user_id";
-        $result = $this->db->query($query);
-        $row = $result->row();
-        $school_id = $row->school_id;
+        
+        
 
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
             FROM user_meta 

@@ -121,8 +121,9 @@ class Dashboard extends CI_Controller
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $grad_year = $user_info->grad_year;
+        $school_id = $user_info->school_id;
         $this->load->model('load_suggested_friends');
-       $this->load_suggested_friends->suggested_friends($user_id, $grad_year);
+       $this->load_suggested_friends->suggested_friends($user_id, $grad_year, $school_id);
     }
 
     // Returns HTML for the list of groups the user is following.
