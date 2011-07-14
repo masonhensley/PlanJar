@@ -247,7 +247,7 @@ a{
     margin-top:7px;
 }
 .group_entry.selected_group {
-    border: 4px inset purple;
+    background-color:beige;
 }
 .group_entry .group_entry_left {
     float: left;
