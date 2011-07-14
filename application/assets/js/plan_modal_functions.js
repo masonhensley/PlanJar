@@ -199,14 +199,15 @@ function initialize_plan_modal() {
             plan_day_group: 'required'
         },
         submitHandler: function (form) {
-            var data_string = $(form).serialize() +
-            '&plan_time=' + $('#plan_time .divset_selected').attr('plan_time') +
-            '&plan_day=' + $('#plan_day .divset_selected').attr('plan_day');
+            var data_string = $(form).serialize();
+            var data = {
+                'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
+                'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
+                'invite_plan_user': $('#invite_plan_user').val(),
+                'invite_group_user': $('#invite_group_user').val()
+            }
         
-        console.log($('#invite_plan_user').val());
-        console.log($('#invite_plan_group').val());
-        
-            $.get('/home/submit_plan', data_string, function (data) {
+            $.get('/home/submit_plan?' + data_string, data, function (data) {
                 if (data == 'success') {
                     $('#create_plan_content').hide();
                     // Refresh th eplan list.
