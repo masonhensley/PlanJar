@@ -23,7 +23,17 @@ a{
 .top_panel{
     height: 40px;
     width:100%;
-    background-color:#4682B4;
+background: #111;
+    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#111));
+     background-repeat-x: initial;
+background-repeat-y: initial;
+background-attachment: initial;
+background-position-x: initial;
+background-position-y: initial;
+background-origin: initial;
+background-clip: initial;
+background-color: initial;
+
 }
 
 .top_panel_left{
@@ -403,6 +413,8 @@ a{
     margin-left:auto;
     margin-right:auto;
     height:40px;
+background-color: black;
+opacity: .4;
     text-align:center;        
 }
 

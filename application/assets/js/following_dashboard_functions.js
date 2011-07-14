@@ -82,7 +82,7 @@ function initialize_suggested_friends()
             
         }
     });
-    show_suggested_init('.suggested_friends');
+    show_suggested_init('#following_content', '.suggested_friends');
 }
 
 function get_suggested_friends()

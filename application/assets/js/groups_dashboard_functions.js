@@ -1,5 +1,8 @@
-function groups_setup() {
+$(function() {
     initialize_group_search();
+});
+
+function groups_setup() {
     populate_edit_groups_list();
 }
 
@@ -18,7 +21,7 @@ function initialize_group_search() {
             });
         }
     });
-    show_suggested_init('.suggest_groups');
+    show_suggested_init('#groups_content', '.suggest_groups');
     
     // Search for groups on keyup
     $('#group_search').keyup(function () {
