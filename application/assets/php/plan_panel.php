@@ -23,45 +23,31 @@
                         </div>
                     </td>
                 </tr>
-
-                <tr>
-                    <td colspan="2">
-                        <br/><br/>
-                        When are you going?
-                    </td>
-                </tr>
-
-                <tr>
-                    <td colspan="2">
-                        <div id="plan_day">
-                            <div plan_day="0">Today</div>
-
-                            <?php
-                            $date = new DateTime();
-                            for ($i = 1; $i < 7; ++$i)
-                            {
-                                $date->add(new DateInterval('P1D'));
-                                ?>
-                                <div plan_day="<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></div>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td colspan="2">
-                        <div id="plan_time">
-                            <div plan_time="morning">Morning</div>
-                            <div plan_time="afternoon">Afternoon</div>
-                            <div plan_time="night">Night</div>
-                            <div plan_time="late_night">Late night</div>
-                        </div>
-                    </td>
-                </tr>
             </table>
             
+            When are you going?
+            <div id="plan_day">
+                <div plan_day="0">Today</div>
+
+                <?php
+                $date = new DateTime();
+                for ($i = 1; $i < 7; ++$i)
+                {
+                    $date->add(new DateInterval('P1D'));
+                    ?>
+                    <div plan_day="<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></div>
+                    <?php
+                }
+                ?>
+            </div>
+
+            <div id="plan_time">
+                <div plan_time="morning">Morning</div>
+                <div plan_time="afternoon">Afternoon</div>
+                <div plan_time="night">Night</div>
+                <div plan_time="late_night">Late night</div>
+            </div>
+
             <input id="plan_location_id" name="plan_location_id" type="hidden"/>
             <input id="plan_location_name" type="hidden"/>
             <input id="new_place_name" name="new_place_name" type="hidden"/>
@@ -74,14 +60,14 @@
             <input type="button" id="invite_to_plan" value="Invite people and groups"/>
             <div id="invite_plan_content">
                 <input type="text" id="invite_plan_user"/>
-                
+
                 <input type="button" id="close_invite_plan_content" value="Close"/>
             </div>
 
             <hr/>
             <input type="submit" value="Go"/>
 
-            
+
         </form>
     </center>
 </div>
