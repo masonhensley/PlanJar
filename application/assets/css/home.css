@@ -38,11 +38,14 @@ a{
 }
 
 .top_panel_left{
-    height:100%;
+    height:80%;
     width:200px;
     float:left;
     text-align: center;
     color:white;
+    position:relative;
+    top:3px;
+    margin-left:30px;
 }
 
 .inside_top_panel{
