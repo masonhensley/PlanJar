@@ -6,7 +6,7 @@ function groups_setup() {
 function initialize_group_search() {
     // click handler for suggest groups
     console.log('click handler defined');
-    $('.suggest_groups').click(function(){)
+    $('.suggest_groups').click(function(){
         if($(this).hasClass('suggest_groups_active'))
         {
             $('.suggest_groups_active').removeClass('suggest_groups_active');
