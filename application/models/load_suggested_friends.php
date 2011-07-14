@@ -12,7 +12,7 @@ class Load_suggested_friends extends CI_Model
     {
         $friends_query = "SELECT follow_id FROM friends where user_id=$user_id"; // query pulls all people you are following
         $friends_following_result = $this->db->query($friends_query);
-        $suggested_values = array();
+        $suggested_friends = array();
         if ($friends_following_result->num_rows() > 0) // if you are following 1 or more people
         {
             $friend_of_friend_ids = $this->find_friends_of_friends($friends_following_result);
