@@ -361,6 +361,10 @@ a{
     padding-left:10px;
     padding-top:3px;
 }
+#invite_plan_content {
+    height: 300px;
+    display: none;
+}
 
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper{

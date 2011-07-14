@@ -235,6 +235,12 @@ function initialize_plan_modal() {
             $('#plan_location').val($('#plan_location_name').val());
         }
     });
+    
+    // Invite click handler
+    $('#invite_to_plan').click(function () {
+        $('#invite_plan_content').show('fast', 'blind', function () {})
+    });
+    
 }
 
 function get_distance_between(lat0, long0, lat1, long1) {
