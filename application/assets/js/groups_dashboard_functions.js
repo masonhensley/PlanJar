@@ -15,6 +15,7 @@ function initialize_group_search() {
             $.get('/dashboard/suggest_groups', function(data){
                 $('#find_groups_list').html(data);
                  alert('success');
+                 initialize_group_search();
             });
         }
     });
