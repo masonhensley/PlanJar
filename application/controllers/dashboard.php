@@ -3,7 +3,7 @@
 class Dashboard extends CI_Controller
 {
 
-    public function index()
+    public function index($initial_tab)
     {
         if ($this->ion_auth->logged_in())
         {
@@ -19,7 +19,8 @@ class Dashboard extends CI_Controller
             // Pass the necessary information to the view.
             $this->load->view('dashboard_view', array(
                 'firstname' => $firstname,
-                'lastname' => $lastname)
+                'lastname' => $lastname,
+                'initial_tab' => $initial_tab)
             );
         } else
         {
