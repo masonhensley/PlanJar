@@ -77,7 +77,7 @@
             <div id="privacy_wrapper">
                 <div priv_val="none">None</div>
                 <div priv_val="strict">Fixed invitation list</div>
-                <div priv_val="open">Invitees can invite others</div>
+                <div priv_val="loose">Invitees can invite others</div>
             </div>
         </div>
 

@@ -200,12 +200,13 @@ function initialize_plan_modal() {
         },
         submitHandler: function (form) {
             var data_string = $(form).serialize();
-            var data = {
+            var other_data = {
                 'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-                'plan_day': $('#plan_day .divset_selected').attr('plan_day')
+                'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
+                'privacy': $('#privacy_wrapper .divset_selected').attr('priv_val')
             }
         
-            $.get('/home/submit_plan?' + data_string, data, function (data) {
+            $.get('/home/submit_plan?' + data_string, other_data, function (data) {
                 if (data == 'success') {
                     $('#create_plan_content').hide();
                     // Refresh th eplan list.
