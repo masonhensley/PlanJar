@@ -16,7 +16,16 @@ class Load_suggested_friends extends CI_Model
         if ($friends_following_result->num_rows() > 0) // if you are following 1 or more people
         {
             $already_following = array(); // keep track of the people you are already following
-            $friend_of_friend_ids = $this->find_friends_of_friends($friends_following_result, &$already_following);
+            $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
+            foreach ($friend_of_friend_result->result() as $friend_id)
+            {
+                $already_following[] = $friend_id->follow_id; // update $already_following id array
+                $friend_of_friend_query .= "user_id=$friend_id->follow_id OR "; // long or clause for each friend id
+            }
+            $friend_of_friend_query = substr($friend_of_friend_query, 0, strlen($friend_of_friend_query) - 4); // This cuts off the last "OR" and adds ")"
+            $friend_of_friend_ids = $this->db->query($friend_of_friend_query);
+            return $friend_of_friend_ids;
+            $friend_of_friend_ids = $this->find_friends_of_friends($friends_following_result, $already_following);
             $friend_of_friend_list = array();  // keep track of friend of friend ids
 
             if ($friend_of_friend_ids->num_rows() > 0) // if there are more than 1 2nd degree connections
@@ -38,7 +47,7 @@ class Load_suggested_friends extends CI_Model
         } else
         {
             $group_suggestions = $this->find_group_suggestions($user_id);
-            
+
             $this->show_suggested_school_friends($user_id); // in the case that you are not following anyone, and there are no mutual followers
         }
     }
@@ -54,16 +63,7 @@ class Load_suggested_friends extends CI_Model
 
     function find_friends_of_friends($friend_of_friend_result)
     {
-        $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
         
-        foreach ($friend_of_friend_result->result() as $friend_id)
-        {
-            $already_following[] = $friend_id->follow_id; // update $already_following id array
-            $friend_of_friend_query .= "user_id=$friend_id->follow_id OR "; // long or clause for each friend id
-        }
-        $friend_of_friend_query = substr($friend_of_friend_query, 0, strlen($friend_of_friend_query) - 4); // This cuts off the last "OR" and adds ")"
-        $friend_of_friend_ids = $this->db->query($friend_of_friend_query);
-        return $friend_of_friend_ids;
     }
 
     function generate_suggested_friends($friend_of_friend_list, $suggested_friends)
@@ -108,7 +108,7 @@ class Load_suggested_friends extends CI_Model
         $options = "suggested_school";
         $this->display_suggested_friends($result, null, $options);
     }
-    
+
     function find_group_suggestions($user_id)
     {
         // left off here, find group friends
