@@ -69,7 +69,9 @@ class Load_suggested_friends extends CI_Model
             $school_id = $row->school_id;
 
             $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
-            FROM user_meta WHERE school_id=$school_id LIMIT 0, 10";
+            FROM user_meta 
+            LEFT JOIN school_data ON user_meta.school_id=school_data.id
+            WHERE school_id=$school_id LIMIT 0, 10";
             $result = $this->db->query($query);
 
             display_suggested_friends($result);
