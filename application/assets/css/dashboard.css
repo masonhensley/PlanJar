@@ -128,7 +128,7 @@ a{
 }
 .user_entry .user_entry_middle {
     float: left;
-    width: 40%
+    width: auto;
 }
 .user_entry .remove_following {
     float: right;
@@ -288,6 +288,13 @@ a{
     float:left;
     top: 3px;
     margin-top:6px;
+}
+.in-field_block_group{
+    margin-left:10px;
+    width:200px;
+    float:left;
+    margin-top:6px;
+    margin-bottom:10px;
 }
 .in-field_block label {
     position: absolute;
