@@ -10,24 +10,28 @@ class Load_suggested_friends extends CI_Model
 
     function suggested_friends($user_id)
     {
+        $number_of_results = 0; // this keeps track of the number of items displayed to it can be limited to 15 (or whatever)
+        $display_limit = 15; // the max number of results that can be displayed for suggested friends
         $friends_query = "SELECT follow_id FROM friends where user_id=$user_id"; // query pulls all people you are following
         $friends_following_result = $this->db->query($friends_query);
         $suggested_friends = array();
+        
         if ($friends_following_result->num_rows() > 0) // if you are following 1 or more people
         {
             $already_following = array(); // keep track of the people you are already following
             $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
-            foreach ($friend_of_friend_result->result() as $friend_id)
+            foreach ($friends_following_result->result() as $friend_id)
             {
                 $already_following[] = $friend_id->follow_id; // update $already_following id array
                 $friend_of_friend_query .= "user_id=$friend_id->follow_id OR "; // long or clause for each friend id
             }
             $friend_of_friend_query = substr($friend_of_friend_query, 0, strlen($friend_of_friend_query) - 4); // This cuts off the last "OR" and adds ")"
             $friend_of_friend_ids = $this->db->query($friend_of_friend_query);
-            return $friend_of_friend_ids;
-            $friend_of_friend_ids = $this->find_friends_of_friends($friends_following_result, $already_following);
+            
             $friend_of_friend_list = array();  // keep track of friend of friend ids
 
+            /* ----------- MORE THAN 1 2nd DEGREE CONNECTIONS-----------*/
+            
             if ($friend_of_friend_ids->num_rows() > 0) // if there are more than 1 2nd degree connections
             {
                 foreach ($friend_of_friend_ids->result() as $friend_of_friend_id)
@@ -38,33 +42,37 @@ class Load_suggested_friends extends CI_Model
                     }
                 }
                 $suggested_friends = array_count_values($friend_of_friend_list);     // this turns the array of follow ids into an associative array structured: $user_id => $count
+                $number_of_results += count($suggested_friends);
                 asort($suggested_friends); // this sorts the array by count
-                $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending 
+                $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending, TRUE parameter keeps the indices 
 
                 $result = $this->generate_suggested_friends($friend_of_friend_list, $suggested_friends);
-                $this->display_suggested_friends($result, $suggested_friends, $options);
+                $this->display_suggested_friends($result, $suggested_friends, $options, $display_limit);
             }
-        } else
+        } 
+        /* --------------- BASE CASE SHOWS PEOPLE WHO GO TO SAME SCHOOL------------- */
+        if($number_of_results <= $display_limit)
         {
-            $group_suggestions = $this->find_group_suggestions($user_id);
-
-            $this->show_suggested_school_friends($user_id); // in the case that you are not following anyone, and there are no mutual followers
+            $new_limit = $display_limit - $number_of_results;  // takes the difference so the number to display is always the same
+            $this->show_suggested_school_friends($user_id, $new_limit); // in the case that you are not following anyone, and there are no mutual followers
         }
-    }
-
-    function display_suggested_friends($query_result, $suggested_friends=null, $options) //this function displays the suggested friends
-    {
-        $this->load->model('follow_ops');
-        foreach ($query_result->result() as $row)
-        {
-            $this->follow_ops->echo_user_entry($row, $options, $suggested_friends);
-        }
-    }
-
-    function find_friends_of_friends($friend_of_friend_result)
-    {
+        
         
     }
+
+    function display_suggested_friends($query_result, $suggested_friends=null, $options, $display_limit) //this function displays the suggested friends
+    {
+        $this->load->model('follow_ops');
+        $count = 0;
+        foreach ($query_result->result() as $row)
+        {
+            if($count < $display_limit)
+            {
+                $this->follow_ops->echo_user_entry($row, $options, $suggested_friends);
+            }
+            $count++;
+        }
+    }  
 
     function generate_suggested_friends($friend_of_friend_list, $suggested_friends)
     {
@@ -90,7 +98,7 @@ class Load_suggested_friends extends CI_Model
         return $this->db->query($query);
     }
 
-    function show_suggested_school_friends($user_id)
+    function show_suggested_school_friends($user_id, $display_limit)
     {
         echo "<div style=\"padding-left:25px;padding-right:25px;\"=>Could not find second-degree relationships.  Expanded search results to include your school</div>";
 
@@ -106,15 +114,8 @@ class Load_suggested_friends extends CI_Model
             WHERE school_id=$school_id AND user_id!=$user_id LIMIT 0, 10";
         $result = $this->db->query($query);
         $options = "suggested_school";
-        $this->display_suggested_friends($result, null, $options);
+        $this->display_suggested_friends($result, null, $options, 15);
     }
-
-    function find_group_suggestions($user_id)
-    {
-        // left off here, find group friends
-        $query = "SELECT user_id FROM friends WHERE follow_id=$user_id";
-    }
-
 }
 
 ?>
