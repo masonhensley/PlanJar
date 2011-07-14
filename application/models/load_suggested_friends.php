@@ -34,23 +34,10 @@ class Load_suggested_friends extends CI_Model
                 $result = $this->generate_suggested_friends($friend_of_friend_list, $suggested_friends);
                 $this->display_suggested_friends($result, $suggested_friends, $options);
             }
-        } else // in the case that you are not following anyone, and there are no mutual followers
+        } else
         {
-            echo "<div style=\"padding-left:25px;padding-right:25px;\"=>Could not find second-degree relationships.  Expanded search results to include your school</div>";
-            
-            $query = "SELECT user_meta.school_id FROM user_meta
-             LEFT JOIN school_data ON school_data.id=user_meta.school_id WHERE user_meta.user_id=$user_id";
-            $result = $this->db->query($query);
-            $row = $result->row();
-            $school_id = $row->school_id;
-
-            $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
-            FROM user_meta 
-            LEFT JOIN school_data ON user_meta.school_id=school_data.id
-            WHERE school_id=$school_id AND user_id!=$user_id LIMIT 0, 10";
-            $result = $this->db->query($query);
-            $options = "suggested_school";
-            $this->display_suggested_friends($result, null,$options);
+            // in the case that you are not following anyone, and there are no mutual followers
+            $this->show_suggested_school_friends($user_id);
         }
     }
 
@@ -99,6 +86,25 @@ class Load_suggested_friends extends CI_Model
         }
         $query .= "END";
         return $this->db->query($query);
+    }
+
+    function show_suggested_school_friends($user_id)
+    {
+        echo "<div style=\"padding-left:25px;padding-right:25px;\"=>Could not find second-degree relationships.  Expanded search results to include your school</div>";
+
+        $query = "SELECT user_meta.school_id FROM user_meta
+             LEFT JOIN school_data ON school_data.id=user_meta.school_id WHERE user_meta.user_id=$user_id";
+        $result = $this->db->query($query);
+        $row = $result->row();
+        $school_id = $row->school_id;
+
+        $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
+            FROM user_meta 
+            LEFT JOIN school_data ON user_meta.school_id=school_data.id
+            WHERE school_id=$school_id AND user_id!=$user_id LIMIT 0, 10";
+        $result = $this->db->query($query);
+        $options = "suggested_school";
+        $this->display_suggested_friends($result, null, $options);
     }
 
 }
