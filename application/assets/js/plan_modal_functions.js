@@ -19,7 +19,6 @@ function initialize_plan_modal() {
         } else if (hours < 18) {
             $('#plan_time [plan_time="afternoon"]').click();
         } else {
-            console.log($('#plan_time [plan_time="night"]'));
             $('#plan_time [plan_time="night"]').click();
         }
         
@@ -247,16 +246,30 @@ function initialize_plan_modal() {
     
     // TokenInput
     $('#invite_plan_user').tokenInput('/home/get_followers_invite', {
-        hintText: 'Invite followers...',
+        hintText: 'Search followers...',
         preventDuplicates: true,
         queryParam: 'needle'
     });
     
     $('#invite_plan_group').tokenInput('/home/get_groups_invite', {
-        hintText: 'Invite joined groups...',
+        hintText: 'Search joined groups...',
         preventDuplicates: true,
         queryParam: 'needle'
     });
+    
+    // Privacy click handlers
+    $('#show_plan_privacy').click(function () {
+        $('#plan_privacy_content').show('fast');
+    });
+    $('#hide_plan_privacy').click(function () {
+        $('#plan_privacy_content').hide('fast');
+    });
+    
+    // divset
+    $('#privacy_wrapper').divset();
+    
+    // Initial privacy select
+    $('#privacy_wrapper :first').click();
     
 }
 

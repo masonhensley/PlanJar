@@ -60,12 +60,24 @@
         <div id="invite_plan_content">
             <h3>Invite people</h3>
             <input type="text" id="invite_plan_user"/>
-            
+
             <h3>Invite groups</h3>
             <input type="text" id="invite_plan_group"/>
         </div>
         <input type="button" id="invite_to_plan" value="Invite people and groups"/>
-        <input type="button" id="close_invite_plan_content" value="Close"/>
+        <input type="button" id="close_invite_plan_content" value="X"/>
+
+        <hr/>
+        <div id="plan_privacy_content">
+            <h3>Privacy options</h3>
+            <div id="privacy_wrapper">
+                <div priv_val="none">None</div>
+                <div priv_val="strict">Fixed invitation list</div>
+                <div priv_val="open">Invitees can invite others</div>
+            </div>
+        </div>
+        <input type="button" id="show_plan_privacy" value="Add privacy settings"/>
+        <input type="button" id="hide_plan_privacy" value="X"/>
 
         <hr/>
         <input type="submit" value="Go"/>
