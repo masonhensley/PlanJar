@@ -34,6 +34,7 @@ function initialize_group_search() {
                     $(this).removeClass('suggest_groups_active');
                     initialize_group_search();
                 }else{
+                    alert('success');
                     $(this).addClass('suggest_groups_active');
                     $.get('/dashboard/suggest_groups',{}, function(data){
                         $('#find_groups_list').html(data);
