@@ -1,11 +1,12 @@
 function groups_setup() {
-    populate_edit_groups_list();
     initialize_group_search();
+    populate_edit_groups_list();
 }
 
 function initialize_group_search() {
     // click handler for suggest groups
     $('.suggest_groups').click(function(){
+        console.log('click handler defined');
         if($(this).hasClass('suggest_groups_active'))
         {
             $('.suggest_groups_active').removeClass('suggest_groups_active');
@@ -14,7 +15,7 @@ function initialize_group_search() {
             $('.suggest_groups').addClass('suggest_groups_active');
             $.get('/dashboard/suggest_groups', function(data){
                 $('#find_groups_list').html(data);
-                 alert('success');
+                alert('success');
             });
         }
     });
