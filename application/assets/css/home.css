@@ -23,7 +23,16 @@ a{
 .top_panel{
     height: 40px;
     width:100%;
-    background-color: -webkit-gradient(linear,left top,left bottom,from(#333),to(#111));
+background: #111;
+    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#111));
+     background-repeat-x: initial;
+background-repeat-y: initial;
+background-attachment: initial;
+background-position-x: initial;
+background-position-y: initial;
+background-origin: initial;
+background-clip: initial;
+background-color: initial;
 
 }
 
