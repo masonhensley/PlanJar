@@ -20,9 +20,6 @@
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
 
-        <!-- Calls select_correct_tab (loaded like this to fix timing errors) -->
-        <script type="text/javascript" src="/application/assets/js/dashboard_call_correct_tab.js"></script>
-
         <!-- Function to select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">
             $(function() {
@@ -40,8 +37,6 @@
                     show_suggested = '';
                 }
             }
-            
-        }
         </script>
 
         <title>PlanJar | Dashboard</title>
