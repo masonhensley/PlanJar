@@ -435,7 +435,7 @@ class Home extends CI_Controller
             $needle_where = '';
             foreach ($needle_array as $cur_needle)
             {
-                $needle_where .= "(groups.name LIKE '%%$cur_needle%%' AND ";
+                $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
             }
 
             // Trim the end of the string
