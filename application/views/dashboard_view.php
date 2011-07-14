@@ -33,7 +33,7 @@
             var show_suggested = '<?php echo($suggested); ?>';
             function show_suggested_init(suggested_click_elem) {
                 if (show_suggested == 'suggested') {
-                    $('<?php echo('#' . $initial_tab . '_content'); ?> suggested_click_elem').click();
+                    $(suggested_click_elem).click();
                     show_suggested = '';
                 }
             }
