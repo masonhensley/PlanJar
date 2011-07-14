@@ -51,17 +51,20 @@ a{
 
 .tab_container{
     width:100%;
-    height:40px;
+    height:35px;
     background-color:#F3F6FF;
 }
 
 .tab{
     width:100px;
-    height:100%;
+    height:auto;
     margin-right: 10px;
     display: inline-block;
     background-color:#F3F6FF;
     border: 1px solid black;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 .tab_selected {
@@ -71,7 +74,7 @@ a{
 
 .page_content{
     position:relative;
-    top:1px;
+    top:10px;
     width:100%;
     height:100%;
     background-color: #F3F6FF;
@@ -85,6 +88,7 @@ a{
     height:auto;
     background-color:white;
     border: 1px solid black;
+    border-bottom:none;
 }
 #follow_search {
     width: 100%;
@@ -162,14 +166,15 @@ a{
 #followers_content .left_header {
     width: 100%;
     text-align:center;
-    background-color:navy;
-    color:white;
+    background-color:beige;
+    color:navy;
     height:25px;
     padding-top:5px;
+    margin-bottom:-7px;
 }
 #followers_list {
     width: 100%;
-    height: 800px;
+    height: auto;
 }
 .selected_follower {
    background-color:beige;
@@ -183,17 +188,18 @@ a{
 
 /* group tab */
 #groups_content .left {
-    width: 331px;
+    width: 280px;
     float: left;
     height: auto;
     border: 1px solid black;
+    border-bottom:none;
     background-color:white;
 }
 #groups_content .left_header {
     width: 100%;
     text-align:center;
-    background-color:navy;
-    color:white;
+    background-color:beige;
+    color:navy;
     height:25px;
     padding-top:5px;
 }
@@ -219,10 +225,23 @@ a{
     width: 100%;
     height: 35px;
 }
+.suggest_groups{
+    display:inline-block;
+    height:auto;
+    width:auto;
+    border:1px solid black;
+    padding:7px;
+    margin-top:5px;
+    margin-left:-10px;
+}
+.suggest_groups_active{
+    background-color:navy;
+    color:white;
+}
 
 .group_entry {
     width: 100%;
-    height: 75px;
+    height: 60px;
     border-top:1px solid black;
     border-bottom: 1px solid black;
     margin-top:7px;
@@ -232,7 +251,9 @@ a{
 }
 .group_entry .group_entry_left {
     float: left;
-    width: 100px;
+    width: 80px;
+    height:auto;
+    margin-top:5px;
 }
 .group_entry .group_picture {
     width: 50px;
@@ -241,8 +262,10 @@ a{
 }
 .group_entry .group_entry_middle {
     float: left;
-    width: 35%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    margin-left:10px;
+    margin-top:20px;
 }
 .group_entry .remove_following {
     float: right;
@@ -287,30 +310,29 @@ a{
     width:200px;
     float:left;
     top: 3px;
-    margin-top:6px;
+    margin-top:10px;
 }
 .in-field_block_group{
     margin-left:10px;
     width:200px;
     float:left;
     margin-top:6px;
-    margin-bottom:10px;
+    margin-bottom:6px;
 }
 .in-field_block label {
     position: absolute;
     z-index: 1000;
-    margin-top:5px;
+    margin-top:3px;
     margin-left:5px;
 }
 .in-field_block .textbox {
     position:relative;
-    top:3px;
     height:25px;
-    width:200px;
+    width:180px;
 }
 
 .suggested_friends{
-    margin-right:30px;
+    margin-right:50px;
     width:auto;
     height:33px;
     text-align:center;

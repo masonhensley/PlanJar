@@ -4,6 +4,21 @@ function groups_setup() {
 }
 
 function initialize_group_search() {
+    // click handler for suggest groups
+    $('.suggest_groups').click(function(){
+        if($(this).hasClass('suggest_groups_active'))
+        {
+            $(this).removeClass('suggest_groups_active');
+            initialize_group_search();
+        }else{
+            alert('success');
+            $(this).addClass('suggest_groups_active');
+            $.get('/dashboard/suggest_groups',{}, function(data){
+                $('#find_groups_list').html(data);
+            })
+        }
+    });
+    
     // Search for groups on keyup
     $('#group_search').keyup(function () {
         $.get('/dashboard/group_search', {
@@ -26,7 +41,7 @@ function initialize_group_search() {
                     });
                 });
             });
-            
+
             // Make groups selectable
             $('#find_groups_list .group_entry').click(function() {
                 // Unselect other groups
