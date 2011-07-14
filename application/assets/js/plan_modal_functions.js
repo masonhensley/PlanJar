@@ -19,8 +19,8 @@ function initialize_plan_modal() {
         } else if (hours < 18) {
             $('#plan_time [plan_time="afternoon"]').click();
         } else {
-            console.log($('#plan_time[plan_time="night"]'));
-            $('#plan_time[plan_time="night"]').click();
+            console.log($('#plan_time [plan_time="night"]'));
+            $('#plan_time [plan_time="night"]').click();
         }
         
         $('#plan_location').focus();
