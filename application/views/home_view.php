@@ -35,7 +35,7 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <img src='application/assets/images/pj_logo_white_text.png' style="float: left;"/>
+                <img src='/application/assets/images/pj_logo_white_text.png' style="float: left;"/>
                 <div class ="top_panel_left">
                     <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <div id="location_conainer_top">
