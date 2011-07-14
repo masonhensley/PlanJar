@@ -87,11 +87,14 @@ class Follow_ops extends CI_Model
                 <div class="user_name">
                     <?php
                     echo($row->first_name . ' ' . $row->last_name);
+                    echo "<br>";
                     if ($option == 'suggested')
                     {
-                        echo "<br/>";
                         $id = $row->user_id;
                         echo "$suggested_friends[$id] second-degree connections";
+                    }else if($option == 'suggested_school')
+                    {
+                        echo "You attend the same school";
                     }
                     ?>
                 </div>
@@ -117,6 +120,11 @@ class Follow_ops extends CI_Model
                 <div class="following">Following</div>
                 <?php
             } else if ($option == 'suggested')
+            {
+                ?>
+                <div class="add_following">Follow</div>
+                <?php
+            } else if ($option == 'suggested_school')
             {
                 ?>
                 <div class="add_following">Follow</div>
