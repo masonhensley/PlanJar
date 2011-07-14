@@ -58,22 +58,30 @@ class Load_suggested_friends extends CI_Model
                 }
                 $query .= "END";
 
-                var_dump($query);
-
                 $result = $this->db->query($query);
-                $this->load->model('follow_ops');
-                foreach ($result->result() as $row)
-                {
-                    $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
-                }
             }
-        } else
+        } else // in the case that you are not following anyone, and there are no mutual followers
         {
             $query = "SELECT user_meta.school_id FROM user_meta
              LEFT JOIN school_data ON school_data.id=user_meta.school_id WHERE user_meta.user_id=$user_id";
-            //$result = $this->db->query($query);
-            var_dump($query);
-            echo "success";
+            $result = $this->db->query($query);
+            $row = $result->row();
+            $school_id = $row->school_id;
+
+            $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
+            FROM user_meta WHERE school_id=$school_id LIMIT 0, 10";
+            $result = $this->db->query($query);
+
+            display_suggested_friends($result);
+        }
+    }
+
+    function display_suggested_friends($query_result) //this function displays the suggested friends
+    {
+        $this->load->model('follow_ops');
+        foreach ($query_result->result() as $row)
+        {
+            $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
         }
     }
 
