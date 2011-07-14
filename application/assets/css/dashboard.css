@@ -128,7 +128,7 @@ a{
 }
 .user_entry .user_entry_middle {
     float: left;
-    width: 40%
+    width: auto;
 }
 .user_entry .remove_following {
     float: right;
