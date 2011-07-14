@@ -12,7 +12,7 @@ class Event_ops extends CI_Model
     public function create_event($title, $privacy)
     {
         $this->load->database();
-        $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?)";
+        $query_string = "INSERT INTO events VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, array($title, $privacy));
 
         return $this->db->insert_id();
