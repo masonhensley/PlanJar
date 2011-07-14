@@ -70,6 +70,7 @@ a{
     top:30px;
     border-right: none;
     background-color:white;
+    padding-top:10px;
 }
 
 .groups_wrapper{
@@ -312,6 +313,7 @@ a{
     top:30px;
     border-left: none;
     background-color:white;
+    padding-top:10px;
 }
 
 .right_header{
