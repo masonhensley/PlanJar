@@ -17,7 +17,7 @@
                     </div>
                 </td>
                 <td>
-                    <div class="in-field_block">
+                    <div class="in-field_block" style="float: right;">
                         <label for="plan_title">Title (optional)</label>
                         <input type="text" id="plan_title" name="plan_title" class="textbox"/>
                     </div>
@@ -57,12 +57,11 @@
         <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
 
         <hr/>
-        <input type="button" id="invite_to_plan" value="Invite people and groups"/>
         <div id="invite_plan_content">
             <input type="text" id="invite_plan_user"/>
-
-            <input type="button" id="close_invite_plan_content" value="Close"/>
         </div>
+        <input type="button" id="invite_to_plan" value="Invite people and groups"/>
+        <input type="button" id="close_invite_plan_content" value="Close"/>
 
         <hr/>
         <input type="submit" value="Go"/>
