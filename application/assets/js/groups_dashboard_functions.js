@@ -21,6 +21,7 @@ function initialize_group_search() {
     
     // Search for groups on keyup
     $('#group_search').keyup(function () {
+        $('.suggest_groups_active').removeClass('suggest_groups_active');
         $.get('/dashboard/group_search', {
             needle: $(this).val()
         }, function (data) {
