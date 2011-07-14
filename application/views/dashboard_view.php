@@ -29,6 +29,7 @@
                 // Select the suggested tab is necessary.
                 if ('<?php echo($suggested); ?>' == 'suggested') {
                     $('#<?php echo($initial_tab); ?>_content .suggested').click();
+                    console.log($('#<?php echo($initial_tab); ?>_content .suggested'));
                 }
             });
         </script>
