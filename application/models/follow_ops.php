@@ -84,6 +84,9 @@ class Follow_ops extends CI_Model
             </div>
 
             <div class="user_entry_middle">
+                <div class="user_school">
+                    <?php echo $row->school . "(" . $row->grad_year . ")"; ?>
+                </div>
                 <div class="user_name">
                     <?php
                     echo($row->first_name . ' ' . $row->last_name);
@@ -97,11 +100,7 @@ class Follow_ops extends CI_Model
                         echo "You have the same graduation year";
                     }
                     ?>
-                </div>
-
-                <div class="user_school">
-                    <?php echo $row->school . "(" . $row->grad_year . ")"; ?>
-                </div>
+                </div>          
             </div>
             <?php
             if ($option == 'remove following')
