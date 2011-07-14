@@ -31,7 +31,7 @@ class Load_suggested_friends extends CI_Model
                 asort($suggested_friends); // this sorts the array by count
                 $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending 
 
-                $result = $this->generate_suggested_friends($friend_of_friend_list);
+                $result = $this->generate_suggested_friends($friend_of_friend_list, $suggested_friends);
                 $this->display_suggested_friends($result, $suggested_friends, $options);
             }
         } else // in the case that you are not following anyone, and there are no mutual followers
@@ -75,7 +75,7 @@ class Load_suggested_friends extends CI_Model
         return $friend_of_friend_ids;
     }
 
-    function generate_suggested_friends($friend_of_friend_list)
+    function generate_suggested_friends($friend_of_friend_list, $suggested_friends)
     {
 
         // this query pulls all the information needed to display suggested friends
