@@ -112,7 +112,6 @@ class Load_suggested_friends extends CI_Model
             $query .= " AND user_id!=$friend_id";
         }
         $query .= " AND user_meta.grad_year=$grad_year LIMIT 0, 15";
-        var_dump($query);
         $result = $this->db->query($query);
         $options = "suggested_school";
         $this->display_suggested_friends($result, null, $options, 15);
