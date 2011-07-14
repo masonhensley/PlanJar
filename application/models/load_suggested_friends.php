@@ -15,7 +15,8 @@ class Load_suggested_friends extends CI_Model
         $suggested_friends = array();
         if ($friends_following_result->num_rows() > 0) // if you are following 1 or more people
         {
-            $friend_of_friend_ids = $this->find_friends_of_friends($friends_following_result);
+            $already_following = array(); // keep track of the people you are already following
+            $friend_of_friend_ids = $this->find_friends_of_friends($friends_following_result, &$already_following);
             $friend_of_friend_list = array();  // keep track of friend of friend ids
 
             if ($friend_of_friend_ids->num_rows() > 0) // if there are more than 1 2nd degree connections
@@ -54,7 +55,7 @@ class Load_suggested_friends extends CI_Model
     function find_friends_of_friends($friend_of_friend_result)
     {
         $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
-        $already_following = array(); // keep track of the people you are already following
+        
         foreach ($friend_of_friend_result->result() as $friend_id)
         {
             $already_following[] = $friend_id->follow_id; // update $already_following id array
