@@ -24,6 +24,7 @@ a{
     height: 40px;
     width:100%;
     background-color: black;
+background-repeat: repeat-x;
 opacity: .4;
 }
 
