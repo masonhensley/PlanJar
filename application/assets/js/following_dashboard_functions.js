@@ -82,6 +82,7 @@ function initialize_suggested_friends()
             
         }
     });
+    show_suggested_init('.suggested_friends');
 }
 
 function get_suggested_friends()

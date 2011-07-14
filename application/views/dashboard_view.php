@@ -19,22 +19,29 @@
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-        
+
         <!-- Calls select_correct_tab (loaded like this to fix timing errors) -->
         <script type="text/javascript" src="/application/assets/js/dashboard_call_correct_tab.js"></script>
 
-        <!-- Functino to select the appropriate tab (value passed from PHP) -->
+        <!-- Function to select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">
-            function select_correct_tab() {
+            $(function() {
                 // Load the data container from the URI
                 $('.tab_container [assoc_div="<?php echo('#' . $initial_tab . '_content'); ?>"]').click();
-                
-                // Select the suggested tab if necessary.
-                if ('<?php echo($suggested); ?>' == 'suggested') {
-                    console.log('click called');
-                    $('#<?php echo($initial_tab); ?>_content .suggested').click();
+            });
+            
+            // This variable and function are used to show the suggested tab if specified in the URI.
+            // I had to do it this way because the click handlers aren't ready to be called from here right away.
+            // This function is called after the click handlers are defined (in the respective files).
+            var show_suggested = '<?php echo($suggested); ?>';
+            function show_suggested_init(suggested_click_elem) {
+                if (show_suggested == 'suggested') {
+                    $(suggested_click_elem).click();
+                    show_suggested = '';
                 }
             }
+            
+        }
         </script>
 
         <title>PlanJar | Dashboard</title>
