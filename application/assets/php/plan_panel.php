@@ -7,15 +7,23 @@
     </div>
 
     <form id="make_plan">
-        <div class="in-field_block">
-            <label for="plan_location">Where are you going?</label>
-            <input type="text" id="plan_location" name="plan_location" class="textbox"/>
-        </div>
 
-        <div class="in-field_block">
-            <label for="plan_title">Title (optional)</label>
-            <input type="text" id="plan_title" name="plan_title" class="textbox"/>
-        </div>
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <div class="in-field_block">
+                        <label for="plan_location">Where are you going?</label>
+                        <input type="text" id="plan_location" name="plan_location" class="textbox"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="in-field_block" style="float: right;">
+                        <label for="plan_title">Title (optional)</label>
+                        <input type="text" id="plan_title" name="plan_title" class="textbox"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
         When are you going?
         <div id="plan_day">
@@ -49,12 +57,11 @@
         <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
 
         <hr/>
-        <input type="button" id="invite_to_plan" value="Invite people and groups"/>
         <div id="invite_plan_content">
             <input type="text" id="invite_plan_user"/>
-
-            <input type="button" id="close_invite_plan_content" value="Close"/>
         </div>
+        <input type="button" id="invite_to_plan" value="Invite people and groups"/>
+        <input type="button" id="close_invite_plan_content" value="Close"/>
 
         <hr/>
         <input type="submit" value="Go"/>
