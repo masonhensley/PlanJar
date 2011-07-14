@@ -1,5 +1,6 @@
 $(function() {
-    });
+    initialize_dashboard_tabs();
+});
 
 // Initializes the map/data tabs.
 function initialize_dashboard_tabs() {
