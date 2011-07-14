@@ -47,17 +47,17 @@ class Load_suggested_friends extends CI_Model
             LEFT JOIN school_data ON user_meta.school_id=school_data.id
             WHERE school_id=$school_id LIMIT 0, 10";
             $result = $this->db->query($query);
-            $options = "suggested";
-            $this->display_suggested_friends($result, $suggested_friends, $options);
+            $options = "suggested_school";
+            $this->display_suggested_friends($result, $options);
         }
     }
 
-    function display_suggested_friends($query_result, $suggested_friends, $options) //this function displays the suggested friends
+    function display_suggested_friends($query_result, $suggested_friends=null, $options) //this function displays the suggested friends
     {
         $this->load->model('follow_ops');
         foreach ($query_result->result() as $row)
         {
-            $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
+            $this->follow_ops->echo_user_entry($row, $options, $suggested_friends);
         }
     }
 
