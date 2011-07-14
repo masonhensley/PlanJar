@@ -12,7 +12,7 @@ class Load_suggested_friends extends CI_Model
     {
         $friends_query = "SELECT follow_id FROM friends where user_id=$user_id"; // query pulls all people you are following
         $friends_following_result = $this->db->query($friends_query);
-
+        $suggested_friends = array();
         if ($friends_following_result->num_rows() > 0) // if you are following 1 or more people
         {
             $friend_of_friend_ids = $this->find_friends_of_friends($friends_following_result);
@@ -31,7 +31,7 @@ class Load_suggested_friends extends CI_Model
                 asort($suggested_friends); // this sorts the array by count
                 $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending 
 
-                $result = $this->generate_suggested_friends($friend_of_friend_list);
+                $result = $this->generate_suggested_friends($friend_of_friend_list, $suggested_friends);
                 $this->display_suggested_friends($result, $suggested_friends, $options);
             }
         } else // in the case that you are not following anyone, and there are no mutual followers
@@ -47,17 +47,17 @@ class Load_suggested_friends extends CI_Model
             LEFT JOIN school_data ON user_meta.school_id=school_data.id
             WHERE school_id=$school_id LIMIT 0, 10";
             $result = $this->db->query($query);
-            $options = "suggested";
+            $options = "suggested_school";
             $this->display_suggested_friends($result, $options);
         }
     }
 
-    function display_suggested_friends($query_result, $suggested_friends, $options) //this function displays the suggested friends
+    function display_suggested_friends($query_result, $suggested_friends=null, $options) //this function displays the suggested friends
     {
         $this->load->model('follow_ops');
         foreach ($query_result->result() as $row)
         {
-            $this->follow_ops->echo_user_entry($row, 'suggested', $suggested_friends);
+            $this->follow_ops->echo_user_entry($row, $options, $suggested_friends);
         }
     }
 
@@ -75,7 +75,7 @@ class Load_suggested_friends extends CI_Model
         return $friend_of_friend_ids;
     }
 
-    function generate_suggested_friends($friend_of_friend_list)
+    function generate_suggested_friends($friend_of_friend_list, $suggested_friends)
     {
 
         // this query pulls all the information needed to display suggested friends
