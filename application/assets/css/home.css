@@ -326,7 +326,7 @@ a{
 #create_plan_content {
     display: none;
     width: 600px;
-    height: 250px;
+    height: auto;
     position: absolute;
     left: 50%;
     margin-left: -300px;
@@ -360,6 +360,10 @@ a{
     font-size:18px;
     padding-left:10px;
     padding-top:3px;
+}
+#invite_plan_content {
+    height: 300px;
+    display: none;
 }
 
 /* ------------------- PLAN CONTENT -------------- */
