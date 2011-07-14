@@ -153,7 +153,8 @@ class Dashboard extends CI_Controller
     
     public function suggest_groups()
     {
-        $returnHTML = "<div style=\"width:50px; height:50px;\">sup</div>";
+        $this->load->model('load_suggested_groups');
+        $returnHTML = $this->load_suggested_groups();
         echo "$returnHTML";
     }
 

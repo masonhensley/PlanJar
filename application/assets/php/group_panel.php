@@ -17,7 +17,7 @@
     }
     ?>
     <div class="group_label">Following</div>
-    <div class="selectable_group" group_id="friends">Friends</div>
+    <div class="selectable_group" group_id="friends">Following</div>
     <?php
     foreach ($followed_groups as $group)
     {
