@@ -36,8 +36,9 @@ class Load_suggested_friends extends CI_Model
             }
         } else
         {
-            // in the case that you are not following anyone, and there are no mutual followers
-            $this->show_suggested_school_friends($user_id);
+            $group_suggestions = $this->find_group_suggestions($user_id);
+            
+            $this->show_suggested_school_friends($user_id); // in the case that you are not following anyone, and there are no mutual followers
         }
     }
 
@@ -105,6 +106,12 @@ class Load_suggested_friends extends CI_Model
         $result = $this->db->query($query);
         $options = "suggested_school";
         $this->display_suggested_friends($result, null, $options);
+    }
+    
+    function find_group_suggestions($user_id)
+    {
+        // left off here, find group friends
+        $query = "SELECT user_id FROM friends WHERE follow_id=$user_id";
     }
 
 }
