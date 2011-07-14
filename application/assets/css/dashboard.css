@@ -243,8 +243,10 @@ a{
 }
 .group_entry .group_entry_middle {
     float: left;
-    width: 35%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    margin-left:10px;
+    margin-top:20px;
 }
 .group_entry .remove_following {
     float: right;
