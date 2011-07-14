@@ -165,10 +165,11 @@ a{
 #followers_content .left_header {
     width: 100%;
     text-align:center;
-    background-color:navy;
-    color:white;
+    background-color:beige;
+    color:navy;
     height:25px;
     padding-top:5px;
+    margin-bottom:-7px;
 }
 #followers_list {
     width: 100%;
@@ -307,7 +308,7 @@ a{
     width:200px;
     float:left;
     top: 3px;
-    margin-top:6px;
+    margin-top:10px;
 }
 .in-field_block_group{
     margin-left:10px;
@@ -319,7 +320,7 @@ a{
 .in-field_block label {
     position: absolute;
     z-index: 1000;
-    margin-top:5px;
+    margin-top:3px;
     margin-left:5px;
 }
 .in-field_block .textbox {
@@ -329,7 +330,7 @@ a{
 }
 
 .suggested_friends{
-    margin-right:30px;
+    margin-right:50px;
     width:auto;
     height:33px;
     text-align:center;
