@@ -1,5 +1,8 @@
-function groups_setup() {
+$(function() {
     initialize_group_search();
+});
+
+function groups_setup() {
     populate_edit_groups_list();
 }
 
