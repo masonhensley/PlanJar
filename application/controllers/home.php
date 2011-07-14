@@ -378,7 +378,7 @@ class Home extends CI_Controller
     // Returns a list of people following the user (used for inviting people in a plan)
     public function get_followers_invite()
     {
-        $needle = trim($needle);
+        $needle = trim($this->input->get('needle'));
         if ($needle != '')
         {
             $user = $this->ion_auth->get_user();
