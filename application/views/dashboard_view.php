@@ -27,14 +27,12 @@
                 $('.tab_container [assoc_div="<?php echo('#' . $initial_tab . '_content'); ?>"]').click();
             });
             
-            // This variable and function are used to show the suggested tab if specified in the URI.
+            // This function is used to show the suggested tab if specified in the URI.
             // I had to do it this way because the click handlers aren't ready to be called from here right away.
             // This function is called after the click handlers are defined (in the respective files).
-            var show_suggested = '<?php echo($suggested); ?>';
-            function show_suggested_init(suggested_click_elem) {
-                if (show_suggested == 'suggested') {
-                    $(suggested_click_elem).click();
-                    show_suggested = '';
+            function show_suggested_init(content_div, object_to_click) {
+                if ('<?php echo($suggested); ?>' == 'suggested' && content_div == '<?php echo('#' . $initial_tab . '_content'); ?>') {
+                    $('<?php echo('#' . $initial_tab . '_content'); ?> ' + object_to_click).click();
                 }
             }
         </script>
