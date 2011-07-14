@@ -150,6 +150,11 @@ class Dashboard extends CI_Controller
             }
         }
     }
+    
+    public function suggest_groups()
+    {
+        return "lulz";
+    }
 
     public function get_group_details()
     {
