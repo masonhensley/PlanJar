@@ -72,6 +72,10 @@ a{
     background-color:white;
 }
 
+.groups_wrapper{
+    margin-top:10px;
+}
+
 .left_header{
     width:100%;
     height:30px;
