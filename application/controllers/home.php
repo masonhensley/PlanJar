@@ -180,6 +180,8 @@ class Home extends CI_Controller
             $data['event_id'] = $this->event_ops->create_event(
                             $data['title'], $privacy, json_decode($this->input->get('invite_plan_user')), json_decode($this->input->get('invite_plan_group'))
             );
+            var_dump($this->input->get('invite_plan_user'));
+            var_dump(json_decode($this->input->get('invite_plan_user')));
 
             $data['title'] = NULL;
         } else
