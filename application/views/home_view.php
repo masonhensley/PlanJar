@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/token-input.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -27,7 +28,8 @@
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.min.js"></script>
-        
+        <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
+
         <title>PlanJar | Home</title>
     </head>
     <body>
@@ -39,7 +41,7 @@
                         <div id="using_location">Using location:</div>
                     </div>
                 </div>
-               
+
                 <div class="top_links">
                     <a href="/dashboard/" id="dashboard link">Dashboard &middot;</a>
                     <a href="#" id="change_location" >Change location &middot;</a>

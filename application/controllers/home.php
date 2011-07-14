@@ -375,5 +375,50 @@ class Home extends CI_Controller
         }
     }
 
+    // Returns a list of people following the user (used for inviting people in a plan)
+    public function get_followers_invite()
+    {
+        $needle = trim($needle);
+        if ($needle != '')
+        {
+            $user = $this->ion_auth->get_user();
+
+            // Break into search terms
+            $needle_array = explode(' ', $needle);
+
+            // Generate query strings to cross-reference all needle terms with the first and last names in the db
+            $needle_where = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $needle_where .= "(user_meta.first_name LIKE '%%$cur_needle%%' OR " .
+                        "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
+            }
+
+            // Trim the end of the string
+            if (count($needle_array) > 0)
+            {
+                $needle_where = substr($needle_where, 0, -5);
+            }
+
+            $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name
+                    FROM friends LEFT JOIN user_meta ON friends.follow_id = user_meta.user_id
+                    WHERE ($needle_where) AND friends.user_id = ?";
+
+            $query = $this->db->query($query_string, array($user->id));
+
+            // Echo the results
+            $return_array = array();
+            foreach ($query->result() as $row)
+            {
+                $return_array[] = array(
+                    'id' => $row->user_id,
+                    'name' => $row->first_name . ' ' . $row->last_name
+                );
+            }
+
+            echo(json_encode($return_array));
+        }
+    }
+
 }
 ?>

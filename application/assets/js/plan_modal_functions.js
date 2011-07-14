@@ -236,9 +236,20 @@ function initialize_plan_modal() {
         }
     });
     
-    // Invite click handler
+    // Invite click handlers
     $('#invite_to_plan').click(function () {
         $('#invite_plan_content').show('fast');
+    });
+    $('#close_invite_plan_content').click(function () {
+        $('#invite_plan_content').hide('fast');
+    });
+    
+    // TokenInput
+    $('#invite_plan_user').tokenInput('/home/get_followers_invite', {
+        hintText: 'Invite followers...',
+        minChars: 2,
+        preventDuplicates: true,
+        queryParam: 'needle'
     });
     
 }

@@ -336,6 +336,10 @@ a{
     padding: 5px;
     border: 3px solid black;
 }
+#plan_time, #plan_day {
+    margin-left: auto;
+    margin-right: auto;
+}
 .in-field_block {
     position:relative;
     height:30px;

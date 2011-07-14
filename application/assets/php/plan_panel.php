@@ -61,16 +61,7 @@
                     </td>
                 </tr>
             </table>
-
-            <hr/>
-            <input type="button" id="invite_to_plan" value="Invite people and groups"/>
-            <div id="invite_plan_content">
-
-            </div>
-
-            <hr/>
-            <input type="submit" value="Go"/>
-
+            
             <input id="plan_location_id" name="plan_location_id" type="hidden"/>
             <input id="plan_location_name" type="hidden"/>
             <input id="new_place_name" name="new_place_name" type="hidden"/>
@@ -78,6 +69,19 @@
             <input id="new_place_latitude" name="new_place_latitude" type="hidden"/>
             <input id="new_place_longitude" name="new_place_longitude" type="hidden"/>
             <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
+
+            <hr/>
+            <input type="button" id="invite_to_plan" value="Invite people and groups"/>
+            <div id="invite_plan_content">
+                <input type="text" id="invite_plan_user"/>
+                
+                <input type="button" id="close_invite_plan_content" value="Close"/>
+            </div>
+
+            <hr/>
+            <input type="submit" value="Go"/>
+
+            
         </form>
     </center>
 </div>
