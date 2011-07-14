@@ -121,6 +121,7 @@ class Dashboard extends CI_Controller
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $grad_year = $user_info->grad_year;
+        var_dump($user_info);
         $this->load->model('load_suggested_friends');
        $this->load_suggested_friends->suggested_friends($user_id, $grad_year);
     }
