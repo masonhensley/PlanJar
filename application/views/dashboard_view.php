@@ -19,10 +19,13 @@
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
+        
+        <!-- Calls select_correct_tab (loaded like this to fix timing errors) -->
+        <script type="text/javascript" src="/application/assets/js/dashboard_call_correct_tab.js"></script>
 
-        <!-- Select the appropriate tab (value passed from PHP) -->
+        <!-- Functino to select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">
-            $(function() {
+            function select_correct_tab() {
                 // Load the data container from the URI
                 $('.tab_container [assoc_div="<?php echo('#' . $initial_tab . '_content'); ?>"]').click();
                 
@@ -31,7 +34,7 @@
                     console.log('click called');
                     $('#<?php echo($initial_tab); ?>_content .suggested').click();
                 }
-            });
+            }
         </script>
 
         <title>PlanJar | Dashboard</title>
