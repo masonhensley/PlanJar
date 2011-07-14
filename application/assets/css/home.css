@@ -23,10 +23,8 @@ a{
 .top_panel{
     height: 40px;
     width:100%;
-    background-color: black;
-background-repeat: repeat-x;
-opacity: .6;
-filter: alpha(opacity=40);
+    background-color: -webkit-gradient(linear,left top,left bottom,from(#333),to(#111));
+
 }
 
 .top_panel_left{
