@@ -171,12 +171,16 @@ class Home extends CI_Controller
             'event_id' => $this->input->get('event_id')
         );
 
-        // One of description and event_id must be NULL.
-        if ($data['title'] == false)
+        // Handle privacy settings
+        $privacy = $this->input->get('privacy');
+        if ($privacy != 'none')
         {
+            // Privacy settings enabled. Null out the plan title and add an event_id (newly created event)
+            $this->load->model('event_ops');
+            $data['event_id'] = $this->event_ops->create_event($data['title'], $privacy);
             $data['title'] = NULL;
-        } else
-        {
+        } else {
+            // No privacy settings. Continue creating a plan as normal.
             $data['event_id'] = NULL;
         }
 
