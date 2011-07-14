@@ -24,7 +24,7 @@
         <script type="text/javascript">
             $(function() {
                 // Load the data container from the URI
-                $('.tab_container [assoc_div="<?php echo($initial_tab); ?>"]').click();
+                $('.tab_container [assoc_div="<?php echo('#' . $initial_tab . '_content'); ?>"]').click();
                 
                 // Select the suggested tab if necessary.
                 if ('<?php echo($suggested); ?>' == 'suggested') {
