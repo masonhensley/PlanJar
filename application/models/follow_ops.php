@@ -94,7 +94,7 @@ class Follow_ops extends CI_Model
                         echo "$suggested_friends[$id] second-degree connections";
                     }else if($option == 'suggested_school')
                     {
-                        echo "You attend the same school";
+                        echo "You have the same graduation year";
                     }
                     ?>
                 </div>
