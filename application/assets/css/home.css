@@ -25,7 +25,8 @@ a{
     width:100%;
     background-color: black;
 background-repeat: repeat-x;
-opacity: .4;
+opacity: .6;
+filter: alpha(opacity=40);
 }
 
 .top_panel_left{
