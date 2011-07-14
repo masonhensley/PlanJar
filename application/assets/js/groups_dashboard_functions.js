@@ -13,10 +13,10 @@ function initialize_group_search() {
         }else{
            
             $(this).addClass('suggest_groups_active');
-            $.get('/dashboard/suggest_groups',{}, function(data){
+            $.get('/dashboard/suggest_groups', function(data){
                 $('#find_groups_list').html(data);
                  alert('success');
-            })
+            });
         }
     });
     
