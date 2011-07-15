@@ -20,11 +20,14 @@ class Load_suggested_groups extends CI_Model
             $number_of_results = count($suggested_groups);
             asort($suggested_groups);
             $suggested_groups = array_reverse($suggested_groups, TRUE);
-            $result = $this->generate_suggested_groups($suggested_groups);
-            $this->load->model('group_ops');
-            foreach ($result->result() as $row)
+            if ($number_of_results > 0)
             {
-                $this->group_ops->echo_group_entry($row, 'suggested groups', $suggested_groups);
+                $result = $this->generate_suggested_groups($suggested_groups);
+                $this->load->model('group_ops');
+                foreach ($result->result() as $row)
+                {
+                    $this->group_ops->echo_group_entry($row, 'suggested groups', $suggested_groups);
+                }
             }
         }
     }
