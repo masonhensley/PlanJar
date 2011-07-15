@@ -173,15 +173,14 @@ border-top-left-radius: 10px;
     height:25px;
     padding-top:5px;
     margin-bottom:-7px;
--moz-border-radius-topleft: 10px;
-border-top-left-radius: 10px;
+
 }
 #followers_list {
     width: 100%;
     height: auto;
 }
 .selected_follower {
-       background: -webkit-gradient(linear,left top,left bottom,from(#d069ea),to(#99bbff));
+       background: -webkit-gradient(linear,left top,left bottom,from(#c0c0c0),to(#dadada));
 }
 #followers_content .right {
     width: 48%;
