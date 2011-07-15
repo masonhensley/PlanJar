@@ -14,7 +14,12 @@ class Load_suggested_groups extends CI_Model
         $users_following = $this->get_users_following();
         if (count($users_following) > 0)
         {
-            $this->get_suggested_groups($users_following);
+            $suggested_groups = $this->get_suggested_groups($users_following);
+            $suggested_groups = array_count_values($suggested_groups);
+            $number_of_results = count($suggested_groups);
+            asort($suggested_groups);
+            $suggested_groups = array_reverse($suggested_groups, TRUE);
+            var_dump($suggested_groups);
         }
     }
 
@@ -51,8 +56,14 @@ class Load_suggested_groups extends CI_Model
             }
             $tracker++;
         }
-        var_dump($query, $tracker);
-        //$result = $this->db->query($query);
+        
+        $result = $this->db->query($query);
+        $group_results = array();
+        foreach($result->result() as $group_id)
+        {
+            $group_results[] = $group_id->group_id;
+        }
+        return $group_results;
     }
 
 }
