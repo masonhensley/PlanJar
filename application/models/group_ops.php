@@ -158,7 +158,7 @@ class Group_ops extends CI_Model
         $this->load->database();
         $user_id = $this->ion_auth->get_user()->id;
 
-        $query_string = "SELECT * FROM group_relationships WHERE group_id = ? AND user_joined_id = ?";
+        $query_string = "SELECT * FROM group_relationships WHERE group_id = ? AND user_following_id = ?";
         $query = $this->db->query($query_string, array($group_id, $user_id));
 
         return $query->num_rows() > 0;
