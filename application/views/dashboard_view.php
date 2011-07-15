@@ -57,6 +57,8 @@
                 <div class="tab" assoc_div="#plans_content">Plans</div>
                 <div class="tab" assoc_div="#profile_content">Profile</div>
                 <div class="tab" assoc_div="#settings_content">Settings</div>
+                
+                <div class="create_group">+ Create Group</div>
             </div>
 
             <div id="following_content" class="page_content" setup_func="following_setup">
