@@ -19,23 +19,19 @@
             <textarea name="group_description" cols="40" rows="5">
             </textarea>
         </div><br/>
-        
-        <div class="divset" style="float:left;">
-            Anyone can join
-        </div>
-        
-        <div class="divset">
-            Members can invite
-        </div>
-        
-        <div class="divset">
-            Certain members can invite
-        </div>
-
         <div class="create_group_privacy">
+            <div class="divset" style="float:left;">
+                Anyone can join
+            </div>
 
+            <div class="divset">
+                Members can invite
+            </div>
+
+            <div class="divset">
+                Certain members can invite
+            </div>
         </div>
-
         <div class ="create_group_bottom">
 
         </div>
