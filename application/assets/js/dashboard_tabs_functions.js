@@ -15,7 +15,7 @@ function initialize_dashboard_tabs() {
         {
             $('.create_group').hide();
         }else{
-            $('.create_group').show();
+            $('.create_group').show("slow");
         }
     });
 }
