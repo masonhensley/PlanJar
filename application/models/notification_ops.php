@@ -9,7 +9,8 @@ class Notification_ops extends CI_Model
         parent::__construct();
     }
 
-    // Sends a notification to everyone in the groups specified in the group list (assuming the user has joined the groups)
+    // Sends a notification to everyone in the groups specified in the group list.
+    // The passed groups must be joined by the user to work correctly.
     public function notify_joined_groups($group_list, $date, $type, $subject_id)
     {
         $user = $this->ion_auth->get_user();
@@ -36,7 +37,6 @@ class Notification_ops extends CI_Model
             // Get a list of all users joined to at least one of the specified groups
             $query_string = "SELECT user_joined_id FROM group_relationships WHERE ($or_clauses) AND user_joined_id <> 'NULL'";
             $query = $this->db->query($query_string);
-            echo($this->db->last_query());
 
             // Build the string containing the multiple entries to insert.
             $values_string = '';
@@ -61,7 +61,7 @@ class Notification_ops extends CI_Model
     }
 
     // Sends a notification to everyone specified in the user list
-    public function notify_followers($user_list, $date, $type, $subject_id)
+    public function notify_users($user_list, $date, $type, $subject_id)
     {
         $user = $this->ion_auth->get_user();
         $originator_id = $user->id;

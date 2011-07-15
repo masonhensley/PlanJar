@@ -162,8 +162,15 @@ class Dashboard extends CI_Controller
 
     public function get_group_details()
     {
+        $this->load->model('group_ops');
+
         $group_id = $this->input->get('group_id');
+
         echo("Information for group $group_id");
+        if ($this->group_ops->user_is_following($group_id))
+        {
+            echo('<div class="add_joined">Join</div>');
+        }
     }
 
     public function add_group_following()
@@ -240,5 +247,4 @@ class Dashboard extends CI_Controller
     }
 
 }
-
 ?>

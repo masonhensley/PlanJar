@@ -38,18 +38,18 @@ function initialize_group_search() {
 
 function group_select_click_handler()
 {
-     $('#find_groups_list .group_entry').click(function() {
-                // Unselect other groups
-                $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
+    $('#find_groups_list .group_entry').click(function() {
+        // Unselect other groups
+        $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
                                 
-                $('.group_entry.selected_group').removeClass('selected_group');
-                $(this).addClass('selected_group');
-                $.get('/dashboard/get_group_details', {
-                    group_id: $(this).attr('group_id')
-                }, function (data) {
-                    $('#groups_content .middle').html(data);
-                });
-            });
+        $('.group_entry.selected_group').removeClass('selected_group');
+        $(this).addClass('selected_group');
+        $.get('/dashboard/get_group_details', {
+            group_id: $(this).attr('group_id')
+        }, function (data) {
+            $('#groups_content .middle').html(data);
+        });
+    });
     
     // Click handler.
     $('#find_groups_list .add_following').click(function () {
@@ -92,6 +92,19 @@ function populate_edit_groups_list() {
         group_click_handler('.remove_following', 'remove_group_following');
         group_click_handler('.remove_joined', 'remove_group_joined');
         group_click_handler('.add_joined', 'add_group_joined');
+        
+        // Join handler (special case)
+        $('#groups_content .middle .add_joined').click(function () {
+            $(this).text('You sure?');
+            $(this).unbind('click');
+            $(this).click(function () {
+                $.get('/dashboard/add_group_joined', {
+                    group_id: $('#edit_groups_list .selected_group').attr('group_id')
+                }, function (data) {
+                    populate_edit_groups_list();
+                });
+            });
+        });
     });
 }
 
@@ -101,7 +114,7 @@ function group_click_handler(button_class, dashboard_function) {
         $(this).unbind('click');
         $(this).click(function () {
             $.get('/dashboard/' + dashboard_function, {
-                group_id: $(this).parent().attr('group_id')
+                group_id: $(this).parent().parent().attr('group_id')
             }, function (data) {
                 populate_edit_groups_list();
             });
