@@ -23,7 +23,7 @@ class Load_suggested_groups extends CI_Model
             $this->load->model('group_ops');
             foreach($result->result() as $row)
             {
-                $this->group_ops->echo_group_entry($row, 'add_following');
+                $this->group_ops->echo_group_entry($row, 'add following');
             }
             
         }
