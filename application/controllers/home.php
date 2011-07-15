@@ -225,6 +225,7 @@ class Home extends CI_Controller
             $this->notification_ops->notify_followers($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
         }
         $invited_groups = explode(',', $this->input->get('invite_plan_group'));
+        var_dump($invited_groups);
         if (count($invited_groups) > 0)
         {
             $this->load->model('notification_ops');

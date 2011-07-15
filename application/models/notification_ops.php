@@ -17,7 +17,6 @@ class Notification_ops extends CI_Model
 
         // Create the WHERE clauses to find all users in the group list.
         $or_clauses = '';
-        var_dump($group_list);
         foreach ($group_list as $group_id)
         {
             $or_clauses .= "group_id = $group_id OR ";
