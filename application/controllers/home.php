@@ -218,18 +218,24 @@ class Home extends CI_Controller
         $query = $this->db->insert('plans', $data);
 
         // Invite people and groups if necessary.
-        $invited_users = explode(',', $this->input->get('invite_plan_user'));
-        if (count($invited_users) > 0)
+        if ($this->input->get('invite_plan_user') != '')
         {
-            $this->load->model('notification_ops');
-            $this->notification_ops->notify_followers($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
+            $invited_users = explode(',', $this->input->get('invite_plan_user'));
+            if (count($invited_users) > 0)
+            {
+                $this->load->model('notification_ops');
+                $this->notification_ops->notify_followers($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
+            }
         }
-        $invited_groups = explode(',', $this->input->get('invite_plan_group'));
-        var_dump($invited_groups);
-        if (count($invited_groups) > 0)
+
+        if ($this->input->get('invite_plan_group') != '')
         {
-            $this->load->model('notification_ops');
-            $this->notification_ops->notify_joined_groups($invited_groups, $data['date'], 'plan_invite', $this->db->insert_id());
+            $invited_groups = explode(',', $this->input->get('invite_plan_group'));
+            if (count($invited_groups) > 0)
+            {
+                $this->load->model('notification_ops');
+                $this->notification_ops->notify_joined_groups($invited_groups, $data['date'], 'plan_invite', $this->db->insert_id());
+            }
         }
 
         // Success
