@@ -36,13 +36,17 @@ class Notification_ops extends CI_Model
             // Get a list of all users joined to at least one of the specified groups
             $query_string = "SELECT user_joined_id FROM group_relationships WHERE $or_clauses";
             $query = $this->db->query($query_string);
+            echo($this->db->last_query());
 
             // Build the string containing the multiple entries to insert.
             $values_string = '';
             foreach ($query->result() as $row)
             {
-                $user_id = $row->user_joined_id;
-                $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id), ";
+                $user_id = $this->db->escape($row->user_joined_id);
+                if ($user_id != $originator_id)
+                {
+                    $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id), ";
+                }
             }
             if ($values_string != '')
             {
