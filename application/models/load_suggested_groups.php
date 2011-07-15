@@ -19,8 +19,13 @@ class Load_suggested_groups extends CI_Model
             $number_of_results = count($suggested_groups);
             asort($suggested_groups);
             $suggested_groups = array_reverse($suggested_groups, TRUE);
-            var_dump($suggested_groups);
-            $this->generate_suggested_groups($suggested_groups);
+            $result = $this->generate_suggested_groups($suggested_groups);
+            $this->load->model('group_ops');
+            foreach($result->result() as $row)
+            {
+                $this->group_ops->echo_group_entry($row, 'suggested groups', $suggested_groups);
+            }
+            
         }
     }
 
@@ -87,8 +92,8 @@ class Load_suggested_groups extends CI_Model
         $or_clause = substr($or_clause, 0, strlen($or_clause) - 3);
         $when_clause .= "END";
         $query .= $or_clause .$when_clause;
-        var_dump($query);        
-        
+        $result = $this->db->query($query);  
+        return $result;
     }
 
 }

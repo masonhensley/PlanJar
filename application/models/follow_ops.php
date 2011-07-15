@@ -96,7 +96,7 @@ class Follow_ops extends CI_Model
                     if ($option == 'suggested')
                     {
                         $id = $row->user_id;
-                        echo "$suggested_friends[$id] second-degree connections";
+                        echo "$suggested_friends[$id] connection"; if($suggested_friends[$id]>1){echo"s";}
                     }else if($option == 'suggested_school')
                     {
                         echo "You have the same graduation year";

@@ -17,6 +17,7 @@ function initialize_group_search() {
             $('.suggest_groups').addClass('suggest_groups_active');
             $.get('/dashboard/suggest_groups', function(data){
                 $('#find_groups_list').html(data);
+                group_select_click_handler();
             });
         }
     });
@@ -30,24 +31,14 @@ function initialize_group_search() {
         }, function (data) {
             $('#find_groups_list').html(data);
             
-            // Click handler.
-            $('#find_groups_list .add_following').click(function () {
-                $(this).text('You sure?');
-                $(this).unbind('click');
-                $(this).click(function () {
-                    $.get('/dashboard/add_group_following', {
-                        group_id: $(this).parent().attr('group_id')
-                    }, function () {
-                        $('#find_groups_list').html('');
-                        $('#group_search').val('');
-                        populate_edit_groups_list();
-                        $('#group_search').blur();
-                    });
-                });
-            });
+            group_select_click_handler();
+        });
+    });
+}
 
-            // Make groups selectable
-            $('#find_groups_list .group_entry').click(function() {
+function group_select_click_handler()
+{
+     $('#find_groups_list .group_entry').click(function() {
                 // Unselect other groups
                 $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
                                 
@@ -58,6 +49,20 @@ function initialize_group_search() {
                 }, function (data) {
                     $('#groups_content .middle').html(data);
                 });
+            });
+    
+    // Click handler.
+    $('#find_groups_list .add_following').click(function () {
+        $(this).text('You sure?');
+        $(this).unbind('click');
+        $(this).click(function () {
+            $.get('/dashboard/add_group_following', {
+                group_id: $(this).parent().attr('group_id')
+            }, function () {
+                $('#find_groups_list').html('');
+                $('#group_search').val('');
+                populate_edit_groups_list();
+                $('#group_search').blur();
             });
         });
     });
