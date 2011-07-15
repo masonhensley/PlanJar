@@ -13,5 +13,5 @@ function initialize_create_group_modal()
         $('.create_group_content').hide("fast");
     });
     
-    $('.create_group_content .in-field_label').inFieldLabels();   
+    $('.create_group_content .in-field_label label').inFieldLabels();   
 }
