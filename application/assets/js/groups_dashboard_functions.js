@@ -7,6 +7,9 @@ function groups_setup() {
 }
 
 function initialize_group_search() {
+    // In-field labels
+    $('#groups_content .right_header .in-field_block label').inFieldLabels();
+    
     // click handler for suggest groups
     $('.suggest_groups').click(function(){
         if($(this).hasClass('suggest_groups_active'))
@@ -93,6 +96,7 @@ function populate_edit_groups_list() {
                         $.get('/dashboard/add_group_joined', {
                             group_id: $('#edit_groups_list .selected_group').attr('group_id')
                         }, function (data) {
+                            $('#groups_content .middle').html('');
                             populate_edit_groups_list();
                         });
                     });
