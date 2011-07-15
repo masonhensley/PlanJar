@@ -1,3 +1,5 @@
+<!-- CSS file is /assets/css/create_group_modal.css -->
+
 <div class="create_group_content">
     <div class="create_group_top_bar">
         Create Group
