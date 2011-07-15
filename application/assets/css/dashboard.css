@@ -4,7 +4,7 @@ body{
     margin: 0px;
     font-family: helvetica;
     font-size: 15px;
-    
+
     /*-webkit-user-select: none; */
     cursor:default; 
 }
@@ -100,8 +100,8 @@ a{
     height:auto;
     background-color:white;
     border: 1px solid black;
--moz-border-radius-topleft: 10px;
-border-top-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
 }
 #following_content .right_header {
     height: 30px;
@@ -180,7 +180,7 @@ border-top-left-radius: 10px;
     height: auto;
 }
 .selected_follower {
-       background: -webkit-gradient(linear,left top,left bottom,from(#c0c0c0),to(#dadada));
+    background: -webkit-gradient(linear,left top,left bottom,from(#c0c0c0),to(#dadada));
 }
 #followers_content .right {
     width: 48%;
@@ -272,7 +272,6 @@ border-top-left-radius: 10px;
     margin-top:15px;
 }
 .group_entry .remove_following {
-    float: right;
     width: 80px;
     background-color: red;
     color: white;
@@ -306,6 +305,12 @@ border-top-left-radius: 10px;
     color: white;
     padding: 3px;
     margin-top: 5px;
+}
+
+.group_entry_left_side{
+    float:right;
+    height:auto;
+    width:auto;
 }
 
 /* in-field labels */

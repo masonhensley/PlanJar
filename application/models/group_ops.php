@@ -97,6 +97,7 @@ class Group_ops extends CI_Model
 
                 </div>
             </div>
+            <div class="group_entry_left_side">
             <?php
             if ($option == 'remove following')
             {
@@ -126,6 +127,7 @@ class Group_ops extends CI_Model
                 <?php
             }
             ?>
+            </div>
         </div>
         <?php
     }
