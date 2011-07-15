@@ -20,14 +20,12 @@ class Load_suggested_groups extends CI_Model
             asort($suggested_groups);
             $suggested_groups = array_reverse($suggested_groups, TRUE);
             $result = $this->generate_suggested_groups($suggested_groups);
-            var_dump($result);
-            /*
             $this->load->model('group_ops');
             foreach($result as $row)
             {
                 $this->group_ops->echo_group_entry($row, 'add_following');
             }
-            */
+            
         }
     }
 
@@ -94,7 +92,7 @@ class Load_suggested_groups extends CI_Model
         $or_clause = substr($or_clause, 0, strlen($or_clause) - 3);
         $when_clause .= "END";
         $query .= $or_clause .$when_clause;
-        $result = $this->db->query($result);  
+        $result = $this->db->query($query);  
         return $result;
     }
 
