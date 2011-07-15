@@ -219,13 +219,13 @@ class Home extends CI_Controller
 
         // Invite people and groups if necessary.
         $invited_users = explode(',', $this->input->get('invite_plan_user'));
-        echo(count($invited_users));
         if (count($invited_users) > 0)
         {
             $this->load->model('notification_ops');
             $this->notification_ops->notify_followers($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
         }
         $invited_groups = explode(',', $this->input->get('invite_plan_group'));
+        echo(count($invited_groups));
         if (count($invited_groups) > 0)
         {
             $this->load->model('notification_ops');
