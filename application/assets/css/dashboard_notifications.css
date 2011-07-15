@@ -12,3 +12,12 @@
     float: right;
 }
 
+#notifications_list {
+    width: 100%;
+    height: auto;
+}
+
+#notification_list .notification_entry {
+    height: auto;
+    border: 1px solid black;
+}
