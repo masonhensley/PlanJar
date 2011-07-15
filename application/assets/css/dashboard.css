@@ -91,9 +91,6 @@ a{
     min-height: 50px;
     border-top-left-radius:10px;
 }
-.left_header{
-
-}
 
 #follow_search {
     width: 100%;
@@ -184,7 +181,6 @@ a{
 .left_header{
     height: 50px; 
     width: 100%; 
-    background-color: white;
     border-bottom: 1px solid black;
 }
 
