@@ -84,6 +84,19 @@ function populate_edit_groups_list() {
                 group_id: $(this).attr('group_id')
             }, function (data) {
                 $('#groups_content .middle').html(data);
+                
+                // Join handler (special case)
+                $('#groups_content .middle .add_joined').click(function () {
+                    $(this).text('You sure?');
+                    $(this).unbind('click');
+                    $(this).click(function () {
+                        $.get('/dashboard/add_group_joined', {
+                            group_id: $('#edit_groups_list .selected_group').attr('group_id')
+                        }, function (data) {
+                            populate_edit_groups_list();
+                        });
+                    });
+                });
             });
         });
         
@@ -92,19 +105,6 @@ function populate_edit_groups_list() {
         group_click_handler('.remove_following', 'remove_group_following');
         group_click_handler('.remove_joined', 'remove_group_joined');
         group_click_handler('.add_joined', 'add_group_joined');
-        
-        // Join handler (special case)
-        $('#groups_content .middle .add_joined').click(function () {
-            $(this).text('You sure?');
-            $(this).unbind('click');
-            $(this).click(function () {
-                $.get('/dashboard/add_group_joined', {
-                    group_id: $('#edit_groups_list .selected_group').attr('group_id')
-                }, function (data) {
-                    populate_edit_groups_list();
-                });
-            });
-        });
     });
 }
 
