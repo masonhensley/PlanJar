@@ -167,7 +167,7 @@ class Dashboard extends CI_Controller
         $group_id = $this->input->get('group_id');
 
         echo("Information for group $group_id");
-        if ($this->user_is_following($group_id))
+        if ($this->group_ops->user_is_following($group_id))
         {
             echo('<div class="add_joined">Join</div>');
         }
