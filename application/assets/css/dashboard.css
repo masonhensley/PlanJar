@@ -5,7 +5,7 @@ body{
     font-family: helvetica;
     font-size: 15px;
     
-    -webkit-user-select: none; 
+    /*-webkit-user-select: none; */
     cursor:default; 
 }
 
@@ -17,7 +17,7 @@ a{
 .top_panel{
     height: 40px;
     width:100%;
-    background: -webkit-gradient(linear,left top,left bottom,from(#aaa),to(#fff));
+    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
 }
 
 .inside_top_panel{
@@ -180,7 +180,7 @@ border-top-left-radius: 10px;
     height: auto;
 }
 .selected_follower {
-       background: -webkit-gradient(linear,left top,left bottom,from(#ddd),to(#d9d9d9));
+       background: -webkit-gradient(linear,left top,left bottom,from(#c0c0c0),to(#dadada));
 }
 #followers_content .right {
     width: 48%;
