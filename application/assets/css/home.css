@@ -1,7 +1,7 @@
 /*--------------GLOBAL ---------------- */
 body{
     //background-color: #F3F6FF;
-background-image: url("/../images/bg_stripe1.png");
+background-image: url("/../images/bg_stripe.png");
     margin: 0px;
     /* make text not selectable for the UI */
     -webkit-user-select: none;
