@@ -28,3 +28,10 @@
 .create_group_bottom{
 
 }
+
+.input_style{
+    margin-left: 5px;
+    width:200px;
+    float:none;
+    margin-top: 10px;
+}
