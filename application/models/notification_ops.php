@@ -51,7 +51,7 @@ class Notification_ops extends CI_Model
             if ($values_string != '')
             {
                 // Trim the trailing comma and space
-                $values_string = substr($values_string, 0, -1);
+                $values_string = substr($values_string, 0, -2);
 
                 // Add all the notifications.
                 $query_string = "INSERT IGNORE INTO notifications VALUES $values_string";
