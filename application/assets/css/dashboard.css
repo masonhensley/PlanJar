@@ -168,11 +168,11 @@ a{
     height: auto;
     border: 1px solid black;
     border-top-left-radius:10px;
+    background-color: white;
 }
 #followers_content .left_header {
     width: 100%;
     text-align:center;
-    background-color:beige;
     color:navy;
     height:25px;
     padding-top:5px;
