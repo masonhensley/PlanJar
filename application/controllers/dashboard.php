@@ -245,6 +245,12 @@ class Dashboard extends CI_Controller
 
         $this->group_ops->search_for_groups($this->input->get('needle'));
     }
+    
+    public function get_notifications() {
+        $user = $this->ion_auth->get_user();
+        
+        
+    }
 
 }
 ?>

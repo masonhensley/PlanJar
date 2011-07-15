@@ -6,7 +6,7 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
-        <link rel=stylesheet href="/application/assets/css/dashboard_notifications" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/dashboard_notifications.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>

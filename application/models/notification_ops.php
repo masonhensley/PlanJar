@@ -90,6 +90,15 @@ class Notification_ops extends CI_Model
         }
     }
 
+    public function get_notifications()
+    {
+        $user_id = $this->ion_auth->get_user()->id;
+
+        $query_string = "SELECT notifications.date, notifications.type, notifications.subject_id, user_meta.first_name, user_meta.last_name
+            FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
+            WHERE notifications";
+    }
+
 }
 
 ?>
