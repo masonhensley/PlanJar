@@ -48,7 +48,7 @@
                             <img src="/application/css/profile.png" style="text-align: center;  width:200px; padding-top:10px; padding-right: 10px; height:230px;"/>
                         </div>
                         <div class="resume">
-                            <embed src="/application/css/resume.pdf" width="900" height="1000"></embed>
+                            <embed src="/application/css/resume.pdf" width="1024" height="1050"></embed>
                         </div>
                     </div>
                     <div class="my_music content">
