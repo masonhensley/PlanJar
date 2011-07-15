@@ -101,7 +101,7 @@ function group_click_handler(button_class, dashboard_function) {
         $(this).unbind('click');
         $(this).click(function () {
             $.get('/dashboard/' + dashboard_function, {
-                group_id: $(this).parent().attr('group_id')
+                group_id: $(this).parent().parent().attr('group_id')
             }, function (data) {
                 populate_edit_groups_list();
             });
