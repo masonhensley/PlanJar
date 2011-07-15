@@ -34,7 +34,7 @@ class Notification_ops extends CI_Model
             $subject_id = $this->db->escape($subject_id);
 
             // Get a list of all users joined to at least one of the specified groups
-            $query_string = "SELECT user_joined_id FROM group_relationships WHERE ($or_clauses) AND user_joined_id <> NULL";
+            $query_string = "SELECT user_joined_id FROM group_relationships WHERE ($or_clauses) AND user_joined_id <> 'NULL'";
             $query = $this->db->query($query_string);
             echo($this->db->last_query());
 
