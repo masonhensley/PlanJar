@@ -76,7 +76,7 @@ class Group_ops extends CI_Model
     }
 
     // Echos a group entry.
-    public function echo_group_entry($row, $option = '')
+    public function echo_group_entry($row, $option = '', $suggested_groups=null)
     {
         ?>
         <div class="group_entry" group_id="<?php echo($row->id); ?>">
@@ -87,7 +87,14 @@ class Group_ops extends CI_Model
             </div>
             <div class="group_entry_middle">
                 <div class="group_name">
-                    <?php echo($row->name); ?>
+                    <?php
+                    echo($row->name) . "<br/>";
+                    if ($option = 'suggested groups')
+                    {
+                        echo $suggested_groups[$row->id] ." 1st degree connections are in this group";
+                    }
+                    ?>
+
                 </div>
             </div>
             <?php
@@ -111,6 +118,11 @@ class Group_ops extends CI_Model
             {
                 ?>
                 <div class="remove_joined">Unjoin</div>
+                <?php
+            } else if ($option == 'suggested groups')
+            {
+                ?>
+                <div class="add_following">Follow</div>
                 <?php
             }
             ?>
