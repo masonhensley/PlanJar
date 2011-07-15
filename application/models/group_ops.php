@@ -75,6 +75,23 @@ class Group_ops extends CI_Model
         return $return_array;
     }
 
+    public function get_joined_groups()
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "SELECT group_id FROM group_relationships " .
+                "WHERE user_joined_id = ?";
+        $query = $this->db->query($query_string, array($user->id));
+
+        $return_array = array();
+        foreach ($query->result() as $row)
+        {
+            $return_array[] = $row->group_id;
+        }
+
+        return $return_array;
+    }
+
     // Echos a group entry.
     public function echo_group_entry($row, $option = '')
     {
