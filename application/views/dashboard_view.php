@@ -16,6 +16,7 @@
         <script type="text/javascript" src="/application/assets/js/following_dashboard_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/followers_dashboard_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_dashboard_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/group_modal_functions.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -57,7 +58,7 @@
                 <div class="tab" assoc_div="#plans_content">Plans</div>
                 <div class="tab" assoc_div="#profile_content">Profile</div>
                 <div class="tab" assoc_div="#settings_content">Settings</div>
-                
+
                 <div class="create_group">+ Create Group</div>
             </div>
 
