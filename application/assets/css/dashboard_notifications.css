@@ -1,0 +1,14 @@
+#notifications_content .left {
+    padding: 5px;
+    width: 48%;
+    height: auto;
+    float: left;
+}
+
+#notifications_content .right {
+    padding: 5px;
+    width: 48%;
+    height: auto;
+    float: right;
+}
+
