@@ -1,11 +1,11 @@
 <div class="left">
-    <div style="height: 50px; width: 100%; background-color: beige; border-bottom: 1px solid black;">
+    <div class ="left_header" >
         <div class="in-field_block" style="height: auto;">
             <label for="friend_search" style=" color:gray;">Search for people to follow</label>
             <input type="text" class="textbox" id="friend_search" />
         </div>
         <div class="suggested_friends">
-            <div style="position:relative; top:7px;">Suggested people to follow</div>
+            <div style="position:relative; top:7px;">Suggest people</div>
         </div>
         
     </div>
