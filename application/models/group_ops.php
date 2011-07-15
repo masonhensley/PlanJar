@@ -108,45 +108,60 @@ class Group_ops extends CI_Model
                     echo($row->name) . "<br/>";
                     if ($option == 'suggested groups')
                     {
-                        echo $suggested_groups[$row->id] ." connection";  if($suggested_groups[$row->id]>1){echo"s";}
+                        echo $suggested_groups[$row->id] . " connection";
+                        if ($suggested_groups[$row->id] > 1)
+                        {
+                            echo"s";
+                        }
                     }
                     ?>
 
                 </div>
             </div>
             <div class="group_entry_left_side">
-            <?php
-            if ($option == 'remove following')
-            {
-                ?>
-                <div class="remove_following">Unfollow</div>
-                <div class="add_joined">Join</div>
-                <?php
-            } else if ($option == 'add following')
-            {
-                ?>
-                <div class="add_following">Follow</div>
-                <?php
-            } else if ($option == 'following')
-            {
-                ?>
-                <div class="following">Following</div>
-                <?php
-            } else if ($option == 'remove joined')
-            {
-                ?>
-                <div class="remove_joined">Unjoin</div>
-                <?php
-            } else if ($option == 'suggested groups')
-            {
-                ?>
-                <div class="add_following">Follow</div>
-                <?php
-            }
+        <?php
+        if ($option == 'remove following')
+        {
             ?>
+                    <div class="remove_following">Unfollow</div>
+                    <?php
+                } else if ($option == 'add following')
+                {
+                    ?>
+                    <div class="add_following">Follow</div>
+                    <?php
+                } else if ($option == 'following')
+                {
+                    ?>
+                    <div class="following">Following</div>
+                    <?php
+                } else if ($option == 'remove joined')
+                {
+                    ?>
+                    <div class="remove_joined">Unjoin</div>
+                    <?php
+                } else if ($option == 'suggested groups')
+                {
+                    ?>
+                    <div class="add_following">Follow</div>
+            <?php
+        }
+        ?>
             </div>
         </div>
         <?php
+    }
+
+    // Returns true if the user is following the specified group
+    public function user_is_following($group_id)
+    {
+        $this->load->database();
+        $user_id = $this->ion_auth->get_user()->id;
+
+        $query_string = "SELECT * FROM group_relationships WHERE group_id = ? AND user_joined_id = ?";
+        $query = $this->db->query($query_string, array($group_id, $user_id));
+
+        return $query->num_rows() > 0;
     }
 
 }

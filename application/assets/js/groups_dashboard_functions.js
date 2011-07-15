@@ -38,18 +38,18 @@ function initialize_group_search() {
 
 function group_select_click_handler()
 {
-     $('#find_groups_list .group_entry').click(function() {
-                // Unselect other groups
-                $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
+    $('#find_groups_list .group_entry').click(function() {
+        // Unselect other groups
+        $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
                                 
-                $('.group_entry.selected_group').removeClass('selected_group');
-                $(this).addClass('selected_group');
-                $.get('/dashboard/get_group_details', {
-                    group_id: $(this).attr('group_id')
-                }, function (data) {
-                    $('#groups_content .middle').html(data);
-                });
-            });
+        $('.group_entry.selected_group').removeClass('selected_group');
+        $(this).addClass('selected_group');
+        $.get('/dashboard/get_group_details', {
+            group_id: $(this).attr('group_id')
+        }, function (data) {
+            $('#groups_content .middle').html(data);
+        });
+    });
     
     // Click handler.
     $('#find_groups_list .add_following').click(function () {
@@ -88,15 +88,15 @@ function populate_edit_groups_list() {
         });
         
         // Click handlers
-        group_click_handler('.add_following', 'add_group_following');
-        group_click_handler('.remove_following', 'remove_group_following');
-        group_click_handler('.remove_joined', 'remove_group_joined');
-        group_click_handler('.add_joined', 'add_group_joined');
+        group_click_handler('#edit_groups_list .add_following', 'add_group_following');
+        group_click_handler('#edit_groups_list .remove_following', 'remove_group_following');
+        group_click_handler('#edit_groups_list .remove_joined', 'remove_group_joined');
+        group_click_handler('#groups_content .add_joined', 'add_group_joined');
     });
 }
 
 function group_click_handler(button_class, dashboard_function) {
-    $('#edit_groups_list ' + button_class).click(function () {
+    $(button_class).click(function () {
         $(this).text('You sure?');
         $(this).unbind('click');
         $(this).click(function () {

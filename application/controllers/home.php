@@ -224,7 +224,7 @@ class Home extends CI_Controller
             if (count($invited_users) > 0)
             {
                 $this->load->model('notification_ops');
-                $this->notification_ops->notify_followers($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
+                $this->notification_ops->notify_users($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
             }
         }
 
