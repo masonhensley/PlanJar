@@ -20,12 +20,14 @@ class Load_suggested_groups extends CI_Model
             asort($suggested_groups);
             $suggested_groups = array_reverse($suggested_groups, TRUE);
             $result = $this->generate_suggested_groups($suggested_groups);
+            var_dump($result);
+            /*
             $this->load->model('group_ops');
             foreach($result as $row)
             {
                 $this->group_ops->echo_group_entry($row, 'add_following');
             }
-            
+            */
         }
     }
 
