@@ -180,7 +180,7 @@ border-top-left-radius: 10px;
     height: auto;
 }
 .selected_follower {
-       background: -webkit-gradient(linear,left top,left bottom,from(#ddd),to(#d9d9d9));
+       background: -webkit-gradient(linear,left top,left bottom,from(#c0c0c0),to(#dadada));
 }
 #followers_content .right {
     width: 48%;
