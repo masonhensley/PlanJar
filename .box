@@ -1,2 +1,2 @@
 url_rewrites:
-    - "^(.*)/index\.php(.*) $1$2
+    - "^(.*)/index\.php(.*) $1$2"
