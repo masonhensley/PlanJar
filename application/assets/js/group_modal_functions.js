@@ -1,4 +1,5 @@
 $(function() {
+    $('.create_group_content').hide();
     initialize_create_group_modal();
 });
 
