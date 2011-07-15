@@ -1,6 +1,7 @@
 <div class="create_group_content">
     <div class="create_group_top_bar">
         Create Group
+        <input type="button" id="cancel_group_creation" style="float:right" value="X"/>
     </div>
     <div class="create_group_middle">
         <label for="group_name">Group name</label>
