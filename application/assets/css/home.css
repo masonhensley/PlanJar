@@ -9,13 +9,12 @@ body{
     font-size: 15px;
 }
 
-.radio{
+.button{
     background-color: #222  url(/../images/alert-overlay.png) repeat-x;
     display:inline-block;
     padding: 5px 10px 6px;
     color: fff;
     text-decoration: none;
-    //font-weight: bold;
     line-height: 1;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
