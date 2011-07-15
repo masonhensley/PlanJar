@@ -85,7 +85,6 @@ a{
 #following_content .left {
     width:48%;
     float:left;
-border-top-left-radius: 5px;
     height:auto;
     background-color:white;
     border: 1px solid black;
@@ -101,6 +100,8 @@ border-top-left-radius: 5px;
     height:auto;
     background-color:white;
     border: 1px solid black;
+-moz-border-radius-topleft: 50px;
+border-top-left-radius: 50px;
 }
 #following_content .right_header {
     height: 30px;
