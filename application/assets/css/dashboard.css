@@ -89,7 +89,9 @@ a{
     background-color:white;
     border: 1px solid black;
     min-height: 50px;
+    border-top-left-radius:10px;
 }
+
 #follow_search {
     width: 100%;
     height: 800px;
@@ -100,11 +102,12 @@ a{
     height:auto;
     background-color:white;
     border: 1px solid black;
-    -moz-border-radius-topleft: 10px;
     border-top-left-radius: 10px;
 }
 #following_content .right_header {
     height: 30px;
+    margin-top:10px;
+    margin-left:10px;
 }
 #following_list{
     width: 100%;
@@ -164,17 +167,23 @@ a{
     float: left;
     height: auto;
     border: 1px solid black;
+    border-top-left-radius:10px;
+    background-color: white;
 }
 #followers_content .left_header {
     width: 100%;
     text-align:center;
-    background-color:beige;
     color:navy;
     height:25px;
     padding-top:5px;
     margin-bottom:-7px;
-
 }
+.left_header{
+    height: 50px; 
+    width: 100%; 
+    border-bottom: 1px solid black;
+}
+
 #followers_list {
     width: 100%;
     height: auto;
