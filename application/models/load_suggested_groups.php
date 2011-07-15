@@ -29,7 +29,7 @@ class Load_suggested_groups extends CI_Model
                     $this->group_ops->echo_group_entry($row, 'suggested groups', $suggested_groups);
                 }
             }else{
-                echo "Could not find any groups from from your connections";
+                echo "<br/>Could not find any groups from from your connections";
             }
         }
     }
