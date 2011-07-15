@@ -6,6 +6,7 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/dashboard_notifications" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -17,6 +18,7 @@
         <script type="text/javascript" src="/application/assets/js/followers_dashboard_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_dashboard_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/group_modal_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_notifications_functions.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -55,6 +57,7 @@
                 <div class="tab" assoc_div="#following_content">Following</div>
                 <div class="tab" assoc_div="#followers_content">Followers</div>
                 <div class="tab" assoc_div="#groups_content">Groups</div>
+                <div class="tab" assoc_div="#notifications">Notifications</div>
                 <div class="tab" assoc_div="#plans_content">Plans</div>
                 <div class="tab" assoc_div="#profile_content">Profile</div>
                 <div class="tab" assoc_div="#settings_content">Settings</div>
@@ -73,6 +76,11 @@
             <div id="groups_content" class="page_content" setup_func="groups_setup">
                 <?php include(APPPATH . '/assets/php/dashboard_groups.php'); ?>
             </div>
+            
+            <div id="notifications_content" class="page_content" setup_func="notifications_setup">
+                <?php include(APPPATH . '/assets/php/dashboard_notifications.php'); ?>
+            </div>
+        
             <div id="plans_content" class="page_content"></div>
             <div id="profile_content" class="page_content"></div>
             <div id="settings_content" class="page_content"></div>

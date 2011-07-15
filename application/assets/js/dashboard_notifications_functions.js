@@ -1,0 +1,4 @@
+function notifications_setup() {
+    
+}
+
