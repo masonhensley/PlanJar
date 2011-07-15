@@ -11,12 +11,6 @@ function initialize_dashboard_tabs() {
         if (!$(this).hasClass('tab_selected')) {
             show_data_container($(this).attr('assoc_div'));
         }
-        if($('.tab').attr('assoc_div') == '#groups_content')
-            {
-                $('.create_group').hide();
-            }else{
-                $('.create_group').show();
-            }
     });
 }
 
