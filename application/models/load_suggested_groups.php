@@ -73,16 +73,22 @@ class Load_suggested_groups extends CI_Model
 
         $query = "SELECT id, name FROM groups WHERE ";
         $counter = 1; // keeps track of the order of groups to be displayed
-        $when_clause = "";
         $or_clause = "";
+        $when_clause = "ORDER BY CASE id ";
+
         
         foreach ($suggested_groups as $id => $count)
         {
             $or_clause .= "id=$id OR ";
-            $when_clause .= "WHEN $id THEN $counter";
+            $when_clause .= "WHEN $id THEN $counter ";
             $group_list[] = $id;
             $counter++;
         }
+        
+        $when_clause .= "END";
+        $query .= $or_clause .$when_clause;
+        var_dump($query);        
+        
     }
 
 }
