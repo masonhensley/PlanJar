@@ -6,7 +6,7 @@
     ### Canonicalize codeigniter URLs
  
     # RewriteRule ^(welcome(/index)?|index(\.php)?)/?$ / [L,R=301]
-    RewriteCond %{THE_REQUEST} ^GET\ /.*/index\.(php|html)\ HTTP
+    RewriteCond %{THE_REQUEST} ^GET\ /.*/index\.php\ HTTP
     RewriteRule ^(.*)/index\.php$ $1 [L,R=301]
     RewriteRule ^(.*dashboard)/.* $1 [L,R=301]
 
@@ -18,7 +18,8 @@
     # If you have subdomains, you can add them to 
     # the list using the "|" (OR) regex operator
     RewriteCond %{HTTP_HOST} !^(www) [NC]
-    RewriteRule ^(.*)$ http://www.$1 [L,R=301]
+    RewriteRule ^(.*)$ http://www.domain.tld/$1 [L,R=301]
+    #RewriteRule ^(.*)$ http://www.domain.tld/$1 [L,R=301]
  
     # Enforce NO www
     #RewriteCond %{HTTP_HOST} ^www [NC]
