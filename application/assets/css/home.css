@@ -414,11 +414,21 @@ a{
 
 .divset {
     background-color: white;
-    color: black;
+    
     display:inline-block;
-    padding: 5px;
-    border:1px solid black;
-    border-radius:30px;
+    padding: 5px 10px 6px;
+color: fff;
+    text-decoration: none;
+font-weight: bold;
+line-height: 1;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow: 0 1px 3px #999;
+-webkit-box-shadow: 0 1px 3px #999;
+text-shadow: 0 -1px 1px #222;
+border-bottom: 1px solid #222;
+position: relative;
+cursor: pointer;
 }
 
 .divset.divset_selected {
