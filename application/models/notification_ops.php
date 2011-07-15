@@ -109,7 +109,7 @@ class Notification_ops extends CI_Model
     {
         ?>
         <div class="notification_entry" notif_id="<?php echo($row->id); ?>">
-
+            <?php echo($row->id . ' ' . ' ' . $row->date . ' ' . $row->type . ' ' . $row->subject_id . ' ' . $row->first_name . ' ' . $row->last_name); ?>
         </div>
         <?php
     }
