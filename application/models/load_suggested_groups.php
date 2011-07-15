@@ -84,7 +84,7 @@ class Load_suggested_groups extends CI_Model
             $group_list[] = $id;
             $counter++;
         }
-        $or_clause = substr($query, 0, strlen($query) - 3);
+        $or_clause = substr($or_clause, 0, strlen($or_clause) - 3);
         $when_clause .= "END";
         $query .= $or_clause .$when_clause;
         var_dump($query);        
