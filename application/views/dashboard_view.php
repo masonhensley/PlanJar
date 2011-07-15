@@ -6,6 +6,7 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
+        <link rel=stylesheet href="/application/asstes/css/create_group_modal.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
