@@ -21,7 +21,7 @@ class Load_suggested_groups extends CI_Model
             $suggested_groups = array_reverse($suggested_groups, TRUE);
             $result = $this->generate_suggested_groups($suggested_groups);
             $this->load->model('group_ops');
-            foreach($result as $row)
+            foreach($result->result() as $row)
             {
                 $this->group_ops->echo_group_entry($row, 'add_following');
             }
