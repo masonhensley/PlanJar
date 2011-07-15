@@ -96,12 +96,19 @@ class Notification_ops extends CI_Model
 
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id, user_meta.first_name, user_meta.last_name
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
-            WHERE notifications.viewed = false";
-        $query = $this->db->query($query_string);
+            WHERE user_id = ? ORDER BY notifications.viewed ASC";
+        $query = $this->db->query($query_string, array($user_id));
 
-        foreach ($query->result() as $row)
+        if ($query->num_rows() < 1)
         {
-            $this->echo_notification($row);
+            echo('No recent notifications');
+        } else
+        {
+
+            foreach ($query->result() as $row)
+            {
+                $this->echo_notification($row);
+            }
         }
     }
 
