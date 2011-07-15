@@ -204,6 +204,8 @@ a{
     float:right;
     width:auto;
     height:auto;
+    margin-top:10px;
+    margin-right:30px;
 }
 
 #groups_content .left {
