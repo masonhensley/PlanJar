@@ -153,10 +153,11 @@ class Home extends CI_Controller
         $this->load->view('foo_view');
     }
 
-// Adds a plan entry to the database.
+    // Adds a plan entry to the database, creates an event if necessary, and invites and notifies users if required.
     public function submit_plan()
     {
         $this->load->database();
+
         $user = $this->ion_auth->get_user();
         $date = new DateTime();
         $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
@@ -178,9 +179,7 @@ class Home extends CI_Controller
             // Privacy settings enabled. Null out the plan title and add an event_id (newly created event)
             $this->load->model('event_ops');
             $data['event_id'] = $this->event_ops->create_event(
-                            $data['title'], $privacy, explode(',', $this->input->get('invite_plan_user')), explode(',', $this->input->get('invite_plan_group'))
-            );
-
+                            $data['title'], $privacy, $invited_users, $invited_groups);
             $data['title'] = NULL;
         } else
         {
@@ -218,13 +217,22 @@ class Home extends CI_Controller
         // Add the plan.
         $query = $this->db->insert('plans', $data);
 
-        if ($query)
+        // Invite people and groups if necessary.
+        $invited_users = explode(',', $this->input->get('invite_plan_user'));
+        if (count($invited_users) > 0)
         {
-            echo('success');
-        } else
-        {
-            echo('error');
+            $this->load->model('notification_ops');
+            $this->notification_ops->notify_followers($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
         }
+        $invited_groups = explode(',', $this->input->get('invite_plan_group'));
+        if (count($invited_groups) > 0)
+        {
+            $this->load->model('notification_ops');
+            $this->notification_ops->notify_joined_groups($invited_groups, $data['date'], 'plan_invite', $this->db->insert_id());
+        }
+
+        // Success
+        echo('success');
     }
 
     // Returns chart data based on the selected groups and day
