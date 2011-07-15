@@ -45,7 +45,7 @@ class Notification_ops extends CI_Model
                 $user_id = $this->db->escape($row->user_joined_id);
                 if ($user_id != $originator_id)
                 {
-                    $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id), ";
+                    $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id, DEFAULT), ";
                 }
             }
             if ($values_string != '')
@@ -77,7 +77,7 @@ class Notification_ops extends CI_Model
         $values_string = '';
         foreach ($user_list as $user_id)
         {
-            $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id), ";
+            $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id, DEFAULT), ";
         }
         if ($values_string != '')
         {
@@ -94,11 +94,25 @@ class Notification_ops extends CI_Model
     {
         $user_id = $this->ion_auth->get_user()->id;
 
-        $query_string = "SELECT notifications.date, notifications.type, notifications.subject_id, user_meta.first_name, user_meta.last_name
+        $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id, user_meta.first_name, user_meta.last_name
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
-            WHERE notifications";
+            WHERE notifications.viewed = false";
+        $query = $this->db->query($query_string);
+
+        foreach ($query->result() as $row)
+        {
+            $this->echo_notification($row);
+        }
+    }
+
+    public function echo_notification($row)
+    {
+        ?>
+        <div class="notification_entry" notif_id="<?php echo($row->id); ?>">
+
+        </div>
+        <?php
     }
 
 }
-
 ?>
