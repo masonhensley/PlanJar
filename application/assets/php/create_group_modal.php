@@ -4,7 +4,7 @@
         <input type="button" id="cancel_group_creation" style="float:right" value="X"/>
     </div>
     <div class="create_group_middle">
-        <div class="in-field_label"><label for="group_name">Group name</label>
+        <div class="in-field_block"><label for="group_name">Group name</label>
         <input type="text" id="group_name" name="group_name" class="textbox"/></div>
     </div>
     
