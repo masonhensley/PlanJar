@@ -215,11 +215,11 @@ a{
     border: 1px solid black;
     border-bottom:none;
     background-color:white;
+    border-top-left-radius:10px;
 }
 #groups_content .left_header {
     width: 100%;
     text-align:center;
-    background-color:beige;
     color:navy;
     height:25px;
     padding-top:5px;
