@@ -100,8 +100,8 @@ a{
     height:auto;
     background-color:white;
     border: 1px solid black;
--moz-border-radius-topleft: 50px;
-border-top-left-radius: 50px;
+-moz-border-radius-topleft: 10px;
+border-top-left-radius: 10px;
 }
 #following_content .right_header {
     height: 30px;
@@ -173,6 +173,8 @@ border-top-left-radius: 50px;
     height:25px;
     padding-top:5px;
     margin-bottom:-7px;
+-moz-border-radius-topleft: 10px;
+border-top-left-radius: 10px;
 }
 #followers_list {
     width: 100%;
