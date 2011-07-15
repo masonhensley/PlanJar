@@ -198,7 +198,14 @@ a{
     border: 1px solid black;
 }
 
-/* group tab */
+/* ----------------GROUP TAB--------------- */
+.create_group{
+    color:navy;
+    float:right;
+    width:auto;
+    height:auto;
+}
+
 #groups_content .left {
     width: 280px;
     float: left;
