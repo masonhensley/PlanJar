@@ -62,6 +62,12 @@ class Notification_ops extends CI_Model
         $user = $this->ion_auth->get_user();
         $originator_id = $user->id;
 
+        // Escape all vars
+        $originator_id = $this->db->escape($originator_id);
+        $date = $this->db->escape($date);
+        $type = $this->db->escape($type);
+        $subject_id = $this->db->escape($subject_id);
+
 
         // Build the string containing the multiple entries to insert.
         $values_string = '';
@@ -72,7 +78,7 @@ class Notification_ops extends CI_Model
         if ($values_string != '')
         {
             // Trim the trailing comma and space
-            $values_string = substr($values_string, 0, -1);
+            $values_string = substr($values_string, 0, -2);
 
             // Add all the notifications.
             $query_string = "INSERT IGNORE INTO notifications VALUES $values_string";
