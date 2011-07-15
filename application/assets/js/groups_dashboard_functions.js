@@ -88,15 +88,28 @@ function populate_edit_groups_list() {
         });
         
         // Click handlers
-        group_click_handler('#edit_groups_list .add_following', 'add_group_following');
-        group_click_handler('#edit_groups_list .remove_following', 'remove_group_following');
-        group_click_handler('#edit_groups_list .remove_joined', 'remove_group_joined');
-        group_click_handler('#groups_content .add_joined', 'add_group_joined');
+        group_click_handler('.add_following', 'add_group_following');
+        group_click_handler('.remove_following', 'remove_group_following');
+        group_click_handler('.remove_joined', 'remove_group_joined');
+        group_click_handler('.add_joined', 'add_group_joined');
+        
+        // Join handler (special case)
+        $('#groups_content .middle .add_joined').click(function () {
+            $(this).text('You sure?');
+            $(this).unbind('click');
+            $(this).click(function () {
+                $.get('/dashboard/add_group_joined', {
+                    group_id: $('#edit_groups_list .selected_group').attr('group_id')
+                }, function (data) {
+                    populate_edit_groups_list();
+                });
+            });
+        });
     });
 }
 
 function group_click_handler(button_class, dashboard_function) {
-    $(button_class).click(function () {
+    $('#edit_groups_list ' + button_class).click(function () {
         $(this).text('You sure?');
         $(this).unbind('click');
         $(this).click(function () {
