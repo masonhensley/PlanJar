@@ -254,9 +254,10 @@ border-top-left-radius: 10px;
 }
 .group_entry .group_entry_left {
     float: left;
-    width: 80px;
+    width: auto;
     height:auto;
     margin-top:5px;
+    margin-left: 5px;
 }
 .group_entry .group_picture {
     width: 50px;
