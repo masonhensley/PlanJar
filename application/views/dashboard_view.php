@@ -77,5 +77,6 @@
             <div id="profile_content" class="page_content"></div>
             <div id="settings_content" class="page_content"></div>
         </div>
+        <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>
     </body>
 </html>

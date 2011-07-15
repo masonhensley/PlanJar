@@ -4,7 +4,8 @@ $(function() {
 
 function initialize_create_group_modal()
 {
-    // hide the create_group icon unless the groups tab is selected
-
+    $('.create_group').click(function(){
+        
+    });
     
 }
