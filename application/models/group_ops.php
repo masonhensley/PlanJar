@@ -89,9 +89,9 @@ class Group_ops extends CI_Model
                 <div class="group_name">
                     <?php
                     echo($row->name) . "<br/>";
-                    if ($option = 'suggested groups')
+                    if ($option == 'suggested groups')
                     {
-                        echo $suggested_groups[$row->id] ." 1st degree connections are in this group";
+                        echo $suggested_groups[$row->id] ." people you know are in this group";
                     }
                     ?>
 
