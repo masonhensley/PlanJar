@@ -52,6 +52,19 @@ function initialize_group_search() {
 
 function group_select_click_handler()
 {
+     $('#find_groups_list .group_entry').click(function() {
+                // Unselect other groups
+                $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
+                                
+                $('.group_entry.selected_group').removeClass('selected_group');
+                $(this).addClass('selected_group');
+                $.get('/dashboard/get_group_details', {
+                    group_id: $(this).attr('group_id')
+                }, function (data) {
+                    $('#groups_content .middle').html(data);
+                });
+            });
+    
     // Click handler.
     $('#find_groups_list .add_following').click(function () {
         $(this).text('You sure?');
