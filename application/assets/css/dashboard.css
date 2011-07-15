@@ -51,7 +51,7 @@ a{
 
 .tab_container{
     width:100%;
-    height:35px;
+    height:auto;
     background-color:#F3F6FF;
 }
 
@@ -219,7 +219,7 @@ a{
     width: 100%;
 }
 #groups_content .middle {
-    width: 315px;
+    width: 340px;
     float: left;
     margin-left: 20px;
     height: 20%;
