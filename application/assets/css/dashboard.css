@@ -85,6 +85,7 @@ a{
 #following_content .left {
     width:48%;
     float:left;
+border-top-left-radius: 5px;
     height:auto;
     background-color:white;
     border: 1px solid black;
@@ -177,7 +178,7 @@ a{
     height: auto;
 }
 .selected_follower {
-       background: -webkit-gradient(linear,left top,left bottom,from(#3388ff),to(#99bbff));
+       background: -webkit-gradient(linear,left top,left bottom,from(#d069ea),to(#99bbff));
 }
 #followers_content .right {
     width: 48%;
