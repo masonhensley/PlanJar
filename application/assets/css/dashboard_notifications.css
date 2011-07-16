@@ -3,6 +3,7 @@
     width: 48%;
     height: auto;
     float: left;
+    border: 1px solid black;
 }
 
 #notifications_content .right {
