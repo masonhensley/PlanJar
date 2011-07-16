@@ -24,7 +24,6 @@ a{
 .top_panel{
     height: 40px;
     width:100%;
-    background: #111;
     background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
 }
 
@@ -56,15 +55,12 @@ a{
 
 /* -----------------MAIN CONTAINER ----------------------*/
 .container{
-    position: relative;
-    top: 5px;
     margin-left: auto;
     margin-right: auto;
     width: 1024px;
     height :1000px;
-    /* give the container a shadow 
-    box-shadow: 0 0 5px 5px #888;
-    */
+    text-align: center;
+    margin-top:30px;
 }
 
 /* -------------- LEFT PANEL ---------------- */ 
@@ -117,27 +113,24 @@ a{
 }
 
 .tab_bar{
-    width:100%;
+    width:600px;
     height:30px;
-    position:relative;
-    border-bottom: 1px solid black;
-    background-color:#F3F6FF;
+    margin-left: auto;
+    margin-right:auto;
+    text-align:center;
+    margin-top:10px;
 }
 
 .data_tab {
     background-color: lightgray;
     position:relative;    
     float:left;
-    border-top: 1px inset black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    margin-right:5px;
-    width:100px;
-    height:100%;
-    /*background-color:#F3F6FF; */
+    margin-right:10px;
+    width:auto;
+    height:auto;
     color:black;
     text-align: center;
-    padding:5px;
+    padding:10px;
 }
 
 .tab_selected {
