@@ -99,12 +99,11 @@ class Notification_ops extends CI_Model
             WHERE user_id = ? ORDER BY notifications.viewed ASC";
         $query = $this->db->query($query_string, array($user_id));
 
-        if ($query->num_rows() < 1)
+        if ($query->num_rows() == 0)
         {
             echo('No recent notifications');
         } else
         {
-
             foreach ($query->result() as $row)
             {
                 $this->echo_notification($row);
