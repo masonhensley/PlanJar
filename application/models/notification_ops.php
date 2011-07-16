@@ -96,7 +96,7 @@ class Notification_ops extends CI_Model
 
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id, user_meta.first_name, user_meta.last_name
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
-            WHERE user_id = ? ORDER BY notifications.viewed ASC";
+            WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC";
         $query = $this->db->query($query_string, array($user_id));
 
         if ($query->num_rows() == 0)
