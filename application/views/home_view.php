@@ -51,6 +51,12 @@
 
             </div>
         </div>
+        <div class="tab_bar">
+            <div class="data_tab" assoc_div="#group_data">Group Data</div>
+            <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
+            <div class="data_tab" assoc_div="#location_data">Location Data</div>
+            <div class="data_tab" assoc_div="#map_data">Map</div>
+        </div>
         <div class ="container">
             <div class ="left">
                 <div class="left_header">
@@ -60,12 +66,7 @@
                 <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
             </div>
             <div class ="center">
-                <div class="tab_bar">
-                    <div class="data_tab" assoc_div="#group_data">Group Data</div>
-                    <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
-                    <div class="data_tab" assoc_div="#location_data">Location Data</div>
-                    <div class="data_tab" assoc_div="#map_data">Map</div>
-                </div>
+
 
                 <div class="data_container_wrapper">
                     <div id="group_data" class ="data_container">Select groups on the left to see more information.</div>
