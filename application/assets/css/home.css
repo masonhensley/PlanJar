@@ -1,7 +1,7 @@
 /*--------------GLOBAL ---------------- */
 body{
     background-color: #F3F6FF;
-background-image: url("/application/assets/images/bg_stripe3.png");
+background-image: url('/application/assets/images/stripe_a.png');
     margin: 0px;
     /* make text not selectable for the UI */
     -webkit-user-select: none;
@@ -11,10 +11,11 @@ background-image: url("/application/assets/images/bg_stripe3.png");
 }
 
 button{
-    background-color: #222  url(/../images/alert-overlay.png) repeat-x;
+    background-color: #222  url(/application/assets/images/alert-overlay.png) repeat-x;
     display:inline-block;
     padding: 5px 10px 6px;
     color: fff;
+background-color: #2daebf;
     text-decoration: none;
     line-height: 1;
     -moz-border-radius: 5px;
@@ -211,6 +212,7 @@ a{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     background-color: white;
+
 }
 
 .day{
@@ -434,7 +436,9 @@ a{
 
     display:inline-block;
     padding: 5px 10px 6px;
+
     color: fff;
+background-color: #2daebf;
     text-decoration: none;
     line-height: 1;
     -moz-border-radius: 5px;

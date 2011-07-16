@@ -20,7 +20,7 @@
             </textarea>
         </div><br/>
         <div class="create_group_privacy">
-            <div class="divset" style="float:left;">
+            <div class="divset" id="select_me" style="float:left;">
                 Anyone can join
             </div>
 
