@@ -131,7 +131,7 @@ a{
 }
 
 .tab_selected {
-    background: -webkit-gradient(linear,left top,left bottom,from(#007),to(#02C));
+    background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
     color: white;
 }
 
@@ -203,7 +203,7 @@ a{
 }
 
 .day.day_selected {
-    background:-webkit-gradient(linear,left top,left bottom,from(#007),to(#02C));
+    background:-webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
     color: white;
 }
 
@@ -405,15 +405,9 @@ a{
 }
 
 .divset {
-    background-color: #222 url( /**/images/alert-overlay.png) repeat-x;
     display:inline-block;
     padding: 5px 10px 6px;
-    background: #666666;
-    text-decoration: none;
-    line-height: 1;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    background: #F2F2F2;
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
     border-bottom: 1px solid rgba(0,0,0,0.25);position: relative;
@@ -421,8 +415,8 @@ a{
 }
 
 .divset.divset_selected {
-    background: -webkit-gradient(linear,left top,left bottom,from(#007),to(#02C));
-    color: black;
+    background:-webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
+    color: white;
 }
 
 #group_select_type{
