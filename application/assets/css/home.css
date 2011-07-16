@@ -452,7 +452,7 @@ background: #2daebf;
 }
 
 .divset.divset_selected {
-    background-color: lightgray;
+    background-color: gray;
     color: black;
 }
 
