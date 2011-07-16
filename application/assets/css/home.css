@@ -61,7 +61,7 @@ a{
     height :1000px;
     text-align: center;
     margin-top:20px;
-    box-shadow: 0 0 5px 5px #888;
+    box-shadow: 0 0 5px 5px #E1E1E1;
 }
 
 /* -------------- LEFT PANEL ---------------- */ 
@@ -72,6 +72,7 @@ a{
     text-align: center;
     background-color:white;
     padding-top:10px;
+    border-bottom:1px solid black;
 }
 
 .groups_wrapper{
@@ -140,7 +141,7 @@ a{
 
 .data_container_wrapper {
     position:relative;
-    width: 100%;
+    width: 598px;
     height: 300px;
     display: none;
 }
@@ -304,10 +305,11 @@ a{
 /* ------------------ RIGHT PANEL -----------------------*/
 .right{
     float:left;
-    width:210px;
+    width:213px;
     min-height: 600px;
     background-color:white;
     padding-top:10px;
+    border-bottom:1px solid black;
 }
 
 .right_header{
