@@ -135,6 +135,7 @@ a{
     position:relative;
     border-bottom: 1px solid black;
     background-color:#F3F6FF;
+background-image: url("/application/assets/images/stripe_a.png");
 }
 
 .data_tab {
