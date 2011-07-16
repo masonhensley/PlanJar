@@ -16,7 +16,7 @@ function initialize_create_group_modal()
     $('.create_group_content .in-field_block label').inFieldLabels();   
     
     $('.divset').click(function(){
-        $('.divset_selected').removeClass('.divset_selected');
+        $('.divset_selected').removeClass('divset_selected');
         $(this).addClass('divset_selected');
     });
 }
