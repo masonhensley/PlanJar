@@ -145,6 +145,8 @@ a{
     width: 598px;
     height: 300px;
     display: none;
+    border-left:1px solid black;
+    border-right: 1px solid black;
 }
 
 .data_container{
