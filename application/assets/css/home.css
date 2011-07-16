@@ -418,10 +418,9 @@ a{
 
 .divset {
     background-color: #222 url( /**/images/alert-overlay.png) repeat-x;
-    
     display:inline-block;
     padding: 5px 10px 6px;
-    background: #2daebf;
+    background: #666666;
     text-decoration: none;
     line-height: 1;
     -moz-border-radius: 5px;
