@@ -1,7 +1,8 @@
 /*--------------GLOBAL ---------------- */
 body{
     background-color: #F3F6FF;
-background-image: url("/application/assets/images/bg_stripe3.png");
+   /* background-image: url("/application/assets/images/bg_stripe3.png"); */
+   background: -webkit-gradient(linear,left top,left bottom,from(#ddffff),to(#eeffff));
     margin: 0px;
     /* make text not selectable for the UI */
     -webkit-user-select: none;
