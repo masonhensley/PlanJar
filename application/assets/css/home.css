@@ -134,8 +134,8 @@ a{
     height:30px;
     position:relative;
     border-bottom: 1px solid black;
-    background-color:#F3F6FF;
-background-image: url("/application/assets/images/stripe_a.png");
+background: url('/application/assets/images/stripe_a.png' repeat-x 0 0);
+    //background-color:#F3F6FF;
 }
 
 .data_tab {
@@ -147,8 +147,8 @@ background-image: url("/application/assets/images/stripe_a.png");
     margin-right:5px;
     width:100px;
     height:100%;
-    background-color:#F3F6FF;
-background-image: url("/application/assets/images/stripe_a.png");
+background: url('/application/assets/images/stripe_a.png' repeat-x 0 0);
+    //background-color:#F3F6FF;
     color:black;
     text-align: center;
 }
