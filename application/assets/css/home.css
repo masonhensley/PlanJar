@@ -437,8 +437,8 @@ a{
     display:inline-block;
     padding: 5px 10px 6px;
 
-    color: fff;
-background-color: #2daebf;
+    //color: fff;
+background: #2daebf;
     text-decoration: none;
     line-height: 1;
     -moz-border-radius: 5px;
