@@ -1,31 +1,14 @@
 /*--------------GLOBAL ---------------- */
 body{
     background-color: #F3F6FF;
-   /* background-image: url("/application/assets/images/bg_stripe3.png"); */
-   background: -webkit-gradient(linear,left top,left bottom,from(#ddffff),to(#eeffff));
+    /* background-image: url("/application/assets/images/bg_stripe3.png"); */
+    background: -webkit-gradient(linear,left top,left bottom,from(#ddffff),to(#eeffff));
     margin: 0px;
     /* make text not selectable for the UI */
     -webkit-user-select: none;
     cursor:default;
     font-family: helvetica;
     font-size: 15px;
-}
-
-button{
-    background-color: #222  url(/application/assets/images/alert-overlay.png) repeat-x;
-    display:inline-block;
-    padding: 5px 10px 6px;
-    color: fff;
-    background-color: lightgray;
-    text-decoration: none;
-    line-height: 1;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-    border-bottom: 1px solid rgba(0,0,0,0.25);position: relative;
-    cursor: pointer;
 }
 
 a{
@@ -434,12 +417,9 @@ a{
 
 .divset {
     background-color: #222 url( /**/images/alert-overlay.png) repeat-x;
-
     display:inline-block;
     padding: 5px 10px 6px;
-
-    //color: fff;
-background: #2daebf;
+    background: #2daebf;
     text-decoration: none;
     line-height: 1;
     -moz-border-radius: 5px;
