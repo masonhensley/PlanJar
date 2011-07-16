@@ -123,7 +123,7 @@ a{
 }
 
 .data_tab {
-    background: -webkit-gradient(linear,left top,left bottom,from(#ddffff),to(#eeffff));;
+    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));;
     position:relative;    
     float:left;
     border-top: 1px inset black;
