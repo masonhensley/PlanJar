@@ -119,6 +119,7 @@ a{
 }
 
 .data_tab {
+    -webkit-box-shadow:0 1px 3px rgba(0,0,0,0.5);
     background-color: lightgray;
     position:relative;    
     float:left;
