@@ -224,8 +224,6 @@ a{
     background-color: white;
     margin-left:0px;
     margin-right:0px;
-background: #111;
-    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
 }
 
 .day.day_selected {
@@ -438,8 +436,9 @@ background: #111;
 
     display:inline-block;
     padding: 5px 10px 6px;
-background-color: #2daebf;
+
     color: fff;
+background-color: #2daebf;
     text-decoration: none;
     line-height: 1;
     -moz-border-radius: 5px;
