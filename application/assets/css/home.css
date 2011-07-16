@@ -1,9 +1,7 @@
 /*--------------GLOBAL ---------------- */
 body{
-    background-color: #F3F6FF;
+    background-color: #F2F2F2;
     /* background-image: url("/application/assets/images/bg_stripe3.png"); */
-    background: -webkit-gradient(linear,left top,left bottom,from(#ddffff),to(#eeffff));
-    margin: 0px;
     /* make text not selectable for the UI */
     -webkit-user-select: none;
     cursor:default;
@@ -63,6 +61,10 @@ a{
     margin-right: auto;
     width: 1024px;
     height :1000px;
+    /* give the container a shadow */
+    -moz-box-shadow: 0 0 5px 5px #888;
+    -webkit-box-shadow: 0 0 5px 5px#888;
+    box-shadow: 0 0 5px 5px #888;
 }
 
 /* -------------- LEFT PANEL ---------------- */ 
@@ -123,7 +125,7 @@ a{
 }
 
 .data_tab {
-    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));;
+    background-color: lightgray;
     position:relative;    
     float:left;
     border-top: 1px inset black;
@@ -133,12 +135,13 @@ a{
     width:100px;
     height:100%;
     /*background-color:#F3F6FF; */
-    color:white;
+    color:black;
     text-align: center;
+    padding:5px;
 }
 
 .tab_selected {
-   background: -webkit-gradient(linear,left top,left bottom,from(#007),to(#02C));
+    background: -webkit-gradient(linear,left top,left bottom,from(#007),to(#02C));
     color: white;
 }
 
@@ -433,7 +436,7 @@ a{
 }
 
 .divset.divset_selected {
-   background: -webkit-gradient(linear,left top,left bottom,from(#007),to(#02C));
+    background: -webkit-gradient(linear,left top,left bottom,from(#007),to(#02C));
     color: black;
 }
 
