@@ -305,8 +305,6 @@ a{
     float:left;
     width:210px;
     min-height: 600px;
-    border: 1px solid black;
-    border-left: none;
     background-color:white;
     padding-top:10px;
 }
