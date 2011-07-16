@@ -83,7 +83,7 @@
                 </div>
                 <div class="top_left_plans">Popular Locations</div>
                 <div class="ad_box">
-                    <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/>
+                    <!-- <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/> -->
                 </div>
 
                 <div class="bottom_right_plans"></div>              
