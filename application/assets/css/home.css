@@ -123,6 +123,7 @@ a{
 }
 
 .data_tab {
+    background-image: url("/application/assets/images/bg_stripe_a.png");
     position:relative;    
     float:left;
     border-top: 1px inset black;
@@ -131,7 +132,7 @@ a{
     margin-right:5px;
     width:100px;
     height:100%;
-    background-color:#F3F6FF;
+    /*background-color:#F3F6FF; */
     color:black;
     text-align: center;
 }
@@ -417,6 +418,7 @@ a{
 
 .divset {
     background-color: #222 url( /**/images/alert-overlay.png) repeat-x;
+    
     display:inline-block;
     padding: 5px 10px 6px;
     background: #2daebf;
