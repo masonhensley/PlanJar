@@ -61,6 +61,7 @@ a{
     height :1000px;
     text-align: center;
     margin-top:20px;
+    box-shadow: 0 0 5px 5px #888;
 }
 
 /* -------------- LEFT PANEL ---------------- */ 
