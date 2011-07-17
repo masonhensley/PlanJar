@@ -94,7 +94,7 @@ class Notification_ops extends CI_Model
     {
         $user_id = $this->ion_auth->get_user()->id;
 
-        $query_string = "SELECT notifications.id, notifications.date, notifications.subject_id, notifications.viewed, user_meta.first_name, user_meta.last_name
+        $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id, notifications.viewed, user_meta.first_name, user_meta.last_name
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
             WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC";
         $query = $this->db->query($query_string, array($user_id));
@@ -113,7 +113,7 @@ class Notification_ops extends CI_Model
 
     public function echo_notification($row)
     {
-        $notification_text = $this->make_notification_text($row->type, $row->subject_id);
+        $notification_text = $this->make_notification_text($row);
 
         $class = 'notification_entry';
         if ($row->viewed == true)
@@ -127,18 +127,18 @@ class Notification_ops extends CI_Model
         <?php
     }
 
-    private function make_notification_text($type, $subject_id)
+    private function make_notification_text($notification_row)
     {
-        if ($type == 'plan_invite')
+        if ($notification_row->type == 'plan_invite')
         {
             $query_string = "SELECT places.name, plans.date FROM plans LEFT JOIN places ON plans.place_id = places.id
                 WHERE plans.id = ?";
-            $query = $this->db->query($query_string, array($subject_id));
+            $query = $this->db->query($query_string, array($notification_row->subject_id));
             $row = $query->row();
 
             $date = new DateTime($row->date);
 
-            return $row->name . ' on ' . $date->format('l') . ' the ' . $date->format('jS');
+            return $notification_row->first_name . ' ' . $notification_row->last_name . ' has invited you to ' . $row->name . ' on ' . $date->format('l') . ' the ' . $date->format('jS');
         }
     }
 
