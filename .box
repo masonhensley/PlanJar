@@ -1,3 +1,0 @@
-#url_rewrites:
-#    -   (/phpMyAdmin) $1/index.php
-#    -   (/phpMyAdmin/) $1index.php
