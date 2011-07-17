@@ -92,7 +92,7 @@ class Follow_ops extends CI_Model
                     echo($row->first_name . ' ' . $row->last_name);
                     echo "<br>";
                     $year_display = substr($row->grad_year, -2);
-                     echo $row->school . " ('" . $year_display . ") <br/>"; 
+                     echo $row->school . " ('" .$year_display . ")<br/>"; 
                     if ($option == 'suggested')
                     {
                         $id = $row->user_id;
