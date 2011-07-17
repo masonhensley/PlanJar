@@ -127,6 +127,7 @@ a{
     border-bottom: 1px solid black;
     margin-top: 5px;
     padding-top:5px;
+    text-align: center;
 }
 .user_entry .user_entry_left {
     float: left;
@@ -310,7 +311,7 @@ a{
 .group_entry .add_following {
     float: right;
     width: 80px;
-    background-color: purple;
+    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
     color: white;
     padding: 3px;
 }
