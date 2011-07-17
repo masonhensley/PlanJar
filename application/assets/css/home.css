@@ -1,6 +1,6 @@
 /*--------------GLOBAL ---------------- */
 body{
-    background-color: #F2F2F2;
+    background-color: #F3F6FF;
     /* background-image: url("/application/assets/images/bg_stripe3.png"); */
     /* make text not selectable for the UI */
     -webkit-user-select: none;
@@ -120,7 +120,7 @@ a{
 
 .data_tab {
     -webkit-box-shadow:0 1px 3px rgba(0,0,0,0.5);
-    background-color: lightgray;
+    background-color: #F3F6FF;
     position:relative;    
     float:left;
     margin-right:10px;
@@ -419,7 +419,7 @@ a{
 
 .divset.divset_selected {
     background:-webkit-gradient(linear,left top,left bottom,from(#AAA),to(#EEE));
-    color: white;
+    color: #444;
 }
 
 #group_select_type{
