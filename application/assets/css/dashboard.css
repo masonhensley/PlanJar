@@ -56,15 +56,17 @@ a{
 }
 
 .tab{
+    -webkit-box-shadow:0 1px 3px rgba(0,0,0,0.5);
+    background-color: lightgray;
     width:100px;
     height:auto;
     margin-right: 10px;
     display: inline-block;
     background-color:#F3F6FF;
-    border: 1px solid black;
     text-align: center;
     padding-top:10px;
     padding-bottom:10px;
+    color:black;
 }
 
 .tab_selected {
@@ -125,6 +127,7 @@ a{
     border-bottom: 1px solid black;
     margin-top: 5px;
     padding-top:5px;
+    text-align: center;
 }
 .user_entry .user_entry_left {
     float: left;
@@ -142,21 +145,20 @@ a{
 .user_entry .remove_following {
     float: right;
     width: 80px;
-    background-color: red;
+    background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
     color: white;
     padding: 3px;
 }
 .user_entry .add_following {
     float: right;
     width: 80px;
-    background-color: purple;
-    color: white;
+    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));    color: white;
     padding: 3px;
 }
 .user_entry .following {
     float: right;
     width: 80px;
-    background-color: green;
+    background:-webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
 }
@@ -266,7 +268,7 @@ a{
     margin-left:15px;
 }
 .suggest_groups_active{
-    background-color:navy;
+    background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
     color:white;
 }
 
@@ -276,6 +278,7 @@ a{
     border-top:1px solid black;
     border-bottom: 1px solid black;
     margin-top:7px;
+    text-align :center;
 }
 .group_entry.selected_group {
     background-color:beige;
@@ -301,16 +304,17 @@ a{
 }
 .group_entry .remove_following {
     width: 80px;
-    background-color: red;
+    background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
     color: white;
     padding: 3px;
 }
 .group_entry .add_following {
     float: right;
     width: 80px;
-    background-color: purple;
+    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
     color: white;
     padding: 3px;
+    text-align: center;
 }
 .group_entry .following {
     float: right;
@@ -370,10 +374,10 @@ a{
     border:1px solid black;
     padding-left:3px;
     padding-right:3px;
-    background-color:#F3F6FF;
+    background-color:white;
 }
 
 .suggested_active{
-    background-color: navy;
+    background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
     color:white;
 }

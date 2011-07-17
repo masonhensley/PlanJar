@@ -30,5 +30,5 @@
 
 <input type="button" id="select_all_groups" value="Select all" style="position:relative; top: 5px;"/>
 <input type="button" id="clear_all_groups" value="Clear all" style="position:relative; top: 5px;"/><br/><br/>
-<a href="/dashboard/groups/suggested" style="color:blue;" >Find groups</a><br/>
-<a href="/dashboard/following/suggested" style="color:blue;">Find friends</a>
+<a href="/dashboard/groups/suggested" style="color:#110055;" >Find groups</a><br/>
+<a href="/dashboard/following/suggested" style="color:#110055;">Find friends</a>
