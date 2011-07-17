@@ -152,8 +152,7 @@ a{
 .user_entry .add_following {
     float: right;
     width: 80px;
-    background-color: purple;
-    color: white;
+    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));    color: white;
     padding: 3px;
 }
 .user_entry .following {
@@ -279,6 +278,7 @@ a{
     border-top:1px solid black;
     border-bottom: 1px solid black;
     margin-top:7px;
+    text-align :center;
 }
 .group_entry.selected_group {
     background-color:beige;
@@ -314,6 +314,7 @@ a{
     background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
     color: white;
     padding: 3px;
+    text-align: center;
 }
 .group_entry .following {
     float: right;
