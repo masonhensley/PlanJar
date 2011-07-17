@@ -113,7 +113,7 @@ class Notification_ops extends CI_Model
 
     public function echo_notification($row)
     {
-        $notification_text = $this->make_notification_text($row->type, $row->subject_id);
+        $notification_text = $this->make_notification_text($row);
 
         $class = 'notification_entry';
         if ($row->viewed == true)
@@ -127,18 +127,18 @@ class Notification_ops extends CI_Model
         <?php
     }
 
-    private function make_notification_text($type, $subject_id)
+    private function make_notification_text($arg_row)
     {
         if ($type == 'plan_invite')
         {
             $query_string = "SELECT places.name, plans.date FROM plans LEFT JOIN places ON plans.place_id = places.id
                 WHERE plans.id = ?";
-            $query = $this->db->query($query_string, array($subject_id));
+            $query = $this->db->query($query_string, array($arg_row->subject_id));
             $row = $query->row();
 
             $date = new DateTime($row->date);
 
-            return $row->name . ' on ' . $date->format('l') . ' the ' . $date->format('jS');
+            return $arg_row->first_name . ' ' . $arg_row->last_name . ' has invited you to ' . $row->name . ' on ' . $date->format('l') . ' the ' . $date->format('jS');
         }
     }
 
