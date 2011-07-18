@@ -11,13 +11,6 @@ function initialize_dashboard_tabs() {
         if (!$(this).hasClass('tab_selected')) {
             show_data_container($(this).attr('assoc_div'));
         }
-        // if the group tab is selected, show the + Create Group button
-        if($('.tab_selected').attr('assoc_div') != '#groups_content')
-        {
-            $('.create_group').hide();
-        }else{
-            $('.create_group').show("slow");
-        }
     });
 }
 
@@ -51,4 +44,23 @@ function show_data_container(data_div) {
         // Call the setup function.
         eval($(data_div).attr('setup_func') + "()");
     }
+    
+    // --------- HANDLER FOR GROUP TAB -------------
+    if(data_div == '#groups_content')
+    {
+        // if the group tab is selected, show the + Create Group button
+        if($('.tab_selected').attr('assoc_div') != '#groups_content')
+        {
+            $('.create_group').hide();
+        }else{
+            $('.create_group').show("slow");
+        }
+    }else if(data_div == '#profile_content') // --------------- HANDLER FOR PROFILE TAB --------------
+    {
+        $.get('/dashboard/get_profile', function (data) {
+            $('#profile_content').html(data);
+        });
+    }
+    
+    
 }
