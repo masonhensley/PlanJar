@@ -104,7 +104,7 @@ class Load_profile extends CI_Model
         
         // make trackers!
         $recent_tracker = 0;
-        foreach ($result as $place)
+        foreach ($result->result() as $place)
         {
             if (!in_array($place->name, $recent_locations) && $recent_tracker < 5)
             {
