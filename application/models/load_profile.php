@@ -14,7 +14,7 @@ class Load_profile extends CI_Model
         $result = $this->db->query($school_query);
         $row = $result->row();
         $groups_joined = $this->get_groups_joined($user);
-        $groups_following = $this->get_groups_following();
+        $groups_following = $this->get_groups_following($user);
         
         ?>
         <div class="profile_top_bar">
@@ -57,6 +57,7 @@ class Load_profile extends CI_Model
             $groups_following_text = substr($groups_following_text,0,-2);
             $groups_following_text .= "<br/>";
         }
+        echo $groups_following_text;
         
         ?>
             </div>
@@ -79,7 +80,7 @@ class Load_profile extends CI_Model
         return $groups_joined;
     }
     
-    function get_groups_following()
+    function get_groups_following($user)
     {
         $query = "SELECT groups.name, group_relationships.id 
         FROM group_relationships LEFT JOIN groups ON groups.id=group_relationships.group_id 
