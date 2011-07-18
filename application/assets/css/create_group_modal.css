@@ -14,8 +14,9 @@
 }
 
 .create_group_top_bar{
-    background-color:lightpink;
+    background-color:purple;
     padding:3px;
+    color:white;
 }
 
 .create_group_middle{
