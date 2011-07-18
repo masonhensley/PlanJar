@@ -24,8 +24,9 @@ function populate_followers_list() {
         $('#followers_list .user_entry').click(function() {
             $('.user_entry.selected_follower').removeClass('selected_follower');
             $(this).addClass('selected_follower');
-            $.get('/dashboard/get_follower_details', {
-                follower_id: $(this).attr('user_id')
+            
+            $.get('/dashboard/get_profile', {
+                user_id: $(this).attr('user_id')
             }, function (data) {
                 $('#followers_content .right').html(data);
             });
