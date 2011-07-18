@@ -9,6 +9,7 @@ function initialize_dashboard_tabs() {
     // Click handler.
     $('.tab_container .tab').click(function () {
         if (!$(this).hasClass('tab_selected')) {
+            $('.create_group').hide();
             show_data_container($(this).attr('assoc_div'));
         }
     });
@@ -49,12 +50,7 @@ function show_data_container(data_div) {
     if(data_div == '#groups_content')
     {
         // if the group tab is selected, show the + Create Group button
-        if($('.tab_selected').attr('assoc_div') != '#groups_content')
-        {
-            $('.create_group').hide();
-        }else{
-            $('.create_group').show("slow");
-        }
+        $('.create_group').show();
     }else if(data_div == '#profile_content') // --------------- HANDLER FOR PROFILE TAB --------------
     {
         $.get('/dashboard/get_profile', function (data) {
