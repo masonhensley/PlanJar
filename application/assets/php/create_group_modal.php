@@ -23,7 +23,7 @@
                 Anyone can join
             </div>
             <div class="divset">
-                People must be invited
+                Invitees must invite new members
             </div>
             <br/><br/>
             <input type="submit" value="Go" style="float:right;" />
