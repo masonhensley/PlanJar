@@ -57,3 +57,7 @@
     float: left;
     margin-left: 4%;
 }
+#plan_invite_wrapper {
+    height: auto;
+    width: 100%;
+}

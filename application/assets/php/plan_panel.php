@@ -58,24 +58,24 @@
         <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
 
         <br/>
-        <div id="invite_plan_left">
-            Invite people
-            <input type="text" id="invite_plan_user" name="invite_plan_user"/>
-        </div>
+        <div id="plan_invite_wrapper">
+            <div id="invite_plan_left">
+                Invite people
+                <input type="text" id="invite_plan_user" name="invite_plan_user"/>
+            </div>
 
-        <div id="invite_plan_right">
-            Invite groups
-            <input type="text" id="invite_plan_group" name="invite_plan_group"/>
+            <div id="invite_plan_right">
+                Invite groups
+                <input type="text" id="invite_plan_group" name="invite_plan_group"/>
+            </div>
         </div>
 
         <br/>
-        <div id="plan_privacy_content">
+        <div id="privacy_wrapper">
             Privacy options
-            <div id="privacy_wrapper">
-                <div priv_val="none">None</div>
-                <div priv_val="strict">Fixed invitation list</div>
-                <div priv_val="loose">Invitees can invite others</div>
-            </div>
+            <div priv_val="none">None</div>
+            <div priv_val="strict">Fixed invitation list</div>
+            <div priv_val="loose">Invitees can invite others</div>
         </div>
 
         <hr/>
