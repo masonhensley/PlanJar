@@ -251,16 +251,17 @@ class Dashboard extends CI_Controller
         $this->load->model('notification_ops');
         $this->notification_ops->get_notifications();
     }
-    
+
     public function get_profile()
     {
         $this->load->model('load_profile');
-        
+
         $user = $this->input->get('user_id');
-        if($user == 'user')
+        if ($user == 'user')
         {
             $user = $this->ion_auth->get_user();
-        }else{
+        } else
+        {
             $user = $this->ion_auth->get_user($user);
         }
         $this->load_profile->display_profile($user);

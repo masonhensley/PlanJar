@@ -25,9 +25,19 @@ function initialize_create_group_modal()
         $(this).addClass('divset_selected');
     });
     
-    // --------- submit handler ----------
-    $('.submit_create_group').click(function(){
-        
-    });
+    // Initial select
+    $('#create_group_content input[value="school"]').click();
     
+    // --------- validator ----------
+    $('#create_group').validate({
+        rules: {
+            group_name: {
+                required: true,
+                minLength: 4
+            }
+        },
+        submitHandler: function(form) {
+            console.log($(form).serialize());
+        }
+    });
 }
