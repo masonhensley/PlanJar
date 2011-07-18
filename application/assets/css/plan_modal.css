@@ -54,5 +54,6 @@
 }
 #invite_plan_right {
     width: 48%;
+    float: left;
     margin-left: 4%;
 }
