@@ -9,7 +9,7 @@ class Event_ops extends CI_Model
         parent::__construct();
     }
 
-    public function create_event($privacy, $user_id_list = array(), $group_id_list = array())
+    public function create_event($privacy, $user_id_list, $group_id_list)
     {
         $this->load->database();
         $query_string = "INSERT INTO events VALUES (DEFAULT, ?)";
