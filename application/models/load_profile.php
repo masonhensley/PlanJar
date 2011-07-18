@@ -15,6 +15,7 @@ class Load_profile extends CI_Model
         $row = $result->row();
         $groups_joined = $this->get_groups_joined($user);
         $groups_following = $this->get_groups_following($user);
+        $recent_locations = $this->get_recent_locations($user);
         
         ?>
         <div class="profile_top_bar">
@@ -92,6 +93,14 @@ class Load_profile extends CI_Model
             $groups_following[] = $group->name;
         }
         return $groups_following;
+    }
+    
+    function get_recent_locations($user)
+    {
+        $query = "SELECT places.name, plans.place_id, plans.date FROM plans 
+            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id ORDER BY plans.date DESC";
+        
+        var_dump($query);
     }
 
 }
