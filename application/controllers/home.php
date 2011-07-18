@@ -178,8 +178,7 @@ class Home extends CI_Controller
         {
             // Privacy settings enabled. Add an event_id (newly created event)
             $this->load->model('event_ops');
-            $data['event_id'] = $this->event_ops->create_event(
-                            $data['title'], $privacy, $invited_users, $invited_groups);
+            $data['event_id'] = $this->event_ops->create_event($privacy);
         } else
         {
             // No privacy settings. Continue creating a plan as normal.

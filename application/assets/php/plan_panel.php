@@ -3,7 +3,6 @@
         <div style="float: left">Make a plan</div>
 
         <input type="button" id="cancel_plan"style ="float: right;" value="X"/>
-
     </div>
 
     <form id="make_plan">
