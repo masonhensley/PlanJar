@@ -18,17 +18,14 @@
         <div class="in-field_block input_style"><label for="group_description">Group description</label>
             <textarea name="group_description" cols="40" rows="5"></textarea>
         </div>
-        <div class="create_group_privacy">
+        <div class ="create_group_bottom">
             <div class="divset" id="select_me" style="float:left;">
                 Anyone can join
             </div>
-
             <div class="divset">
                 People must be invited
             </div>
-        </div>
-        <br/>
-        <div class ="create_group_bottom">
+            <br/>
             <input type="submit" value="Go" />
         </div>
     </div>
