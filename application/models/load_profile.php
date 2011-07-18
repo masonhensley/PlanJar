@@ -85,7 +85,6 @@ class Load_profile extends CI_Model
         $query = "SELECT groups.name, group_relationships.id 
         FROM group_relationships LEFT JOIN groups ON groups.id=group_relationships.group_id 
         WHERE group_relationships.user_following_id=$user->id";
-        var_dump($query);
         $result = $this->db->query($query);
         $groups_following = array();
         foreach($result->result() as $group)
