@@ -6,26 +6,26 @@
         <input type="button" id="cancel_group_creation" style="float:right; position:relative; bottom:2px;" value="X"/>
     </div>
     <div class="create_group_middle">
-        <div class="in-field_block input_style"><label for="group_name">Group name</label>
-            <input type="text" id="group_name" name="group_name" class="textbox"/></div>
+        <form id="create_group">
+            <div class="in-field_block input_style"><label for="group_name">Group name</label>
+                <input type="text" id="group_name" name="group_name" class="textbox"/></div>
 
-        <div class="in-field_block input_style"><label for="city">City</label>
-            <input type="text" id="city" name="city" class="textbox"/></div>
+            <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($this->ion_auth->get_user()->school); ?> network.</label>
+            <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
 
-        <div class="in-field_block input_style"><label for="school">College (optional)</label>
-            <input type="text" id="school" name="school" class="textbox"/></div>
-
-        <div class="in-field_block input_style"><label for="group_description">Group description</label>
-            <textarea name="group_description" id="group_description" cols="40" rows="5"></textarea>
-        </div>
-        <div class ="create_group_bottom">
-            <div class="divset" id="select_me" style="float:left;">
-                Anyone can join
+            <div class="in-field_block input_style"><label for="group_description">Group description</label>
+                <textarea name="group_description" id="group_description" cols="40" rows="5"></textarea>
             </div>
-            <div class="divset">
-                Invitees must invite new members
+            <div class ="create_group_bottom">
+                <div class="divset" id="select_me" style="float:left;">
+                    Anyone can join
+                </div>
+                <div class="divset">
+                    Invitees must invite new members
+                </div>
+                <br/><br/>
+                <input type="submit" class="submit_create_group" value="Go" style="float:right;" />
             </div>
-            <br/><br/>
-            <input type="submit" class="submit_create_group" value="Go" style="float:right;" />
-        </div>
+        </form>
     </div>
+</div>

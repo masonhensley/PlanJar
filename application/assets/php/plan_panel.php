@@ -1,7 +1,7 @@
 <div id="create_plan_content">
     <div class="draggable_title_bar">
         Make a plan
-        <button  type="button" id="cancel_plan"  style="float:right;">X</button>
+        <input  type="button" id="cancel_plan"  style="float:right;" value="X">
     </div>
 
     <form id="make_plan">
