@@ -23,12 +23,12 @@ class Load_profile extends CI_Model
             
                                 $year_display = substr($user->grad_year, -2);
                                 echo $user->first_name . " " . $user->last_name ."<br/>";
-                                echo $row->school ." (" .$year_display .")<br/>";
+                                echo $row->school ." ('" .$year_display .")<br/>";
                                 $display_groups_text = "";
                                 if(count($groups_joined > 0))
                                 {
                                     
-                                    $display_groups_text = "Groups joined: ";
+                                    $display_groups_text .= "Groups joined: ";
                                     foreach($groups_joined as $group)
                                     {
                                         $display_groups_text .= $group .", ";
