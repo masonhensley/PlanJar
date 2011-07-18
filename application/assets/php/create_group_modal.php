@@ -27,7 +27,8 @@
                 People must be invited
             </div>
         </div>
+        <br/>
         <div class ="create_group_bottom">
-            <input type="submut" value="Go" />
+            <input type="submit" value="Go" />
         </div>
     </div>
