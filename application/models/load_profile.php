@@ -27,8 +27,8 @@ class Load_profile extends CI_Model
         </div>
 
 
-        <div class="profile_body"><?php
-        
+        <div class="profile_body">
+            <div class="profile_body_text"><?php
         $display_groups_text = "";
         if (count($groups_joined > 0))
         {
@@ -41,7 +41,7 @@ class Load_profile extends CI_Model
         }
         echo $display_groups_text;
         ?>
-
+            </div>
         </div>
 
         <?php
