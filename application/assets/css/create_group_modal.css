@@ -10,11 +10,13 @@
     background-color:#E0EFFF;
     padding: 5px;
     border: 3px solid black;
+    z-index:1001;
 }
 
 .create_group_top_bar{
-    background-color:lightpink;
+    background-color:purple;
     padding:3px;
+    color:white;
 }
 
 .create_group_middle{
@@ -38,19 +40,15 @@
 }
 
 .divset {
-    background-color: url( /**/images/alert-overlay.png) #222 repeat-x;
     display:inline-block;
     padding: 5px 10px 6px;
-    color: fff;
-    text-decoration: none;
     line-height: 1;
-    -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
     border-bottom: 1px solid rgba(0,0,0,0.25);position: relative;
-    cursor: pointer;
+    float:left;
+    margin-left:10px;
 }
 
 .divset.divset_selected {

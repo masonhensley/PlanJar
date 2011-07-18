@@ -148,12 +148,15 @@ a{
     background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
     color: white;
     padding: 3px;
+    margin-right:5px;
 }
 .user_entry .add_following {
     float: right;
     width: 80px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));    color: white;
+    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));    
+    color: white;
     padding: 3px;
+    margin-right:5px;
 }
 .user_entry .following {
     float: right;
@@ -161,6 +164,7 @@ a{
     background:-webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
+    margin-right:5px;
 }
 
 /* follower tab */
@@ -308,6 +312,8 @@ a{
     background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
     color: white;
     padding: 3px;
+    margin-top:5px;
+    margin-right:5px;
 }
 .group_entry .add_following {
     float: right;
@@ -316,6 +322,8 @@ a{
     color: white;
     padding: 3px;
     text-align: center;
+    margin-top:5px;
+    margin-right:5px;
 }
 .group_entry .following {
     float: right;
@@ -323,6 +331,8 @@ a{
     background-color: green;
     color: white;
     padding: 3px;
+    margin-top:5px;
+    margin-right:5px;
 }
 .group_entry .remove_joined {
     float: right;
@@ -330,6 +340,8 @@ a{
     background-color: purple;
     color: white;
     padding: 3px;
+    margin-top:5px;
+    margin-right:5px;
 }
 
 .group_entry_left_side{
@@ -376,6 +388,8 @@ a{
     padding-left:3px;
     padding-right:3px;
     background-color:white;
+    padding-left:5px;
+    padding-right:5px;
 }
 
 .suggested_active{
@@ -383,3 +397,57 @@ a{
     color:white;
     border:none;
 }
+
+/* ----------------- PROFILE CSS ---------------*/
+.profile_container{
+    width:100%;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.profile_content{
+    float:left;
+    border: 1px solid black;
+    margin-left:auto;
+    margin-right:auto;
+    height:500px;
+    width: 48%;
+    background-color:white;
+}
+
+.profile_top_bar{
+    width:100%;
+    height:100px;
+    background-color:lightgray;
+}
+
+.profile_picture{
+    width:80px;
+    height:80px;
+    float:left;
+    margin-top:10px;
+    margin-left:10px;
+    background-color:yellow;
+}
+
+.profile_user_information{
+    height:80px;
+    width:380px;
+    float:right;
+    margin-top:10px;
+    margin-right:10px;
+    background-color:yellow;
+}
+
+.profile_body{
+    position:relative;
+    height:320px;
+    width:100%;
+}
+
+.profile_edit{
+    
+}
+
+

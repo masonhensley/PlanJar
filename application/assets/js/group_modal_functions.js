@@ -7,6 +7,10 @@ function initialize_create_group_modal()
 {
     $('.create_group').click(function(){
         $('.create_group_content').show("fast");
+        // Make it draggable (with a handler).
+        $('.create_group_content').draggable({
+            handle: '.create_group_top_bar'
+        });
     });
     
     $('#cancel_group_creation').click(function(){
@@ -20,4 +24,10 @@ function initialize_create_group_modal()
         $('.divset_selected').removeClass('divset_selected');
         $(this).addClass('divset_selected');
     });
+    
+    // --------- submit handler ----------
+    $('.submit_create_group').click(function(){
+        
+    });
+    
 }

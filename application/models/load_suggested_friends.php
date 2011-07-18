@@ -46,10 +46,11 @@ class Load_suggested_friends extends CI_Model
                 $number_of_results += count($suggested_friends);
                 asort($suggested_friends); // this sorts the array by count
                 $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending, TRUE parameter keeps the indices 
-
-                $result = $this->generate_suggested_friends($friend_of_friend_list, $suggested_friends);
-
-                $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
+                if($number_of_results > 0)
+                {
+                    $result = $this->generate_suggested_friends($friend_of_friend_list, $suggested_friends);
+                    $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
+                }
             }
         }
         /* --------------- BASE CASE SHOWS PEOPLE WHO GO TO SAME SCHOOL------------- */

@@ -1,4 +1,11 @@
 <div class="left">
+    <div class="right_header">
+        People you're following...
+    </div>
+    <div id="following_list"></div>
+</div>
+
+<div class="right">
     <div class ="left_header" >
         <div class="in-field_block" style="height: auto;">
             <label for="friend_search" style=" color:gray;">Search for people to follow</label>
@@ -7,17 +14,10 @@
         <div class="suggested_friends">
             <div style="position:relative; top:7px;">Suggest people</div>
         </div>
-        
+
     </div>
 
     <div id="follow_search">
     </div>
-</div>
 
-<div class="right">
-    <div class="right_header">
-        People you're following...
-    </div>
-
-    <div id="following_list"></div>
 </div>

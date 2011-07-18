@@ -16,23 +16,16 @@
             <input type="text" id="school" name="school" class="textbox"/></div>
 
         <div class="in-field_block input_style"><label for="group_description">Group description</label>
-            <textarea name="group_description" cols="40" rows="5">
-            </textarea>
-        </div><br/>
-        <div class="create_group_privacy">
+            <textarea name="group_description" id="group_description" cols="40" rows="5"></textarea>
+        </div>
+        <div class ="create_group_bottom">
             <div class="divset" id="select_me" style="float:left;">
                 Anyone can join
             </div>
-
             <div class="divset">
-                Members can invite
+                Invitees must invite new members
             </div>
-
-            <div class="divset">
-                Certain members can invite
-            </div>
-        </div>
-        <div class ="create_group_bottom">
-
+            <br/><br/>
+            <input type="submit" class="submit_create_group" value="Go" style="float:right;" />
         </div>
     </div>
