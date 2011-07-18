@@ -82,16 +82,20 @@
                 <?php include(APPPATH . '/assets/php/dashboard_notifications.php'); ?>
             </div>
 
-            <div id="plans_content" class="page_content"></div>
+            <div id="plans_content" class="page_content">
+                
+            </div>
+            
             <div id="profile_content" class="page_content">
                 <div class="profile_container">
-                    <div class="profile_content">
+                    <div class="profile_box">
                        
                     </div>
                     <div class="profile_edit">
                     </div>
                 </div>
             </div>
+            
             <div id="settings_content" class="page_content"></div>
         </div>
         <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>

@@ -18,7 +18,6 @@ class Load_profile extends CI_Model
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
-
             </div>
             <div class="profile_user_information">
 
@@ -26,7 +25,7 @@ class Load_profile extends CI_Model
         </div>
         <div class="profile_body">
         </div>
-        <?php
-    }
 
+    <?php
+    }
 }
