@@ -255,7 +255,15 @@ class Dashboard extends CI_Controller
     public function get_profile()
     {
         $this->load->model('load_profile');
-        $this->load_profile->display_profile();
+        
+        $user = $this->input->get('user_id');
+        if($user == 'user')
+        {
+            $user = $this->ion_auth->get_user();
+        }else{
+            $user = $this->ion_auth->get_user($user);
+        }
+        $this->load_profile->display_profile($user);
     }
 
 }
