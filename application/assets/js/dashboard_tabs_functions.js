@@ -58,7 +58,7 @@ function show_data_container(data_div) {
     }else if(data_div == '#profile_content') // --------------- HANDLER FOR PROFILE TAB --------------
     {
         $.get('/dashboard/get_profile', function (data) {
-            $('#profile_content').html(data);
+            $('#profile_content').html(data); //f
         });
     }
     
