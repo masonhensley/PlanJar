@@ -13,7 +13,9 @@ class Load_profile extends CI_Model
         $school_query = "SELECT school FROM school_data WHERE id=$user->school_id";
         $result = $this->db->query($school_query);
         $row = $result->row();
-        $groups_joined = $this->get_groups($user);
+        $groups_joined = $this->get_groups_joined($user);
+        $groups_following = $this->get_groups_following();
+        
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -29,17 +31,33 @@ class Load_profile extends CI_Model
 
         <div class="profile_body">
             <div class="profile_body_text"><?php
-        $display_groups_text = "";
+            // Code to display groups joined
+        $groups_joined_text = "";
         if (count($groups_joined > 0))
         {
-            $display_groups_text .= "Groups joined: ";
+            $groups_joined_text .= "Groups joined: ";
             foreach ($groups_joined as $group)
             {
-                $display_groups_text .= $group . ", ";
+                $groups_joined_text .= $group . ", ";
             }
-            $display_groups_text = substr($display_groups_text, 0, -2);
+            $groups_joined_text = substr($groups_joined_text, 0, -2);
+            $groups_joined_text .= "<br/>";
         }
-        echo $display_groups_text;
+        echo $groups_joined_text;
+        
+        // Code to display groups following
+        $groups_following_text = "";
+        if(count($groups_following) > 0)
+        {
+            $groups_following_text .= "Groups following: ";
+            foreach($groups_following as $group)
+            {
+                $groups_following_text .= $group .", ";
+            }
+            $groups_following_text = substr($groups_following_text,0,-2);
+            $groups_following_text .= "<br/>";
+        }
+        
         ?>
             </div>
         </div>
@@ -47,7 +65,7 @@ class Load_profile extends CI_Model
         <?php
     }
 
-    function get_groups($user)
+    function get_groups_joined($user)
     {
         $query = "SELECT groups.name, group_relationships.id 
         FROM group_relationships LEFT JOIN groups ON groups.id=group_relationships.group_id 
@@ -59,6 +77,20 @@ class Load_profile extends CI_Model
             $groups_joined[] = $group->name;
         }
         return $groups_joined;
+    }
+    
+    function get_groups_following()
+    {
+        $query = "SELECT groups.name, group_relationships.id 
+        FROM group_relationships LEFT JOIN groups ON groups.id=group_relationships.group_id 
+        WHERE group_relationships.user_following_id=$user->id";
+        $result = $this->db->query($query);
+        $groups_following = array();
+        foreach($result->result() as $group)
+        {
+            $groups_following[] = $group->name;
+        }
+        return $groups_following;
     }
 
 }
