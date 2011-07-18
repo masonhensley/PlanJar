@@ -419,19 +419,25 @@ a{
 .profile_top_bar{
     width:100%;
     height:100px;
+    background-color:lightgray;
 }
 
 .profile_picture{
     width:80px;
     height:80px;
-    position:relative;
-    top:10px;
-    left:10px;
+    float:left;
+    margin-top:10px;
+    margin-left:10px;
+    background-color:yellow;
 }
 
 .profile_user_information{
-    
-    
+    height:80px;
+    width:380px;
+    float:right;
+    margin-top:10px;
+    margin-right:10px;
+    background-color:yellow;
 }
 
 .profile_body{
