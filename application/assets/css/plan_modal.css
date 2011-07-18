@@ -11,6 +11,7 @@
     background-color:#E0EFFF;
     padding: 5px;
     border: 3px solid black;
+    taxt-align: center;
 }
 #plan_location {
     float: left;

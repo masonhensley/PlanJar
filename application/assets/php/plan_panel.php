@@ -25,6 +25,7 @@
             </tr>
         </table>
 
+        <br/>
         When are you going?
         <div id="plan_day">
             <div plan_day="0">Today</div>
@@ -56,6 +57,7 @@
         <input id="new_place_longitude" name="new_place_longitude" type="hidden"/>
         <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
 
+        <br/>
         <div id="invite_plan_left">
             Invite people
             <input type="text" id="invite_plan_user" name="invite_plan_user"/>
@@ -66,6 +68,7 @@
             <input type="text" id="invite_plan_group" name="invite_plan_group"/>
         </div>
 
+        <br/>
         <div id="plan_privacy_content">
             Privacy options
             <div id="privacy_wrapper">
