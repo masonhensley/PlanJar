@@ -27,10 +27,10 @@ function initialize_create_group_modal()
     
     // Initial select
     $('#create_group_content input [type="radio"] :first').click();
-    console.log($('#create_group_content input [type="radio"] :first'));
-    console.log($('#create_group_content input[type="radio"] :first'));
-    console.log($('#create_group_content input[type="radio"]:first'));
-    console.log($('#create_group_content input [type="radio"]:first'));
+    console.log($('.create_group_content input [type="radio"] :first'));
+    console.log($('.create_group_content input[type="radio"] :first'));
+    console.log($('.create_group_content input[type="radio"]:first'));
+    console.log($('.create_group_content input [type="radio"]:first'));
     
     // --------- validator ----------
     $('#create_group').validate({
