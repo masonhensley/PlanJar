@@ -13,10 +13,9 @@ class Load_profile extends CI_Model
         $school_query = "SELECT school FROM school_data WHERE id=$user->school_id";
         $result = $this->db->query($school_query);
         $row = $result->row();
-        $groups_joined = $this->get_groups_joined($user);
-        $groups_following = $this->get_groups_following($user);
-        $recent_locations = $this->get_recent_locations($user);
-        
+        $groups_joined = $this->get_groups_joined($user); // array containing group information
+        $groups_following = $this->get_groups_following($user); // array containing group information
+        $recent_locations = $this->get_location_stats($user); // string containing the location statistics
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -32,7 +31,7 @@ class Load_profile extends CI_Model
 
         <div class="profile_body">
             <div class="profile_body_text"><?php
-            // Code to display groups joined
+        // Code to display groups joined
         $groups_joined_text = "";
         if (count($groups_joined > 0))
         {
@@ -45,21 +44,20 @@ class Load_profile extends CI_Model
             $groups_joined_text .= "<br/>";
         }
         echo $groups_joined_text;
-        
+
         // Code to display groups following
         $groups_following_text = "";
-        if(count($groups_following) > 0)
+        if (count($groups_following) > 0)
         {
             $groups_following_text .= "Groups following: ";
-            foreach($groups_following as $group)
+            foreach ($groups_following as $group)
             {
-                $groups_following_text .= $group .", ";
+                $groups_following_text .= $group . ", ";
             }
-            $groups_following_text = substr($groups_following_text,0,-2);
+            $groups_following_text = substr($groups_following_text, 0, -2);
             $groups_following_text .= "<br/>";
         }
         echo $groups_following_text;
-        
         ?>
             </div>
         </div>
@@ -80,7 +78,7 @@ class Load_profile extends CI_Model
         }
         return $groups_joined;
     }
-    
+
     function get_groups_following($user)
     {
         $query = "SELECT groups.name, group_relationships.id 
@@ -88,19 +86,36 @@ class Load_profile extends CI_Model
         WHERE group_relationships.user_following_id=$user->id";
         $result = $this->db->query($query);
         $groups_following = array();
-        foreach($result->result() as $group)
+        foreach ($result->result() as $group)
         {
             $groups_following[] = $group->name;
         }
         return $groups_following;
     }
-    
-    function get_recent_locations($user)
+
+    function get_location_stats($user)
     {
         $query = "SELECT places.name, plans.place_id, plans.date FROM plans 
             LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id ORDER BY plans.date DESC";
-        
-        var_dump($query);
-    }
+        $result = $this->db->query($query);
 
+        $recent_locations = array(); // variables to keep track of locations
+        $most_visited_locations = array();
+        
+        // make trackers!
+        $recent_tracker = 0;
+        foreach ($result as $place)
+        {
+            if (!in_array($place->name, $recent_locations) && $recent_tracker < 5)
+            {
+                $recent_tracker++;
+                $recent_locations[] = $place->name;
+            }
+            $most_visited_locations[] = $place->id;
+        }
+        $most_visited_locations = array_count_values($most_visited_locations);
+        asort($most_visited_locations);
+        $most_visited_locations = array_reverse($most_visited_locations, TRUE);
+        var_dump($most_visited_locations);
+    }
 }

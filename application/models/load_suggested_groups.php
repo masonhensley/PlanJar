@@ -89,7 +89,6 @@ class Load_suggested_groups extends CI_Model
         $or_clause = "";
         $when_clause = "ORDER BY CASE id ";
 
-
         foreach ($suggested_groups as $id => $count)
         {
             $or_clause .= "id=$id OR ";
