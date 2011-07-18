@@ -174,13 +174,13 @@ class Home extends CI_Controller
 
         // Capture and process the invite lists
         $invited_users = explode(',', $this->input->get('invite_plan_user'));
-        if ($invited_users == false)
+        if ($invited_users[0] == '')
         {
             $invited_users = array();
         }
 
         $invited_groups = explode(',', $this->input->get('invite_plan_group'));
-        if ($invited_groups == false)
+        if ($invited_groups[0] == '')
         {
             $invited_groups = array();
         }
