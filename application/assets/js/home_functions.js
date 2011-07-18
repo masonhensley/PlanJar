@@ -1,5 +1,6 @@
 var myLatitude;
 var myLongitude;
+var myCity;
 var current_day_offset = 0;
 
 // Run when the DOM is loaded.
@@ -111,7 +112,8 @@ function update_current_city_name() {
         if (status == google.maps.GeocoderStatus.OK) {
             result = result[0].address_components;
             
-            $('#using_location').html('Using location: ' + result[2].long_name + ', ' + result[5].short_name);
+            myCity = result[2].long_name + ', ' + result[5].short_name;
+            $('#using_location').html('Using location: ' + myCity);
         }
     });
 }
