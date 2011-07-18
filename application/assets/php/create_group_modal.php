@@ -25,7 +25,7 @@
             <div class="divset">
                 People must be invited
             </div>
-            <br/>
-            <input type="submit" value="Go" />
+            <br/><br/>
+            <input type="submit" value="Go" style="float:right;" />
         </div>
     </div>
