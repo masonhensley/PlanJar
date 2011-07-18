@@ -12,7 +12,7 @@ class Load_profile extends CI_Model
     {
         $school_query = "SELECT school FROM school_data WHERE id=$user->school_id";
         $result = $this->db->query($school_query);
-        $school = $result->first_row('school');
+        $row = $result->row();
 
         
         ?>
@@ -22,7 +22,7 @@ class Load_profile extends CI_Model
             <div class="profile_user_information"><?php
             
                                 echo $user->first_name . " " . $user->last_name ."<br/>";
-                                echo $school;
+                                echo $row->school;
                                 
         ?>
             </div>
