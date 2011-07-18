@@ -83,7 +83,9 @@
             </div>
         
             <div id="plans_content" class="page_content"></div>
-            <div id="profile_content" class="page_content"></div>
+            <div id="profile_content" class="page_content">
+                <?php include(APPPATH . '/assets/php/dashboard_profile.php'); ?>
+            </div>
             <div id="settings_content" class="page_content"></div>
         </div>
         <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>

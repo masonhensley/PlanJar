@@ -153,7 +153,8 @@ a{
 .user_entry .add_following {
     float: right;
     width: 80px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));    color: white;
+    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));    
+    color: white;
     padding: 3px;
     margin-right:5px;
 }
