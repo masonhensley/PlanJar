@@ -10,7 +10,7 @@
             <div class="in-field_block input_style"><label for="group_name">Group name</label>
                 <input type="text" id="group_name" name="group_name" class="textbox"/></div>
 
-            <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($this->get_user_school()); ?> network.</label>
+            <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($this->user_school); ?> network.</label>
             <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
 
             <div class="in-field_block input_style"><label for="group_description">Group description</label>
