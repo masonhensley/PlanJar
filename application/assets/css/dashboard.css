@@ -321,6 +321,8 @@ a{
     color: white;
     padding: 3px;
     text-align: center;
+    margin-top:5px;
+    margin-right:5px;
 }
 .group_entry .following {
     float: right;
@@ -328,6 +330,8 @@ a{
     background-color: green;
     color: white;
     padding: 3px;
+    margin-top:5px;
+    margin-right:5px;
 }
 .group_entry .remove_joined {
     float: right;
@@ -335,6 +339,8 @@ a{
     background-color: purple;
     color: white;
     padding: 3px;
+    margin-top:5px;
+    margin-right:5px;
 }
 
 .group_entry_left_side{
