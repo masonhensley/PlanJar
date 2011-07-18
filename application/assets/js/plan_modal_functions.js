@@ -34,9 +34,9 @@ function initialize_plan_modal() {
     });
     
     // Add the city name to the handle text.
-    $('#create_plan_content .draggable_title_bar').html('Make a plan');
+    $('#create_plan_content .draggable_title_bar').html('Start a plan');
     if (myCity != undefined) {
-        $('#create_plan_content .draggable_title_bar').html('Make a plan in ' + myCity);
+        $('#create_plan_content .draggable_title_bar').html('Start a plan in ' + myCity);
     }
     
     // Make it draggable (with a handler).
@@ -198,7 +198,7 @@ function initialize_plan_modal() {
     });
     
     // Initialize the Validator plugin for the plan location.
-    $('#make_plan').validate({
+    $('#start_plan').validate({
         rules: {
             plan_location_id: 'required',
             plan_time_group: 'required',
