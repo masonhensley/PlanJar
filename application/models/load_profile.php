@@ -32,7 +32,7 @@ class Load_profile extends CI_Model
                                     {
                                         $display_groups_text .= $group .", ";
                                     }
-                                    //$display_groups_text = substr($display_groups_text,-2);
+                                    $display_groups_text = substr($display_groups_text,0,-2);
                                 }
                                 echo $display_groups_text;
         ?>
