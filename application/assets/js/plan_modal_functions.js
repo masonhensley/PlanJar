@@ -266,14 +266,6 @@ function initialize_plan_modal() {
         queryParam: 'needle'
     });
     
-    // Privacy click handlers
-    $('#show_plan_privacy').click(function () {
-        $('#plan_privacy_content').show('fast');
-    });
-    $('#hide_plan_privacy').click(function () {
-        $('#plan_privacy_content').hide('fast');
-    });
-    
     // divset
     divset('#privacy_wrapper');
     
