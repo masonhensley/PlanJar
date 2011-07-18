@@ -138,7 +138,8 @@ a{
 }
 
 .change_location_panel {
-    display: none;
+    width : auto;
+    height:85px;
 }
 
 .data_container_wrapper {
