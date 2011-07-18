@@ -98,7 +98,7 @@ class Load_profile extends CI_Model
     function get_recent_locations($user)
     {
         $query = "SELECT places.name, plans.place_id, plans.date FROM plans 
-            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id AND plans.date>NOW()-30";
+            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id ORDER BY plans.date DESC";
         
         var_dump($query);
     }
