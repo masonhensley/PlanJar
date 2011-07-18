@@ -24,12 +24,6 @@
                 Invitees must invite new members
             </div>
 
-            <div style="width: auto">
-                <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($user_school); ?> network.</label>
-                <br/>
-                <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
-            </div>
-
             <div class="invite_wrapper">
                 <div class="left">
                     Invite people
@@ -42,9 +36,11 @@
                 </div>
             </div>
 
-            <br/><br/>
+            <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($user_school); ?> network.</label>
+            <br/>
+            <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
+
             <input type="submit" class="submit_create_group" value="Go" style="float:right;" />
         </div>
     </form>
-</div>
 </div>

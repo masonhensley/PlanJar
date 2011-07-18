@@ -47,7 +47,6 @@
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
     border-bottom: 1px solid rgba(0,0,0,0.25);position: relative;
-    float:left;
     margin-left:10px;
 }
 
