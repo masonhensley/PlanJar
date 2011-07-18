@@ -397,3 +397,26 @@ a{
     color:white;
     border:none;
 }
+
+/* ----------------- PROFILE CSS ---------------*/
+.profile_content{
+    border: 1px solid black;
+    margin-left:auto;
+    margin-right:auto;
+    height:500px;
+    width: 300px;
+    background-color:white;
+    
+}
+
+.profile_top_bar{
+    width:100%;
+    height:40px;
+}
+
+.profile_body{
+    position:relative;
+    height:100%;
+    width:100%;
+    background-color:gray;
+}
