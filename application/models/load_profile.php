@@ -57,6 +57,7 @@ class Load_profile extends CI_Model
             $groups_following_text = substr($groups_following_text,0,-2);
             $groups_following_text .= "<br/>";
         }
+        echo $groups_following_text;
         
         ?>
             </div>
