@@ -21,7 +21,8 @@ class Dashboard extends CI_Controller
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'initial_tab' => $initial_tab,
-                'suggested' => $suggested)
+                'suggested' => $suggested,
+                'user_school' => $this->_get_user_school())
             );
         } else
         {
@@ -265,6 +266,15 @@ class Dashboard extends CI_Controller
             $user = $this->ion_auth->get_user($user);
         }
         $this->load_profile->display_profile($user);
+    }
+
+    private function _get_user_school()
+    {
+        $this->load->database();
+        $query_string = "SELECT name FROM school_data WHERE id = ?";
+        $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
+
+        return $query->row()->name;
     }
 
 }
