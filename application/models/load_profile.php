@@ -40,7 +40,7 @@ class Load_profile extends CI_Model
         LEFT JOIN groups ON groups.id=group_relationships.id 
         WHERE group_relationships.user_joined_id=$user->id";
         
-        var_dump($queyr);
+        var_dump($query);
     }
 
 }
