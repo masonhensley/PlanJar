@@ -4,7 +4,7 @@
     </div>
 
     <div style="display:inline-block;margin-top:25px;float:left;margin-left:10px;">
-        <div class="in-field_block" style="position:absolute; top:8px; left:10px;">
+        <div class="in-field_block label" style="position:absolute; top:8px; left:10px;">
             <label for="change_location_search">Enter a new location.</label>
             <input type="text" id="change_location_search" class="textbox"/>
         </div>
