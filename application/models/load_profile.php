@@ -116,6 +116,6 @@ class Load_profile extends CI_Model
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
-        var_dump($most_visited_locations);
+        var_dump($most_visited_locations, $recent_locations);
     }
 }
