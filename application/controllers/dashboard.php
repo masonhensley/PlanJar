@@ -271,10 +271,10 @@ class Dashboard extends CI_Controller
     private function _get_user_school()
     {
         $this->load->database();
-        $query_string = "SELECT name FROM school_data WHERE id = ?";
+        $query_string = "SELECT school FROM school_data WHERE id = ?";
         $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
 
-        return $query->row()->name;
+        return $query->row()->school;
     }
 
 }
