@@ -172,13 +172,26 @@ class Home extends CI_Controller
             'event_id' => $this->input->get('event_id')
         );
 
+        // Capture and process the invite lists
+        $invited_users = explode(',', $this->input->get('invite_plan_user'));
+        if ($invited_users == false)
+        {
+            $invited_users = array();
+        }
+
+        $invited_groups = explode(',', $this->input->get('invite_plan_group'));
+        if ($invited_groups == false)
+        {
+            $invited_groups = array();
+        }
+
         // Handle privacy settings
         $privacy = $this->input->get('privacy');
         if ($privacy != 'none')
         {
             // Privacy settings enabled. Add an event_id (newly created event)
             $this->load->model('event_ops');
-            $data['event_id'] = $this->event_ops->create_event($privacy);
+            $data['event_id'] = $this->event_ops->create_event($privacy, $invited_users, $invited_groups);
         } else
         {
             // No privacy settings. Continue creating a plan as normal.
@@ -216,24 +229,16 @@ class Home extends CI_Controller
         $query = $this->db->insert('plans', $data);
 
         // Invite people and groups if necessary.
-        if ($this->input->get('invite_plan_user') != '')
+        if (count($invited_users) > 0)
         {
-            $invited_users = explode(',', $this->input->get('invite_plan_user'));
-            if (count($invited_users) > 0)
-            {
-                $this->load->model('notification_ops');
-                $this->notification_ops->notify_users($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
-            }
+            $this->load->model('notification_ops');
+            $this->notification_ops->notify_users($invited_users, $data['date'], 'plan_invite', $this->db->insert_id());
         }
 
-        if ($this->input->get('invite_plan_group') != '')
+        if (count($invited_groups) > 0)
         {
-            $invited_groups = explode(',', $this->input->get('invite_plan_group'));
-            if (count($invited_groups) > 0)
-            {
-                $this->load->model('notification_ops');
-                $this->notification_ops->notify_joined_groups($invited_groups, $data['date'], 'plan_invite', $this->db->insert_id());
-            }
+            $this->load->model('notification_ops');
+            $this->notification_ops->notify_joined_groups($invited_groups, $data['date'], 'plan_invite', $this->db->insert_id());
         }
 
         // Success
