@@ -200,8 +200,9 @@ a{
 #followers_content .right {
     width: 48%;
     float: right;
-    height: 20%;
+    height: auto;
     border: 1px solid black;
+    border-top-right-radius:10px;
 }
 
 /* ----------------GROUP TAB--------------- */
