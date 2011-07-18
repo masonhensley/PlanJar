@@ -52,7 +52,7 @@ class Load_profile extends CI_Model
         WHERE group_relationships.user_joined_id=$user->id";
         $result = $this->db->query($query);
         $groups_joined = array();
-        foreach($reuslt as $group)
+        foreach($reuslt->result() as $group)
         {
             $groups_joined[] = $group->name;
         }
