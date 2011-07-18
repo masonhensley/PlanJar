@@ -53,7 +53,9 @@ function show_data_container(data_div) {
         $('.create_group').show();
     }else if(data_div == '#profile_content') // --------------- HANDLER FOR PROFILE TAB --------------
     {
-        $.get('/dashboard/get_profile', function (data) {
+        $.get('/dashboard/get_profile',  {
+            'user_id': 'user'
+        },function (data) {
             $('.profile_box').html(data); 
         });
     }
