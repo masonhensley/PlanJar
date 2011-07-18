@@ -44,4 +44,17 @@ function initialize_create_group_modal()
             return true;
         }
     });
+    
+    // token-input
+    $('#group_invite_user').tokenInput('/home/get_followers_invite', {
+        hintText: 'Search followers...',
+        preventDuplicates: true,
+        queryParam: 'needle'
+    });
+    
+    $('#group_invite_group').tokenInput('/home/get_groups_invite', {
+        hintText: 'Search joined groups...',
+        preventDuplicates: true,
+        queryParam: 'needle'
+    });
 }

@@ -8,6 +8,7 @@
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/dashboard_notifications.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/create_group_modal.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/token-input.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -24,6 +25,7 @@
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
 
         <!-- Function to select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">
@@ -84,19 +86,19 @@
             </div>
 
             <div id="plans_content" class="page_content">
-                
+
             </div>
-            
+
             <div id="profile_content" class="page_content">
                 <div class="profile_container">
                     <div class="profile_box">
-                       
+
                     </div>
                     <div class="profile_edit">
                     </div>
                 </div>
             </div>
-            
+
             <div id="settings_content" class="page_content"></div>
         </div>
         <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>
