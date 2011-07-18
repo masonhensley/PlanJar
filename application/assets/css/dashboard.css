@@ -449,6 +449,12 @@ a{
     text-align:left;
 }
 
+.profile_body_text{
+    position:relative;
+    top:10px;
+    left:10px;
+}
+
 .profile_edit{
     float:right;
     width:300px;
