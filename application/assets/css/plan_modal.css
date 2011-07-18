@@ -1,0 +1,57 @@
+/* Create plan CSS */
+#create_plan_content {
+    display: none;
+    width: 550px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -300px;
+    top: 50%;
+    margin-top: -125px;
+    background-color:#E0EFFF;
+    padding: 5px;
+    border: 3px solid black;
+}
+#plan_location {
+    float: left;
+}
+#plan_title {
+    float: left;
+}
+#plan_time, #plan_day {
+    margin-left: auto;
+    margin-right: auto;
+}
+.in-field_block {
+    position:relative;
+    height:30px;
+    width:200px;
+    float: left;
+}
+.in-field_block label {
+    position:absolute;
+    top:3px;
+    left:5px;
+    font:normal 18px Arial;
+    color: #999999;
+}
+#create_plan_content input.textbox, .change_location_panel .textbox {
+    height:30px;
+    width:200px;
+}
+#create_plan_content .draggable_title_bar {
+    height: 25px;
+    background-color:purple;
+    color:white;
+    font-size:18px;
+    padding-left:10px;
+    padding-top:3px;
+}
+#invite_plan_left {
+    width: 48%;
+    float: left;
+}
+#invite_plan_right {
+    width: 48%;
+    margin-left: 4%;
+}

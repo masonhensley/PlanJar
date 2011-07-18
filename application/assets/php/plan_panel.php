@@ -13,7 +13,7 @@
                 <td>
                     <div class="in-field_block">
                         <label for="plan_location">Where are you going?</label>
-                            <input type="text" id="plan_location" name="plan_location" class="textbox"/>
+                        <input type="text" id="plan_location" name="plan_location" class="textbox"/>
                     </div>
                 </td>
                 <td>
@@ -56,24 +56,18 @@
         <input id="new_place_longitude" name="new_place_longitude" type="hidden"/>
         <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
 
-        <hr/>
-        <input type="button" id="invite_to_plan" value="Invite people and groups"/>
-        <input type="button" id="close_invite_plan_content" value="X"/>
-
-        <div id="invite_plan_content">
-            <h3>Invite people</h3>
+        <div id="invite_plan_left">
+            Invite people
             <input type="text" id="invite_plan_user" name="invite_plan_user"/>
+        </div>
 
-            <h3>Invite groups</h3>
+        <div id="invite_plan_right">
+            Invite groups
             <input type="text" id="invite_plan_group" name="invite_plan_group"/>
         </div>
 
-        <hr/>
-        <input type="button" id="show_plan_privacy" value="Add privacy settings"/>
-        <input type="button" id="hide_plan_privacy" value="X"/>
-
         <div id="plan_privacy_content">
-            <h3>Privacy options</h3>
+            Privacy options
             <div id="privacy_wrapper">
                 <div priv_val="none">None</div>
                 <div priv_val="strict">Fixed invitation list</div>
