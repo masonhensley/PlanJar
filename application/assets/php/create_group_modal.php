@@ -26,6 +26,6 @@
                 Invitees must invite new members
             </div>
             <br/><br/>
-            <input type="submit" value="Go" style="float:right;" />
+            <input type="submit" class="submit_create_group" value="Go" style="float:right;" />
         </div>
     </div>

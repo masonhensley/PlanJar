@@ -24,4 +24,10 @@ function initialize_create_group_modal()
         $('.divset_selected').removeClass('divset_selected');
         $(this).addClass('divset_selected');
     });
+    
+    // --------- submit handler ----------
+    $('.submit_create_group').click(function(){
+        
+    });
+    
 }
