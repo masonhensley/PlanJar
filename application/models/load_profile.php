@@ -111,7 +111,7 @@ class Load_profile extends CI_Model
                 $recent_tracker++;
                 $recent_locations[] = $place->name;
             }
-            $most_visited_locations[] = $place->id;
+            $most_visited_locations[] = $place->place_id;
         }
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
