@@ -14,7 +14,7 @@ class Load_profile extends CI_Model
         $result = $this->db->query($school_query);
         $row = $result->row();
         $groups_joined = $this->get_groups($user);
-        
+        var_dump($groups_joined);
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -24,11 +24,11 @@ class Load_profile extends CI_Model
                                 $year_display = substr($user->grad_year, -2);
                                 echo $user->first_name . " " . $user->last_name ."<br/>";
                                 echo $row->school ." ('" .$year_display .")<br/>";
-                                $display_groups_text = "";
+                                $display_groups_text;
                                 if(count($groups_joined > 0))
                                 {
                                     
-                                    $display_groups_text .= "Groups joined: ";
+                                    $display_groups_text = "Groups joined: ";
                                     foreach($groups_joined as $group)
                                     {
                                         $display_groups_text .= $group .", ";
@@ -56,7 +56,6 @@ class Load_profile extends CI_Model
         {
             $groups_joined[] = $group->name;
         }
-        var_dump($query);
         return $groups_joined;
     }
 
