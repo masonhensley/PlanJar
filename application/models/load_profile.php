@@ -99,6 +99,8 @@ class Load_profile extends CI_Model
     {
         $query = "SELECT places.name, plans.place_id, plans.plan_date FROM plans 
             LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id AND plans.plan_date>NOW()-30";
+        
+        var_dump($query);
     }
 
 }
