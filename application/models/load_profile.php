@@ -24,7 +24,18 @@ class Load_profile extends CI_Model
                                 $year_display = substr($user->grad_year, -2);
                                 echo $user->first_name . " " . $user->last_name ."<br/>";
                                 echo $row->school ." (" .$year_display .")<br/>";
-                                
+                                $display_groups_text = "";
+                                if(count($groups_joined > 0))
+                                {
+                                    
+                                    $display_groups_text = "Groups joined: ";
+                                    foreach($groups_joined as $group)
+                                    {
+                                        $display_groups_text .= $group .", ";
+                                    }
+                                    $display_groups_text = substr($display_groups_text,-2);
+                                }
+                                echo $display_groups_text;
         ?>
             </div>
         </div>
@@ -36,11 +47,17 @@ class Load_profile extends CI_Model
     
     function get_groups($user)
     {
-        $query = "SELECT groups.name FROM group_relationships 
-        LEFT JOIN groups ON groups.id=group_relationships.id 
+        $query = "SELECT groups.name, group_relationships.id 
+        FROM group_relationships LEFT JOIN groups ON groups.id=group_relationships.group_id 
         WHERE group_relationships.user_joined_id=$user->id";
-        
+        $result = $this->db->query($query);
+        $groups_joined = array();
+        foreach($reuslt as $group)
+        {
+            $groups_joined[] = $group->name;
+        }
         var_dump($query);
+        return $groups_joined;
     }
 
 }
