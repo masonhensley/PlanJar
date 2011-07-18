@@ -17,7 +17,7 @@
 
         <div class="in-field_block input_style"><label for="group_description">Group description</label>
             <textarea name="group_description" cols="40" rows="5"></textarea>
-        </div><br/>
+        </div>
         <div class="create_group_privacy">
             <div class="divset" id="select_me" style="float:left;">
                 Anyone can join
@@ -28,5 +28,6 @@
             </div>
         </div>
         <div class ="create_group_bottom">
+            <input type="submut" value="Go" />
         </div>
     </div>
