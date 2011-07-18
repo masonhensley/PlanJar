@@ -8,7 +8,7 @@
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/dashboard_notifications.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/create_group_modal.css" type="text/css" />
-        
+
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
@@ -77,14 +77,20 @@
             <div id="groups_content" class="page_content" setup_func="groups_setup">
                 <?php include(APPPATH . '/assets/php/dashboard_groups.php'); ?>
             </div>
-            
+
             <div id="notifications_content" class="page_content" setup_func="notifications_setup">
                 <?php include(APPPATH . '/assets/php/dashboard_notifications.php'); ?>
             </div>
-        
+
             <div id="plans_content" class="page_content"></div>
             <div id="profile_content" class="page_content">
-                <?php include(APPPATH . '/assets/php/dashboard_profile.php'); ?>
+                <div class="profile_container">
+                    <div class="profile_content">
+                       
+                    </div>
+                    <div class="profile_edit">
+                    </div>
+                </div>
             </div>
             <div id="settings_content" class="page_content"></div>
         </div>
