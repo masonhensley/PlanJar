@@ -34,6 +34,7 @@ function initialize_create_group_modal()
             }
         },
         submitHandler: function(form) {
+            //$.get();
             console.log($(form).serialize());
         },
         errorPlacement: function () {
