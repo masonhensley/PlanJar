@@ -46,7 +46,7 @@ class Load_suggested_friends extends CI_Model
                 $number_of_results += count($suggested_friends);
                 asort($suggested_friends); // this sorts the array by count
                 $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending, TRUE parameter keeps the indices 
-                if($number_of_results > 0)
+                if ($number_of_results > 0)
                 {
                     $result = $this->generate_suggested_friends($friend_of_friend_list, $suggested_friends);
                     $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
@@ -101,47 +101,43 @@ class Load_suggested_friends extends CI_Model
 
     function show_suggested_school_friends($display_limit, $already_following)
     {
-       
+
         $user = $this->ion_auth->get_user();
         $user_id = $user->id;
         $grad_year = $user->grad_year;
         $school_id = $user->school_id;
-        
+
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
             FROM user_meta 
             LEFT JOIN school_data ON user_meta.school_id=school_data.id
             WHERE school_id=$school_id AND user_id!=$user_id";
-        
+
         foreach ($already_following as $friend_id) // this makes sure the user hasn't already been shown
         {
             $query .= " AND user_id!=$friend_id";
         }
-        
+
         $today = date("Y");
         $tracker = $today - $grad_year;
         $query .= " AND (";
-        for($count=$tracker; $count!= $tracker+4; $count++)
+        for ($count = $tracker; $count != $tracker + 4; $count++)
         {
             $display_year = $grad_year + $count;
             $query .= "user_meta.grad_year=$display_year OR ";
         }
         $query = substr($query, 0, -4);
         $query .= ") LIMIT 0, 15";
-        
-        //$result = $this->db->query($query);
-        var_dump($query);
-        /*
+
+        $result = $this->db->query($query);
+
         $options = "suggested_school";
-        if($result->num_rows() >0)
+        if ($result->num_rows() > 0)
         {
-                     echo "<div style=\"padding-top:5px; text-align:center;padding-top:10px;padding-bottom:10px;\">Could not find any mutual connections<br/>
+            echo "<div style=\"padding-top:5px; text-align:center;padding-top:10px;padding-bottom:10px;\">Could not find any mutual connections<br/>
                          Expanded search results to include people from your school</div>";
         }
         $this->display_suggested_friends($result, null, $options, 15);
-         * 
-         */
     }
-
 }
 
 ?>
