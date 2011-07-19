@@ -194,8 +194,7 @@ a{
     text-align:center;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    background-color: white;
-
+    background-color:white;
 }
 
 .day{
@@ -217,7 +216,6 @@ a{
     float:left;
     width:32px;
     height:100%;
-    border-right: 1px solid black;
     border-left: 1px solid black;
     background-color: white;
 }
@@ -235,6 +233,7 @@ a{
 
 .seven_days {
     height: 100%;
+    width:100%;
 }
 
 .top_left_plans{
