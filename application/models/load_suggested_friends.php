@@ -111,12 +111,23 @@ class Load_suggested_friends extends CI_Model
             FROM user_meta 
             LEFT JOIN school_data ON user_meta.school_id=school_data.id
             WHERE school_id=$school_id AND user_id!=$user_id";
-        foreach ($already_following as $friend_id)
+        
+        foreach ($already_following as $friend_id) // this makes sure the user hasn't already been shown
         {
             $query .= " AND user_id!=$friend_id";
         }
-        $query .= " AND (user_meta.grad_year=$grad_year OR user_meta.grad_year=" .$grad_year+1 ." OR user_meta.grad_year=" .$grad_year-1 
-        ." LIMIT 0, 15";
+        
+        $today = date("Y");
+        $tracker = $today - $grad_year;
+        $query .= "AND (";
+        for($count=$tracker; $count!= $tracker-4; $count--)
+        {
+            $display_year = $grad_year + $count;
+            $query .= "user_meta.grad_year=$display_year";
+        }
+        
+        $query .= ") LIMIT 0, 15";
+        
         $result = $this->db->query($query);
         var_dump($query);
         $options = "suggested_school";
