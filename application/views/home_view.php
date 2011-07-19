@@ -62,7 +62,6 @@
         <div class ="container">
             <div class ="left">
                 <div class="left_header">
-                    Groups
                 </div>
 
                 <?php include(APPPATH . 'assets/php/group_panel.php'); ?>

@@ -87,7 +87,7 @@ class Dashboard extends CI_Controller
         } else
         {
             ?> 
-            <div style="width:100%; height:40px; background-color:white;text-align: center;border-top:1px solid black;padding-top:15px; padding-bottom: 15px">
+            <div style="width:100%; height:40px; background-color:white;text-align: center;border-top:1px solid black;padding-top:15px;">
                 You are not following anyone yet
             </div>
             <?php
