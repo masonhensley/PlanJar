@@ -34,7 +34,7 @@ class Load_profile extends CI_Model
         // Code to display groups joined
         if (count($groups_following) > 0 || count($groups_joined))
         {
-            $groups_joined_text = "";
+            $groups_joined_text = "Groups<br/>";
             if (count($groups_joined > 0))
             {
                 $groups_joined_text .= "Joined: ";
@@ -147,7 +147,7 @@ class Load_profile extends CI_Model
             $most_visited_text .= "<br/>";
         }
 
-        $return_string = $recent_locations_text . $most_visited_text;
+        $return_string = "Locations<br/>" .$recent_locations_text . $most_visited_text;
         return $return_string;
     }
 
