@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     initialize_day_tabs();
 });
 
@@ -6,26 +6,13 @@ $(function() {
 function initialize_day_tabs() {
     // Populate the initial days.
     get_new_days(0);
-    
-    // Left and right arrows
-    $('.left_day_arrow').click(function () {
-        var current_offset = $('.day:first').attr('day_offset');
-        if (current_offset != 0) {
-            get_new_days(parseInt(current_offset) - 7);
-        }
-    });
-    
-    $('.right_day_arrow').click(function () {
-        var current_offset = $('.day:first').attr('day_offset');
-        get_new_days(parseInt(current_offset) + 7);
-    });
 }
 
 function initialize_day_tab_rules() {
     // Set up the day of the week tabs.
     $("div.days_panel .day:first").addClass("day_selected").select(); //Activate first tab
 
-    //On Click Event
+    // On Click Event
     $("div.days_panel .day").click(function() {
 
         $('.selected_plan').removeClass('selected_plan'); // remove selected plan on right panel
@@ -35,6 +22,19 @@ function initialize_day_tab_rules() {
         
         // Call the callback function.
         on_day_change();
+        
+        // Left and right arrow click functions
+        $('.left_day_arrow').click(function () {
+            var current_offset = $('.day:first').attr('day_offset');
+            if (current_offset != 0) {
+                get_new_days(parseInt(current_offset) - 7);
+            }
+        });
+    
+        $('.right_day_arrow').click(function () {
+            var current_offset = $('.day:first').attr('day_offset');
+            get_new_days(parseInt(current_offset) + 7);
+        });
         
         return false;
     });
