@@ -105,7 +105,7 @@ function initialize_plan_modal() {
                         "$search": request.term,
                         "$loc":{
                             "$within":{
-                                "$center":[[myLatitude, myLongitude],5000]
+                                "$center":[[myLatitude, myLongitude], 50000]
                             }
                         }
                     };
