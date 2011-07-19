@@ -34,7 +34,7 @@ class Load_profile extends CI_Model
         // Code to display groups joined
         if (count($groups_following) > 0 || count($groups_joined))
         {
-            $groups_joined_text = "Groups<br/>";
+            $groups_joined_text = "<font style=\"font-size:20px;\">Groups</font><br/>";
             if (count($groups_joined > 0))
             {
                 $groups_joined_text .= "Joined: ";
@@ -125,7 +125,7 @@ class Load_profile extends CI_Model
             $recent_locations_text = "Recently visited: ";
             foreach ($recent_locations as $location)
             {
-                $recent_locations_text .= "<font style=\"color:navy;\">" . $location . "</font>, ";
+                $recent_locations_text .= "<font style=\"color:blue;\">" . $location . "</font>, ";
             }
             $recent_locations_text = substr($recent_locations_text, 0, -2);
             $recent_locations_text .= "<br/>";
@@ -147,7 +147,7 @@ class Load_profile extends CI_Model
             $most_visited_text .= "<br/>";
         }
 
-        $return_string = "Locations<br/>" .$recent_locations_text . $most_visited_text;
+        $return_string = "<font style=\"font-size:20px;\">Locations</font><br/>" .$recent_locations_text . $most_visited_text;
         return $return_string;
     }
 
