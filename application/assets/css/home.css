@@ -216,6 +216,7 @@ a{
     width:35px;
     height:100%;
     border-left: 1px solid black;
+    border-right: 1px solid black;
     background-color: lightblue;
 }
 
