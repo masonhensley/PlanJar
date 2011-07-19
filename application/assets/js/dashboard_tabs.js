@@ -50,7 +50,7 @@ function show_data_container(data_div) {
     if(data_div == '#groups_content')
     {
         // if the group tab is selected, show the + Create Group button
-        $('.create_group').show();
+        $('.create_group').show("fast");
     }else if(data_div == '#profile_content') // --------------- HANDLER FOR PROFILE TAB --------------
     {
         $.get('/dashboard/get_profile',  {
