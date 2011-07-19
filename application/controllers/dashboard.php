@@ -271,7 +271,6 @@ class Dashboard extends CI_Controller
         // This just looks nicer than a long function call.
         $name = $this->input->get('group_name');
         $description = $this->input->get('group_description');
-        $school_id = $user->school_id;
         $privacy = $this->input->get('privacy');
         $location_source = $this->input->get('location_source');
 
@@ -279,8 +278,8 @@ class Dashboard extends CI_Controller
         $this->group_ops->add_group($name, $description, $privacy, $location_source);
 
         // Join the user to the group
-        $this->group_ops->follow_group($this->db->last_query());
-        $this->group_ops->join_group($this->db->last_query());
+        $this->group_ops->follow_group($this->db->insert_id());
+        $this->group_ops->join_group($this->db->insert_id());
 
         // Capture and process the invite lists
         $invited_users = explode(',', $this->input->get('group_invite_users'));
