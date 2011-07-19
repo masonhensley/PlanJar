@@ -139,7 +139,7 @@ class Load_profile extends CI_Model
             $most_visited_text .= "Most visited: ";
             foreach ($most_visited_locations as $location => $count)
             {
-                $most_visited_locations .= $location . ", ";
+                $most_visited_text .= $location . ", ";
             }
             $most_visited_text .= "<br/>";
         }
