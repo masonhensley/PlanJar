@@ -165,6 +165,7 @@ class Group_ops extends CI_Model
 
     // Adds a gruop to the database.
     // If school_id isn't blank, use the latitude and longitude of the school.
+    // Returns the newly created group id.
     public function add_group($name, $description, $privacy, $location_source)
     {
         $user = $this->ion_auth->get_user();
@@ -183,10 +184,12 @@ class Group_ops extends CI_Model
         {
             $latitude = $user->latitude;
             $longitude = $user->longitude;
-            $school_id = 'NULL';
+            $school_id = NULL;
         }
         $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
         $query = $this->db->query($query_string, array($name, $latitude, $longitude, $description, $school_id, $privacy));
+
+        return $this->db->insert_id();
     }
 
     // User must be following the group first

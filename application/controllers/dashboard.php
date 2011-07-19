@@ -275,7 +275,7 @@ class Dashboard extends CI_Controller
         $location_source = $this->input->get('location_source');
 
         // Create the group.
-        $this->group_ops->add_group($name, $description, $privacy, $location_source);
+        $group_id = $this->group_ops->add_group($name, $description, $privacy, $location_source);
 
         // Join the user to the group
         $this->group_ops->follow_group($this->db->insert_id());
@@ -298,13 +298,13 @@ class Dashboard extends CI_Controller
         if (count($invited_users) > 0)
         {
             $this->load->model('notification_ops');
-            $this->notification_ops->notify_users($invited_users, 'group_invite', $this->db->insert_id());
+            $this->notification_ops->notify_users($invited_users, 'group_invite', $group_id);
         }
 
         if (count($invited_groups) > 0)
         {
             $this->load->model('notification_ops');
-            $this->notification_ops->notify_joined_groups($invited_groups, 'group_invite', $this->db->insert_id());
+            $this->notification_ops->notify_joined_groups($invited_groups, 'group_invite', $group_id);
         }
 
         // Success
