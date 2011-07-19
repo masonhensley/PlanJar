@@ -22,9 +22,9 @@ function initialize_plan_modal() {
             $('#plan_time [plan_time="night"]').click();
         }
         
-        $('#plan_location').focus();
         $('#create_plan_content input[type="text"], #create_plan_content input[type="hidden"]').val('');
         $('#plan_location, #plan_title').blur();
+        $('#plan_location').focus();
         
         $('#create_plan_content').show('fast');
     });
@@ -45,8 +45,8 @@ function initialize_plan_modal() {
     });
     
     // Divset
-    divset('#plan_time');
-    divset('#plan_day');
+    $('#plan_time').divSet();
+    $('#plan_day').divSet();
 
     // Initialize the in-field labels.
     $('#create_plan_content .in-field_block label').inFieldLabels();
@@ -267,7 +267,7 @@ function initialize_plan_modal() {
     });
     
     // divset
-    divset('#privacy_wrapper');
+    $('#privacy_wrapper').divSet();
     
     // Initial privacy select
     $('#privacy_wrapper :first').click();

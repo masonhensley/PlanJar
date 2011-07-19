@@ -11,6 +11,7 @@ function initialize_create_group_modal()
         // Initial selects
         $('#group_privacy_wrapper :first').click();
         $('.create_group_content input[type="radio"]:first').click();
+        $('#group_name').focus();
     
         // Clear the token inputs
         $('#group_invite_users, #group_invite_groups').tokenInput('clear');
@@ -29,7 +30,7 @@ function initialize_create_group_modal()
     $('.create_group_content .in-field_block label').inFieldLabels();   
     
     // divset
-    divset('#group_privacy_wrapper');
+    $('#group_privacy_wrapper').divSet();
     
     // --------- validator ----------
     $('#create_group').validate({

@@ -24,7 +24,7 @@
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_modal_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
-        <script type="text/javascript" src="/application/assets/js/change_location_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
 
         <!-- jQuery plugins -->
