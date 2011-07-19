@@ -28,12 +28,12 @@
         <div class="invite_wrapper">
             <div class="left">
                 Invite people
-                <input type="text" id="group_invite_user" name="group_invite_user"/>
+                <input type="text" id="group_invite_users" name="group_invite_users"/>
             </div>
 
             <div class="right">
                 Invite groups
-                <input type="text" id="group_invite_group" name="group_invite_group"/>
+                <input type="text" id="group_invite_groups" name="group_invite_groups"/>
             </div>
         </div>
 

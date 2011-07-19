@@ -278,6 +278,39 @@ class Dashboard extends CI_Controller
 
         // Create the group.
         $this->add_group($name, $description, $latitude, $longitude, $school_id, $privacy);
+
+        // Join the user to the group
+        $this->follow_group($this->db->last_query());
+        $this->join_group($this->db->last_query());
+
+        // Capture and process the invite lists
+        $invited_users = explode(',', $this->input->get('group_invite_users'));
+        if ($invited_users[0] == '')
+        {
+            $invited_users = array();
+        }
+
+        $invited_groups = explode(',', $this->input->get('group_invite_groups'));
+        if ($invited_groups[0] == '')
+        {
+            $invited_groups = array();
+        }
+
+        // Invite people and groups if necessary.
+        if (count($invited_users) > 0)
+        {
+            $this->load->model('notification_ops');
+            $this->notification_ops->notify_users($invited_users, 'plan_invite', $this->db->insert_id());
+        }
+
+        if (count($invited_groups) > 0)
+        {
+            $this->load->model('notification_ops');
+            $this->notification_ops->notify_joined_groups($invited_groups, 'plan_invite', $this->db->insert_id());
+        }
+
+        // Success
+        echo('success');
     }
 
 }

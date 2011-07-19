@@ -169,10 +169,6 @@ class Group_ops extends CI_Model
     {
         $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
         $query = $this->db->query($query_string, array($name, $latitude, $longitude, $description, $school_id, $privacy));
-
-        // Join the user to the group
-        $this->follow_group($this->db->last_query());
-        $this->join_group($this->db->last_query());
     }
 
     // User must be following the group first

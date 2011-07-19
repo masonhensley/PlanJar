@@ -11,7 +11,7 @@ class Notification_ops extends CI_Model
 
     // Sends a notification to everyone in the groups specified in the group list.
     // The passed groups must be joined by the user to work correctly.
-    public function notify_joined_groups($group_list, $date, $type, $subject_id)
+    public function notify_joined_groups($group_list, $type, $subject_id)
     {
         $user = $this->ion_auth->get_user();
         $originator_id = $user->id;
@@ -30,7 +30,7 @@ class Notification_ops extends CI_Model
 
             // Escape all vars
             $originator_id = $this->db->escape($originator_id);
-            $date = $this->db->escape($date);
+            $date = $this->db->escape(date('Y-m-d'));
             $type = $this->db->escape($type);
             $subject_id = $this->db->escape($subject_id);
 
@@ -61,14 +61,14 @@ class Notification_ops extends CI_Model
     }
 
     // Sends a notification to everyone specified in the user list
-    public function notify_users($user_list, $date, $type, $subject_id)
+    public function notify_users($user_list, $type, $subject_id)
     {
         $user = $this->ion_auth->get_user();
         $originator_id = $user->id;
 
         // Escape all vars
         $originator_id = $this->db->escape($originator_id);
-        $date = $this->db->escape($date);
+        $date = $this->db->escape(date('Y-m-d'));
         $type = $this->db->escape($type);
         $subject_id = $this->db->escape($subject_id);
 
