@@ -111,7 +111,7 @@ class Load_profile extends CI_Model
                 $recent_tracker++;
                 $recent_locations[] = $place->name;
             }
-            $most_visited_locations[] = $place->place_id;
+            $most_visited_locations[] = $place->name;
         }
         
         $recent_locations_text = "Recent locations: ";
@@ -125,5 +125,8 @@ class Load_profile extends CI_Model
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
         var_dump($most_visited_locations, $recent_locations);
+        
+        
+        
     }
 }
