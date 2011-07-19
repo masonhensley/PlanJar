@@ -3,6 +3,8 @@ function followers_setup() {
 }
 
 function populate_followers_list() {
+    $('#followers_content .right').hide();
+    
     $.get('/dashboard/get_followers', function (data) {
         $('#followers_list').html(data);
         

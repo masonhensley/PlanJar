@@ -96,16 +96,25 @@ class Dashboard extends CI_Controller
                 "WHERE friends.follow_id = ? " .
                 "ORDER BY user_meta.last_name ASC";
         $query = $this->db->query($query_string, array($user->id));
-
-        foreach ($query->result() as $row)
+        if ($query->num_rows() > 0)
         {
-            if ($this->follow_ops->is_following($user->id, $row->user_id))
+            foreach ($query->result() as $row)
             {
-                $this->follow_ops->echo_user_entry($row, 'following');
-            } else
-            {
-                $this->follow_ops->echo_user_entry($row, 'add following');
+                if ($this->follow_ops->is_following($user->id, $row->user_id))
+                {
+                    $this->follow_ops->echo_user_entry($row, 'following');
+                } else
+                {
+                    $this->follow_ops->echo_user_entry($row, 'add following');
+                }
             }
+        }else{
+            ?> 
+<div style="width:100%; height:40px; background-color:white;">
+    You are not following anyone<br/>
+    <a href="/dashboard/following/suggested" style="color:#110055;">Find friends</a>
+</div>
+            <?php
         }
     }
 
