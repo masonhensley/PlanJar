@@ -19,7 +19,7 @@
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_following.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_followers.js"></script>
-        <script type="text/javascript" src="/application/assets/js/groups_dashboard_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_groups.js"></script>
         <script type="text/javascript" src="/application/assets/js/create_group_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_notifications.js"></script>
         <script type="text/javascript" src="/application/assets/js/divset.js"></script>

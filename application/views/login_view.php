@@ -8,7 +8,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.min.js"></script>
-        <script type="text/javascript" src="/application/assets/js/sign_up_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/login.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
 
         <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
