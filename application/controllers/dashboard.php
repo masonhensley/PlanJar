@@ -110,9 +110,9 @@ class Dashboard extends CI_Controller
             }
         }else{
             ?> 
-<div style="width:100%; height:40px; background-color:white;">
+<div style="width:100%; height:40px; background-color:white;text-align: center;border-top:1px solid black;padding-top:15px; padding-bottom: 15px">
     You are not following anyone<br/>
-    <a href="/dashboard/following/suggested" style="color:#110055;">Find friends</a>
+    <a href="/dashboard/following/suggested" style="color:#110055; font-weight:bold;">Find friends</a>
 </div>
             <?php
         }
