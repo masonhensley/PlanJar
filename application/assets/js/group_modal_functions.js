@@ -6,7 +6,7 @@ function initialize_create_group_modal()
 {
     $('.create_group').click(function(){
         // Clear the fields.
-        $('#group_name, #group_description').text('');
+        $('#group_name, #group_description').val('').blur();
         
         // Initial selects
         $('#group_privacy_wrapper :first').click();
