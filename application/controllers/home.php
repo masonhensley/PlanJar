@@ -46,8 +46,6 @@ class Home extends CI_Controller
 // load and return user plan data
     public function loadMyEvents()
     {
-        $this->load->database();
-
 // get user info from ion_auth
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
@@ -69,8 +67,6 @@ class Home extends CI_Controller
 // Checks the PlanJar Places database for matching places.
     public function find_places()
     {
-        $this->load->database();
-
         $needle = $this->input->get('needle');
         $search_terms = explode(' ', $needle);
 
@@ -113,8 +109,6 @@ class Home extends CI_Controller
     // Checks the plan cotegories with the server.
     public function find_plan_categories()
     {
-        $this->load->database();
-
         $needle = $this->input->get('needle');
         $search_terms = explode(' ', $needle);
 
@@ -156,8 +150,6 @@ class Home extends CI_Controller
     // Adds a plan entry to the database, creates an event if necessary, and invites and notifies users if required.
     public function submit_plan()
     {
-        $this->load->database();
-
         $user = $this->ion_auth->get_user();
         $date = new DateTime();
         $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
@@ -263,7 +255,6 @@ class Home extends CI_Controller
 
     public function load_selected_plan_data()
     {
-        $this->load->database();
         $plan = $this->input->get('plan_selected');
         $this->load->model('load_plans');
         $return = $this->load_plans->loadPlanData($plan);
@@ -273,7 +264,6 @@ class Home extends CI_Controller
     // permanently deletes plan
     public function delete_plan()
     {
-        $this->load->database();
         $plan = $this->input->get('plan_selected');
         $this->load->model('load_plans');
         $return_str = $this->load_plans->deletePlan($plan);
@@ -285,8 +275,7 @@ class Home extends CI_Controller
     // called from "home_functions.js"
     public function load_popular_locations()
     {
-        // load the database and model
-        $this->load->database();
+        // load the model
         $this->load->model('load_locations');
 
         // this contains a list of ids for the groups selected
@@ -299,7 +288,6 @@ class Home extends CI_Controller
 
     public function show_location_data()
     {
-        $this->load->database();
         $this->load->model('load_location_data');
         $user = $this->ion_auth->get_user();
         $user_id = $user->id;
@@ -404,9 +392,9 @@ class Home extends CI_Controller
                 $date->add(new DateInterval('P1D'));
             }
             ?> 
-             <div class="left_day_arrow"><</div>
+            <div class="left_day_arrow"><</div>
             <div class="right_day_arrow">></div>
-           
+
             <?php
         }
 

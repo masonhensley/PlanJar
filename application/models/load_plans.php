@@ -13,8 +13,6 @@ class Load_plans extends CI_Model
 
     function getPlans($user_id)
     {
-        $this->load->database();
-
         // pull all user's current events
         $query =
                 "SELECT plans.id, plans.date, plans.time_of_day, date, plans.title, plans.event_id, places.name

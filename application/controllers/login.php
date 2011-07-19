@@ -85,8 +85,6 @@ class Login extends CI_Controller
     // Returns a list of schools (in JSON format) that match the needle string.
     public function search_schools()
     {
-
-        $this->load->database();
         $needle = $this->input->get('needle');
         $search_terms = explode(' ', $needle);
 
@@ -114,29 +112,33 @@ class Login extends CI_Controller
         $email_exists = $this->ion_auth->email_check($this->input->get('email'));
         echo(json_encode(!$email_exists));
     }
-    
-    public function get_school_by_id() {
-        $this->load->database();
+
+    public function get_school_by_id()
+    {
         $query_string = "SELECT `school` FROM `school_data` WHERE `id` = ? LIMIT 1";
         $query = $this->db->query($query_string, array($this->input->get('id')));
-        
-        if ($query->num_rows() == 0) {
+
+        if ($query->num_rows() == 0)
+        {
             // Return an error if no entries come up.
             echo('error');
-        } else {
+        } else
+        {
             // Return the first result.
             $row = $query->row_array();
             echo($row['school']);
         }
     }
-    
+
     // Post sign up message
-    public function post_sign_up() {
+    public function post_sign_up()
+    {
         $this->load->view('post_sign_up_view');
     }
-    
-   public function foo() {
-     $this->load->view('foo');
-   }
+
+    public function foo()
+    {
+        $this->load->view('foo');
+    }
 
 }

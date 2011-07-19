@@ -34,8 +34,13 @@ function initialize_create_group_modal()
             }
         },
         submitHandler: function(form) {
-            //$.get();
-            console.log($(form).serialize());
+            $.get('/dashboard/create_group?' + $(form).serialize(), function (data) {
+                if (data == success) {
+                    $('.create_group_content').hide("fast");
+                } else {
+                    alert(data);
+                }
+            });
         },
         errorPlacement: function () {
             // Don't display errors

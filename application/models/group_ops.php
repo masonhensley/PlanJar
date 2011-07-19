@@ -119,10 +119,10 @@ class Group_ops extends CI_Model
                 </div>
             </div>
             <div class="group_entry_left_side">
-        <?php
-        if ($option == 'remove following')
-        {
-            ?>
+                <?php
+                if ($option == 'remove following')
+                {
+                    ?>
                     <div class="remove_following">Unfollow</div>
                     <?php
                 } else if ($option == 'add following')
@@ -144,9 +144,9 @@ class Group_ops extends CI_Model
                 {
                     ?>
                     <div class="add_following">Follow</div>
-            <?php
-        }
-        ?>
+                    <?php
+                }
+                ?>
             </div>
         </div>
         <?php
@@ -155,13 +155,50 @@ class Group_ops extends CI_Model
     // Returns true if the user is following the specified group
     public function user_is_following($group_id)
     {
-        $this->load->database();
         $user_id = $this->ion_auth->get_user()->id;
 
         $query_string = "SELECT * FROM group_relationships WHERE group_id = ? AND user_following_id = ?";
         $query = $this->db->query($query_string, array($group_id, $user_id));
 
         return $query->num_rows() > 0;
+    }
+
+    // Adds a gruop to the database.
+    // If school_id isn't blank, use the latitude and longitude of the school.
+    public function add_group($name, $description, $latitude, $longitude, $school_id, $privacy)
+    {
+        $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
+        $query = $this->db->query($query_string, array($name, $latitude, $longitude, $description, $school_id, $privacy));
+
+        // Join the user to the group
+        $this->follow_group($this->db->last_query());
+        $this->join_group($this->db->last_query());
+    }
+
+    // User must be following the group first
+    public function join_group($group_id)
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "UPDATE group_relationships " .
+                "SET user_following_id = DEFAULT, user_joined_id = ? " .
+                "WHERE group_id = ? AND user_following_id = ?";
+        $query = $this->db->query($query_string, array(
+                    $user->id,
+                    $group_id,
+                    $user->id,
+                ));
+    }
+
+    public function follow_group($group_id)
+    {
+        $user = $this->ion_auth->get_user();
+
+        $query_string = "INSERT IGNORE INTO group_relationships VALUES (DEFAULT, ?, ?, DEFAULT)";
+        $query = $this->db->query($query_string, array(
+                    $group_id,
+                    $user->id,
+                ));
     }
 
 }

@@ -68,7 +68,6 @@ class Dashboard extends CI_Controller
     // Return HTML for the users the user is following.
     public function get_following()
     {
-        $this->load->database();
         $this->load->model('follow_ops');
         $user = $this->ion_auth->get_user();
 
@@ -88,7 +87,6 @@ class Dashboard extends CI_Controller
     // Return HTML for the users following the user.
     public function get_followers()
     {
-        $this->load->database();
         $this->load->model('follow_ops');
         $user = $this->ion_auth->get_user();
 
@@ -176,13 +174,9 @@ class Dashboard extends CI_Controller
 
     public function add_group_following()
     {
-        $user = $this->ion_auth->get_user();
+        $this->load->model('group_ops');
 
-        $query_string = "INSERT IGNORE INTO group_relationships VALUES (DEFAULT, ?, ?, DEFAULT)";
-        $query = $this->db->query($query_string, array(
-                    $this->input->get('group_id'),
-                    $user->id,
-                ));
+        $this->group_ops->follow_group($this->input->get('group_id'));
     }
 
     public function remove_group_following()
@@ -203,16 +197,9 @@ class Dashboard extends CI_Controller
 
     public function add_group_joined()
     {
-        $user = $this->ion_auth->get_user();
+        $this->load->model('group_ops');
 
-        $query_string = "UPDATE group_relationships " .
-                "SET user_following_id = DEFAULT, user_joined_id = ? " .
-                "WHERE group_id = ? AND user_following_id = ?";
-        $query = $this->db->query($query_string, array(
-                    $user->id,
-                    $this->input->get('group_id'),
-                    $user->id,
-                ));
+        $this->group_ops->join_group($this->input->get('group_id'));
     }
 
     public function get_joined_groups()
@@ -270,11 +257,27 @@ class Dashboard extends CI_Controller
 
     private function _get_user_school()
     {
-        $this->load->database();
         $query_string = "SELECT school FROM school_data WHERE id = ?";
         $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
 
         return $query->row()->school;
+    }
+
+    public function create_group()
+    {
+        $this->load->model('group_ops');
+        $user = $this->ion_auth->get_user();
+
+        // This just looks nicer than a long function call.
+        $name = $this->input->get('group_name');
+        $description = $this->input->get('group_description');
+        $latitude = $user->latitude;
+        $longitude = $user->longitude;
+        $school_id = $user->school_id;
+        $description = $this->input->get('privacy');
+
+        // Create the group.
+        $this->add_group($name, $description, $latitude, $longitude, $school_id, $privacy);
     }
 
 }
