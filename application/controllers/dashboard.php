@@ -78,9 +78,19 @@ class Dashboard extends CI_Controller
                 "ORDER BY user_meta.last_name ASC";
         $query = $this->db->query($query_string, array($user->id));
 
-        foreach ($query->result() as $row)
+        if ($query->num_rows() > 0)
         {
-            $this->follow_ops->echo_user_entry($row, 'remove following');
+            foreach ($query->result() as $row)
+            {
+                $this->follow_ops->echo_user_entry($row, 'remove following');
+            }
+        } else
+        {
+            ?> 
+            <div style="width:100%; height:40px; background-color:white;text-align: center;border-top:1px solid black;padding-top:15px; padding-bottom: 15px">
+                You are not following anyone yet<br/>
+            </div>
+            <?php
         }
     }
 
@@ -112,7 +122,7 @@ class Dashboard extends CI_Controller
         {
             ?> 
             <div style="width:100%; height:40px; background-color:white;text-align: center;border-top:1px solid black;padding-top:15px; padding-bottom: 15px">
-                You are not following anyone<br/>
+                You don't have any followers yet<br/>
                 <a href="/dashboard/following/suggested" style="color:#110055; font-weight:bold;">Find friends</a>
             </div>
             <?php
