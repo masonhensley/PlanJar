@@ -118,6 +118,7 @@ class Load_suggested_friends extends CI_Model
         $query .= " AND (user_meta.grad_year=$grad_year OR user_meta.grad_year=" .$grad_year+1 ." OR user_meta.grad_year=" .$grad_year-1 
         ." LIMIT 0, 15";
         $result = $this->db->query($query);
+        var_dump($query);
         $options = "suggested_school";
         if($result->num_rows() >0)
         {
