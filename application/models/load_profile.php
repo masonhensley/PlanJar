@@ -101,7 +101,7 @@ class Load_profile extends CI_Model
 
         $recent_locations = array(); // variables to keep track of locations
         $most_visited_locations = array();
-        
+
         // make trackers!
         $recent_tracker = 0;
         foreach ($result->result() as $place)
@@ -113,20 +113,31 @@ class Load_profile extends CI_Model
             }
             $most_visited_locations[] = $place->name;
         }
-        
-        $recent_locations_text = "Recent locations: ";
-        foreach($recent_locations as $location)
+
+        $recent_locations_text = "";
+        if (count($recent_locations) > 0)
         {
-            $recent_locations_text .= "$location, ";
-        }        
-        $recent_locations_text .= "<br/>";
-        
+            $recent_locations_text = "Recent locations: ";
+            foreach ($recent_locations as $location)
+            {
+                $recent_locations_text .= "$location, ";
+            }
+            $recent_locations_text = substr($recent_locations_text, 0, -2);
+            $recent_locations_text .= "<br/>";
+        }
+
+        $most_visited_text ="";
+
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
         var_dump($most_visited_locations, $recent_locations);
         
-        
-        
+        $most_visited_text = "Most visited: ";
+        foreach ($most_visited_locations as $location => $count)
+        {
+            $most_visited_locations .= $location . " ($count), ";
+        }
     }
+
 }
