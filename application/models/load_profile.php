@@ -156,7 +156,7 @@ class Load_profile extends CI_Model
     
     function insert_profile_picture()
     {
-        $logo_text = "logo_" .rand(1,25);
+        $logo_text = "logo_" .rand(1,25) .".png";
         ?>
         
         <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" />
