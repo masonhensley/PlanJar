@@ -23,20 +23,20 @@ function initialize_day_tab_rules() {
         // Call the callback function.
         on_day_change();
         
-        // Left and right arrow click functions
-        $('.left_day_arrow').click(function () {
-            var current_offset = $('.day:first').attr('day_offset');
-            if (current_offset != 0) {
-                get_new_days(parseInt(current_offset) - 7);
-            }
-        });
-    
-        $('.right_day_arrow').click(function () {
-            var current_offset = $('.day:first').attr('day_offset');
-            get_new_days(parseInt(current_offset) + 7);
-        });
-        
         return false;
+    });
+    
+    // Left and right arrow click functions
+    $('.left_day_arrow').click(function () {
+        var current_offset = $('.day:first').attr('day_offset');
+        if (current_offset != 0) {
+            get_new_days(parseInt(current_offset) - 7);
+        }
+    });
+    
+    $('.right_day_arrow').click(function () {
+        var current_offset = $('.day:first').attr('day_offset');
+        get_new_days(parseInt(current_offset) + 7);
     });
 }
 
