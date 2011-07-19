@@ -15,7 +15,7 @@ class Load_profile extends CI_Model
         $row = $result->row();
         $groups_joined = $this->get_groups_joined($user); // array containing group information
         $groups_following = $this->get_groups_following($user); // array containing group information
-        $recent_locations = $this->get_location_stats($user); // string containing the location statistics
+        $locations_data = $this->get_location_stats($user); // string containing the location statistics
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -24,7 +24,7 @@ class Load_profile extends CI_Model
         $year_display = substr($user->grad_year, -2);
         echo $user->first_name . " " . $user->last_name . "<br/>";
         echo $row->school . " ('" . $year_display . ")<br/>";
-        echo $recent_locations;
+        
         ?>
             </div>
         </div>
@@ -59,6 +59,7 @@ class Load_profile extends CI_Model
             $groups_following_text .= "<br/>";
         }
         echo $groups_following_text;
+        echo $locations_data;
         ?>
             </div>
         </div>
