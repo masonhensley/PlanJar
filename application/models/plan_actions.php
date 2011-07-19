@@ -3,7 +3,7 @@
 
 <?php
 
-class Load_plans extends CI_Model
+class Plan_actions extends CI_Model
 {
 
     function __construct()
@@ -11,7 +11,7 @@ class Load_plans extends CI_Model
         parent::__construct();
     }
 
-    function getPlans($user_id)
+    function get_plans($user_id)
     {
         // pull all user's current events
         $query =
@@ -28,7 +28,7 @@ class Load_plans extends CI_Model
         return $result;
     }
 
-    function loadPlanData($plan)
+    function load_plan_data($plan)
     {
         // pull all user's current events
         $query = "SELECT plans.id, plans.date, plans.time_of_day, plans.title, plans.event_id, places.name
@@ -70,7 +70,7 @@ class Load_plans extends CI_Model
     }
 
     // function to delete plan from database
-    function deletePlan($plan)
+    function delete_plan($plan)
     {
         $query = "DELETE FROM plans WHERE plans.id=$plan";
         $this->db->query($query);

@@ -256,8 +256,8 @@ class Home extends CI_Controller
     public function load_selected_plan_data()
     {
         $plan = $this->input->get('plan_selected');
-        $this->load->model('load_plans');
-        $return = $this->load_plans->loadPlanData($plan);
+        $this->load->model('plan_actions');
+        $return = $this->plan_actions->load_plan_data($plan);
         echo $return;
     }
 
@@ -265,8 +265,8 @@ class Home extends CI_Controller
     public function delete_plan()
     {
         $plan = $this->input->get('plan_selected');
-        $this->load->model('load_plans');
-        $return_str = $this->load_plans->deletePlan($plan);
+        $this->load->model('plan_actions');
+        $return_str = $this->plan_actions->delete_plan($plan);
         echo $return_str;
     }
 
@@ -301,35 +301,13 @@ class Home extends CI_Controller
     // Returns HTML for the list of the user's plans (right panel)
     public function get_my_plans()
     {
-        $this->load->model('load_plans');
+        $this->load->model('plan_actions');
+        $this->load->model('load_plan_panel');
+        
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
-        $result = $this->load_plans->getPlans($user_id);
-        $date_organizer = "lol";
-        ?>
-
-        <div class="active_plans"><?php
-        foreach ($result as $plan)
-        {
-            // make easy to read variables
-            $id = $plan->id;
-            $name = $plan->name;
-            $title = $plan->title;
-            $time = $plan->time_of_day;
-            $date = date('l', strtotime($plan->date));
-            if ($date_organizer != $date)
-            {
-                echo "<hr>";
-                echo $date . "<br>";
-                echo "<hr>";
-            }
-            $date_organizer = $date;
-            echo "<div class =\"plan_content\" plan_id=\"$id\" >";
-            echo $name;
-            echo "</div>";
-            echo "<div id=\"plan_padding\" style =\"width:100%; height:10px;\"></div>";
-        }
-        echo "</div>";
+        $result = $this->plan_actions->get_plans($user_id);
+        $this->load_plan_panel->display_plans($result);
     }
 
     // Update the user's location
