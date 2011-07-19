@@ -1,5 +1,4 @@
 $(function() {
-    $('.create_group_content').hide();
     initialize_create_group_modal();
 });
 
@@ -31,7 +30,7 @@ function initialize_create_group_modal()
         rules: {
             group_name: {
                 required: true,
-                minLength: 4
+                rangelength: [2, 45]
             }
         },
         submitHandler: function(form) {
@@ -47,8 +46,7 @@ function initialize_create_group_modal()
     $('#group_invite_user').tokenInput('/home/get_followers_invite', {
         hintText: 'Search followers...',
         preventDuplicates: true,
-        queryParam: 'needle',
-        
+        queryParam: 'needle'
     });
     
     $('#group_invite_group').tokenInput('/home/get_groups_invite', {

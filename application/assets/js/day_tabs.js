@@ -5,7 +5,12 @@ $(function () {
 // Initializes the day of the week tabs.
 function initialize_day_tabs() {
     // Populate the initial days.
-    get_new_days(0);
+    $.get('/home/get_weekday_tab_set', {
+        starting_offset: 0
+    }, function (data) {
+        $('.seven_days').html(data);
+        initialize_day_tab_rules();
+    });
 }
 
 function initialize_day_tab_rules() {
@@ -45,13 +50,4 @@ function on_day_change() {
     show_data_container('#group_data');
     get_group_day_data();
     load_visible_plans()
-}
-
-function get_new_days(offset) {
-    $.get('/home/get_weekday_tab_set', {
-        starting_offset: offset
-    }, function (data) {
-        $('.seven_days').html(data);
-        initialize_day_tab_rules();
-    });
 }
