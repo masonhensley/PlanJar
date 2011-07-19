@@ -278,8 +278,8 @@ class Dashboard extends CI_Controller
         $group_id = $this->group_ops->add_group($name, $description, $privacy, $location_source);
 
         // Join the user to the group
-        $this->group_ops->follow_group($this->db->insert_id());
-        $this->group_ops->join_group($this->db->insert_id());
+        $this->group_ops->follow_group($group_id);
+        $this->group_ops->join_group($group_id);
 
         // Capture and process the invite lists
         $invited_users = explode(',', $this->input->get('group_invite_users'));
