@@ -123,12 +123,12 @@ class Load_suggested_friends extends CI_Model
         for($count=$tracker; $count!= $tracker-4; $count--)
         {
             $display_year = $grad_year + $count;
-            $query .= "user_meta.grad_year=$display_year";
+            $query .= "user_meta.grad_year=$display_year OR ";
         }
-        
+        $query = substr($query, 0, -4);
         $query .= ") LIMIT 0, 15";
         
-            $result = $this->db->query($query);
+        //$result = $this->db->query($query);
         var_dump($query);
         $options = "suggested_school";
         if($result->num_rows() >0)
