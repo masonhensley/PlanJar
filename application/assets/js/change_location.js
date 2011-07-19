@@ -1,4 +1,5 @@
 $(function() {
+    $('.change_location_panel').hide();
     initialize_change_location_panel();
 });
 
