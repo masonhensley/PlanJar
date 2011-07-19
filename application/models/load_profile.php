@@ -24,7 +24,6 @@ class Load_profile extends CI_Model
         $year_display = substr($user->grad_year, -2);
         echo $user->first_name . " " . $user->last_name . "<br/>";
         echo $row->school . " ('" . $year_display . ")<br/>";
-        
         ?>
             </div>
         </div>
@@ -33,32 +32,36 @@ class Load_profile extends CI_Model
         <div class="profile_body">
             <div class="profile_body_text"><?php
         // Code to display groups joined
-        $groups_joined_text = "";
-        if (count($groups_joined > 0))
+        if (count($groups_following) > 0 || count($groups_joined))
         {
-            $groups_joined_text .= "Groups joined: ";
-            foreach ($groups_joined as $group)
+            $groups_joined_text = "";
+            if (count($groups_joined > 0))
             {
-                $groups_joined_text .= "<font style=\"color:green;\">" .$group . "</font>, ";
+                $groups_joined_text .= "Joined: ";
+                foreach ($groups_joined as $group)
+                {
+                    $groups_joined_text .= "<font style=\"color:green;\">" . $group . "</font>, ";
+                }
+                $groups_joined_text = substr($groups_joined_text, 0, -2);
+                $groups_joined_text .= "<br/>";
             }
-            $groups_joined_text = substr($groups_joined_text, 0, -2);
-            $groups_joined_text .= "<br/>";
-        }
-        echo $groups_joined_text;
+            echo $groups_joined_text;
 
-        // Code to display groups following
-        $groups_following_text = "";
-        if (count($groups_following) > 0)
-        {
-            $groups_following_text .= "Groups following: ";
-            foreach ($groups_following as $group)
+            // Code to display groups following
+            $groups_following_text = "";
+            if (count($groups_following) > 0)
             {
-                $groups_following_text .= "<font style=\"color:purple;\">" .$group . "</font>, ";
+                $groups_following_text .= "Following: ";
+                foreach ($groups_following as $group)
+                {
+                    $groups_following_text .= "<font style=\"color:purple;\">" . $group . "</font>, ";
+                }
+                $groups_following_text = substr($groups_following_text, 0, -2);
+                $groups_following_text .= "<br/><br/>";
             }
-            $groups_following_text = substr($groups_following_text, 0, -2);
-            $groups_following_text .= "<br/><br/>";
+            echo $groups_following_text;
         }
-        echo $groups_following_text;
+
         echo $locations_data;
         ?>
             </div>
@@ -122,7 +125,7 @@ class Load_profile extends CI_Model
             $recent_locations_text = "Recently visited: ";
             foreach ($recent_locations as $location)
             {
-                $recent_locations_text .= "<font style=\"color:navy;\">" .$location ."</font>, ";
+                $recent_locations_text .= "<font style=\"color:navy;\">" . $location . "</font>, ";
             }
             $recent_locations_text = substr($recent_locations_text, 0, -2);
             $recent_locations_text .= "<br/>";
@@ -138,13 +141,14 @@ class Load_profile extends CI_Model
             $most_visited_text .= "Most visited: ";
             foreach ($most_visited_locations as $location => $count)
             {
-                $most_visited_text .= "<font style=\"color:blue;\">" .$location . "</font>, ";
+                $most_visited_text .= "<font style=\"color:blue;\">" . $location . "</font>, ";
             }
-            $most_visited_text  = substr($most_visited_text, 0, -2);
+            $most_visited_text = substr($most_visited_text, 0, -2);
             $most_visited_text .= "<br/>";
         }
-        
-        $return_string = $recent_locations_text .$most_visited_text;
+
+        $return_string = $recent_locations_text . $most_visited_text;
         return $return_string;
     }
+
 }
