@@ -28,6 +28,8 @@ class Load_suggested_groups extends CI_Model
                 {
                     $this->group_ops->echo_group_entry($row, 'suggested groups', $suggested_groups);
                 }
+            }else{
+                echo "<br/><div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections</div>";
             }
         }else{
             echo "<br/><div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections</div>";
