@@ -120,7 +120,7 @@ class Load_suggested_friends extends CI_Model
         $today = date("Y");
         $tracker = $today - $grad_year;
         $query .= " AND (";
-        for($count=$tracker; $count!= $tracker-4; $count--)
+        for($count=$tracker; $count!= $tracker+4; $count++)
         {
             $display_year = $grad_year + $count;
             $query .= "user_meta.grad_year=$display_year OR ";
