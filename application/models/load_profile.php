@@ -24,6 +24,7 @@ class Load_profile extends CI_Model
         $year_display = substr($user->grad_year, -2);
         echo $user->first_name . " " . $user->last_name . "<br/>";
         echo $row->school . " ('" . $year_display . ")<br/>";
+        echo $recent_locations;
         ?>
             </div>
         </div>
@@ -96,7 +97,7 @@ class Load_profile extends CI_Model
     function get_location_stats($user)
     {
         $query = "SELECT places.name, plans.place_id, plans.date FROM plans 
-            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id ORDER BY plans.date DESC";
+            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id ORDER BY plans.date DESC LIMIT 0, 5";
         $result = $this->db->query($query);
 
         $recent_locations = array(); // variables to keep track of locations
@@ -126,8 +127,6 @@ class Load_profile extends CI_Model
             $recent_locations_text .= "<br/>";
         }
 
-       
-
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
@@ -141,6 +140,10 @@ class Load_profile extends CI_Model
             {
                 $most_visited_locations .= $location . ", ";
             }
+            $most_visited_text .= "<br/";
         }
+        
+        $return_string = $recent_locations_text .$most_visited_text;
+        return $return_string;
     }
 }
