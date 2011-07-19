@@ -99,7 +99,10 @@ class Group_ops extends CI_Model
         <div class="group_entry" group_id="<?php echo($row->id); ?>">
             <div class="group_entry_left">
                 <center>
-                    <div class="group_picture"></div>
+                    <div class="group_picture">
+                        <?php $logo_text = "logo_" .rand(1,25) .".png";?>
+                        <img src="/application/assets/images/logos/<?php echo $logo_text;?>" />
+                    </div>
                 </center>
             </div>
             <div class="group_entry_middle">
