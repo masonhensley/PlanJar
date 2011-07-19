@@ -275,7 +275,7 @@ class Dashboard extends CI_Controller
         $description = $this->input->get('privacy');
 
         // Create the group.
-        $this->add_group($name, $description, $privacy, $location_source);
+        $this->group_ops->add_group($name, $description, $privacy, $location_source);
 
         // Join the user to the group
         $this->follow_group($this->db->last_query());
