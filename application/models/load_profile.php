@@ -113,6 +113,14 @@ class Load_profile extends CI_Model
             }
             $most_visited_locations[] = $place->place_id;
         }
+        
+        $recent_locations_text = "Recent locations: ";
+        foreach($recent_locations as $location)
+        {
+            $recent_locations_text .= "$location, ";
+        }        
+        $recent_locations_text .= "<br/>";
+        
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);

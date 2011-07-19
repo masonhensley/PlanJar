@@ -381,114 +381,121 @@ class Home extends CI_Controller
     // Returns a set of 7 weekday tabs based on the supplied parameter.
     public function get_weekday_tab_set()
     {
-        $start = $this->input->get('starting_offset');
+        ?>
+            <div class="left_day_arrow"><</div>
+            <div class="right_day_arrow">></div>
+            <?php
+            
+            $start = $this->input->get('starting_offset');
 
-        $date = new DateTime();
-        $date->add(new DateInterval('P' . $start . 'D'));
+            $date = new DateTime();
+            $date->add(new DateInterval('P' . $start . 'D'));
 
-        for ($i = 0; $i < 7; ++$i)
-        {
-            if ($start == 0 && $i == 0)
+
+
+            for ($i = 0; $i < 7; ++$i)
             {
-                $display_date = 'Today';
-            } else
-            {
-                $display_date = $date->format('D - j');
+                if ($start == 0 && $i == 0)
+                {
+                    $display_date = 'Today';
+                } else
+                {
+                    $display_date = $date->format('D - j');
+                }
+
+                echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
+                $date->add(new DateInterval('P1D'));
             }
-
-            echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
-            $date->add(new DateInterval('P1D'));
         }
-    }
 
-    // Returns a list of people following the user (used for inviting people in a plan)
-    public function get_followers_invite()
-    {
-        $needle = trim($this->input->get('needle'));
-        if ($needle != '')
+        // Returns a list of people following the user (used for inviting people in a plan)
+        public function get_followers_invite()
         {
-            $user = $this->ion_auth->get_user();
-
-            // Break into search terms
-            $needle_array = explode(' ', $needle);
-
-            // Generate query strings to cross-reference all needle terms with the first and last names in the db
-            $needle_where = '';
-            foreach ($needle_array as $cur_needle)
+            $needle = trim($this->input->get('needle'));
+            if ($needle != '')
             {
-                $needle_where .= "(user_meta.first_name LIKE '%%$cur_needle%%' OR " .
-                        "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
-            }
+                $user = $this->ion_auth->get_user();
 
-            // Trim the end of the string
-            if (count($needle_array) > 0)
-            {
-                $needle_where = substr($needle_where, 0, -5);
-            }
+                // Break into search terms
+                $needle_array = explode(' ', $needle);
 
-            $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name
+                // Generate query strings to cross-reference all needle terms with the first and last names in the db
+                $needle_where = '';
+                foreach ($needle_array as $cur_needle)
+                {
+                    $needle_where .= "(user_meta.first_name LIKE '%%$cur_needle%%' OR " .
+                            "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
+                }
+
+                // Trim the end of the string
+                if (count($needle_array) > 0)
+                {
+                    $needle_where = substr($needle_where, 0, -5);
+                }
+
+                $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name
                     FROM friends LEFT JOIN user_meta ON friends.user_id = user_meta.user_id
                     WHERE ($needle_where) AND friends.follow_id = ?";
 
-            $query = $this->db->query($query_string, array($user->id));
+                $query = $this->db->query($query_string, array($user->id));
 
-            // Echo the results
-            $return_array = array();
-            foreach ($query->result() as $row)
-            {
-                $return_array[] = array(
-                    'id' => $row->user_id,
-                    'name' => $row->first_name . ' ' . $row->last_name
-                );
+                // Echo the results
+                $return_array = array();
+                foreach ($query->result() as $row)
+                {
+                    $return_array[] = array(
+                        'id' => $row->user_id,
+                        'name' => $row->first_name . ' ' . $row->last_name
+                    );
+                }
+
+                echo(json_encode($return_array));
             }
-
-            echo(json_encode($return_array));
         }
-    }
 
-    // Returns a list of people following the user (used for inviting people in a plan)
-    public function get_groups_invite()
-    {
-        $needle = trim($this->input->get('needle'));
-        if ($needle != '')
+        // Returns a list of people following the user (used for inviting people in a plan)
+        public function get_groups_invite()
         {
-            $user = $this->ion_auth->get_user();
-
-            // Break into search terms
-            $needle_array = explode(' ', $needle);
-
-            // Generate query strings to cross-reference all needle terms with the first and last names in the db
-            $needle_where = '';
-            foreach ($needle_array as $cur_needle)
+            $needle = trim($this->input->get('needle'));
+            if ($needle != '')
             {
-                $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
-            }
+                $user = $this->ion_auth->get_user();
 
-            // Trim the end of the string
-            if (count($needle_array) > 0)
-            {
-                $needle_where = substr($needle_where, 0, -5);
-            }
+                // Break into search terms
+                $needle_array = explode(' ', $needle);
 
-            $query_string = "SELECT groups.id, groups.name
+                // Generate query strings to cross-reference all needle terms with the first and last names in the db
+                $needle_where = '';
+                foreach ($needle_array as $cur_needle)
+                {
+                    $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
+                }
+
+                // Trim the end of the string
+                if (count($needle_array) > 0)
+                {
+                    $needle_where = substr($needle_where, 0, -5);
+                }
+
+                $query_string = "SELECT groups.id, groups.name
                     FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id
                     WHERE ($needle_where) AND group_relationships.user_joined_id = ?";
 
-            $query = $this->db->query($query_string, array($user->id));
+                $query = $this->db->query($query_string, array($user->id));
 
-            // Echo the results
-            $return_array = array();
-            foreach ($query->result() as $row)
-            {
-                $return_array[] = array(
-                    'id' => $row->id,
-                    'name' => $row->name
-                );
+                // Echo the results
+                $return_array = array();
+                foreach ($query->result() as $row)
+                {
+                    $return_array[] = array(
+                        'id' => $row->id,
+                        'name' => $row->name
+                    );
+                }
+
+                echo(json_encode($return_array));
             }
-
-            echo(json_encode($return_array));
         }
-    }
 
-}
-?>
+    }
+    ?>
