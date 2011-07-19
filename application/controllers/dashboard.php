@@ -108,12 +108,13 @@ class Dashboard extends CI_Controller
                     $this->follow_ops->echo_user_entry($row, 'add following');
                 }
             }
-        }else{
+        } else
+        {
             ?> 
-<div style="width:100%; height:40px; background-color:white;text-align: center;border-top:1px solid black;padding-top:15px; padding-bottom: 15px">
-    You are not following anyone<br/>
-    <a href="/dashboard/following/suggested" style="color:#110055; font-weight:bold;">Find friends</a>
-</div>
+            <div style="width:100%; height:40px; background-color:white;text-align: center;border-top:1px solid black;padding-top:15px; padding-bottom: 15px">
+                You are not following anyone<br/>
+                <a href="/dashboard/following/suggested" style="color:#110055; font-weight:bold;">Find friends</a>
+            </div>
             <?php
         }
     }
@@ -148,16 +149,26 @@ class Dashboard extends CI_Controller
                 "WHERE group_relationships.user_following_id = ? OR group_relationships.user_joined_id = ? " .
                 "ORDER BY groups.name ASC";
         $query = $this->db->query($query_string, array($user->id, $user->id));
-
-        foreach ($query->result() as $row)
+        if ($query->num_rows() > 0)
         {
-            if ($row->user_following_id == $user->id)
+            foreach ($query->result() as $row)
             {
-                $this->group_ops->echo_group_entry($row, 'remove following');
-            } else
-            {
-                $this->group_ops->echo_group_entry($row, 'remove joined');
+                if ($row->user_following_id == $user->id)
+                {
+                    $this->group_ops->echo_group_entry($row, 'remove following');
+                } else
+                {
+                    $this->group_ops->echo_group_entry($row, 'remove joined');
+                }
             }
+        } else
+        {
+            ?> 
+            <div style="width:100%; height:40px; background-color:white;text-align: center;border-top:1px solid black;padding-top:15px; padding-bottom: 15px">
+                You are not following any groups<br/>
+                <a href="/dashboard/groups/suggested" style="color:#110055; font-weight:bold;">Find groups</a>
+            </div>
+            <?php
         }
     }
 
@@ -321,5 +332,4 @@ class Dashboard extends CI_Controller
     }
 
 }
-
 ?>
