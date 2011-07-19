@@ -56,7 +56,7 @@ class Load_profile extends CI_Model
                 $groups_following_text .= $group . ", ";
             }
             $groups_following_text = substr($groups_following_text, 0, -2);
-            $groups_following_text .= "<br/>";
+            $groups_following_text .= "<br/><br/>";
         }
         echo $groups_following_text;
         echo $locations_data;
@@ -119,7 +119,7 @@ class Load_profile extends CI_Model
         $recent_locations_text = "";
         if (count($recent_locations) > 0)
         {
-            $recent_locations_text = "Recent locations: ";
+            $recent_locations_text = "Recently visited: ";
             foreach ($recent_locations as $location)
             {
                 $recent_locations_text .= "$location, ";
@@ -136,12 +136,12 @@ class Load_profile extends CI_Model
          $most_visited_text = "";
         if (count($most_visited_locations) > 0)
         {
-            $most_visited_text = "Most visited: ";
+            $most_visited_text .= "Most visited: ";
             foreach ($most_visited_locations as $location => $count)
             {
                 $most_visited_locations .= $location . ", ";
             }
-            $most_visited_text .= "<br/";
+            $most_visited_text .= "<br/>";
         }
         
         $return_string = $recent_locations_text .$most_visited_text;
