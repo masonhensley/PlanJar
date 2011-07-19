@@ -5,6 +5,16 @@ $(function() {
 function initialize_create_group_modal()
 {
     $('.create_group').click(function(){
+        // Clear the fields.
+        $('#group_name, #group_description').text('');
+        
+        // Initial selects
+        $('#group_privacy_wrapper :first').click();
+        $('.create_group_content input[type="radio"]:first').click();
+    
+        // Clear the token inputs
+        $('#group_invite_users, #group_invite_groups').tokenInput('clear');
+        
         $('.create_group_content').show("fast");
         // Make it draggable (with a handler).
         $('.create_group_content').draggable({
@@ -21,10 +31,6 @@ function initialize_create_group_modal()
     // divset
     divset('#group_privacy_wrapper');
     
-    // Initial selects
-    $('#group_privacy_wrapper :first').click();
-    $('.create_group_content input[type="radio"]:first').click();
-    
     // --------- validator ----------
     $('#create_group').validate({
         rules: {
@@ -38,6 +44,9 @@ function initialize_create_group_modal()
                 privacy: $('#group_privacy_wrapper .divset_selected').attr('priv_type')
             }, function (data) {
                 if (data == 'success') {
+                    // Repopulate the following groups.
+                    populate_edit_groups_list();
+                    
                     $('.create_group_content').hide("fast");
                 } else {
                     alert(data);
