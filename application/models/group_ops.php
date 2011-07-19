@@ -101,7 +101,7 @@ class Group_ops extends CI_Model
                 <center>
                     <div class="group_picture">
                         <?php $logo_text = "logo_" .rand(1,25) .".png";?>
-                        <img src="/application/assets/images/logos/<?php echo $logo_text;?>" />
+                        <img src="/application/assets/images/logos/<?php echo $logo_text;?>" style="width:100%; height:100%;" />
                     </div>
                 </center>
             </div>
