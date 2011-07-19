@@ -225,7 +225,7 @@ a{
 .right_day_arrow{
     display: inline-block;
     vertical-align: middle;
-    float:right;
+    float:left;
     border-left: 1px solid black;
     border-right: 1px solid black;
     width:33px;
