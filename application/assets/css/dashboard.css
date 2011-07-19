@@ -453,6 +453,7 @@ a{
     position:relative;
     top:10px;
     left:10px;
+    font-weight:bold;
 }
 
 .profile_edit{
