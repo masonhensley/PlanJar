@@ -16,12 +16,12 @@
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <!-- Encapsulated JS files -->
-        <script type="text/javascript" src="/application/assets/js/dashboard_tabs_functions.js"></script>
-        <script type="text/javascript" src="/application/assets/js/following_dashboard_functions.js"></script>
-        <script type="text/javascript" src="/application/assets/js/followers_dashboard_functions.js"></script>
-        <script type="text/javascript" src="/application/assets/js/groups_dashboard_functions.js"></script>
-        <script type="text/javascript" src="/application/assets/js/group_modal_functions.js"></script>
-        <script type="text/javascript" src="/application/assets/js/dashboard_notifications_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_tabs.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_following.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_followers.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_groups.js"></script>
+        <script type="text/javascript" src="/application/assets/js/create_group_modal.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_notifications.js"></script>
         <script type="text/javascript" src="/application/assets/js/divset.js"></script>
 
         <!-- jQuery plugins -->

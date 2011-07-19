@@ -271,17 +271,15 @@ class Dashboard extends CI_Controller
         // This just looks nicer than a long function call.
         $name = $this->input->get('group_name');
         $description = $this->input->get('group_description');
-        $latitude = $user->latitude;
-        $longitude = $user->longitude;
-        $school_id = $user->school_id;
-        $description = $this->input->get('privacy');
+        $privacy = $this->input->get('privacy');
+        $location_source = $this->input->get('location_source');
 
         // Create the group.
-        $this->add_group($name, $description, $latitude, $longitude, $school_id, $privacy);
+        $group_id = $this->group_ops->add_group($name, $description, $privacy, $location_source);
 
         // Join the user to the group
-        $this->follow_group($this->db->last_query());
-        $this->join_group($this->db->last_query());
+        $this->group_ops->follow_group($group_id);
+        $this->group_ops->join_group($group_id);
 
         // Capture and process the invite lists
         $invited_users = explode(',', $this->input->get('group_invite_users'));
@@ -300,13 +298,13 @@ class Dashboard extends CI_Controller
         if (count($invited_users) > 0)
         {
             $this->load->model('notification_ops');
-            $this->notification_ops->notify_users($invited_users, 'plan_invite', $this->db->insert_id());
+            $this->notification_ops->notify_users($invited_users, 'group_invite', $group_id);
         }
 
         if (count($invited_groups) > 0)
         {
             $this->load->model('notification_ops');
-            $this->notification_ops->notify_joined_groups($invited_groups, 'plan_invite', $this->db->insert_id());
+            $this->notification_ops->notify_joined_groups($invited_groups, 'group_invite', $group_id);
         }
 
         // Success

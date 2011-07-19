@@ -22,9 +22,9 @@
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
-        <script type="text/javascript" src="/application/assets/js/plan_modal_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/plan_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
-        <script type="text/javascript" src="/application/assets/js/change_location_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
 
         <!-- jQuery plugins -->
@@ -97,7 +97,7 @@
                 <div class="plans_wrapper"></div>
             </div>
         </div>
-        <?php include(APPPATH . 'assets/php/plan_panel.php'); ?>
+        <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <div class="bottom_links">
             Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
         </div>
