@@ -267,6 +267,7 @@ a{
 }
 .suggest_groups{
     display:inline-block;
+     background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
     height:auto;
     width:auto;
     border:1px solid black;
@@ -275,9 +276,8 @@ a{
     margin-left:15px;
 }
 .suggest_groups_active{
-    background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
+    background: -webkit-gradient(linear,left top,left bottom,from(lightGreen),to(#AFB));
     color:white;
-    border:none;
 }
 
 .group_entry {
@@ -390,7 +390,7 @@ a{
     border:1px solid black;
     padding-left:3px;
     padding-right:3px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#AAA),to(#EEE));
+    background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
     padding-left:15px;
     padding-right:15px;
 }
