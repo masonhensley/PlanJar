@@ -1,7 +1,6 @@
 /*--------------GLOBAL ---------------- */
 body{
     background-color: #F3F6FF;
-    /* background-image: url("/application/assets/images/bg_stripe3.png"); */
     /* make text not selectable for the UI */
     -webkit-user-select: none;
     cursor:default;
@@ -68,7 +67,7 @@ a{
 .left{
     float:left;
     width: 210px;
-    min-height: 600px;
+    min-height: 100px;
     text-align: center;
     background-color:white;
     padding-top:10px;
@@ -311,7 +310,7 @@ a{
 .right{
     float:left;
     width:213px;
-    min-height: 600px;
+    min-height: 100px;
     background-color:white;
     padding-top:10px;
     border-bottom:1px solid black;
