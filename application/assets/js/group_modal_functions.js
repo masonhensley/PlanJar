@@ -34,8 +34,13 @@ function initialize_create_group_modal()
             }
         },
         submitHandler: function(form) {
-            //$.get();
-            console.log($(form).serialize());
+            $.get('/dashboard/create_group?' + $(form).serialize(), function (data) {
+                if (data == success) {
+                    $('.create_group_content').hide("fast");
+                } else {
+                    alert(data);
+                }
+            });
         },
         errorPlacement: function () {
             // Don't display errors
@@ -44,13 +49,13 @@ function initialize_create_group_modal()
     });
     
     // token-input
-    $('#group_invite_user').tokenInput('/home/get_followers_invite', {
+    $('#group_invite_users').tokenInput('/home/get_followers_invite', {
         hintText: 'Search followers...',
         preventDuplicates: true,
         queryParam: 'needle'
     });
     
-    $('#group_invite_group').tokenInput('/home/get_groups_invite', {
+    $('#group_invite_groups').tokenInput('/home/get_groups_invite', {
         hintText: 'Search joined groups...',
         preventDuplicates: true,
         queryParam: 'needle'
