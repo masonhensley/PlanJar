@@ -167,19 +167,23 @@ class Group_ops extends CI_Model
     // If school_id isn't blank, use the latitude and longitude of the school.
     public function add_group($name, $description, $privacy, $location_source)
     {
+        $user = $this->ion_auth->get_user();
+
         if ($location_source == 'school')
         {
             // Get the latitude and longitude from the school table.
             $query_string = "SELECT latitude, longitude FROM school_data WHERE id = ?";
-            $query = $this->db->query($query_string, array($school_id));
+            $query = $this->db->query($query_string, array($user->school_id));
             $row = $query->row();
+
             $latitude = $row->latitude;
             $longitude = $row->longitude;
+            $school_id = $user->school_id;
         } else
         {
-            $user = $this->ion_auth->get_user();
             $latitude = $user->latitude;
             $longitude = $user->longitude;
+            $school_id = 'NULL';
         }
         $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
         $query = $this->db->query($query_string, array($name, $latitude, $longitude, $description, $school_id, $privacy));
