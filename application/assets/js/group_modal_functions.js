@@ -19,11 +19,8 @@ function initialize_create_group_modal()
     
     $('.create_group_content .in-field_block label').inFieldLabels();   
     
-    $('#select_me').addClass('divset_selected');
-    $('.divset').click(function(){
-        $('.divset_selected').removeClass('divset_selected');
-        $(this).addClass('divset_selected');
-    });
+    // divset
+    divset('#group_privacy_wrapper');
     
     // Initial select
     $('.create_group_content input[type="radio"]:first').click();
