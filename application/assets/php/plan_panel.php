@@ -1,10 +1,10 @@
 <div id="create_plan_content">
     <div class="draggable_title_bar">
-        Make a plan
+        Start a plan
         <input  type="button" id="cancel_plan"  style="float:right;" value="X">
     </div>
 
-    <form id="make_plan">
+    <form id="start_plan">
 
         <table style="width: 100%">
             <tr>

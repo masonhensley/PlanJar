@@ -17,10 +17,10 @@
 
 
         <div class ="create_group_bottom">
-            <div class="divset" id="select_me" style="float:left;">
+            <div priv_type="open">
                 Anyone can join
             </div>
-            <div class="divset">
+            <div priv_type="loose">
                 Invitees must invite new members
             </div>
 
