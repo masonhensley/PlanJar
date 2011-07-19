@@ -130,6 +130,7 @@ class Load_suggested_friends extends CI_Model
         
         //$result = $this->db->query($query);
         var_dump($query);
+        /*
         $options = "suggested_school";
         if($result->num_rows() >0)
         {
@@ -137,6 +138,8 @@ class Load_suggested_friends extends CI_Model
                          Expanded search results to include people from your school</div>";
         }
         $this->display_suggested_friends($result, null, $options, 15);
+         * 
+         */
     }
 
 }
