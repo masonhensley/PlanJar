@@ -414,7 +414,7 @@ a{
     margin-right:auto;
     height:500px;
     width: 48%;
-    background-color:white;
+    background:-webkit-gradient(linear,left top,left bottom,from(silver),to(#DADADA));
     padding-right:10px;
 }
 
@@ -429,7 +429,7 @@ a{
     float:left;
     margin-top:10px;
     margin-left:10px;
-    background-color:yellow;
+    background-color:white;
 }
 
 .profile_user_information{
@@ -438,7 +438,6 @@ a{
     float:right;
     margin-top:10px;
     margin-right:10px;
-    background:-webkit-gradient(linear,left top,left bottom,from(silver),to(#DADADA));
     text-align:center;
 }
 
