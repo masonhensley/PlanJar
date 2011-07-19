@@ -383,15 +383,12 @@ class Home extends CI_Controller
     {
         ?>
             <div class="left_day_arrow"><</div>
-            <div class="right_day_arrow">></div>
+
             <?php
-            
             $start = $this->input->get('starting_offset');
 
             $date = new DateTime();
             $date->add(new DateInterval('P' . $start . 'D'));
-
-
 
             for ($i = 0; $i < 7; ++$i)
             {
@@ -406,6 +403,9 @@ class Home extends CI_Controller
                 echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
                 $date->add(new DateInterval('P1D'));
             }
+            ?> 
+            <div class="right_day_arrow">></div>
+            <?php
         }
 
         // Returns a list of people following the user (used for inviting people in a plan)
