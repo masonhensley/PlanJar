@@ -212,7 +212,7 @@ a{
 }
 
 .left_day_arrow{
-    float:right;
+    float:left;
     width:35px;
     height:100%;
     border-left: 1px solid black;
