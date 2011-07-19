@@ -265,7 +265,6 @@ class Dashboard extends CI_Controller
         {
             $user = $this->ion_auth->get_user($user);
         }
-        var_dump($user);
         $this->load_profile->display_profile($user);
     }
 
