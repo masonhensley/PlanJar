@@ -272,7 +272,8 @@ class Dashboard extends CI_Controller
         $name = $this->input->get('group_name');
         $description = $this->input->get('group_description');
         $school_id = $user->school_id;
-        $description = $this->input->get('privacy');
+        $privacy = $this->input->get('privacy');
+        $location_source = $this->input->get('location_source');
 
         // Create the group.
         $this->group_ops->add_group($name, $description, $privacy, $location_source);

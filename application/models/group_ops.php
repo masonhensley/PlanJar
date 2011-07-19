@@ -179,7 +179,7 @@ class Group_ops extends CI_Model
         {
             $user = $this->ion_auth->get_user();
             $latitude = $user->latitude;
-            $Longitude = $user->longitude;
+            $longitude = $user->longitude;
         }
         $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
         $query = $this->db->query($query_string, array($name, $latitude, $longitude, $description, $school_id, $privacy));
