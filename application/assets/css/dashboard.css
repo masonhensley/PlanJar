@@ -259,6 +259,7 @@ a{
     float: right;
     height: auto;
     border: 1px solid black;
+    border-top-right-radius:10px;
     background-color:white;
 }
 #groups_content .right_header {
@@ -397,10 +398,8 @@ a{
 }
 
 .suggested_active{
-    
     background:-webkit-gradient(linear,left top,left bottom,from(lightBlue),to(#DFF));
     color:black;
-    border:none;
 }
 
 /* ----------------- PROFILE CSS ---------------*/
