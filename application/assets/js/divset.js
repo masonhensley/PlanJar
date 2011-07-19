@@ -1,13 +1,13 @@
 (function ($) {
     $.fn.divSet = function() {
-        $(this + ' > div').addClass('divset');
+        this.children().addClass('divset');
     
         // Click event
-        $(this + ' > div').click(function() {
-            if (!this.hasClass('divset_selected')) {
+        this.children().click(function() {
+            if (!$(this).hasClass('divset_selected')) {
                 // Remove all selected classes
-                $(this + ' > div').removeClass('divset_selected');
-                this.addClass('divset_selected');
+                $(this).children().removeClass('divset_selected');
+                $(this).addClass('divset_selected');
             }
         });
     }
