@@ -35,7 +35,7 @@ function initialize_create_group_modal()
         },
         submitHandler: function(form) {
             $.get('/dashboard/create_group?' + $(form).serialize(), function (data) {
-                if (data == success) {
+                if (data == 'success') {
                     $('.create_group_content').hide("fast");
                 } else {
                     alert(data);
