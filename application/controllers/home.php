@@ -382,7 +382,7 @@ class Home extends CI_Controller
     public function get_weekday_tab_set()
     {
         ?>
-            <div class="left_day_arrow"><</div>
+
 
             <?php
             $start = $this->input->get('starting_offset');
@@ -404,6 +404,7 @@ class Home extends CI_Controller
                 $date->add(new DateInterval('P1D'));
             }
             ?> 
+            <div class="left_day_arrow"><</div>
             <div class="right_day_arrow">></div>
             <?php
         }
