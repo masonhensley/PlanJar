@@ -50,7 +50,7 @@ function on_day_change() {
 // Gets and displays the set of days
 function get_new_days(offset) {
     $.get('/home/get_weekday_tab_set', {
-        starting_offset: 0
+        starting_offset: offset
     }, function (data) {
         $('.seven_days').html(data);
         initialize_day_tab_rules();
