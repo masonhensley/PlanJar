@@ -1,17 +1,17 @@
-(function ($) {
-    $.fn.divSet = function() {
-        this.children().addClass('divset');
+//(function ($) {
+$.fn.divSet = function() {
+    this.children().addClass('divset');
     
-        // Click event
-        this.children().click(function() {
-            if (!$(this).hasClass('divset_selected')) {
-                // Remove all selected classes
-                $(this).children().removeClass('divset_selected');
-                $(this).addClass('divset_selected');
-            }
-        });
-    }
-})(jQuery);
+    // Click event
+    this.children().click(function() {
+        if (!$(this).hasClass('divset_selected')) {
+            // Remove all selected classes
+            $(this).siblings().removeClass('divset_selected');
+            $(this).addClass('divset_selected');
+        }
+    });
+}
+//})(jQuery);
 
 
 
