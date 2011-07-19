@@ -122,7 +122,7 @@ class Load_profile extends CI_Model
             $recent_locations_text = "Recently visited: ";
             foreach ($recent_locations as $location)
             {
-                $recent_locations_text .= "$location, ";
+                $recent_locations_text .= "<div style=\"font-color:navy;\">" .$location ."</div>, ";
             }
             $recent_locations_text = substr($recent_locations_text, 0, -2);
             $recent_locations_text .= "<br/>";
@@ -131,16 +131,16 @@ class Load_profile extends CI_Model
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
-        var_dump($most_visited_locations, $recent_locations);
 
-         $most_visited_text = "";
+        $most_visited_text = "";
         if (count($most_visited_locations) > 0)
         {
             $most_visited_text .= "Most visited: ";
             foreach ($most_visited_locations as $location => $count)
             {
-                $most_visited_text .= $location . ", ";
+                $most_visited_text .= "<div style=\"font-color:navy;\">" .$location . "</div>, ";
             }
+            $most_visited_text  = substr($most_visited_text, 0, -2);
             $most_visited_text .= "<br/>";
         }
         
