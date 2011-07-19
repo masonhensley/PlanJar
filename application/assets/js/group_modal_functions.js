@@ -22,7 +22,8 @@ function initialize_create_group_modal()
     // divset
     divset('#group_privacy_wrapper');
     
-    // Initial select
+    // Initial selects
+    $('#group_privacy_wrapper :first').click();
     $('.create_group_content input[type="radio"]:first').click();
     
     // --------- validator ----------
@@ -46,7 +47,8 @@ function initialize_create_group_modal()
     $('#group_invite_user').tokenInput('/home/get_followers_invite', {
         hintText: 'Search followers...',
         preventDuplicates: true,
-        queryParam: 'needle'
+        queryParam: 'needle',
+        
     });
     
     $('#group_invite_group').tokenInput('/home/get_groups_invite', {
