@@ -71,7 +71,8 @@ a{
     text-align: center;
     background-color:white;
     padding-top:10px;
-    border-bottom:1px solid black;
+    border:1px solid black;
+    border-right:none;
 }
 
 .groups_wrapper{
@@ -313,7 +314,8 @@ a{
     min-height: 100px;
     background-color:white;
     padding-top:10px;
-    border-bottom:1px solid black;
+    border:1px solid black;
+    border-left:none;
 }
 
 .right_header{
