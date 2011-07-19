@@ -39,7 +39,7 @@ class Load_profile extends CI_Model
             $groups_joined_text .= "Groups joined: ";
             foreach ($groups_joined as $group)
             {
-                $groups_joined_text .= $group . ", ";
+                $groups_joined_text .= "<font style=\"color:green;\">" .$group . "</font>, ";
             }
             $groups_joined_text = substr($groups_joined_text, 0, -2);
             $groups_joined_text .= "<br/>";
@@ -53,7 +53,7 @@ class Load_profile extends CI_Model
             $groups_following_text .= "Groups following: ";
             foreach ($groups_following as $group)
             {
-                $groups_following_text .= $group . ", ";
+                $groups_following_text .= "<font style=\"color:purple;\">" .$group . "</font>, ";
             }
             $groups_following_text = substr($groups_following_text, 0, -2);
             $groups_following_text .= "<br/><br/>";
@@ -138,7 +138,7 @@ class Load_profile extends CI_Model
             $most_visited_text .= "Most visited: ";
             foreach ($most_visited_locations as $location => $count)
             {
-                $most_visited_text .= "<font style=\"color:navy;\">" .$location . "</font>, ";
+                $most_visited_text .= "<font style=\"color:blue;\">" .$location . "</font>, ";
             }
             $most_visited_text  = substr($most_visited_text, 0, -2);
             $most_visited_text .= "<br/>";
