@@ -50,6 +50,11 @@ class Login extends CI_Controller
 
         if ($registered)
         {
+            // Join the user to the school group.
+            $this->load->model('group_ops');
+            $this->group_ops->follow_group($additional_data['school_id']);
+            $this->group_ops->join_group($additional_data['school_id']);
+
             echo "/login/post_sign_up";
         } else
         {
@@ -139,6 +144,21 @@ class Login extends CI_Controller
     public function foo()
     {
         $this->load->view('foo');
+    }
+
+    public function check_email_domain()
+    {
+        $email = $this->input->get('email');
+
+        $query_string = "SELECT * FROM school_data WHERE domain = ?";
+        $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
+        if ($query->num_rows() > 0)
+        {
+            echo ('allowed');
+        } else
+        {
+            echo('denied');
+        }
     }
 
 }
