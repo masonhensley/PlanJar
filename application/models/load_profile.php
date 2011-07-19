@@ -126,18 +126,21 @@ class Load_profile extends CI_Model
             $recent_locations_text .= "<br/>";
         }
 
-        $most_visited_text ="";
+       
 
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
         var_dump($most_visited_locations, $recent_locations);
-        
-        $most_visited_text = "Most visited: ";
-        foreach ($most_visited_locations as $location => $count)
+
+         $most_visited_text = "";
+        if (count($most_visited_locations) > 0)
         {
-            $most_visited_locations .= $location . " ($count), ";
+            $most_visited_text = "Most visited: ";
+            foreach ($most_visited_locations as $location => $count)
+            {
+                $most_visited_locations .= $location . ", ";
+            }
         }
     }
-
 }
