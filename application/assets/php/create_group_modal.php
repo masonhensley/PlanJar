@@ -16,31 +16,31 @@
         </div>
 
 
-        <div class ="create_group_bottom">
+        <div id="group_privacy_wrapper">
             <div priv_type="open">
                 Anyone can join
             </div>
             <div priv_type="loose">
                 Invitees must invite new members
             </div>
+        </div>
 
-            <div class="invite_wrapper">
-                <div class="left">
-                    Invite people
-                    <input type="text" id="group_invite_user" name="group_invite_user"/>
-                </div>
-
-                <div class="right">
-                    Invite groups
-                    <input type="text" id="group_invite_group" name="group_invite_group"/>
-                </div>
+        <div class="invite_wrapper">
+            <div class="left">
+                Invite people
+                <input type="text" id="group_invite_user" name="group_invite_user"/>
             </div>
 
-            <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($user_school); ?> network.</label>
-            <br/>
-            <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
-
-            <input type="submit" class="submit_create_group" value="Go" style="float:right;" />
+            <div class="right">
+                Invite groups
+                <input type="text" id="group_invite_group" name="group_invite_group"/>
+            </div>
         </div>
+
+        <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($user_school); ?> network.</label>
+        <br/>
+        <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
+
+        <input type="submit" class="submit_create_group" value="Go" style="float:right;" />
     </form>
 </div>
