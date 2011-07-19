@@ -79,25 +79,32 @@ class Follow_ops extends CI_Model
         <div class="user_entry" user_id="<?php echo($row->user_id); ?>">
             <div class="user_entry_left">
                 <center>
-                    <div class="user_picture"></div>
+                    <div class="user_picture">
+                        <?php $logo_text = "logo_" . rand(1, 25) . ".png"; ?>
+                        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" style="width:100%; height:100%;" />
+                    </div>
                 </center>
             </div>
 
             <div class="user_entry_middle">
-                
-                    
-                
+
+
+
                 <div class="user_name">
                     <?php
                     echo($row->first_name . ' ' . $row->last_name);
                     echo "<br>";
                     $year_display = substr($row->grad_year, -2);
-                     echo $row->school . " ('" .$year_display . ")<br/>"; 
+                    echo $row->school . " ('" . $year_display . ")<br/>";
                     if ($option == 'suggested')
                     {
                         $id = $row->user_id;
-                        echo "$suggested_friends[$id] connection"; if($suggested_friends[$id]>1){echo"s";}
-                    }else if($option == 'suggested_school')
+                        echo "$suggested_friends[$id] connection";
+                        if ($suggested_friends[$id] > 1)
+                        {
+                            echo"s";
+                        }
+                    } else if ($option == 'suggested_school')
                     {
                         echo "You have the same graduation year";
                     }
@@ -129,9 +136,9 @@ class Follow_ops extends CI_Model
             {
                 ?>
                 <div class="add_following">Follow</div>
-                <?php
-            }
-            ?>
+            <?php
+        }
+        ?>
         </div>
         <?php
     }
