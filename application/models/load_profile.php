@@ -19,6 +19,7 @@ class Load_profile extends CI_Model
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
+                <?php $this->insert_profile_picture(); ?>
             </div>
             <div class="profile_user_information"><?php
         $year_display = substr($user->grad_year, -2);
@@ -151,6 +152,16 @@ class Load_profile extends CI_Model
 
         $return_string = "<font style=\"font-size:20px;\">Locations</font><br/>" .$recent_locations_text . $most_visited_text;
         return $return_string;
+    }
+    
+    function insert_profile_picture()
+    {
+        $logo_text = "logo_" .rand(1,25);
+        ?>
+        
+        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" />
+             
+             <?php
     }
 
 }
