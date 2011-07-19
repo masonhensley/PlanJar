@@ -73,6 +73,7 @@ a{
     padding-top:10px;
     border:1px solid black;
     border-right:none;
+    padding-bottom:10px;
 }
 
 .groups_wrapper{
@@ -310,7 +311,7 @@ a{
 /* ------------------ RIGHT PANEL -----------------------*/
 .right{
     float:left;
-    width:213px;
+    width:210px;
     min-height: 100px;
     background-color:white;
     padding-top:10px;
