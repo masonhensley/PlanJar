@@ -15,7 +15,7 @@ class Load_profile extends CI_Model
         $row = $result->row();
         $groups_joined = $this->get_groups_joined($user); // array containing group information
         $groups_following = $this->get_groups_following($user); // array containing group information
-        $recent_locations = $this->get_location_stats($user); // string containing the location statistics
+        $locations_data = $this->get_location_stats($user); // string containing the location statistics
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -24,6 +24,7 @@ class Load_profile extends CI_Model
         $year_display = substr($user->grad_year, -2);
         echo $user->first_name . " " . $user->last_name . "<br/>";
         echo $row->school . " ('" . $year_display . ")<br/>";
+        
         ?>
             </div>
         </div>
@@ -55,9 +56,10 @@ class Load_profile extends CI_Model
                 $groups_following_text .= $group . ", ";
             }
             $groups_following_text = substr($groups_following_text, 0, -2);
-            $groups_following_text .= "<br/>";
+            $groups_following_text .= "<br/><br/>";
         }
         echo $groups_following_text;
+        echo $locations_data;
         ?>
             </div>
         </div>
@@ -96,12 +98,12 @@ class Load_profile extends CI_Model
     function get_location_stats($user)
     {
         $query = "SELECT places.name, plans.place_id, plans.date FROM plans 
-            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id ORDER BY plans.date DESC";
+            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id ORDER BY plans.date DESC LIMIT 0, 5";
         $result = $this->db->query($query);
 
         $recent_locations = array(); // variables to keep track of locations
         $most_visited_locations = array();
-        
+
         // make trackers!
         $recent_tracker = 0;
         foreach ($result->result() as $place)
@@ -111,19 +113,38 @@ class Load_profile extends CI_Model
                 $recent_tracker++;
                 $recent_locations[] = $place->name;
             }
-            $most_visited_locations[] = $place->place_id;
+            $most_visited_locations[] = $place->name;
         }
-        
-        $recent_locations_text = "Recent locations: ";
-        foreach($recent_locations as $location)
+
+        $recent_locations_text = "";
+        if (count($recent_locations) > 0)
         {
-            $recent_locations_text .= "$location, ";
-        }        
-        $recent_locations_text .= "<br/>";
-        
+            $recent_locations_text = "Recently visited: ";
+            foreach ($recent_locations as $location)
+            {
+                $recent_locations_text .= "<div style=\"color:navy;\">" .$location ."</div>, ";
+            }
+            $recent_locations_text = substr($recent_locations_text, 0, -2);
+            $recent_locations_text .= "<br/>";
+        }
+
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
-        var_dump($most_visited_locations, $recent_locations);
+
+        $most_visited_text = "";
+        if (count($most_visited_locations) > 0)
+        {
+            $most_visited_text .= "Most visited: ";
+            foreach ($most_visited_locations as $location => $count)
+            {
+                $most_visited_text .= "<div style=\"color:navy;\">" .$location . "</div>, ";
+            }
+            $most_visited_text  = substr($most_visited_text, 0, -2);
+            $most_visited_text .= "<br/>";
+        }
+        
+        $return_string = $recent_locations_text .$most_visited_text;
+        return $return_string;
     }
 }
