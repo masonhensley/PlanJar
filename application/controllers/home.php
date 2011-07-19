@@ -404,8 +404,9 @@ class Home extends CI_Controller
                 $date->add(new DateInterval('P1D'));
             }
             ?> 
-            <div class="left_day_arrow"><</div>
+             <div class="left_day_arrow"><</div>
             <div class="right_day_arrow">></div>
+           
             <?php
         }
 
