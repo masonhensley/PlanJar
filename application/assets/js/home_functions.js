@@ -133,7 +133,7 @@ function clear_map_markers () {
 
 // Hides all data containers
 function hide_data_containers() {
-    $('.change_location_panel').hide(); // closes the 'change location' div that gets added in the map div
+    
     $('.tab_bar .data_tab').removeClass('tab_selected');
     $('.data_container:visible').hide('slide', {}, 'fast', function () {
         $('.data_container_wrapper').hide('blind', {}, 'fast');
@@ -142,6 +142,7 @@ function hide_data_containers() {
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div, callback) {
+    $('.change_location_panel').hide(); // closes the 'change location' div that gets added in the map div
     // If no tab is selected, show the wrapper.
     if (!$('.tab_bar .data_tab').hasClass('tab_selected')) {
         $('.data_container_wrapper').show('blind', {}, 'fast', function () {
