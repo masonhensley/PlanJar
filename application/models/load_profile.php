@@ -22,7 +22,7 @@ class Load_profile extends CI_Model
             </div>
             <div class="profile_user_information"><?php
         $year_display = substr($user->grad_year, -2);
-        echo $user->first_name . " " . $user->last_name . "<br/>";
+        echo "<br/>" .$user->first_name . " " . $user->last_name . "<br/>";
         echo $row->school . " ('" . $year_display . ")<br/>";
         ?>
             </div>
