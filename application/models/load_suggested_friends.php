@@ -115,12 +115,13 @@ class Load_suggested_friends extends CI_Model
         {
             $query .= " AND user_id!=$friend_id";
         }
-        $query .= " AND user_meta.grad_year=$grad_year LIMIT 0, 15";
+        $query .= " AND (user_meta.grad_year=$grad_year OR user_meta.grad_year=" .$grad_year+1 ." OR user_meta.grad_year=" .$grad_year-1 
+        ." LIMIT 0, 15";
         $result = $this->db->query($query);
         $options = "suggested_school";
         if($result->num_rows() >0)
         {
-                     echo "<div style=\"padding-top:5px; text-align:center;\">Could not find mutual connections<br/>
+                     echo "<div style=\"padding-top:5px; text-align:center;\">Could not find any mutual connections<br/>
                          Expanded search results to include people from your school</div>";
         }
         $this->display_suggested_friends($result, null, $options, 15);
