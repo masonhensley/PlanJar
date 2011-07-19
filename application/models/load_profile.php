@@ -147,7 +147,7 @@ class Load_profile extends CI_Model
             $most_visited_text .= "<br/>";
         }
 
-        $return_string = "<font style=\"font-size:20px;\">Locations</div><br/>" .$recent_locations_text . $most_visited_text;
+        $return_string = "<font style=\"font-size:20px;\">Locations</font><br/>" .$recent_locations_text . $most_visited_text;
         return $return_string;
     }
 
