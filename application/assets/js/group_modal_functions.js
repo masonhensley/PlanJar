@@ -34,7 +34,9 @@ function initialize_create_group_modal()
             }
         },
         submitHandler: function(form) {
-            $.get('/dashboard/create_group?' + $(form).serialize(), function (data) {
+            $.get('/dashboard/create_group?' + $(form).serialize(), {
+                privacy: $('#group_privacy_wrapper .divset_selected').attr('priv_type')
+            }, function (data) {
                 if (data == 'success') {
                     $('.create_group_content').hide("fast");
                 } else {
