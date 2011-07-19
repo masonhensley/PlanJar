@@ -22,7 +22,7 @@ class Load_profile extends CI_Model
             </div>
             <div class="profile_user_information"><?php
         $year_display = substr($user->grad_year, -2);
-        echo $user->first_name . " " . $user->last_name . "<br/>";
+        echo "<br/>" .$user->first_name . " " . $user->last_name . "<br/>";
         echo $row->school . " ('" . $year_display . ")<br/>";
         ?>
             </div>
@@ -101,7 +101,9 @@ class Load_profile extends CI_Model
     function get_location_stats($user)
     {
         $query = "SELECT places.name, plans.place_id, plans.date FROM plans 
-            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id ORDER BY plans.date DESC LIMIT 0, 5";
+            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id 
+                AND plans.date<NOW()
+                ORDER BY plans.date DESC LIMIT 0, 5";
         $result = $this->db->query($query);
 
         $recent_locations = array(); // variables to keep track of locations
