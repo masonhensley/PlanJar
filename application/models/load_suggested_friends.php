@@ -57,7 +57,7 @@ class Load_suggested_friends extends CI_Model
         if ($number_of_results <= $display_limit)
         {
             $new_limit = $display_limit - $number_of_results;  // takes the difference so the number to display is always the same
-            $this->show_suggested_school_friends($user_id, $new_limit, $grad_year, $already_following, $school_id); // in the case that you are not following anyone, and there are no mutual followers
+            $this->show_suggested_school_friends($new_limit, $already_following); // in the case that you are not following anyone, and there are no mutual followers
         }
     }
 
@@ -99,10 +99,14 @@ class Load_suggested_friends extends CI_Model
         return $this->db->query($query);
     }
 
-    function show_suggested_school_friends($user_id, $display_limit, $grad_year, $already_following, $school_id)
+    function show_suggested_school_friends($display_limit, $already_following)
     {
        
-
+        $user = $this->ion_auth->get_user();
+        $user_id = $user->id;
+        $grad_year = $user->grad_year;
+        $school_id = $user->school_id;
+        
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
             FROM user_meta 
             LEFT JOIN school_data ON user_meta.school_id=school_data.id
@@ -116,7 +120,8 @@ class Load_suggested_friends extends CI_Model
         $options = "suggested_school";
         if($result->num_rows() >0)
         {
-                     echo "<div style=\"padding-top:5px; text-align:center;\">Expanded search results to include people in your grade</div>";
+                     echo "<div style=\"padding-top:5px; text-align:center;\">Could not find mutual connections<br/>
+                         Expanded search results to include people from your school</div>";
         }
         $this->display_suggested_friends($result, null, $options, 15);
     }

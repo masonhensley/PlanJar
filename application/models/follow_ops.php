@@ -102,11 +102,11 @@ class Follow_ops extends CI_Model
                         echo "$suggested_friends[$id] connection";
                         if ($suggested_friends[$id] > 1)
                         {
-                            echo"s";
+                            echo "s";
                         }
                     } else if ($option == 'suggested_school')
                     {
-                        echo "You have the same graduation year";
+                        
                     }
                     ?>
                 </div>          
