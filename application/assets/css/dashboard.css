@@ -408,13 +408,13 @@ a{
 }
 
 .profile_box{
+    border-top-left-radius:10px;
     float:left;
     border: 1px solid black;
     margin-left:auto;
     margin-right:auto;
-    height:500px;
+    height:auto;
     width: 48%;
-    background:-webkit-gradient(linear,left top,left bottom,from(silver),to(#DADADA));
     padding-right:10px;
 }
 
