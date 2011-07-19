@@ -151,7 +151,12 @@ class Load_profile extends CI_Model
         }
 
         $return_string = "<font style=\"font-size:20px;\">Locations</font><br/>" .$recent_locations_text . $most_visited_text;
-        return $return_string;
+        if(!(empty($recent_locations_text) && empty($most_visited_text)))
+        {
+                    return $return_string;
+        }else{
+            return "";
+        }
     }
     
     function insert_profile_picture()
