@@ -119,7 +119,7 @@ class Load_suggested_friends extends CI_Model
         
         $today = date("Y");
         $tracker = $today - $grad_year;
-        $query .= "AND (";
+        $query .= " AND (";
         for($count=$tracker; $count!= $tracker-4; $count--)
         {
             $display_year = $grad_year + $count;
@@ -128,7 +128,7 @@ class Load_suggested_friends extends CI_Model
         
         $query .= ") LIMIT 0, 15";
         
-        $result = $this->db->query($query);
+            $result = $this->db->query($query);
         var_dump($query);
         $options = "suggested_school";
         if($result->num_rows() >0)
