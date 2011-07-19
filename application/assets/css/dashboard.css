@@ -203,6 +203,7 @@ a{
     height: auto;
     border: 1px solid black;
     border-top-right-radius:10px;
+    background-color:white;
 }
 
 /* ----------------GROUP TAB--------------- */
@@ -389,14 +390,14 @@ a{
     border:1px solid black;
     padding-left:3px;
     padding-right:3px;
-    background-color:white;
-    padding-left:5px;
-    padding-right:5px;
+    background-color:lightblue;
+    padding-left:15px;
+    padding-right:15px;
 }
 
 .suggested_active{
-    background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
-    color:white;
+    background: -webkit-gradient(linear,left top,left bottom,from(#AAA),to(#EEE));
+    color:black;
     border:none;
 }
 
@@ -417,6 +418,7 @@ a{
     height:auto;
     width: 48%;
     padding-right:10px;
+    background-color:white;
 }
 
 .profile_top_bar{
@@ -435,10 +437,10 @@ a{
 
 .profile_user_information{
     height:80px;
-    width:380px;
+    width:auto;
     float:right;
     margin-top:10px;
-    margin-right:10px;
+    margin-right:130px;
     text-align:center;
 }
 
