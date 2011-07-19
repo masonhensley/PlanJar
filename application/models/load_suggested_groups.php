@@ -32,7 +32,8 @@ class Load_suggested_groups extends CI_Model
                 echo "<br/><div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections</div>";
             }
         }else{
-            echo "<br/><div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections</div>";
+            echo "<br/><div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections
+                <br/>Expanding search to include your school</div>";
         }
     }
 
