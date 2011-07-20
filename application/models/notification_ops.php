@@ -95,7 +95,7 @@ class Notification_ops extends CI_Model
         $user_id = $this->ion_auth->get_user()->id;
 
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id,
-            notifications.viewed, notifications.accepted, user_meta.first_name, user_meta.last_name
+            notifications.viewed, user_meta.first_name, user_meta.last_name
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
             WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC, notifications.date DESC";
         $query = $this->db->query($query_string, array($user_id));
@@ -107,12 +107,15 @@ class Notification_ops extends CI_Model
         {
             foreach ($query->result() as $row)
             {
-                $this->echo_notification($row);
+
+
+                //$accept = $this->deduce_accepted($row);
+                $this->echo_notification($row, true);
             }
         }
     }
 
-    public function echo_notification($row)
+    public function echo_notification($row, $accept)
     {
         $this->load->model('load_profile');
 
@@ -195,17 +198,10 @@ class Notification_ops extends CI_Model
                 $this->load->model('plan_actions');
                 $this->plan_actions->copy_plan($row->subject_id, $this->ion_auth->get_user()->id);
                 $this->update_notification_viewed($row->id, true);
-                $this->update_notification_accepted($row->id, true);
                 break;
             case 'group_invite':
                 break;
         }
-    }
-
-    public function update_notification_accepted($id, $value)
-    {
-        $query_string = "UPDATE notifications SET accepted = ? WHERE id = ?";
-        $query = $this->db->query($query_string, array($value, $id));
     }
 
 }
