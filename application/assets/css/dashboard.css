@@ -245,13 +245,7 @@ a{
     border: 1px solid black;
     background-color:white;
 }
-.add_joined {
-    float: right;
-    width: 80px;
-    background-color: green;
-    color: white;
-    padding: 3px;
-}
+
 #groups_content .right {
     width: 360px;
     float: right;
@@ -463,4 +457,15 @@ a{
     height:500px;
 }
 
+.profile_bottom_bar{
+    width:100%;
+    height:30px;
+}
 
+.add_joined {
+    float: right;
+    background-color: green;
+    color: white;
+    padding: 3px;
+    margin-bottom:0px;
+}
