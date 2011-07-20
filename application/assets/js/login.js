@@ -181,6 +181,7 @@ $(document).ready(function() {
         },
         onfocusout: function(element) {
             this.form();
+            $(element).focus();
         }
     });
     
