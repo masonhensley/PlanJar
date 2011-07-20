@@ -123,7 +123,7 @@ class Group_ops extends CI_Model
             </div>
             <div class="group_entry_left_side">
                 <?php
-                if ($option == 'suggested_groups')
+                if ($option == 'suggested groups')
                 {
                     ?>
                     <div class="following">Follow</div>
