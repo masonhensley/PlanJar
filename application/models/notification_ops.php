@@ -113,16 +113,28 @@ class Notification_ops extends CI_Model
 
     public function echo_notification($row)
     {
+        $this->load->model('load_profile');
+
         $notification_text = $this->make_notification_text($row);
 
         $class = 'notification_entry';
-        if ($row->viewed == true)
+        if ($row->viewed == false)
         {
             $class .= ' unviewed';
         }
         ?>
         <div class="<?php echo($class); ?>" notif_id="<?php echo($row->id); ?>">
-            <?php echo($notification_text); ?>
+            <div class="left">
+                <div class="picture">
+                    <?php echo($this->load_profile->insert_profile_picture()); ?>
+                </div>
+            </div>
+
+            <div class="middle">
+                <?php echo($notification_text); ?>
+            </div>
+
+            <div class="accept">Accept</div>
         </div>
         <?php
     }
