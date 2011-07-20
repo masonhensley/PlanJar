@@ -131,7 +131,7 @@
     display:inline-block;
 }
 
-#middle .add_joined {
+.middle .add_joined {
     float: right;
     background-color: green;
     color: white;
