@@ -71,7 +71,7 @@ class Load_group_profile extends CI_Model
             </div>
             <div class="profile_bottom_bar">
         <?php
-        
+        /*
         
         if($this->group_ops->user_is_following($group_info['id']))
         {
@@ -99,6 +99,8 @@ class Load_group_profile extends CI_Model
         }else{
             echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invite";
         }
+         * 
+         */
         ?>
             </div>
         </div>
