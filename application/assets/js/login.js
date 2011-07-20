@@ -61,10 +61,9 @@ $(document).ready(function() {
     $('#sign_up').validate({
         rules: {
             su_email_1: {
-                //required: true,
+                required: true,
                 email: true,
                 unique_email: true,
-                required: true,
                 allowed_email_domain: true
             },
             su_email_2: {
@@ -192,28 +191,19 @@ function get_year()
 
 // Custom validator method to only allow unique email addresses.
 $.validator.addMethod('unique_email', function (value, element) {
-    console.log('unique');
-    return $.validator.methods.remote.call(this, value, element, {
-        url: '/login/check_email_unique',
-        data: {
-            email: value
-        }
+    return $.get('/login/check_email_unique', {
+        email: value
+    }, function (data) {
+        return data == 'true';
     });
 }, 'An account with that email address already exists.');
 
 // Custom validator method to only allow school email addresses.
 $.validator.addMethod('allowed_email_domain', function (value, element) {
-    console.log('domain');
-    
-    $.get('/login/check_email_domain', {
+    return $.get('/login/check_email_domain', {
         email: value
     }, function (data) {
-        return false;
+        return data == 'true';
     });
-//    return $.validator.methods.remote.call(this, value, element, {
-//        url: '/login/check_email_domain',
-//        data: {
-//            email: value
-//        }
-//    });
+    
 }, "That domain currently can't be used to create an account. Make sure to use your school email.");
