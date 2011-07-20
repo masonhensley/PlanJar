@@ -53,7 +53,7 @@ class Load_group_profile extends CI_Model
             </div>
             <div class="profile_user_information">
                 <?php
-                echo "<br/><font style=\"font-size:20px; font-weight:bold;color:purple;\">" . $group_info['name'] . "</font><br/>";
+                echo "<br/><font style=\"font-size:20px; font-weight:bold;\">" . $group_info['name'] . "</font><br/>";
                 if ($this->group_ops->user_is_following($group_info['id']))
                 {
                     echo "<font style=\"color:green; font-weight:bold;\">following</font>";
@@ -62,7 +62,7 @@ class Load_group_profile extends CI_Model
                     echo "<font style=\"color:purple; font-weight:bold;\">joined</font>";
                 } else
                 {
-                    echo "You are not following this group";
+                    echo "<font style=\"color:gray\">not following</font>";
                 }
                 ?>
             </div>
@@ -70,15 +70,15 @@ class Load_group_profile extends CI_Model
         <div class="profile_body">
             <div class="profile_body_text">
                 <?php
-                echo $group_info['number_joined'] . " members<br/>";
-                echo $group_info['number_following'] . " followers";
+                echo "Members: " .$group_info['number_joined'] . "<br/>";
+                echo "Followers: " .$group_info['number_following'];
                 echo "<br/><br/>";
                 if (isset($group_info['school']))
                 {
-                    echo "School: <font style=\"color:navy; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
+                    echo "<font style=\"color:gray;\">School:</font> <font style=\"color:navy; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
                 }
                 echo "<font style=\"color:gray;\">Description</font><br/>";
-                echo $group_info['description'] . "<br/><br/>";
+                echo "<font style=\"font-weight:bold;\">" .$group_info['description'] . "</font><br/><br/>";
                 ?>
             </div>
             <div class="profile_bottom_bar">
@@ -90,39 +90,22 @@ class Load_group_profile extends CI_Model
                         echo "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
                     } else if ($group_info['privacy'] == 'open') // if you are not joined and the group privacy is "open"
                     {
-                        echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                        echo "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
                         echo('<div class="add_joined">Join Group</div>');
                     } else if ($group_info['privacy'] == 'loose')
                     { // if you are not joined and the group privacy is "loose"
-                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation";
+                        echo "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
                     }
                 } else
                 { // this is for the suggested groups list
                     if ($group_info['privacy'] == 'open') // if you are not joined and the group privacy is "open"
                     {
-                        echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                        echo "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
                     } else
                     {
-                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
+                        echo "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
                     }
                 }
-
-                /*
-                  if ($group_info['privacy'] = 'open')
-                  {
-
-                  $this->load->model('group_ops');
-                  if ($this->group_ops->user_is_following($group_info['id']))
-                  {
-                  echo('<div class="add_joined">Join Group</div>');
-                  }
-                  }else if($this->group_ops->user_is_joined($group_info['id'])){
-                  echo "You are <font style=\"color:purple;font-weight:bold;\">joined</font> in this group";
-                  }else{
-
-                  }
-                 * 
-                 */
                 ?>
             </div>
         </div>
