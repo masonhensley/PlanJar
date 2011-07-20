@@ -100,7 +100,7 @@
 
 .group_entry .following {
     float: right;
-    width: 80px;
+    width: 75px;
     background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
@@ -111,7 +111,7 @@
 
 .group_entry .joined {
     float: right;
-    width: 80px;
+    width: 75px;
     background:-webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
     color: white;
     padding: 3px;
@@ -121,7 +121,7 @@
 }
 
 .remove_following {
-    width: 80px;
+    width: 75px;
     background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
     color: white;
     padding: 3px;
@@ -131,7 +131,7 @@
 }
 .group_entry .add_following {
     float: right;
-    width: 80px;
+    width: 75px;
     background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
@@ -142,7 +142,7 @@
 
 .remove_joined {
     float: right;
-    width: 80px;
+    width: 75px;
     background-color: purple;
     color: white;
     padding: 3px;

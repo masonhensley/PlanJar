@@ -143,6 +143,7 @@ a{
     float: left;
     width: auto;
 }
+/*
 .user_entry .remove_following {
     float: right;
     width: auto;
@@ -151,6 +152,7 @@ a{
     padding: 3px;
     margin-right:5px;
 }
+*/
 .user_entry .add_following {
     float: right;
     width: 80px;
