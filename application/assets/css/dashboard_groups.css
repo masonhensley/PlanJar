@@ -125,7 +125,6 @@
     background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
     color: white;
     padding: 3px;
-    margin-top:5px;
     margin-right:5px;
     text-align: center;
     display:inline-block;
@@ -136,7 +135,6 @@
     background-color: green;
     color: white;
     padding: 3px;
-    margin-right:10px;
 }
 
 
