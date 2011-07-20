@@ -70,5 +70,6 @@
     color: grey;
     padding: 3px;
     margin-right:5px;
-    text-align: center;
+    bottom: 0px;
+    right: 0px;
 }

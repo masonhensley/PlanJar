@@ -18,6 +18,11 @@ function get_notifications() {
                 update_notification_viewed($(this).parent().attr('notif_id'), 0);
             }
         });
+        
+        // Accept handler
+        $('.notification_entry .accept').click(function() {
+            
+            });
     });
 }
 
