@@ -26,7 +26,7 @@ class Load_group_profile extends CI_Model
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
-        <?php $this->insert_profile_picture(); ?>
+        <?php $this->_insert_profile_picture(); ?>
             </div>
             <div class="profile_user_information"><?php
         echo "<br/>" . $group_info->name ;
