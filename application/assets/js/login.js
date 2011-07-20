@@ -179,7 +179,9 @@ $(document).ready(function() {
                 $(errorList[0]['element']).addClass("highlight_error");
             }
         },
-        onfocusout: true
+        onfocusout: function(element) {
+            this.element(element);
+        }
     });
     
     // Initialize the in-field labels.
