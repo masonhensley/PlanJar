@@ -22,6 +22,7 @@ class Load_group_profile extends CI_Model
         $id = $return_array['school_id'];
         $query2 = "SELECT school FROM school_data WHERE id=$id"; // get the school name
         var_dump($query2);
+        /*
         $result2 = $this->db->query($query2);
         $result2 = $result2->row_array();
         $return_array['school'] = $result2['school'];
@@ -40,6 +41,8 @@ class Load_group_profile extends CI_Model
         $return_array['number_joined'] = $number_joined;
         
         return $return_array;
+         * 
+         */
     }
 
     function _display_profile($group_info)
