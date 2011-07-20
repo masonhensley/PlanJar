@@ -308,5 +308,7 @@ a{
 .profile_bottom_bar{
     width:100%;
     height:auto;
-    text-align:left;
+    position:relative;
+    top:10px;
+    left:15px;
 }
