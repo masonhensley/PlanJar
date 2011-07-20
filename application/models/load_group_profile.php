@@ -70,7 +70,7 @@ class Load_group_profile extends CI_Model
                 }else{
                     echo "You are not following this group";
                 }
-                echo "<br/>";
+                echo "<br/><br/>";
                 if (isset($group_info['school']))
                 {
                     echo "School: <font style=\"color:navy; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
@@ -102,7 +102,7 @@ class Load_group_profile extends CI_Model
                         echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>";
                     } else
                     {
-                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation";
+                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
                     }
                 }
 
