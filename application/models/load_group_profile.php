@@ -54,22 +54,24 @@ class Load_group_profile extends CI_Model
             <div class="profile_user_information">
                 <?php
                 echo "<br/><font style=\"font-size:20px; font-weight:bold;color:purple;\">" . $group_info['name'] . "</font><br/>";
-                echo $group_info['number_joined'] . " members<br/>";
-                echo $group_info['number_following'] . " followers";
+                if ($this->group_ops->user_is_following($group_info['id']))
+                {
+                    echo "<font style=\"color:green; font-weight:bold;\">following</font>";
+                } else if ($this->group_ops->user_is_joined($group_info['id']))
+                {
+                    echo "<font style=\"color:purple; font-weight:bold;\">joined</font>";
+                } else
+                {
+                    echo "You are not following this group";
+                }
                 ?>
             </div>
         </div>
         <div class="profile_body">
             <div class="profile_body_text">
                 <?php
-                if($this->group_ops->user_is_following($group_info['id']))
-                {
-                    echo "<font style=\"color:green; font-weight:bold;\">following</font>";
-                }else if($this->group_ops->user_is_joined($group_info['id'])){
-                    echo "<font style=\"color:purple; font-weight:bold;\">joined</font>";
-                }else{
-                    echo "You are not following this group";
-                }
+                echo $group_info['number_joined'] . " members<br/>";
+                echo $group_info['number_following'] . " followers";
                 echo "<br/><br/>";
                 if (isset($group_info['school']))
                 {
@@ -81,7 +83,6 @@ class Load_group_profile extends CI_Model
             </div>
             <div class="profile_bottom_bar">
                 <?php
-                
                 if ($this->group_ops->user_is_following($group_info['id'])) // this is for your following list
                 {
                     if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
