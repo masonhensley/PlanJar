@@ -191,19 +191,21 @@ function get_year()
 
 // Custom validator method to only allow unique email addresses.
 $.validator.addMethod('unique_email', function (value, element) {
-    $.get('/login/check_email_unique', {
-        email: value
-    }, function (data) {
-        return data == 'true';
+    return $.validator.methods.remote.call(this, value, element, {
+        url: '/login/check_email_unique',
+        data: {
+            email: value
+        }
     });
 }, 'An account with that email address already exists.');
 
 // Custom validator method to only allow school email addresses.
 $.validator.addMethod('allowed_email_domain', function (value, element) {
-    $.get('/login/check_email_domain', {
-        email: value
-    }, function (data) {
-        return data == 'true';
+    return $.validator.methods.remote.call(this, value, element, {
+        url: '/login/check_email_domain',
+        data: {
+            email: value
+        }
     });
     
 }, "That domain currently can't be used to create an account. Make sure to use your school email.");
