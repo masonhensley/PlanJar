@@ -53,12 +53,26 @@ class Login extends CI_Controller
 
         if ($registered)
         {
-            // Join the user to the school group.
-            $this->load->model('group_ops');
-            $this->group_ops->follow_group($additional_data['school_id']);
-            $this->group_ops->join_group($additional_data['school_id']);
+            // Only necessary to bypass the email activation. Remove when email activation is in place.
+            // Get the school's group id
+            $this->ion_auth->login($email, $password);
+            $user = $this->ion_auth->get_user();
+            $query_string = "SELECT group_id FROM school_data WHERE id = ?";
+            $query = $this->db->query($query_string, array($user->school_id));
+            $group_id = $query->row()->group_id;
 
-            echo "/login/post_sign_up";
+            // Join the user to his school's group
+            $this->load->model('group_ops');
+            $this->group_ops->follow_group($user->id, $group_id);
+            $this->group_ops->join_group($user->id, $group_id);
+
+
+            echo "/home";
+            // End email activation stuff
+            
+            
+            // Redirect to the post sign up page
+            //echo "/login/post_sign_up";
         } else
         {
             echo "error";

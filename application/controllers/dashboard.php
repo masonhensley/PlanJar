@@ -184,21 +184,19 @@ class Dashboard extends CI_Controller
 
     public function get_group_details()
     {
-       
+
         $this->load->model('load_group_profile');
         $group_id = $this->input->get('group_id');
         $this->load_group_profile->_load_group_profile($group_id);
-        
-        
+
+
         /*
-         $this->load->model('group_ops');
-        if ($this->group_ops->user_is_following($group_id))
-        {
-            echo('<div class="add_joined">Join</div>');
-        }
-       */ 
-        
-        
+          $this->load->model('group_ops');
+          if ($this->group_ops->user_is_following($group_id))
+          {
+          echo('<div class="add_joined">Join</div>');
+          }
+         */
     }
 
     public function add_group_following()
@@ -228,7 +226,7 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('group_ops');
 
-        $this->group_ops->join_group($this->input->get('group_id'));
+        $this->group_ops->join_group($this->ion_auth->get_user()->id, $this->input->get('group_id'));
     }
 
     public function get_joined_groups()
@@ -307,8 +305,8 @@ class Dashboard extends CI_Controller
         $group_id = $this->group_ops->add_group($name, $description, $privacy, $location_source);
 
         // Join the user to the group
-        $this->group_ops->follow_group($group_id);
-        $this->group_ops->join_group($group_id);
+        $this->group_ops->follow_group($user->id, $group_id);
+        $this->group_ops->join_group($user->id, $group_id);
 
         // Capture and process the invite lists
         $invited_users = explode(',', $this->input->get('group_invite_users'));
