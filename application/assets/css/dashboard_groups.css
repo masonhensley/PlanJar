@@ -103,7 +103,8 @@
 }
 .group_entry .group_entry_middle {
     float: left;
-    width: auto;
+    text-align:center;
+    width: 130px;
     height: auto;
     margin-left:10px;
     margin-top:15px;
