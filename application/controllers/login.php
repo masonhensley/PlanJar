@@ -158,7 +158,7 @@ class Login extends CI_Controller
     // Returns errors otherwise
     public function email_check()
     {
-        $email = $this->input->get('su_email_1');
+        $email = $this->input->get('email');
 
         $query_string = "SELECT * FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
