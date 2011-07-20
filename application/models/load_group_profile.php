@@ -11,7 +11,6 @@ class Load_group_profile extends CI_Model
     function load_profile($group_id)
     {
         $group_info = $this->_get_group_details($group_id);
-
         $this->_display_profile($group_info);
     }
 
