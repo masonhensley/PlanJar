@@ -28,8 +28,6 @@ class Load_profile extends CI_Model
         ?>
             </div>
         </div>
-
-
         <div class="profile_body">
             <div class="profile_body_text"><?php
         // Code to display groups joined
@@ -125,13 +123,13 @@ class Load_profile extends CI_Model
         $recent_locations_text = "";
         if (count($recent_locations) > 0)
         {
-            $recent_locations_text = "Recently visited: ";
+            $recent_locations_text = "Recently visited:<br/>";
             foreach ($recent_locations as $location)
             {
                 $recent_locations_text .= "<font style=\"color:blue;\">" . $location . "</font>, ";
             }
             $recent_locations_text = substr($recent_locations_text, 0, -2);
-            $recent_locations_text .= "<br/>";
+            $recent_locations_text .= "<br/><br/>";
         }
 
         $most_visited_locations = array_count_values($most_visited_locations);
@@ -141,7 +139,7 @@ class Load_profile extends CI_Model
         $most_visited_text = "";
         if (count($most_visited_locations) > 0)
         {
-            $most_visited_text .= "Most visited: ";
+            $most_visited_text .= "Most visited:<br/>";
             foreach ($most_visited_locations as $location => $count)
             {
                 $most_visited_text .= "<font style=\"color:blue;\">" . $location . "</font>, ";
@@ -150,7 +148,7 @@ class Load_profile extends CI_Model
             $most_visited_text .= "<br/>";
         }
 
-        $return_string = "<font style=\"font-size:20px;\">Locations</font><br/>" .$recent_locations_text . $most_visited_text;
+        $return_string = "<font style=\"font-size:20px; text-align:center;\">Locations</font><br/>" .$recent_locations_text . $most_visited_text;
         if(!(empty($recent_locations_text) && empty($most_visited_text)))
         {
                     return $return_string;
