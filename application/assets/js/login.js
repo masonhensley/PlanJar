@@ -205,10 +205,10 @@ $.validator.addMethod('unique_email', function (value, element) {
 $.validator.addMethod('allowed_email_domain', function (value, element) {
     console.log('domain');
     
-    $.get('/login/check_email_domain', {
+    return $.get('/login/check_email_domain', {
         email: value
     }, function (data) {
-        return false;
+        return true;
     });
 //    return $.validator.methods.remote.call(this, value, element, {
 //        url: '/login/check_email_domain',
