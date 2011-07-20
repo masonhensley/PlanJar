@@ -19,7 +19,7 @@ class Load_group_profile extends CI_Model
         $query = "SELECT school_id, name, description, privacy FROM groups WHERE id=$group_id";
         var_dump($query);
         $result = $this->db->query($query);
-        return $result;
+        return $result->row_array();
     }
 
     function _display_profile($group_info)
@@ -30,6 +30,7 @@ class Load_group_profile extends CI_Model
         <?php $this->_insert_profile_picture(); ?>
             </div>
             <div class="profile_user_information">
+                <?php echo $gropu_info['name']; ?>
             </div>
         </div>
 
