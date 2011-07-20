@@ -63,7 +63,8 @@ $(document).ready(function() {
             su_email_1: {
                 required: true,
                 email: true,
-                unique_email: true
+                unique_email: true,
+                allowed_email_domain: true
             },
             su_email_2: {
                 required: true,
@@ -195,20 +196,21 @@ function get_year()
     return d.getFullYear();
 }
 
-// Custom validator plugin to only allow unique email addresses.
+// Custom validator method to only allow unique email addresses.
 $.validator.addMethod('unique_email', function (value, element) {
-    $.get('/login/check_email_unique', {
-        email: value
-    }, function (data) {
-        return data == 'pre_existing';
+    return $.validator.methods.remote.call(this, value, element, {
+        url: '/login/check_email_unique',
+        data: {
+            email: value
+        }
     });
-}, 'An account with that username already exists.');
+}, 'An account with that email address already exists.');
 
-// Custom validator plugin to only allow school email addresses.
+// Custom validator method to only allow school email addresses.
 $.validator.addMethod('allowed_email_domain', function (value, element) {
     $.get('/login/check_email_domain', {
         email: value
     }, function (data) {
-        return data == 'allowed';
+        return data == 'true';
     });
 }, "That domain currently can't be used to create an account. Make sure to use your school email.");
