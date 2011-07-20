@@ -176,7 +176,7 @@ class Dashboard extends CI_Controller
     }
 
     public function get_group_details()
-    {       
+    {
         $this->load->model('load_group_profile');
         $group_id = $this->input->get('group_id');
         $this->load_group_profile->_load_group_profile($group_id);
@@ -185,8 +185,7 @@ class Dashboard extends CI_Controller
     public function add_group_following()
     {
         $this->load->model('group_ops');
-
-        $this->group_ops->follow_group($this->input->get('group_id'));
+        $this->group_ops->follow_group($this->ion_auth->get_user()->id, $this->input->get('group_id'));
     }
 
     public function remove_group_following()
