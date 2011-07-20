@@ -193,7 +193,7 @@ function get_year()
 // Custom validator method to only allow unique email addresses.
 $.validator.addMethod('unique_email', function (value, element) {
     console.log('unique');
-    return $.validator.methods.remote.call(this, value, element, {
+    return $.validator.methods.remote.call(this, value, {
         url: '/login/check_email_unique',
         data: {
             email: value
