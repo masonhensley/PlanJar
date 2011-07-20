@@ -133,8 +133,7 @@ class Load_suggested_friends extends CI_Model
         $options = "suggested_school";
         if ($result->num_rows() > 0)
         {
-            echo "<div style=\"padding-top:5px; text-align:center;padding-top:10px;padding-bottom:10px;\">Could not find any mutual connections<br/>
-                         Expanded search results to include people from your school</div>";
+            echo "<div style=\"padding-top:5px; text-align:center;padding-top:10px;padding-bottom:10px;\">Expanded search results to include people from your school</div>";
         }
         $this->display_suggested_friends($result, null, $options, 15);
     }

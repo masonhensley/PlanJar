@@ -163,9 +163,7 @@ class Load_profile extends CI_Model
     {
         $logo_text = "logo_" .rand(1,25) .".png";
         ?>
-        
         <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" />
-             
              <?php
     }
 
