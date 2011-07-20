@@ -116,7 +116,6 @@ class Login extends CI_Controller
     {
         $email_exists = $this->ion_auth->email_check($this->input->get('email'));
 
-        echo($this->db->last_query());
         if ($email_exists)
         {
             echo('false');
