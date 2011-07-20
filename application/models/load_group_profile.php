@@ -106,7 +106,7 @@ class Load_group_profile extends CI_Model
             {
                 $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invitation";
             }
-            echo $bottom_bar_text ."<div style=\"float:right;\">" .$bottom_bar_buttons ."</div>";
+            echo "<div style=\"float:left;\">" .$bottom_bar_text ."</div><div style=\"float:right;\">" .$bottom_bar_buttons ."</div>";
             ?>
         </div>
 
