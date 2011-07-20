@@ -193,7 +193,7 @@ class Notification_ops extends CI_Model
         {
             case 'plan_invite':
                 $this->load->model('plan_actions');
-                $this->plan_actions->copy_plan();
+                $this->plan_actions->copy_plan($notif_row->subject_id, $this->ion_auth->get_user()->id);
                 break;
             case 'group_invite':
                 break;
