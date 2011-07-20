@@ -42,10 +42,7 @@ function initialize_group_search() {
 function group_select_click_handler()
 {
     $('#find_groups_list .group_entry').click(function() {
-        // Unselect other groups
-        //$('#find_groups_list .group_entry.selected_group').removeClass('selected_group'); 
-        //$('.group_entry.selected_group').removeClass('selected_group');
-        
+        // Unselect other groups and select selected (if it isn't already)
         if(!$(this).hasClass('selected_group'))
         {
             $('.selected_group').removeClass('selected_group'); 
@@ -83,30 +80,30 @@ function populate_edit_groups_list() {
         // Make groups selectable
         $('#edit_groups_list .group_entry').click(function() {
             // Unselect other groups
-            $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
-                                
-             
-            $('.group_entry.selected_group').removeClass('selected_group');
-            $(this).addClass('selected_group');
-            $.get('/dashboard/get_group_details', {
-                group_id: $(this).attr('group_id')
-            }, function (data) {
-                $('#groups_content .middle').html(data);
-                
-                // Join handler (special case)
-                $('#groups_content .middle .add_joined').click(function () {
-                    $(this).text('You sure?');
-                    $(this).unbind('click');
-                    $(this).click(function () {
-                        $.get('/dashboard/add_group_joined', {
-                            group_id: $('#edit_groups_list .selected_group').attr('group_id')
-                        }, function (data) {
-                            $('#groups_content .middle').html('');
-                            populate_edit_groups_list();
+            
+            if(!$(this).hasClass('selected_group'))
+            {
+                $('.selected_group').removeClass('selected_group'); 
+                $(this).addClass('selected_group');
+                $.get('/dashboard/get_group_details', {
+                    group_id: $(this).attr('group_id')
+                }, function (data) {
+                    $('#groups_content .middle').html(data);
+                    // Join handler (special case for when you follow a group that is joinable)
+                    $('#groups_content .middle .add_joined').click(function () {
+                        $(this).text('You sure?');
+                        $(this).unbind('click');
+                        $(this).click(function () {
+                            $.get('/dashboard/add_group_joined', {
+                                group_id: $('#edit_groups_list .selected_group').attr('group_id')
+                            }, function (data) {
+                                $('#groups_content .middle').html('');
+                                populate_edit_groups_list();
+                            });
                         });
                     });
                 });
-            });
+            }
         });
         
         // Click handlers
