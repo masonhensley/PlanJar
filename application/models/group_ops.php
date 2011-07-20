@@ -126,12 +126,12 @@ class Group_ops extends CI_Model
                 if ($option == 'suggested groups')
                 {
                     ?>
-                    <div class="following">Follow</div>
+                    <div class="add_following">Follow</div>
                     <?php
                 } else if ($option == 'following')
                 {
                     ?>
-                    <div class="joined">Following</div>
+                    <div class="following">Following</div>
                     <?php
                 } else if ($option == 'joined')
                 {
