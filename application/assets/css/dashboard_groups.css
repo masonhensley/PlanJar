@@ -132,7 +132,7 @@
 }
 
 .middle .add_joined {
-    float: right;
+    display:inline-block;
     background-color: green;
     color: white;
     padding: 3px;
