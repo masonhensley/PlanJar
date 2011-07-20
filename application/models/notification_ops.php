@@ -150,8 +150,8 @@ class Notification_ops extends CI_Model
 
             $date = new DateTime($row->date);
 
-            return '<div style="font-weight: bold;">' . $notification_row->first_name . ' ' . $notification_row->last_name . '</div> has invited you to ' .
-            '<div style="font-weight: bold;">' . $row->name . '</div> on' .
+            return '<b>' . $notification_row->first_name . ' ' . $notification_row->last_name . '</b> has invited you to ' .
+            '<b>' . $row->name . '</b> on' .
             $date->format('l') . ' the ' . $date->format('jS');
         } else if ($notification_row->type == 'group_invite')
         {
@@ -159,8 +159,8 @@ class Notification_ops extends CI_Model
             $query = $this->db->query($query_string, array($notification_row->subject_id));
             $row = $query->row();
 
-            return '<div style="font-weight: bold;">' . $notification_row->first_name . ' ' . $notification_row->last_name . '</div> ' .
-            'has invited you to the group <div style="font-weight: bold;">' . $row->name . '</div>';
+            return '<b>' . $notification_row->first_name . ' ' . $notification_row->last_name . '</b> ' .
+            'has invited you to the group <b>' . $row->name . '</b>';
         }
     }
 
