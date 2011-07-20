@@ -206,8 +206,9 @@ $.validator.addMethod('unique_email', function (value, element) {
             errors[element.name] = data;
             this.showErrors(errors);
             return false;
+        } else {
+            return true;
         }
-        return true;
     });
 }, 'An account with that email address already exists.');
 
