@@ -157,7 +157,7 @@ class Login extends CI_Controller
     {
         $email = $this->input->get('email');
 
-        $query_string = "SELECT * FROM school_data WHERE domain = ?";
+        $query_string = "SELECT * FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
         if ($query->num_rows() > 0)
         {

@@ -166,9 +166,6 @@ $(document).ready(function() {
             }
         },
         showErrors: function(errorMap, errorList) {
-            // Adapted from http://stackoverflow.com/questions/4342950/jquery-validate-plugin-display-one-error-at-a-time-with-css/4343177#4343177
-            // Displays one error at a time and changes the invalid input's class
-            
             // Remove all error classes.
             $("#sign_up").find("input, select").each(function() {
                 $(this).removeClass("highlight_error");
@@ -177,9 +174,14 @@ $(document).ready(function() {
             // Add the error class to the first invalid field.
             $("#su_error").html("");
             if(errorList.length) {
+                console.log(errorList);
                 $("#su_error").html(errorList[0]['message']);
                 $(errorList[0]['element']).addClass("highlight_error");
             }
+        },
+        onfocusout: function(element) {
+            this.form();
+            $(element).focus();
         }
     });
     
