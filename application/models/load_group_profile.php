@@ -65,7 +65,7 @@ class Load_group_profile extends CI_Model
                     echo "<font style=\"color:purple; font-weight:bold;\">joined</font>";
                 } else
                 {
-                    echo "<font style=\"color:gray\">not following</font>";
+                    echo "<font style=\"color:gray\">(not following)</font>";
                 }
                 ?>
             </div>
@@ -81,7 +81,7 @@ class Load_group_profile extends CI_Model
                     echo "<font style=\"color:gray;\">School:</font> <font style=\"color:navy; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
                 }
                 echo "<font style=\"color:gray;\">Description</font><br/>";
-                echo "<font style=\"font-weight:bold;\">" . $group_info['description'] . "</font><br/><br/>";
+                echo "<font style=\"\">" . $group_info['description'] . "</font><br/><br/>";
                 ?>
             </div>
         </div>
