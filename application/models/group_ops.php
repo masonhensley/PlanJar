@@ -131,7 +131,7 @@ class Group_ops extends CI_Model
                 } else if ($option == 'add following')
                 {
                     ?>
-                    <div class="add_following">Follow</div>
+                    <div class="add_following">+ Follow</div>
                     <?php
                 } else if ($option == 'following')
                 {
@@ -141,7 +141,7 @@ class Group_ops extends CI_Model
                 } else if ($option == 'remove joined')
                 {
                     ?>
-                    <div class="remove_joined">Unjoin</div>
+                    <div class="joined">Joined</div>
                     <?php
                 } else if ($option == 'suggested groups')
                 {

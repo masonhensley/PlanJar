@@ -318,7 +318,7 @@ a{
 .group_entry .add_following {
     float: right;
     width: 80px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
+    background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
     text-align: center;
@@ -328,16 +328,16 @@ a{
 .group_entry .following {
     float: right;
     width: 80px;
-    background-color: green;
+    background:-webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
     margin-top:5px;
     margin-right:5px;
 }
-.remove_joined {
+._joined {
     float: right;
     width: 80px;
-    background-color: purple;
+    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
     color: white;
     padding: 3px;
     margin-top:5px;
