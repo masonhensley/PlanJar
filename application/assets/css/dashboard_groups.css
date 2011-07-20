@@ -112,24 +112,18 @@
 
 .group_entry .following {
     float: right;
-    width: 75px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
-    color: white;
+    width: auto;
+    color: gray;
     padding: 3px;
     text-align: center;
-    margin-top:5px;
-    margin-right:5px;
 }
 
 .group_entry .joined {
     float: right;
-    width: 75px;
-    background:-webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
-    color: white;
+    width: auto;
+    color: gray;
     padding: 3px;
     text-align: center;
-    margin-top:5px;
-    margin-right:5px;
 }
 
 .remove_following {
