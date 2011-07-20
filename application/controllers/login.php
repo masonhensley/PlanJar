@@ -163,7 +163,7 @@ class Login extends CI_Controller
         $query_string = "SELECT * FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
 
-        $email_exists = $this->ion_auth->email_check($this->input->get('email'));
+        $email_exists = $this->ion_auth->email_check($email);
 
         if ($query->num_rows() == 0)
         {
