@@ -53,7 +53,7 @@ class Load_group_profile extends CI_Model
             </div>
             <div class="profile_user_information">
                 <?php
-                echo "<br/><font style=\"font-size:20px; font-weight:bold;color:navy;\">" . $group_info['name'] . "</font><br/>";
+                echo "<br/><font style=\"font-size:20px; font-weight:bold;color:purple;\">" . $group_info['name'] . "</font><br/>";
                 echo $group_info['number_joined'] . " members<br/>";
                 echo $group_info['number_following'] . " followers";
                 ?>
@@ -73,7 +73,7 @@ class Load_group_profile extends CI_Model
                 echo "<br/>";
                 if (isset($group_info['school']))
                 {
-                    echo "School: <font style=\"color:purple; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
+                    echo "School: <font style=\"color:navy; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
                 }
                 echo "<font style=\"color:gray;\">Description</font><br/>";
                 echo $group_info['description'] . "<br/><br/>";
