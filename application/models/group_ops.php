@@ -138,7 +138,7 @@ class Group_ops extends CI_Model
                     ?>
                     <div class="joined">Joined</div>
                     <?php
-                } 
+                }
                 ?>
             </div>
         </div>
