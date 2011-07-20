@@ -56,7 +56,10 @@ function group_select_click_handler()
     });
     
     // Click handler.
+    group_click_handler('#find_groups_list .add_following', 'add_group_following');
     $('#find_groups_list .add_following').click(function () {
+        
+        
         $(this).text('You sure?');
         $(this).unbind('click');
         $(this).click(function () {
@@ -89,28 +92,14 @@ function populate_edit_groups_list() {
                     group_id: $(this).attr('group_id')
                 }, function (data) {
                     $('#groups_content .middle').html(data);
-                    // Join handler (special case for when you follow a group that is joinable)
-                    $('#groups_content .middle .add_joined').click(function () {
-                        $(this).text('You sure?');
-                        $(this).unbind('click');
-                        $(this).click(function () {
-                            $.get('/dashboard/add_group_joined', {
-                                group_id: $('#edit_groups_list .selected_group').attr('group_id')
-                            }, function (data) {
-                                $('#groups_content .middle').html('');
-                                populate_edit_groups_list();
-                            });
-                        });
-                    });
+                    
+                    // Button click handlers
+                    group_click_handler('#groups_content .remove_following', 'remove_group_following');
+                    group_click_handler('#groups_content .remove_joined', 'remove_group_joined');
+                    group_click_handler('#groups_content .add_joined', 'add_group_joined');
                 });
             }
         });
-        
-        // Click handlers
-        group_click_handler('.add_following', 'add_group_following');
-        group_click_handler('.remove_following', 'remove_group_following');
-        group_click_handler('.remove_joined', 'remove_group_joined');
-        group_click_handler('.add_joined', 'add_group_joined');
     });
 }
 
@@ -123,6 +112,11 @@ function group_click_handler(button_class, dashboard_function) {
                 group_id: $('.profile_bottom_bar').attr('group_id')
             }, function (data) {
                 populate_edit_groups_list();
+                
+                // Blur out the suggested groups (not always necessary, but easy)
+                $('#find_groups_list').html('');
+                $('#group_search').val('');
+                $('#group_search').blur();
             });
         });
     });

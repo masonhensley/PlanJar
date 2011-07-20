@@ -5,5 +5,7 @@ function notifications_setup() {
 function get_notifications() {
     $.get('/dashboard/get_notifications', function (data) {
         $('#notifications_list').html(data);
+        
+        // 
     });
 }
