@@ -61,10 +61,11 @@ $(document).ready(function() {
     $('#sign_up').validate({
         rules: {
             su_email_1: {
-                required: true,
+                //required: true,
                 email: true,
-                allowed_email_domain: true,
-                unique_email: true
+                unique_email: true,
+                required: true,
+                allowed_email_domain: true
             },
             su_email_2: {
                 required: true,
@@ -167,7 +168,6 @@ $(document).ready(function() {
             // Add the error class to the first invalid field.
             $("#su_error").html("");
             if(errorList.length) {
-                console.log(errorList);
                 $("#su_error").html(errorList[0]['message']);
                 $(errorList[0]['element']).addClass("highlight_error");
             }
@@ -192,6 +192,7 @@ function get_year()
 
 // Custom validator method to only allow unique email addresses.
 $.validator.addMethod('unique_email', function (value, element) {
+    console.log('unique');
     return $.validator.methods.remote.call(this, value, element, {
         url: '/login/check_email_unique',
         data: {
@@ -202,6 +203,7 @@ $.validator.addMethod('unique_email', function (value, element) {
 
 // Custom validator method to only allow school email addresses.
 $.validator.addMethod('allowed_email_domain', function (value, element) {
+    console.log('domain');
     return $.validator.methods.remote.call(this, value, element, {
         url: '/login/check_email_domain',
         data: {

@@ -303,7 +303,7 @@ class Home extends CI_Controller
     {
         $this->load->model('plan_actions');
         $this->load->model('load_plan_panel');
-        
+
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
         $result = $this->plan_actions->get_plans($user_id);
@@ -319,7 +319,7 @@ class Home extends CI_Controller
         $user = $this->ion_auth->get_user();
         $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
 
-        if ($this->input->get('auto') == 'false')
+        if ($this->input->get('auto') == 'false' || $user->latitude == NULL)
         {
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $new_lat,
@@ -350,120 +350,120 @@ class Home extends CI_Controller
         ?>
 
 
-            <?php
-            $start = $this->input->get('starting_offset');
+        <?php
+        $start = $this->input->get('starting_offset');
 
-            $date = new DateTime();
-            $date->add(new DateInterval('P' . $start . 'D'));
+        $date = new DateTime();
+        $date->add(new DateInterval('P' . $start . 'D'));
 
-            for ($i = 0; $i < 7; ++$i)
-            {
-                if ($start == 0 && $i == 0)
-                {
-                    $display_date = 'Today';
-                } else
-                {
-                    $display_date = $date->format('D - j');
-                }
-
-                echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
-                $date->add(new DateInterval('P1D'));
-            }
-            ?> 
-            <div class="left_day_arrow"><</div>
-            <div class="right_day_arrow">></div>
-
-            <?php
-        }
-
-        // Returns a list of people following the user (used for inviting people in a plan)
-        public function get_followers_invite()
+        for ($i = 0; $i < 7; ++$i)
         {
-            $needle = trim($this->input->get('needle'));
-            if ($needle != '')
+            if ($start == 0 && $i == 0)
             {
-                $user = $this->ion_auth->get_user();
+                $display_date = 'Today';
+            } else
+            {
+                $display_date = $date->format('D - j');
+            }
 
-                // Break into search terms
-                $needle_array = explode(' ', $needle);
+            echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
+            $date->add(new DateInterval('P1D'));
+        }
+        ?> 
+        <div class="left_day_arrow"><</div>
+        <div class="right_day_arrow">></div>
 
-                // Generate query strings to cross-reference all needle terms with the first and last names in the db
-                $needle_where = '';
-                foreach ($needle_array as $cur_needle)
-                {
-                    $needle_where .= "(user_meta.first_name LIKE '%%$cur_needle%%' OR " .
-                            "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
-                }
+        <?php
+    }
 
-                // Trim the end of the string
-                if (count($needle_array) > 0)
-                {
-                    $needle_where = substr($needle_where, 0, -5);
-                }
+    // Returns a list of people following the user (used for inviting people in a plan)
+    public function get_followers_invite()
+    {
+        $needle = trim($this->input->get('needle'));
+        if ($needle != '')
+        {
+            $user = $this->ion_auth->get_user();
 
-                $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name
+            // Break into search terms
+            $needle_array = explode(' ', $needle);
+
+            // Generate query strings to cross-reference all needle terms with the first and last names in the db
+            $needle_where = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $needle_where .= "(user_meta.first_name LIKE '%%$cur_needle%%' OR " .
+                        "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
+            }
+
+            // Trim the end of the string
+            if (count($needle_array) > 0)
+            {
+                $needle_where = substr($needle_where, 0, -5);
+            }
+
+            $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name
                     FROM friends LEFT JOIN user_meta ON friends.user_id = user_meta.user_id
                     WHERE ($needle_where) AND friends.follow_id = ?";
 
-                $query = $this->db->query($query_string, array($user->id));
+            $query = $this->db->query($query_string, array($user->id));
 
-                // Echo the results
-                $return_array = array();
-                foreach ($query->result() as $row)
-                {
-                    $return_array[] = array(
-                        'id' => $row->user_id,
-                        'name' => $row->first_name . ' ' . $row->last_name
-                    );
-                }
-
-                echo(json_encode($return_array));
-            }
-        }
-
-        // Returns a list of people following the user (used for inviting people in a plan)
-        public function get_groups_invite()
-        {
-            $needle = trim($this->input->get('needle'));
-            if ($needle != '')
+            // Echo the results
+            $return_array = array();
+            foreach ($query->result() as $row)
             {
-                $user = $this->ion_auth->get_user();
+                $return_array[] = array(
+                    'id' => $row->user_id,
+                    'name' => $row->first_name . ' ' . $row->last_name
+                );
+            }
 
-                // Break into search terms
-                $needle_array = explode(' ', $needle);
+            echo(json_encode($return_array));
+        }
+    }
 
-                // Generate query strings to cross-reference all needle terms with the first and last names in the db
-                $needle_where = '';
-                foreach ($needle_array as $cur_needle)
-                {
-                    $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
-                }
+    // Returns a list of people following the user (used for inviting people in a plan)
+    public function get_groups_invite()
+    {
+        $needle = trim($this->input->get('needle'));
+        if ($needle != '')
+        {
+            $user = $this->ion_auth->get_user();
 
-                // Trim the end of the string
-                if (count($needle_array) > 0)
-                {
-                    $needle_where = substr($needle_where, 0, -5);
-                }
+            // Break into search terms
+            $needle_array = explode(' ', $needle);
 
-                $query_string = "SELECT groups.id, groups.name
+            // Generate query strings to cross-reference all needle terms with the first and last names in the db
+            $needle_where = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
+            }
+
+            // Trim the end of the string
+            if (count($needle_array) > 0)
+            {
+                $needle_where = substr($needle_where, 0, -5);
+            }
+
+            $query_string = "SELECT groups.id, groups.name
                     FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id
                     WHERE ($needle_where) AND group_relationships.user_joined_id = ?";
 
-                $query = $this->db->query($query_string, array($user->id));
+            $query = $this->db->query($query_string, array($user->id));
 
-                // Echo the results
-                $return_array = array();
-                foreach ($query->result() as $row)
-                {
-                    $return_array[] = array(
-                        'id' => $row->id,
-                        'name' => $row->name
-                    );
-                }
-
-                echo(json_encode($return_array));
+            // Echo the results
+            $return_array = array();
+            foreach ($query->result() as $row)
+            {
+                $return_array[] = array(
+                    'id' => $row->id,
+                    'name' => $row->name
+                );
             }
-        }
 
+            echo(json_encode($return_array));
+        }
     }
-    ?>
+
+}
+?>
