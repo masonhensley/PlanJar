@@ -253,3 +253,12 @@ function lock_to_autocomplete(textbox_name, id_name, name_name) {
         $(textbox_name).val($(name_name).val());
     }
 }
+
+// Custom validator plugin to only allow school email addresses.
+$.validator.addMethod('allowed_email_domain', function (value, element) {
+    $.get('/login/check_email_domain', {
+        email: value
+    }, function (data) {
+        return data == 'allowed';
+    });
+}, "That domain currently can't be used to create an account. Make sure to use your school email.");
