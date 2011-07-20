@@ -101,7 +101,7 @@
 .group_entry .following {
     float: right;
     width: 80px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
+    background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
     text-align: center;
@@ -132,24 +132,14 @@
 .group_entry .add_following {
     float: right;
     width: 80px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
+    background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
     text-align: center;
     margin-top:5px;
     margin-right:5px;
 }
-/*
-.group_entry .following {
-    float: right;
-    width: 80px;
-    background-color: green;
-    color: white;
-    padding: 3px;
-    margin-top:5px;
-    margin-right:5px;
-}
-*/
+
 .remove_joined {
     float: right;
     width: 80px;
