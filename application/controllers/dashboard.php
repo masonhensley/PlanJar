@@ -3,7 +3,7 @@
 class Dashboard extends CI_Controller
 {
 
-    public function index($initial_tab = 'following', $suggested = '')
+    public function index($initial_tab = 'notifications', $suggested = '')
     {
         if ($this->ion_auth->logged_in())
         {
