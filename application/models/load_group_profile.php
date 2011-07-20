@@ -30,7 +30,7 @@ class Load_group_profile extends CI_Model
         <?php $this->_insert_profile_picture(); ?>
             </div>
             <div class="profile_user_information">
-                <?php echo $gropu_info['name']; ?>
+                <?php echo $group_info['name']; ?>
             </div>
         </div>
 
