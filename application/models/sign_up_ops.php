@@ -17,8 +17,8 @@ class Sign_up_ops extends CI_Model
         $query_string = "SELECT id FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array($domain));
 
-        $foo = $query->row();
-        return $foo->id;
+        //return $query->row()->id;
+        return $this->db->last_query();
     }
 
 }
