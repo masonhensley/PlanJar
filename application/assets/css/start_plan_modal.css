@@ -23,19 +23,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-.in-field_block {
-    position:relative;
-    height:30px;
-    width:200px;
-    float: left;
-}
-.in-field_block label {
-    position:absolute;
-    top:3px;
-    left:5px;
-    font:normal 18px Arial;
-    color: #999999;
-}
+
 #create_plan_content input.textbox, .change_location_panel .textbox {
     height:30px;
     width:200px;

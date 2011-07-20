@@ -11,6 +11,7 @@
         <link rel=stylesheet href="/application/assets/css/token-input.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/divset.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/dashboard_groups.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -67,7 +68,7 @@
                 <div class="tab" assoc_div="#groups_content">Groups</div>
                 <!--<div class="tab" assoc_div="#plans_content">Plans</div>-->
                 <div class="tab" assoc_div="#following_content">Following</div>
-                
+
                 <div class="tab" assoc_div="#settings_content">Settings</div>
 
                 <div class="create_group">+ Create Group</div>
