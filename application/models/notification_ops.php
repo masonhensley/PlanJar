@@ -189,6 +189,7 @@ class Notification_ops extends CI_Model
         $query = $this->db->query($query_string, array($id));
         $notif_row = $query->row_array();
         var_dump($notif_row);
+        echo('<br/><br/>');
         $notif_row['id'] = 'DEFAULT';
         var_dump($notif_row);
 
