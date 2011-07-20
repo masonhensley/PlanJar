@@ -112,10 +112,17 @@ class Login extends CI_Controller
     }
 
     // Returns true if the username is available, false otherwise.
-    public function check_email()
+    public function check_email_unique()
     {
         $email_exists = $this->ion_auth->email_check($this->input->get('email'));
-        echo(json_encode(!$email_exists));
+
+        if ($email_exists)
+        {
+            echo('pre_existing');
+        } else
+        {
+            echo('available');
+        }
     }
 
     public function get_school_by_id()
