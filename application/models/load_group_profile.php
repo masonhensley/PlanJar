@@ -97,16 +97,16 @@ class Load_group_profile extends CI_Model
                 $bottom_bar_buttons .= "<div class=\"add_joined\">Join Group</div>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
             {
-                $bottom_bar_text .=  "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invitation";
+                $bottom_bar_text .=  "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
                 $bottom_bar_buttons .= "<div class=\"remove_following\">Unfollow</div>";
             } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are not following and the group is open
             {
                 $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
             } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose')
             {
-                $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invitation";
+                $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
             }
-            echo $bottom_bar_text ."<div style=\"float:right;\">" .$bottom_bar_buttons ."</div>";
+            echo "<div style=\"float:left;margin-left:10px;\">" .$bottom_bar_text ."</div><div style=\"float:right;\">" .$bottom_bar_buttons ."</div>";
             ?>
         </div>
 
