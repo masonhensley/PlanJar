@@ -21,6 +21,7 @@ class Load_group_profile extends CI_Model
         $return_array = $result->row_array();
         $id = $return_array['school_id'];
         $query2 = "SELECT school FROM school_data WHERE id=$id"; // get the school name
+        var_dump($query2);
         $result2 = $this->db->query($query2);
         $result2 = $result2->row_array();
         $return_array['school'] = $result2['school'];
