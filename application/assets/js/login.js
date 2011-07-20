@@ -216,7 +216,7 @@ function get_year()
 $.validator.addMethod("custom_email", function(value, element) {
     var validator = this;
     
-    $.get('/login/email_check', {
+    return $.get('/login/email_check', {
         email: value
     }, function(data) {
         if (data == 'true'){
