@@ -63,8 +63,9 @@ $(document).ready(function() {
             su_email_1: {
                 required: true,
                 email: true,
-                //unique_email: true,
-                allowed_email_domain: true
+                allowed_email_domain: true,
+                unique_email: true
+                
             },
             su_email_2: {
                 required: true,
