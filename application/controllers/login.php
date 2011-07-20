@@ -32,11 +32,14 @@ class Login extends CI_Controller
         $email = $this->input->get('su_email_1');
         $password = $this->input->get('su_password');
 
-        // populate the associative array additional_data with sex/college/birth info
+        // Pre-calculate values
         $birthday = $this->input->get('su_month') . '/' .
                 $this->input->get('su_day') . '/' .
                 $this->input->get('su_year');
+        $this->load->model('sign_up_ops');
+        $school_id = $this->sign_up_ops->get_school_from_email($email);
 
+        // Populate the user data array
         $additional_data = array(
             'school_id' => $this->input->get('su_school_id'),
             'sex' => $this->input->get('su_sex'),
@@ -159,7 +162,7 @@ class Login extends CI_Controller
 
         $query_string = "SELECT * FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
-        
+
         if ($query->num_rows() > 0)
         {
             echo ('true');
