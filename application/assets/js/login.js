@@ -61,9 +61,10 @@ $(document).ready(function() {
     $('#sign_up').validate({
         rules: {
             su_email_1: {
-                required: true,
+                //required: true,
                 email: true,
                 unique_email: true,
+                required: true,
                 allowed_email_domain: true
             },
             su_email_2: {
