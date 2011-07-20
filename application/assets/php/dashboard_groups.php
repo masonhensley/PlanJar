@@ -7,7 +7,9 @@
 </div>
 
 <div class="middle">
+    <div style="text-align:center;">
     Select a group on the left or right to see its profile
+    </div>
 </div>
 
 <div class="right">

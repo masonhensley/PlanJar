@@ -20,7 +20,7 @@
     width: 100%;
     text-align:center;
     color:navy;
-    height:25px;
+    height:44px;
 }
 #left_groups_list {
     width: 100%;
@@ -132,7 +132,7 @@
 
 .middle .add_joined {
     display:inline-block;
-    background:-webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
+    background:-webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
 }
