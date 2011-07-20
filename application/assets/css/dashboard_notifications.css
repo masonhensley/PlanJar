@@ -62,3 +62,12 @@
     margin-right:5px;
     text-align: center;
 }
+
+.notification_entry .mark_read {
+    float: right;
+    width: 80px;
+    color: lightgrey;
+    padding: 3px;
+    margin-right:5px;
+    text-align: center;
+}
