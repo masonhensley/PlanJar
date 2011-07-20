@@ -185,7 +185,6 @@ class Dashboard extends CI_Controller
     public function add_group_following()
     {
         $this->load->model('group_ops');
-
         $this->group_ops->follow_group($this->input->get('group_id'));
     }
 
