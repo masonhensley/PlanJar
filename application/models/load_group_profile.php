@@ -90,20 +90,20 @@ class Load_group_profile extends CI_Model
                         echo "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
                     } else if ($group_info['privacy'] == 'open') // if you are not joined and the group privacy is "open"
                     {
-                        echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                        echo "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
                         echo('<div class="add_joined">Join Group</div>');
                     } else if ($group_info['privacy'] == 'loose')
                     { // if you are not joined and the group privacy is "loose"
-                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
+                        echo "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
                     }
                 } else
                 { // this is for the suggested groups list
                     if ($group_info['privacy'] == 'open') // if you are not joined and the group privacy is "open"
                     {
-                        echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                        echo "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
                     } else
                     {
-                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
+                        echo "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
                     }
                 }
                 ?>
