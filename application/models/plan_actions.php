@@ -79,5 +79,20 @@ class Plan_actions extends CI_Model
         return $return_string;
     }
 
+    // Copies the specified plan and sets the originator as the passed user id
+    function copy_plan($plan_id, $user_id)
+    {
+        // et the existing plan
+        $query_string = "SELECT * FROM plans WHERE id = ?";
+        $query = $this->db->query($query_string, array($plan_id));
+        $row = $query->row_array();
+
+        // Change to the argument user id
+        $row['user_id'] = $user_id;
+
+        // Insert the new plan.
+        $query = $this->db->insert('plans', $row);
+    }
+
 }
 ?>

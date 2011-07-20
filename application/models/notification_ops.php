@@ -182,5 +182,23 @@ class Notification_ops extends CI_Model
         $query = $this->db->query($query_string, array($value, $id));
     }
 
+    public function accept_notification($id)
+    {
+        // Get the notification row
+        $query_string = "SELECT * FROM notifications WHERE id = ?";
+        $query = $this->db->query($query_string, array($id));
+        $notif_row = $query->row();
+
+        switch ($notif_row->type)
+        {
+            case 'plan_invite':
+                $this->load->model('plan_actions');
+                $this->plan_actions->copy_plan();
+                break;
+            case 'group_invite':
+                break;
+        }
+    }
+
 }
 ?>

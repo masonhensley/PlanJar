@@ -326,5 +326,13 @@ class Dashboard extends CI_Controller
         $this->notification_ops->update_notification_viewed($this->input->get('notif_id'), $this->input->get('value'));
     }
 
+    public function accept_notification()
+    {
+        $this->load->model('notification_ops');
+        $this->notification_ops->accept_notification($this->input->get('notif_id'));
+
+        echo('success');
+    }
+
 }
 ?>
