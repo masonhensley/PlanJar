@@ -115,7 +115,7 @@ class Notification_ops extends CI_Model
         }
     }
 
-    public function echo_notification($row, $accept)
+    public function echo_notification($row, $accepted)
     {
         $this->load->model('load_profile');
 
