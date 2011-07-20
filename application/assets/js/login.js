@@ -209,6 +209,7 @@ $.validator.addMethod('unique_email', function (value, element) {
 
 // Custom validator method to only allow school email addresses.
 $.validator.addMethod('allowed_email_domain', function (value, element) {
+    alert('here at least');
     return $.validator.methods.remote.call(this, value, element, {
         url: '/login/check_email_domain',
         data: {
