@@ -45,7 +45,7 @@ class Notification_ops extends CI_Model
                 $user_id = $this->db->escape($row->user_joined_id);
                 if ($user_id != $originator_id)
                 {
-                    $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id, DEFAULT), ";
+                    $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id, DEFAULT, DEFAULT), ";
                 }
             }
             if ($values_string != '')
@@ -77,7 +77,7 @@ class Notification_ops extends CI_Model
         $values_string = '';
         foreach ($user_list as $user_id)
         {
-            $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id, DEFAULT), ";
+            $values_string .= "(DEFAULT, $user_id, $originator_id, $date, $type, $subject_id, DEFAULT, DEFAULT), ";
         }
         if ($values_string != '')
         {
@@ -94,7 +94,8 @@ class Notification_ops extends CI_Model
     {
         $user_id = $this->ion_auth->get_user()->id;
 
-        $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id, notifications.viewed, user_meta.first_name, user_meta.last_name
+        $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id,
+            notifications.viewed, notifications.accepted, user_meta.first_name, user_meta.last_name
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
             WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC, notifications.date DESC";
         $query = $this->db->query($query_string, array($user_id));
@@ -134,7 +135,19 @@ class Notification_ops extends CI_Model
                 <?php echo($notification_text); ?>
             </div>
 
-            <div class="accept">Accept</div>
+            <?php
+            if (!$row->accepted)
+            {
+                echo('<div class="accept">Accept</div>');
+            }
+            if ($row->viewed)
+            {
+                echo('<div class="mark_read">Mark as unread</div>');
+            } else
+            {
+                echo('<div class="mark_read">Mark as read</div>');
+            }
+            ?>
         </div>
         <?php
     }
@@ -161,6 +174,12 @@ class Notification_ops extends CI_Model
             return '<b>' . $notification_row->first_name . ' ' . $notification_row->last_name . '</b> ' .
             'has invited you to the group <b>' . $row->name . '</b>';
         }
+    }
+
+    public function update_notification_viewed($id, $value)
+    {
+        $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
+        $query = $this->db->query($query_string, array($value, $id));
     }
 
 }

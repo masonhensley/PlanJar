@@ -151,10 +151,10 @@ class Dashboard extends CI_Controller
             {
                 if ($row->user_following_id == $user->id)
                 {
-                    $this->group_ops->echo_group_entry($row, 'remove following');
+                    $this->group_ops->echo_group_entry($row, 'following');
                 } else
                 {
-                    $this->group_ops->echo_group_entry($row, 'remove joined');
+                    $this->group_ops->echo_group_entry($row, 'joined');
                 }
             }
         } else
@@ -228,10 +228,10 @@ class Dashboard extends CI_Controller
         {
             if ($row->user_following_id == $user->id)
             {
-                $this->group_ops->echo_group_entry($row, 'remove following');
+                $this->group_ops->echo_group_entry($row, 'following');
             } else
             {
-                $this->group_ops->echo_group_entry($row, 'remove joined');
+                $this->group_ops->echo_group_entry($row, 'joined');
             }
         }
     }
@@ -318,6 +318,12 @@ class Dashboard extends CI_Controller
 
         // Success
         echo('success');
+    }
+
+    public function update_notification_viewed()
+    {
+        $this->load->model('notification_ops');
+        $this->notification_ops->update_notification_viewed($this->input->get('notif_id'), $this->input->get('value'));
     }
 
 }

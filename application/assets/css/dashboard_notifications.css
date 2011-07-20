@@ -25,6 +25,7 @@
     border-bottom: 1px solid black;
     margin-top: 5px;
     padding-top:5px;
+    position: relative;
 }
 
 .notification_entry.unviewed {
@@ -58,6 +59,15 @@
     width: 80px;
     background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
     color: white;
+    padding: 3px;
+    margin-right:5px;
+    text-align: center;
+}
+
+.notification_entry .mark_read {
+    float: right;
+    width: auto;
+    color: grey;
     padding: 3px;
     margin-right:5px;
     text-align: center;

@@ -93,7 +93,7 @@ class Group_ops extends CI_Model
     }
 
     // Echos a group entry.
-    public function echo_group_entry($row, $option = '', $suggested_groups=null)
+    public function echo_group_entry($row, $option = '', $suggested_groups = null)
     {
         ?>
         <div class="group_entry" group_id="<?php echo($row->id); ?>">
@@ -123,12 +123,7 @@ class Group_ops extends CI_Model
             </div>
             <div class="group_entry_left_side">
                 <?php
-                if ($option == 'remove following')
-                {
-                    ?>
-                    <div class="remove_following">Unfollow</div>
-                    <?php
-                } else if ($option == 'add following')
+                if ($option == 'suggested groups')
                 {
                     ?>
                     <div class="add_following">+ Follow</div>
@@ -146,7 +141,7 @@ class Group_ops extends CI_Model
                 } else if ($option == 'suggested groups')
                 {
                     ?>
-                    <div class="add_following">Follow</div>
+                    <div class="joined">Joined</div>
                     <?php
                 }
                 ?>
@@ -165,7 +160,7 @@ class Group_ops extends CI_Model
 
         return $query->num_rows() > 0;
     }
-    
+
     // this function isn't used in here but used elsewhere
     public function user_is_joined($group_id)
     {

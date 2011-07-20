@@ -10,7 +10,7 @@
         <link rel=stylesheet href="/application/assets/css/create_group_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/token-input.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/divset.css" type="text/css" />
-        <link rel=stylesheet href="/application/assets/css/notification_entry.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/dashboard_groups.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
