@@ -25,12 +25,12 @@
 
 .group_profile_header{
     text-align: center;
-    height:25px;
+    height:30px;
     width:100%;
     color:gray;
     border-bottom:1px solid black;
     position:relative;
-    top:6px;
+    top:5px;
 }
 
 #left_groups_list {
