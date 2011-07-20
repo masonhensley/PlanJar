@@ -122,7 +122,7 @@
 
 .remove_following {
     width: 75px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
+    background: -webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
     color: white;
     padding: 3px;
     margin-right:5px;
@@ -132,7 +132,7 @@
 
 .middle .add_joined {
     display:inline-block;
-    background-color: green;
+    background:-webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
     color: white;
     padding: 3px;
 }
@@ -152,7 +152,7 @@
 .remove_joined {
     float: right;
     width: 75px;
-    background-color: purple;
+    background:-webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
     color: white;
     padding: 3px;
     margin-top:5px;
