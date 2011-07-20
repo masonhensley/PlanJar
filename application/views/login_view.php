@@ -36,7 +36,7 @@
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="in-field_block">
-                                        <label for="li_email">Email</label>
+                                        <label for="li_email">University email</label>
                                         <input id="li_email" name="li_email" type="email" class="textbox"/>
                                     </div>
                                 </div>

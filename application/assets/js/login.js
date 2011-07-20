@@ -200,9 +200,9 @@ $.validator.addMethod('unique_email', function (value, element) {
     $.get('/login/check_email_unique', {
         email: value
     }, function (data) {
-        return data == 'pre_existing';
+        return data != 'pre_existing';
     });
-}, 'An account with that username already exists.');
+}, 'An account with that email address already exists.');
 
 // Custom validator plugin to only allow school email addresses.
 $.validator.addMethod('allowed_email_domain', function (value, element) {
