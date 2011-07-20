@@ -101,7 +101,7 @@
 .group_entry .following {
     float: right;
     width: 75px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
+    background: -webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
     color: white;
     padding: 3px;
     text-align: center;
