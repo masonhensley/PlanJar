@@ -8,7 +8,7 @@ class Load_group_profile extends CI_Model
         parent::__construct();
     }
 
-    function load_profile($group_id)
+    function load_group_profile($group_id)
     {
         $group_info = $this->_get_group_details($group_id);
         $this->_display_profile($group_info);
