@@ -100,8 +100,8 @@ class Group_ops extends CI_Model
             <div class="group_entry_left">
                 <center>
                     <div class="group_picture">
-                        <?php $logo_text = "logo_" .rand(1,25) .".png";?>
-                        <img src="/application/assets/images/logos/<?php echo $logo_text;?>" style="width:100%; height:100%;" />
+                        <?php $logo_text = "logo_" . rand(1, 25) . ".png"; ?>
+                        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" style="width:100%; height:100%;" />
                     </div>
                 </center>
             </div>
@@ -196,28 +196,24 @@ class Group_ops extends CI_Model
     }
 
     // User must be following the group first
-    public function join_group($group_id)
+    public function join_group($user_id, $group_id)
     {
-        $user = $this->ion_auth->get_user();
-
         $query_string = "UPDATE group_relationships " .
                 "SET user_following_id = DEFAULT, user_joined_id = ? " .
                 "WHERE group_id = ? AND user_following_id = ?";
         $query = $this->db->query($query_string, array(
-                    $user->id,
+                    $user_id,
                     $group_id,
-                    $user->id,
+                    $user_id,
                 ));
     }
 
-    public function follow_group($group_id)
+    public function follow_group($user_id, $group_id)
     {
-        $user = $this->ion_auth->get_user();
-
         $query_string = "INSERT IGNORE INTO group_relationships VALUES (DEFAULT, ?, ?, DEFAULT)";
         $query = $this->db->query($query_string, array(
                     $group_id,
-                    $user->id,
+                    $user_id,
                 ));
     }
 
