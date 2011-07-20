@@ -63,8 +63,7 @@ $(document).ready(function() {
             su_email_1: {
                 required: true,
                 email: true,
-                unique_email: true,
-                allowed_email_domain: true
+                remote: '/login/email_check'
             },
             su_email_2: {
                 required: true,
@@ -116,7 +115,8 @@ $(document).ready(function() {
         messages: {
             su_email_1: {
                 required: 'Enter your email address.',
-                email: 'Your email address must be valid.'
+                email: 'Your email address must be valid.',
+                remote: $.format("{0}")
             },
             su_email_2: {
                 required: 'Re-enter you remail address.',
@@ -189,23 +189,26 @@ function get_year()
     return d.getFullYear();
 }
 
-// Custom validator method to only allow unique email addresses.
-$.validator.addMethod('unique_email', function (value, element) {
-    return $.validator.methods.remote.call(this, value, element, {
-        url: '/login/check_email_unique',
-        data: {
-            email: value
-        }
-    });
-}, 'An account with that email address already exists.');
-
-// Custom validator method to only allow school email addresses.
-$.validator.addMethod('allowed_email_domain', function (value, element) {
-    return $.validator.methods.remote.call(this, value, element, {
-        url: '/login/check_email_domain',
-        data: {
-            email: value
-        }
-    });
-    
-}, "That domain currently can't be used to create an account. Make sure to use your school email.");
+//// Custom validator method to only allow unique university email addresses.
+//$.validator.addMethod('custom_email', function (value, element) {
+//    return $.validator.methods.remote.call(this, value, element, {
+//        url: '/login/custom_email_check',
+//        data: {
+//            email: value
+//        }
+//    });
+//}, 'An account with that email address already exists.');
+//
+//// Custom validator method to only allow school email addresses.
+//$.validator.addMethod('allowed_email_domain', function (value, element) {
+//    return $.validator.methods.remote.call(this, value, element, {
+//        url: '/login/check_email_domain',
+//        data: {
+//            email: value
+//        },
+//        success: function (data) {
+//            
+//        }
+//    });
+//    
+//}, "That domain currently can't be used to create an account. Make sure to use your school email.");
