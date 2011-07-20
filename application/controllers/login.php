@@ -165,16 +165,19 @@ class Login extends CI_Controller
 
         $email_exists = $this->ion_auth->email_check($email);
 
-        if ($query->num_rows() == 0)
-        {
-            echo ("If you entered you university address, PlanJar isn't at your school yet, but we're coming!");
-        } else if ($email_exists)
-        {
-            echo('That email address is already in use.');
-        } else
-        {
-            echo('true');
-        }
+        var_dump($query->num_rows());
+        var_dump($email_exists);
+        
+//        if ($query->num_rows() == 0)
+//        {
+//            echo ("If you entered you university address, PlanJar isn't at your school yet, but we're coming!");
+//        } else if ($email_exists)
+//        {
+//            echo('That email address is already in use.');
+//        } else
+//        {
+//            echo('true');
+//        }
     }
 
 }
