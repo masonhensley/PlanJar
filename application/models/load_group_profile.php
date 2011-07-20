@@ -78,7 +78,7 @@ class Load_group_profile extends CI_Model
                     echo "School: <font style=\"color:navy; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
                 }
                 echo "<font style=\"color:gray;\">Description</font><br/>";
-                echo $group_info['description'] . "<br/><br/>";
+                echo "<font style=\"font-weight:bold;\">" .$group_info['description'] . "<br/><br/>";
                 ?>
             </div>
             <div class="profile_bottom_bar">
@@ -94,7 +94,7 @@ class Load_group_profile extends CI_Model
                         echo('<div class="add_joined">Join Group</div>');
                     } else if ($group_info['privacy'] == 'loose')
                     { // if you are not joined and the group privacy is "loose"
-                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation";
+                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
                     }
                 } else
                 { // this is for the suggested groups list
