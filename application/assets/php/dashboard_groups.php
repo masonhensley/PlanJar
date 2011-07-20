@@ -16,7 +16,7 @@
 
 <div class="right">
     <div class="right_header">
-        <div class="in-field_block in-field_block_group" style="height: auto;">
+        <div class="in-field_block" style="height: auto;">
             <label for="group_search" style=" color:gray;">Search for groups to follow</label>
             <input type="text" class="textbox" id="group_search" />
         </div>

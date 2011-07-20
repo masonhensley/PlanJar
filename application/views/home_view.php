@@ -7,8 +7,9 @@
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/token-input.css" type="text/css" />
-        <link rel=stylesheet href="/application/assets/css/plan_modal.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/start_plan_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/divset.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -22,7 +23,7 @@
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
-        <script type="text/javascript" src="/application/assets/js/plan_modal.js"></script>
+        <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>

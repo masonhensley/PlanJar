@@ -1,0 +1,19 @@
+.in-field_block {
+    position:relative;
+    height:30px;
+    width:200px;
+    float: left;
+}
+
+.in-field_block label {
+    position:absolute;
+    top:3px;
+    left:5px;
+    font:normal 18px Arial;
+    color: #999999;
+}
+
+.in-field_block input {
+    width: 100%;
+    height: 100%;
+}
