@@ -24,11 +24,7 @@ function get_notifications() {
             $.get('/dashboard/accept_notification', {
                 notif_id: $(this).parent().attr('notif_id')
             }, function (data) {
-                if (data != 'success') {
-                    alert(data);
-                } else {
-                    get_notifications();
-                }
+                get_notifications();
             });
         });
     });
