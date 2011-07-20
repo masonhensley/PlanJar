@@ -61,12 +61,13 @@
         </div>
         <div class="container">
             <div class="tab_container">
+                <div class="tab" assoc_div="#profile_content">Profile</div>
                 <div class="tab" assoc_div="#notifications_content">Notifications</div>
                 <div class="tab" assoc_div="#followers_content">Followers</div>
                 <div class="tab" assoc_div="#groups_content">Groups</div>
-                <div class="tab" assoc_div="#plans_content">Plans</div>
+                <!--<div class="tab" assoc_div="#plans_content">Plans</div>-->
                 <div class="tab" assoc_div="#following_content">Following</div>
-                <div class="tab" assoc_div="#profile_content">Profile</div>
+                
                 <div class="tab" assoc_div="#settings_content">Settings</div>
 
                 <div class="create_group">+ Create Group</div>
@@ -92,7 +93,7 @@
 
             </div>
 
-            <div id="profile_content" class="page_content">
+            <div id="profile_content" setup_func="function(){}" class="page_content">
                 <div class="profile_container">
                     <div class="profile_box">
 
