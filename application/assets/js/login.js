@@ -63,7 +63,7 @@ $(document).ready(function() {
             su_email_1: {
                 required: true,
                 email: true,
-                remote: '/login/email_check'
+                custom_email: true
             },
             su_email_2: {
                 required: true,
