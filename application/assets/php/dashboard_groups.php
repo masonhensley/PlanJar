@@ -1,6 +1,6 @@
 <div class="left">
     <div class="left_header">
-        <div style="position: relative; top:50%;">
+        <div style="position: relative; top:15px;">
         Groups you are following
         </div>
     </div>
