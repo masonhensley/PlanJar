@@ -50,7 +50,7 @@
 
 .notification_entry > .middle {
     float: left;
-    width: auto;
+    width: 50%;
 }
 
 .notification_entry > .accept {

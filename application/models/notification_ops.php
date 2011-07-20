@@ -96,7 +96,7 @@ class Notification_ops extends CI_Model
 
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id, notifications.viewed, user_meta.first_name, user_meta.last_name
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
-            WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC";
+            WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC, notifications.date DESC";
         $query = $this->db->query($query_string, array($user_id));
 
         if ($query->num_rows() == 0)
@@ -151,8 +151,7 @@ class Notification_ops extends CI_Model
             $date = new DateTime($row->date);
 
             return '<b>' . $notification_row->first_name . ' ' . $notification_row->last_name . '</b> has invited you to ' .
-            '<b>' . $row->name . '</b> on' .
-            $date->format('l') . ' the ' . $date->format('jS');
+            '<b>' . $row->name . '</b> on ' . $date->format('l') . ' the ' . $date->format('jS');
         } else if ($notification_row->type == 'group_invite')
         {
             $query_string = "SELECT name FROM groups WHERE id = ?";
