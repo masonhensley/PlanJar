@@ -30,13 +30,6 @@ class Dashboard extends CI_Controller
         }
     }
 
-    // logs user out and redirects to login page
-    public function logout()
-    {
-        $this->ion_auth->logout();
-        redirect('/login/');
-    }
-
     // Searches for people to follow by name and returns HTML
     public function follow_search()
     {
