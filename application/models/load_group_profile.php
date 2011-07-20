@@ -70,38 +70,47 @@ class Load_group_profile extends CI_Model
                 ?>
             </div>
             <div class="profile_bottom_bar">
-        <?php
-        /*
-        
-        if($this->group_ops->user_is_following($group_info['id']))
-        {
-            
-            
-            if($group_info['privacy'] != 'open')
-            {
-                echo('<div class="add_joined">Join Group</div>');
-            }
-        }else if($this->group_ops->user_is_joined($group_info['id']))
-        {
-            
-        }
+                <?php
+                if ($this->group_ops->user_is_following($group_info['id'])) // this is for your following list
+                {
+                    if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
+                    {
+                        echo "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
+                    } else if ($group_info['privacy'] == 'open') // if you are not joined and the group privacy is "open"
+                    {
+                        echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                        echo('<div class="add_joined">Join Group</div>');
+                    } else if ($group_info['privacy'] == 'loose')
+                    { // if you are not joined and the group privacy is "loose"
+                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation";
+                    }
+                } else
+                { // this is for the suggested groups list
+                    if ($group_info['privacy'] == 'open') // if you are not joined and the group privacy is "open"
+                    {
+                        echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                    }else{
+                        echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation";
+                    }
+                }
 
-        if ($group_info['privacy'] = 'open')
-        {
-            echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>";
-            $this->load->model('group_ops');
-            if ($this->group_ops->user_is_following($group_info['id']))
-            {
-                echo('<div class="add_joined">Join Group</div>');
-            }
-        }else if($this->group_ops->user_is_joined($group_info['id'])){
-            echo "You are <font style=\"color:purple;font-weight:bold;\">joined</font> in this group";
-        }else{
-            echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invite";
-        }
-         * 
-         */
-        ?>
+                /*
+                  if ($group_info['privacy'] = 'open')
+                  {
+
+                  $this->load->model('group_ops');
+                  if ($this->group_ops->user_is_following($group_info['id']))
+                  {
+                  echo('<div class="add_joined">Join Group</div>');
+                  }
+                  }else if($this->group_ops->user_is_joined($group_info['id'])){
+                  echo "You are <font style=\"color:purple;font-weight:bold;\">joined</font> in this group";
+                  }else{
+
+                  }
+                 * 
+                 */
+                ?>
             </div>
         </div>
 
