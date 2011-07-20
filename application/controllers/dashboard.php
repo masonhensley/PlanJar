@@ -151,10 +151,10 @@ class Dashboard extends CI_Controller
             {
                 if ($row->user_following_id == $user->id)
                 {
-                    $this->group_ops->echo_group_entry($row, 'remove following');
+                    $this->group_ops->echo_group_entry($row, 'following');
                 } else
                 {
-                    $this->group_ops->echo_group_entry($row, 'remove joined');
+                    $this->group_ops->echo_group_entry($row, 'joined');
                 }
             }
         } else
@@ -228,10 +228,10 @@ class Dashboard extends CI_Controller
         {
             if ($row->user_following_id == $user->id)
             {
-                $this->group_ops->echo_group_entry($row, 'remove following');
+                $this->group_ops->echo_group_entry($row, 'following');
             } else
             {
-                $this->group_ops->echo_group_entry($row, 'remove joined');
+                $this->group_ops->echo_group_entry($row, 'joined');
             }
         }
     }
