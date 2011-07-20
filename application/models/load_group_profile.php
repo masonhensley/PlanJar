@@ -71,7 +71,7 @@ class Load_group_profile extends CI_Model
                 if ($group_info['privacy'] = 'open')
                 {
                     $this->load->model('group_ops');
-                    if ($this->group_ops->user_is_following($group_id))
+                    if ($this->group_ops->user_is_following($group_info['id']))
                     {
                         echo('<div class="add_joined">Join Group</div>');
                     }
