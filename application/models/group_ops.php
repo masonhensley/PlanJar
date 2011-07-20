@@ -165,6 +165,17 @@ class Group_ops extends CI_Model
 
         return $query->num_rows() > 0;
     }
+    
+    // this function isn't used in here but used elsewhere
+    public function user_is_joined($group_id)
+    {
+        $user_id = $this->ion_auth->get_user()->id;
+
+        $query_string = "SELECT * FROM group_relationships WHERE group_id = ? AND user_joined_id = ?";
+        $query = $this->db->query($query_string, array($group_id, $user_id));
+
+        return $query->num_rows() > 0;
+    }
 
     // Adds a gruop to the database.
     // If school_id isn't blank, use the latitude and longitude of the school.

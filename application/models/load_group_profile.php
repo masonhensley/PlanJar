@@ -74,12 +74,14 @@ class Load_group_profile extends CI_Model
 
         if ($group_info['privacy'] = 'open')
         {
-            echo "This group is <font style=\"color:green;font-weight:bold;\">open, so you can join</font>";
+            echo "This group is <font style=\"color:green;font-weight:bold;\">open</font>, so you can join";
             $this->load->model('group_ops');
             if ($this->group_ops->user_is_following($group_info['id']))
             {
                 echo('<div class="add_joined">Join Group</div>');
             }
+        }else if($this->group_ops->user_is_joined($group_info['id'])){
+            echo "You are <font style=\"color:purple;font-weight:bold;\">joined</font> in this group";
         }else{
             echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invite";
         }
