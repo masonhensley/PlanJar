@@ -84,26 +84,29 @@ class Load_group_profile extends CI_Model
         </div>
         <div class="profile_bottom_bar" group_id="<?php echo $group_info['id'] ?>">
             <?php
+            $bottom_bar_text = "";
+            $bottom_bar_buttons = "";
             if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
             {
-                echo "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
-                echo "<div class=\"remove_joined\">Unjoin</div>";
+               $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
+                $bottom_bar_buttons.= "<div class=\"remove_joined\">Unjoin</div>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are following and group is open
             {
-                echo "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
-                echo "<div class=\"remove_following\">Unfollow</div>";
-                echo('<div class="add_joined">Join Group</div>');
+               $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                $bottom_bar_buttons .= "<div class=\"remove_following\">Unfollow</div>";
+                $bottom_bar_buttons .= "<div class=\"add_joined\">Join Group</div>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
             {
-                echo "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invitation";
-                echo "<div class=\"remove_following\">Unfollow</div>";
+                $bottom_bar_text .=  "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invitation";
+                $bottom_bar_buttons .= "<div class=\"remove_following\">Unfollow</div>";
             } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are not following and the group is open
             {
-                echo "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
             } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose')
             {
-                echo "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invitation";
+                $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires invitation";
             }
+            echo $bottom_bar_text ."<div style=\"float:right;\">" .$bottom_bar_buttons ."</div>";
             ?>
         </div>
 
