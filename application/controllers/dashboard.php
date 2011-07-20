@@ -330,8 +330,6 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('notification_ops');
         $this->notification_ops->accept_notification($this->input->get('notif_id'));
-
-        echo('success');
     }
 
 }
