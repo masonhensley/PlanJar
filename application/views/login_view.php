@@ -118,23 +118,10 @@
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="in-field_block">
-                                        <label for="su_school">Choose your school</label>
-                                        <input id="su_school" name="su_school" type="text" class="textbox">
-                                    </div>
-                                </div>
-
-                                <input type="hidden" id="su_school_id" name="su_school_id"/>
-                                <input type="hidden" id="su_school_name" name="su_school_name"/>
-
-                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-                                <div class="div_texbox">
-                                    <div class="in-field_block">
                                         <label for="su_grad_year">Graduation year (yyyy)</label>
                                         <input id="su_grad_year" name="su_grad_year" type="text" class="textbox">
                                     </div>
                                 </div>
-
-
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox"><font style="opacity:1; font: normal 18px Arial;
@@ -177,7 +164,7 @@
                                 </div>
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
-                                
+
                                 <div class="div_texbox">
                                     <select name="su_sex">
                                         <option value="" selected="selected">Gender</option>
@@ -189,12 +176,14 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
 
+                                <input type="hidden" id="su_school_id" name="su_school_id"/>
+
                                 <div class="button_div">
                                     <div style="position:relative; top:5px;">
                                         <input class="buttons" type="submit" value="Sign up">
                                     </div>
                                 </div>
-                                
+
                                 <div id="padding" style="position:relative; width:260px; height:7px;"></div>
 
                             </form>

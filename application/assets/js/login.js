@@ -63,15 +63,7 @@ $(document).ready(function() {
             su_email_1: {
                 required: true,
                 email: true,
-                remote: {
-                    url: '/login/check_email',
-                    type: 'get',
-                    data: {
-                        email: function() {
-                            return $('#su_email_1').val();
-                        }
-                    }
-                }
+                unique_email: true
             },
             su_email_2: {
                 required: true,
@@ -130,8 +122,7 @@ $(document).ready(function() {
         messages: {
             su_email_1: {
                 required: 'Enter your email address.',
-                email: 'Your email address must be valid.',
-                remote: 'An account with that username already exists.'
+                email: 'Your email address must be valid.'
             },
             su_email_2: {
                 required: 'Re-enter you remail address.',
@@ -191,38 +182,6 @@ $(document).ready(function() {
         }
     });
     
-    // Initialize the autocomplete instance.
-    $('#su_school').autocomplete({
-        minLength: 2,
-        // Get info from the server.
-        source: function (request, response) {
-            $.get('/login/search_schools', {
-                needle: request.term
-            }, function (data) {
-                
-                // Convert each item in the JSON from the server to the required JSON
-                // form for the autocomplete and pass the result through the response
-                // handler.
-                data = $.parseJSON(data);
-                response($.map(data, function (item) {
-                    return {
-                        label: item.school + ' (' + item.city + ')', 
-                        value: item.school,
-                        id: item.id
-                    };
-                }));
-                
-            });
-        },
-        // When an item is selected, update the school text as well as the hidden school
-        // id field.
-        select: function (event, ui) {
-            $('#su_school').val(ui.item.value);
-            $('#su_school_id').val(ui.item.id);
-            $('#su_school_name').val(ui.item.value)
-        }
-    });
-    
     // Initialize the in-field labels.
     $('form label').inFieldLabels();
     
@@ -236,23 +195,14 @@ function get_year()
     return d.getFullYear();
 }
 
-// Only allows input chosen from an autocomplete.
-// All three arguments are DOM element names (as strings).
-function lock_to_autocomplete(textbox_name, id_name, name_name) {
-    // Get the id stored in the hidden field.
-    var id = $(id_name).val();
-    
-    if (id == '') {
-        // If id is empty, clear the location box.
-        $(textbox_name).val('');
-        
-    } else {
-        // A location was previously selected, so repopulate the location box with that
-        // name (saved locally) This should make it clear to the user that
-        // only a chosen item can be submitted.
-        $(textbox_name).val($(name_name).val());
-    }
-}
+// Custom validator plugin to only allow unique email addresses.
+$.validator.addMethod('unique_email', function (value, element) {
+    $.get('/login/check_email_unique', {
+        email: value
+    }, function (data) {
+        return data == 'pre_existing';
+    });
+}, 'An account with that username already exists.');
 
 // Custom validator plugin to only allow school email addresses.
 $.validator.addMethod('allowed_email_domain', function (value, element) {
