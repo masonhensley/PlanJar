@@ -29,7 +29,7 @@
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-        <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
 
         <title>PlanJar | Home</title>

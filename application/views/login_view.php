@@ -7,7 +7,7 @@
 
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
-        <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
         <script type="text/javascript" src="/application/assets/js/login.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
 
@@ -79,7 +79,7 @@
                                 <div class="div_texbox">
                                     <div class="in-field_block">
                                         <label for="su_email_1">University email</label>
-                                        <input id="su_email_1" name="su_email_1" type="text" class="textbox">
+                                        <input id="su_email_1" name="su_email_1" type="email" class="textbox">
                                     </div>
                                 </div>
 
