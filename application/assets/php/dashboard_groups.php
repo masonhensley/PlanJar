@@ -6,7 +6,9 @@
     <div id="edit_groups_list"></div>
 </div>
 
-<div class="middle"></div>
+<div class="middle">
+    Select a group on the left or right to see its profile
+</div>
 
 <div class="right">
     <div class="right_header">
