@@ -138,12 +138,7 @@ class Group_ops extends CI_Model
                     ?>
                     <div class="joined">Joined</div>
                     <?php
-                } else if ($option == 'suggested groups')
-                {
-                    ?>
-                    <div class="joined">Joined</div>
-                    <?php
-                }
+                } 
                 ?>
             </div>
         </div>
