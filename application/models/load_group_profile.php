@@ -78,7 +78,7 @@ class Load_group_profile extends CI_Model
                     echo "School: <font style=\"color:navy; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
                 }
                 echo "<font style=\"color:gray;\">Description</font><br/>";
-                echo "<font style=\"font-weight:bold;\">" .$group_info['description'] . "<br/><br/>";
+                echo "<font style=\"font-weight:bold;\">" .$group_info['description'] . "</font><br/><br/>";
                 ?>
             </div>
             <div class="profile_bottom_bar">
@@ -106,23 +106,6 @@ class Load_group_profile extends CI_Model
                         echo "This group is <font style=\"color:red;font-weight:bold;\">closed</font> and requires an invitation to join";
                     }
                 }
-
-                /*
-                  if ($group_info['privacy'] = 'open')
-                  {
-
-                  $this->load->model('group_ops');
-                  if ($this->group_ops->user_is_following($group_info['id']))
-                  {
-                  echo('<div class="add_joined">Join Group</div>');
-                  }
-                  }else if($this->group_ops->user_is_joined($group_info['id'])){
-                  echo "You are <font style=\"color:purple;font-weight:bold;\">joined</font> in this group";
-                  }else{
-
-                  }
-                 * 
-                 */
                 ?>
             </div>
         </div>
