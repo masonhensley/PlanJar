@@ -180,6 +180,9 @@ $(document).ready(function() {
                 $("#su_error").html(errorList[0]['message']);
                 $(errorList[0]['element']).addClass("highlight_error");
             }
+        },
+        onfocusout: function(element) {
+            $(element).valid();
         }
     });
     
