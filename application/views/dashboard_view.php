@@ -93,7 +93,7 @@
 
             </div>
 
-            <div id="profile_content" class="page_content">
+            <div id="profile_content" setup_func="null" class="page_content">
                 <div class="profile_container">
                     <div class="profile_box">
 
