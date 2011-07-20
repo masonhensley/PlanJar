@@ -60,14 +60,23 @@ class Load_group_profile extends CI_Model
         </div>
         <div class="profile_body">
             <div class="profile_body_text">
-        <?php
-        if(isset($group_info['school']))
-        {
-            echo "School: <font style=\"color:purple; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
-        }
-        echo "<font style=\"font-weight:bold;\">Description<br/>";
-        echo $group_info['description'];
-        ?>
+                <?php
+                if (isset($group_info['school']))
+                {
+                    echo "School: <font style=\"color:purple; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
+                }
+                echo "<font style=\"font-weight:bold;\">Description<br/>";
+                echo $group_info['description'] . "<br/><br/>";
+
+                if ($group_info['privacy'] = 'open')
+                {
+                    $this->load->model('group_ops');
+                    if ($this->group_ops->user_is_following($group_id))
+                    {
+                        echo('<div class="add_joined">Join Group</div>');
+                    }
+                }
+                ?>
             </div>
         </div>
 
