@@ -28,8 +28,6 @@ class Load_profile extends CI_Model
         ?>
             </div>
         </div>
-
-
         <div class="profile_body">
             <div class="profile_body_text"><?php
         // Code to display groups joined
@@ -125,7 +123,7 @@ class Load_profile extends CI_Model
         $recent_locations_text = "";
         if (count($recent_locations) > 0)
         {
-            $recent_locations_text = "Recently visited: ";
+            $recent_locations_text = "Recently visited:<br/>";
             foreach ($recent_locations as $location)
             {
                 $recent_locations_text .= "<font style=\"color:blue;\">" . $location . "</font>, ";
@@ -141,7 +139,7 @@ class Load_profile extends CI_Model
         $most_visited_text = "";
         if (count($most_visited_locations) > 0)
         {
-            $most_visited_text .= "Most visited: ";
+            $most_visited_text .= "Most visited:<br/>";
             foreach ($most_visited_locations as $location => $count)
             {
                 $most_visited_text .= "<font style=\"color:blue;\">" . $location . "</font>, ";
