@@ -208,7 +208,7 @@ $.validator.addMethod('allowed_email_domain', function (value, element) {
     $.get('/login/check_email_domain', {
         email: value
     }, function (data) {
-        return true;
+        return false;
     });
 //    return $.validator.methods.remote.call(this, value, element, {
 //        url: '/login/check_email_domain',
