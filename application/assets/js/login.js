@@ -212,3 +212,21 @@ function get_year()
 //    });
 //    
 //}, "That domain currently can't be used to create an account. Make sure to use your school email.");
+
+$.validator.addMethod("custom_email", function(value, element) {
+    var validator = this;
+    
+    $.get('/login/email_check', {
+        email: value
+    }, function(data) {
+        if (data == 'true'){
+            return true;
+        }
+        else {
+            var errors = {};
+            errors[element.name] =  data;
+            validator.showErrors(errors);
+            return false;
+        }
+    });
+}, 'defined in addMethod');
