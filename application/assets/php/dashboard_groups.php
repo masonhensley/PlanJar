@@ -1,7 +1,7 @@
 <div class="left">
     <div class="left_header">
         <div style="position: relative; top:50%;">
-        Groups you're following
+        Groups you are following
         </div>
     </div>
 
@@ -9,7 +9,7 @@
 </div>
 
 <div class="middle">
-    <div style="text-align:center; color:gray">
+    <div style="text-align:center; color:gray; position:relative; top:3px;">
     Select a group on the left or right to see its profile
     </div>
 </div>
