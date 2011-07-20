@@ -13,7 +13,7 @@ function get_notifications() {
                 $(this).html('Mark as unread');
                 update_notification_viewed($(this).parent().attr('notif_id'), 1);
             } else {
-                $(this).parent().removeClass('unviewed');
+                $(this).parent().addClass('unviewed');
                 $(this).html('Mark as read');
                 update_notification_viewed($(this).parent().attr('notif_id'), 0);
             }
