@@ -85,7 +85,7 @@ a{
 
 /* following tab */
 #following_content .left {
-    width:40%;
+    width:37%;
     float:left;
     height:auto;
     background-color:white;
@@ -143,20 +143,11 @@ a{
     float: left;
     width: auto;
 }
-/*
-.user_entry .remove_following {
-    float: right;
-    width: auto;
-    background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
-    color: white;
-    padding: 3px;
-    margin-right:5px;
-}
-*/
+
 .user_entry .add_following {
     float: right;
     width: 80px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));    
+    background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
     margin-right:5px;
