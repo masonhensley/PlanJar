@@ -202,7 +202,8 @@ $.validator.addMethod('unique_email', function (value, element) {
         email: value
     }, function (data) {
         console.log(data);
-        return data != 'pre_existing';
+        //return data != 'pre_existing';
+        return true;
     });
 }, 'An account with that email address already exists.');
 
