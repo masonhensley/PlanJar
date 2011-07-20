@@ -112,7 +112,7 @@
 .group_entry .joined {
     float: right;
     width: 80px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
+    background:-webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
     color: white;
     padding: 3px;
     text-align: center;
@@ -139,6 +139,7 @@
     margin-top:5px;
     margin-right:5px;
 }
+/*
 .group_entry .following {
     float: right;
     width: 80px;
@@ -148,6 +149,7 @@
     margin-top:5px;
     margin-right:5px;
 }
+*/
 .remove_joined {
     float: right;
     width: 80px;
