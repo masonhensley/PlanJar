@@ -101,7 +101,7 @@ a{
 }
 
 .selected_group {
-    background:-webkit-gradient(linear,left top,left bottom,from(#88E1FC),to(#BBEFFF));
+    background:-webkit-gradient(linear,left top,left bottom,from(lightBlue),to(#DFF));
     color: navy;
 }
 
