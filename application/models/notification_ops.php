@@ -190,7 +190,7 @@ class Notification_ops extends CI_Model
         $notif_row = $query->row_array();
         var_dump($notif_row);
         echo('<br/><br/>');
-        $notif_row['id'] = 'DEFAULT';
+        unset($notif_row['id']);
         var_dump($notif_row);
 
         switch ($notif_row['type'])
