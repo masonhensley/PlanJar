@@ -187,14 +187,14 @@ class Notification_ops extends CI_Model
         // Get the notification row
         $query_string = "SELECT * FROM notifications WHERE id = ?";
         $query = $this->db->query($query_string, array($id));
-        $notif_row = $query->row();
+        $notif_row = $query->row_array();
         $notif_row['id'] = 'DEFAULT';
 
-        switch ($notif_row->type)
+        switch ($notif_row['type'])
         {
             case 'plan_invite':
                 $this->load->model('plan_actions');
-                $this->plan_actions->copy_plan($notif_row->subject_id, $this->ion_auth->get_user()->id);
+                $this->plan_actions->copy_plan($notif_row['subject_id'], $this->ion_auth->get_user()->id);
                 break;
             case 'group_invite':
                 break;
