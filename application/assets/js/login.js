@@ -191,7 +191,7 @@ function get_year()
 
 // Custom validator method to only allow unique email addresses.
 $.validator.addMethod('unique_email', function (value, element) {
-    return $.get('/login/check_email_unique', {
+    $.get('/login/check_email_unique', {
         email: value
     }, function (data) {
         return data == 'true';
@@ -200,7 +200,7 @@ $.validator.addMethod('unique_email', function (value, element) {
 
 // Custom validator method to only allow school email addresses.
 $.validator.addMethod('allowed_email_domain', function (value, element) {
-    return $.get('/login/check_email_domain', {
+    $.get('/login/check_email_domain', {
         email: value
     }, function (data) {
         return data == 'true';
