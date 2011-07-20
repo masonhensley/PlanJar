@@ -65,8 +65,8 @@
 
 .notification_entry .mark_read {
     float: right;
-    width: 80px;
-    color: lightgrey;
+    width: 90px;
+    color: grey;
     padding: 3px;
     margin-right:5px;
     text-align: center;

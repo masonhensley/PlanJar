@@ -176,5 +176,11 @@ class Notification_ops extends CI_Model
         }
     }
 
+    public function update_notification_viewed($id, $value)
+    {
+        $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
+        $query = $this->db->query($query_string, array($value, $id));
+    }
+
 }
 ?>
