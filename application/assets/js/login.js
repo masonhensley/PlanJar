@@ -180,8 +180,9 @@ $(document).ready(function() {
             }
         },
         onfocusout: function(element) {
-            this.element(element);
-            $(element).focus();
+            if (!this.element(element)) {
+                $(element).focus();
+            }
         }
     });
     
