@@ -1,5 +1,6 @@
 function followers_setup() {
     populate_followers_list();
+    $('#followers_content .right').hide();
 }
 
 function populate_followers_list() {
@@ -31,6 +32,7 @@ function populate_followers_list() {
                 user_id: $(this).attr('user_id')
             }, function (data) {
                 $('#followers_content .right').html(data);
+                $('#followers_content .right').show("slow");
             });
         });
     });
