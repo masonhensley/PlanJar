@@ -176,8 +176,6 @@
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
 
-                                <input type="hidden" id="su_school_id" name="su_school_id"/>
-
                                 <div class="button_div">
                                     <div style="position:relative; top:5px;">
                                         <input class="buttons" type="submit" value="Sign up">

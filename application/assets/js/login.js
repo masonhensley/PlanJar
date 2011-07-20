@@ -65,7 +65,6 @@ $(document).ready(function() {
                 email: true,
                 allowed_email_domain: true,
                 unique_email: true
-                
             },
             su_email_2: {
                 required: true,
@@ -82,13 +81,6 @@ $(document).ready(function() {
             su_last_name: {
                 required: true,
                 rangelength: [2, 20]
-            },
-            su_school: {
-                required: true,
-                maxlength: 60
-            },
-            su_school_id: {
-                required: true
             },
             su_sex: {
                 required: true
