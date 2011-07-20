@@ -198,16 +198,10 @@ function get_year()
 
 // Custom validator plugin to only allow unique email addresses.
 $.validator.addMethod('unique_email', function (value, element) {
-    $.get('/login/check_email_unique', {
-        email: value
-    }, function (data) {
-        if (data != 'available') {
-            var errors = {};
-            errors[element.name] = data;
-            this.showErrors(errors);
-            return false;
-        } else {
-            return true;
+    return $.validator.methods.remote.call(this, value, element, {
+        url: '/login/check_email_unique',
+        data: {
+            email: value
         }
     });
 }, 'An account with that email address already exists.');

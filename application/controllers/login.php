@@ -119,10 +119,10 @@ class Login extends CI_Controller
         echo($this->db->last_query());
         if ($email_exists)
         {
-            echo('pre_existing');
+            echo('false');
         } else
         {
-            echo('available');
+            echo('true');
         }
     }
 
