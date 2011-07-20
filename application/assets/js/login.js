@@ -180,7 +180,6 @@ $(document).ready(function() {
             }
         },
         onfocusout: function(element) {
-            alert('out');
             this.element(element);
         }
     });
