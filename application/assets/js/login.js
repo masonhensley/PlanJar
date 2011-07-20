@@ -180,8 +180,10 @@ $(document).ready(function() {
             }
         },
         onfocusout: function(element) {
-            this.element(element);
-            $(element).focus();
+            // Refocus the element if there's an error
+            if (!this.element(element)) {
+                $(element).focus();
+            }
         }
     });
     
