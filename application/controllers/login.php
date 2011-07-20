@@ -69,8 +69,6 @@ class Login extends CI_Controller
 
             echo "/home";
             // End email activation stuff
-            
-            
             // Redirect to the post sign up page
             //echo "/login/post_sign_up";
         } else
@@ -128,20 +126,6 @@ class Login extends CI_Controller
         echo(json_encode($result_array));
     }
 
-    // Returns true if the username is available, false otherwise.
-    public function check_email_unique()
-    {
-        $email_exists = $this->ion_auth->email_check($this->input->get('email'));
-
-        if ($email_exists)
-        {
-            echo('false');
-        } else
-        {
-            echo('true');
-        }
-    }
-
     public function get_school_by_id()
     {
         $query_string = "SELECT `school` FROM `school_data` WHERE `id` = ? LIMIT 1";
@@ -170,19 +154,26 @@ class Login extends CI_Controller
         $this->load->view('foo');
     }
 
-    public function check_email_domain()
+    // Returns true if the email is open and of the correct domain.
+    // Returns errors otherwise
+    public function email_check()
     {
-        $email = $this->input->get('email');
+        $email = $this->input->get('su_email_1');
 
         $query_string = "SELECT * FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
 
+        $email_exists = $this->ion_auth->email_check($this->input->get('email'));
+
         if ($query->num_rows() > 0)
         {
-            echo ('true');
+            echo ("If you entered you university address, PlanJar isn't at your school yet, but we're coming!");
+        } else if ($email_exists)
+        {
+            echo('That email address is already in use.');
         } else
         {
-            echo('false');
+            echo('true');
         }
     }
 
