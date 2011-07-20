@@ -22,6 +22,14 @@
     color:gray;
     height:44px;
 }
+
+.group_profile_header{
+    text-align: center;
+    height:45px;
+    width:100%;
+    color:gray;
+}
+
 #left_groups_list {
     width: 100%;
 }

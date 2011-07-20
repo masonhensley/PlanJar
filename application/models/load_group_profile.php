@@ -47,6 +47,9 @@ class Load_group_profile extends CI_Model
     {
         $this->load->model('group_ops');
         ?>
+        <div class="group_profile_header">
+            Group Profile
+        </div>
         <div class="profile_top_bar">
             <div class="profile_picture">
                 <?php $this->_insert_profile_picture(); ?>
@@ -88,16 +91,16 @@ class Load_group_profile extends CI_Model
             $bottom_bar_buttons = "";
             if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
             {
-               $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
+                $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
                 $bottom_bar_buttons.= "<div class=\"remove_following\">unjoin</div>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are following and group is open
             {
-               $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
                 $bottom_bar_buttons .= "<div class=\"remove_following\">unfollow</div>";
                 $bottom_bar_buttons .= "<div class=\"add_joined\">join group</div>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
             {
-                $bottom_bar_text .=  "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
+                $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
                 $bottom_bar_buttons .= "<div class=\"remove_following\">unfollow</div>";
             } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are not following and the group is open
             {
@@ -106,7 +109,7 @@ class Load_group_profile extends CI_Model
             {
                 $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
             }
-            echo "<div style=\"float:left;margin-left:10px;\">" .$bottom_bar_text ."</div><div style=\"float:right;\">" .$bottom_bar_buttons ."</div>";
+            echo "<div style=\"float:left;margin-left:10px;\">" . $bottom_bar_text . "</div><div style=\"float:right;\">" . $bottom_bar_buttons . "</div>";
             ?>
         </div>
 
