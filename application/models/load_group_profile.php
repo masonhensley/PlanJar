@@ -89,7 +89,7 @@ class Load_group_profile extends CI_Model
             if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
             {
                $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
-                $bottom_bar_buttons.= "<div class=\"remove_joined\">unjoin</div>";
+                $bottom_bar_buttons.= "<div class=\"remove_following\">unjoin</div>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are following and group is open
             {
                $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
