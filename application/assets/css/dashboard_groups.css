@@ -128,7 +128,18 @@
     margin-top:5px;
     margin-right:5px;
     text-align: center;
+    display:inline-block;
 }
+
+#middle .add_joined {
+    float: right;
+    background-color: green;
+    color: white;
+    padding: 3px;
+    margin-right:10px;
+}
+
+
 .group_entry .add_following {
     float: right;
     width: 75px;
