@@ -43,15 +43,19 @@ function group_select_click_handler()
 {
     $('#find_groups_list .group_entry').click(function() {
         // Unselect other groups
-        $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
-                                
-        $('.group_entry.selected_group').removeClass('selected_group');
-        $(this).addClass('selected_group');
-        $.get('/dashboard/get_group_details', {
-            group_id: $(this).attr('group_id')
-        }, function (data) {
-            $('#groups_content .middle').html(data);
-        });
+        //$('#find_groups_list .group_entry.selected_group').removeClass('selected_group'); 
+        //$('.group_entry.selected_group').removeClass('selected_group');
+        
+        if(!$(this).hasClass('selected_group'))
+        {
+            $('.selected_group').removeClass('selected_group'); 
+            $(this).addClass('selected_group');
+            $.get('/dashboard/get_group_details', {
+                group_id: $(this).attr('group_id')
+            }, function (data) {
+                $('#groups_content .middle').html(data);
+            });
+        }
     });
     
     // Click handler.
@@ -81,6 +85,7 @@ function populate_edit_groups_list() {
             // Unselect other groups
             $('#find_groups_list .group_entry.selected_group').removeClass('selected_group');
                                 
+             
             $('.group_entry.selected_group').removeClass('selected_group');
             $(this).addClass('selected_group');
             $.get('/dashboard/get_group_details', {
