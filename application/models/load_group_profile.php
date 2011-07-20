@@ -45,6 +45,7 @@ class Load_group_profile extends CI_Model
 
     function _display_profile($group_info)
     {
+        $this->load->model('group_ops');
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -61,17 +62,26 @@ class Load_group_profile extends CI_Model
         <div class="profile_body">
             <div class="profile_body_text">
                 <?php
+                if($this->group_ops->user_is_following($group_info['id']))
+                {
+                    echo "<font style=\"color:green; font-weight:bold;\">following</font>";
+                }else if($this->group_ops->user_is_joined($group_info['id'])){
+                    echo "<font style=\"color:purple; font-weight:bold;\">joined</font>";
+                }else{
+                    echo "You are not following this group";
+                }
+                echo "<br/>";
                 if (isset($group_info['school']))
                 {
                     echo "School: <font style=\"color:purple; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
                 }
-                echo "<font style=\"font-weight:bold;color:gray;\">Description:</font><br/>";
+                echo "<font style=\"color:gray;\">Description</font><br/>";
                 echo $group_info['description'] . "<br/><br/>";
                 ?>
             </div>
             <div class="profile_bottom_bar">
                 <?php
-                $this->load->model('group_ops');
+                
                 if ($this->group_ops->user_is_following($group_info['id'])) // this is for your following list
                 {
                     if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
