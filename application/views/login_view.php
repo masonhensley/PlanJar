@@ -79,7 +79,7 @@
                                 <div class="div_texbox">
                                     <div class="in-field_block">
                                         <label for="su_email_1">University email</label>
-                                        <input id="su_email_1" name="su_email_1" type="email" class="textbox">
+                                        <input id="su_email_1" name="su_email_1" type="text" class="textbox">
                                     </div>
                                 </div>
 
