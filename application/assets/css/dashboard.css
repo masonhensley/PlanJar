@@ -197,7 +197,7 @@ a{
     height: auto;
 }
 .selected_follower {
-    background: -webkit-gradient(linear,left top,left bottom,from(#c0c0c0),to(#dadada));
+    background: -webkit-gradient(linear,left top,left bottom,from(lightBlue),to(#DFF));
 }
 #followers_content .right {
     width: 48%;
@@ -292,7 +292,7 @@ a{
     text-align :center;
 }
 .group_entry.selected_group {
-    background-color:beige;
+    background:-webkit-gradient(linear,left top,left bottom,from(lightBlue),to(#DFF));
 }
 .group_entry .group_entry_left {
     float: left;

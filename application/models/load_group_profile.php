@@ -52,7 +52,7 @@ class Load_group_profile extends CI_Model
             </div>
             <div class="profile_user_information">
                 <?php
-                echo "<br/>" . $group_info['name'] . "<br/>";
+                echo "<br/><font style=\"font-size:20px; font-weight:bold;color:navy;\">" . $group_info['name'] . "</font><br/>";
                 echo $group_info['number_joined'] . " members<br/>";
                 echo $group_info['number_following'] . " followers";
                 ?>
