@@ -320,7 +320,7 @@
                 }
                 // Edited by Parker bossier to accept type="email" inputs
                 $(this.currentForm)
-                .validateDelegate(":text, :email, :password, :file, select, textarea", "focusin focusout keyup", delegate)
+                .validateDelegate(":text, input[type=\"email\"], :password, :file, select, textarea", "focusin focusout keyup", delegate)
                 .validateDelegate(":radio, :checkbox, select, option", "click", delegate);
 
                 if (this.settings.invalidHandler)
