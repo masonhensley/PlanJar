@@ -167,6 +167,7 @@ class Login extends CI_Controller
 
         var_dump($query->num_rows());
         var_dump($email_exists);
+        echo($this->db->last_query());
         
 //        if ($query->num_rows() == 0)
 //        {
