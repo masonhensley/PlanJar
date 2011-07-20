@@ -333,7 +333,7 @@ a{
     margin-top:5px;
     margin-right:5px;
 }
-.group_entry .remove_joined {
+.remove_joined {
     float: right;
     width: 80px;
     background-color: purple;
