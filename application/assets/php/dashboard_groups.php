@@ -1,13 +1,17 @@
 <div class="left">
     <div class="left_header">
-        Groups you're following
+        <div style="position: relative; top:15px;">
+        Groups you are following
+        </div>
     </div>
 
     <div id="edit_groups_list"></div>
 </div>
 
 <div class="middle">
+    <div style="text-align:center; color:gray; position:relative; top:3px;">
     Select a group on the left or right to see its profile
+    </div>
 </div>
 
 <div class="right">

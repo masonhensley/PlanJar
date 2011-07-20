@@ -19,10 +19,20 @@
 #groups_content .left_header {
     width: 100%;
     text-align:center;
-    color:navy;
-    height:25px;
-    padding-top:5px;
+    color:gray;
+    height:44px;
 }
+
+.group_profile_header{
+    text-align: center;
+    height:30px;
+    width:100%;
+    color:gray;
+    border-bottom:1px solid black;
+    position:relative;
+    top:3px;
+}
+
 #left_groups_list {
     width: 100%;
 }
@@ -34,6 +44,7 @@
     border: 1px solid black;
     background-color:white;
     padding:10px;
+    min-height:23px;
 }
 
 #groups_content > .right {
@@ -101,7 +112,7 @@
 .group_entry .following {
     float: right;
     width: 75px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
+    background: -webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
     color: white;
     padding: 3px;
     text-align: center;
@@ -112,7 +123,7 @@
 .group_entry .joined {
     float: right;
     width: 75px;
-    background:-webkit-gradient(linear,left top,left bottom,from(#80B),to(#A3F));
+    background:-webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
     text-align: center;
@@ -132,16 +143,18 @@
 
 .middle .add_joined {
     display:inline-block;
-    background:-webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
+    background:-webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
+    width:75px;
+    text-align: center;
 }
 
 
 .group_entry .add_following {
     float: right;
     width: 75px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
+    background: -webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
     color: white;
     padding: 3px;
     text-align: center;
