@@ -65,7 +65,7 @@ class Load_group_profile extends CI_Model
                 {
                     echo "School: <font style=\"color:purple; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
                 }
-                echo "<font style=\"font-weight:bold;\">Description</font><br/>";
+                echo "<font style=\"font-weight:bold;color:gray;\">Description:</font><br/>";
                 echo $group_info['description'] . "<br/><br/>";
                 ?>
             </div>
