@@ -26,7 +26,7 @@
     width: auto;
 }
 
-.notification .accept {
+.notification_entry .accept {
     float: right;
     width: 80px;
     background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
