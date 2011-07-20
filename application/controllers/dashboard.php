@@ -186,7 +186,6 @@ class Dashboard extends CI_Controller
     {
        
         $this->load->model('load_group_profile');
-        
         $group_id = $this->input->get('group_id');
         $this->load_group_profile($group_id);
         
