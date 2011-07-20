@@ -82,12 +82,13 @@ a{
 
 .left_header{
     width:100%;
-    height:30px;
+    height:auto;
     text-align: center;
 
 }
 
 .selectable_group {
+    border:1px solid black;
     height:100%;
     padding: 5px 0px 5px;
     color: navy;
@@ -100,7 +101,7 @@ a{
 }
 
 .selected_group {
-    background: -webkit-gradient(linear,left top,left bottom,from(#FF7),to(#FFA));
+    background:-webkit-gradient(linear,left top,left bottom,from(#88E1FC),to(#BBEFFF));
     color: navy;
 }
 
