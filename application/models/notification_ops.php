@@ -195,10 +195,17 @@ class Notification_ops extends CI_Model
                 $this->load->model('plan_actions');
                 $this->plan_actions->copy_plan($row->subject_id, $this->ion_auth->get_user()->id);
                 $this->update_notification_viewed($row->id, true);
+                $this->update_notification_accepted($row->id, true);
                 break;
             case 'group_invite':
                 break;
         }
+    }
+
+    public function update_notification_accepted($id, $value)
+    {
+        $query_string = "UPDATE notifications SET accepted = ? WHERE id = ?";
+        $query = $this->db->query($query_string, array($value, $id));
     }
 
 }
