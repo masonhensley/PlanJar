@@ -109,7 +109,7 @@ class Notification_ops extends CI_Model
             {
 
 
-                //$accept = $this->deduce_accepted($row);
+                $accept = $this->deduce_accepted($row);
                 $this->echo_notification($row, true);
             }
         }
@@ -185,6 +185,7 @@ class Notification_ops extends CI_Model
         $query = $this->db->query($query_string, array($value, $id));
     }
 
+    // Accepts the notification given by id
     public function accept_notification($id)
     {
         // Get the notification row
@@ -198,6 +199,18 @@ class Notification_ops extends CI_Model
                 $this->load->model('plan_actions');
                 $this->plan_actions->copy_plan($row->subject_id, $this->ion_auth->get_user()->id);
                 $this->update_notification_viewed($row->id, true);
+                break;
+            case 'group_invite':
+                break;
+        }
+    }
+
+    // Returns true if the user has accepted the notification (data in $notif_row).
+    public function deduce_accepted($notif_row)
+    {
+        switch ($notif_row->type)
+        {
+            case 'plan_invite':
                 break;
             case 'group_invite':
                 break;
