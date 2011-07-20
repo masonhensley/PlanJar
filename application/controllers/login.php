@@ -161,10 +161,10 @@ class Login extends CI_Controller
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
         if ($query->num_rows() > 0)
         {
-            echo ('allowed');
+            echo ('true');
         } else
         {
-            echo('denied');
+            echo('false');
         }
     }
 
