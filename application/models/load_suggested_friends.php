@@ -117,16 +117,10 @@ class Load_suggested_friends extends CI_Model
             $query .= " AND user_id!=$friend_id";
         }
 
-        $today = date("Y");
-        $tracker = $today - $grad_year;
-        $query .= " AND (";
-        for ($count = $tracker; $count != $tracker + 4; $count++)
-        {
-            $display_year = $grad_year + $count;
-            $query .= "user_meta.grad_year=$display_year OR ";
-        }
-        $query = substr($query, 0, -4);
-        $query .= ") LIMIT 0, 15";
+        $date1 = date("Y");
+        $date2 = $date1+4;
+        $query .= " AND (user_meta.grad_year BETWEEN $date1 AND $date2) ";
+        $query .= "ORDER BY (user_meta.grad_year=$grad_year) DESC LIMIT 0, 30";
 
         $result = $this->db->query($query);
 
