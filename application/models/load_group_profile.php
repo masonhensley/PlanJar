@@ -62,7 +62,7 @@ class Load_group_profile extends CI_Model
                     echo "<font style=\"color:purple; font-weight:bold;\">joined</font>";
                 } else
                 {
-                    echo "You are not following this group";
+                    echo "<font style=\"color:gray\">not following</font>";
                 }
                 ?>
             </div>
@@ -70,8 +70,8 @@ class Load_group_profile extends CI_Model
         <div class="profile_body">
             <div class="profile_body_text">
                 <?php
-                echo $group_info['number_joined'] . " members<br/>";
-                echo $group_info['number_following'] . " followers";
+                echo "Members: " .$group_info['number_joined'] . "<br/>";
+                echo "Followers: " .$group_info['number_following'];
                 echo "<br/><br/>";
                 if (isset($group_info['school']))
                 {
