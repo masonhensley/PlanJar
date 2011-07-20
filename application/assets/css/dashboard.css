@@ -206,6 +206,7 @@ a{
     border: 1px solid black;
     border-top-right-radius:10px;
     background-color:white;
+    padding:10px;
 }
 
 /* ----------------GROUP TAB--------------- */
@@ -446,9 +447,6 @@ a{
 }
 
 .profile_body_text{
-    position:relative;
-    top:10px;
-    left:10px;
     font-weight:bold;
 }
 
