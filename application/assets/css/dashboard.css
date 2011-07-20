@@ -306,13 +306,14 @@ a{
     margin-left:10px;
     margin-top:15px;
 }
-.group_entry .remove_following {
+.remove_following {
     width: 80px;
     background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
     color: white;
     padding: 3px;
     margin-top:5px;
     margin-right:5px;
+    text-align: center;
 }
 .group_entry .add_following {
     float: right;
@@ -341,6 +342,7 @@ a{
     padding: 3px;
     margin-top:5px;
     margin-right:5px;
+    text-align: center;
 }
 
 .group_entry_left_side{

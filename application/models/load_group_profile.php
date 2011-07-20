@@ -81,7 +81,7 @@ class Load_group_profile extends CI_Model
                 echo "<font style=\"font-weight:bold;\">" . $group_info['description'] . "</font><br/><br/>";
                 ?>
             </div>
-            <div class="profile_bottom_bar">
+            <div class="profile_bottom_bar" group_id="<?php echo $group_info['id']?>">
                 <?php
                 if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
                 {
