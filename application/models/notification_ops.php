@@ -188,6 +188,7 @@ class Notification_ops extends CI_Model
         $query_string = "SELECT * FROM notifications WHERE id = ?";
         $query = $this->db->query($query_string, array($id));
         $notif_row = $query->row_array();
+        var_dump($notif_row);
         $notif_row['id'] = 'DEFAULT';
 
         switch ($notif_row['type'])
