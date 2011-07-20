@@ -122,13 +122,6 @@ class Dashboard extends CI_Controller
         }
     }
 
-    // Returns HTML containing details about a follower.
-    public function get_follower_details()
-    {
-        $follower_id = $this->input->get('follower_id');
-        echo("Information for user id $follower_id...");
-    }
-
     // this function returns html for the suggested friends list
     public function get_suggested_friends()
     {
@@ -183,20 +176,10 @@ class Dashboard extends CI_Controller
     }
 
     public function get_group_details()
-    {
-
+    {       
         $this->load->model('load_group_profile');
         $group_id = $this->input->get('group_id');
         $this->load_group_profile->_load_group_profile($group_id);
-
-
-        /*
-          $this->load->model('group_ops');
-          if ($this->group_ops->user_is_following($group_id))
-          {
-          echo('<div class="add_joined">Join</div>');
-          }
-         */
     }
 
     public function add_group_following()
