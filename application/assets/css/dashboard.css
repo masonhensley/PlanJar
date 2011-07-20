@@ -145,7 +145,7 @@ a{
 }
 .user_entry .remove_following {
     float: right;
-    width: 80px;
+    width: auto;
     background: -webkit-gradient(linear,left top,left bottom,from(#E00),to(#F01));
     color: white;
     padding: 3px;
