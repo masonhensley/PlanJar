@@ -250,7 +250,7 @@ a{
 
 #groups_content .right {
     width: 360px;
-    float:left;
+    float:right;
     margin-left:15px;
     height: auto;
     border: 1px solid black;
