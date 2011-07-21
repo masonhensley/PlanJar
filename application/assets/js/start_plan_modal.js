@@ -20,13 +20,11 @@ function initialize_plan_modal() {
     
     // Left scroll
     $('#plan_left').click(function () {
-        alert('prev');
         prev_plan_panel();
     });
     
     // Right scroll
     $('#plan_right').click(function() {
-        alert('next');
         next_plan_panel();
     });
 }
@@ -46,6 +44,8 @@ function prev_plan_panel() {
 function next_plan_panel() {
     var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
+    console.log($('.plan_page_content:visible'));
+    console.log($('.plan_page_content :visible'));
     if (current_index > 0) {
         $('.plan_page_content:visible').hide('fast', 'slide', function () {
             $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('fast');
