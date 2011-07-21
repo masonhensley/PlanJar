@@ -42,13 +42,13 @@
                 <div class ="top_panel_left">
                     <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <div id="location_conainer_top">
-                        <div id="using_location">Using location:</div>
+                        
                     </div>
                 </div>
 
                 <div class="top_links">
                     <a href="/dashboard/" id="dashboard link">Dashboard &middot;</a>
-                    <a href="#" id="change_location" >Change location &middot;</a>
+                    
                     <a href="/home/logout" >Log out</a>
                 </div>
 
@@ -60,6 +60,12 @@
             <div class="data_tab" assoc_div="#location_data">Location Data</div>
             <div class="data_tab" assoc_div="#map_data">Map</div>
         </div>
+        
+        <div class="location_container">
+            <div id="using_location">Using location:</div>
+            <a href="#" id="change_location" >Change location</a>
+        </div>
+        
         <div class ="container">
             <div class ="left">
                 <div class="left_header">

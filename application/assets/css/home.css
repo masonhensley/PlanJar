@@ -368,3 +368,9 @@ a{
     position:relative;
     bottom:2px;
 }
+
+.location_container{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
