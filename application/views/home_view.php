@@ -46,7 +46,7 @@
                     <a href="/dashboard/followers" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Followers</div></div></a>
                     <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Groups</div></div></a>
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Following</div></div></a>
-                    <a href="/home/logout" ><div class ="top_right_link_outer">Log out</div></a>
+                    <a href="/home/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
                 </div>
             </div>
         </div>
