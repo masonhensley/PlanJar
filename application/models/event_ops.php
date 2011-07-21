@@ -43,7 +43,7 @@ class Event_ops extends CI_Model
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
         $query_string = "SELECT id, title FROM events WHERE date = ? AND time = ?";
-        $query = $this->db->query($query_string, array($dat->format('Y-m-d'), $time));
+        $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time));
 
         // Echo the select
         echo('<select id="plan_event_select size="6">');
