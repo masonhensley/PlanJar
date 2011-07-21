@@ -391,6 +391,7 @@ a{
 
 .top_right_link_outer{
     height:100%;
+    width:60px;
     display:inline-block;
     position:relative;
     top:-12px;
@@ -406,7 +407,7 @@ a{
 #show_name{
     display:inline-block;
     color:white;
-    margin-right:312px;
+    margin-right:270px;
     margin-top:12px;
 }
 
