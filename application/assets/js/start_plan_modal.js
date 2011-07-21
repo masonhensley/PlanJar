@@ -129,6 +129,7 @@ function initialize_plan_modal() {
 }
 
 function initialize_event_select_page() {
+    alert('here');
     // Populate the header for the next page
     var time = $('#plan_time .divset_selected').html().toLowerCase();
     $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name').val() +
