@@ -47,7 +47,15 @@ function initialize_plan_modal() {
                     $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name').val() +
                         ' on ' + $('#plan_day .divset_selected').html() + ' ' + time);
                     
-                    next_plan_panel();
+                    // Populate the event select for the next page
+                    $.get('/home/get_events_for_plan', {
+                        day: $('#plan_day .divset_selected').attr('plan_day'),
+                        time: $('#plan_time .divset_selected').attr('plan_time')
+                    }, function (data) {
+                        $('#event_select').html(data);
+                        
+                        next_plan_panel();
+                    });
                 }
                 break;
             case 2:

@@ -36,6 +36,21 @@ class Event_ops extends CI_Model
         }
     }
 
-}
+    // Echos HTML for a select input containing all the event names at the specified location and time
+    public function get_events($day, $time)
+    {
+        //$query_string = "SELECT "
+        ?>
+        <select size="6">
+            <option>Just attending</option>
+            <option>Raging</option>
+            <option>2 4 2uesday</option>
+            <option>Another event</option>
+        </select>
 
+        <?php
+
+    }
+
+}
 ?>

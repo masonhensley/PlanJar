@@ -44,6 +44,8 @@
             <div class="plan_page_content" page_index="2" style="display: none;">
                 <div id="plan_events_title"></div>
 
+                <div id="event_select"></div>
+
                 <div id="privacy_wrapper">
                     Privacy options
                     <div priv_val="none">None</div>

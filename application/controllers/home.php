@@ -465,5 +465,12 @@ class Home extends CI_Controller
         }
     }
 
+    // Returns HTML for a select input containing all the event names at the specified location and time
+    public function get_events_for_plan()
+    {
+        $this->load->model('event_ops');
+        $this->event_ops->get_events($this->input->get('day'), $this->input->get('time'));
+    }
+
 }
 ?>
