@@ -372,6 +372,12 @@ a{
     color:darkgray;
 }
 
+#notifications_link{
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+
 #show_name{
     display:inline-block;
     color:white;

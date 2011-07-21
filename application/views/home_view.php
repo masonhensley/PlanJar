@@ -45,7 +45,7 @@
                     <a href="/dashboard/profile" id="profile_link">Profile &middot;</a>
                     <a href="/dashboard/followers" id="profile_link">Followers &middot;</a>
                     <a href="/dashboard/groups" id="profile_link">Groups &middot;</a>
-                    <a href="/dashboard/profile" id="profile_link">Following &middot;</a>
+                    <a href="/dashboard/following" id="profile_link">Following &middot;</a>
                     <a href="/home/logout" >Log out</a>
                 </div>
             </div>
@@ -64,6 +64,7 @@
                 <div id="using_location">Using location:</div>
                 <a href="#" id="change_location" >Change location</a>
             </div>
+            <a href="/dashboard/notifications" id="notifications_link">Notifications &middot;</a>
             <div class ="left">
                 <div class="left_header">
                 </div>
