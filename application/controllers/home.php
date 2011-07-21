@@ -273,13 +273,13 @@ class Home extends CI_Controller
             $this->load_locations->loadUserLocations($group_list, $day, $user_id);
         }
     }
-    
+
     public function load_data_box()
     {
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
-        
-        if(count($group_list) == 0)
+
+        if (count($group_list) == 0)
         {
             $this->load->model('display_default_home_info');
             $this->display_default_home_info->setup_default_view($day);
@@ -288,7 +288,6 @@ class Home extends CI_Controller
             $this->load->model('display_group_info');
             $this->display_group_info->_display_group_info($day);
         }
-        
     }
     
     // this function is called when a location tab is clicked to display its information
@@ -299,7 +298,7 @@ class Home extends CI_Controller
         $user_id = $user->id;
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
-            $return_string = $this->load_location_data->display_location_info($place_id, $date, $user_id);
+        $return_string = $this->load_location_data->display_location_info($place_id, $date, $user_id);
 
         echo $return_string;
     }
@@ -475,7 +474,7 @@ class Home extends CI_Controller
     public function get_events_for_plan()
     {
         $this->load->model('event_ops');
-        $this->event_ops->get_events_for_plan($this->input->get('day'), $this->input->get('time'));
+        $this->event_ops->get_events_for_plan($this->input->get('day'), $this->input->get('time'), $this->input->get('place_id'));
     }
 
 }

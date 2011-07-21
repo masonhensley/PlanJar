@@ -37,16 +37,16 @@ class Event_ops extends CI_Model
     }
 
     // Echos HTML for a select input containing all the event names at the specified location and time
-    public function get_events_for_plan($day_offset, $time)
+    public function get_events_for_plan($day_offset, $time, $place_id)
     {
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
-        $query_string = "SELECT id, title FROM events WHERE date = ? AND time = ?";
-        $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time));
+        $query_string = "SELECT id, title FROM events WHERE date = ? AND time = ? AND place_id = ?";
+        $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time, $place_id));
 
         // Echo the select
-        echo('<select id="plan_event_select" size="6">');
+        echo('<select id="plan_event_select" name="plan_event_select" size="6">');
         echo('<option value="" selected="selected">*No title, just going</option>');
 
         // Echo the intermediate entries
