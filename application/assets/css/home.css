@@ -96,15 +96,21 @@ a{
 }
 
 .city_tab{
+    background:darkgray;
+    color: navy;
     border:1px solid black;
     height:100%;
     padding: 5px 0px 5px;
     color: white;
-    background:-webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
     text-align:center;
     margin-bottom: 10px;
-    width:95%;
-    margin-left:5px;
+    width:75%;
+    margin-left:27px;
+}
+
+.city_tab .city_active{
+    background:-webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
+    color:white;
 }
 
 .selected_group {
@@ -112,10 +118,7 @@ a{
     color: navy;
 }
 
-.city_tab .selected_group{
-    background:gray;
-    color: navy;
-}
+
 
 /* ---------------- CENTER PANEL ---------------- */
 .center{
