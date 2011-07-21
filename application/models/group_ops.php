@@ -58,7 +58,8 @@ class Group_ops extends CI_Model
         }
     }
 
-    public function get_following_groups()
+    // Returns an array containing the ids of the groups the user is following (contains joined groups)
+    function get_following_groups()
     {
         $user = $this->ion_auth->get_user();
 
@@ -75,6 +76,7 @@ class Group_ops extends CI_Model
         return $return_array;
     }
 
+    // Returns an array containing the ids of the user's joined groups
     public function get_joined_groups()
     {
         $user = $this->ion_auth->get_user();
@@ -139,7 +141,7 @@ class Group_ops extends CI_Model
                     <div class="joined">joined</div>
                     <?php
                 } else
-                ?>
+                    ?>
             </div>
         </div>
         <?php
@@ -156,7 +158,7 @@ class Group_ops extends CI_Model
         return $query->num_rows() > 0;
     }
 
-    // this function isn't used in here but used elsewhere
+    // Returns true if the user has joined the specified group
     public function user_is_joined($group_id)
     {
         $user_id = $this->ion_auth->get_user()->id;
@@ -196,9 +198,15 @@ class Group_ops extends CI_Model
         return $this->db->insert_id();
     }
 
-    // User must be following the group first
-    public function join_group($user_id, $group_id)
+    // Joins the user to the specified group (the user can optionally be specified)
+    public function join_group($group_id, $user_id = 'foobar')
     {
+        // Make $user_id useful
+        if ($user_id == 'foobar')
+        {
+            $user_id = $this->ion_auth->get_user()->id;
+        }
+
         $query_string = "UPDATE group_relationships " .
                 "SET user_following_id = DEFAULT, user_joined_id = ? " .
                 "WHERE group_id = ? AND user_following_id = ?";
@@ -209,8 +217,14 @@ class Group_ops extends CI_Model
                 ));
     }
 
-    public function follow_group($user_id, $group_id)
+    public function follow_group($group_id, $user_id = 'foobar')
     {
+        // Make $user_id useful
+        if ($user_id == 'foobar')
+        {
+            $user_id = $this->ion_auth->get_user()->id;
+        }
+
         $query_string = "INSERT IGNORE INTO group_relationships VALUES (DEFAULT, ?, ?, DEFAULT)";
         $query = $this->db->query($query_string, array(
                     $group_id,

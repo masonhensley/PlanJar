@@ -152,82 +152,55 @@ class Home extends CI_Controller
     {
         // Event data
         $event_data = array(
-            'place_id' => $this->input->get('plan_location_id'),
-            'user_id' => $user->id,
-            'date' => $date->format('Y-m-d'),
-            'time_of_day' => $this->input->get('plan_time'),
             'title' => $this->input->get('plan_title'),
-            'event_id' => $this->input->get('event_id')
+            'place_id' => $this->input->get('plan_location_id'),
+            'date' => $date->format('Y-m-d'),
+            'time' => $this->input->get('plan_time'),
+            'privacy' => $this->input->get('privacy')
         );
 
-        // Add the place to the database if a Factual place was selected.
+        // Add the place to the PlanJar database if a Factual place was selected.
         if ($this->input->get('new_place_name') != '')
         {
-            // If the Factual ID was already in the database, use the ID of that entry instead of creating a new place.
-            $query_string = "SELECT id FROM places WHERE factual_id = ?";
-            $query = $this->db->query($query_string, array($this->input->get('new_place_factual_id')));
-            if ($query->num_rows() > 0)
-            {
-                $row = $query->row();
-                $data['place_id'] = $row->id;
-            } else
-            {
-                // Add the new place.
-                $query_string = "INSERT INTO places VALUES (DEFAULT, ?, ?, ?, ?, ?)";
-                $query = $this->db->query($query_string, array(
-                            $this->input->get('new_place_factual_id'),
-                            $this->input->get('new_place_name'),
-                            $this->input->get('new_place_latitude'),
-                            $this->input->get('new_place_longitude'),
-                            $this->input->get('new_place_category')
-                        ));
+            $place_data = array(
+                'factual_id' => $this->input->get('new_place_factual_id'),
+                'name' => $this->input->get('new_place_name'),
+                'latitude' => $this->input->get('new_place_latitude'),
+                'longitude' => $this->input->get('new_place_longitude'),
+                'category' => $this->input->get('new_place_category')
+            );
 
-                // Overwrite the place id with the new place.
-                $data['place_id'] = $this->db->insert_id();
-            }
+            $this->load->model('place_ops');
+            $event_data['place_id'] = $this->place_ops->add_factual_place($place_data);
         }
 
-
-
-
-        $user = $this->ion_auth->get_user();
-
-        $date = new DateTime();
-        $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
-
-        $data = array(
-            'place_id' => $this->input->get('plan_location_id'),
-            'user_id' => $user->id,
-            'date' => $date->format('Y-m-d'),
-            'time_of_day' => $this->input->get('plan_time'),
-            'title' => $this->input->get('plan_title'),
-            'event_id' => $this->input->get('event_id')
+        // Plan data
+        $this->load->model('event_ops');
+        $plan_data = array(
+            'user_id' => $this->ion_auth->get_user()->id,
+            'event_id' => $this->event_ops->create_event($event_data)
         );
 
-        // Capture and process the invite lists
-        $invited_users = explode(',', $this->input->get('invite_plan_user'));
+        // Add the plan and store the id
+        $this->load->model('plan_actions');
+        $plan_id = $this->plan_actions->add_plan($plan_data);
+
+        // Capture the invite lists
+        $invited_users = explode(',', $this->input->get('invite_plan_users'));
+        $invited_groups = explode(',', $this->input->get('invite_plan_groups'));
         if ($invited_users[0] == '')
         {
             $invited_users = array();
         }
-
-        $invited_groups = explode(',', $this->input->get('invite_plan_group'));
         if ($invited_groups[0] == '')
         {
             $invited_groups = array();
         }
 
-        // Handle privacy settings
-        $privacy = $this->input->get('privacy');
-        if ($privacy != 'none')
+        // Add invitees if necessary.
+        if ($event_data['privacy'] != 'open')
         {
-            // Privacy settings enabled. Add an event_id (newly created event)
-            $this->load->model('event_ops');
-            $data['event_id'] = $this->event_ops->create_event($privacy, $invited_users, $invited_groups);
-        } else
-        {
-            // No privacy settings. Continue creating a plan as normal.
-            $data['event_id'] = NULL;
+            $this->event_ops->add_invitees($plan_data['event_id'], $invited_users, $invited_groups);
         }
 
         // Add the place to the database if a Factual place was selected.

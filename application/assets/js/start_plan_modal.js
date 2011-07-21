@@ -79,13 +79,13 @@ function initialize_plan_modal() {
     });
     
     // TokenInput
-    $('#invite_plan_user').tokenInput('/home/get_followers_invite', {
+    $('#invite_plan_users').tokenInput('/home/get_followers_invite', {
         hintText: 'Search followers...',
         preventDuplicates: true,
         queryParam: 'needle'
     });
     
-    $('#invite_plan_group').tokenInput('/home/get_groups_invite', {
+    $('#invite_plan_groups').tokenInput('/home/get_groups_invite', {
         hintText: 'Search joined groups...',
         preventDuplicates: true,
         queryParam: 'needle'

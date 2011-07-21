@@ -65,12 +65,12 @@
                 <div id="plan_invite_wrapper">
                     <div id="invite_plan_left">
                         Invite people
-                        <input type="text" id="invite_plan_user" name="invite_plan_user"/>
+                        <input type="text" id="invite_plan_users" name="invite_plan_users"/>
                     </div>
 
                     <div id="invite_plan_right">
                         Invite groups
-                        <input type="text" id="invite_plan_group" name="invite_plan_group"/>
+                        <input type="text" id="invite_plan_groups" name="invite_plan_groups"/>
                     </div>
                 </div>
 

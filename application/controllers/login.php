@@ -63,8 +63,8 @@ class Login extends CI_Controller
 
             // Join the user to his school's group
             $this->load->model('group_ops');
-            $this->group_ops->follow_group($user->id, $group_id);
-            $this->group_ops->join_group($user->id, $group_id);
+            $this->group_ops->follow_group($group_id);
+            $this->group_ops->join_group($group_id);
 
 
             echo "/home";
@@ -162,7 +162,7 @@ class Login extends CI_Controller
 
         $query_string = "SELECT * FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
-        
+
         $email_exists = $this->ion_auth->email_check($email);
 
         if ($query->num_rows() == 0)
