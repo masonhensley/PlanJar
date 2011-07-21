@@ -9,7 +9,7 @@
     <div id="plan_page_wrapper">
         <form id="plan_form">
             <div class="plan_page_content" page_index="0">
-                <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
+                <div class="in-field_block">
                     <label for="plan_location">Where are you going?</label>
                     <input type="text" id="plan_location" name="plan_location" class="textbox"/>
                 </div>
