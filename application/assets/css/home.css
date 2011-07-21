@@ -374,12 +374,18 @@ a{
 
 #notifications_link{
     position:absolute;
-    top:0px;
-    right:0px;
+    top:-35px;
+    right:64px;
+    text-align: center;
+    color:darkgray;
+}
+
+.top_panel .top_links a:hover{
+    background: -webkit-gradient(linear,left top,left bottom,from(lightgray),to(white));
 }
 
 #show_name{
     display:inline-block;
     color:white;
-    margin-right:500px;
+    margin-right:325px;
 }

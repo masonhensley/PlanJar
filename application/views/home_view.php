@@ -64,7 +64,7 @@
                 <div id="using_location">Using location:</div>
                 <a href="#" id="change_location" >Change location</a>
             </div>
-            <a href="/dashboard/notifications" id="notifications_link">Notifications &middot;</a>
+            <a href="/dashboard/notifications" id="notifications_link">Notifications</a>
             <div class ="left">
                 <div class="left_header">
                 </div>
