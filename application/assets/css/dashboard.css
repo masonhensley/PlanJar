@@ -127,7 +127,6 @@ a{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     margin-top: 5px;
-    padding-top:5px;
     text-align: center;
 }
 .user_entry .user_entry_left {
@@ -150,13 +149,11 @@ a{
     background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
-    margin-right:5px;
 }
 .user_entry .following {
     float: right;
     width: 80px;
-    background:-webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
-    color: white;
+    color: gray;
     padding: 3px;
     margin-right:5px;
 }

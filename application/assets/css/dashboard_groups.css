@@ -58,7 +58,7 @@
 
 #groups_content .right_header {
     width: 100%;
-    height: 35px;
+    height: 40px;
     border-top-right-radius:10px;
 }
 
@@ -131,7 +131,6 @@
     background: -webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
     color: white;
     padding: 3px;
-    margin-right:5px;
     text-align: center;
     display:inline-block;
 }
@@ -153,8 +152,6 @@
     color: white;
     padding: 3px;
     text-align: center;
-    margin-top:5px;
-    margin-right:5px;
 }
 
 .remove_joined {
@@ -163,8 +160,6 @@
     background:-webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
     color: white;
     padding: 3px;
-    margin-top:5px;
-    margin-right:5px;
     text-align: center;
 }
 
