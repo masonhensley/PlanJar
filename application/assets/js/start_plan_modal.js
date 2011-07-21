@@ -183,7 +183,7 @@ function initialize_plan_modal() {
     $('#plan_time, #plan_day, #privacy_wrapper').divSet();
     
     // Initial select
-    $('#privacy_wrapper :first').click();
+    $('#privacy_wrapper div').first().click();
     
     // Advance the plan panel when a time and day are selected
     $('#plan_day, #plan_time').click(function () {

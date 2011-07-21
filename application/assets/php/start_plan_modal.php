@@ -46,7 +46,6 @@
 
                 <div id="privacy_wrapper">
                     Privacy options
-                    <br/>
                     <div priv_val="none">None</div>
                     <div priv_val="strict">Fixed invitation list</div>
                     <div priv_val="loose">Invitees can invite others</div>
