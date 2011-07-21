@@ -24,13 +24,14 @@
 }
 
 #plan_left, #plan_right {
-    height: 100%;
+    height: 250px;
     width: 4%;
     float: left;
+    vertical-align: middle;
 }
 
 #plan_page_wrapper {
-    width: 96%;
+    width: 92%;
     height: 250px;
     float: left;
 }
