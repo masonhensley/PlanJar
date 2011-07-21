@@ -41,8 +41,17 @@ function initialize_plan_modal() {
                 }
                 break;
             case 1:
+                if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
+                    // Populate the header for the next page
+                    var time = $('#plan_day .divset_selected').html().toLowerCase();
+                    $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name') +
+                        ' on ' + $('#plan_day .divset_selected').html() + ' ' + time);
+                    
+                    next_plan_panel();
+                }
                 break;
             case 2:
+                next_plan_panel();
                 break;
         }
     });

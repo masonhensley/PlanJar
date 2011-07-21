@@ -42,7 +42,7 @@
             </div>
 
             <div class="plan_page_content" page_index="2" style="display: none;">
-                Here's what's happening.
+                <div id="plan_events_title"></div>
 
                 <div id="privacy_wrapper">
                     Privacy options
