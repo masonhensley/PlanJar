@@ -101,7 +101,7 @@ class Follow_ops extends CI_Model
                     
                     echo "<br>";
                     $year_display = substr($row->grad_year, -2);
-                    echo $row->school . " ('" . $year_display . ")<br/>";
+                    echo $row->school . " ('" . $year_display . ")";
                     
                     ?>
                 </div>          
