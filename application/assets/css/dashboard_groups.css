@@ -127,6 +127,7 @@
 }
 
 .remove_following {
+    float:right;
     width: 75px;
     background: -webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
     color: white;

@@ -132,6 +132,7 @@ a{
 .user_entry .user_entry_left {
     float: left;
     width: 90px;
+    margin-top:3px;
 }
 .user_entry .user_picture {
     width: 50px;
@@ -141,6 +142,7 @@ a{
 .user_entry .user_entry_middle {
     float: left;
     width: auto;
+    margin-top:10px;
 }
 
 .user_entry .add_following {
@@ -287,4 +289,9 @@ a{
     float:left;
     margin-top:6px;
     margin-bottom:6px;
+}
+
+.number_of_connections{
+    color:green;
+    font-weight:bold;
 }
