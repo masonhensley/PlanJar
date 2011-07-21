@@ -27,6 +27,9 @@ function initialize_plan_modal() {
     $('#plan_right').click(function() {
         next_plan_panel();
     });
+    
+    // In-field label
+    $('#create_plan_content .in-field_block label').inFieldLabels();
 }
 
 // Scrolls to the previous plan panel
