@@ -16,7 +16,7 @@ function update_groups_and_locations()
 }
 
 // updates for when 
-function load_default_data_box(selected_day, selected_groups)
+function load_data_box(selected_day, selected_groups)
 {
     $.get('/home/load_data_box', {
         'selected_groups': selected_groups,
