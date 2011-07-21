@@ -273,22 +273,21 @@ class Home extends CI_Controller
             $this->load_locations->loadUserLocations($group_list, $day, $user_id);
         }
     }
-    
+
     public function load_data_box()
     {
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
-        
-        if(count($group_list) == 0)
+
+        if (count($group_list) == 0)
         {
             $this->load->model('load_default_home_info');
             $this->load_default_home_info->setup_default_view($day);
-        }else if(count($group_list) > 0)
+        } else if (count($group_list) > 0)
         {
             $this->load->model('load_location_data');
             $this->load_location_data->display_location_info();
         }
-        
     }
 
     public function show_location_data()
@@ -298,7 +297,7 @@ class Home extends CI_Controller
         $user_id = $user->id;
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
-            $return_string = $this->load_location_data->display_location_info($place_id, $date, $user_id);
+        $return_string = $this->load_location_data->display_location_info($place_id, $date, $user_id);
 
         echo $return_string;
     }
@@ -474,7 +473,7 @@ class Home extends CI_Controller
     public function get_events_for_plan()
     {
         $this->load->model('event_ops');
-        $this->event_ops->get_events_for_plan($this->input->get('day'), $this->input->get('time'));
+        $this->event_ops->get_events_for_plan($this->input->get('day'), $this->input->get('time'), $this->input->get('place_id'));
     }
 
 }

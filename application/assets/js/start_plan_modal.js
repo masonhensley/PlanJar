@@ -128,7 +128,8 @@ function initialize_event_select_page() {
     // Populate the event select for the next page
     $.get('/home/get_events_for_plan', {
         day: $('#plan_day .divset_selected').attr('plan_day'),
-        time: $('#plan_time .divset_selected').attr('plan_time')
+        time: $('#plan_time .divset_selected').attr('plan_time'),
+        place_id: $('#plan_location_id')
     }, function (data) {
         $('#plan_event_select_wrapper').html(data);
                         
@@ -137,9 +138,11 @@ function initialize_event_select_page() {
             if ($(this).val() == 'new') {
                 // Show the event title input
                 $('#event_title_wrapper').show();
+                $('#event_title_wrapper').focus();
             } else {
                 // Clear the input and hide it
                 $('#event_title').val('');
+                $('#event_title_wrapper').blur();
                 $('#event_title_wrapper').hide();
                 
                 next_plan_panel();
