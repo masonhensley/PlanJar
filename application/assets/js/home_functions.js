@@ -77,16 +77,6 @@ function mapThisGoogle(latitude,longitude)
     map = new google.maps.Map(document.getElementById("map"), myOptions);
 }
 
-// populates the popular location main panel
-function load_visible_plans(){
-    $.get('/home/load_popular_locations', {
-        'selected_groups': get_selected_groups(),
-        'selected_day': get_selected_day()
-    }, function (data) {
-        $('.top_left_plans').html(data); 
-    });
-}
-
 // Returns a list of selected groups.
 function get_selected_groups() {
     var return_list = ([]);
@@ -99,6 +89,10 @@ function get_selected_groups() {
 // Gets the currently selected day offset (0-based)
 function get_selected_day() {
     return $('.days_panel .day.day_selected').attr('day_offset');
+}
+
+function get_selected_location(){
+    return $('.selected_location').attr('place_id');
 }
 
 // Return the city based off the user's coordinates.
