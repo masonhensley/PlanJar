@@ -390,6 +390,11 @@ a{
     display:inline-block;
 }
 
+.top_right_link{
+    height:100%;
+    display:inline-block;
+}
+
 #show_name{
     display:inline-block;
     color:white;
