@@ -2,8 +2,8 @@
 
 <div class="groups_wrapper">
 
-    <div class="city_tab">
-        
+    <div class="selectable_group city_tab">
+        Use Current Location
     </div>
     
     <?php
