@@ -69,7 +69,7 @@
             <div class ="left">
                 <div class="left_header">
                 </div>
-                <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
+                <?php //include(APPPATH . 'assets/php/group_panel.php'); ?>
             </div>
             <div class ="center">
                 <div class="data_container_wrapper">
