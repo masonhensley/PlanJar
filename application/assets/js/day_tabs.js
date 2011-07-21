@@ -44,8 +44,7 @@ function initialize_day_tab_rules() {
 // reloads the data container with get_group_day_data()
 function on_day_change() {
     show_data_container('#group_data');
-    get_group_day_data();
-    load_visible_plans()
+    update_groups_and_locations();
 }
 
 // Gets and displays the set of days

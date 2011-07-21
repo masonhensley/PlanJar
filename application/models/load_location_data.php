@@ -3,7 +3,7 @@
 class Load_location_data extends CI_Model
 {
 
-    function showLocation($place_id, $date, $user_id)
+    function display_location_info($place_id, $date, $user_id)
     {
         $place_query = "SELECT id, name, category FROM places WHERE id=$place_id"; // get the name and category for the place_id and store them
         $query_result = $this->db->query($place_query);

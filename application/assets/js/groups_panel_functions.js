@@ -20,24 +20,23 @@ function initialize_selectable_groups() {
     // Initialize the clear all and select all button actions.
     $('#clear_all_groups').click(function() {
         $('.groups_wrapper .selected_group').removeClass('selected_group');
-        on_groups_change();
-        // update visible plans
-        load_visible_plans();
+        update_groups_and_locations();
     });
+    
+    
     $('#select_all_groups').click(function() {
         $('.groups_wrapper .selectable_group').addClass('selected_group');
         $('#select_mult_groups').click();
-        on_groups_change();
-        // update visible plans
-        load_visible_plans();
+        update_groups_and_locations();
     });
 }
 
 // Callback function
 function on_groups_change() {
     show_data_container('#group_data');
-    get_group_day_data();
-    load_visible_plans()
+    //get_group_day_data();
+    //load_visible_plans();
+    update_groups_and_locations();// this should update the graphs so they match what is selected
 }
 
 function initialize_one_group_select() {
@@ -54,9 +53,7 @@ function initialize_mult_groups_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group').click(function() {
         // unselect plan on right panel
-        //$('.plan_content').removeClass('selected_plan');
-        // clear the plan data
-        show_empty_plan_data();
+        $('.plan_content').removeClass('selected_plan');
         
         // Make the list items togglable.
         if ($(this).hasClass('selected_group')) {
@@ -64,10 +61,6 @@ function initialize_mult_groups_select() {
         } else {
             $(this).addClass('selected_group');
         }
-        
-        // Call the callback function.
-        on_groups_change();
-        // Update the visible plans for the selected groups
-        load_visible_plans();
+        update_groups_and_locations();
     });
 }

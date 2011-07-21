@@ -237,22 +237,6 @@ class Home extends CI_Controller
         echo('success');
     }
 
-    // Returns chart data based on the selected groups and day
-    public function get_group_day_data()
-    {
-        $selected_groups = $this->input->get('selected_groups');
-        $selected_day = $this->input->get('selected_day');
-
-        if ($selected_groups)
-        {
-            var_dump($selected_groups);
-            echo('Selected groups ^^<br/>Selected day: ' . $selected_day);
-        } else
-        {
-            echo('Select groups on the left to see more information.');
-        }
-    }
-
     public function load_selected_plan_data()
     {
         $plan = $this->input->get('plan_selected');
@@ -287,10 +271,24 @@ class Home extends CI_Controller
         if(isset($group_list[0])) // when a group is selected. populate the location tabs
         {
             $this->load_locations->loadUserLocations($group_list, $day, $user_id);
-        }else{ // when no groups are selected, show the data for the user's city
-            $this->load->model('load_default_info');
-            $this->load_default_home_info->setup_default_view($day);
         }
+    }
+    
+    public function load_data_box()
+    {
+        $group_list = $this->input->get('selected_groups');
+        $day = $this->input->get('selected_day');
+        
+        if(count($group_list) == 0)
+        {
+            $this->load->model('load_default_home_info');
+            $this->load_default_home_info->setup_default_view($day);
+        }else if(count($group_list) > 0)
+        {
+            $this->load->model('load_location_data');
+            $this->load_location_data->display_location_info();
+        }
+        
     }
 
     public function show_location_data()
@@ -300,7 +298,7 @@ class Home extends CI_Controller
         $user_id = $user->id;
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
-        $return_string = $this->load_location_data->showLocation($place_id, $date, $user_id);
+            $return_string = $this->load_location_data->display_location_info($place_id, $date, $user_id);
 
         echo $return_string;
     }
