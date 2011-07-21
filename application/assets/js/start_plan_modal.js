@@ -54,6 +54,18 @@ function initialize_plan_modal() {
                     }, function (data) {
                         $('#event_select').html(data);
                         
+                        // Handle the select change event
+                        $('#plan_event_select').change(function () {
+                            if ($(this).val() == '') {
+                                // Show the event title input
+                                $('#event_title_wrapper').show();
+                            } else {
+                                // Clear the input and hide it
+                                $('#event_title').val('');
+                                $('#event_title_wrapper').hide();
+                            }
+                        });
+                        
                         next_plan_panel();
                     });
                 }
@@ -224,18 +236,6 @@ function initialize_plan_modal() {
     // Try to advance the plan panel when a time or a day is selected
     $('#plan_day, #plan_time').click(function () {
         $('#plan_right').click();
-    });
-    
-    // Try to advance the plan panel when an event is selected.
-    $('#plan_event_select').change(function () {
-        if ($(this).val() == '') {
-            // Show the event title input
-            $('#event_title_wrapper').show();
-        } else {
-            // Clear the input and hide it
-            $('#event_title').val('');
-            $('#event_title_wrapper').hide();
-        }
     });
     
     // TokenInput
