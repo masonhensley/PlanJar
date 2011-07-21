@@ -281,3 +281,11 @@ a{
     top:10px;
     left:15px;
 }
+
+.in-field_block_group{
+    margin-left:10px;
+    width:200px;
+    float:left;
+    margin-top:6px;
+    margin-bottom:6px;
+}

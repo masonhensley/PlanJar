@@ -6,8 +6,8 @@
 
 .in-field_block label {
     position:absolute;
-    top:3px;
-    left:5px;
+    top: 0.6em;
+    left: 0.35em;
     color: #999999;
 }
 
