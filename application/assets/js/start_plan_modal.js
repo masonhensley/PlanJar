@@ -8,6 +8,11 @@ function initialize_plan_modal() {
         $('#create_plan_content').show('fast');
     });
     
+    // Closing click handler
+    $('#cancel_plan').click(function () {
+        $('#create_plan_content').hide();
+    });
+    
     // Make it draggable (with a handle).
     $('#create_plan_content').draggable({
         handle: '.draggable_title_bar'
@@ -15,11 +20,13 @@ function initialize_plan_modal() {
     
     // Left scroll
     $('#plan_left').click(function () {
+        alert('prev');
         prev_plan_panel();
     });
     
     // Right scroll
     $('#plan_right').click(function() {
+        alert('next');
         next_plan_panel();
     });
 }
