@@ -289,7 +289,7 @@ class Home extends CI_Controller
             $this->load_locations->loadUserLocations($group_list, $day, $user_id);
         }else{ // when no groups are selected, show the data for the user's city
             $this->load->model('load_default_info');
-            $this->load_default_info->setup_default_view($day);
+            $this->load_default_home_info->setup_default_view($day);
         }
     }
 
