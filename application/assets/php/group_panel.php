@@ -1,4 +1,4 @@
-
+<!-- This content is loaded when the page loads. $joined_groups variable comes from the home.php controller -->
 
 <div class="groups_wrapper">
 

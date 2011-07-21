@@ -23,14 +23,14 @@ a{
 .top_panel{
     height: 40px;
     width:100%;
-background: #333;
+    background: #333;
     background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
-background: -moz-linear-gradient(top,#333,#666);
-background: transparent	9;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333',endColorstr='#666');
-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
--moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
--webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    background: -moz-linear-gradient(top,#333,#666);
+    background: transparent	9;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333',endColorstr='#666');
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .inside_top_panel{
@@ -99,7 +99,7 @@ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     border:1px solid black;
     height:100%;
     padding: 5px 0px 5px;
-    color: navy;
+    color: white;
     background:-webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
     text-align:center;
     margin-bottom: 10px;
@@ -109,6 +109,11 @@ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 
 .selected_group {
     background:-webkit-gradient(linear,left top,left bottom,from(lightBlue),to(#DFF));
+    color: navy;
+}
+
+.city_tab .selected_group{
+    background:gray;
     color: navy;
 }
 

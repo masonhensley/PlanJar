@@ -4,6 +4,10 @@ $(function() {
 });
 
 function initialize_selectable_groups() {
+    
+    //default tab used is the city_tab
+    set_city_tab();
+    
     // Divset
     $('#group_select_type').divSet();
     $('#select_one_group').click();
@@ -21,9 +25,16 @@ function initialize_selectable_groups() {
 // Callback function
 function on_groups_change() {
     show_data_container('#group_data');
-    //get_group_day_data();
-    //load_visible_plans();
     update_groups_and_locations();// this should update the graphs so they match what is selected
+}
+
+function set_city_tab()
+{
+    update_groups_and_locations();
+    $('.city_tab').click(function(){
+        ('.selected_group').removeClass('selected_group');
+        update_groups_and_locations();
+    });
 }
 
 function initialize_one_group_select() {
