@@ -25,7 +25,7 @@ function initialize_plan_modal() {
 }
 
 // Scrolls to the previous plan panel
-function prev_pan_panel() {
+function prev_plan_panel() {
     var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
     if (current_index > 0) {
