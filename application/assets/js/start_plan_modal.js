@@ -43,9 +43,8 @@ function initialize_plan_modal() {
             case 1:
                 if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
                     // Populate the header for the next page
-                    var time = $('#plan_day .divset_selected').html().toLowerCase();
-                    console.log($('#plan_events_title'));
-                    $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name') +
+                    var time = $('#plan_time .divset_selected').html().toLowerCase();
+                    $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name').val() +
                         ' on ' + $('#plan_day .divset_selected').html() + ' ' + time);
                     
                     next_plan_panel();
@@ -214,11 +213,9 @@ function initialize_plan_modal() {
     // Initial select
     $('#privacy_wrapper div').first().click();
     
-    // Advance the plan panel when a time and day are selected
+    // Try to advance the plan panel when a time or a day is selected
     $('#plan_day, #plan_time').click(function () {
-        if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
-            next_plan_panel();
-        }
+        $('#plan_right').click();
     });
     
     // TokenInput
