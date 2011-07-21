@@ -47,7 +47,7 @@ class Event_ops extends CI_Model
 
         // Echo the select
         echo('<select id="plan_event_select size="6">');
-        echo('<option value="" selected="selected"><no plan title></option>');
+        echo('<option value="" selected="selected">no plan title</option>');
 
         // Echo the intermediate entries
         foreach ($query->result as $row)
