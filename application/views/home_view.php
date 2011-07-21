@@ -39,16 +39,11 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
-                <div class ="top_panel_left">
-                    <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
-                    <div id="location_conainer_top">
-
-                    </div>
-                </div>
+                
 
                 <div class="top_links">
+                     <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <a href="/dashboard/" id="dashboard link">Dashboard &middot;</a>
-
                     <a href="/home/logout" >Log out</a>
                 </div>
 

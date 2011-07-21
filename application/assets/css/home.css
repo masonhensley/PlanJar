@@ -26,17 +26,6 @@ a{
     background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
 }
 
-.top_panel_left{
-    height:80%;
-    width:auto;
-    float:left;
-    text-align: center;
-    color:white;
-    position:relative;
-    top:3px;
-    margin-left:30px;
-}
-
 .inside_top_panel{
     width:1024px;
     height:100%;
@@ -49,7 +38,7 @@ a{
     text-align: right;
     height:100%;
     position:relative;
-    top:10px;
+    top:12px;
 }
 
 /* -----------------MAIN CONTAINER ----------------------*/
