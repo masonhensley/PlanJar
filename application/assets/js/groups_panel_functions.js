@@ -34,7 +34,7 @@ function on_groups_change() {
 function set_city_tab()
 {
     $('.city_tab').click(function(){
-        ('.selected_group').removeClass('selected_group');
+        $('.selected_group').removeClass('selected_group');
         update_groups_and_locations();
     });
 }
