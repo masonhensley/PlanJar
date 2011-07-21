@@ -29,9 +29,9 @@ function initialize_plan_modal() {
         $('#plan_location').focus();
     });
     
-//    $('#cancel_plan').click(function () {
-//        $('#create_plan_content').hide();
-//    });
+    $('#cancel_plan').click(function () {
+        $('#create_plan_content').hide();
+    });
     
     // Add the city name to the handle text.
     $('#create_plan_content .draggable_title_bar').html('Start a plan');
@@ -40,9 +40,9 @@ function initialize_plan_modal() {
     }
     
     // Make it draggable (with a handle).
-//    $('#create_plan_content').draggable({
-//        handle: '.draggable_title_bar'
-//    });
+    $('#create_plan_content').draggable({
+        handle: '.draggable_title_bar'
+    });
     
     // Divset
     $('#plan_time').divSet();
