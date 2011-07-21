@@ -49,6 +49,7 @@ function initialize_plan_modal() {
                 // Both time and day must be selected
                 if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
                     initialize_event_select_page();
+                    next_plan_panel();
                 }
                 break;
                 
@@ -99,7 +100,7 @@ function initialize_plan_modal() {
             'privacy': $('#plan_privacy_wrapper .divset_selected').attr('priv_val')
         });
         
-//        $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
+    //        $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
     //            'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
     //            'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
     //            'privacy': $('#plan_privacy_wrapper .divset_selected').attr('priv_val')
@@ -115,21 +116,10 @@ function initialize_plan_modal() {
     //        });
     });
     
-    
-    
-    var other_data = {
-        'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-        'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
-        'privacy': $('#privacy_wrapper .divset_selected').attr('priv_val')
-    }
-
-
-    
 // End of DOM ready function
 }
 
 function initialize_event_select_page() {
-    alert('here');
     // Populate the header for the next page
     var time = $('#plan_time .divset_selected').html().toLowerCase();
     $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name').val() +
