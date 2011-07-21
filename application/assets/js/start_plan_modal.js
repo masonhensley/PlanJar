@@ -39,10 +39,10 @@ function initialize_plan_modal() {
         $('#create_plan_content .draggable_title_bar').html('Start a plan in ' + myCity);
     }
     
-    // Make it draggable (with a handler).
-    $('#create_plan_content').draggable({
-        handle: '.draggable_title_bar'
-    });
+    // Make it draggable (with a handle).
+//    $('#create_plan_content').draggable({
+//        handle: '.draggable_title_bar'
+//    });
     
     // Divset
     $('#plan_time').divSet();
