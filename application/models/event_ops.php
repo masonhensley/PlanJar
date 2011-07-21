@@ -50,7 +50,7 @@ class Event_ops extends CI_Model
         echo('<option value="" selected="selected">no plan title</option>');
 
         // Echo the intermediate entries
-        foreach ($query->result as $row)
+        foreach ($query->result() as $row)
         {
             echo('<option value="' . $row->id . '">' . $row->title . '</option>');
         }
