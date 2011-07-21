@@ -174,11 +174,20 @@ function initialize_plan_modal() {
                 $('#new_place_longitude').val(ui.item.longitude);
                 $('#new_place_factual_id').val(ui.item.factual_id);
             }
+            
+            next_plan_panel();
         }
     });
     
-    // Divset
+    // Divsets
     $('#plan_time, #plan_day, #privacy_wrapper').divSet();
+    
+    // Advance the plan panel when a time and day are selected
+    $('#plan_day, #plan_time').click(function () {
+        if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
+            next_plan_panel();
+        }
+    });
 }
 
 // Scrolls to the previous plan panel
