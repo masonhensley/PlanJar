@@ -54,6 +54,7 @@ a{
 
 /* -----------------MAIN CONTAINER ----------------------*/
 .container{
+    position:relative;
     margin-left: auto;
     margin-right: auto;
     width: 1024px;
@@ -371,9 +372,13 @@ a{
 
 .location_container{
     position:absolute;
-    top:0px;
-    left:0px;
+    top:-42px;
+    left:4px;
     text-align:center;
+    color:darkgray;
+}
+
+.location_container a{
     color:darkgray;
 }
 
