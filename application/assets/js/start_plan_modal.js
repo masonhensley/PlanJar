@@ -44,6 +44,7 @@ function initialize_plan_modal() {
                 if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
                     // Populate the header for the next page
                     var time = $('#plan_day .divset_selected').html().toLowerCase();
+                    console.log($('#plan_events_title'));
                     $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name') +
                         ' on ' + $('#plan_day .divset_selected').html() + ' ' + time);
                     
