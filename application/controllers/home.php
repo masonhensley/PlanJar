@@ -281,13 +281,14 @@ class Home extends CI_Controller
         // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
-        
-        
+
+
         $user_id = $this->ion_auth->get_user()->id;
-        if(isset($group_list[0])) // when a group is selected. populate the location tabs
+        if (isset($group_list[0])) // when a group is selected. populate the location tabs
         {
             $this->load_locations->loadUserLocations($group_list, $day, $user_id);
-        }else{ // when no groups are selected, show the data for the user's city
+        } else
+        { // when no groups are selected, show the data for the user's city
             $this->load->model('load_default_info');
             $this->load_default_home_info->setup_default_view($day);
         }
@@ -476,7 +477,7 @@ class Home extends CI_Controller
     public function get_events_for_plan()
     {
         $this->load->model('event_ops');
-        $this->event_ops->get_events($this->input->get('day'), $this->input->get('time'));
+        $this->event_ops->get_events_for_plan($this->input->get('day'), $this->input->get('time'));
     }
 
 }
