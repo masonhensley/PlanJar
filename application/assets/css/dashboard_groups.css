@@ -164,8 +164,13 @@
     text-align: center;
 }
 
+.profile_bottom_bar .remove_following{
+    margin-right:5px;
+}
+
 .group_entry_left_side{
     float:right;
     height:auto;
     width:auto;
 }
+
