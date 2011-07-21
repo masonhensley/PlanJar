@@ -29,7 +29,7 @@ function load_data_box(selected_day, selected_groups)
 
 // populates the popular location main panel
 function load_visible_locations(selected_day, selected_groups){
-    $.get('/home/load_popular_locations', {
+    $.get('/home/load_location_tabs', {
         'selected_groups': selected_groups,
         'selected_day': selected_day
     }, function (data) {

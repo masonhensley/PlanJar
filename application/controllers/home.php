@@ -267,10 +267,9 @@ class Home extends CI_Controller
         echo $return_str;
     }
 
-    // Return a list of plans visible to the user.
-    // This code is sweet
-    // called from "home_functions.js"
-    public function load_popular_locations()
+    // Return a list of location tabs based on the groups selected
+    // called from data_box_functions.js
+    public function load_location_tabs()
     {
         // load the model
         $this->load->model('load_locations');
