@@ -26,13 +26,13 @@
 #plan_left, #plan_right {
     height: 100%;
     width: 4%;
-    display: inline-block;
+    float: left;
 }
 
 #plan_page_wrapper {
     width: 96%;
     height: 250px;
-    display: inline-block;
+    float: left;
 }
 
 .plan_page_content {
