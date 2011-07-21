@@ -44,9 +44,7 @@ function prev_plan_panel() {
 function next_plan_panel() {
     var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
-    console.log(current_index);
-    console.log(current_index + 1);
-    if (current_index > 0) {
+    if (current_index < 3) {
         $('.plan_page_content:visible').hide('fast', 'slide', function () {
             $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('fast');
         });
