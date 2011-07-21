@@ -176,6 +176,9 @@ function initialize_plan_modal() {
             }
         }
     });
+    
+    // Divset
+    $('#plan_time, #plan_day, #privacy_wrapper').divSet();
 }
 
 // Scrolls to the previous plan panel
