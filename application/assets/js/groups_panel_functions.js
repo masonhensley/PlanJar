@@ -16,19 +16,6 @@ function initialize_selectable_groups() {
     $('#select_mult_groups').click(function () {
         initialize_mult_groups_select();
     });
-    
-    // Initialize the clear all and select all button actions.
-    $('#clear_all_groups').click(function() {
-        $('.groups_wrapper .selected_group').removeClass('selected_group');
-        update_groups_and_locations();
-    });
-    
-    
-    $('#select_all_groups').click(function() {
-        $('.groups_wrapper .selectable_group').addClass('selected_group');
-        $('#select_mult_groups').click();
-        update_groups_and_locations();
-    });
 }
 
 // Callback function

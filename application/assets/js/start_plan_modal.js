@@ -55,7 +55,7 @@ function initialize_plan_modal() {
                 
             // Third page
             case 2:
-                if ($('#plan_event_select'))
+                if ($('#plan_event_select').val() == 'new' && $('#event_title').val() != '')
                     next_plan_panel();
                 break;
         }
