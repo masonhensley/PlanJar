@@ -216,7 +216,7 @@ function initialize_plan_modal() {
     });
     
     // Divsets
-    $('#plan_time, #plan_day, #privacy_wrapper').divSet();
+    $('#plan_time, #plan_day, #plan_privacy_wrapper').divSet();
     
     // Initial select
     $('#privacy_wrapper div').first().click();
@@ -224,6 +224,18 @@ function initialize_plan_modal() {
     // Try to advance the plan panel when a time or a day is selected
     $('#plan_day, #plan_time').click(function () {
         $('#plan_right').click();
+    });
+    
+    // Try to advance the plan panel when an event is selected.
+    $('#plan_event_select').change(function () {
+        if ($(this).val() == '') {
+            // Show the event title input
+            $('#event_title_wrapper').show();
+        } else {
+            // Clear the input and hide it
+            $('#event_title').val('');
+            $('#event_title_wrapper').hide();
+        }
     });
     
     // TokenInput
