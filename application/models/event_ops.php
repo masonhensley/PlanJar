@@ -46,7 +46,7 @@ class Event_ops extends CI_Model
         $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time));
 
         // Echo the select
-        echo('<select id="plan_event_select size="6">');
+        echo('<select id="plan_event_select" size="6">');
         echo('<option value="" selected="selected">no plan title</option>');
 
         // Echo the intermediate entries
