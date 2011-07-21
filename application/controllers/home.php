@@ -287,6 +287,7 @@ class Home extends CI_Controller
         }
     }
 
+    // this function populates the data box for when a group or location is selected
     public function load_data_box()
     {
         $group_list = $this->input->get('selected_groups');

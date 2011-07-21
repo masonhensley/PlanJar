@@ -20,6 +20,8 @@ function initialize_selectable_groups() {
     $('#select_mult_groups').click(function () {
         initialize_mult_groups_select();
     });
+    
+    update_groups_and_locations();
 }
 
 // Callback function
@@ -28,9 +30,9 @@ function on_groups_change() {
     update_groups_and_locations();// this should update the graphs so they match what is selected
 }
 
+// this is the "use current location" tab. clicking it de-selects all other group tabs and uses the current location
 function set_city_tab()
 {
-    update_groups_and_locations();
     $('.city_tab').click(function(){
         ('.selected_group').removeClass('selected_group');
         update_groups_and_locations();
