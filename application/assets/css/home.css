@@ -38,7 +38,6 @@ a{
     text-align: right;
     height:100%;
     position:relative;
-    top:12px;
 }
 
 /* -----------------MAIN CONTAINER ----------------------*/
@@ -382,10 +381,17 @@ a{
 
 .top_panel .top_links a:hover{
     background: -webkit-gradient(linear,left top,left bottom,from(lightgray),to(white));
+    color:black;
+}
+
+.top_right_link{
+    height:100%;
 }
 
 #show_name{
     display:inline-block;
     color:white;
     margin-right:325px;
+    margin-top:12px;
 }
+

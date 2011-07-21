@@ -42,11 +42,11 @@
                 <div class="top_links">
                      <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <!--<a href="/dashboard/" id="dashboard link">dashboard &middot;</a>-->
-                    <a href="/dashboard/profile" id="profile_link">Profile &middot;</a>
-                    <a href="/dashboard/followers" id="profile_link">Followers &middot;</a>
-                    <a href="/dashboard/groups" id="profile_link">Groups &middot;</a>
-                    <a href="/dashboard/following" id="profile_link">Following &middot;</a>
-                    <a href="/home/logout" >Log out</a>
+                    <div class ="top_right_link"><a href="/dashboard/profile" id="profile_link">Profile</a></div>
+                    <div class ="top_right_link"><a href="/dashboard/followers" id="profile_link">Followers</a></div>
+                    <div class ="top_right_link"><a href="/dashboard/groups" id="profile_link">Groups</a></div>
+                    <div class ="top_right_link"><a href="/dashboard/following" id="profile_link">Following</a></div>
+                    <div class ="top_right_link"><a href="/home/logout" >Log out</a></div>
                 </div>
             </div>
         </div>
@@ -72,8 +72,6 @@
                 <?php include(APPPATH . 'assets/php/group_panel.php'); ?>
             </div>
             <div class ="center">
-
-
                 <div class="data_container_wrapper">
                     <div id="group_data" class ="data_container">Select groups on the left to see more information.</div>
                     <div id="plan_data" class ="data_container">Select a plan on the right to see more information.</div>
