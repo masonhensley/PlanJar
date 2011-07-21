@@ -93,21 +93,15 @@ class Follow_ops extends CI_Model
                 <div class="user_name">
                     <?php
                     echo($row->first_name . ' ' . $row->last_name);
+                    
                     echo "<br>";
                     $year_display = substr($row->grad_year, -2);
                     echo $row->school . " ('" . $year_display . ")<br/>";
                     if ($option == 'suggested')
                     {
-                        $id = $row->user_id;
-                        echo "$suggested_friends[$id] connection";
-                        if ($suggested_friends[$id] > 1)
-                        {
-                            echo "s";
-                        }
-                    } else if ($option == 'suggested_school')
-                    {
-                        
-                    }
+                        $number_of_connections = $suggested_friends[$row->user_id];
+                        echo " <font style=\"color:green; font-size:10px;\">+$number_of_connections mutual</font>";
+                    } 
                     ?>
                 </div>          
             </div>

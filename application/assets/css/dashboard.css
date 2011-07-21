@@ -127,12 +127,12 @@ a{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     margin-top: 5px;
-    padding-top:5px;
     text-align: center;
 }
 .user_entry .user_entry_left {
     float: left;
     width: 90px;
+    margin-top:3px;
 }
 .user_entry .user_picture {
     width: 50px;
@@ -142,6 +142,7 @@ a{
 .user_entry .user_entry_middle {
     float: left;
     width: auto;
+    margin-top:10px;
 }
 
 .user_entry .add_following {
@@ -150,15 +151,12 @@ a{
     background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
-    margin-right:5px;
 }
 .user_entry .following {
     float: right;
     width: 80px;
-    background:-webkit-gradient(linear,left top,left bottom,from(#0A1),to(#0C2));
-    color: white;
+    color: gray;
     padding: 3px;
-    margin-right:5px;
 }
 
 /* follower tab */
@@ -291,4 +289,9 @@ a{
     float:left;
     margin-top:6px;
     margin-bottom:6px;
+}
+
+.number_of_connections{
+    color:green;
+    font-weight:bold;
 }
