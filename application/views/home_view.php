@@ -42,10 +42,10 @@
                 <div class="top_links">
                      <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <!--<a href="/dashboard/" id="dashboard link">dashboard &middot;</a>-->
-                    <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link">Profile</div></a>
-                    <a href="/dashboard/followers" id="profile_link"><div class ="top_right_link">Followers</div></a>
-                    <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link">Groups</div></a>
-                    <a href="/dashboard/following" id="profile_link"><div class ="top_right_link">Following</div></a>
+                    <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Profile</div></div></a>
+                    <a href="/dashboard/followers" id="profile_link"><div class ="top_right_link"><div class="top_right_link_inner">Followers</div></div></a>
+                    <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link"><div class="top_right_link_inner">Groups</div></div></a>
+                    <a href="/dashboard/following" id="profile_link"><div class ="top_right_link"><div class="top_right_link_inner">Following</div></div></a>
                     <a href="/home/logout" ><div class ="top_right_link">Log out</div></a>
                 </div>
             </div>
