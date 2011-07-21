@@ -49,7 +49,6 @@ function initialize_plan_modal() {
                 // Both time and day must be selected
                 if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
                     initialize_event_select_page();
-                    next_plan_panel();
                 }
                 break;
                 
@@ -148,6 +147,8 @@ function initialize_event_select_page() {
                 next_plan_panel();
             }
         });
+        
+        next_plan_panel();
     });
 }
 
