@@ -41,6 +41,7 @@ function initialize_day_tab_rules() {
 }
 
 // Callback function
+// reloads the data container with get_group_day_data()
 function on_day_change() {
     show_data_container('#group_data');
     get_group_day_data();
