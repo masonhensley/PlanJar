@@ -1,7 +1,4 @@
-<div id="group_select_type">
-    <div id="select_one_group">Select one</div>
-    <div id="select_mult_groups">Select multiple</div>
-</div>
+
 
 <div class="groups_wrapper">
 
@@ -26,6 +23,11 @@
         <?php
     }
     ?>
+</div>
+
+<div id="group_select_type">
+    <div id="select_one_group">Select one</div>
+    <div id="select_mult_groups">Select multiple</div>
 </div>
 
 <input type="button" id="select_all_groups" value="Select all" style="position:relative; top: 5px;"/>
