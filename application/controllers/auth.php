@@ -224,8 +224,8 @@ class Auth extends Controller
 
             // Join the user to his school's group
             $this->load->model('group_ops');
-            $this->group_ops->follow_group($id, $group_id);
-            $this->group_ops->join_group($id, $group_id);
+            $this->group_ops->follow_group($group_id, $id);
+            $this->group_ops->join_group($group_id, $id);
 
             // Redirect to the login page
             redirect("/login", 'refresh');

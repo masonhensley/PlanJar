@@ -9,12 +9,11 @@ class Event_ops extends CI_Model
         parent::__construct();
     }
 
-    public function create_event($privacy, $user_id_list, $group_id_list)
+    // Accepts an associative array of data to create an event
+    // Returns the event id
+    public function create_event($data)
     {
-        $query_string = "INSERT INTO events VALUES (DEFAULT, ?)";
-        $query = $this->db->query($query_string, array($privacy));
-
-        $this->add_invitees($this->db->insert_id(), $user_id_list, $group_id_list);
+        $query = $this->db->insert('events', $data);
 
         return $this->db->insert_id();
     }
@@ -24,14 +23,14 @@ class Event_ops extends CI_Model
         // User invites
         foreach ($user_id_list as $user_id)
         {
-            $query_string = "INSERT INTO event_relationships VALUES (DEFAULT, ?, DEFAULT, ?)";
+            $query_string = "INSERT INTO event_invitees VALUES (DEFAULT, ?, ?)";
             $query = $this->db->query($query_string, array($event_id, $user_id));
         }
 
         // Group invites
         foreach ($group_id_list as $group_id)
         {
-            $query_string = "INSERT INTO event_relationships VALUES (DEFAULT, ?, ?, DEFAULT)";
+            $query_string = "INSERT INTO event_invitees VALUES (DEFAULT, ?, ?, DEFAULT)";
             $query = $this->db->query($query_string, array($event_id, $group_id));
         }
     }
