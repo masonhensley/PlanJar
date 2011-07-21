@@ -76,17 +76,7 @@ function mapThisGoogle(latitude,longitude)
         
     map = new google.maps.Map(document.getElementById("map"), myOptions);
 }
-/* this function was moved to data_box_functions.js
-// populates the popular location main panel
-function load_visible_plans(){
-    $.get('/home/load_popular_locations', {
-        'selected_groups': get_selected_groups(),
-        'selected_day': get_selected_day()
-    }, function (data) {
-        $('.top_left_plans').html(data); 
-    });
-}
-*/
+
 // Returns a list of selected groups.
 function get_selected_groups() {
     var return_list = ([]);
