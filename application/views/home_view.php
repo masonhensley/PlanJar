@@ -41,8 +41,11 @@
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
                 <div class="top_links">
                      <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
-                    <a href="/dashboard/" id="dashboard link">dashboard &middot;</a>
-                    <a href="/dashboard/profile" id="profile_link">profile &middot;</a>
+                    <!--<a href="/dashboard/" id="dashboard link">dashboard &middot;</a>-->
+                    <a href="/dashboard/profile" id="profile_link">Profile &middot;</a>
+                    <a href="/dashboard/followers" id="profile_link">Followers &middot;</a>
+                    <a href="/dashboard/groups" id="profile_link">Groups &middot;</a>
+                    <a href="/dashboard/profile" id="profile_link">Following &middot;</a>
                     <a href="/home/logout" >Log out</a>
                 </div>
             </div>
