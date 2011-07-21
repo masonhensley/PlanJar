@@ -387,12 +387,13 @@ a{
 
 .top_right_link{
     height:100%;
+    display:inline-block;
 }
 
 #show_name{
     display:inline-block;
     color:white;
-    margin-right:325px;
+    margin-right:360px;
     margin-top:12px;
 }
 
