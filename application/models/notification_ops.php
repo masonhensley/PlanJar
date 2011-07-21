@@ -139,7 +139,7 @@ class Notification_ops extends CI_Model
             </div>
 
             <?php
-            if (!$row->accepted)
+            if (!$accepted)
             {
                 echo('<div class="accept">Accept</div>');
             }

@@ -1,5 +1,5 @@
 <div id="create_plan_content">
-    <div class="draggable_title_bar" style="width: 50%; float: left;">
+    <div class="draggable_title_bar" style="width: 90%; float: left;">
         Start a plan
         
     </div>
