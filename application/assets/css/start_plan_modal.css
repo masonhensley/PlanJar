@@ -25,9 +25,10 @@
 
 #plan_left, #plan_right {
     height: 250px;
+    line-height: 250px;
     width: 4%;
     float: left;
-    vertical-align: middle;
+    background-color: lightgrey;
 }
 
 #plan_page_wrapper {

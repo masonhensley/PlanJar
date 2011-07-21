@@ -4,18 +4,18 @@
         <input  type="button" id="cancel_plan"  style="float:right;" value="X"/>
     </div>
 
-    <div id="plan_left"><</div>
+    <div id="plan_left"></div>
 
     <div id="plan_page_wrapper">
         <form id="plan_form">
-            <div class="plan_page_content">
+            <div class="plan_page_content" page_index="0">
                 <div class="in-field_block">
                     <label for="plan_location">Where are you going?</label>
                     <input type="text" id="plan_location" name="plan_location" class="textbox"/>
                 </div>
             </div>
 
-            <div class="plan_page_content" style="display: none;">
+            <div class="plan_page_content" page_index="1" style="display: none;">
                 When are you going?
 
                 <div id="plan_day">
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="plan_page_content" style="display: none;">
+            <div class="plan_page_content" page_index="2" style="display: none;">
                 Here's what's happening.
 
                 <div id="privacy_wrapper">
@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div class="plan_page_content" style="display: none;">
+            <div class="plan_page_content" page_index="3" style="display: none;">
                 <div id="plan_invite_wrapper">
                     <div id="invite_plan_left">
                         Invite people
@@ -79,5 +79,5 @@
         </form>
     </div>
 
-    <div id="plan_right">></div>
+    <div id="plan_right"></div>
 </div>

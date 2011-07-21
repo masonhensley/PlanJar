@@ -14,8 +14,36 @@ function initialize_plan_modal() {
     });
     
     // Left scroll
+    $('#plan_left').click(function () {
+        prev_plan_panel();
+    });
     
+    // Right scroll
+    $('#plan_right').click(function() {
+        next_plan_panel();
+    });
+}
+
+// Scrolls to the previous plan panel
+function prev_pan_panel() {
+    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
+    if (current_index > 0) {
+        $('.plan_page_content:visible').hide('fast', 'slide', function () {
+            $('.plan_page_content[page_index="' + (current_index - 1) + '"]').show('fast');
+        });
+    }
+}
+
+// Scrolls to the next plan panel
+function next_plan_panel() {
+    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
+    
+    if (current_index > 0) {
+        $('.plan_page_content:visible').hide('fast', 'slide', function () {
+            $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('fast');
+        });
+    }
 }
 
 
