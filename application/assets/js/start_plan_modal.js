@@ -42,7 +42,7 @@ function prev_plan_panel() {
 
 // Scrolls to the next plan panel
 function next_plan_panel() {
-    var current_index = $('.plan_page_content:visible').attr('page_index');
+    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
     console.log(current_index);
     console.log(current_index + 1);
