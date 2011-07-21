@@ -2,55 +2,71 @@ $(function() {
     initialize_plan_modal();
 });
 
-// Sets up the modal.
 function initialize_plan_modal() {
-    // Click event
+    // Opening click handler
     $('#create_plan').click(function () {
-        // Autoselects the day
-        $('#plan_day [plan_day=' + get_selected_day() + ']').click();
-        
-        // Autoselects the time of day
-        var date = new Date();
-        var hours = date.getHours();
-        if (hours < 5) {
-            $('#plan_time [plan_time="late_night"]').click();
-        } else if (hours < 11) {
-            $('#plan_time [plan_time="morning"]').click();
-        } else if (hours < 18) {
-            $('#plan_time [plan_time="afternoon"]').click();
+        // Add the city name to the handle text.
+        if (myCity != undefined) {
+            $('#create_plan_content .draggable_title_bar .text').html('Start a plan in ' + myCity);
         } else {
-            $('#plan_time [plan_time="night"]').click();
+            $('#create_plan_content .draggable_title_bar .text').html('Start a plan');
         }
-        
-        $('#create_plan_content input[type="text"], #create_plan_content input[type="hidden"]').val('');
-        $('#plan_location, #plan_title').blur();
-        
+
         $('#create_plan_content').show('fast');
-        $('#plan_location').focus();
     });
     
+    // Closing click handler
     $('#cancel_plan').click(function () {
         $('#create_plan_content').hide();
     });
-    
-    // Add the city name to the handle text.
-    $('#create_plan_content .draggable_title_bar').html('Start a plan');
-    if (myCity != undefined) {
-        $('#create_plan_content .draggable_title_bar').html('Start a plan in ' + myCity);
-    }
     
     // Make it draggable (with a handle).
     $('#create_plan_content').draggable({
         handle: '.draggable_title_bar'
     });
     
-    // Divset
-    $('#plan_time').divSet();
-    $('#plan_day').divSet();
-
-    // Initialize the in-field labels.
+    // Left scroll
+    $('#plan_left').click(function () {
+        prev_plan_panel();
+    });
+    
+    // Right scroll
+    $('#plan_right').click(function() {
+        // Check the current page before continuing on
+        var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
+        switch(current_index) {
+            case 0:
+                if ($('#plan_location_id').val() != '') {
+                    next_plan_panel();
+                }
+                break;
+            case 1:
+                if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
+                    // Populate the header for the next page
+                    var time = $('#plan_time .divset_selected').html().toLowerCase();
+                    $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name').val() +
+                        ' on ' + $('#plan_day .divset_selected').html() + ' ' + time);
+                    
+                    // Populate the event select for the next page
+                    $.get('/home/get_events_for_plan', {
+                        day: $('#plan_day .divset_selected').attr('plan_day'),
+                        time: $('#plan_time .divset_selected').attr('plan_time')
+                    }, function (data) {
+                        $('#event_select').html(data);
+                        
+                        next_plan_panel();
+                    });
+                }
+                break;
+            case 2:
+                next_plan_panel();
+                break;
+        }
+    });
+    
+    // In-field label
     $('#create_plan_content .in-field_block label').inFieldLabels();
-        
+    
     // Initialize the plan location autocomplete instance.
     var item_selected;
     $('#plan_location').autocomplete({
@@ -194,63 +210,20 @@ function initialize_plan_modal() {
                 $('#new_place_longitude').val(ui.item.longitude);
                 $('#new_place_factual_id').val(ui.item.factual_id);
             }
+            
+            next_plan_panel();
         }
     });
     
-    // Initialize the Validator plugin for the plan location.
-    $('#start_plan').validate({
-        rules: {
-            plan_location_id: 'required',
-            plan_time_group: 'required',
-            plan_day_group: 'required'
-        },
-        submitHandler: function (form) {
-            var data_string = $(form).serialize();
-            var other_data = {
-                'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-                'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
-                'privacy': $('#privacy_wrapper .divset_selected').attr('priv_val')
-            }
-        
-            $.get('/home/submit_plan?' + data_string, other_data, function (data) {
-                if (data == 'success') {
-                    $('#create_plan_content').hide();
-                    // Refresh th eplan list.
-                    populate_plan_panel();
-                } else {
-                    alert(data);
-                }
-            });
-        },
-        errorPlacement: function (error, element) {
-            // Don't show errors.
-            return true;
-        }
-    });
+    // Divsets
+    $('#plan_time, #plan_day, #privacy_wrapper').divSet();
     
-    // Force the plan location and category fields to be chosen from the autocomplete.
-    $('#plan_location').blur(function() {
-        // Get the id stored in the hidden field.
-        var id = $('#plan_location_id').val();
+    // Initial select
+    $('#privacy_wrapper div').first().click();
     
-        if (id == '') {
-            // If id is empty, clear the location box.
-            $('#plan_location').val('');
-        
-        } else {
-            // A location was previously selected, so repopulate the location box with that
-            // name (saved locally) This should make it clear to the user that
-            // only a chosen item can be submitted.
-            $('#plan_location').val($('#plan_location_name').val());
-        }
-    });
-    
-    // Invite click handlers
-    $('#invite_to_plan').click(function () {
-        $('#invite_plan_content').show('fast');
-    });
-    $('#close_invite_plan_content').click(function () {
-        $('#invite_plan_content').hide('fast');
+    // Try to advance the plan panel when a time or a day is selected
+    $('#plan_day, #plan_time').click(function () {
+        $('#plan_right').click();
     });
     
     // TokenInput
@@ -265,13 +238,34 @@ function initialize_plan_modal() {
         preventDuplicates: true,
         queryParam: 'needle'
     });
+}
+
+// Scrolls to the previous plan panel
+function prev_plan_panel() {
+    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
-    // divset
-    $('#privacy_wrapper').divSet();
+    if (current_index > 0) {
+        $('.plan_page_content:visible').hide('slide', {
+            direction: 'right'
+        }, 'fast', function () {
+            $('.plan_page_content[page_index="' + (current_index - 1) + '"]').show('slide', {
+                }, 'fast');
+        });
+    }
+}
+
+// Scrolls to the next plan panel
+function next_plan_panel() {
+    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
-    // Initial privacy select
-    $('#privacy_wrapper :first').click();
-    
+    if (current_index < 3) {
+        $('.plan_page_content:visible').hide('slide', {
+            }, 'fast', function () {
+                $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('slide', {
+                    direction: 'right'
+                }, 'fast');
+            });
+    }
 }
 
 function get_distance_between(lat0, long0, lat1, long1) {
@@ -279,3 +273,34 @@ function get_distance_between(lat0, long0, lat1, long1) {
         + Math.cos(lat0 * Math.PI / 180) * Math.cos(lat1 * Math.PI / 180) * Math.cos((long0 - long1)
             * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
 }
+
+//    // Initialize the Validator plugin for the plan location.
+//    $('#start_plan').validate({
+//        rules: {
+//            plan_location_id: 'required',
+//            plan_time_group: 'required',
+//            plan_day_group: 'required'
+//        },
+//        submitHandler: function (form) {
+//            var data_string = $(form).serialize();
+//            var other_data = {
+//                'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
+//                'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
+//                'privacy': $('#privacy_wrapper .divset_selected').attr('priv_val')
+//            }
+//        
+//            $.get('/home/submit_plan?' + data_string, other_data, function (data) {
+//                if (data == 'success') {
+//                    $('#create_plan_content').hide();
+//                    // Refresh th eplan list.
+//                    populate_plan_panel();
+//                } else {
+//                    alert(data);
+//                }
+//            });
+//        },
+//        errorPlacement: function (error, element) {
+//            // Don't show errors.
+//            return true;
+//        }
+//    });
