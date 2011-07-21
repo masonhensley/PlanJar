@@ -49,6 +49,7 @@ function initialize_plan_modal() {
                 // Both time and day must be selected
                 if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
                     initialize_event_select_page();
+                    next_plan_panel();
                 }
                 break;
                 
@@ -124,11 +125,11 @@ function initialize_event_select_page() {
     $('#plan_events_title').html("Here's what's happening at " + $('#plan_location_name').val() +
         ' on ' + $('#plan_day .divset_selected').html() + ' ' + time);
                     
-    // Populate the event select for the next page
+    // Populate the event select
     $.get('/home/get_events_for_plan', {
         day: $('#plan_day .divset_selected').attr('plan_day'),
         time: $('#plan_time .divset_selected').attr('plan_time'),
-        place_id: $('#plan_location_id')
+        place_id: $('#plan_location_id').val()
     }, function (data) {
         $('#plan_event_select_wrapper').html(data);
                         
@@ -147,8 +148,6 @@ function initialize_event_select_page() {
                 next_plan_panel();
             }
         });
-        
-        next_plan_panel();
     });
 }
 
