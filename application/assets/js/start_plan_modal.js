@@ -31,15 +31,18 @@ function initialize_plan_modal() {
     });
     
     // Right scroll
+    // This function essentially acts as a step-by-step validator.
     $('#plan_right').click(function() {
         // Check the current page before continuing on
         var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
         switch(current_index) {
+            // First page
             case 0:
                 if ($('#plan_location_id').val() != '') {
                     next_plan_panel();
                 }
                 break;
+            // Second page
             case 1:
                 if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
                     // Populate the header for the next page
@@ -54,10 +57,23 @@ function initialize_plan_modal() {
                     }, function (data) {
                         $('#event_select').html(data);
                         
+                        // Handle the select change event
+                        $('#plan_event_select').change(function () {
+                            if ($(this).val() == 'new') {
+                                // Show the event title input
+                                $('#event_title_wrapper').show();
+                            } else {
+                                // Clear the input and hide it
+                                $('#event_title').val('');
+                                $('#event_title_wrapper').hide();
+                            }
+                        });
+                        
                         next_plan_panel();
                     });
                 }
                 break;
+            // Third page
             case 2:
                 next_plan_panel();
                 break;
@@ -68,6 +84,69 @@ function initialize_plan_modal() {
     $('#create_plan_content .in-field_block label').inFieldLabels();
     
     // Initialize the plan location autocomplete instance.
+    initialize_plan_autocomplete();
+    
+    // Divsets
+    $('#plan_time, #plan_day, #plan_privacy_wrapper').divSet();
+    
+    // Initial select
+    $('#plan_privacy_wrapper div').first().click();
+    
+    // Try to advance the plan panel when a time or a day is selected
+    $('#plan_day, #plan_time').click(function () {
+        $('#plan_right').click();
+    });
+    
+    // TokenInput
+    $('#invite_plan_user').tokenInput('/home/get_followers_invite', {
+        hintText: 'Search followers...',
+        preventDuplicates: true,
+        queryParam: 'needle'
+    });
+    
+    $('#invite_plan_group').tokenInput('/home/get_groups_invite', {
+        hintText: 'Search joined groups...',
+        preventDuplicates: true,
+        queryParam: 'needle'
+    });
+}
+
+// Scrolls to the previous plan panel
+function prev_plan_panel() {
+    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
+    
+    if (current_index > 0) {
+        $('.plan_page_content:visible').hide('slide', {
+            direction: 'right'
+        }, 'fast', function () {
+            $('.plan_page_content[page_index="' + (current_index - 1) + '"]').show('slide', {
+                }, 'fast');
+        });
+    }
+}
+
+// Scrolls to the next plan panel
+function next_plan_panel() {
+    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
+    
+    if (current_index < 3) {
+        $('.plan_page_content:visible').hide('slide', {
+            }, 'fast', function () {
+                $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('slide', {
+                    direction: 'right'
+                }, 'fast');
+            });
+    }
+}
+
+function get_distance_between(lat0, long0, lat1, long1) {
+    return ((Math.acos(Math.sin(lat0 * Math.PI / 180) * Math.sin(lat1 * Math.PI / 180) 
+        + Math.cos(lat0 * Math.PI / 180) * Math.cos(lat1 * Math.PI / 180) * Math.cos((long0 - long1)
+            * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
+}
+
+// Encapsulates the autocomplete setup
+function initialize_plan_autocomplete() {
     var item_selected;
     $('#plan_location').autocomplete({
         minLength: 2,
@@ -214,64 +293,6 @@ function initialize_plan_modal() {
             next_plan_panel();
         }
     });
-    
-    // Divsets
-    $('#plan_time, #plan_day, #privacy_wrapper').divSet();
-    
-    // Initial select
-    $('#privacy_wrapper div').first().click();
-    
-    // Try to advance the plan panel when a time or a day is selected
-    $('#plan_day, #plan_time').click(function () {
-        $('#plan_right').click();
-    });
-    
-    // TokenInput
-    $('#invite_plan_user').tokenInput('/home/get_followers_invite', {
-        hintText: 'Search followers...',
-        preventDuplicates: true,
-        queryParam: 'needle'
-    });
-    
-    $('#invite_plan_group').tokenInput('/home/get_groups_invite', {
-        hintText: 'Search joined groups...',
-        preventDuplicates: true,
-        queryParam: 'needle'
-    });
-}
-
-// Scrolls to the previous plan panel
-function prev_plan_panel() {
-    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
-    
-    if (current_index > 0) {
-        $('.plan_page_content:visible').hide('slide', {
-            direction: 'right'
-        }, 'fast', function () {
-            $('.plan_page_content[page_index="' + (current_index - 1) + '"]').show('slide', {
-                }, 'fast');
-        });
-    }
-}
-
-// Scrolls to the next plan panel
-function next_plan_panel() {
-    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
-    
-    if (current_index < 3) {
-        $('.plan_page_content:visible').hide('slide', {
-            }, 'fast', function () {
-                $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('slide', {
-                    direction: 'right'
-                }, 'fast');
-            });
-    }
-}
-
-function get_distance_between(lat0, long0, lat1, long1) {
-    return ((Math.acos(Math.sin(lat0 * Math.PI / 180) * Math.sin(lat1 * Math.PI / 180) 
-        + Math.cos(lat0 * Math.PI / 180) * Math.cos(lat1 * Math.PI / 180) * Math.cos((long0 - long1)
-            * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
 }
 
 //    // Initialize the Validator plugin for the plan location.
