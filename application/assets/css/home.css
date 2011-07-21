@@ -385,7 +385,7 @@ a{
     height:100%;
 }
 
-.top_right_link{
+.top_right_link:hover{
     height:100%;
     display:inline-block;
 }
