@@ -5,7 +5,7 @@ $(function() {
 function initialize_plan_modal() {
     // Opening click handler
     $('#create_plan').click(function () {
-        
+        $('#create_plan_content').show('fast');
     });
 }
 
