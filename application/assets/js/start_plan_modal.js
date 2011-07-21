@@ -35,7 +35,9 @@ function prev_plan_panel() {
     
     if (current_index > 0) {
         $('.plan_page_content:visible').hide('slide', {}, 'fast', function () {
-            $('.plan_page_content[page_index="' + (current_index - 1) + '"]').show('slide', {}, 'fast');
+            $('.plan_page_content[page_index="' + (current_index - 1) + '"]').show('slide', {
+                direction: 'right'
+            }, 'fast');
         });
     }
 }
@@ -45,7 +47,9 @@ function next_plan_panel() {
     var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
     if (current_index < 3) {
-        $('.plan_page_content:visible').hide('slide', {}, 'fast', function () {
+        $('.plan_page_content:visible').hide('slide', {
+            direction: 'right'
+        }, 'fast', function () {
             $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('slide', {}, 'fast');
         });
     }
