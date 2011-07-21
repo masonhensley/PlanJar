@@ -373,6 +373,7 @@ a{
 }
 
 #show_name{
-    position:relative;
-    top:10px;
+    display:inline-block;
+    color:white;
+    margin-right:500px;
 }
