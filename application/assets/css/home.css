@@ -373,7 +373,8 @@ a{
 .location_container{
     position:absolute;
     top:-42px;
-    left:4px;
+    left:28px;
+    font-size:12px;
     text-align:center;
     color:darkgray;
 }
