@@ -382,3 +382,8 @@ a{
 .location_container a{
     color:darkgray;
 }
+
+#show_name{
+    position:relative;
+    top:10px;
+}
