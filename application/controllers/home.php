@@ -281,15 +281,16 @@ class Home extends CI_Controller
 
         if (count($group_list) == 0)
         {
-            $this->load->model('load_default_home_info');
-            $this->load_default_home_info->setup_default_view($day);
-        } else if (count($group_list) > 0)
+            $this->load->model('display_default_home_info');
+            $this->display_default_home_info->setup_default_view($day);
+        }else if(count($group_list) > 0)
         {
-            $this->load->model('load_location_data');
-            $this->load_location_data->display_location_info();
+            $this->load->model('display_group_info');
+            $this->display_group_info->_display_group_info($day);
         }
     }
-
+    
+    // this function is called when a location tab is clicked to display its information
     public function show_location_data()
     {
         $this->load->model('load_location_data');
