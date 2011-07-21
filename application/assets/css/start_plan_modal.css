@@ -22,6 +22,12 @@
     padding-top:3px;
 }
 
+#create_plan_content .draggable_title_bar .text {
+    float: left;
+    height: 100%;
+    width: auto;
+}
+
 #plan_left, #plan_right {
     height: 250px;
     line-height: 250px;

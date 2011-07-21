@@ -7,9 +7,9 @@ function initialize_plan_modal() {
     $('#create_plan').click(function () {
         // Add the city name to the handle text.
         if (myCity != undefined) {
-            $('#create_plan_content .draggable_title_bar').html('Start a plan in ' + myCity);
+            $('#create_plan_content .draggable_title_bar .text').html('Start a plan in ' + myCity);
         } else {
-            $('#create_plan_content .draggable_title_bar').html('Start a plan');
+            $('#create_plan_content .draggable_title_bar .text').html('Start a plan');
         }
 
         $('#create_plan_content').show('fast');
