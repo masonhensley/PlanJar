@@ -7,6 +7,15 @@ function initialize_plan_modal() {
     $('#create_plan').click(function () {
         $('#create_plan_content').show('fast');
     });
+    
+    // Make it draggable (with a handle).
+    $('#create_plan_content').draggable({
+        handle: '.draggable_title_bar'
+    });
+    
+    // Left scroll
+    
+    
 }
 
 
