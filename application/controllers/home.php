@@ -150,12 +150,52 @@ class Home extends CI_Controller
     // Adds a plan entry to the database, creates an event if necessary, and invites and notifies users if required.
     public function submit_plan()
     {
+        // Event data
+        $event_data = array(
+            'place_id' => $this->input->get('plan_location_id'),
+            'user_id' => $user->id,
+            'date' => $date->format('Y-m-d'),
+            'time_of_day' => $this->input->get('plan_time'),
+            'title' => $this->input->get('plan_title'),
+            'event_id' => $this->input->get('event_id')
+        );
+
+        // Add the place to the database if a Factual place was selected.
+        if ($this->input->get('new_place_name') != '')
+        {
+            // If the Factual ID was already in the database, use the ID of that entry instead of creating a new place.
+            $query_string = "SELECT id FROM places WHERE factual_id = ?";
+            $query = $this->db->query($query_string, array($this->input->get('new_place_factual_id')));
+            if ($query->num_rows() > 0)
+            {
+                $row = $query->row();
+                $data['place_id'] = $row->id;
+            } else
+            {
+                // Add the new place.
+                $query_string = "INSERT INTO places VALUES (DEFAULT, ?, ?, ?, ?, ?)";
+                $query = $this->db->query($query_string, array(
+                            $this->input->get('new_place_factual_id'),
+                            $this->input->get('new_place_name'),
+                            $this->input->get('new_place_latitude'),
+                            $this->input->get('new_place_longitude'),
+                            $this->input->get('new_place_category')
+                        ));
+
+                // Overwrite the place id with the new place.
+                $data['place_id'] = $this->db->insert_id();
+            }
+        }
+
+
+
+
         $user = $this->ion_auth->get_user();
+
         $date = new DateTime();
         $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
 
         $data = array(
-            'id' => 'DEFAULT',
             'place_id' => $this->input->get('plan_location_id'),
             'user_id' => $user->id,
             'date' => $date->format('Y-m-d'),
@@ -283,13 +323,13 @@ class Home extends CI_Controller
         {
             $this->load->model('display_default_home_info');
             $this->display_default_home_info->setup_default_view($day);
-        }else if(count($group_list) > 0)
+        } else if (count($group_list) > 0)
         {
             $this->load->model('display_group_info');
             $this->display_group_info->_display_group_info($day);
         }
     }
-    
+
     // this function is called when a location tab is clicked to display its information
     public function show_location_data()
     {
