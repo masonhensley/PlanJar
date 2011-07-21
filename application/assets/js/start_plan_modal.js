@@ -30,6 +30,152 @@ function initialize_plan_modal() {
     
     // In-field label
     $('#create_plan_content .in-field_block label').inFieldLabels();
+    
+    // Initialize the plan location autocomplete instance.
+    var item_selected;
+    $('#plan_location').autocomplete({
+        minLength: 2,
+        source: function (request, response) {
+            // Get places from the PlanJar server.
+            $.get('/home/find_places', {
+                needle: request.term,
+                latitude: myLatitude,
+                longitude: myLongitude
+            }, function (data) {
+                // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
+                item_selected = false;
+                
+                // Parse the JSON text.
+                data = $.parseJSON(data);
+                    
+                var place_count = data.count;
+                var place_limit = 10 - place_count;
+                    
+                // We're done with count, so overwrite data with data.data (Peter Griffin laugh).
+                data = data.data;
+                    
+                // Set response_json as an empty array.
+                var response_json = ([]);
+                    
+                if (place_count > 0) {
+                    // Pick fields needed by the autocomplete from the resulting JSON and add
+                    // them to response_json array.
+                    response_json = $.map(data, function (item) {
+                        return {
+                            label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                            value: item.name,
+                            id: item.id
+                        };
+                    });
+                }
+                
+                // Call the response function with the a copy of the response JSON.
+                var temp = response_json.slice(0);
+                temp.push({
+                    label: 'Expanding search results...', 
+                    value: '',
+                    id: ''
+                });
+                response(temp);
+                    
+                if (place_limit > 0) {
+                    // If additional places are required, fetch places from Factual. Pick fields needed
+                    // by the autocomplete from the resulting JSON and add them to response_json array.
+                    var my_filters = {
+                        "$search": request.term,
+                        "$loc":{
+                            "$within":{
+                                "$center":[[myLatitude, myLongitude], 50000]
+                            }
+                        }
+                    };
+
+
+                    var options = {
+                        api_key: 'SIKk9ulwxwodsqkZwpxfmbJr7EtuVHjwNyx2JO8pzGMCNBtsJPW3GcWZTJUhJ7ee',
+                        limit: place_limit,
+                        filters: JSON.stringify(my_filters)
+                    };
+
+                    $.ajax({
+                        url: 'http://api.factual.com/v2/tables/s4OOB4/read',
+                        data: options,
+                        dataType: 'jsonp',
+                        success : function(data) {
+                            if (data.status != 'ok') {
+                                alert('factual error');
+                            } else {
+                                data = data.response;
+                                if (data.rows > 0) {
+                                    data = data.data;
+                                    $.map(data, function (item) {
+                                        var category = item[12];
+                                        if (category== null) {
+                                            category = '';
+                                        }
+                                        
+                                        // Vars necessary for the autocomplete entry
+                                        var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
+                                        var last_index = category.lastIndexOf('>');
+                                        var category_name = category;
+                                        if (last_index != -1) {
+                                            category_name =  category.substr(last_index + 1);
+                                        }
+                                        
+                                        response_json.push({
+                                            label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
+                                            value: item[2],
+                                            id: 'factual',
+                                            name: item[2],
+                                            latitude: item[15],
+                                            longitude: item[16],
+                                            'category': category,
+                                            factual_id: item[1]
+                                        });
+                                    }); 
+                                } else {
+                                    response_json.push({
+                                        label: "You've stumped us. Create a new place.", 
+                                        value: '', 
+                                        id: ''
+                                    });
+                                }
+                                
+                                // Call the response function with the response JSON.
+                                if (!item_selected) {
+                                    response(response_json);
+                                }
+                            }
+                        },
+                        jsonp: 'jsoncallback'
+                    });
+                }
+            });
+        },
+        // When an item is selected, update the location text as well as the hidden fields.
+        select: function (event, ui) {
+            item_selected = true;
+            
+            $('#plan_location').val(ui.item.value);
+            $('#plan_location_id').val(ui.item.id);
+            $('#plan_location_name').val(ui.item.value);
+            
+            // Clear and set the additional hidden fields only if the selected place is from Factual.
+            $('#new_place_name').val('');
+            $('#new_place_category').val('');
+            $('#new_place_latitude').val('');
+            $('#new_place_longitude').val('');
+            $('#new_place_factual_id').val('');
+            
+            if (ui.item.name != undefined) {
+                $('#new_place_name').val(ui.item.name);
+                $('#new_place_category').val(ui.item.category);
+                $('#new_place_latitude').val(ui.item.latitude);
+                $('#new_place_longitude').val(ui.item.longitude);
+                $('#new_place_factual_id').val(ui.item.factual_id);
+            }
+        }
+    });
 }
 
 // Scrolls to the previous plan panel
