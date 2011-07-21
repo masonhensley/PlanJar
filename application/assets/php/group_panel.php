@@ -3,7 +3,7 @@
 <div class="groups_wrapper">
 
     <div class="city_tab city_active">
-        Use Current Location
+        Use Current City
     </div>
     
     <?php
