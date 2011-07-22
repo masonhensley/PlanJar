@@ -51,17 +51,17 @@
                 <div id="event_title_wrapper" class="in-field_block">
                     <label for="event_title">Title</label>
                     <input type="text" id="event_title" name="event_title" class="textbox"/>
+
+                    <div id="plan_privacy_wrapper">
+                        Privacy options
+                        <div priv_val="open">None</div>
+                        <div priv_val="strict">Fixed invitation list</div>
+                        <div priv_val="loose">Invitees can invite others</div>
+                    </div>
                 </div>
             </div>
 
             <div class="plan_page_content" page_index="3" style="display: none;">
-                <div id="plan_privacy_wrapper">
-                    Privacy options
-                    <div priv_val="open">None</div>
-                    <div priv_val="strict">Fixed invitation list</div>
-                    <div priv_val="loose">Invitees can invite others</div>
-                </div>
-
                 <div id="plan_invite_wrapper">
                     <div id="invite_plan_left">
                         Invite people
@@ -84,6 +84,7 @@
             <input id="new_place_latitude" name="new_place_latitude" type="hidden"/>
             <input id="new_place_longitude" name="new_place_longitude" type="hidden"/>
             <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
+            <input id="plan_event_id" name="event_id" type="hidden" />
         </form>
     </div>
 
