@@ -94,12 +94,14 @@ class Plan_actions extends CI_Model
         // Insert the new plan.
         $query = $this->db->insert('plans', $row);
     }
-    
+
     // Accepts an associative array containing plan data
     // Returns the plan id
-    function add_plan($data) {
-        $query = $this->db->insert('plans', $data);
-        
+    function add_plan($data)
+    {
+        $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
+        $query = $this->db->query($query_tring, $data);
+
         return $this->db->insert_id();
     }
 
