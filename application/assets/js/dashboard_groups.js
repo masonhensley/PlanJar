@@ -112,7 +112,10 @@ function group_click_handler(button_class, dashboard_function) {
                 group_id: $('.profile_bottom_bar').attr('group_id')
             }, function (data) {
                 populate_edit_groups_list();
-                
+                if(dashboard_function == 'remove_group_following' || dashboard_function == 'remove_group_joined')
+                {
+                    $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\" Select a group on the left or right to see its profile </div>");
+                }
                 // Blur out the suggested groups (not always necessary, but easy)
                 $('#find_groups_list').html('');
                 $('#group_search').val('');
