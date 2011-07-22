@@ -89,7 +89,7 @@ class Load_group_profile extends CI_Model
                 if ($group_info['school_group']) // show that if it is a designated school group, or school affiliation
                 {
                     echo "<font style=\"font-weight:bold; font-size:12px;\">This is a designated school group, only open to students from";
-                    echo $group_info['school'] ."</font><br/>";
+                    echo $group_info['school'] ."</font><br/><br/>";
                 } else
                 {
                     if (isset($group_info['school']))
