@@ -100,7 +100,7 @@ class Follow_ops extends CI_Model
                     if ($option == 'suggested')
                     {
                         $number_of_connections = $suggested_friends[$row->user_id];
-                        echo "<font style=\"color:green; font-size:10px; position:absolute;bottom:15px;right:20px;\">+$number_of_connections mutual connections</font>";
+                        echo "<font style=\"color:green; font-size:10px; position:absolute;bottom:15px;right:20px;\">+$number_of_connections connections</font>";
                     } 
                     ?>
                 </div>          
