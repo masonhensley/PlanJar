@@ -88,7 +88,8 @@ class Load_group_profile extends CI_Model
 
                 if ($group_info['school_group'])
                 {
-                    echo "This is a designated school group, only open to" . $group_info['school'] . 'students';
+                    echo "<font style=\"font-weight:bold; font-size:12px;\">This is a designated school group, only open to students from";
+                    echo $group_info['school'] ."</font><br/>";
                 } else
                 {
                     if (isset($group_info['school']))
