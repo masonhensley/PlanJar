@@ -171,7 +171,7 @@ function initialize_event_select_page() {
             //$('#plan_event_select').attr('selectedIndex', '-1');
             
             var select = document.getElementById('plan_event_select');
-            select.options[list.selectedIndex].selected = false;
+            select.options[select.selectedIndex].selected = false;
             console.log('cleared');
             
             // Reset and show the title and privacy settings
