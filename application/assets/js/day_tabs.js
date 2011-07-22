@@ -1,12 +1,6 @@
 $(function () {
-    initialize_day_tabs();
-});
-
-// Initializes the day of the week tabs.
-function initialize_day_tabs() {
-    // Populate the initial days.
     get_new_days(0);
-}
+});
 
 function initialize_day_tab_rules() {
     // Set up the day of the week tabs.

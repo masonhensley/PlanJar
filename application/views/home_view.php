@@ -22,13 +22,14 @@
         <script type="text/javascript" src="/application/assets/js/divset.js"></script>
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
-        <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
+        
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/data_box_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/delete_plan_button.js"></script>
+        <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
