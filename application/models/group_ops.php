@@ -240,16 +240,16 @@ class Group_ops extends CI_Model
 
         if (count($group_list) > 0)
         {
-            $query_string = "SELECT user_joined_id FROM group_relationships WHERE ";
+            $query_string = "SELECT user_joined_id FROM group_relationships WHERE (";
 
             foreach ($group_list as $group)
             {
                 $query_string .= "group_id = $group OR ";
             }
             $query_string = substr($query_string, 0, -4);
+            $query_string .= ") AND user_joined_id <> NULL";
 
             $query = $this->db->query($query_string);
-
 
             foreach ($query->result() as $row)
             {

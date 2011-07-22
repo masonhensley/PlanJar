@@ -208,7 +208,6 @@ class Home extends CI_Controller
         {
             $invited_groups = array();
         }
-        var_dump($invited_users);
         $this->load->model('group_ops');
         $invited_users = array_merge($invited_users, $this->group_ops->get_users($invited_groups));
 
