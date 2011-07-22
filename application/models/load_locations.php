@@ -3,7 +3,7 @@
 class Load_locations extends CI_Model
 {
 
-    function load_locations($group_list, $day, $user_id)
+    function load_relevant_locations($group_list, $day, $user_id)
     {
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();

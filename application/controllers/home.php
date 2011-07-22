@@ -255,7 +255,7 @@ class Home extends CI_Controller
         
         if (isset($group_list[0])) // when a group is selected. populate the location tabs
         {
-            $this->load_locations->load_locations($group_list, $day, $user_id);
+            $this->load_locations->load_relevant_locations($group_list, $day, $user_id);
         }
     }
 
