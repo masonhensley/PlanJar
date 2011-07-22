@@ -219,7 +219,7 @@ a{
     height:100%;
     border-left: 1px solid black;
     background:-webkit-gradient(linear,left top,left bottom,from(#AAA),to(#EEE));
-    vertical-align: middle;
+    line-height: 30px;
 }
 
 .day.day_selected {
