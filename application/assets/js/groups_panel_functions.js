@@ -27,7 +27,7 @@ function initialize_selectable_groups() {
 // Callback function
 function on_groups_change() {
     show_data_container('#group_data');
-    $('.city_tab').removeClass('.city_active'); // unselect the city tab
+    $('.city_tab .city_active').removeClass('.city_active'); // unselect the city tab
     update_groups_and_locations();// this should update the graphs so they match what is selected
 }
 
@@ -35,15 +35,14 @@ function on_groups_change() {
 function set_city_tab()
 {
     $('.city_tab').click(function(){
-        
         if($(this).hasClass('city_active'))
-            {
-                $(this).removeClass('city_active');
-            }else{
-                $('.selected_group').removeClass('selected_group');
-                $('.city_active').removeClass('city_active');
-                 $(this).addClass('city_active');
-            }
+        {
+            $(this).removeClass('city_active');
+        }else{
+            $('.selected_group').removeClass('selected_group');
+            $('.city_active').removeClass('city_active');
+            $(this).addClass('city_active');
+        }
         update_groups_and_locations();
     });
 }
