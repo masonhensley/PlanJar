@@ -75,15 +75,7 @@
             </div>
 
             <div id="following_content" class="page_content" setup_func="following_setup">
-                <?php //include(APPPATH . '/assets/php/dashboard_following.php'); ?>
-                <div class="left">
-                    <div class="left_header">
-                        Your followers
-                    </div>
-                    <div id="followers_list"></div>
-                </div>
-                <div class="right">
-                </div>
+                <?php include(APPPATH . '/assets/php/dashboard_following.php'); ?>
             </div>
 
             <div id="followers_content" class="page_content" setup_func="followers_setup">
