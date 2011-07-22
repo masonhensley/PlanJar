@@ -17,12 +17,6 @@ a{
     color:white; text-decoration: none;
 }
 
-/* This is for the div class = "text", not a global operator */
-.day_text{
-    position:relative;
-    top:5px;
-}
-
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     height: 40px;
@@ -225,6 +219,7 @@ a{
     height:100%;
     border-left: 1px solid black;
     background:-webkit-gradient(linear,left top,left bottom,from(#AAA),to(#EEE));
+    vertical-align: middle;
 }
 
 .day.day_selected {

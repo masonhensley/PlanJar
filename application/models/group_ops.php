@@ -192,7 +192,7 @@ class Group_ops extends CI_Model
             $longitude = $user->longitude;
             $school_id = NULL;
         }
-        $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
+        $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, DEFAULT)";
         $query = $this->db->query($query_string, array($name, $latitude, $longitude, $description, $school_id, $privacy));
 
         return $this->db->insert_id();
