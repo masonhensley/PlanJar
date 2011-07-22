@@ -43,9 +43,9 @@ class Plan_actions extends CI_Model
         foreach ($query_result->result() as $row)
         {
             // populate variables
-            $time_of_day = $row->time_of_day;
+            $time = $row->time;
             // get rid of the "-"
-            $time_of_day = str_replace("_", " ", $time_of_day);
+            $time = str_replace("_", " ", $time);
 
             $date = $row->date;
             $date = date('m/d', strtotime($date));
@@ -56,7 +56,7 @@ class Plan_actions extends CI_Model
         // html to replace the data div
         $htmlString = "
         <div style=\"font-size:20px; width:100%; height:230px; color:darkblue; text-align: center;\">
-        $title at $name | $time_of_day | $date
+        $title at $name | $time | $date
         </div><br/><br/>
         <div class=\"delete_plan_container\"style=\"font-size: 20px; text-align:left;\">
         <div class=\"delete_plan\">Delete Plan</div></div>";
