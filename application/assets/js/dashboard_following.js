@@ -21,25 +21,26 @@ function populate_following_list() {
                     following_id: $(this).parent().attr('user_id')
                 }, function (data) {
                     populate_following_list();
-                    populate_followers_list();
-                    $('.user_entry').click(function(){
-                        alert('success');
-                        if(!$(this).hasClass('selected_follower'))
-                        {
-                            $('.user_entry.selected_follower').removeClass('selected_follower');
-                            $(this).addClass('selected_follower');
-                
-                            $.get('/dashboard/get_profile', {
-                                user_id: $(this).attr('user_id')
-                            }, function () {
-                                $('.following_profile_body').html(data);
-                                $('.following_profile_body').show("slow");
-                            });
-                        }
-                    });
+                    populate_followers_list();           
                 });
             });
         });
+        
+        $('.user_entry').click(function(){
+            if(!$(this).hasClass('selected_follower'))
+            {
+                $('.user_entry.selected_follower').removeClass('selected_follower');
+                $(this).addClass('selected_follower');
+                
+                $.get('/dashboard/get_profile', {
+                    user_id: $(this).attr('user_id')
+                }, function () {
+                    $('.following_profile_body').html(data);
+                    $('.following_profile_body').show("slow");
+                });
+            }
+        });
+
     });
     
 
