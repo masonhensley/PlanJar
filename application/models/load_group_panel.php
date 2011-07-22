@@ -5,26 +5,26 @@
     <div class="city_tab city_active">
         Use Current City
     </div>
-
+    <div class="selectable_group" group_id="friends">Friends</div>
     <?php
     foreach ($joined_groups as $group)
     {
-    ?>
-    <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
-        <?php echo($group['name']); ?>
-    </div>
-    <?php
+        ?>
+        <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
+            <?php echo($group['name']); ?>
+        </div>
+        <?php
     }
     ?>
-    <div class="selectable_group" group_id="friends">Following</div>
+
     <?php
     foreach ($followed_groups as $group)
     {
-    ?>
-    <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
-        <?php echo($group['name']); ?>
-    </div>
-    <?php
+        ?>
+        <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
+            <?php echo($group['name']); ?>
+        </div>
+        <?php
     }
     ?>
 </div>

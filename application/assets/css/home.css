@@ -411,8 +411,8 @@ a{
 }
 
 .top_right_link_outer:hover{
-    background: -webkit-gradient(linear,left top,left bottom,from(lightgray),to(white));
-    color:black;
+    background: -webkit-gradient(linear,left top,left bottom,from(darkGray),to(gray));
+    color:lightgray;
 }
 
 .top_right_link_outer{
