@@ -107,7 +107,11 @@ class Load_group_profile extends CI_Model
             <?php
             $bottom_bar_text = "";
             $bottom_bar_buttons = "";
-            if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
+            if($group_info['school_group'])
+            {
+                $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
+                $bottom_bar_buttons .= "<font style=\"color:gray; font-style:italic;\">cannot leave school group</font>";
+            }else if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
             {
                 $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
                 $bottom_bar_buttons.= "<div class=\"remove_following\">unjoin</div>";
