@@ -42,6 +42,9 @@ function set_city_tab()
             $('.selected_group').removeClass('selected_group');
             $('.city_active').removeClass('city_active');
             $(this).addClass('city_active');
+            
+            // Change to select one group
+            $('#select_one_group').click();
         }
         update_groups_and_locations();
     });
