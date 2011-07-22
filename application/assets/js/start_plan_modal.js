@@ -167,7 +167,12 @@ function initialize_event_select_page() {
         // New event click handler
         $('#create_event').click(function () {
             // Clear the select
-            $('#plan_event_select').attr('selectedIndex', '-1');
+            
+            //$('#plan_event_select').attr('selectedIndex', '-1');
+            
+            var select = document.getElemenyById('plan_event_select');
+            select.options[list.selectedIndex].selected = false;
+            console.log('cleared');
             
             // Reset and show the title and privacy settings
             $('#plan_event_id').val('');
