@@ -34,7 +34,7 @@ function populate_following_list() {
                 
                 $.get('/dashboard/get_profile', {
                     user_id: $(this).attr('user_id')
-                }, function () {
+                }, function (data) {
                     $('.following_profile_body').html(data);
                     $('.following_profile_body').show("slow");
                 });
