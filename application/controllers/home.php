@@ -333,7 +333,7 @@ class Home extends CI_Controller
     public function get_weekday_tab_set()
     {
         $this->load->model('day_sets');
-        $this->day_sets->home_set($this->input->get('starting_offset'));
+        echo($this->day_sets->home_set($this->input->get('starting_offset')));
     }
 
     // Returns a list of people following the user (used for inviting people in a plan)

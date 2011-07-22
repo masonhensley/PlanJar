@@ -19,8 +19,6 @@ class Day_sets extends CI_Model
             {
                 $display_date = $date->format('D - j');
             }
-            
-            var_dump($display_date);
 
             $return_string .= '<div class="day" day_offset="' . ($offset + $i) . '">' . $display_date . '</div>';
 
