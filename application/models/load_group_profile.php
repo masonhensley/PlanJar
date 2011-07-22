@@ -84,11 +84,12 @@ class Load_group_profile extends CI_Model
                 <?php
                 echo "<font style=\"color:gray;\">";
                 echo "Members: " . $group_info['number_joined'] . "&nbsp;&nbsp;&nbsp;&nbsp;Followers: " . $group_info['number_following'];
-                echo "</font><br/><hr/><br/>";
+                echo "</font><br/><hr/>";
 
-                if ($group_info['school_group'])
+                if ($group_info['school_group']) // show that if it is a designated school group, or school affiliation
                 {
-                    echo "This is a designated school group, only open to" . $group_info['school'] . 'students';
+                    echo "<font style=\"font-weight:bold; font-size:12px;\">This is a designated school group, only open to students from";
+                    echo $group_info['school'] ."</font><br/><br/>";
                 } else
                 {
                     if (isset($group_info['school']))
