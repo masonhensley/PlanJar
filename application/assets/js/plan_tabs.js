@@ -21,7 +21,7 @@ function initialize_plan_panel(){
             show_data_container('#plan_data');
         }else{
             $(this).removeClass('selected_plan');
-           // put code in here for when a plan is de-selected
+        // put code in here for when a plan is de-selected
         }
     });   
 }
@@ -33,5 +33,24 @@ function get_plan_data() {
     }, function (data) {
         // Replace the data and show the data tab.
         $('#plan_data').html(data);
+        delete_user_plan();
+    });
+}
+
+// Handles clicking on the delete plan button
+function delete_user_plan() {
+    $('div.delete_plan').click(function() {
+        
+        $('.delete_plan_container').html('<div class=\"delete_plan\">Sure?</div></div>');
+        $('div.delete_plan').unbind('click');
+        $('div.delete_plan').click(function(){
+            $.get('/home/delete_plan', {
+                'plan_selected': $('.selected_plan').attr('plan_id')
+            }, function (data) {
+                // Replace the data and show the data tab.
+                $('#plan_data').html(data);
+                populate_plan_panel();
+            }); 
+        });
     });
 }
