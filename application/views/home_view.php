@@ -88,7 +88,7 @@
 
                     <div class="seven_days"></div>
                 </div>
-                <div class="top_left_plans">Popular Locations</div>
+                <div class="top_left_plans">This will populate with popular events based on the group(s) selected to the left</div>
                 <div class="ad_box">
                     <!-- <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/> -->
                 </div>
