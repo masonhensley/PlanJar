@@ -80,9 +80,15 @@ function mapThisGoogle(latitude,longitude)
 // Returns a list of selected groups.
 function get_selected_groups() {
     var return_list = ([]);
-    $('.selectable_group.selected_group').each(function (index, element) {
-        return_list.push($(element).attr('group_id'));
-    });
+    if($('.city_tab').hasClass('city_active'))
+    {
+        $('.selectable_group.selected_group').each(function (index, element) {
+            return_list.push($(element).attr('group_id'));
+        });
+    }else{
+            return_list.push($('.city_active').attr('group_id'));
+    }
+    
     return return_list;
 }
 

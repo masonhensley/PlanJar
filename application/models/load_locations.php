@@ -12,7 +12,9 @@ class Load_locations extends CI_Model
         $index = 0;  // index used to access $group_list
         $id_array = array(); // an array of all the user ids that will be included in the pull
 
-        if (!isset($group_list[0])) //  group_list is a list of group ids selected
+        var_dump($group_list);
+        /*
+        if (!$group_list) //  group_list is a list of group ids selected
         {
             $this->on_none_selected();
         } else if ($group_list[0] == 'friends')
@@ -22,6 +24,8 @@ class Load_locations extends CI_Model
         {
             $this->on_current_location_selected();
         }
+         * 
+         */
     }
 
     function on_none_selected()
