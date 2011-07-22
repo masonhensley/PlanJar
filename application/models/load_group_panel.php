@@ -6,6 +6,7 @@
         Current Location
     </div>
     <div class="city_tab" group_id="friends">Friends</div>
+    <hr/>
     <div id="group_select_type">
         <div id="select_one_group">Select one</div>
         <div id="select_mult_groups">Select multiple</div>
