@@ -258,15 +258,13 @@ class Home extends CI_Controller
     {
         $selected_groups = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
-        var_dump("selected groups",$selected_groups);
-        if (!$selected_groups)
-        {
-            $this->load->model('display_default_home_info');
-            $this->display_default_home_info->setup_default_view($day);
-        } else if (count($selected_groups) > 0)
+        if (count($selected_groups) > 0)
         {
             $this->load->model('display_group_info');
             $this->display_group_info->_display_group_info($selected_groups, $day);
+        }else{
+            $this->load->model('display_default_home_info');
+            $this->display_default_home_info->setup_default_view($day);
         }
     }
 
