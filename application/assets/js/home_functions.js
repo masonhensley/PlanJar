@@ -89,7 +89,7 @@ function get_selected_groups() {
     {
             return_list.push($('.city_active').attr('group_id'));
     }else{
-        return_list.push('nothing_selected');
+        return_list[0] ="nothing_selected";
     }
     return return_list;
 }

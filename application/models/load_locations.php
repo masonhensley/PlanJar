@@ -8,8 +8,7 @@ class Load_locations extends CI_Model
         $date;
         $return_date;
         $id_array = array();
-        // this converts the selected day to the equivalent sql representation
-        if ($day)
+        if ($day) // this converts the selected day to the equivalent sql representation
         {
             $date = new DateTime();
             $date->add(new DateInterval('P' . $day . 'D'));
