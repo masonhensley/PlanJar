@@ -1,4 +1,5 @@
 <?php
+
 // prevent direct script access
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -324,38 +325,10 @@ class Home extends CI_Controller
 
     // Returns a set of 7 weekday tabs based on the supplied parameter.
     // If $initial is true, the function bypasses the get argument and uses 0 as a base instead
-    public function get_weekday_tab_set($initial = false)
+    public function get_weekday_tab_set()
     {
-        // Use 0 or the argument as necessary
-        if ($initial)
-        {
-            $start = 0;
-        } else
-        {
-            $start = $this->input->get('starting_offset');
-        }
-
-        $date = new DateTime();
-        $date->add(new DateInterval('P' . $start . 'D'));
-
-        for ($i = 0; $i < 7; ++$i)
-        {
-            if ($start == 0 && $i == 0)
-            {
-                $display_date = 'Today';
-            } else
-            {
-                $display_date = $date->format('D - j');
-            }
-
-            echo('<div class="day" day_offset="' . ($start + $i) . '"><div class="day_text">' . $display_date . '</div></div>');
-            $date->add(new DateInterval('P1D'));
-        }
-        ?> 
-        <div class="left_day_arrow"><</div>
-        <div class="right_day_arrow">></div>
-
-        <?php
+        $this->load->model('day_sets');
+        $this->day_sets->home_set($this->input->get('starting_offset'));
     }
 
     // Returns a list of people following the user (used for inviting people in a plan)

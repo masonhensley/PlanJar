@@ -87,7 +87,10 @@
                 <div class="days_panel">
 
                     <div class="seven_days">
-                        <?php $this->get_weekday_tab_set(0); ?>
+                        <?php
+                        $this->load->model('day_sets');
+                        $this->day_sets->home_set(0);
+                        ?>
                     </div>
                 </div>
                 <div class="top_left_plans">This will populate with popular events based on the group(s) selected to the left</div>
