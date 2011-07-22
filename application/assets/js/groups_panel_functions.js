@@ -36,6 +36,7 @@ function set_city_tab()
 {
     $('.city_tab').click(function(){
         $('.selected_group').removeClass('selected_group');
+        $(this).addClass('city_active');
         update_groups_and_locations();
     });
 }
