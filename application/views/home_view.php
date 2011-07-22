@@ -28,6 +28,7 @@
         <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/data_box_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/delete_plan_button.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -70,7 +71,7 @@
                 <div class="left_header">
                 </div>
                 <?php
-                include(APPPATH . 'models/load_group_panel.php'); 
+                include(APPPATH . 'models/load_group_panel.php');
                 ?>
             </div>
             <div class ="center">

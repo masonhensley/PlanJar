@@ -1,6 +1,3 @@
-<!-- SELECT LOCATION JAVASCRIPT -->
-<script type="text/javascript" src="/application/assets/js/delete_plan_button.js"></script>
-
 <?php
 
 class Plan_actions extends CI_Model
@@ -99,6 +96,15 @@ class Plan_actions extends CI_Model
     // Returns the plan id
     function add_plan($data)
     {
+        // Return the id if the plan already exists
+        $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
+        $query = $this->db->query($query_string, $data);
+        if ($query->num_rows() > 0)
+        {
+            return $query->row()->id;
+        }
+
+        // Add the plan
         $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, $data);
 
