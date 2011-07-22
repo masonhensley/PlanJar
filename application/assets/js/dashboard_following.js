@@ -59,6 +59,7 @@ function initialize_follow_search() {
         $.get('/dashboard/follow_search', {
             needle: $(this).val()
         }, function (data) {
+            $('#follow_search').show("slow");
             $('#follow_search').html(data);
             
             // Click handler.
@@ -84,6 +85,7 @@ function initialize_follow_search() {
 function initialize_suggested_friends()
 {
     $('.suggested_friends').click(function(){
+        $('#friend_search').show("slow");
         if($(this).hasClass('suggested_active'))
         {
             $(this).removeClass('suggested_active');
