@@ -27,11 +27,10 @@ class Plan_actions extends CI_Model
     function load_plan_data($plan)
     {
         // pull all user's current events
-        $query = "SELECT plans.id, plans.date, plans.time_of_day, plans.title, plans.event_id, places.name
-        FROM plans
-        LEFT JOIN places
-        ON plans.place_id=places.id
-        WHERE plans.id=$plan";
+        $query = "SELECT plans.id, events.date, events.time, events.title, places.name
+            FROM plans LEFT JOIN events ON plans.event_id = events.id
+            LEFT JOIN places ON events.place_id = places.id
+            WHERE plans.id = $plan";
 
         // pull data
         $query_result = $this->db->query($query);
