@@ -6,6 +6,10 @@
         Current Location
     </div>
     <div class="city_tab" group_id="friends">Friends</div>
+    <div id="group_select_type">
+        <div id="select_one_group">Select one</div>
+        <div id="select_mult_groups">Select multiple</div>
+    </div>
     <?php
     foreach ($joined_groups as $group)
     {
@@ -28,10 +32,7 @@
     }
     ?>
 </div>
-<div id="group_select_type">
-    <div id="select_one_group">Select one</div>
-    <div id="select_mult_groups">Select multiple</div>
-</div>
+
 <br/>
 
 <a href="/dashboard/groups/suggested" style="color:#110055;font-weight:bold;" >Find groups</a><br/> 
