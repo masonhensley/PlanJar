@@ -22,7 +22,7 @@ class Home extends CI_Controller
             // chay
             // Lookup the groups by id.
             $this->load->model('load_groups');
-            $this->load->model('load_group_panel');
+
 
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
@@ -31,7 +31,6 @@ class Home extends CI_Controller
                 'joined_groups' => $joined_groups,
                 'followed_groups' => $followed_groups)
             );
-            $this->load_group_panel->load_groups($joined_groups, $followed_groups);
         } else
         {
             $this->logout();
