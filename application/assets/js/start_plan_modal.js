@@ -143,16 +143,19 @@ function initialize_event_select_page() {
         // No title click handler
         $('#no_event_title').click(function () {
             $('#plan_event_id').val('');
-            $('#plan_event_id').blur();
+            $('#event_title').val('');
+            $('#event_title').blur();
             $('#plan_privacy_wrapper div').first().click();
             $('#event_title_wrapper').hide();
+            
+            next_plan_panel();
         });
         
         // New event click handler
         $('#create_event').click(function () {
             $('#plan_event_id').val('');
-            $('#plan_event_id').blur();
-            $('#plan_event_id').focus();
+            $('#event_title').blur();
+            $('#event_title').focus();
             $('#plan_privacy_wrapper div').first().click();
             $('#event_title_wrapper').show();
         });
