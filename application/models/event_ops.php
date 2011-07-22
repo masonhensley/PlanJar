@@ -14,7 +14,7 @@ class Event_ops extends CI_Model
     public function create_event($data)
     {
         // Return the id if the event already exists
-        $query_string = "SELECT * FROM plans WHERE 
+        $query_string = "SELECT * FROM events WHERE 
             title = ? AND place_id = ? AND date = ? AND time = ? AND privacy = ?";
         $query = $this->db->query($query_string, $data);
         if ($query->num_rows() > 0)
