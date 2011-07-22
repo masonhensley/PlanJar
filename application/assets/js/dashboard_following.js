@@ -29,6 +29,7 @@ function populate_following_list() {
         });
         
         $('.user_entry').click(function(){
+            $('#follow_search').hide();
             if(!$(this).hasClass('selected_follower'))
             {
                 $('.user_entry.selected_follower').removeClass('selected_follower');
