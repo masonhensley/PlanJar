@@ -154,7 +154,7 @@ function initialize_event_select_page() {
             $('#plan_privacy_wrapper div').first().click();
             $('#event_title_wrapper').hide();
             
-            //next_plan_panel();
+            next_plan_panel();
         });
         
         // New event click handler
