@@ -61,7 +61,7 @@ class Load_group_profile extends CI_Model
         </div>
         <div class="profile_top_bar">
             <div class="profile_picture">
-        <?php $this->_insert_profile_picture(); ?>
+                <?php $this->_insert_profile_picture(); ?>
             </div>
             <div class="profile_user_information">
                 <?php
@@ -89,7 +89,7 @@ class Load_group_profile extends CI_Model
                 if ($group_info['school_group']) // show that if it is a designated school group, or school affiliation
                 {
                     echo "<font style=\"font-weight:bold; font-size:12px;\">This is a designated school group, only open to students from";
-                    echo $group_info['school'] ."</font><br/><br/>";
+                    echo $group_info['school'] . "</font><br/><br/>";
                 } else
                 {
                     if (isset($group_info['school']))
@@ -107,14 +107,20 @@ class Load_group_profile extends CI_Model
             <?php
             $bottom_bar_text = "";
             $bottom_bar_buttons = "";
-            if($group_info['school_group'])
+            if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
+            {
+                if ($group_info['school_group']) // if you are joined and it is a school group
+                {
+                    $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
+                    $bottom_bar_buttons .= "<font style=\"color:gray; font-style:italic;\">cannot leave school group</font>";
+                } else // if you are joined and it is a regular group
+                {
+                    $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
+                    $bottom_bar_buttons.= "<div class=\"remove_following\">unjoin</div>";
+                }
+            } else if ($group_info['school_group']) // if you are following and it is a school group
             {
                 $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
-                $bottom_bar_buttons .= "<font style=\"color:gray; font-style:italic;\">cannot leave school group</font>";
-            }else if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
-            {
-                $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
-                $bottom_bar_buttons.= "<div class=\"remove_following\">unjoin</div>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are following and group is open
             {
                 $bottom_bar_text .= "Group is <div style=\"color:green;font-weight:bold;\">open</div>";
