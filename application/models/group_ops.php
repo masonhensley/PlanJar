@@ -236,6 +236,8 @@ class Group_ops extends CI_Model
     // Returns a list of users who joined the supplied groups
     function get_users($group_list)
     {
+        var_dump($group_list);
+        
         $return_array = array();
 
         if (count($group_list) > 0)
@@ -248,6 +250,8 @@ class Group_ops extends CI_Model
             }
             $query_string = substr($query_string, 0, -4);
 
+            var_dump($query_string);
+            
             $query = $this->db->query($query_string);
 
 
