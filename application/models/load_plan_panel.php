@@ -21,7 +21,7 @@ class Load_plan_panel extends CI_Model
             $id = $plan->id;
             $name = $plan->name;
             $title = $plan->title;
-            $time = $plan->time_of_day;
+            $time = $plan->time;
             $date = date('l', strtotime($plan->date));
             if ($date_organizer != $date)
             {
