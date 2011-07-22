@@ -152,9 +152,11 @@ function initialize_event_select_page() {
             $('#event_title').val('');
             $('#event_title').blur();
             $('#plan_privacy_wrapper div').first().click();
-            $('#event_title_wrapper').hide();
+            $('#event_title_wrapper').hide('fast', 'blind', {}, function () {
+                next_plan_panel();
+            });
             
-            next_plan_panel();
+            
         });
         
         // New event click handler
@@ -190,7 +192,6 @@ function prev_plan_panel() {
 
 // Scrolls to the next plan panel
 function next_plan_panel() {
-console.log('next');
     var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
     if (current_index < 3) {
