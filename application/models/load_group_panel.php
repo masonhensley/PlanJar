@@ -5,7 +5,7 @@
     <div class="city_tab city_active">
         Use Current City
     </div>
-    <div class="selectable_group" group_id="friends">Friends</div>
+    <div class="city_tab" group_id="friends">Friends</div>
     <?php
     foreach ($joined_groups as $group)
     {
