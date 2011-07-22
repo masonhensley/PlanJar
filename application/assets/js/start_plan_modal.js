@@ -55,10 +55,10 @@ function initialize_plan_modal() {
                 
             // Third page
             case 2:
-                console.log($('#plan_event_select').val());
-                //if ($('#plan_event_select').val() != '' && $('#event_title_wrapper:visible').length != 0) {
-                //next_plan_panel();
-                //}
+                // Make sure an event is selected or an event has been created
+                if ($('#plan_event_select').val() != null || $('#event_title').val() != '') {
+                    next_plan_panel();
+                }
                 break;
         }
     });
