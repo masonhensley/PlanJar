@@ -55,9 +55,10 @@ function initialize_plan_modal() {
                 
             // Third page
             case 2:
-                if (1) {
-                    next_plan_panel();
-                }
+                console.log($('#plan_event_select').val());
+                //if ($('#plan_event_select').val() != '' && $('#event_title_wrapper:visible').length != 0) {
+                //next_plan_panel();
+                //}
                 break;
         }
     });
@@ -137,11 +138,23 @@ function initialize_event_select_page() {
         // Handle the select change event
         $('#plan_event_select option').click(function () {
             $('#plan_event_id').val($(this).val());
+            
+            // Reset and hide the title and privacy settings
+            $('#plan_event_id').val('');
+            $('#event_title').val('');
+            $('#event_title').blur();
+            $('#plan_privacy_wrapper div').first().click();
+            $('#event_title_wrapper').hide();
+            
             next_plan_panel();
         });
         
         // No title click handler
         $('#no_event_title').click(function () {
+            // Clear the select
+            $('#plan_event_select').attr('selectedIndex', '-1');
+            
+            // Reset and hide the title and privacy settings
             $('#plan_event_id').val('');
             $('#event_title').val('');
             $('#event_title').blur();
@@ -153,6 +166,10 @@ function initialize_event_select_page() {
         
         // New event click handler
         $('#create_event').click(function () {
+            // Clear the select
+            $('#plan_event_select').attr('selectedIndex', '-1');
+            
+            // Reset and show the title and privacy settings
             $('#plan_event_id').val('');
             $('#event_title').blur();
             $('#event_title').focus();
