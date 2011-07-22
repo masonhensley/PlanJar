@@ -15,6 +15,7 @@ class Notification_ops extends CI_Model
     {
         // Build the string containing the multiple entries to insert.
         $values_string = '';
+        $type = $this->db->escape($type);
         $date = new DateTime();
         $date = $date->format('Y-m-d');
         foreach ($user_list as $user_id)
