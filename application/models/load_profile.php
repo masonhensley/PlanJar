@@ -99,10 +99,14 @@ class Load_profile extends CI_Model
 
     function get_location_stats($user)
     {
-        $query = "SELECT places.name, plans.place_id, plans.date FROM plans 
-            LEFT JOIN places ON places.id=plans.place_id WHERE plans.user_id=$user->id 
-                AND plans.date<NOW()
-                ORDER BY plans.date DESC LIMIT 0, 5";
+        $query = 
+            "SELECT places.name, events.place_id, events.date
+       FROM plans
+       LEFT JOIN events ON plans.event_id=events.id
+       LEFT JOIN places ON places.id=events.place_id
+       WHERE plans.user_id=$user->id AND events.date<NOW()
+       ORDER BY events.date DESC LIMIT 0, 20"; // this query pulls all plans a user has made before the current timestamp
+        
         $result = $this->db->query($query);
 
         $recent_locations = array(); // variables to keep track of locations

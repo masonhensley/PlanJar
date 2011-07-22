@@ -22,13 +22,14 @@
         <script type="text/javascript" src="/application/assets/js/divset.js"></script>
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
-        <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
+        
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
         <script type="text/javascript" src="/application/assets/js/map_data_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/data_box_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/delete_plan_button.js"></script>
+        <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -88,7 +89,7 @@
 
                     <div class="seven_days"></div>
                 </div>
-                <div class="top_left_plans">Popular Locations</div>
+                <div class="top_left_plans">This will populate with popular events based on the group(s) selected to the left</div>
                 <div class="ad_box">
                     <!-- <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/> -->
                 </div>
