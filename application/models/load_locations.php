@@ -3,7 +3,7 @@
 class Load_locations extends CI_Model
 {
 
-    function loadUserLocations($group_list, $day, $user_id)
+    function load_locations($group_list, $day, $user_id)
     {
         // this converts the selected day to the equivalent sql representation
         $date = new DateTime();
@@ -12,41 +12,60 @@ class Load_locations extends CI_Model
         $index = 0;  // index used to access $group_list
         $id_array = array(); // an array of all the user ids that will be included in the pull
 
-        if (isset($group_list[0])) //  group_list is a list of group ids selected
+        if (!isset($group_list[0])) //  group_list is a list of group ids selected
         {
-            // first get a list of ids to find plans with and append it to the id_array
-            if (in_array("friends", $group_list))
-            {
-                $id_array = $this->get_friend_ids($user_id, $id_array); // adds user ids to $id_array
-            }
-
-            // next generate the query for a list of ids for all the people in the groups selected
-
-            $group_ids_selected = array();
-            while (isset($group_list[$index]))
-            {
-                if ($group_list[$index] != "friends") // ignore the friends tab as it is already dealt with
-                {
-                    $group_ids_selected[] = $group_list[$index]; // populate an array of selected group ids
-                }
-                $index++;
-            }
-
-            // if there are groups selected, generate a query to pull all user ids joined in the selected groups
-            $index = 0; // reinitialize index
-            $user_ids = null;
-
-            if (isset($group_ids_selected[$index]))
-            {
-                $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
-            }
-
-            if (isset($id_array[0]))
-            {
-                $location_ids = $this->get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
-                $this->load_tabs($location_ids, $id_array, $return_date);
-            }
+            $this->on_none_selected();
+        } else if ($group_list[0] == 'friends')
+        {
+            $this->on_friends_selected();
+        } else if ($group_list[0] == 'current_location')
+        {
+            $this->on_current_location_selected();
         }
+    }
+
+    function on_none_selected()
+    {
+        echo "no one is selected";
+    }
+
+    function on_groups_selected()
+    {
+        // next generate the query for a list of ids for all the people in the groups selected
+        $group_ids_selected = array();
+        while (isset($group_list[$index]))
+        {
+            if ($group_list[$index] != "friends") // ignore the friends tab as it is already dealt with
+            {
+                $group_ids_selected[] = $group_list[$index]; // populate an array of selected group ids
+            }
+            $index++;
+        }
+
+        // if there are groups selected, generate a query to pull all user ids joined in the selected groups
+        $index = 0; // reinitialize index
+        $user_ids = null;
+
+        if (isset($group_ids_selected[$index]))
+        {
+            $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
+        }
+
+        if (isset($id_array[0]))
+        {
+            $location_ids = $this->get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
+            $this->load_tabs($location_ids, $id_array, $return_date);
+        }
+    }
+
+    function on_friends_selected()
+    {
+        echo "friends tab is selected";
+    }
+
+    function on_current_location_selected()
+    {
+        echo "current location tab is selected";
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
@@ -138,18 +157,18 @@ class Load_locations extends CI_Model
             $result = $this->db->query($number_of_friends_query);
             $count = $result->num_rows();
             ?>
-            <div class = "location_tab_shown" place_id="<?php echo $id; ?>" date="<?php echo $return_date;?>">
+            <div class = "location_tab_shown" place_id="<?php echo $id; ?>" date="<?php echo $return_date; ?>">
                 <div id="number_rank">
-                    <?php echo $plan_tracker;
-                    $plan_tracker++; ?></div><?php
+            <?php echo $plan_tracker;
+            $plan_tracker++; ?></div><?php
             echo $plan;
             echo "<br/>$count people in selected groups are attending";
-                    ?>
+            ?>
             </div>
-            <?php
+                <?php
+            }
         }
-    }
 
-}
-?>
+    }
+    ?>
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
