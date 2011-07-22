@@ -1,5 +1,5 @@
 $(function () {
-    get_new_days(0);
+    initialize_day_tab_rules();
 });
 
 function initialize_day_tab_rules() {

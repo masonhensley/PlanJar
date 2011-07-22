@@ -283,7 +283,7 @@ class Home extends CI_Controller
 
         $user_info = $this->ion_auth->get_user();
         $user_id = $user_info->id;
-        
+
         $result = $this->plan_actions->get_plans($user_id);
         $this->load_plan_panel->display_plans($result);
     }
@@ -323,13 +323,17 @@ class Home extends CI_Controller
     }
 
     // Returns a set of 7 weekday tabs based on the supplied parameter.
-    public function get_weekday_tab_set()
+    // If $initial is true, the function bypasses the get argument and uses 0 as a base instead
+    public function get_weekday_tab_set($initial = false)
     {
-        ?>
-
-
-        <?php
-        $start = $this->input->get('starting_offset');
+        // Use 0 or the argument as necessary
+        if ($initial)
+        {
+            $start = 0;
+        } else
+        {
+            $start = $this->input->get('starting_offset');
+        }
 
         $date = new DateTime();
         $date->add(new DateInterval('P' . $start . 'D'));
