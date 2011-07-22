@@ -70,9 +70,7 @@
                 <div class="left_header">
                 </div>
                 <?php
-                include(APPPATH . 'assets/php/group_panel.php'); 
-                //$this->load->model('load_group_panel');
-                //$this->load_group_panel->load_groups($joined_groups, $followed_groups);
+                include(APPPATH . 'models/load_group_panel.php'); 
                 ?>
             </div>
             <div class ="center">
