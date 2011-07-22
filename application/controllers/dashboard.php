@@ -192,7 +192,7 @@ class Dashboard extends CI_Controller
     {
         $user = $this->ion_auth->get_user();
 
-        $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND (user_following_id = ? OR user_following_id = ?)";
+        $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND (user_following_id = ? OR user_joined_id = ?)";
         $query = $this->db->query($query_string, array($this->input->get('group_id'), $user->id, $user->id));
     }
 
