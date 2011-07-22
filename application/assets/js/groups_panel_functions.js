@@ -53,7 +53,7 @@ function initialize_one_group_select() {
     $('.groups_wrapper .selectable_group').click(function() {
         $('.groups_wrapper .selectable_group.selected_group').not(this).removeClass('selected_group');
         if ($(this).hasClass('selected_group')) {
-            $(this).removeClass('group_selected');
+            $(this).removeClass('selected_group');
         } else {
             $(this).addClass('selected_group');
         }
