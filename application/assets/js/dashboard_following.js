@@ -9,6 +9,8 @@ function following_setup() {
 
 // Populates the following list and assigns the click events.
 function populate_following_list() {
+     $('.following_profile_body').hide();
+    
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
        
@@ -51,6 +53,7 @@ function initialize_follow_search() {
     $('.in-field_block label').inFieldLabels();
     
     $('#friend_search').keyup(function () {
+        $('.following_profile_body').hide();
         $('.suggested_active').removeClass('suggested_active'); // this unselects the "suggested friends" tab first
         $.get('/dashboard/follow_search', {
             needle: $(this).val()
@@ -90,6 +93,7 @@ function initialize_suggested_friends()
             
             initialize_follow_search();
         }else{
+            $('.following_profile_body').hide();
             $(this).addClass('suggested_active');
             
             // Clear the search box
