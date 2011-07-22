@@ -25,15 +25,20 @@ function populate_followers_list() {
         
         // Make followers selectable
         $('#followers_list .user_entry').click(function() {
-            $('.user_entry.selected_follower').removeClass('selected_follower');
-            $(this).addClass('selected_follower');
+        
+            if(!$(this).hasClass('selected_follower'))
+            {
+                $('.user_entry.selected_follower').removeClass('selected_follower');
+                $(this).addClass('selected_follower');
+                $.get('/dashboard/get_profile', {
+                    user_id: $(this).attr('user_id')
+                }, function (data) {
+                    $('#followers_content .right').html(data);
+                    $('#followers_content .right').show("slow");
+                });
+            }
+
             
-            $.get('/dashboard/get_profile', {
-                user_id: $(this).attr('user_id')
-            }, function (data) {
-                $('#followers_content .right').html(data);
-                $('#followers_content .right').show("slow");
-            });
         });
     });
 }
