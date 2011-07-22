@@ -29,7 +29,7 @@ class Load_locations extends CI_Model
             $this->on_friends_selected();
         } else
         {
-            $this->on_groups_selected($group_list);
+            $this->on_groups_selected($selected_groups);
         }
     }
 
