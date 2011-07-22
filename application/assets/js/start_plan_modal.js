@@ -152,14 +152,9 @@ function initialize_event_select_page() {
             $('#event_title').val('');
             $('#event_title').blur();
             $('#plan_privacy_wrapper div').first().click();
-            $('#event_title_wrapper').hide('fast', function () {
-                next_plan_panel();
-            });
-            if ($('#event_title_wrapper:visible').length == 0) {
-                next_plan_panel();
-            }
+            $('#event_title_wrapper').hide();
             
-            
+            //next_plan_panel();
         });
         
         // New event click handler
