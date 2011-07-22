@@ -89,6 +89,7 @@ function get_selected_groups() {
     {
             return_list.push($('.city_active').attr('group_id'));
     }
+    // if nothing is selected, you can check the php variable for (false)
     return return_list;
 }
 

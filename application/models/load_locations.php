@@ -14,7 +14,7 @@ class Load_locations extends CI_Model
             $date->add(new DateInterval('P' . $day . 'D'));
             $return_date = $date->format('Y-m-d');
         }
-        if ($selected_groups[0] == 'nothing_selected')
+        if (!$selected_groups[0])
         {
             $this->on_nothing_selected();
         } else if ($selected_groups[0] == 'current_location')
