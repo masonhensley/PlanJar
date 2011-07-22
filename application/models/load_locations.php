@@ -7,7 +7,6 @@ class Load_locations extends CI_Model
     {
         $date;
         $return_date;
-        $index;
         $id_array = array();
         // this converts the selected day to the equivalent sql representation
         if ($day)
@@ -15,8 +14,6 @@ class Load_locations extends CI_Model
             $date = new DateTime();
             $date->add(new DateInterval('P' . $day . 'D'));
             $return_date = $date->format('Y-m-d');
-            $index = 0;  // index used to access $group_list
-            $id_array = array(); // an array of all the user ids that will be included in the pull
         }
         if ($selected_groups[0] == 'nothing_selected')
         {
@@ -52,7 +49,8 @@ class Load_locations extends CI_Model
     {
 
         echo "groups are selected";
-
+        $id_array = array(); // an array of all the user ids that will be included in the pull
+        $index = 0;  // index used to access $group_list
         $group_ids_selected = array();
         while (isset($group_list[$index]))
         {
@@ -167,16 +165,16 @@ class Load_locations extends CI_Model
             ?>
             <div class = "location_tab_shown" place_id="<?php echo $id; ?>" date="<?php echo $return_date; ?>">
                 <div id="number_rank">
-            <?php echo $plan_tracker;
-            $plan_tracker++; ?></div><?php
+                    <?php echo $plan_tracker;
+                    $plan_tracker++; ?></div><?php
             echo $plan;
             echo "<br/>$count people in selected groups are attending";
-            ?>
+                    ?>
             </div>
-                <?php
-            }
+            <?php
         }
-
     }
-    ?>
+
+}
+?>
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
