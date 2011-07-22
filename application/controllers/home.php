@@ -24,13 +24,18 @@ class Home extends CI_Controller
             // Lookup the groups by id.
             $this->load->model('load_groups');
 
+            // Get the day tabs HTML
+            $this->load->model('day_sets');
+            $day_html = $this->day_sets->home_set(0);
+
 
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'joined_groups' => $joined_groups,
-                'followed_groups' => $followed_groups)
+                'followed_groups' => $followed_groups,
+                'day_html' => $day_html)
             );
         } else
         {
