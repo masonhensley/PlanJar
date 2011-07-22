@@ -14,6 +14,7 @@ class Event_ops extends CI_Model
     public function create_event($data)
     {
         $query_string = "INSERT IGNORE INTO events VALUES (DEFAULT, ?, ?, ?, ?, ?)";
+        var_dump($data);
         $query = $this->db->query($query_string, array(
                     $data->title,
                     $data->place_id,
