@@ -19,25 +19,34 @@ class Load_locations extends CI_Model
             $id_array = array(); // an array of all the user ids that will be included in the pull
         }
 
-        var_dump($group_list);
-        /*
-          if (!$group_list) //  group_list is a list of group ids selected
-          {
-          $this->on_none_selected();
-          } else if ($group_list[0] == 'friends')
-          {
-          $this->on_friends_selected();
-          } else if ($group_list[0] == 'current_location')
-          {
-          $this->on_current_location_selected();
-          }
-         * 
-         */
+        if ($selected_groups[0] == 'nothing_selected')
+        {
+            $this->on_nothing_selected();
+        } else if ($selected_groups[0] == 'current_location')
+        {
+            $this->on_current_location_selected();
+        } else if ($selected_groups[0] == 'friends')
+        {
+            $this->on_friends_selected();
+        } else
+        {
+            $this->on_groups_selected();
+        }
     }
 
-    function on_none_selected()
+    function on_nothing_selected()
     {
         echo "no one is selected";
+    }
+
+    function on_current_location_selected()
+    {
+        echo "current location is selected";
+    }
+
+    function on_friends_selected()
+    {
+        echo "friends tab is selected";
     }
 
     function on_groups_selected()
@@ -66,16 +75,6 @@ class Load_locations extends CI_Model
             //$location_ids = $this->get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
             //$this->load_tabs($location_ids, $id_array, $return_date);
         }
-    }
-
-    function on_friends_selected()
-    {
-        echo "friends tab is selected";
-    }
-
-    function on_current_location_selected()
-    {
-        echo "current location tab is selected";
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
@@ -169,16 +168,16 @@ class Load_locations extends CI_Model
             ?>
             <div class = "location_tab_shown" place_id="<?php echo $id; ?>" date="<?php echo $return_date; ?>">
                 <div id="number_rank">
-                    <?php echo $plan_tracker;
-                    $plan_tracker++; ?></div><?php
+            <?php echo $plan_tracker;
+            $plan_tracker++; ?></div><?php
             echo $plan;
             echo "<br/>$count people in selected groups are attending";
-                    ?>
+            ?>
             </div>
-            <?php
+                <?php
+            }
         }
-    }
 
-}
-?>
+    }
+    ?>
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
