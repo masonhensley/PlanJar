@@ -250,13 +250,8 @@ class Home extends CI_Controller
         // this contains a list of ids for the groups selected
         $group_list = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
-
         $user_id = $this->ion_auth->get_user()->id;
-        
-        if (isset($group_list[0])) // when a group is selected. populate the location tabs
-        {
-            $this->load_locations->load_relevant_locations($group_list, $day, $user_id);
-        }
+        $this->load_locations->load_relevant_locations($group_list, $day, $user_id);
     }
 
     // this function populates the data box for when a group or location is selected
