@@ -19,17 +19,17 @@ class Display_group_info extends CI_Model
     
     function on_current_location_selected()
     {
-        
+        echo "current location is selected";
     }
     
     function on_friends_selected()
     {
-        
+        echo "friends tab is selected";
     }
     
     function on_groups_selected()
     {
-        
+        echo "groups are selected";
     }
 }
 
