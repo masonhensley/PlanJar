@@ -16,8 +16,8 @@
         </div>
 
     </div>
-
     <div id="follow_search">
     </div>
-
+</div>
+<div class="following_profile_body">
 </div>
