@@ -55,8 +55,9 @@ function initialize_plan_modal() {
                 
             // Third page
             case 2:
-                if ($('#plan_event_select').val() == 'new' && $('#event_title').val() != '')
+                if (1) {
                     next_plan_panel();
+                }
                 break;
         }
     });
@@ -134,7 +135,7 @@ function initialize_event_select_page() {
         $('#plan_event_select_wrapper').html(data);
                         
         // Handle the select change event
-        $('#plan_event_select').change(function () {
+        $('#plan_event_select option').click(function () {
             $('#plan_event_id').val($(this).val());
             next_plan_panel();
         });
@@ -142,12 +143,19 @@ function initialize_event_select_page() {
         // No title click handler
         $('#no_event_title').click(function () {
             $('#plan_event_id').val('');
+            $('#plan_event_id').blur();
+            $('#plan_privacy_wrapper div').first().click();
+            $('#event_title_wrapper').hide();
         });
         
-        // New even click handler
+        // New event click handler
         $('#create_event').click(function () {
-            
-            });
+            $('#plan_event_id').val('');
+            $('#plan_event_id').blur();
+            $('#plan_event_id').focus();
+            $('#plan_privacy_wrapper div').first().click();
+            $('#event_title_wrapper').show();
+        });
     });
 }
 
