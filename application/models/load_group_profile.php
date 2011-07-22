@@ -16,7 +16,7 @@ class Load_group_profile extends CI_Model
 
     function _get_group_details($group_id)
     {
-        $query = "SELECT school_id, name, description, privacy, id FROM groups WHERE id=$group_id"; // get the group info
+        $query = "SELECT school_id, name, description, privacy, id, school_group FROM groups WHERE id=$group_id"; // get the group info
         $result = $this->db->query($query);
         $return_array = $result->row_array();
         if (isset($return_array['school_id']))
@@ -48,7 +48,15 @@ class Load_group_profile extends CI_Model
         $this->load->model('group_ops');
         ?>
         <div class="group_profile_header">
-            Group Profile
+            <?php 
+                        if($group_info['school_group'])
+                        {
+                            echo "School Profile";
+                        }else{
+                            echo "Group Profile";
+                        }
+            ?>
+            
         </div>
         <div class="profile_top_bar">
             <div class="profile_picture">
