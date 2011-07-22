@@ -48,19 +48,20 @@ class Load_group_profile extends CI_Model
         $this->load->model('group_ops');
         ?>
         <div class="group_profile_header">
-            <?php 
-                        if($group_info['school_group'])
-                        {
-                            echo "School Profile";
-                        }else{
-                            echo "Group Profile";
-                        }
+            <?php
+            if ($group_info['school_group'])
+            {
+                echo "School Profile";
+            } else
+            {
+                echo "Group Profile";
+            }
             ?>
-            
+
         </div>
         <div class="profile_top_bar">
             <div class="profile_picture">
-                <?php $this->_insert_profile_picture(); ?>
+        <?php $this->_insert_profile_picture(); ?>
             </div>
             <div class="profile_user_information">
                 <?php
@@ -82,12 +83,20 @@ class Load_group_profile extends CI_Model
             <div class="profile_body_text">
                 <?php
                 echo "<font style=\"color:gray;\">";
-                echo "Members: " . $group_info['number_joined'] ."&nbsp;&nbsp;&nbsp;&nbsp;Followers: " . $group_info['number_following'];
+                echo "Members: " . $group_info['number_joined'] . "&nbsp;&nbsp;&nbsp;&nbsp;Followers: " . $group_info['number_following'];
                 echo "</font><br/><hr/><br/>";
-                if (isset($group_info['school']))
+
+                if ($group_info['school_group'])
                 {
-                    echo "<font style=\"color:gray;\">School:</font> <font style=\"color:black; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
+                    echo "This is a designated school group, only open to" . $group_info['school'] . 'students';
+                } else
+                {
+                    if (isset($group_info['school']))
+                    {
+                        echo "<font style=\"color:gray;\">School:</font> <font style=\"color:black; font-weight:bold;\">" . $group_info['school'] . "</font><br/><br/>";
+                    }
                 }
+
                 echo "<font style=\"color:gray;\">Description</font><br/>";
                 echo "<font style=\"\">" . $group_info['description'] . "</font><br/><hr/><br/>";
                 ?>
