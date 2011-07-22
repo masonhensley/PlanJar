@@ -1,6 +1,3 @@
-var selected_day;
-var selected_groups;
-
 // called when the DOM is loaded from "groups_panel_functions.js"
 // this should be called whenever the groups or day selected changes
 function update_groups_and_locations()
