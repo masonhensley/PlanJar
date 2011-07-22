@@ -9,6 +9,8 @@ function following_setup() {
 
 // Populates the following list and assigns the click events.
 function populate_following_list() {
+     $('.following_profile_body').hide();
+    
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
        
@@ -27,6 +29,8 @@ function populate_following_list() {
         });
         
         $('.user_entry').click(function(){
+            $('.suggested_active').removeClass('suggested_active');
+            $('#follow_search').hide();
             if(!$(this).hasClass('selected_follower'))
             {
                 $('.user_entry.selected_follower').removeClass('selected_follower');
@@ -51,12 +55,13 @@ function initialize_follow_search() {
     $('.in-field_block label').inFieldLabels();
     
     $('#friend_search').keyup(function () {
+        $('.following_profile_body').hide();
         $('.suggested_active').removeClass('suggested_active'); // this unselects the "suggested friends" tab first
         $.get('/dashboard/follow_search', {
             needle: $(this).val()
         }, function (data) {
             $('#follow_search').html(data);
-            
+            $('#follow_search').show();
             // Click handler.
             $('#follow_search .add_following').click(function () {
                 $(this).text('+ You sure?');
@@ -80,6 +85,7 @@ function initialize_follow_search() {
 function initialize_suggested_friends()
 {
     $('.suggested_friends').click(function(){
+        
         if($(this).hasClass('suggested_active'))
         {
             $(this).removeClass('suggested_active');
@@ -91,13 +97,13 @@ function initialize_suggested_friends()
             initialize_follow_search();
         }else{
             $(this).addClass('suggested_active');
-            
+            $('.following_profile_body').hide();
             // Clear the search box
             $('#friend_search').val('');
             $('#friend_search').blur();
             
             get_suggested_friends();
-            
+            $('#follow_search').show();
         }
     });
     show_suggested_init('#following_content', '.suggested_friends');
