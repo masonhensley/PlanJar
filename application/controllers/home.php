@@ -157,6 +157,8 @@ class Home extends CI_Controller
         if ($event_id == '')
         {
             // Event data
+            $date = new DateTime();
+            $date->add(new DateInterval($this->input->get('plan_day')));
             $event_data = array(
                 'title' => $this->input->get('plan_title'),
                 'place_id' => $this->input->get('plan_location_id'),
