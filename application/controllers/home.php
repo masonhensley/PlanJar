@@ -210,7 +210,7 @@ class Home extends CI_Controller
         }
         $this->load->model('group_ops');
         $invited_users = array_merge($invited_users, $this->group_ops->get_users($invited_groups));
-        var_dump($invited_users);
+        var_dump($this->group_ops->get_users($invited_groups));
 
         // Add invitees if necessary.
         if ($event_data['privacy'] != 'open')
