@@ -2,12 +2,13 @@
 <!-- This file is included in home_view.php and not called from the controller -->
 
 <div class="groups_wrapper">
-    <div class="city_tab" group_id="current_location">
-        Current Location
-    </div>
     <div class="city_tab" group_id="friends">
         Friends
     </div>
+    <div class="city_tab" group_id="current_location">
+        Current Location
+    </div>
+    
     <hr/>
     <div id="group_select_type">
         <div id="select_one_group">Select one</div>
