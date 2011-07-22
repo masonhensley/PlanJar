@@ -88,8 +88,6 @@ function get_selected_groups() {
     }else if($('.city_tab').hasClass('city_active'))
     {
             return_list.push($('.city_active').attr('group_id'));
-    }else{
-        return_list.push('nothing_selected');
     }
     return return_list;
 }
