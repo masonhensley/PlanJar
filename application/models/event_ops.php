@@ -57,7 +57,7 @@ class Event_ops extends CI_Model
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
-        $query_string = "SELECT id, title FROM events WHERE date = ? AND time = ? AND place_id = ?";
+        $query_string = "SELECT id, title FROM events WHERE date = ? AND time = ? AND place_id = ? AND title <> ''";
         $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time, $place_id));
 
         // Echo the select
