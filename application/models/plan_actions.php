@@ -16,7 +16,7 @@ class Plan_actions extends CI_Model
          FROM plans
          LEFT JOIN events ON plans.event_id=events.id
          LEFT JOIN places ON places.id=events.place_id
-         WHERE plans.user_id=$user_id AND plans.date >= CURDATE()";
+         WHERE plans.user_id=$user_id AND events.date >= CURDATE()";
 
         // pull data
         $query_result = $this->db->query($query);
