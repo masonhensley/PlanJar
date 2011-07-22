@@ -190,6 +190,7 @@ function prev_plan_panel() {
 
 // Scrolls to the next plan panel
 function next_plan_panel() {
+console.log('next');
     var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
     if (current_index < 3) {
