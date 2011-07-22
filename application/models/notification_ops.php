@@ -13,6 +13,7 @@ class Notification_ops extends CI_Model
     // Optionally accepts an array of group ids to include in the notifications
     function notify($user_list, $type, $subject_id)
     {
+        var_dump($user_list);
         // Build the string containing the multiple entries to insert.
         $values_string = '';
         $date = new DateTime();
