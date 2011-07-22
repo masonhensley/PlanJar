@@ -35,9 +35,15 @@ function on_groups_change() {
 function set_city_tab()
 {
     $('.city_tab').click(function(){
-        $('.selected_group').removeClass('selected_group');
-        $(this).addClass('city_active');
-        alert('success');
+        
+        if($(this).hasClass('city_active'))
+            {
+                $(this).removeClass('city_active');
+            }else{
+                $('.selected_group').removeClass('selected_group');
+                $('.city_active').removeClass('city_active');
+                 $(this).addClass('city_active');
+            }
         update_groups_and_locations();
     });
 }
