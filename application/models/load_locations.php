@@ -3,7 +3,7 @@
 class Load_locations extends CI_Model
 {
 
-    function load_relevant_locations($group_list, $day, $user_id)
+    function load_relevant_locations($selected_groups, $day, $user_id)
     {
         $date;
         $return_date;
