@@ -9,11 +9,6 @@ function update_groups_and_locations()
     load_visible_locations(selected_day, selected_groups); // delete all other instances of load_visible_plans
 }
 
-function city_tab_setup()
-{
-    
-}
-
 // updates the data box based on the selected groups
 function load_data_box(selected_day, selected_groups)
 {

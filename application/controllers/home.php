@@ -272,7 +272,7 @@ class Home extends CI_Controller
         } else if (count($group_list) > 0)
         {
             $this->load->model('display_group_info');
-            $this->display_group_info->_display_group_info($day);
+            $this->display_group_info->_display_group_info($selected_groups, $day);
         }
     }
 
