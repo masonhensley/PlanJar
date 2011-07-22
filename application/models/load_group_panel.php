@@ -2,8 +2,8 @@
 <!-- This file is included in home_view.php and not called from the controller -->
 
 <div class="groups_wrapper">
-    <div class="city_tab city_active">
-        Use Current City
+    <div class="city_tab">
+        Current Location
     </div>
     <div class="city_tab" group_id="friends">Friends</div>
     <?php
