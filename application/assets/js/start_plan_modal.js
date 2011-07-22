@@ -135,19 +135,19 @@ function initialize_event_select_page() {
                         
         // Handle the select change event
         $('#plan_event_select').change(function () {
-            if ($(this).val() == 'new') {
-                // Show the event title input
-                $('#event_title_wrapper').show();
-                $('#event_title_wrapper').focus();
-            } else {
-                // Clear the input and hide it
-                $('#event_title').val('');
-                $('#event_title_wrapper').blur();
-                $('#event_title_wrapper').hide();
-                
-                next_plan_panel();
-            }
+            $('#plan_event_id').val($(this).val());
+            next_plan_panel();
         });
+        
+        // No title click handler
+        $('#no_event_title').click(function () {
+            $('#plan_event_id').val('');
+        });
+        
+        // New even click handler
+        $('#create_event').click(function () {
+            
+            });
     });
 }
 
@@ -334,34 +334,3 @@ function initialize_plan_autocomplete() {
         }
     });
 }
-
-//    // Initialize the Validator plugin for the plan location.
-//    $('#start_plan').validate({
-//        rules: {
-//            plan_location_id: 'required',
-//            plan_time_group: 'required',
-//            plan_day_group: 'required'
-//        },
-//        submitHandler: function (form) {
-//            var data_string = $(form).serialize();
-//            var other_data = {
-//                'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-//                'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
-//                'privacy': $('#privacy_wrapper .divset_selected').attr('priv_val')
-//            }
-//        
-//            $.get('/home/submit_plan?' + data_string, other_data, function (data) {
-//                if (data == 'success') {
-//                    $('#create_plan_content').hide();
-//                    // Refresh th eplan list.
-//                    populate_plan_panel();
-//                } else {
-//                    alert(data);
-//                }
-//            });
-//        },
-//        errorPlacement: function (error, element) {
-//            // Don't show errors.
-//            return true;
-//        }
-//    });

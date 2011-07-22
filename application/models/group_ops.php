@@ -217,7 +217,8 @@ class Group_ops extends CI_Model
                 ));
     }
 
-    public function follow_group($group_id, $user_id = 'foobar')
+    // Follows the user to the specified group (the user can optionally be specified)
+    function follow_group($group_id, $user_id = 'foobar')
     {
         // Make $user_id useful
         if ($user_id == 'foobar')
@@ -230,6 +231,28 @@ class Group_ops extends CI_Model
                     $group_id,
                     $user_id,
                 ));
+    }
+
+    // Returns a list of users who joined the supplied groups
+    function get_users($group_arg)
+    {
+        $query_string = "SELECT user_joined_id FROM group_relationships WHERE ";
+
+        foreach ($group_arg as $group)
+        {
+            $query_string .= "group_id = $group OR ";
+        }
+        $query_string = substr($query_string, 0, -4);
+
+        $query = $this->db->query($query_string);
+
+        $return_array = array();
+        foreach ($query->result() as $row)
+        {
+            $return_array[] = $row->user_joined_id;
+        }
+
+        return $return_array;
     }
 
 }
