@@ -5,25 +5,32 @@ class Load_locations extends CI_Model
 
     function load_relevant_locations($group_list, $day, $user_id)
     {
+        $date;
+        $return_date;
+        $index;
+        $id_array = array();
         // this converts the selected day to the equivalent sql representation
-        $date = new DateTime();
-        $date->add(new DateInterval('P' . $day . 'D'));
-        $return_date = $date->format('Y-m-d');
-        $index = 0;  // index used to access $group_list
-        $id_array = array(); // an array of all the user ids that will be included in the pull
+        if ($day)
+        {
+            $date = new DateTime();
+            $date->add(new DateInterval('P' . $day . 'D'));
+            $return_date = $date->format('Y-m-d');
+            $index = 0;  // index used to access $group_list
+            $id_array = array(); // an array of all the user ids that will be included in the pull
+        }
 
         var_dump($group_list);
         /*
-        if (!$group_list) //  group_list is a list of group ids selected
-        {
-            $this->on_none_selected();
-        } else if ($group_list[0] == 'friends')
-        {
-            $this->on_friends_selected();
-        } else if ($group_list[0] == 'current_location')
-        {
-            $this->on_current_location_selected();
-        }
+          if (!$group_list) //  group_list is a list of group ids selected
+          {
+          $this->on_none_selected();
+          } else if ($group_list[0] == 'friends')
+          {
+          $this->on_friends_selected();
+          } else if ($group_list[0] == 'current_location')
+          {
+          $this->on_current_location_selected();
+          }
          * 
          */
     }
@@ -35,9 +42,9 @@ class Load_locations extends CI_Model
 
     function on_groups_selected()
     {
-        
+
         echo "groups are selected";
-        
+
         $group_ids_selected = array();
         while (isset($group_list[$index]))
         {
