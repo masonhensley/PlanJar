@@ -10,14 +10,13 @@ class Plan_actions extends CI_Model
 
     function get_plans($user_id)
     {
-        // pull all user's current events
+        // pull all user's current events to be displayed on the right panel
         $query =
-                "SELECT plans.id, plans.date, plans.time_of_day, date, plans.title, plans.event_id, places.name
-        FROM plans
-        LEFT JOIN places
-        ON plans.place_id=places.id
-        WHERE plans.user_id=$user_id AND plans.date >= CURDATE()
-        ORDER BY date ASC";
+                "SELECT plans.id, events.date, events.time, events.title, plans.event_id, places.name
+         FROM plans
+         LEFT JOIN events ON plans.event_id=events.id
+         LEFT JOIN places ON places.id=events.place_id
+         WHERE plans.user_id=$user_id AND plans.date >= CURDATE()";
 
         // pull data
         $query_result = $this->db->query($query);
@@ -112,4 +111,5 @@ class Plan_actions extends CI_Model
     }
 
 }
+
 ?>
