@@ -135,6 +135,7 @@ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid #aaa;
     margin-top: 5px;
     text-align: center;
+    position: relative;
 }
 .user_entry .user_entry_left {
     float: left;
