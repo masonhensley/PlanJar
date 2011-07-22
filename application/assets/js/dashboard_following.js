@@ -17,6 +17,7 @@ function populate_following_list() {
             {
                 $('.user_entry.selected_follower').removeClass('selected_follower');
                 $(this).addClass('selected_follower');
+                
                 $.get('/dashboard/get_profile', {
                     user_id: $(this).attr('user_id')
                 }, function () {
