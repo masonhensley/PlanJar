@@ -104,7 +104,7 @@ class Load_profile extends CI_Model
        FROM plans
        LEFT JOIN events ON plans.event_id=events.id
        LEFT JOIN places ON places.id=events.place_id
-       WHERE plans.user_id=$user->id AND plans.date<NOW()
+       WHERE plans.user_id=$user->id AND events.date<NOW()
        ORDER BY events.date DESC LIMIT 0, 20"; // this query pulls all plans a user has made before the current timestamp
         
         $result = $this->db->query($query);
