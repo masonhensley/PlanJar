@@ -31,30 +31,29 @@ class Load_locations extends CI_Model
 
     function on_groups_selected()
     {
-        // next generate the query for a list of ids for all the people in the groups selected
+        
+        echo "groups are selected";
+        
         $group_ids_selected = array();
         while (isset($group_list[$index]))
         {
-            if ($group_list[$index] != "friends") // ignore the friends tab as it is already dealt with
-            {
-                $group_ids_selected[] = $group_list[$index]; // populate an array of selected group ids
-            }
+            $group_ids_selected[] = $group_list[$index]; // populates an array of selected group ids
             $index++;
         }
 
         // if there are groups selected, generate a query to pull all user ids joined in the selected groups
         $index = 0; // reinitialize index
         $user_ids = null;
-
+        $id_array;
         if (isset($group_ids_selected[$index]))
         {
-            $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
+            //$id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
         }
 
         if (isset($id_array[0]))
         {
-            $location_ids = $this->get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
-            $this->load_tabs($location_ids, $id_array, $return_date);
+            //$location_ids = $this->get_evaluated_plans($id_array, $return_date);  // populate $location_ids with relevent locations
+            //$this->load_tabs($location_ids, $id_array, $return_date);
         }
     }
 
@@ -159,16 +158,16 @@ class Load_locations extends CI_Model
             ?>
             <div class = "location_tab_shown" place_id="<?php echo $id; ?>" date="<?php echo $return_date; ?>">
                 <div id="number_rank">
-            <?php echo $plan_tracker;
-            $plan_tracker++; ?></div><?php
+                    <?php echo $plan_tracker;
+                    $plan_tracker++; ?></div><?php
             echo $plan;
             echo "<br/>$count people in selected groups are attending";
-            ?>
+                    ?>
             </div>
-                <?php
-            }
+            <?php
         }
-
     }
-    ?>
+
+}
+?>
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
