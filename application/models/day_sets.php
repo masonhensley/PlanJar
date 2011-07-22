@@ -12,7 +12,7 @@ class Day_sets extends CI_Model
         $return_string = '';
         for ($i = 0; $i < 7; ++$i)
         {
-            if ($start == 0 && $i == 0)
+            if ($offset == 0 && $i == 0)
             {
                 $display_date = 'Today';
             } else
@@ -20,7 +20,7 @@ class Day_sets extends CI_Model
                 $display_date = $date->format('D - j');
             }
 
-            $return_string .= '<div class="day" day_offset="' . ($start + $i) . '">' . $display_date . '</div>';
+            $return_string .= '<div class="day" day_offset="' . ($offset + $i) . '">' . $display_date . '</div>';
 
             $date->add(new DateInterval('P1D'));
         }
