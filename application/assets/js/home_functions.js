@@ -85,7 +85,7 @@ function get_selected_groups() {
         $('.selectable_group.selected_group').each(function (index, element) {
             return_list.push($(element).attr('group_id'));
         });
-    }else if($('.city_tab').hasClass('.city_active'))
+    }else if($('.city_tab').hasClass('city_active'))
     {
             return_list.push($('.city_active').attr('group_id'));
     }else{
