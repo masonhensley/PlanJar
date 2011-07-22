@@ -1,10 +1,4 @@
-$(function() {
-    initialize_data_box();
-});
-
-var selected_day;
-var selected_groups;
-
+// called when the DOM is loaded from "groups_panel_functions.js"
 // this should be called whenever the groups or day selected changes
 function update_groups_and_locations()
 {
@@ -15,7 +9,12 @@ function update_groups_and_locations()
     load_visible_locations(selected_day, selected_groups); // delete all other instances of load_visible_plans
 }
 
-// updates for when 
+function city_tab_setup()
+{
+    
+}
+
+// updates the data box based on the selected groups
 function load_data_box(selected_day, selected_groups)
 {
     $.get('/home/load_data_box', {
@@ -29,7 +28,7 @@ function load_data_box(selected_day, selected_groups)
 
 // populates the popular location main panel
 function load_visible_locations(selected_day, selected_groups){
-    $.get('/home/load_popular_locations', {
+    $.get('/home/load_location_tabs', {
         'selected_groups': selected_groups,
         'selected_day': selected_day
     }, function (data) {

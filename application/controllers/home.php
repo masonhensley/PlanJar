@@ -23,6 +23,7 @@ class Home extends CI_Controller
             // Lookup the groups by id.
             $this->load->model('load_groups');
 
+
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
                 'firstname' => $firstname,
@@ -239,10 +240,9 @@ class Home extends CI_Controller
         echo $return_str;
     }
 
-    // Return a list of plans visible to the user.
-    // This code is sweet
-    // called from "home_functions.js"
-    public function load_popular_locations()
+    // Return a list of location tabs based on the groups selected
+    // called from data_box_functions.js
+    public function load_location_tabs()
     {
         // load the model
         $this->load->model('load_locations');
@@ -259,6 +259,7 @@ class Home extends CI_Controller
         }
     }
 
+    // this function populates the data box for when a group or location is selected
     public function load_data_box()
     {
         $group_list = $this->input->get('selected_groups');

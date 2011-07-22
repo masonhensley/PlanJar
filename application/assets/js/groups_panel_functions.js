@@ -4,6 +4,10 @@ $(function() {
 });
 
 function initialize_selectable_groups() {
+    
+    //default tab used is the city_tab
+    set_city_tab();
+    
     // Divset
     $('#group_select_type').divSet();
     $('#select_one_group').click();
@@ -16,14 +20,32 @@ function initialize_selectable_groups() {
     $('#select_mult_groups').click(function () {
         initialize_mult_groups_select();
     });
+    
+    update_groups_and_locations();
 }
 
 // Callback function
 function on_groups_change() {
     show_data_container('#group_data');
-    //get_group_day_data();
-    //load_visible_plans();
+    $('.city_tab').removeClass('.city_active'); // unselect the city tab
     update_groups_and_locations();// this should update the graphs so they match what is selected
+}
+
+// this is the "use current location" tab. clicking it de-selects all other group tabs and uses the current location
+function set_city_tab()
+{
+    $('.city_tab').click(function(){
+        
+        if($(this).hasClass('city_active'))
+            {
+                $(this).removeClass('city_active');
+            }else{
+                $('.selected_group').removeClass('selected_group');
+                $('.city_active').removeClass('city_active');
+                 $(this).addClass('city_active');
+            }
+        update_groups_and_locations();
+    });
 }
 
 function initialize_one_group_select() {
