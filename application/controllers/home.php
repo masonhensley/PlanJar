@@ -160,7 +160,7 @@ class Home extends CI_Controller
             $date = new DateTime();
             $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
             $event_data = array(
-                'title' => $this->input->get('plan_title'),
+                'title' => $this->input->get('event_title'),
                 'place_id' => $this->input->get('plan_location_id'),
                 'date' => $date->format('Y-m-d'),
                 'time' => $this->input->get('plan_time'),
