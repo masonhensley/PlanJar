@@ -60,7 +60,7 @@ function initialize_follow_search() {
             needle: $(this).val()
         }, function (data) {
             $('#follow_search').html(data);
-            $('#follow_search').show("slow");
+            $('#follow_search').show();
             // Click handler.
             $('#follow_search .add_following').click(function () {
                 $(this).text('+ You sure?');
@@ -95,15 +95,14 @@ function initialize_suggested_friends()
             
             initialize_follow_search();
         }else{
-            $('.following_profile_body').hide();
             $(this).addClass('suggested_active');
-            
+            $('.following_profile_body').hide();
             // Clear the search box
             $('#friend_search').val('');
             $('#friend_search').blur();
             
             get_suggested_friends();
-            $('#friend_search').show("slow");
+            $('#follow_search').show();
         }
     });
     show_suggested_init('#following_content', '.suggested_friends');
