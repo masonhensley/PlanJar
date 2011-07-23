@@ -66,12 +66,12 @@
 
             <div class="plan_page_content" page_index="3" style="display: none;">
                 <div id="plan_invite_wrapper">
-                    <div id="invite_plan_left">
+                    <div id="invite_plan_users_wrapper">
                         Invite people
                         <input type="text" id="invite_plan_users" name="invite_plan_users"/>
                     </div>
 
-                    <div id="invite_plan_right">
+                    <div id="invite_plan_groups_wrapper">
                         Invite groups
                         <input type="text" id="invite_plan_groups" name="invite_plan_groups"/>
                     </div>

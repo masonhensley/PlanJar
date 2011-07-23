@@ -128,11 +128,12 @@ function initialize_event_select_page() {
     }, function (data) {
         $('#plan_event_select_wrapper').html(data);
                         
-        // Handle the select change event
-        $('#plan_event_select option').click(function () {
+        // Handle the select change event (overwriting default functionality)
+        $('#plan_event_select option').mousedown(function () {
             $(this).siblings().removeAttr('selected')
             $(this).attr('selected', 'selected');
             
+            // Store the plan id
             $('#plan_event_id').val($(this).parent().val());
             
             // Reset and hide the title and privacy settings
@@ -140,6 +141,13 @@ function initialize_event_select_page() {
             $('#event_title').blur();
             $('#plan_privacy_wrapper div').first().click();
             $('#event_title_wrapper').hide();
+            
+            // Hide both invite boxes for a closed event and just the group invite box for a loose event
+            if ($(this).attr('priv_type') == 'strict') {
+                $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').hide('fast');
+            } else if ($(this).attr('priv_type') == 'open') {
+                $('#invite_plan_groups_wrapper').hide('fast');
+            }
             
             next_plan_panel();
         });
@@ -156,6 +164,9 @@ function initialize_event_select_page() {
             $('#plan_privacy_wrapper div').first().click();
             $('#event_title_wrapper').hide();
             
+            // Show both invite boxes
+            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').show('fast');
+            
             next_plan_panel();
         });
         
@@ -170,6 +181,9 @@ function initialize_event_select_page() {
             $('#event_title').focus();
             $('#plan_privacy_wrapper div').first().click();
             $('#event_title_wrapper').show();
+            
+            // Show both invite boxes
+            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').show('fast');
         });
     });
 }
