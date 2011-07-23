@@ -59,8 +59,6 @@
             <div class="data_tab" assoc_div="#map_data">Map</div>
         </div>
 
-
-
         <div class ="container">
             <div class="location_container">
                 <div id="using_location">Using location:</div>
