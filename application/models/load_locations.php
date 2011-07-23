@@ -5,7 +5,11 @@ class Load_locations extends CI_Model
 
     function load_relevant_locations($selected_groups, $day, $user_id, $school)
     {
-        // handle
+        // when the page first loads, the javascript can't get the attribute in time, so it is set to 0
+        if(!$day)
+        {
+            $day = 0;
+        }
         $display_day = $this->get_day($day); // shows the day selected in correct format
         
         if (!$selected_groups[0])
