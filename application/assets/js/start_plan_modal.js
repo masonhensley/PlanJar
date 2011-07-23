@@ -182,15 +182,17 @@ function initialize_event_select_page() {
             // Clear the select
             $('#plan_event_select option[selected="selected"]').removeAttr('selected');
             
+            console.log('clear successful: ' + $('#plan_event_select').val());
+            
             // Reset and hide the title and privacy settings
-            $('#plan_event_id').val('');
-            $('#event_title').val('');
-            $('#event_title').blur();
-            $('#plan_privacy_wrapper div').first().click();
-            $('#event_title_wrapper').hide();
+//            $('#plan_event_id').val('');
+//            $('#event_title').val('');
+//            $('#event_title').blur();
+//            $('#plan_privacy_wrapper div').first().click();
+//            $('#event_title_wrapper').hide();
             
             // Show both invite boxes
-            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+//            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
             
             // Bypass the "validating" click function
             next_plan_panel();
@@ -218,7 +220,7 @@ function initialize_event_select_page() {
 function generate_plan_text() {
     var day = $('#plan_day .divset_selected').html();
     var time = $('#plan_time .divset_selected').html().toLowerCase();
-    var return_string = $('#plan_location_name').val() + ' ';
+    var return_string = '<b>' + $('#plan_location_name').val() + '</b> ';
     
     if (day == 'Today') {
         // Today
@@ -236,7 +238,7 @@ function generate_plan_text() {
         } else {
             return_string += 'the ' + time;
         }
-        return_string += ' of ' + day;
+        return_string += ' of <b>' + day + '</b>';
     }
     
     return return_string;
