@@ -8,14 +8,12 @@ class Load_locations extends CI_Model
         $date;
         $return_date;
         $id_array = array();
-        if ($day) // this converts the selected day to the equivalent sql representation
-        {
-            $date = new DateTime();
-            $date->add(new DateInterval('P' . $day . 'D'));
-            $return_date = $date->format('Y-m-d');
-        }
-        var_dump($selected_groups, $day);
-        
+        // this converts the selected day to the equivalent sql representation
+        $date = new DateTime();
+        $date->add(new DateInterval('P' . $day . 'D'));
+        $return_date = $date->format('Y-m-d');
+
+
         // handle
         if (!$selected_groups[0])
         {
@@ -40,7 +38,7 @@ class Load_locations extends CI_Model
     function on_current_location_selected()
     {
         $user = $this->ion_auth->get_user();
-        
+
         echo "Most popular locations near lat:$user->latitude lon:$user->longitude<br/>";
     }
 
