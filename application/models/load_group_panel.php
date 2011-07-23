@@ -5,14 +5,15 @@
     <div class="city_tab" group_id="friends">
         Friends
     </div>
-    <div class="city_tab" group_id="current_location">
-        Current Location
-    </div>
     <div class="city_tab" group_id="school">
         <?php 
         echo $school['school'];
         ?>
     </div>
+    <div class="city_tab" group_id="current_location">
+        Current Location
+    </div>
+    
     <hr/>
 
     <?php
