@@ -9,7 +9,8 @@ function initialize_dashboard_tabs() {
     // Click handler.
     $('.tab_container .tab').click(function () {
         if (!$(this).hasClass('tab_selected')) {
-            $('.create_group').hide();
+            $('.create_group').hide(); // hide the create group icon when the group tab isn't selected'
+                $('#followers_content .right').hide(); // hide the profile for the followers content
             show_data_container($(this).attr('assoc_div'));
         }
     });

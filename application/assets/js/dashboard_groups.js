@@ -45,12 +45,15 @@ function group_select_click_handler()
         // Unselect other groups and select selected (if it isn't already)
         if(!$(this).hasClass('selected_group'))
         {
+            $('.middle').hide();
             $('.selected_group').removeClass('selected_group'); 
             $(this).addClass('selected_group');
             $.get('/dashboard/get_group_details', {
                 group_id: $(this).attr('group_id')
             }, function (data) {
+              
                 $('#groups_content .middle').html(data);
+                $('.middle').show("slow");
             });
         }
     });
@@ -58,8 +61,6 @@ function group_select_click_handler()
     // Click handler.
     group_click_handler('#find_groups_list .add_following', 'add_group_following');
     $('#find_groups_list .add_following').click(function () {
-        
-        
         $(this).text('You sure?');
         $(this).unbind('click');
         $(this).click(function () {
@@ -83,7 +84,7 @@ function populate_edit_groups_list() {
         // Make groups selectable
         $('#edit_groups_list .group_entry').click(function() {
             // Unselect other groups
-            
+            $('.middle').hide();
             if(!$(this).hasClass('selected_group'))
             {
                 $('.selected_group').removeClass('selected_group'); 
@@ -92,7 +93,7 @@ function populate_edit_groups_list() {
                     group_id: $(this).attr('group_id')
                 }, function (data) {
                     $('#groups_content .middle').html(data);
-                    
+                    $('.middle').show("slow");
                     // Button click handlers
                     group_click_handler('#groups_content .remove_following', 'remove_group_following');
                     group_click_handler('#groups_content .remove_joined', 'remove_group_joined');
