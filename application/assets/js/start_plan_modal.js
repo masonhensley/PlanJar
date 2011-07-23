@@ -186,13 +186,13 @@ function initialize_event_select_page() {
             
             // Reset and hide the title and privacy settings
             $('#plan_event_id').val('');
-//            $('#event_title').val('');
-//            $('#event_title').blur();
-//            $('#plan_privacy_wrapper div').first().click();
-//            $('#event_title_wrapper').hide();
+            $('#event_title').val('');
+            $('#event_title').blur();
+            $('#plan_privacy_wrapper div').first().click();
+            //            $('#event_title_wrapper').hide();
             
             // Show both invite boxes
-//            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+            //            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
             
             // Bypass the "validating" click function
             $('#plan_invite_wrapper').html(generate_full_plan_text());
@@ -250,9 +250,9 @@ function generate_full_plan_text() {
     var return_string = "Start a plan to ";
     
     if ($('#plan_event_id').val() != '') {
-        return_string += $('#plan_event_select option[selected="selected"]').html() + ' at ';
+        return_string += '<b>' + $('#plan_event_select option[selected="selected"]').html() + '</b> at ';
     } else if ($('#event_title').val() != '') {
-        return_string += $('#event_title').val() + ' at ';
+        return_string += '<b>' + $('#event_title').val() + '</b> at ';
     }
     
     return return_string + generate_plan_text();
