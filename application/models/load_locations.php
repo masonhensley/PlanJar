@@ -95,7 +95,7 @@ class Load_locations extends CI_Model
         $friend_query .= ")";
         $query_result = $this->db->query($friend_query);
         $friend_ids = array();
-        foreach($query_result as $id)
+        foreach($query_result->result() as $id)
         {
             $friend_ids[] = $id->user_id;
         }
