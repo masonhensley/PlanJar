@@ -82,9 +82,9 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $user_id = $user->id;
-        $friend_query = "SELECT follow_id FROM friends I
-        NNER JOIN friends ON $user_id=user_id OR $user_id=follow_id 
-        WHERE user_id=$user_id ORfollow_id=$user_id";
+        $friend_query = "SELECT newfriends.follow_id FROM 
+            (SELECT friends.user_id FROM friends WHERE friends.follow_id=$user_id) AS newfriends 
+            WHERE newfriends.user_id=$user_id";
         var_dump($friend_query);
         
         //$query_result = $this->db->query($friend_query);
