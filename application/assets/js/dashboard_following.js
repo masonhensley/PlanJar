@@ -61,7 +61,7 @@ function initialize_follow_search() {
             needle: $(this).val()
         }, function (data) {
             $('#follow_search').html(data);
-            $('#follow_search').show();
+            $('#follow_search').show("slow");
             // Click handler.
             $('#follow_search .add_following').click(function () {
                 $(this).text('+ You sure?');
@@ -70,6 +70,7 @@ function initialize_follow_search() {
                     $.get('/dashboard/add_user_following', {
                         following_id: $(this).parent().attr('user_id')
                     }, function () {
+                        $('#follow_search').hide("slow");
                         $('#follow_search').html('');
                         $('#friend_search').val('');
                         populate_following_list();
