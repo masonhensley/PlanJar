@@ -222,7 +222,7 @@ class Home extends CI_Controller
         // Add invitees if necessary.
         if ($event_data['privacy'] != 'open')
         {
-            $this->event_ops->add_invitees($plan_data['event_id'], $invited_users);
+            $this->event_ops->add_invitees($event_id, $invited_users);
         }
 
         // Notify users
