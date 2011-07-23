@@ -55,7 +55,7 @@ function initialize_follow_search() {
     $('.in-field_block label').inFieldLabels();
     
     $('#friend_search').keyup(function () {
-        $('.following_profile_body').hide();
+        $('.following_profile_body').hide("slow");
         $('.suggested_active').removeClass('suggested_active'); // this unselects the "suggested friends" tab first
         $.get('/dashboard/follow_search', {
             needle: $(this).val()
@@ -104,7 +104,7 @@ function initialize_suggested_friends()
             $('#friend_search').blur();
             
             get_suggested_friends();
-            $('#follow_search').show();
+            $('#follow_search').show("slow");
         }
     });
     show_suggested_init('#following_content', '.suggested_friends');
