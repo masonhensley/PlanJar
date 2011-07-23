@@ -143,6 +143,9 @@ function initialize_event_select_page() {
             $('#event_title_wrapper').hide();
             
             // Hide both invite boxes for a closed event and just the group invite box for a loose event
+            console.log($(this));
+            console.log($(this).attr('priv_type'));
+            console.log($('#invite_plan_users_wrapper'));
             if ($(this).attr('priv_type') == 'strict') {
                 $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').hide('fast');
             } else if ($(this).attr('priv_type') == 'open') {
