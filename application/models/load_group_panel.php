@@ -10,7 +10,7 @@
     </div>
     <div class="city_tab" group_id="school">
         <?php 
-        var_dump($school);
+        echo $school['school'];
         ?>
     </div>
     <hr/>
@@ -21,7 +21,7 @@
         ?>
         <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
             <?php 
-            if($group['name'] != $school)
+            if($group['name'] != $school['school'])
             {
                 echo($group['name']); 
             }
