@@ -38,7 +38,7 @@ class Load_locations extends CI_Model
     function on_current_location_selected($display_day)
     {
         $user = $this->ion_auth->get_user();
-        echo "Showing most popular events near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
+        echo "Showing most popular events near lat:$user->latitude lon:$user->longitude for " .$display_day ."<br/><hr/>";
     }
 
     function on_friends_selected($display_day)
