@@ -32,7 +32,7 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "Select an option on the left panel to see relevent popular events for $display_day<br/><hr/>";
+        echo "Select an option on the left panel to see relevant popular events for $display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day)
@@ -80,7 +80,8 @@ class Load_locations extends CI_Model
     // This function returns an array of friend user ids (if the friend tab is selected)
     function get_friend_ids()
     {
-        
+        $user = $this->ion_auth->get_user();
+        $user_id = $user->id;
         $friend_query = "SELECT follow_id FROM friends I
         NNER JOIN friends ON $user_id=user_id OR $user_id=follow_id 
         WHERE user_id=$user_id ORfollow_id=$user_id";
