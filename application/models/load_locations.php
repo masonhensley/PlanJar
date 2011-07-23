@@ -35,6 +35,7 @@ class Load_locations extends CI_Model
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
         $date = $date->format('Y-m-d');
+        var_dump($day, $date);
         if ($day == 0)
         {
             $display_day = "today";
