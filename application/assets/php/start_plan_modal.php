@@ -87,7 +87,7 @@
             <input id="new_place_latitude" name="new_place_latitude" type="hidden"/>
             <input id="new_place_longitude" name="new_place_longitude" type="hidden"/>
             <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
-            <input id="plan_event_id" name="event_id" type="hidden" />
+            <input id="plan_event_id" name="plan_event_id" type="hidden" />
         </form>
     </div>
 
