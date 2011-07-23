@@ -322,7 +322,7 @@ a{
 .right{
     float:left;
     width:210px;
-    min-height: 80px;
+    min-height: 30px;
     background-color:white;
     padding-top:10px;
     border:1px solid;
