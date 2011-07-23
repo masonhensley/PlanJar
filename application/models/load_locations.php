@@ -3,50 +3,53 @@
 class Load_locations extends CI_Model
 {
 
-    function load_relevant_locations($selected_groups, $day, $user_id)
+    function load_relevant_locations($selected_groups, $day, $user_id, $school)
     {
-        // handle
+        // when the page first loads, the javascript can't get the attribute in time, so it is set to 0
+        if(!$day)
+        {
+            $day = 0;
+        }
+        $display_day = $this->get_day($day); // shows the day selected in correct format
+        
         if (!$selected_groups[0])
         {
-            $this->on_nothing_selected();
+            $this->on_nothing_selected($display_day);
         } else if ($selected_groups[0] == 'current_location')
         {
-            $this->on_current_location_selected($day);
+            $this->on_current_location_selected($display_day);
         } else if ($selected_groups[0] == 'friends')
         {
-            $this->on_friends_selected();
+            $this->on_friends_selected($display_day);
         } else if ($selected_groups[0] == 'school')
         {
-            $this->on_school_selected($day);
+            $this->on_school_selected($display_day, $school);
         } else
         {
             $this->on_groups_selected($selected_groups);
         }
     }
 
-    function on_nothing_selected()
+    function on_nothing_selected($display_day)
     {
-        echo "no one is selected";
+        echo "Select an option on the left panel to see relevent popular events for $display_day";
     }
 
-    function on_current_location_selected($day)
+    function on_current_location_selected($display_day)
     {
         $user = $this->ion_auth->get_user();
-        $display_day = $this->get_day($day);
-        echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
+        echo "Showing most popular events near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
     }
 
-    function on_friends_selected()
+    function on_friends_selected($display_day)
     {
-        echo "friends tab is selected";
+        echo "Popular events your friends are attending $display_day";
     }
 
-    function on_school_selected($day)
+    function on_school_selected($display_day, $school)
     {
         $user = $this->ion_auth->get_user();
-        $school = $user->school;
-        $display_day = $this->get_day($day);
-        echo "Showing most popluar locations $school students are attending $display_day<br/><hr/>";
+        echo "Popluar locations $school students are attending $display_day<br/><hr/>";
     }
 
     function on_groups_selected($group_list)
