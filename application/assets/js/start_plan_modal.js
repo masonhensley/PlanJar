@@ -124,7 +124,7 @@ function initialize_plan_modal() {
         $('#event_title').val('');
         $('#event_title').blur();
         $('#plan_privacy_wrapper div').first().click();
-        $('#event_title_wrapper').hide('fast');
+        $('#event_title_wrapper').css('display', 'none')
             
         // Show both invite boxes
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
@@ -209,7 +209,7 @@ function initialize_event_select_page() {
             $('#event_title').val('');
             $('#event_title').blur();
             $('#plan_privacy_wrapper div').first().click();
-            $('#event_title_wrapper').hide('fast');
+            $('#event_title_wrapper').css('display', 'none');
             
             $('#plan_right').click();
         });
