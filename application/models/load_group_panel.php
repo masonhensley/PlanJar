@@ -6,14 +6,11 @@
         Friends
     </div>
     <div class="city_tab" group_id="school">
-        <?php 
+        <?php
         echo $school;
         ?>
     </div>
-    <div class="city_tab" group_id="current_location">
-        Current Location
-    </div>
-    
+
     <hr/>
 
     <?php
@@ -21,8 +18,8 @@
     {
         ?>
         <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
-            <?php 
-                            echo($group['name']); 
+            <?php
+            echo($group['name']);
             ?>
         </div>
         <?php
@@ -39,6 +36,10 @@
         <?php
     }
     ?>
+    <hr/>
+    <div class="city_tab" group_id="current_location">
+        Current Location
+    </div>
 </div>
 
 <br/>
