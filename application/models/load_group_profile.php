@@ -143,7 +143,7 @@ class Load_group_profile extends CI_Model
             {
                 echo "<div style=\"position:absolute; right:0px; bottom:0px;\">" . $bottom_bar_buttons . "</div>";
             }else{
-                echo "<div style=\"position:absolute; right:-16px; bottom:-11px;\">" . $bottom_bar_buttons . "</div>";
+                echo "<div style=\"position:absolute; right:-15px; bottom:-11px;\">" . $bottom_bar_buttons . "</div>";
             }
             
     
