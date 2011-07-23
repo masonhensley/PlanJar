@@ -67,7 +67,7 @@
                 <a href="#" id="change_location" >Change location</a>
             </div>
             <a href="/dashboard/notifications" id="notifications_link">Notifications</a>
-            <div class ="left">
+            <div class ="left border_gray">
                 <div class="left_header">
                 </div>
                 <?php
