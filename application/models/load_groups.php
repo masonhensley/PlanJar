@@ -13,7 +13,7 @@ class Load_groups extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $query_string = "SELECT group_relationships.group_id, groups.name FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id " .
-                "WHERE group_relationships.user_joined_id = ?";
+                "WHERE group_relationships.user_joined_id = ? AND groups.school_group=0";
         $query = $this->db->query($query_string, array($user->id));
 
         $return_array = array();

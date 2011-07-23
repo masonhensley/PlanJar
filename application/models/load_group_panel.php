@@ -7,7 +7,7 @@
     </div>
     <div class="city_tab" group_id="school">
         <?php 
-        echo $school['school'];
+        echo $school;
         ?>
     </div>
     <div class="city_tab" group_id="current_location">
@@ -22,10 +22,7 @@
         ?>
         <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
             <?php 
-            if($group['name'] != $school['school'])
-            {
-                echo($group['name']); 
-            }
+                            echo($group['name']); 
             ?>
         </div>
         <?php
