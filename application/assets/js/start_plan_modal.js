@@ -63,7 +63,7 @@ function initialize_plan_modal() {
             
                 // Make sure an event is selected or an event has been created
                 if ($('#plan_event_select').val() != null || $('#event_title').val() != '') {
-                    $('#plan_invite_wrapper').html(generate_full_plan_text());
+                    $('#plan_invite_header').html(generate_full_plan_text());
                     next_plan_panel();
                 }
                 break;
@@ -103,7 +103,7 @@ function initialize_plan_modal() {
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
             
         // Bypass the "validating" click function
-        $('#plan_invite_wrapper').html(generate_full_plan_text());
+        $('#plan_invite_header').html(generate_full_plan_text());
         next_plan_panel();
     });
         
