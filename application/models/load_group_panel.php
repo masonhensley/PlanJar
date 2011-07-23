@@ -36,6 +36,10 @@
         <?php
     }
     ?>
+    <div id="group_select_type">
+        <div id="select_one_group">Select one</div>
+        <div id="select_mult_groups">Select multiple</div>
+    </div>
     <hr/>
     <div class="city_tab" group_id="current_location">
         Current Location
@@ -44,10 +48,7 @@
 </div>
 
 <br/>
-<div id="group_select_type">
-    <div id="select_one_group">Select one</div>
-    <div id="select_mult_groups">Select multiple</div>
-</div>
+
 <br/>
 <a href="/dashboard/groups/suggested" style="color:#110055;font-weight:bold;" >Find groups</a><br/> 
 <a href="/dashboard/following/suggested" style="color:#110055;font-weight:bold;">Find friends</a><br/>
