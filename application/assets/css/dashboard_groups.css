@@ -87,6 +87,9 @@
 .group_entry.selected_group {
     background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
 }
+#edit_groups_list{
+    border-bottom:1px solid black;
+}
 .group_entry .group_entry_left {
     float: left;
     width: auto;
