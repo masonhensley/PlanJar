@@ -133,7 +133,6 @@ function initialize_event_select_page() {
             $('#plan_event_id').val($(this).parent().val());
             
             // Reset and hide the title and privacy settings
-            $('#plan_event_id').val('');
             $('#event_title').val('');
             $('#event_title').blur();
             $('#plan_privacy_wrapper div').first().click();
@@ -146,6 +145,8 @@ function initialize_event_select_page() {
         $('#no_event_title').click(function () {
             // Clear the select
             $('#plan_event_select').attr('selectedIndex', '-1');
+            console.log('clear');
+            console.log($('#plan_event_select').val());
             
             // Reset and hide the title and privacy settings
             $('#plan_event_id').val('');
