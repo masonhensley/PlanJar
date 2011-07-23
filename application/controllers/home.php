@@ -274,7 +274,7 @@ class Home extends CI_Controller
     // this function is called when a location tab is clicked to display its information
     public function show_location_data()
     {
-        $this->load->model('load_location_data');
+            $this->load->model('load_location_data');
         $user = $this->ion_auth->get_user();
         $user_id = $user->id;
         $place_id = $this->input->get('place_id');
