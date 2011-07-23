@@ -10,7 +10,7 @@
     </div>
     <div class="city_tab" group_id="school">
         <?php 
-        echo $school;             
+        var_dump($school);
         ?>
     </div>
     <hr/>
