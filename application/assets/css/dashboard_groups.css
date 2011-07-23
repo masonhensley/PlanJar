@@ -74,7 +74,7 @@
 }
 
 .suggest_groups_active{
-    background:-webkit-gradient(linear,left top,left bottom,from(lightYellow),to(lightgray));
+    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
     color:black;
 }
 
@@ -87,7 +87,7 @@
     text-align :center;
 }
 .group_entry.selected_group {
-    background:-webkit-gradient(linear,left top,left bottom,from(lightBlue),to(#DFF));
+    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
 }
 .group_entry .group_entry_left {
     float: left;
