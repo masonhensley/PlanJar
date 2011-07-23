@@ -72,9 +72,9 @@
             </div>
             <div class ="center">
                 <div class="data_container_wrapper">
-                    <div id="group_data" class ="data_container">Select groups on the left to see more information.</div>
-                    <div id="plan_data" class ="data_container">Select a plan on the right to see more information.</div>
-                    <div id="location_data" class ="data_container">Select a location below to see more information.</div>
+                    <div id="group_data" class ="data_container"></div>
+                    <div id="plan_data" class ="data_container"></div>
+                    <div id="location_data" class ="data_container"></div>
                     <div id="map_data" class ="data_container">
                         <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                         <div id="map"></div>
