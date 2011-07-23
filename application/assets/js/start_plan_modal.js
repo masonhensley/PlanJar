@@ -57,7 +57,7 @@ function initialize_plan_modal() {
             case 2:
                 // Hide the necessary invite boxes if an event is selected
                 if ($('plan_event_select').val() != null) {
-                    var priv_type = $('#plan_event_select[selected="selected"]').attr('priv_type');
+                    var priv_type = $('#plan_event_select option[selected="selected"]').attr('priv_type');
                 
                     // Hide the invite boxes as necessary
                     if (priv_type == 'strict') {
@@ -249,7 +249,7 @@ function generate_full_plan_text() {
         return_string += '<b>' + $('#event_title').val() + '</b> at ';
     }
     
-    return return_string + generate_plan_text();
+    return return_string + generate_plan_text() + '.';
 }
 
 // Scrolls to the previous plan panel
