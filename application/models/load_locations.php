@@ -32,32 +32,31 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "Select an option on the left panel to see relevant popular events for $display_day<br/><hr/>";
+        echo "Use the left panel to select the plan information you want to see for $display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day)
     {
         $user = $this->ion_auth->get_user();
-        echo "Showing most popular events near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
+        echo "Popular places near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
     }
 
     function on_friends_selected($display_day)
     {
-        echo "Popular events your friends are attending $display_day";
+        echo "Popular places your friends are attending $display_day<br/><hr/>";
         $friend_ids = $this->get_friend_ids();
-        var_dump($friend_ids);
     }
 
     function on_school_selected($display_day, $school)
     {
         $user = $this->ion_auth->get_user();
-        echo "Popluar locations $school students are attending $display_day<br/><hr/>";
+        echo "Popluar places $school students are attending $display_day<br/><hr/>";
     }
 
     function on_groups_selected($group_list)
     {
 
-        echo "Popular locations attended by  are selected";
+        echo "Popular places attended by  are selected";
 
         $id_array = array(); // an array of all the user ids that will be included in the pull
         $index = 0;  // index used to access $group_list
