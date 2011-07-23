@@ -37,7 +37,7 @@ class Load_locations extends CI_Model
         echo "Showing most popular events near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
     }
 
-    function on_friends_selected($day)
+    function on_friends_selected($display_day)
     {
         echo "Popular events your friends are attending $display_day";
     }
