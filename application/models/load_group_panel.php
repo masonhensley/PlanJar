@@ -38,7 +38,7 @@
     ?>
     <div id="group_select_type">
         <div id="select_one_group">one</div>
-        <div id="select_mult_groups">multiple</div>
+        <div id="select_mult_groups" style="margin-left:5px;">multiple</div>
     </div>
     <hr/>
     <div class="city_tab" group_id="current_location">
