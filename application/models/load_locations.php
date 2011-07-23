@@ -14,7 +14,9 @@ class Load_locations extends CI_Model
             $date->add(new DateInterval('P' . $day . 'D'));
             $return_date = $date->format('Y-m-d');
         }
-        var_dump($selected_groups);
+        var_dump($selected_groups, $day);
+        
+        // handle
         if (!$selected_groups[0])
         {
             $this->on_nothing_selected();
@@ -37,7 +39,9 @@ class Load_locations extends CI_Model
 
     function on_current_location_selected()
     {
-        echo "current location is selected";
+        $user = $this->ion_auth->get_user();
+        
+        echo "Most popular locations near lat:$user->latitude lon:$user->longitude<br/>";
     }
 
     function on_friends_selected()
