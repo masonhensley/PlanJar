@@ -34,7 +34,7 @@ class Load_locations extends CI_Model
         $user = $this->ion_auth->get_user();
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
-        $display_day = $date->format('Y-m-d');
+        $display_day = $date->format('l');
         if ($day == 0)
         {
             $display_day = "today";
