@@ -15,7 +15,9 @@ class Load_locations extends CI_Model
         } else if ($selected_groups[0] == 'friends')
         {
             $this->on_friends_selected();
-        } else
+        }else if ($selected_groups[0] == 'school'){
+            $this->on_school_selected();
+        }else
         {
             $this->on_groups_selected($selected_groups);
         }
@@ -44,6 +46,11 @@ class Load_locations extends CI_Model
         echo "friends tab is selected";
     }
 
+    function on_school_selected()
+    {
+        
+    }
+    
     function on_groups_selected($group_list)
     {
 
