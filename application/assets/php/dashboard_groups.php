@@ -1,6 +1,6 @@
 <div class="left">
     <div class="left_header">
-        <div style="position: relative; top:15px; color:navy;">
+        <div style="position: relative; top:6px; color:navy;">
         Groups you are following<br/>
         <font style="color:lightgray">(select to view profile)</font>
         </div>
