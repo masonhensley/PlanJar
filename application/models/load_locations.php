@@ -9,10 +9,12 @@ class Load_locations extends CI_Model
         $return_date;
         $id_array = array();
         // this converts the selected day to the equivalent sql representation
-        $date = new DateTime();
-        $date->add(new DateInterval('P' . $day . 'D'));
-        $return_date = $date->format('Y-m-d');
-
+        if (is_int($day))
+        {
+            $date = new DateTime();
+            $date->add(new DateInterval('P' . $day . 'D'));
+            $return_date = $date->format('Y-m-d');
+        }
 
         // handle
         if (!$selected_groups[0])
@@ -39,7 +41,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
 
-        echo "Most popular locations near lat:$user->latitude lon:$user->longitude<br/>";
+        echo "Popular locations near lat:$user->latitude lon:$user->longitude<br/>";
     }
 
     function on_friends_selected()
