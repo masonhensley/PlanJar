@@ -189,10 +189,10 @@ function initialize_event_select_page() {
             $('#event_title').val('');
             $('#event_title').blur();
             $('#plan_privacy_wrapper div').first().click();
-            //            $('#event_title_wrapper').hide();
+            $('#event_title_wrapper').css('display',  'none');
             
             // Show both invite boxes
-            //            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
             
             // Bypass the "validating" click function
             $('#plan_invite_wrapper').html(generate_full_plan_text());
