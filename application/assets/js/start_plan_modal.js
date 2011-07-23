@@ -143,16 +143,9 @@ function initialize_event_select_page() {
             $('#event_title_wrapper').hide();
             
             // Hide both invite boxes for a closed event and just the group invite box for a loose event
-            console.log($(this));
-            console.log($(this).attr('priv_type'));
-            console.log($('#invite_plan_users_wrapper, #invite_plan_groups_wrapper'));
-            
             if ($(this).attr('priv_type') == 'strict') {
-                console.log('def strict');
-                //$('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').hide('fast');
                 $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', 'none');
             } else if ($(this).attr('priv_type') == 'open') {
-                //$('#invite_plan_groups_wrapper').hide('fast');
                 $('#invite_plan_groups_wrapper').css('display', 'none');
             }
             
@@ -172,7 +165,7 @@ function initialize_event_select_page() {
             $('#event_title_wrapper').hide();
             
             // Show both invite boxes
-            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').show('fast');
+            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
             
             next_plan_panel();
         });
@@ -190,7 +183,7 @@ function initialize_event_select_page() {
             $('#event_title_wrapper').show();
             
             // Show both invite boxes
-            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').show('fast');
+            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper')..css('display', '');
         });
     });
 }
