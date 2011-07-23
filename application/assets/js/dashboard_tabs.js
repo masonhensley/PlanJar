@@ -10,6 +10,7 @@ function initialize_dashboard_tabs() {
     $('.tab_container .tab').click(function () {
         if (!$(this).hasClass('tab_selected')) {
             $('.create_group').hide();
+                $('#followers_content .right').hide();
             show_data_container($(this).attr('assoc_div'));
         }
     });

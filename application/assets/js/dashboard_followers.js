@@ -1,6 +1,5 @@
 function followers_setup() {
     populate_followers_list();
-    $('#followers_content .right').hide();
 }
 
 function populate_followers_list() {
@@ -28,6 +27,7 @@ function populate_followers_list() {
         
             if(!$(this).hasClass('selected_follower'))
             {
+                $('#followers_content .right').hide();
                 $('.user_entry.selected_follower').removeClass('selected_follower');
                 $(this).addClass('selected_follower');
                 $.get('/dashboard/get_profile', {
