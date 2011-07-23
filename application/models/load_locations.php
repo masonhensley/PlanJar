@@ -22,7 +22,7 @@ class Load_locations extends CI_Model
             $this->on_nothing_selected();
         } else if ($selected_groups[0] == 'current_location')
         {
-            $this->on_current_location_selected();
+            $this->on_current_location_selected($date);
         } else if ($selected_groups[0] == 'friends')
         {
             $this->on_friends_selected();
@@ -37,11 +37,19 @@ class Load_locations extends CI_Model
         echo "no one is selected";
     }
 
-    function on_current_location_selected()
+    function on_current_location_selected($date)
     {
         $user = $this->ion_auth->get_user();
-
-        echo "Popular locations near lat:$user->latitude lon:$user->longitude<br/>";
+        var_dump($date);
+        if($day == 0)
+        {
+            $display_day = "today";
+        }else{
+            
+        }
+        
+        
+        echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/>";
     }
 
     function on_friends_selected()
