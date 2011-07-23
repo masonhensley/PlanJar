@@ -14,7 +14,7 @@ class Load_locations extends CI_Model
             $this->on_nothing_selected();
         } else if ($selected_groups[0] == 'current_location')
         {
-            $this->on_current_location_selected($day, $date);
+            $this->on_current_location_selected($day);
         } else if ($selected_groups[0] == 'friends')
         {
             $this->on_friends_selected();
