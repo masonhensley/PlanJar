@@ -8,9 +8,11 @@ class Plan_actions extends CI_Model
         parent::__construct();
     }
 
-    function get_plans($user_id)
+    // Returns an array of result row objects representing the user's plans
+    function get_plans()
     {
-        // pull all user's current events to be displayed on the right panel
+        $user_id = $this->ion_auth->get_user()->id;
+
         $query =
                 "SELECT plans.id, events.date, events.time, events.title, plans.event_id, places.name
          FROM plans
@@ -18,10 +20,9 @@ class Plan_actions extends CI_Model
          LEFT JOIN places ON places.id=events.place_id
          WHERE plans.user_id=$user_id AND events.date >= CURDATE()";
 
-        // pull data
         $query_result = $this->db->query($query);
-        $result = $query_result->result();
-        return $result;
+
+        return $query_result->result();
     }
 
     function load_plan_data($plan)
@@ -134,6 +135,33 @@ class Plan_actions extends CI_Model
         return $this->db->insert_id();
     }
 
-}
+    // Returns an HTML string for the plan panel on the right
+    function display_plans()
+    {
+        $date_organizer = "";
+        $return_string = '<div class="active_plans">';
+        foreach ($this->get_plans() as $plan)
+        {
+            // make easy to read variables
+            $id = $plan->id;
+            $name = $plan->name;
+            $title = $plan->title;
+            $time = $plan->time;
+            $date = date('l', strtotime($plan->date));
+            if ($date_organizer != $date)
+            {
+                $return_string .= "<hr>$date<br><hr>";
+            }
+            $date_organizer = $date;
+            $return_string .= "<div class =\"plan_content\" plan_id=\"$id\" >";
+            $return_string .= $name;
+            $return_string .= "</div>";
+            $return_string .= "<div id=\"plan_padding\" style =\"width:100%; height:10px;\"></div>";
+        }
+        $return_string .= "</div>";
 
+        return $return_string;
+    }
+
+}
 ?>

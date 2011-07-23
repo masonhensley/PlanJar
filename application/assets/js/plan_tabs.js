@@ -1,5 +1,5 @@
 $(function() {
-    populate_plan_panel();
+    initialize_plan_panel();
 });
 
 // Populates the plan panel
