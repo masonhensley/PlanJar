@@ -67,11 +67,40 @@ class Plan_actions extends CI_Model
     // function to delete plan from database
     function delete_plan($plan)
     {
-        $query = "DELETE FROM plans WHERE plans.id=$plan";
-        $this->db->query($query);
-        $return_string = "<div id=\"container\" class=\"plan_deleted\">Plan Deleted</div>";
+        // select event
+        // count associated plans
+        // delete event and notifications if needed
+        // delete plan
+        // Get the associated event
+        $query_string = "SELECT event_id FROM plans WHERE id = ?";
+        $query = $this->db->query($query_string, array($plan));
+        $event_id = $query->row()->event_id;
 
-        return $return_string;
+        // Get all people with plans to the event
+        $query_string = "SELECT id FROM plans WHERE event_id = ?";
+        $query = $this->db->query($query_string, array($event_id));
+
+        // Delete the event if there is only one attendee (the current user)
+        if ($query->num_rows() == 1)
+        {
+            $event_id = $query->row()->event_id;
+            $query_string = "DELETE FROM events WHERE id = ?";
+            $query = $this->db->query($query_string, array($event_id));
+
+            // Delete all relevant invites
+            $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
+            $query = $this->db->query($query_string, array($event_id));
+
+            // Delete all relevant notifications
+            $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
+            $query = $this->db->query($query_string, array('plan_invite', $event_id));
+        }
+
+        // Delete the plan
+        $query = "DELETE FROM plans WHERE plans.id = $plan";
+        $this->db->query($query);
+
+        return "<div id=\"container\" class=\"plan_deleted\">Plan Deleted</div>";
     }
 
     // Copies the specified plan and sets the originator as the passed user id
