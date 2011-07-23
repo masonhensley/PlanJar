@@ -65,6 +65,7 @@
             </div>
 
             <div class="plan_page_content" page_index="3" style="display: none;">
+                <div id="plan_invite_header"></div>
                 <div id="plan_invite_wrapper">
                     <div id="invite_plan_users_wrapper">
                         Invite people
