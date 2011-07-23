@@ -78,11 +78,11 @@ a{
 }
 
 .selectable_group {
-    border:1px solid;
+    border:1px solid lightgray;
     height:100%;
     padding: 5px 0px 5px;
     color: black;
-    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
+    background:-webkit-gradient(linear,left top,left bottom,from(#EFF),to(#DDD));
     text-align:center;
     margin-bottom: 10px;
     width:95%;
@@ -90,7 +90,7 @@ a{
 }
 
 .city_tab{
-    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
+    background:-webkit-gradient(linear,left top,left bottom,from(#EFF),to(#DDD));
     border:1px solid lightgray;
     height:100%;
     padding: 5px 0px 5px;
