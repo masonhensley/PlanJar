@@ -34,16 +34,11 @@ class Load_locations extends CI_Model
         $user = $this->ion_auth->get_user();
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day . 'D'));
-        $date = $date->format('Y-m-d');
-        var_dump($day, $date);
+        $display_day = $date->format('l');
         if ($day == 0)
         {
             $display_day = "today";
-        } else
-        {
-            $display_day = $date->format('l');
-        }
-
+        } 
         echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/>";
     }
 
