@@ -2,6 +2,7 @@
 <!-- This file is included in home_view.php and not called from the controller -->
 
 <div class="groups_wrapper">
+    <font style="font-weight:bold;color:navy; font-size:20px">Group Panel</font><br/><hr/>
     <div class="city_tab" group_id="friends">
         Friends
     </div>
@@ -46,5 +47,5 @@
     <hr/>
 </div>
 <a href="/dashboard/groups/suggested" style="color:#57A8E2;font-weight:bold;" >Find groups</a><br/> 
-<a href="/dashboard/following/suggested" style="color:#57A8E2;font-weight:bold;">Find friends</a><br/>
+<a href="/dashboard/following/suggested" style="color:#57A8E2;font-weight:bold;">Find people</a><br/>
 
