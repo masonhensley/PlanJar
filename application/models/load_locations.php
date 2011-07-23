@@ -5,9 +5,6 @@ class Load_locations extends CI_Model
 
     function load_relevant_locations($selected_groups, $day, $user_id)
     {
-
-
-
         // handle
         if (!$selected_groups[0])
         {
@@ -18,7 +15,9 @@ class Load_locations extends CI_Model
         } else if ($selected_groups[0] == 'friends')
         {
             $this->on_friends_selected();
-        } else
+        }else if ($selected_groups[0] == 'school'){
+            $this->on_school_selected();
+        }else
         {
             $this->on_groups_selected($selected_groups);
         }
@@ -37,16 +36,21 @@ class Load_locations extends CI_Model
         $display_day = $date->format('l');
         if ($day == 0)
         {
-            $display_day = "today";
+            $display_day .= "(today)";
         } 
-        echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/>";
+        echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
     }
-
+    
     function on_friends_selected()
     {
         echo "friends tab is selected";
     }
 
+    function on_school_selected()
+    {
+        
+    }
+    
     function on_groups_selected($group_list)
     {
 
