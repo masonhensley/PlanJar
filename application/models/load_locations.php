@@ -93,7 +93,7 @@ class Load_locations extends CI_Model
         $friend_query = substr($friend_query, 0, -4);
         $friend_query .= ")";
         var_dump($friend_query);
-        $query_result = $this->db->query($friend_query);
+        //$query_result = $this->db->query($friend_query);
     }
 
     // this function updates the $id_array with members joined in groups selected
