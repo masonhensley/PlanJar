@@ -32,13 +32,13 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "Use the left panel to select the plan information you want to see for $display_day<br/><hr/>";
+        echo "Use the left panel to select the type of information you want to see for $display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day)
     {
         $user = $this->ion_auth->get_user();
-        echo "Popular places near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
+        echo "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day<br/><hr/>";
     }
 
     function on_friends_selected($display_day)
