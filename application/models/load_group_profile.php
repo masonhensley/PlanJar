@@ -88,7 +88,7 @@ class Load_group_profile extends CI_Model
 
                 if ($group_info['school_group']) // show that if it is a designated school group, or school affiliation
                 {
-                    echo "<font style=\"font-weight:bold; font-size:12px;\">This is a designated school group, only open to students from";
+                    echo "<font style=\"font-weight:bold; font-size:12px;\">This is a designated school group, only open to students from ";
                     echo $group_info['school'] . "</font><br/><br/>";
                 } else
                 {
@@ -123,7 +123,7 @@ class Load_group_profile extends CI_Model
                 $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are following and group is open
             {
-                $bottom_bar_text .= "Group is <div style=\"color:green;font-weight:bold;\">open</div>";
+                $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
                 $bottom_bar_buttons .= "<div class=\"remove_following\">unfollow</div>";
                 $bottom_bar_buttons .= "<div class=\"add_joined\">join group</div>";
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
