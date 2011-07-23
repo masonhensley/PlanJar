@@ -147,9 +147,7 @@ function initialize_event_select_page() {
         // No title click handler
         $('#no_event_title').click(function () {
             // Clear the select
-            $('#plan_event_select').attr('selectedIndex', '-1');
-            console.log('clear');
-            console.log($('#plan_event_select').val());
+            $('#plan_event_select option[selected="selected"]').removeAttr('selected');
             
             // Reset and hide the title and privacy settings
             $('#plan_event_id').val('');
