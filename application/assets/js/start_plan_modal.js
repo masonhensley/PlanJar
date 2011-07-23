@@ -90,7 +90,7 @@ function initialize_plan_modal() {
 }
 
 function plan_page_right_switch(index) {
-    switch(ndex) {
+    switch(index) {
         // First page
         case 0:
             // An autocomplete entry must have been chosen (this field is populated by the autocomplete)
