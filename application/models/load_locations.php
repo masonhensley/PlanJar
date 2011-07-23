@@ -82,18 +82,18 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $user_id = $user->id;
-        $friend_query = "SELECT newfriends.follow_id FROM 
-            (SELECT friends.user_id FROM friends WHERE friends.follow_id=$user_id) AS newfriends 
-            WHERE newfriends.user_id=$user_id";
+        $following_query = "SELECT following_id FROM friends WHERE $user_id=user_id"; // selects all the people you are following
+        $result = $this->db->query($following_query);
+        
+        $friend_query = "SELECT user_id FROM friends WHERE following=$user_id AND (";
+        foreach($result->result() as $following_id)
+        {
+            $friend_query .= "user_id=$following_id OR ";
+        }
+        $friend_query = substr($friend_query, 0, -4);
+        $friend_query .= ")";
         var_dump($friend_query);
-        echo"<br/><br/>";
         $query_result = $this->db->query($friend_query);
-        //var_dump($query_result->result());
-        //foreach ($query_result->result() as $row)
-       // {
-           // $return_id_array[] = $row->follow_id;
-       // }
-        //return $return_id_array;
     }
 
     // this function updates the $id_array with members joined in groups selected
