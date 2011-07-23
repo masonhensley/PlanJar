@@ -24,12 +24,13 @@
     foreach ($joined_groups as $group)
     {
         ?>
+    <font style="font-weight:bold;">
         <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
-            <font style="font-weight:bold;">
+            
             <?php
             echo($group['name']);
             ?>
-            </font></div>
+            </div></font>
         <?php
     }
     ?>
