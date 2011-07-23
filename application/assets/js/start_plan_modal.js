@@ -130,6 +130,9 @@ function initialize_event_select_page() {
                         
         // Handle the select change event
         $('#plan_event_select option').click(function () {
+            $(this).siblings().removeAttr('selected')
+            $(this).attr('selected', 'selected');
+            
             $('#plan_event_id').val($(this).parent().val());
             
             // Reset and hide the title and privacy settings
@@ -161,9 +164,7 @@ function initialize_event_select_page() {
         // New event click handler
         $('#create_event').click(function () {
             // Clear the select
-            var select = document.getElementById('plan_event_select');
-            select.options[select.selectedIndex].selected = false;
-            console.log('cleared');
+            $('#plan_event_select option[selected="selected"]').removeAttr('selected');
             
             // Reset and show the title and privacy settings
             $('#plan_event_id').val('');

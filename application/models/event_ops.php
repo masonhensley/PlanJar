@@ -57,16 +57,16 @@ class Event_ops extends CI_Model
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
-        $query_string = "SELECT id, title FROM events WHERE date = ? AND time = ? AND place_id = ? AND title <> ''";
+        $query_string = "SELECT id, title, privacy FROM events WHERE date = ? AND time = ? AND place_id = ? AND title <> ''";
         $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time, $place_id));
 
         // Echo the select
-        echo('<select id="plan_event_select" size="6">');
+        echo('<select id="plan_event_select" size="6" multiple="multiple">');
 
         // Echo the intermediate entries
         foreach ($query->result() as $row)
         {
-            echo('<option value="' . $row->id . '">' . $row->title . '</option>');
+            echo('<option value="' . $row->id . '" priv_type="' . $row->privacy . '">' . $row->title . '</option>');
         }
 
         // Close the select
@@ -74,4 +74,5 @@ class Event_ops extends CI_Model
     }
 
 }
+
 ?>
