@@ -20,7 +20,7 @@ class Home extends CI_Controller
             $lastname = $user_info->last_name;
             $joined_groups = $this->load_groups->joined_groups();
             $followed_groups = $this->load_groups->followed_groups();
-            $school  = $this->load_groups->user_school();
+            $school = $this->load_groups->user_school();
 
             // Lookup the groups by id.
             $this->load->model('load_groups');
@@ -259,7 +259,15 @@ class Home extends CI_Controller
         $day = $this->input->get('selected_day');
         $user_id = $this->ion_auth->get_user();
         $user_id = $user_id->id;
-        $this->load_locations->load_relevant_locations($group_list, $day, $user_id);
+        $school = $this->_get_user_school();
+        $this->load_locations->load_relevant_locations($group_list, $day, $user_id, $school);
+    }
+
+    private function _get_user_school()
+    {
+        $query_string = "SELECT school FROM school_data WHERE id = ?";
+        $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
+        return $query->row()->school;
     }
 
     // this function populates the data box for when a group or location is selected
@@ -274,7 +282,7 @@ class Home extends CI_Controller
     // this function is called when a location tab is clicked to display its information
     public function show_location_data()
     {
-            $this->load->model('load_location_data');
+        $this->load->model('load_location_data');
         $user = $this->ion_auth->get_user();
         $user_id = $user->id;
         $place_id = $this->input->get('place_id');
@@ -436,4 +444,5 @@ class Home extends CI_Controller
     }
 
 }
+
 ?>

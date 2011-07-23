@@ -3,7 +3,7 @@
 class Load_locations extends CI_Model
 {
 
-    function load_relevant_locations($selected_groups, $day, $user_id)
+    function load_relevant_locations($selected_groups, $day, $user_id, $school)
     {
         // handle
         if (!$selected_groups[0])
@@ -17,7 +17,7 @@ class Load_locations extends CI_Model
             $this->on_friends_selected();
         } else if ($selected_groups[0] == 'school')
         {
-            $this->on_school_selected($day);
+            $this->on_school_selected($day, $school);
         } else
         {
             $this->on_groups_selected($selected_groups);
@@ -41,11 +41,9 @@ class Load_locations extends CI_Model
         echo "friends tab is selected";
     }
 
-    function on_school_selected($day)
+    function on_school_selected($day, $school)
     {
         $user = $this->ion_auth->get_user();
-        $school = "";
-        $school = $user->school;
         $display_day = $this->get_day($day);
         echo "Showing most popluar locations $school students are attending $display_day<br/><hr/>";
     }
