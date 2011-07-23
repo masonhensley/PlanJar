@@ -9,6 +9,7 @@ class Load_groups extends CI_Model
         parent::__construct();
     }
 
+    // this is used exclusively for the group panel
     function joined_groups() // pulls all the groups the user is joined but excludes school group
     {
         $user = $this->ion_auth->get_user();
