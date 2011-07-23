@@ -86,8 +86,9 @@ class Load_locations extends CI_Model
             (SELECT friends.user_id FROM friends WHERE friends.follow_id=$user_id) AS newfriends 
             WHERE newfriends.user_id=$user_id";
         var_dump($friend_query);
-        
-        //$query_result = $this->db->query($friend_query);
+        echo"<br/><br/>";
+        $query_result = $this->db->query($friend_query);
+        var_dump($query_result->result());
         //foreach ($query_result->result() as $row)
        // {
            // $return_id_array[] = $row->follow_id;
