@@ -72,8 +72,6 @@ class Plan_actions extends CI_Model
         $query = $this->db->query($query_string, array($plan));
         $event_id = $query->row()->event_id;
 
-        var_dump($event_id);
-
         // Get all people with plans to the event
         $query_string = "SELECT id FROM plans WHERE event_id = ?";
         $query = $this->db->query($query_string, array($event_id));
