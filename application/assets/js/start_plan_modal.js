@@ -57,6 +57,7 @@ function initialize_plan_modal() {
             case 2:
                 // Hide the necessary invite boxes if an event is selected
                 if ($('plan_event_select').val() != undefined) {
+                    console.log($('#plan_event_select option[selected="selected"]'));
                     var priv_type = $('#plan_event_select option[selected="selected"]').attr('priv_type');
                 
                     // Hide the invite boxes as necessary
