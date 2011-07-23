@@ -40,6 +40,7 @@
     <div class="city_tab" group_id="current_location">
         Current Location
     </div>
+    <hr/>
 </div>
 
 <br/>
