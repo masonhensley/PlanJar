@@ -22,12 +22,13 @@ class Home extends CI_Controller
             $followed_groups = $this->load_groups->followed_groups();
             $school = $this->load_groups->user_school();
 
-            // Lookup the groups by id.
-            $this->load->model('load_groups');
-
             // Get the day tabs HTML
             $this->load->model('day_sets');
             $day_html = $this->day_sets->home_set(0);
+
+            // Get the plan tabs HTML
+            $this->load->model('plan_actions');
+            $plans_html = $this->plan_actions->display_plans();
 
 
             // Pass the necessary information to the view.
@@ -37,7 +38,8 @@ class Home extends CI_Controller
                 'joined_groups' => $joined_groups,
                 'followed_groups' => $followed_groups,
                 'day_html' => $day_html,
-                'school' => $school)
+                'school' => $school,
+                'plans_html' => $plans_html)
             );
         } else
         {
@@ -296,13 +298,7 @@ class Home extends CI_Controller
     public function get_my_plans()
     {
         $this->load->model('plan_actions');
-        $this->load->model('load_plan_panel');
-
-        $user_info = $this->ion_auth->get_user();
-        $user_id = $user_info->id;
-
-        $result = $this->plan_actions->get_plans($user_id);
-        $this->load_plan_panel->display_plans($result);
+        echo ($this->plan_actions->display_plans($result));
     }
 
     // Update the user's location
@@ -444,5 +440,4 @@ class Home extends CI_Controller
     }
 
 }
-
 ?>

@@ -97,7 +97,7 @@
                 <div class ="right_header">
                     Plans <input type="button" id="create_plan" value="+"/>
                 </div>
-                <div class="plans_wrapper"></div>
+                <div class="plans_wrapper"><?php echo($plans_html); ?></div>
             </div>
         </div>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
