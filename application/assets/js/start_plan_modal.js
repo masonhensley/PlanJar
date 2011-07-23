@@ -56,12 +56,8 @@ function initialize_plan_modal() {
             // Third page
             case 2:
                 // Hide the necessary invite boxes if an event is selected
-                console.log($('plan_event_select').val());
-                if ($('plan_event_select').val() != null) {
+                if ($('plan_event_select').val() != undefined) {
                     var priv_type = $('#plan_event_select option[selected="selected"]').attr('priv_type');
-                    
-                    console.log($('#plan_event_select option[selected="selected"]'));
-                    console.log($('#plan_event_select option[selected="selected"]').attr('priv_type'));
                 
                     // Hide the invite boxes as necessary
                     if (priv_type == 'strict') {
