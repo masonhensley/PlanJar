@@ -44,7 +44,8 @@ class Load_locations extends CI_Model
     function on_friends_selected($display_day)
     {
         echo "Popular events your friends are attending $display_day";
-        $this->get_friend_ids();
+        $friend_ids = $this->get_friend_ids();
+        var_dump($friend_ids);
     }
 
     function on_school_selected($display_day, $school)
@@ -92,8 +93,13 @@ class Load_locations extends CI_Model
         }
         $friend_query = substr($friend_query, 0, -4);
         $friend_query .= ")";
-        var_dump($friend_query);
         $query_result = $this->db->query($friend_query);
+        $friend_ids = array();
+        foreach($query_result as $user_id)
+        {
+            $friend_ids[] = $user_id->user_id;
+        }
+        return $friend_ids;
     }
 
     // this function updates the $id_array with members joined in groups selected
