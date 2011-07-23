@@ -11,7 +11,7 @@ class Load_locations extends CI_Model
             $day = 0;
         }
         $display_day = $this->get_day($day); // shows the day selected in correct format
-
+        $display_day = "<font style=\"font-weight:bold\">$display_day</font>";
         if (!$selected_groups[0])
         {
             $this->on_nothing_selected($display_day);
