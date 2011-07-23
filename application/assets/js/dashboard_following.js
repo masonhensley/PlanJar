@@ -89,12 +89,12 @@ function initialize_suggested_friends()
         
         if($(this).hasClass('suggested_active'))
         {
+            $('#follow_search').hide("slow");
             $(this).removeClass('suggested_active');
             $('#friend_search').val('');
             $('#follow_search').html('');
             $('#friend_search').blur();
             $('#friend_search').focus();
-            
             initialize_follow_search();
         }else{
             $(this).addClass('suggested_active');
