@@ -3,6 +3,7 @@
 
 <div class="groups_wrapper">
     <font style="font-weight:bold;color:navy; font-size:20px">Group Panel</font><br/><hr/>
+    <font style="font-weight:bold;">Networks</font>
     <div class="city_tab" group_id="friends">
         Friends
     </div>
@@ -16,6 +17,7 @@
     </div>
 
     <hr/>
+    <font style="font-weight:bold;">Groups following</font>
 
     <?php
     foreach ($joined_groups as $group)
