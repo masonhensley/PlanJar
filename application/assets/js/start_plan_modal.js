@@ -185,7 +185,7 @@ function initialize_event_select_page() {
             console.log('clear successful: ' + $('#plan_event_select').val());
             
             // Reset and hide the title and privacy settings
-//            $('#plan_event_id').val('');
+            $('#plan_event_id').val('');
 //            $('#event_title').val('');
 //            $('#event_title').blur();
 //            $('#plan_privacy_wrapper div').first().click();
@@ -195,6 +195,7 @@ function initialize_event_select_page() {
 //            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
             
             // Bypass the "validating" click function
+            $('#plan_invite_wrapper').html(generate_full_plan_text());
             next_plan_panel();
         });
         
