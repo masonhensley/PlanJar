@@ -35,61 +35,7 @@ function initialize_plan_modal() {
     $('#plan_right').click(function() {
         // Check the current page before continuing on
         var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
-        switch(current_index) {
-            // First page
-            case 0:
-                // An autocomplete entry must have been chosen (this field is populated by the autocomplete)
-                if ($('#plan_location_id').val() != '') {
-                    next_plan_panel();
-                }
-                break;
-                
-            // Second page
-            case 1:
-                // Both time and day must be selected
-                if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
-                    initialize_event_select_page();
-                    next_plan_panel();
-                }
-                break;
-                
-            // Third page
-            case 2:
-                // Hide the necessary invite boxes if an event is selected
-                if ($('plan_event_select').val() != null) {
-                    var priv_type = $('#plan_event_select[selected="selected"]').attr('priv_type');
-                
-                    // Hide the invite boxes as necessary
-                    if (priv_type == 'strict') {
-                        // Privacy description
-                        $('#plan_invite_privacy_header').html("This event is invite only.");
-                
-                        // Strict privacy. Hide both invite boxes
-                        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', 'none');
-                        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').val('');
-                    } else if (priv_type == 'loose') {
-                        // Privacy description
-                        $('#plan_invite_privacy_header').html("You can invite people following you.");
-                
-                        // Loose privacy. Hide the group invite box
-                        $('#invite_plan_users_wrapper').css('display', '');
-                        $('#invite_plan_groups_wrapper').css('display', 'none');
-                        $('#invite_plan_groups_wrapper').val('');
-                    } else {
-                        // Privacy description
-                        $('#plan_invite_privacy_header').html("This event is open. You can invite your followers and joined groups.");
-                
-                        // Open privacy. Show both boxes
-                        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
-                    }
-                }
-            
-                // Make sure an event is selected or an event has been created
-                if ($('#plan_event_select').val() != null || $('#event_title').val() != '') {
-                    next_plan_panel();
-                }
-                break;
-        }
+        plan_page_right_switch(current_index);
     });
     
     // In-field label
@@ -141,6 +87,65 @@ function initialize_plan_modal() {
     });
     
 // End of DOM ready function
+}
+
+function plan_page_right_switch(index) {
+    switch(ndex) {
+        // First page
+        case 0:
+            // An autocomplete entry must have been chosen (this field is populated by the autocomplete)
+            if ($('#plan_location_id').val() != '') {
+                next_plan_panel();
+            }
+            break;
+                
+        // Second page
+        case 1:
+            // Both time and day must be selected
+            if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
+                initialize_event_select_page();
+                next_plan_panel();
+            }
+            break;
+                
+        // Third page
+        case 2:
+            // Hide the necessary invite boxes if an event is selected
+            if ($('plan_event_select').val() != null) {
+                var priv_type = $('#plan_event_select[selected="selected"]').attr('priv_type');
+                
+                // Hide the invite boxes as necessary
+                if (priv_type == 'strict') {
+                    // Privacy description
+                    $('#plan_invite_privacy_header').html("This event is invite only.");
+                
+                    // Strict privacy. Hide both invite boxes
+                    $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', 'none');
+                    $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').val('');
+                } else if (priv_type == 'loose') {
+                    // Privacy description
+                    $('#plan_invite_privacy_header').html("You can invite people following you.");
+                
+                    // Loose privacy. Hide the group invite box
+                    $('#invite_plan_users_wrapper').css('display', '');
+                    $('#invite_plan_groups_wrapper').css('display', 'none');
+                    $('#invite_plan_groups_wrapper').val('');
+                } else {
+                    // Privacy description
+                    $('#plan_invite_privacy_header').html("This event is open. You can invite your followers and joined groups.");
+                
+                    // Open privacy. Show both boxes
+                    $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+                }
+            }
+            
+            // Make sure an event is selected or an event has been created
+            if ($('#plan_event_select').val() != null || $('#event_title').val() != '') {
+                $('#plan_invite_wrapper').html(generate_full_plan_text());
+                next_plan_panel();
+            }
+            break;
+    }
 }
 
 function initialize_event_select_page() {
@@ -218,7 +223,7 @@ function generate_plan_text() {
     if (day == 'Today') {
         // Today
         if (time == 'morning' || time == 'afternoon') {
-            return_string +=  'this' + time;
+            return_string +=  'this ' + time;
         } else if (time == 'night') {
             return_string += 'tonight'
         } else {
@@ -239,7 +244,15 @@ function generate_plan_text() {
 
 // Returns a string with the full plan description (used on the invite page)
 function generate_full_plan_text() {
+    var return_string = "Start a plan to ";
     
+    if ($('#plan_event_id').val() != '') {
+        return_string += $('#plan_event_select option[selected="selected"]').html() + ' at ';
+    } else if ($('#event_title').val() != '') {
+        return_string += $('#event_title').val() + ' at ';
+    }
+    
+    return return_string + generate_plan_text();
 }
 
 // Scrolls to the previous plan panel
