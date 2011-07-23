@@ -5,13 +5,11 @@ class Load_locations extends CI_Model
 
     function load_relevant_locations($selected_groups, $day, $user_id)
     {
-        $date;
+        $date=new DateTime();
         $return_date;
         $id_array = array();
-        // this converts the selected day to the equivalent sql representation
-        if (is_int($day))
+        if (is_int($day))        // this converts the selected day to the equivalent sql representation
         {
-            $date = new DateTime();
             $date->add(new DateInterval('P' . $day . 'D'));
             $return_date = $date->format('Y-m-d');
         }
