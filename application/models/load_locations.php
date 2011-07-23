@@ -5,9 +5,6 @@ class Load_locations extends CI_Model
 
     function load_relevant_locations($selected_groups, $day, $user_id)
     {
-
-
-
         // handle
         if (!$selected_groups[0])
         {
@@ -37,7 +34,7 @@ class Load_locations extends CI_Model
         $display_day = $date->format('l');
         if ($day == 0)
         {
-            $display_day = "today";
+            $display_day .= "(today)";
         } 
         echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/>";
     }
