@@ -88,12 +88,12 @@ class Load_locations extends CI_Model
         $friend_query = "SELECT user_id FROM friends WHERE follow_id=$user_id AND (";
         foreach($result->result() as $following_id)
         {
-            $friend_query .= "user_id=$following_id->user_id OR ";
+            $friend_query .= "user_id=$following_id->follow_id OR ";
         }
         $friend_query = substr($friend_query, 0, -4);
         $friend_query .= ")";
         var_dump($friend_query);
-        //$query_result = $this->db->query($friend_query);
+        $query_result = $this->db->query($friend_query);
     }
 
     // this function updates the $id_array with members joined in groups selected
