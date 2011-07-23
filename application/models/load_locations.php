@@ -6,12 +6,11 @@ class Load_locations extends CI_Model
     function load_relevant_locations($selected_groups, $day, $user_id)
     {
         $date=new DateTime();
-        $return_date;
         $id_array = array();
         if (is_int($day))        // this converts the selected day to the equivalent sql representation
         {
             $date->add(new DateInterval('P' . $day . 'D'));
-            $return_date = $date->format('Y-m-d');
+            $date= $date->format('Y-m-d');
         }
 
         // handle
@@ -20,7 +19,7 @@ class Load_locations extends CI_Model
             $this->on_nothing_selected();
         } else if ($selected_groups[0] == 'current_location')
         {
-            $this->on_current_location_selected($date);
+            $this->on_current_location_selected($day,$date);
         } else if ($selected_groups[0] == 'friends')
         {
             $this->on_friends_selected();
@@ -35,15 +34,14 @@ class Load_locations extends CI_Model
         echo "no one is selected";
     }
 
-    function on_current_location_selected($date)
+    function on_current_location_selected($day, $date)
     {
         $user = $this->ion_auth->get_user();
-        var_dump($date);
         if($day == 0)
         {
             $display_day = "today";
         }else{
-            
+            $display_day = $date->format('l');
         }
         
         
