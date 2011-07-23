@@ -9,7 +9,7 @@ class Load_groups extends CI_Model
         parent::__construct();
     }
 
-    function joined_groups()
+    function joined_groups() // pulls all the groups the user is joined but excludes school group
     {
         $user = $this->ion_auth->get_user();
         $query_string = "SELECT group_relationships.group_id, groups.name FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id " .
