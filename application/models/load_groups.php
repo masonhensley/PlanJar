@@ -50,6 +50,7 @@ class Load_groups extends CI_Model
         $result = $this->db->query($query);
         $row = $result->row_array();
         $school = $row['school'];
+        var_dump($school);
         return $school;
     }
 
