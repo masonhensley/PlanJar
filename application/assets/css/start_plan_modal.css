@@ -50,3 +50,8 @@
 #event_title_wrapper {
     display: none;
 }
+
+#plan_invite_header {
+    width: 100%;
+    height: auto;
+}
