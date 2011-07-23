@@ -131,9 +131,6 @@ function initialize_event_select_page() {
         // Handle the select change event
         $('#plan_event_select option').click(function () {
             $('#plan_event_id').val($(this).parent().val());
-            console.log($(this));
-            console.log($(this).val());
-            console.log($(this).parent().val());
             
             // Reset and hide the title and privacy settings
             $('#plan_event_id').val('');
