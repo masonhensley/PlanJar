@@ -137,7 +137,7 @@ class Load_group_profile extends CI_Model
             {
                 $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
             }
-            echo "<div style=\"float:left;margin-left:10px;\">" . $bottom_bar_text . "</div><div style=\"float:right;\">" . $bottom_bar_buttons . "</div>";
+            echo "<div style=\"float:left;margin-left:10px;\">" . $bottom_bar_text . "</div><div style=\"position:absolute; right:0px; bottom:0px;\">" . $bottom_bar_buttons . "</div>";
             ?>
         </div>
 
