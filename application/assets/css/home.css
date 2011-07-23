@@ -2,8 +2,8 @@
 body{
     background-color: #F3F6FF;
     /* make text not selectable for the UI */
-    -webkit-user-select: none;
-    cursor:default;
+    /*-webkit-user-select: none;
+    cursor:default; */
     font-family: helvetica;
     font-size: 15px;
     margin:0px;
