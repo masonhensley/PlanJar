@@ -15,9 +15,10 @@ class Load_locations extends CI_Model
         } else if ($selected_groups[0] == 'friends')
         {
             $this->on_friends_selected();
-        }else if ($selected_groups[0] == 'school'){
-            $this->on_school_selected();
-        }else
+        } else if ($selected_groups[0] == 'school')
+        {
+            $this->on_school_selected($day);
+        } else
         {
             $this->on_groups_selected($selected_groups);
         }
@@ -31,26 +32,23 @@ class Load_locations extends CI_Model
     function on_current_location_selected($day)
     {
         $user = $this->ion_auth->get_user();
-        $date = new DateTime();
-        $date->add(new DateInterval('P' . $day . 'D'));
-        $display_day = $date->format('l');
-        if ($day == 0)
-        {
-            $display_day .= "(today)";
-        } 
+        $display_day = $this->get_day($day);
         echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
     }
-    
+
     function on_friends_selected()
     {
         echo "friends tab is selected";
     }
 
-    function on_school_selected()
+    function on_school_selected($day)
     {
-        
+        $user = $this->ion_auth->get_user();
+        $school = $user->school;
+        $display_day = $this->get_day($day);
+        echo "Showing most popluar locations $school students are attending ";
     }
-    
+
     function on_groups_selected($group_list)
     {
 
@@ -179,6 +177,18 @@ class Load_locations extends CI_Model
             </div>
             <?php
         }
+    }
+
+    function get_day($day)
+    {
+        $date = new DateTime();
+        $date->add(new DateInterval('P' . $day . 'D'));
+        $display_day = $date->format('l');
+        if ($day == 0)
+        {
+            $display_day .= "(today)";
+        }
+        return $display_day;
     }
 
 }
