@@ -44,6 +44,7 @@ class Load_locations extends CI_Model
     function on_school_selected($day)
     {
         $user = $this->ion_auth->get_user();
+        $school = "";
         $school = $user->school;
         $display_day = $this->get_day($day);
         echo "Showing most popluar locations $school students are attending $display_day<br/><hr/>";
