@@ -83,7 +83,6 @@ class Plan_actions extends CI_Model
         // Delete the event if there is only one attendee (the current user)
         if ($query->num_rows() == 1)
         {
-            $event_id = $query->row()->event_id;
             $query_string = "DELETE FROM events WHERE id = ?";
             $query = $this->db->query($query_string, array($event_id));
 
