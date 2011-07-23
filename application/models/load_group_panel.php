@@ -4,7 +4,7 @@
 <div class="groups_wrapper">
     <font style="font-weight:bold;color:navy; font-size:20px">Group Panel</font><br/><hr/>
     <font style="font-weight:bold;color:#A7A7A7;">Networks</font><br/><hr/>
-    <font style="font-weight:bold;">
+    <font>
     <div class="city_tab" group_id="friends">
         Friends
     </div>
@@ -24,13 +24,13 @@
     foreach ($joined_groups as $group)
     {
         ?>
-    <font style="font-weight:bold;">
+    
         <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
             
             <?php
             echo($group['name']);
             ?>
-            </div></font>
+            </div>
         <?php
     }
     ?>
