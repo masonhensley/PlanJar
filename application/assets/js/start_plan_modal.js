@@ -35,7 +35,63 @@ function initialize_plan_modal() {
     $('#plan_right').click(function() {
         // Check the current page before continuing on
         var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
-        plan_page_right_switch(current_index);
+        switch(current_index) {
+            // First page
+            case 0:
+                // An autocomplete entry must have been chosen (this field is populated by the autocomplete)
+                if ($('#plan_location_id').val() != '') {
+                    next_plan_panel();
+                }
+                break;
+                
+            // Second page
+            case 1:
+                // Both time and day must be selected
+                if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
+                    initialize_event_select_page();
+                    next_plan_panel();
+                }
+                break;
+                
+            // Third page
+            case 2:
+                // Hide the necessary invite boxes if an event is selected
+                if ($('plan_event_select').val() != undefined) {
+                    console.log($('#plan_event_select option[selected="selected"]'));
+                    var priv_type = $('#plan_event_select option[selected="selected"]').attr('priv_type');
+                
+                    // Hide the invite boxes as necessary
+                    if (priv_type == 'strict') {
+                        // Privacy description
+                        $('#plan_invite_privacy_header').html("This event is invite only.");
+                
+                        // Strict privacy. Hide both invite boxes
+                        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', 'none');
+                        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').val('');
+                    } else if (priv_type == 'loose') {
+                        // Privacy description
+                        $('#plan_invite_privacy_header').html("You can invite people following you.");
+                
+                        // Loose privacy. Hide the group invite box
+                        $('#invite_plan_users_wrapper').css('display', '');
+                        $('#invite_plan_groups_wrapper').css('display', 'none');
+                        $('#invite_plan_groups_wrapper').val('');
+                    } else {
+                        // Privacy description
+                        $('#plan_invite_privacy_header').html("This event is open. You can invite your followers and joined groups.");
+                
+                        // Open privacy. Show both boxes
+                        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+                    }
+                }
+            
+                // Make sure an event is selected or an event has been created
+                if ($('#plan_event_select').val() != null || $('#event_title').val() != '') {
+                    $('#plan_invite_wrapper').html(generate_full_plan_text());
+                    next_plan_panel();
+                }
+                break;
+        }
     });
     
     // In-field label
@@ -53,6 +109,42 @@ function initialize_plan_modal() {
     // Try to advance the plan panel when a time or a day is selected
     $('#plan_day, #plan_time').click(function () {
         $('#plan_right').click();
+    });
+    
+    // No title click handler
+    $('#no_event_title').click(function () {
+        // Clear the select
+        $('#plan_event_select option[selected="selected"]').removeAttr('selected');
+            
+        // Reset and hide the title and privacy settings
+        $('#plan_event_id').val('');
+        $('#event_title').val('');
+        $('#event_title').blur();
+        $('#plan_privacy_wrapper div').first().click();
+        $('#event_title_wrapper').css('display', 'none')
+            
+        // Show both invite boxes
+        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+            
+        // Bypass the "validating" click function
+        $('#plan_invite_wrapper').html(generate_full_plan_text());
+        next_plan_panel();
+    });
+        
+    // New event click handler
+    $('#create_event').click(function () {
+        // Clear the select
+        $('#plan_event_select option[selected="selected"]').removeAttr('selected');
+            
+        // Reset and show the title and privacy settings
+        $('#plan_event_id').val('');
+        $('#event_title').blur();
+        $('#event_title').focus();
+        $('#plan_privacy_wrapper div').first().click();
+        $('#event_title_wrapper').show('fast');
+            
+        // Show both invite boxes
+        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
     });
     
     // TokenInput
@@ -89,65 +181,6 @@ function initialize_plan_modal() {
 // End of DOM ready function
 }
 
-function plan_page_right_switch(index) {
-    switch(index) {
-        // First page
-        case 0:
-            // An autocomplete entry must have been chosen (this field is populated by the autocomplete)
-            if ($('#plan_location_id').val() != '') {
-                next_plan_panel();
-            }
-            break;
-                
-        // Second page
-        case 1:
-            // Both time and day must be selected
-            if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
-                initialize_event_select_page();
-                next_plan_panel();
-            }
-            break;
-                
-        // Third page
-        case 2:
-            // Hide the necessary invite boxes if an event is selected
-            if ($('plan_event_select').val() != null) {
-                var priv_type = $('#plan_event_select[selected="selected"]').attr('priv_type');
-                
-                // Hide the invite boxes as necessary
-                if (priv_type == 'strict') {
-                    // Privacy description
-                    $('#plan_invite_privacy_header').html("This event is invite only.");
-                
-                    // Strict privacy. Hide both invite boxes
-                    $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', 'none');
-                    $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').val('');
-                } else if (priv_type == 'loose') {
-                    // Privacy description
-                    $('#plan_invite_privacy_header').html("You can invite people following you.");
-                
-                    // Loose privacy. Hide the group invite box
-                    $('#invite_plan_users_wrapper').css('display', '');
-                    $('#invite_plan_groups_wrapper').css('display', 'none');
-                    $('#invite_plan_groups_wrapper').val('');
-                } else {
-                    // Privacy description
-                    $('#plan_invite_privacy_header').html("This event is open. You can invite your followers and joined groups.");
-                
-                    // Open privacy. Show both boxes
-                    $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
-                }
-            }
-            
-            // Make sure an event is selected or an event has been created
-            if ($('#plan_event_select').val() != null || $('#event_title').val() != '') {
-                $('#plan_invite_wrapper').html(generate_full_plan_text());
-                next_plan_panel();
-            }
-            break;
-    }
-}
-
 function initialize_event_select_page() {
     // Populate the header for the next page
     $('#plan_events_title').html("Here's what's happening at " + generate_plan_text() + '.');
@@ -161,6 +194,7 @@ function initialize_event_select_page() {
         $('#plan_event_select_wrapper').html(data);
                         
         // Handle the select change event (overwriting default functionality)
+        $('#plan_event_select option').unbind('mousedown');
         $('#plan_event_select option').mousedown(function () {
             $(this).siblings().removeAttr('selected')
             $(this).attr('selected', 'selected');
@@ -172,46 +206,9 @@ function initialize_event_select_page() {
             $('#event_title').val('');
             $('#event_title').blur();
             $('#plan_privacy_wrapper div').first().click();
-            $('#event_title_wrapper').hide();
+            $('#event_title_wrapper').css('display', 'none');
             
             $('#plan_right').click();
-        });
-        
-        // No title click handler
-        $('#no_event_title').click(function () {
-            // Clear the select
-            $('#plan_event_select option[selected="selected"]').removeAttr('selected');
-            
-            console.log('clear successful: ' + $('#plan_event_select').val());
-            
-            // Reset and hide the title and privacy settings
-//            $('#plan_event_id').val('');
-//            $('#event_title').val('');
-//            $('#event_title').blur();
-//            $('#plan_privacy_wrapper div').first().click();
-//            $('#event_title_wrapper').hide();
-            
-            // Show both invite boxes
-//            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
-            
-            // Bypass the "validating" click function
-            next_plan_panel();
-        });
-        
-        // New event click handler
-        $('#create_event').click(function () {
-            // Clear the select
-            $('#plan_event_select option[selected="selected"]').removeAttr('selected');
-            
-            // Reset and show the title and privacy settings
-            $('#plan_event_id').val('');
-            $('#event_title').blur();
-            $('#event_title').focus();
-            $('#plan_privacy_wrapper div').first().click();
-            $('#event_title_wrapper').show();
-            
-            // Show both invite boxes
-            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
         });
     });
 }
@@ -249,12 +246,12 @@ function generate_full_plan_text() {
     var return_string = "Start a plan to ";
     
     if ($('#plan_event_id').val() != '') {
-        return_string += $('#plan_event_select option[selected="selected"]').html() + ' at ';
+        return_string += '<b>' + $('#plan_event_select option[selected="selected"]').html() + '</b> at ';
     } else if ($('#event_title').val() != '') {
-        return_string += $('#event_title').val() + ' at ';
+        return_string += '<b>' + $('#event_title').val() + '</b> at ';
     }
     
-    return return_string + generate_plan_text();
+    return return_string + generate_plan_text() + '.';
 }
 
 // Scrolls to the previous plan panel
