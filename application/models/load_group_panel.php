@@ -10,6 +10,9 @@
         echo $school;
         ?>
     </div>
+    <div class="city_tab" group_id="current_location">
+        Current Location
+    </div>
 
     <hr/>
 
@@ -39,10 +42,6 @@
     <div id="group_select_type">
         <div id="select_one_group" style="width:50px;">one</div>
         <div id="select_mult_groups" style="margin-left:5px;width:50px;">multiple</div>
-    </div>
-    <hr/>
-    <div class="city_tab" group_id="current_location">
-        Current Location
     </div>
     <hr/>
 </div>
