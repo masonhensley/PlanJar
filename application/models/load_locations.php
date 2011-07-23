@@ -10,7 +10,7 @@ class Load_locations extends CI_Model
         
         if (!$selected_groups[0])
         {
-            $this->on_nothing_selected();
+            $this->on_nothing_selected($display_day);
         } else if ($selected_groups[0] == 'current_location')
         {
             $this->on_current_location_selected($display_day);
@@ -26,21 +26,21 @@ class Load_locations extends CI_Model
         }
     }
 
-    function on_nothing_selected()
+    function on_nothing_selected($display_day)
     {
-        echo "Select an option on the left panel between your friends, school, current location, or groups to see popular events for ";
+        echo "Select an option on the left panel to see relevent popular events for $display_day";
     }
 
     function on_current_location_selected($day)
     {
         $user = $this->ion_auth->get_user();
         
-        echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
+        echo "Showing most popular events near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
     }
 
     function on_friends_selected($day)
     {
-        echo "Popular locations your friends are attending $display_day";
+        echo "Popular events your friends are attending $display_day";
     }
 
     function on_school_selected($day, $school)
