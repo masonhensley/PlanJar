@@ -113,6 +113,42 @@ function initialize_plan_modal() {
         $('#plan_right').click();
     });
     
+    // No title click handler
+    $('#no_event_title').click(function () {
+        // Clear the select
+        $('#plan_event_select option[selected="selected"]').removeAttr('selected');
+            
+        // Reset and hide the title and privacy settings
+        $('#plan_event_id').val('');
+        $('#event_title').val('');
+        $('#event_title').blur();
+        $('#plan_privacy_wrapper div').first().click();
+        $('#event_title_wrapper').hide('fast');
+            
+        // Show both invite boxes
+        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+            
+        // Bypass the "validating" click function
+        $('#plan_invite_wrapper').html(generate_full_plan_text());
+        next_plan_panel();
+    });
+        
+    // New event click handler
+    $('#create_event').click(function () {
+        // Clear the select
+        $('#plan_event_select option[selected="selected"]').removeAttr('selected');
+            
+        // Reset and show the title and privacy settings
+        $('#plan_event_id').val('');
+        $('#event_title').blur();
+        $('#event_title').focus();
+        $('#plan_privacy_wrapper div').first().click();
+        $('#event_title_wrapper').show('fast');
+            
+        // Show both invite boxes
+        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+    });
+    
     // TokenInput
     $('#invite_plan_users').tokenInput('/home/get_followers_invite', {
         hintText: 'Search followers...',
@@ -160,6 +196,7 @@ function initialize_event_select_page() {
         $('#plan_event_select_wrapper').html(data);
                         
         // Handle the select change event (overwriting default functionality)
+        $('#plan_event_select option').unbind('mousedown');
         $('#plan_event_select option').mousedown(function () {
             $(this).siblings().removeAttr('selected')
             $(this).attr('selected', 'selected');
@@ -175,42 +212,6 @@ function initialize_event_select_page() {
             
             $('#plan_right').click();
         });
-    });
-    
-    // No title click handler
-    $('#no_event_title').click(function () {
-        // Clear the select
-        $('#plan_event_select option[selected="selected"]').removeAttr('selected');
-            
-        // Reset and hide the title and privacy settings
-        $('#plan_event_id').val('');
-        $('#event_title').val('');
-        $('#event_title').blur();
-        $('#plan_privacy_wrapper div').first().click();
-        $('#event_title_wrapper').hide('fast');
-            
-        // Show both invite boxes
-        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
-            
-        // Bypass the "validating" click function
-        $('#plan_invite_wrapper').html(generate_full_plan_text());
-        next_plan_panel();
-    });
-        
-    // New event click handler
-    $('#create_event').click(function () {
-        // Clear the select
-        $('#plan_event_select option[selected="selected"]').removeAttr('selected');
-            
-        // Reset and show the title and privacy settings
-        $('#plan_event_id').val('');
-        $('#event_title').blur();
-        $('#event_title').focus();
-        $('#plan_privacy_wrapper div').first().click();
-        $('#event_title_wrapper').show('fast');
-            
-        // Show both invite boxes
-        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
     });
 }
 
