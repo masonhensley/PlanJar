@@ -51,6 +51,7 @@ function group_select_click_handler()
                 group_id: $(this).attr('group_id')
             }, function (data) {
                 $('#groups_content .middle').html(data);
+                $('.middle').show("slow");
             });
         }
     });
