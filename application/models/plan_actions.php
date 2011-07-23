@@ -67,14 +67,12 @@ class Plan_actions extends CI_Model
     // function to delete plan from database
     function delete_plan($plan)
     {
-        // select event
-        // count associated plans
-        // delete event and notifications if needed
-        // delete plan
         // Get the associated event
         $query_string = "SELECT event_id FROM plans WHERE id = ?";
         $query = $this->db->query($query_string, array($plan));
         $event_id = $query->row()->event_id;
+
+        var_dump($event_id);
 
         // Get all people with plans to the event
         $query_string = "SELECT id FROM plans WHERE event_id = ?";
@@ -83,9 +81,9 @@ class Plan_actions extends CI_Model
         // Delete the event if there is only one attendee (the current user)
         if ($query->num_rows() == 1)
         {
-            $event_id = $query->row()->event_id;
             $query_string = "DELETE FROM events WHERE id = ?";
             $query = $this->db->query($query_string, array($event_id));
+            var_dump($this->db->last_query());
 
             // Delete all relevant invites
             $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
