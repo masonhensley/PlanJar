@@ -167,7 +167,7 @@ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 
 /* follower tab */
 #followers_content .left {
-    width: 48%;
+    width: 38%;
     float: left;
     height: auto;
     border: 1px solid #aaa;
@@ -203,6 +203,7 @@ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     border-top-right-radius:10px;
     background-color:white;
     padding:10px;
+    margin-right:100px;
 }
 
 .suggested_friends{

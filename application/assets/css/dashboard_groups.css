@@ -82,12 +82,13 @@
     width: 100%;
     height: 60px;
     border-top:1px solid black;
-    border-bottom: 1px solid black;
-    margin-top:7px;
     text-align :center;
 }
 .group_entry.selected_group {
     background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
+}
+#edit_groups_list{
+    border-bottom:1px solid black;
 }
 .group_entry .group_entry_left {
     float: left;
