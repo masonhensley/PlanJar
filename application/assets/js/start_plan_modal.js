@@ -183,7 +183,7 @@ function initialize_event_select_page() {
             $('#event_title_wrapper').show();
             
             // Show both invite boxes
-            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper')..css('display', '');
+            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
         });
     });
 }
