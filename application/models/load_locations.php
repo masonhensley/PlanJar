@@ -36,9 +36,9 @@ class Load_locations extends CI_Model
         {
             $display_day .= "(today)";
         } 
-        echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/>";
+        echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/><hr/>";
     }
-
+    
     function on_friends_selected()
     {
         echo "friends tab is selected";
