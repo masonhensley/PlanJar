@@ -10,7 +10,7 @@ body{
 }
 
 .border_gray{
-    border-color:#aaa;
+    border: 1px solid #aaa;
 }
 
 a{
