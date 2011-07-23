@@ -72,9 +72,9 @@
             </div>
             <div class ="center">
                 <div class="data_container_wrapper">
-                    <div id="group_data" class ="data_container">Select groups on the left to see more information.</div>
-                    <div id="plan_data" class ="data_container">Select a plan on the right to see more information.</div>
-                    <div id="location_data" class ="data_container">Select a location below to see more information.</div>
+                    <div id="group_data" class ="data_container"></div>
+                    <div id="plan_data" class ="data_container"></div>
+                    <div id="location_data" class ="data_container"></div>
                     <div id="map_data" class ="data_container">
                         <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                         <div id="map"></div>
@@ -86,7 +86,7 @@
                         <?php echo($day_html); ?>
                     </div>
                 </div>
-                <div class="top_left_plans">This will display popular events based on the group(s) selected on the left panel</div>
+                <div class="top_left_plans"></div>
                 <div class="ad_box">
                     <!-- <img src="/application/assets/images/Planjar_logo.png" style="position:relative; top:20px; width:85%; height:90%;"/> -->
                 </div>

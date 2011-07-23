@@ -55,13 +55,13 @@ function initialize_follow_search() {
     $('.in-field_block label').inFieldLabels();
     
     $('#friend_search').keyup(function () {
-        $('.following_profile_body').hide();
+        $('.following_profile_body').hide("slow");
         $('.suggested_active').removeClass('suggested_active'); // this unselects the "suggested friends" tab first
         $.get('/dashboard/follow_search', {
             needle: $(this).val()
         }, function (data) {
             $('#follow_search').html(data);
-            $('#follow_search').show();
+            $('#follow_search').show("slow");
             // Click handler.
             $('#follow_search .add_following').click(function () {
                 $(this).text('+ You sure?');
@@ -70,6 +70,7 @@ function initialize_follow_search() {
                     $.get('/dashboard/add_user_following', {
                         following_id: $(this).parent().attr('user_id')
                     }, function () {
+                        $('#follow_search').hide("slow");
                         $('#follow_search').html('');
                         $('#friend_search').val('');
                         populate_following_list();
@@ -88,12 +89,12 @@ function initialize_suggested_friends()
         
         if($(this).hasClass('suggested_active'))
         {
+            $('#follow_search').hide("slow");
             $(this).removeClass('suggested_active');
             $('#friend_search').val('');
             $('#follow_search').html('');
             $('#friend_search').blur();
             $('#friend_search').focus();
-            
             initialize_follow_search();
         }else{
             $(this).addClass('suggested_active');
@@ -103,7 +104,7 @@ function initialize_suggested_friends()
             $('#friend_search').blur();
             
             get_suggested_friends();
-            $('#follow_search').show();
+            $('#follow_search').show("slow");
         }
     });
     show_suggested_init('#following_content', '.suggested_friends');

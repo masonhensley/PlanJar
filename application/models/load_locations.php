@@ -5,21 +5,16 @@ class Load_locations extends CI_Model
 
     function load_relevant_locations($selected_groups, $day, $user_id)
     {
-        $date;
-        $return_date;
-        $id_array = array();
-        if ($day) // this converts the selected day to the equivalent sql representation
-        {
-            $date = new DateTime();
-            $date->add(new DateInterval('P' . $day . 'D'));
-            $return_date = $date->format('Y-m-d');
-        }
+
+
+
+        // handle
         if (!$selected_groups[0])
         {
             $this->on_nothing_selected();
         } else if ($selected_groups[0] == 'current_location')
         {
-            $this->on_current_location_selected();
+            $this->on_current_location_selected($day);
         } else if ($selected_groups[0] == 'friends')
         {
             $this->on_friends_selected();
@@ -34,9 +29,22 @@ class Load_locations extends CI_Model
         echo "no one is selected";
     }
 
-    function on_current_location_selected()
+    function on_current_location_selected($day)
     {
-        echo "current location is selected";
+        $user = $this->ion_auth->get_user();
+        $date = new DateTime();
+        $date->add(new DateInterval('P' . $day . 'D'));
+        $date = $date->format('Y-m-d');
+        var_dump($day, $date);
+        if ($day == 0)
+        {
+            $display_day = "today";
+        } else
+        {
+            $display_day = $date->format('l');
+        }
+
+        echo "Showing most popular locations near lat:$user->latitude lon:$user->longitude for $display_day<br/>";
     }
 
     function on_friends_selected()
