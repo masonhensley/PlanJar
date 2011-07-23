@@ -21,7 +21,6 @@ class Home extends CI_Controller
             $joined_groups = $this->load_groups->joined_groups();
             $followed_groups = $this->load_groups->followed_groups();
             $school  = $this->load_groups->user_school();
-            var_dump($school);
             // chay
             // Lookup the groups by id.
             $this->load->model('load_groups');
