@@ -45,12 +45,13 @@ function group_select_click_handler()
         // Unselect other groups and select selected (if it isn't already)
         if(!$(this).hasClass('selected_group'))
         {
+            $('.middle').hide();
             $('.selected_group').removeClass('selected_group'); 
             $(this).addClass('selected_group');
             $.get('/dashboard/get_group_details', {
                 group_id: $(this).attr('group_id')
             }, function (data) {
-                $('.middle').hide();
+              
                 $('#groups_content .middle').html(data);
                 $('.middle').show("slow");
             });
