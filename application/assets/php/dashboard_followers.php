@@ -1,6 +1,7 @@
 <div class="left">
     <div class="left_header">
-        Your followers
+        Your followers<br/>
+        <font style="color:gray;">(select to view profile)
     </div>
     <div id="followers_list"></div>
 </div>
