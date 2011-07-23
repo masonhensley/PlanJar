@@ -97,8 +97,8 @@ a{
     color: black;
     text-align:center;
     margin-bottom: 10px;
-    width:75%;
-    margin-left:27px;
+    width:95%;
+    margin-left:5px;
 }
 
 .city_tab.city_active{
@@ -322,7 +322,7 @@ a{
 .right{
     float:left;
     width:210px;
-    min-height: 80px;
+    min-height: 30px;
     background-color:white;
     padding-top:10px;
     border:1px solid;

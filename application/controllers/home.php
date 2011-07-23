@@ -20,7 +20,8 @@ class Home extends CI_Controller
             $lastname = $user_info->last_name;
             $joined_groups = $this->load_groups->joined_groups();
             $followed_groups = $this->load_groups->followed_groups();
-            // chay
+            $school  = $this->load_groups->user_school();
+
             // Lookup the groups by id.
             $this->load->model('load_groups');
 
@@ -35,7 +36,8 @@ class Home extends CI_Controller
                 'lastname' => $lastname,
                 'joined_groups' => $joined_groups,
                 'followed_groups' => $followed_groups,
-                'day_html' => $day_html)
+                'day_html' => $day_html,
+                'school' => $school)
             );
         } else
         {

@@ -9,11 +9,12 @@ class Load_groups extends CI_Model
         parent::__construct();
     }
 
-    function joined_groups()
+    // this is used exclusively for the group panel
+    function joined_groups() // pulls all the groups the user is joined but excludes school group
     {
         $user = $this->ion_auth->get_user();
         $query_string = "SELECT group_relationships.group_id, groups.name FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id " .
-                "WHERE group_relationships.user_joined_id = ?";
+                "WHERE group_relationships.user_joined_id = ? AND groups.school_group=0";
         $query = $this->db->query($query_string, array($user->id));
 
         $return_array = array();
@@ -41,6 +42,16 @@ class Load_groups extends CI_Model
         }
 
         return $return_array;
+    }
+    
+    function user_school()
+    {
+        $school_id = $this->ion_auth->get_user()->school_id;
+        $query = "SELECT school FROM school_data WHERE $school_id=id";
+        $result = $this->db->query($query);
+        $row = $result->row_array();
+        $school = $row['school'];
+        return $school;
     }
 
 }
