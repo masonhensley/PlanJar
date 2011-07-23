@@ -146,6 +146,7 @@ function initialize_event_select_page() {
             if ($(this).attr('priv_type') == 'strict') {
                 $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', 'none');
             } else if ($(this).attr('priv_type') == 'open') {
+                $('#invite_plan_users_wrapper').css('display', '');
                 $('#invite_plan_groups_wrapper').css('display', 'none');
             }
             
