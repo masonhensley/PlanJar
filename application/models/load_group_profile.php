@@ -124,8 +124,9 @@ class Load_group_profile extends CI_Model
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are following and group is open
             {
                 $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
+                $bottom_bar_buttons .= "<div class=\"add_joined\" style=\"margin-right:3px;\">join group</div>";
                 $bottom_bar_buttons .= "<div class=\"remove_following\">unfollow</div>";
-                $bottom_bar_buttons .= "<div class=\"add_joined\">join group</div>";
+                
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
             {
                 $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
