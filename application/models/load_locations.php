@@ -21,7 +21,7 @@ class Load_locations extends CI_Model
             $this->on_nothing_selected($display_day);
         } else if ($selected_groups[0] == 'current_location')
         {
-            $this->on_current_location_selected($display_day);
+            $this->on_current_location_selected($display_day, $sql_date);
         } else if ($selected_groups[0] == 'friends')
         {
             $this->on_friends_selected($display_day, $sql_date);
@@ -39,7 +39,7 @@ class Load_locations extends CI_Model
         echo "Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for $display_day<br/><hr/>";
     }
 
-    function on_current_location_selected($display_day)
+    function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
         echo "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day<br/><hr/>";
@@ -49,7 +49,7 @@ class Load_locations extends CI_Model
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
                   FROM places
-                  LEFT JOIN events ON places.id=events.place_id
+                  LEFT JOIN events ON places.id=events.place_id AND events.date=$sql_date
                   ORDER BY distance ASC LIMIT 20";
         
         var_dump($query);
