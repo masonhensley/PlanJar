@@ -9,7 +9,7 @@
     <div id="plan_left"></div>
 
     <div id="plan_page_wrapper">
-        <form id="plan_form">
+        <form id="plan_form" style="height: 100%;">
             <div class="plan_page_content" page_index="0">
                 <div class="in-field_block">
                     <label for="plan_location">Where are you going?</label>
