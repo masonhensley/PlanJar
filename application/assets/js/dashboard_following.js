@@ -115,7 +115,9 @@ function initialize_suggested_friends()
             $('#friend_search').blur();
             get_suggested_friends();
             $('#follow_search').show();
-            $('.user_entry').click(function(){ // click handler for getting the selected profile
+           
+        }
+         $('.user_entry').click(function(){ // click handler for getting the selected profile
                 $.get('/dashboard/get_profile', {
                     user_id: $(this).attr('user_id')
                 }, function (data) {
@@ -124,7 +126,6 @@ function initialize_suggested_friends()
                     $('.following_profile_body').show("slow");
                 });
             });
-        }
     });
     show_suggested_init('#following_content', '.suggested_friends');    
 }
