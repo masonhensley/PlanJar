@@ -107,7 +107,7 @@ class Notification_ops extends CI_Model
     {
         if ($notification_row->type == 'plan_invite')
         {
-            $query_string = "SELECT places.name, plans.date FROM plans
+            $query_string = "SELECT places.name, events.date FROM plans
                 LEFT JOIN places ON plans.place_id = places.id
                 LEFT JOIN events ON events.id = plans.event_id
                 WHERE plans.id = ?";
