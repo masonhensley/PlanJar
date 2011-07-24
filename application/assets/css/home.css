@@ -339,11 +339,10 @@ a{
 }
 
 .plan_content{
-    width:100%;
+    width:95%;
     height:100%;
     margin:auto;
-    border-top:  1px solid lightgray;
-    border-bottom:1px solid lightgray;
+    border: 1px solid lightgray;
     color: black;
     padding-top:5px;    
     padding-bottom: 5px;
