@@ -328,7 +328,7 @@ function reset_modal() {
     $('.plan_page_content .divset_selected').removeClass('divset_selected');
     
     // Clear the textboxes
-    $('.plan_page_content input[type="text"]').val('');
+    $('.plan_page_content input').val('');
     
     // Hide the new event div
     $('#event_title_wrapper').css('display', 'none');
