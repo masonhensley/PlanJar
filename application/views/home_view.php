@@ -60,12 +60,13 @@
         </div>
 
         <div class ="container">
-            <div class="location_container">
-                <div id="using_location">Using location:</div>
-                <a href="#" id="change_location" >Change location</a>
-            </div>
+            
             <a href="/dashboard/notifications" id="notifications_link">Notifications</a>
             <div class ="left">
+                <div class="location_container">
+                    <div id="using_location">Using location:</div>
+                    <a href="#" id="change_location" >Change location</a>
+            </div>
                 <div class="left_header">
                 </div>
                 <?php include(APPPATH . 'models/load_group_panel.php'); ?>

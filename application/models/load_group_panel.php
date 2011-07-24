@@ -2,6 +2,9 @@
 <!-- This file is included in home_view.php and not called from the controller -->
 
 <div class="groups_wrapper">
+    <font style="font-weight:bold;color:navy; font-size:20px">Group Panel</font><br/><hr/>
+    <font style="font-weight:bold;color:#A7A7A7;">Networks</font><br/><hr/>
+    <font>
     <div class="city_tab" group_id="friends">
         Friends
     </div>
@@ -13,18 +16,21 @@
     <div class="city_tab" group_id="current_location">
         Current Location
     </div>
-
+    </font>
     <hr/>
+    <font style="font-weight:bold;color:#A7A7A7;">Following</font><br/><hr/>
 
     <?php
     foreach ($joined_groups as $group)
     {
         ?>
+    
         <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
+            
             <?php
             echo($group['name']);
             ?>
-        </div>
+            </div>
         <?php
     }
     ?>
@@ -46,5 +52,5 @@
     <hr/>
 </div>
 <a href="/dashboard/groups/suggested" style="color:#57A8E2;font-weight:bold;" >Find groups</a><br/> 
-<a href="/dashboard/following/suggested" style="color:#57A8E2;font-weight:bold;">Find friends</a><br/>
+<a href="/dashboard/following/suggested" style="color:#57A8E2;font-weight:bold;">Find people</a><br/>
 
