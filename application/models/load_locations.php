@@ -115,7 +115,7 @@ class Load_locations extends CI_Model
     {
         $group_name_array = $this->get_group_names($group_list);
         $header_string = $this->setup_groups_header($group_name_array);
-        $header_string = "Popular places people from ";
+        
 
        
         echo $header_string;
@@ -192,7 +192,8 @@ class Load_locations extends CI_Model
     }
     
     function setup_groups_header($group_name_array)
-    {
+    {        
+        $header_string = "Popular places people from ";
          if (count($group_name_array) == 1)
         {
             $header_string .= $group_name_array[0];
@@ -204,7 +205,7 @@ class Load_locations extends CI_Model
             $index = 0;
             foreach ($group_name_array as $group_name)
             {
-                if (isset($group_name_array[$index + 1]))
+                if (($group_name_array[$index + 1]))
                 {
                     $header_string .= "$group_name, ";
                 }else{
@@ -227,11 +228,12 @@ class Load_locations extends CI_Model
         }
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
+        $group_name_list = array();
         foreach ($result->result() as $group_name)
         {
-            $group_list[] = $group_name->name;
+            $group_name_list[] = $group_name->name;
         }
-        return $group_list;
+        return $group_name_list;
     }
 
     function display_location_tabs($place_id_array, $place_name_array)
