@@ -47,15 +47,12 @@ function delete_plan_outer_click() {
     var orig_text = $(this).html();
         
     // Replacement text
-    console.log($(this));
-    console.log($('.delete_plan').html());
-    $('.delete_plan').html('Sure?');
-    console.log($(this));
+    $(this).html('Sure?');
         
     // Assign a one-time click event to actually delete the plan
     $(this).one('click', function(event){
         // Stop propagation (to allow for clicking anywhere BUT the element)
-        //event.stopPropagation();
+        event.stopPropagation();
         
         $.get('/home/delete_plan', {
             'plan_selected': $('.selected_plan').attr('plan_id')
