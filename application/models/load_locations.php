@@ -55,7 +55,7 @@ class Load_locations extends CI_Model
         $result = $this->db->query($query);
         $place_id_array = array();
         $place_name_array = array();
-        foreach($result->result() as $place)
+        foreach ($result->result() as $place)
         {
             $place_id_array[] = $place->id;
             $place_name_array[] = $place->name;
@@ -93,7 +93,7 @@ class Load_locations extends CI_Model
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
         echo "Popluar places $school students are going $display_day<br/><hr/>";
-              
+
         $query = "SELECT events.title, places.name, places.id 
                   FROM user_meta
                   LEFT JOIN plans ON plans.user_id=user_meta.user_id
@@ -103,7 +103,7 @@ class Load_locations extends CI_Model
         $result = $this->db->query($query);
         $place_name_array = array();
         $place_id_array = array();
-          foreach ($result->result() as $place)
+        foreach ($result->result() as $place)
         {
             $place_id_array[] = $place->id;
             $place_name_array[] = $place->name;
@@ -113,10 +113,32 @@ class Load_locations extends CI_Model
 
     function on_groups_selected($group_list)
     {
+        $group_name_array = $this->get_group_names($group_list);
+        $header_string = "Popular places people from ";
 
-        echo "Popular places attended by are selected";
-
-
+        if (count($group_name_array) == 1)
+        {
+            $header_string .= $group_name_array[0];
+        } else if (count($group_name_array == 2))
+        {
+            $header_string .= $group_name_array[0] . " and " . $group_name_array[1];
+        } else if (count($group_name_array) > 2)
+        {
+            $index = 0;
+            foreach ($group_name_array as $group_name)
+            {
+                if (isset($group_name_array[$index + 1]))
+                {
+                    $header_string .= "$group_name, ";
+                }else{
+                    $header_string .= "and $group_name";
+                }
+                $index++;
+            }
+        }
+        $header_string .= " are going";
+        echo $header_string;
+        $query = "";
 
         /*
           if (isset($group_ids_selected[$index]))
@@ -186,6 +208,23 @@ class Load_locations extends CI_Model
             $display_day .= " (today)";
         }
         return $display_day;
+    }
+
+    function get_group_names($group_list)
+    {
+        $group_name_array = array();
+        $query = "SELECT name FROM groups WHERE ";
+        foreach ($group_list as $group_id)
+        {
+            $query .= "id=$group_id OR ";
+        }
+        $query = substr($query, 0, -4);
+        $result = $this->db->query($query);
+        foreach ($result->result() as $group_name)
+        {
+            $group_list[] = $group_name->name;
+        }
+        return $group_list;
     }
 
     function display_location_tabs($place_id_array, $place_name_array)
