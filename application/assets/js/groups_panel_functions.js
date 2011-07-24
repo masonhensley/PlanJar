@@ -67,9 +67,6 @@ function initialize_one_group_select() {
 function initialize_mult_groups_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group').click(function() {
-        // Clear networks
-        $('.city_active').removeClass('city_active');
-        
         // unselect plan on right panel
         $('.plan_content').removeClass('selected_plan');
         
@@ -79,6 +76,6 @@ function initialize_mult_groups_select() {
         } else {
             $(this).addClass('selected_group');
         }
-        update_groups_and_locations();
+        on_groups_change();
     });
 }
