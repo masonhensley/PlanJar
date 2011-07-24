@@ -198,14 +198,14 @@ function initialize_event_select_page() {
 function show_hide_invite_boxes(priv_type) {
     if (priv_type == 'strict') {
         // Privacy description
-        $('#plan_invite_privacy_header').html("This event is invite only.");
+        $('#plan_invite_privacy_header').html("This event has <b>strict</b> privacy settings. You can't invite anyone :(.");
                 
         // Strict privacy. Hide both invite boxes
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', 'none');
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').val('');
     } else if (priv_type == 'loose') {
         // Privacy description
-        $('#plan_invite_privacy_header').html("You can invite people following you.");
+        $('#plan_invite_privacy_header').html("This event has <b>loose</b> privacy settings. You can invite people following you.");
                 
         // Loose privacy. Hide the group invite box
         $('#invite_plan_users_wrapper').css('display', '');
@@ -213,7 +213,7 @@ function show_hide_invite_boxes(priv_type) {
         $('#invite_plan_groups_wrapper').val('');
     } else {
         // Privacy description
-        $('#plan_invite_privacy_header').html("This event is open. You can invite your followers and joined groups.");
+        $('#plan_invite_privacy_header').html("This event is <b>open</b>. You can invite people following you and your joined groups.");
                 
         // Open privacy. Show both boxes
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');

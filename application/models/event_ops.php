@@ -66,7 +66,7 @@ class Event_ops extends CI_Model
         // Echo the intermediate entries
         foreach ($query->result() as $row)
         {
-            echo('<option value="' . $row->id . '" priv_type="' . $row->privacy . '">' . $row->title . '(' .$row->privacy . ')</option>');
+            echo('<option value="' . $row->id . '" priv_type="' . $row->privacy . '">' . $row->title . '</option>');
         }
 
         // Close the select
