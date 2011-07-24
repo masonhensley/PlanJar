@@ -44,7 +44,7 @@ function delete_user_plan() {
         event.stopPropagation();
     });
 
-    $('.delete_plan').one('delegate', delete_plan_outer_click);
+    $('.delete_plan').one('click', delete_plan_outer_click);
 }
 
 function delete_plan_outer_click() {
@@ -65,7 +65,7 @@ function delete_plan_outer_click() {
         }); 
     });
         
-    $(document).click(function () {
+    $('html').click(function () {
         // Replace the original text and re-assign the one-time click event
         $('.delete_plan').html(orig_text);
         $('.delete_plan').one('click', delete_plan_outer_click);
