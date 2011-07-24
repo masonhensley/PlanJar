@@ -128,6 +128,21 @@ class Load_locations extends CI_Model
         }
         $query = substr($query, 0, -4);
         var_dump($query);
+        $result = $this->db->query($query);
+        
+        $place_array = array();
+        $place_id_array = array();
+        foreach($result->result() as $place)
+        {
+            if(!isset($place_array[$place->id]))
+            {
+                $place_array[$place->id] = $place->name;
+            }
+            $place_id_array[] = $place->id;
+        }
+        var_dump($place_array);
+        $this->display_location_tabs($place_id_array, $place_array);
+        
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
