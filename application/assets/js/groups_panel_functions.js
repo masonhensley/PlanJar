@@ -27,7 +27,6 @@ function initialize_selectable_groups() {
 // Callback function
 function on_groups_change() {
     show_data_container('#group_data');
-    $('.city_active').removeClass('city_active'); // unselect the city tab
     update_groups_and_locations();// this should update the graphs so they match what is selected
 }
 
@@ -56,6 +55,8 @@ function initialize_one_group_select() {
     on_groups_change();
     
     $('.groups_wrapper .selectable_group').click(function() {
+        $('.city_active').removeClass('city_active'); // unselect the city tab
+        
         $('.groups_wrapper .selectable_group.selected_group').not(this).removeClass('selected_group');
         if ($(this).hasClass('selected_group')) {
             $(this).removeClass('selected_group');
@@ -69,6 +70,8 @@ function initialize_one_group_select() {
 function initialize_mult_groups_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group').click(function() {
+        $('.city_active').removeClass('city_active'); // unselect the city tab
+        
         // unselect plan on right panel
         $('.plan_content').removeClass('selected_plan');
         
