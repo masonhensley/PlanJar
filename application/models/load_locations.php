@@ -51,7 +51,7 @@ class Load_locations extends CI_Model
                   FROM events
                   LEFT JOIN places ON places.id=events.place_id 
                   WHERE events.date='$sql_date'
-                  ORDER BY distance ASC LIMIT 20";
+                  ORDER BY distance ASC";
         $result = $this->db->query($query);
         $place_id_array = array();
         $place_name_array = array();
@@ -97,7 +97,7 @@ class Load_locations extends CI_Model
         $query = "SELECT events.title, places.name, places.id 
                   FROM user_meta
                   LEFT JOIN plans ON plans.user_id=user_meta.user_id
-                  JOIN events ON plans.event_id=events.id AND plans.date='$sql_date'
+                  JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   JOIN places ON places.id=events.place_id
                   WHERE user_meta.school_id=$school_id";
         $result = $this->db->query($query);
