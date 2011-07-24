@@ -110,11 +110,9 @@ class Notification_ops extends CI_Model
             $query_string = "SELECT places.name, events.date FROM plans
                 LEFT JOIN events ON events.id = plans.event_id
                 LEFT JOIN places ON events.place_id = places.id
-                WHERE plans.id = ?";
+                WHERE events.id = ?";
             $query = $this->db->query($query_string, array($notification_row->subject_id));
             $row = $query->row();
-            
-            var_dump($this->db->last_query());
 
             $date = new DateTime($row->date);
 
