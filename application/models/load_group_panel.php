@@ -2,7 +2,7 @@
 <!-- This file is included in home_view.php and not called from the controller -->
 <div style="position:relative; top:-20px;">
     <div class="groups_wrapper">
-        <font style="font-weight:bold;color:navy;">Networks</font><br/><hr/>
+        <hr/><font style="font-weight:bold;color:navy;">Networks</font><br/><hr/>
         <font>
         <div class="city_tab" group_id="friends">
             Friends
