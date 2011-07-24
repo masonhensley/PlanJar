@@ -49,6 +49,7 @@ function delete_plan_outer_click() {
     // Replacement text
     console.log($(this));
     $(this).html('Sure?');
+    console.log($(this));
         
     // Assign a one-time click event to actually delete the plan
     $(this).one('click', function(event){
