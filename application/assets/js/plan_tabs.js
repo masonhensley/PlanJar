@@ -39,18 +39,27 @@ function get_plan_data() {
 
 // Handles clicking on the delete plan button
 function delete_user_plan() {
-    $('div.delete_plan').click(function() {
+    $('.delete_plan').click(delete_plan_outer_click);
+}
+
+function delete_plan_outer_click() {
+    var orig_text = $(this).html();
         
-        $('.delete_plan_container').html('<div class=\"delete_plan\">Sure?</div></div>');
-        $('div.delete_plan').unbind('click');
-        $('div.delete_plan').click(function(){
-            $.get('/home/delete_plan', {
-                'plan_selected': $('.selected_plan').attr('plan_id')
-            }, function (data) {
-                // Replace the data and show the data tab.
-                $('#plan_data').html(data);
-                populate_plan_panel();
-            }); 
-        });
+    $('.delete_plan').html('Sure?');
+        
+    $('div.delete_plan').unbind('click');
+    $('div.delete_plan').click(function(){
+        $.get('/home/delete_plan', {
+            'plan_selected': $('.selected_plan').attr('plan_id')
+        }, function (data) {
+            // Replace the data and show the data tab.
+            $('#plan_data').html(data);
+            populate_plan_panel();
+        }); 
+    });
+        
+    $(document).not($(this)).click(function () {
+        alert('outside');
+        $('.delete_plan').html(orig_text);
     });
 }
