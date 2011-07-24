@@ -76,7 +76,7 @@ class Load_locations extends CI_Model
             $query .= "plans.user_id=$id OR ";
         }
         $query = substr($query, 0, -4);
-        $query .= ") LIMIT";
+        $query .= ")";
         $result = $this->db->query($query);
         $place_id_array = array();
         $place_name_array = array();
