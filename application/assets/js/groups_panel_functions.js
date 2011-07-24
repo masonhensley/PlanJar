@@ -67,6 +67,9 @@ function initialize_one_group_select() {
 function initialize_mult_groups_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group').click(function() {
+        // Clear networks
+        $('.city_active').removeClass('city_active');
+        
         // unselect plan on right panel
         $('.plan_content').removeClass('selected_plan');
         
