@@ -80,7 +80,7 @@ a{
     height:100%;
     padding: 5px 0px 5px;
     color: black;
-    background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     text-align:center;
     margin-bottom: 10px;
     width:95%;
@@ -88,7 +88,7 @@ a{
 }
 
 .city_tab{
-    background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     border:1px solid lightgray;
     height:100%;
     padding: 5px 0px 5px;
@@ -100,12 +100,12 @@ a{
 }
 
 .city_tab.city_active{
-    background:-webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
+    background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
     color:white;
 }
 
 .selected_group {
-    background:-webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
+    background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
     color: white;
 }
 
