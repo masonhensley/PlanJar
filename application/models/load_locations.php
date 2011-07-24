@@ -48,8 +48,9 @@ class Load_locations extends CI_Model
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
-                  FROM places
-                  LEFT JOIN events ON places.id=events.place_id AND events.date=$sql_date
+                  FROM events
+                  LEFT JOIN places ON places.id=events.place_id 
+                  WHERE events.date='$sql_date'
                   ORDER BY distance ASC LIMIT 20";
         
         var_dump($query);
