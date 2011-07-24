@@ -76,11 +76,11 @@ a{
 
 
 .selectable_group {
-    border:1px solid lightgray lightgray;
+    border:1px solid lightgray;
     height:100%;
     padding: 5px 0px 5px;
     color: black;
-    background:-webkit-gradient(linear,left top,left bottom,from(#EFF),to(#DDD));
+    background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
     text-align:center;
     margin-bottom: 10px;
     width:95%;
@@ -88,8 +88,8 @@ a{
 }
 
 .city_tab{
-    background:-webkit-gradient(linear,left top,left bottom,from(#EFF),to(#DDD));
-    border:1px solid lightgray lightgray;
+    background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
+    border:1px solid lightgray;
     height:100%;
     padding: 5px 0px 5px;
     color: black;
@@ -115,6 +115,7 @@ a{
     width:600px;
     height: auto;
     border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
 }
 
 .tab_bar{
@@ -338,20 +339,19 @@ a{
 }
 
 .plan_content{
-    width:100%;
+    width:95%;
     height:100%;
     margin:auto;
-    border-top:  1px solid lightgray;
-    border-bottom:1px solid lightgray;
+    border: 1px solid lightgray;
     color: black;
     padding-top:5px;    
     padding-bottom: 5px;
-    background-color:#F3F6FF;
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
 }
 
 .selected_plan{
-    background-color:#aaccff;
-    color:black;
+    background:-webkit-gradient(linear,left top,left bottom,from(#EBBEF0),to(#C64AD4));
+    color:white;
 }
 
 .bottom_links{
