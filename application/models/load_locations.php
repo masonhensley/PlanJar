@@ -114,29 +114,10 @@ class Load_locations extends CI_Model
     function on_groups_selected($group_list)
     {
         $group_name_array = $this->get_group_names($group_list);
+        $header_string = $this->setup_groups_header($group_name_array);
         $header_string = "Popular places people from ";
 
-        if (count($group_name_array) == 1)
-        {
-            $header_string .= $group_name_array[0];
-        } else if (count($group_name_array == 2))
-        {
-            $header_string .= $group_name_array[0] . " and " . $group_name_array[1];
-        } else if (count($group_name_array) > 2)
-        {
-            $index = 0;
-            foreach ($group_name_array as $group_name)
-            {
-                if (isset($group_name_array[$index + 1]))
-                {
-                    $header_string .= "$group_name, ";
-                }else{
-                    $header_string .= "and $group_name";
-                }
-                $index++;
-            }
-        }
-        $header_string .= " are going";
+       
         echo $header_string;
         $query = "";
 
@@ -208,6 +189,32 @@ class Load_locations extends CI_Model
             $display_day .= " (today)";
         }
         return $display_day;
+    }
+    
+    function setup_groups_header($group_name_array)
+    {
+         if (count($group_name_array) == 1)
+        {
+            $header_string .= $group_name_array[0];
+        } else if (count($group_name_array == 2))
+        {
+            $header_string .= $group_name_array[0] . " and " . $group_name_array[1];
+        } else if (count($group_name_array) > 2)
+        {
+            $index = 0;
+            foreach ($group_name_array as $group_name)
+            {
+                if (isset($group_name_array[$index + 1]))
+                {
+                    $header_string .= "$group_name, ";
+                }else{
+                    $header_string .= "and $group_name";
+                }
+                $index++;
+            }
+        }
+        $header_string .= " are going";
+        return $header_string;
     }
 
     function get_group_names($group_list)
