@@ -67,8 +67,7 @@
                     <div id="using_location">Using location:</div>
                     <a href="#" id="change_location" >Change location</a>
             </div>
-                <div class="left_header">
-                </div>
+                
                 <?php include(APPPATH . 'models/load_group_panel.php'); ?>
             </div>
             <div class ="center">
