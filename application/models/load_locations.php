@@ -30,7 +30,7 @@ class Load_locations extends CI_Model
             $this->on_school_selected($display_day, $sql_date, $school);
         } else
         {
-            $this->on_groups_selected($selected_groups);
+            $this->on_groups_selected($selected_groups, $sql_date);
         }
     }
 
@@ -111,23 +111,23 @@ class Load_locations extends CI_Model
         $this->display_location_tabs($place_id_array, $place_name_array);
     }
 
-    function on_groups_selected($group_list)
+    function on_groups_selected($group_list, $sql_date)
     {
         $group_name_array = $this->get_group_names($group_list);
         $header_string = $this->setup_groups_header($group_name_array);
-        
-
-       
         echo $header_string;
-        $query = "";
-
-        /*
-          if (isset($group_ids_selected[$index]))
-          {
-          $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids
-          }
-         * 
-         */
+        
+        $query = "SELECT places.name, places.id, events.title FROM group_relationships 
+                  JOIN plans ON plans.user_id=group_relationships.user_joined_id
+                  JOIN events ON plans.event_id=events.id AND events.date=$sql_date
+                  JOIN places ON places.id=events.place_id
+                  WHERE ";
+        foreach($group_list as $group_id)
+        {
+          $query .= "group_relationships.group_id=$group_id OR ";  
+        }
+        $query = substr($query, 0, -4);
+        var_dump($query);
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
@@ -152,32 +152,7 @@ class Load_locations extends CI_Model
             $friend_ids[] = $id->user_id;
         }
         return $friend_ids;
-    }
-
-    // this function updates the $id_array with members joined in groups selected
-    function get_user_ids($user_id, $group_ids_selected, $id_array)
-    {
-        $group_query = "SELECT user_joined_id FROM group_relationships WHERE";
-        foreach ($group_ids_selected as $id)
-        {
-            $group_query .= " group_id=$id OR";
-        }
-        $group_query = substr($group_query, 0, strlen($group_query) - 3);  // trim off the last "OR" before querying
-        $query_result = $this->db->query($group_query);
-
-        // generate the list of user ids from the
-        foreach ($query_result->result() as $row)
-        {
-            if ($row->user_joined_id != $user_id)
-            {
-                if (isset($row->user_joined_id))
-                {
-                    $id_array[] = $row->user_joined_id;
-                }
-            }
-        }
-        return $id_array;
-    }
+    } 
 
     function get_day($day)
     {
