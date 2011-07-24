@@ -43,6 +43,8 @@ function delete_user_plan() {
 }
 
 function delete_plan_outer_click() {
+    event.stopPropagation();
+    
     // Get the original text
     var orig_text = $(this).html();
         
