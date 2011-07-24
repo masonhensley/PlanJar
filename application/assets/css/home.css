@@ -109,13 +109,12 @@ a{
     color: white;
 }
 
-
-
 /* ---------------- CENTER PANEL ---------------- */
 .center{
     float:left;
     width:600px;
     height: auto;
+    border-bottom: 1px solid lightgray;
 }
 
 .tab_bar{
