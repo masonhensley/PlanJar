@@ -29,8 +29,7 @@
 }
 
 #plan_left, #plan_right {
-    height: 250px;
-    line-height: 250px;
+    height: 200px;
     width: 4%;
     float: left;
     background-color: lightgrey;
@@ -38,7 +37,7 @@
 
 #plan_page_wrapper {
     width: 92%;
-    height: 250px;
+    height: 200px;
     float: left;
 }
 
