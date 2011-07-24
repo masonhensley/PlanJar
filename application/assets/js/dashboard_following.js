@@ -62,6 +62,17 @@ function initialize_follow_search() {
         }, function (data) {
             $('#follow_search').html(data);
             $('#follow_search').show("slow");
+            
+            $('.user_entry').click(function(){ // click handler for getting the profile
+                $.get('/dashboard/get_profile', {
+                    user_id: $(this).attr('user_id')
+                }, function (data) {
+                    $('#follow_search').hide();
+                    $('.following_profile_body').html(data);
+                    $('.following_profile_body').show("slow");
+                });
+            });
+            
             // Click handler.
             $('#follow_search .add_following').click(function () {
                 $(this).text('+ You sure?');
@@ -102,23 +113,20 @@ function initialize_suggested_friends()
             // Clear the search box
             $('#friend_search').val('');
             $('#friend_search').blur();
-            
             get_suggested_friends();
             $('#follow_search').show();
+            $('.user_entry').click(function(){ // click handler for getting the selected profile
+                $.get('/dashboard/get_profile', {
+                    user_id: $(this).attr('user_id')
+                }, function (data) {
+                    $('#follow_search').hide();
+                    $('.following_profile_body').html(data);
+                    $('.following_profile_body').show("slow");
+                });
+            });
         }
     });
-    show_suggested_init('#following_content', '.suggested_friends');
-    
-    $('.user_entry').click(function(){
-        $.get('/dashboard/get_profile', {
-            user_id: $(this).attr('user_id')
-        }, function (data) {
-            $('#follow_search').hide();
-            $('.following_profile_body').html(data);
-            $('.following_profile_body').show("slow");
-        });
-    });
-    
+    show_suggested_init('#following_content', '.suggested_friends');    
 }
 
 function get_suggested_friends()
@@ -126,7 +134,6 @@ function get_suggested_friends()
     $.get('/dashboard/get_suggested_friends',
         function (data) {
             $('#follow_search').html(data);
-                    
             $('.add_following').click(function () {
                 if ($(this).text() == 'Follow') {
                     $(this).text('You sure?');
@@ -140,14 +147,4 @@ function get_suggested_friends()
                 }
             });
         });
-        
-    $('.user_entry').click(function(){
-        $.get('/dashboard/get_profile', {
-            user_id: $(this).attr('user_id')
-        }, function (data) {
-            $('#follow_search').hide();
-            $('.following_profile_body').html(data);
-            $('.following_profile_body').show("slow");
-        });
-    });
 }
