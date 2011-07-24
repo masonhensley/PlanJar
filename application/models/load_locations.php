@@ -57,24 +57,16 @@ class Load_locations extends CI_Model
     {
 
         echo "Popular places attended by  are selected";
-
-        $id_array = array(); // an array of all the user ids that will be included in the pull
-        $index = 0;  // index used to access $group_list
-        $group_ids_selected = array();
-        while (isset($group_list[$index]))
-        {
-            $group_ids_selected[] = $group_list[$index]; // populates an array of selected group ids
-            $index++;
-        }
-
-        // if there are groups selected, generate a query to pull all user ids joined in the selected groups
-        $index = 0; // reinitialize index
-        $user_ids = null;
-        $id_array;
+        
+        
+        
+        /*
         if (isset($group_ids_selected[$index]))
         {
             $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids               
         }
+         * 
+         */
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
