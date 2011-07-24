@@ -18,6 +18,9 @@ function initialize_plan_modal() {
     // Closing click handler
     $('#cancel_plan').click(function () {
         $('#create_plan_content').hide();
+        
+        // Clear the plan modal
+        reset_modal();
     });
     
     // Make it draggable (with a handle).
@@ -140,16 +143,27 @@ function initialize_plan_modal() {
     
     // Submit
     $('#submit_plan').click(function () {
+        // Get the privacy setting from either the divSet or the <select>
+        var privacy;
+        if ($('#plan_event_select').val() == undefined) {
+            privacy = $('#plan_privacy_wrapper .divset_selected').attr('priv_val');
+        } else {
+            privacy = $('#plan_event_select option[selected="selected"]').attr('priv_type');
+        }
+        
         $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
             'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
             'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
-            'privacy': $('#plan_privacy_wrapper .divset_selected').attr('priv_val')
+            'privacy': privacy
         } ,function (data) {
             if (data == 'success') {
                 $('#create_plan_content').hide();
                 
                 // Refresh the plan list.
                 populate_plan_panel();
+                
+                // Clear the plan modal
+                reset_modal();
             } else {
                 console.log(data);
             }
