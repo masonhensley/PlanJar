@@ -92,6 +92,9 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         echo "Popluar places $school students are going $display_day<br/><hr/>";
+        
+        $query = "SELECT events.title, places.name, places.id 
+                  FROM ";
     }
 
     function on_groups_selected($group_list)
