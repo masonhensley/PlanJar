@@ -52,8 +52,15 @@ class Load_locations extends CI_Model
                   LEFT JOIN places ON places.id=events.place_id 
                   WHERE events.date='$sql_date'
                   ORDER BY distance ASC LIMIT 20";
-        
-        var_dump($query);
+        $result = $this->db->query($query);
+        $place_id_array = array();
+        $place_name_array = array();
+        foreach($result->result() as $place)
+        {
+            $place_id_array[] = $place->id;
+            $place_name_array[] = $place->name;
+        }
+        $this->display_location_tabs($place_id_array, $place_name_array);
     }
 
     function on_friends_selected($display_day, $sql_date)
