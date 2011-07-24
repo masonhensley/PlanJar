@@ -12,8 +12,7 @@ class Load_locations extends CI_Model
         }
         $display_day = $this->get_day($day); // shows the day selected in correct format
         $date = new DateTime();
-        $sql_date =  $date->add(new DateInterval('P' . $day. 'D'));
-        var_dump($sql_date);
+        $sql_date =  $date->add(new DateInterval('P' . $day. 'D')); // date to be used in sql queries
         
         $display_day = "<font style=\"font-weight:bold\">$display_day</font>";
         if (!$selected_groups[0])
@@ -24,7 +23,7 @@ class Load_locations extends CI_Model
             $this->on_current_location_selected($display_day);
         } else if ($selected_groups[0] == 'friends')
         {
-            $this->on_friends_selected($display_day);
+            $this->on_friends_selected($display_day, $sql_date);
         } else if ($selected_groups[0] == 'school')
         {
             $this->on_school_selected($display_day, $school);
@@ -45,12 +44,12 @@ class Load_locations extends CI_Model
         echo "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day<br/><hr/>";
     }
 
-    function on_friends_selected($display_day)
+    function on_friends_selected($display_day, $sql_date)
     {
         echo "Popular places your friends are going $display_day<br/><hr/>";
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $query = "SELECT events.title, places.name FROM plans 
-                  LEFT JOIN events ON plans.event_id=events.id AND events.date=
+                  LEFT JOIN events ON plans.event_id=events.id AND events.date=\'$sql_date\'
                   LEFT JOIN places ON events.place_id=places.id
                   WHERE (";
         foreach($friend_ids as $id)
@@ -59,6 +58,7 @@ class Load_locations extends CI_Model
         }
         $query = substr($query, 0, -4);
         $query .= ")";
+        var_dump($query);
         
     }
 
