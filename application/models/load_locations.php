@@ -230,7 +230,6 @@ class Load_locations extends CI_Model
         }
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
-        var_dump($query);
         $group_name_list = array();
         foreach ($result->result() as $group_name)
         {
