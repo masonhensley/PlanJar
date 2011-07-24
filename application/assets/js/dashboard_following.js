@@ -109,7 +109,7 @@ function initialize_suggested_friends()
     });
     show_suggested_init('#following_content', '.suggested_friends');
     
-    $('#follow_search .user_entry').click(function(){
+    $('.user_entry').click(function(){
         $.get('/dashboard/get_profile', {
             user_id: $(this).attr('user_id')
         }, function (data) {
@@ -141,7 +141,7 @@ function get_suggested_friends()
             });
         });
         
-    $('#follow_search .user_entry').click(function(){
+    $('.user_entry').click(function(){
         $.get('/dashboard/get_profile', {
             user_id: $(this).attr('user_id')
         }, function (data) {
