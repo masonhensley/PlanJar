@@ -107,7 +107,7 @@ class Load_locations extends CI_Model
           foreach ($result->result() as $place)
         {
             $place_id_array[] = $place->id;
-            $place_name_array = $place->name;
+            $place_name_array[] = $place->name;
         }
         $this->display_location_tabs($place_id_array, $place_name_array);
     }
