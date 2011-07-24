@@ -41,7 +41,7 @@ class Notification_ops extends CI_Model
         $user_id = $this->ion_auth->get_user()->id;
 
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id,
-            notifications.viewed, user_meta.first_name, user_meta.last_name
+            notifications.viewed, user_meta.first_name, user_meta.last_name, user_meta.user_id
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
             WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC, notifications.date DESC";
         $query = $this->db->query($query_string, array($user_id));
@@ -107,7 +107,7 @@ class Notification_ops extends CI_Model
     {
         if ($notification_row->type == 'plan_invite')
         {
-            $query_string = "SELECT places.name, events.date FROM plans
+            $query_string = "SELECT places.name, events.date, events.title FROM plans
                 LEFT JOIN events ON events.id = plans.event_id
                 LEFT JOIN places ON events.place_id = places.id
                 WHERE events.id = ?";
@@ -116,8 +116,15 @@ class Notification_ops extends CI_Model
 
             $date = new DateTime($row->date);
 
-            return '<b>' . $notification_row->first_name . ' ' . $notification_row->last_name .
-            '</b> has invited you to <b>' . $row->name . '</b> ' .
+            $event_text = '';
+            if ($row->title != '')
+            {
+                $event_text = '<b>' . $row->title . '</b> at ';
+            }
+
+            return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
+            $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
+            '</b> has invited you to ' . $event_text . '<b>' . $row->name . '</b> ' .
             'on ' . $date->format('l') . ' the ' . $date->format('jS');
         } else if ($notification_row->type == 'group_invite')
         {
