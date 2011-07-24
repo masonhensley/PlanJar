@@ -62,7 +62,7 @@ class Load_locations extends CI_Model
         $result = $this->db->query($query); 
         $place_id_array = array();
         $place_name_array = array();
-        foreach($result as $place)
+        foreach($result->result() as $place)
         {
             $place_id_array[] = $place->id;
             $place_name_array = $place->name;
