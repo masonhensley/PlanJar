@@ -152,12 +152,6 @@ class Home extends CI_Controller
         }
     }
 
-// For Mason to fuck with...
-    public function foo()
-    {
-        $this->load->view('foo_view');
-    }
-
     // Adds a plan entry to the database, creates an event if necessary, and invites and notifies users if required.
     public function submit_plan()
     {
