@@ -42,7 +42,7 @@ function delete_user_plan() {
     $('.delete_plan').one('click', delete_plan_outer_click);
 }
 
-function delete_plan_outer_click() {
+function delete_plan_outer_click(event) {
     // Stop propagation (to allow for clicking anywhere BUT the element)
     event.stopPropagation();
     
@@ -66,7 +66,7 @@ function delete_plan_outer_click() {
         }); 
     });
         
-    $('html').one('click', function () {
+    $('html').one('click', function (event) {
         // Stop propagation (to allow for clicking anywhere BUT the element)
         event.stopPropagation();
         
