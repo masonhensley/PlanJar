@@ -100,10 +100,15 @@ class Load_locations extends CI_Model
                   JOIN events ON plans.event_id=events.id
                   JOIN places ON places.id=events.place_id
                   WHERE user_meta.school_id=$school_id";
-        
-        var_dump($query);
-    
-        
+        $result = $this->db->query($query);
+        $place_name_array = array();
+        $place_id_array = array();
+          foreach ($result->result() as $place)
+        {
+            $place_id_array[] = $place->id;
+            $place_name_array = $place->name;
+        }
+        $this->display_location_tabs($place_id_array, $place_name_array);
     }
 
     function on_groups_selected($group_list)
