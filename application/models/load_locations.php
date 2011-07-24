@@ -156,7 +156,7 @@ class Load_locations extends CI_Model
     
     function display_location_tabs($place_id_array, $place_name_array)
     {
-        
+        var_dump($place_id_array, $place_name_array);
     }
 
 }
