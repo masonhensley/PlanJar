@@ -5,7 +5,7 @@
     height: auto;
     position: absolute;
     left: 50%;
-    margin-left: -300px;
+    margin-left: -275px;
     top: 50%;
     margin-top: -125px;
     background-color:#E0EFFF;
@@ -29,8 +29,7 @@
 }
 
 #plan_left, #plan_right {
-    height: 250px;
-    line-height: 250px;
+    height: 200px;
     width: 4%;
     float: left;
     background-color: lightgrey;
@@ -38,7 +37,7 @@
 
 #plan_page_wrapper {
     width: 92%;
-    height: 250px;
+    height: 200px;
     float: left;
 }
 
@@ -54,4 +53,13 @@
 #plan_invite_header {
     width: 100%;
     height: auto;
+}
+
+#plan_day {
+    margin-bottom: 5px;
+}
+
+#plan_event_select {
+    width: 150px;
+    float: left;
 }
