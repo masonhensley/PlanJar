@@ -104,7 +104,7 @@ function initialize_suggested_friends()
             $('#friend_search').blur();
             
             get_suggested_friends();
-            $('#follow_search').show("slow");
+            $('#follow_search').show();
         }
     });
     show_suggested_init('#following_content', '.suggested_friends');
