@@ -206,7 +206,7 @@ class Load_locations extends CI_Model
             $index = 0;
             foreach ($group_name_array as $group_name)
             {
-                if (($group_name_array[$index + 1]))
+                if (isset($group_name_array[$index + 1]))
                 {
                     $header_string .= "$group_name, ";
                 }else{
