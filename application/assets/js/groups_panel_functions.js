@@ -53,6 +53,8 @@ function set_city_tab()
 function initialize_one_group_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group.selected_group').removeClass('selected_group');
+    on_groups_change();
+    
     $('.groups_wrapper .selectable_group').click(function() {
         $('.groups_wrapper .selectable_group.selected_group').not(this).removeClass('selected_group');
         if ($(this).hasClass('selected_group')) {
@@ -76,6 +78,6 @@ function initialize_mult_groups_select() {
         } else {
             $(this).addClass('selected_group');
         }
-        update_groups_and_locations();
+        on_groups_change();
     });
 }
