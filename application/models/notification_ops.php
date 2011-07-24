@@ -113,8 +113,6 @@ class Notification_ops extends CI_Model
                 WHERE events.id = ?";
             $query = $this->db->query($query_string, array($notification_row->subject_id));
             $row = $query->row();
-            
-            var_dump($this->db->last_query());
 
             $date = new DateTime($row->date);
 
