@@ -107,7 +107,7 @@ class Notification_ops extends CI_Model
     {
         if ($notification_row->type == 'plan_invite')
         {
-            $query_string = "SELECT places.name, events.date FROM plans
+            $query_string = "SELECT places.name, events.date, events.title FROM plans
                 LEFT JOIN events ON events.id = plans.event_id
                 LEFT JOIN places ON events.place_id = places.id
                 WHERE events.id = ?";
@@ -116,9 +116,15 @@ class Notification_ops extends CI_Model
 
             $date = new DateTime($row->date);
 
+            $event_text = '';
+            if ($row->title != '')
+            {
+                $event_text = '<b>' . $row->title . '</b> at ';
+            }
+
             return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
             $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
-            '</b> has invited you to <b>' . $row->name . '</b> ' .
+            '</b> has invited you to ' . $event_text . '<b>' . $row->name . '</b> ' .
             'on ' . $date->format('l') . ' the ' . $date->format('jS');
         } else if ($notification_row->type == 'group_invite')
         {
