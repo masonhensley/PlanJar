@@ -13,6 +13,7 @@ class Load_locations extends CI_Model
         $display_day = $this->get_day($day); // shows the day selected in correct format
         $date = new DateTime();
         $sql_date =  $date->add(new DateInterval('P' . $day. 'D')); // date to be used in sql queries
+        $sql_date = $sql_date->format('Y-m-d');
         
         $display_day = "<font style=\"font-weight:bold\">$display_day</font>";
         if (!$selected_groups[0])
