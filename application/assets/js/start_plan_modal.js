@@ -332,6 +332,9 @@ function reset_modal() {
     
     // Hide the new event div
     $('#event_title_wrapper').css('display', 'none');
+    
+    // Clear the toekn inputs
+    $('#invite_plan_users, #invite_plan_groups').tokenInput('clear');
 }
 
 // Encapsulates the autocomplete setup
