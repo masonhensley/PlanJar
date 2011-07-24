@@ -295,6 +295,26 @@ function get_distance_between(lat0, long0, lat1, long1) {
             * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
 }
 
+// Resets and clears the 
+function reset_modal() {
+    // Go the the first panel
+    $('.plan_page_content').css('display', 'none');
+    $('.plan_page_content[page_index="0"]').css('display', '');
+    
+    // Clear the place box
+    $('#plan_location').val('');
+    $('#plan_location').blur();
+    
+    // Reset divSets
+    $('.plan_page_content .divset_selected').removeClass('divset_selected');
+    
+    // Clear the textboxes
+    $('.plan_page_content input[type="text"]').val('');
+    
+    // Hide the new event div
+    $('#event_title_wrapper').css('display', 'none');
+}
+
 // Encapsulates the autocomplete setup
 function initialize_plan_autocomplete() {
     var item_selected;
