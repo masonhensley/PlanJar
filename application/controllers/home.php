@@ -162,6 +162,7 @@ class Home extends CI_Controller
     public function submit_plan()
     {
         $event_id = $this->input->get('plan_event_id');
+        $privacy = $this->input->get('privacy');
 
         // Create a new event if one wasn't selected
         if ($event_id == '')
@@ -174,7 +175,7 @@ class Home extends CI_Controller
                 'place_id' => $this->input->get('plan_location_id'),
                 'date' => $date->format('Y-m-d'),
                 'time' => $this->input->get('plan_time'),
-                'privacy' => $this->input->get('privacy')
+                'privacy' => $privacy
             );
 
             // Add the place to the PlanJar database if a Factual place was selected.
@@ -222,7 +223,7 @@ class Home extends CI_Controller
         $invited_users = array_merge($invited_users, $this->group_ops->get_users($invited_groups));
 
         // Add invitees if necessary.
-        if ($event_data['privacy'] != 'open')
+        if ($privacy != 'open')
         {
             $this->event_ops->add_invitees($event_id, $invited_users);
         }

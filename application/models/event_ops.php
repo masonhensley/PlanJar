@@ -46,7 +46,7 @@ class Event_ops extends CI_Model
             $values_string = substr($values_string, 0, -2);
 
             // Add all the notifications.
-            $query_string = "INSERT IGNORE INTO notifications VALUES $values_string";
+            $query_string = "INSERT IGNORE INTO event_invitees VALUES $values_string";
             $query = $this->db->query($query_string);
         }
     }
