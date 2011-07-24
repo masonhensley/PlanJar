@@ -18,14 +18,11 @@
         </font>
         <hr/>
         <font style="font-weight:bold;color:navy;">Groups</font><br/><hr/>
-
         <?php
         foreach ($joined_groups as $group)
         {
             ?>
-
             <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
-
                 <?php
                 echo($group['name']);
                 ?>
@@ -33,7 +30,6 @@
             <?php
         }
         ?>
-
         <?php
         foreach ($followed_groups as $group)
         {
