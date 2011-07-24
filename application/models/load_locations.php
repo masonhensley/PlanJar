@@ -32,7 +32,7 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "Use the left panel to select the type of information you want to see for $display_day<br/><hr/>";
+        echo "Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for $display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day)

@@ -18,7 +18,7 @@
     </div>
     </font>
     <hr/>
-    <font style="font-weight:bold;color:#A7A7A7;">Groups following</font><br/><hr/>
+    <font style="font-weight:bold;color:#A7A7A7;">Following</font><br/><hr/>
 
     <?php
     foreach ($joined_groups as $group)
