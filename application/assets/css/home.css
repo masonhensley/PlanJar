@@ -74,12 +74,7 @@ a{
 
 }
 
-.left_header{
-    width:100%;
-    height:auto;
-    text-align: center;
 
-}
 
 .selectable_group {
     border:1px solid lightgray lightgray;
@@ -384,9 +379,8 @@ a{
 }
 
 .location_container{
-    position:absolute;
+    position:relative;
     top:-42px;
-    left:16px;
     font-size:12px;
     text-align:center;
     color:darkgray;
