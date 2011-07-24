@@ -120,7 +120,7 @@ class Notification_ops extends CI_Model
             $notification_row->first_name . ' ' . $notification_row->last_name .
             '</a>' .
             '</b> has invited you to <b>' .
-            '<a href="" class=place_notif_link" place_id="' . $row->id . '">' .
+            '<a href="" class="place_notif_link" place_id="' . $row->id . '">' .
             $row->name .
             '</a></b> ' .
             'on ' . $date->format('l') . ' the ' . $date->format('jS');
