@@ -115,7 +115,7 @@ class Load_locations extends CI_Model
     {
         $group_name_array = $this->get_group_names($group_list);
         $header_string = $this->setup_groups_header($group_name_array);
-        $header_string = "Popular places people from ";
+        
 
        
         echo $header_string;
@@ -193,6 +193,7 @@ class Load_locations extends CI_Model
     
     function setup_groups_header($group_name_array)
     {
+        $header_string = "Popular places people from ";
          if (count($group_name_array) == 1)
         {
             $header_string .= $group_name_array[0];
