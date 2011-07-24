@@ -19,6 +19,22 @@ function get_notifications() {
             }
         });
         
+        // User profile link click handler
+        $('.user_notif_link').click(function () {
+            console.log('user: ' + $(this).attr('user_id'));
+            
+            // Disable the link functionality
+            return false;
+        });
+        
+        // Location link click handler
+        $('.place_notif_link').click(function () {
+            console.log('place: ' + $(this).attr('place_id'));
+            
+            // Disable the link functionality
+            return false;
+        });
+        
         // Accept handler
         $('.notification_entry .accept').click(function() {
             $.get('/dashboard/accept_notification', {
