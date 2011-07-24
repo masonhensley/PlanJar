@@ -84,7 +84,7 @@ function initialize_plan_modal() {
     
     // Privacy click handler
     $('#plan_privacy_wrapper > div').click(function () {
-        show_hide_invite_boxes($(this).attr('priv_val'));
+        show_hide_invite_boxes('new_event');
     });
     
     // Try to advance the plan panel when a time or a day is selected
@@ -225,11 +225,16 @@ function show_hide_invite_boxes(priv_type) {
         $('#invite_plan_users_wrapper').css('display', '');
         $('#invite_plan_groups_wrapper').css('display', 'none');
         $('#invite_plan_groups_wrapper').val('');
-    } else {
+    } else if (priv_type == 'open') {
         // Privacy description
         $('#plan_invite_privacy_header').html("This event is <b>open</b>. You can invite people following you and your joined groups.");
                 
         // Open privacy. Show both boxes
+        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+    } else if (priv_type == 'new_event') {
+        // The user is making an event. If an event of the same name already exists,
+        // the existing event will be used instead (that's done on the server, btw).
+        // Show both boxes
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
     }
 }
