@@ -116,8 +116,7 @@ class Notification_ops extends CI_Model
 
             $date = new DateTime($row->date);
 
-            return '<b>' . $notification_row->user_id . '">' .
-            $notification_row->first_name . ' ' . $notification_row->last_name .
+            return '<b>' . $notification_row->first_name . ' ' . $notification_row->last_name .
             '</b> has invited you to <b>' . $row->name . '</b> ' .
             'on ' . $date->format('l') . ' the ' . $date->format('jS');
         } else if ($notification_row->type == 'group_invite')
