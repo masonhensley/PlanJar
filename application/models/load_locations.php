@@ -115,7 +115,7 @@ class Load_locations extends CI_Model
     {
         $group_name_array = $this->get_group_names($group_list);
         $header_string = $this->setup_groups_header($group_name_array);
-        echo $header_string;
+        echo $header_string ."<hr/>";
         
         $query = "SELECT places.name, places.id, events.title FROM group_relationships 
                   JOIN plans ON plans.user_id=group_relationships.user_joined_id
