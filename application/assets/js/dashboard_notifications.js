@@ -21,7 +21,13 @@ function get_notifications() {
         
         // User profile link click handler
         $('.user_notif_link').click(function () {
-            console.log('user: ' + $(this).attr('user_id'));
+            // Get the user profile and show it
+            $.get('/dashboard/get_profile', {
+                    user_id: $(this).attr('user_id')
+                }, function (data) {
+                    $('#notifications_content .right').html(data);
+                    $('#notifications_content .right').show("slow");
+                });
             
             // Disable the link functionality
             return false;
