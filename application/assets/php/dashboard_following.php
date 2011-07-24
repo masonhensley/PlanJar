@@ -4,7 +4,6 @@
     </div>
     <div id="following_list"></div>
 </div>
-
 <div class="right">
     <div class ="left_header" >
         <div class="in-field_block in-field_block_group">

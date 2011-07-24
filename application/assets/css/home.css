@@ -80,7 +80,7 @@ a{
     height:100%;
     padding: 5px 0px 5px;
     color: black;
-    background:-webkit-gradient(linear,left top,left bottom,from(#EFF),to(#DDD));
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     text-align:center;
     margin-bottom: 10px;
     width:95%;
@@ -88,7 +88,7 @@ a{
 }
 
 .city_tab{
-    background:-webkit-gradient(linear,left top,left bottom,from(#EFF),to(#DDD));
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     border:1px solid lightgray lightgray;
     height:100%;
     padding: 5px 0px 5px;
@@ -115,6 +115,7 @@ a{
     width:600px;
     height: auto;
     border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
 }
 
 .tab_bar{
@@ -346,7 +347,7 @@ a{
     color: black;
     padding-top:5px;    
     padding-bottom: 5px;
-    background-color:#F3F6FF;
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
 }
 
 .selected_plan{

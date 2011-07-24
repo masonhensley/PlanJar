@@ -81,7 +81,7 @@ function initialize_follow_search() {
                     $.get('/dashboard/add_user_following', {
                         following_id: $(this).parent().attr('user_id')
                     }, function () {
-                        $('#follow_search').hide("slow");
+                        $('#follow_search').hide();
                         $('#follow_search').html('');
                         $('#friend_search').val('');
                         populate_following_list();
