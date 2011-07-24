@@ -9,7 +9,7 @@ function following_setup() {
 
 // Populates the following list and assigns the click events.
 function populate_following_list() {
-     $('.following_profile_body').hide();
+    $('.following_profile_body').hide();
     
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
@@ -108,6 +108,17 @@ function initialize_suggested_friends()
         }
     });
     show_suggested_init('#following_content', '.suggested_friends');
+    
+    $('.user_entry').click(function(){
+        $.get('/dashboard/get_profile', {
+            user_id: $(this).attr('user_id')
+        }, function (data) {
+            $('#follow_search').hide();
+            $('.following_profile_body').html(data);
+            $('.following_profile_body').show("slow");
+        });
+    });
+    
 }
 
 function get_suggested_friends()
@@ -129,4 +140,14 @@ function get_suggested_friends()
                 }
             });
         });
+        
+    $('.user_entry').click(function(){
+        $.get('/dashboard/get_profile', {
+            user_id: $(this).attr('user_id')
+        }, function (data) {
+            $('#follow_search').hide();
+            $('.following_profile_body').html(data);
+            $('.following_profile_body').show("slow");
+        });
+    });
 }
