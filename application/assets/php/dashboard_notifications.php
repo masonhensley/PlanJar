@@ -3,5 +3,4 @@
 </div>
 
 <div class="right">
-    <div id="notification_info"></div>
 </div>

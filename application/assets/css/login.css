@@ -156,13 +156,10 @@ h1 {
 }
 
 /* The following two classes are used for the in-field labels. */
-#log_in div.in-field_block, #sign_up div.in-field_block {
+.in-field_block {
     position:relative;
+    width: 275px !important;
 }
 #log_in label, #sign_up label {
-    position:absolute;
-    top:6px;
-    left:50px;
     font:normal 18px Arial;
-    color: #999999;
 }
