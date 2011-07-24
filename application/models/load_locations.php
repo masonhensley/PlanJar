@@ -127,7 +127,6 @@ class Load_locations extends CI_Model
           $query .= "group_relationships.group_id=$group_id OR ";  
         }
         $query = substr($query, 0, -4);
-        var_dump($query);
         $result = $this->db->query($query);
         
         $place_array = array();
@@ -140,7 +139,6 @@ class Load_locations extends CI_Model
             }
             $place_id_array[] = $place->id;
         }
-        var_dump($place_array);
         $this->display_location_tabs($place_id_array, $place_array);
         
     }
