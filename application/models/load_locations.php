@@ -50,7 +50,7 @@ class Load_locations extends CI_Model
         echo "Popular places your friends are going $display_day<br/><hr/>";
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $query = "SELECT events.title, places.name FROM plans 
-                  LEFT JOIN events ON plans.event_id=events.id AND events.date=\'$sql_date\'
+                  JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
                   WHERE (";
         foreach($friend_ids as $id)
