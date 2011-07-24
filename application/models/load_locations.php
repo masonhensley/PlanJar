@@ -49,7 +49,7 @@ class Load_locations extends CI_Model
     {
         echo "Popular places your friends are going $display_day<br/><hr/>";
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
-        $query = "SELECT events.title, places.name FROM plans 
+        $query = "SELECT events.id, events.title, places.name FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
                   WHERE (";
@@ -59,8 +59,16 @@ class Load_locations extends CI_Model
         }
         $query = substr($query, 0, -4);
         $query .= ")";
-        var_dump($query);
+        $result = $this->db->query($query); 
+        $place_id_array = array();
+        $place_name_array = array();
+        foreach($result as $place)
+        {
+            $place_id_array[] = $place->id;
+            $place_name_array = $place->name;
+        }
         
+        $this->display_location_tabs($place_id_array, $place_name_array);
     }
 
     function on_school_selected($display_day, $school)
@@ -72,7 +80,7 @@ class Load_locations extends CI_Model
     function on_groups_selected($group_list)
     {
 
-        echo "Popular places attended by  are selected";
+        echo "Popular places attended by are selected";
         
         
         
@@ -144,6 +152,11 @@ class Load_locations extends CI_Model
             $display_day .= " (today)";
         }
         return $display_day;
+    }
+    
+    function display_location_tabs($place_id_array, $place_name_array)
+    {
+        
     }
 
 }
