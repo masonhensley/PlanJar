@@ -43,14 +43,14 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day)
     {
-        echo "Popular places your friends are attending $display_day<br/><hr/>";
+        echo "Popular places your friends are going $display_day<br/><hr/>";
         $friend_ids = $this->get_friend_ids();
     }
 
     function on_school_selected($display_day, $school)
     {
         $user = $this->ion_auth->get_user();
-        echo "Popluar places $school students are attending $display_day<br/><hr/>";
+        echo "Popluar places $school students are going $display_day<br/><hr/>";
     }
 
     function on_groups_selected($group_list)
