@@ -48,6 +48,7 @@ function delete_plan_outer_click() {
         
     // Replacement text
     console.log($(this));
+    console.log($('.delete_plan').html());
     $('.delete_plan').html('Sure?');
     console.log($(this));
         
