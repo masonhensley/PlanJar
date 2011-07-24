@@ -231,11 +231,12 @@ class Load_locations extends CI_Model
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
         var_dump($query);
+        $group_name_list = array();
         foreach ($result->result() as $group_name)
         {
-            $group_list[] = $group_name->name;
+            $group_name_list[] = $group_name->name;
         }
-        return $group_list;
+        return $group_name_list;
     }
 
     function display_location_tabs($place_id_array, $place_name_array)
