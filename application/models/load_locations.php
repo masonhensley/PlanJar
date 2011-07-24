@@ -194,13 +194,14 @@ class Load_locations extends CI_Model
     function setup_groups_header($group_name_array)
     {        
         $header_string = "Popular places people from ";
-         if (count($group_name_array) == 1)
+        $number = count($group_name_array);
+         if ($number == 1)
         {
             $header_string .= $group_name_array[0];
-        } else if (count($group_name_array == 2))
+        } else if ($number == 2)
         {
             $header_string .= $group_name_array[0] . " and " . $group_name_array[1];
-        } else if (count($group_name_array) > 2)
+        } else if ($number > 2)
         {
             $index = 0;
             foreach ($group_name_array as $group_name)
