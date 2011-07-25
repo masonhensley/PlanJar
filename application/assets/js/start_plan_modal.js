@@ -80,7 +80,7 @@ function initialize_plan_modal() {
     });
     
     // Event select click handler
-    $('#plan_event_select_wrapper > div').click(function () {
+    $('#plan_event_select_wrapper').delegate('div', 'click', function () {
         // Make only this selected
         $(this).siblings().removeClass('event_selected');
         $(this).addClass('event_selected');
