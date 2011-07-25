@@ -248,7 +248,7 @@ class Load_locations extends CI_Model
         {
             echo "<hr/>";
             echo $place_array[$place_id] . " " . $count . " attending<br/>";
-            echo "<hr/";
+            echo "<hr/>";
         }
     }
 
