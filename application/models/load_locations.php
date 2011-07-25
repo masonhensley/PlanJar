@@ -104,7 +104,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Popluar places <font style=\"color:navy; font-weight:bold;\">$school</font> ";
+        $display_message = "Popluar places <font style=\"color:blue; font-weight:bold;\">$school</font> ";
         $display_message .= "students are going <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
 
         $query = "SELECT events.title, places.name, places.id 
@@ -200,11 +200,11 @@ class Load_locations extends CI_Model
         $number = count($group_name_array);
         if ($number == 1)
         {
-            $header_string .= "<font style=\"color:navy; font-weight:bold;\">" . $group_name_array[0] . "</font>";
+            $header_string .= "<font style=\"color:blue; font-weight:bold;\">" . $group_name_array[0] . "</font>";
         } else if ($number == 2)
         {
-            $header_string .= "<font style=\"color:navy; font-weight:bold;\">" . $group_name_array[0];
-            $header_string .= "</font> and <font style=\"color:navy; font-weight:bold;\">" . $group_name_array[1] . "</font>";
+            $header_string .= "<font style=\"color:blue; font-weight:bold;\">" . $group_name_array[0];
+            $header_string .= "</font> and <font style=\"color:blue; font-weight:bold;\">" . $group_name_array[1] . "</font>";
         } else if ($number > 2)
         {
             $index = 0;
@@ -212,10 +212,10 @@ class Load_locations extends CI_Model
             {
                 if (isset($group_name_array[$index + 1]))
                 {
-                    $header_string .= "<font style=\"color:navy; font-weight:bold;\">$group_name</font>, ";
+                    $header_string .= "<font style=\"color:blue; font-weight:bold;\">$group_name</font>, ";
                 } else
                 {
-                    $header_string .= "and <font style=\"color:navy; font-weight:bold;\">$group_name</font>";
+                    $header_string .= "and <font style=\"color:blue; font-weight:bold;\">$group_name</font>";
                 }
                 $index++;
             }
