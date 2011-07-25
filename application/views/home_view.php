@@ -6,7 +6,7 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
-        <link rel=stylesheet href="/application/assets/css/token-input.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/token-input-facebook.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/start_plan_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/divset.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
