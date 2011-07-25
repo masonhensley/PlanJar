@@ -1,14 +1,14 @@
 /* Create plan CSS */
 #create_plan_content {
     display: none;
-    width: 550px;
+    width: 600px;
     height: auto;
     position: absolute;
     left: 50%;
     margin-left: -275px;
     top: 50%;
     margin-top: -125px;
-    background-color:#f5f5f5;
+    background-color:#efefef;
     padding: 5px;
     
 }
