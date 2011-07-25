@@ -102,7 +102,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Popluar places $school students are going $display_day";
+        $display_message = "Popluar places <font style=\"color:navy; font-weight:bold;\">$school</font> students are going $display_day";
 
         $query = "SELECT events.title, places.name, places.id 
                   FROM user_meta
@@ -197,10 +197,11 @@ class Load_locations extends CI_Model
         $number = count($group_name_array);
         if ($number == 1)
         {
-            $header_string .= $group_name_array[0];
+            $header_string .= "<font style=\"color:navy; font-weight:bold;\">" . $group_name_array[0] . "</font>";
         } else if ($number == 2)
         {
-            $header_string .= $group_name_array[0] . " and " . $group_name_array[1];
+            $header_string .= "<font style=\"color:navy; font-weight:bold;\">" . $group_name_array[0];
+            $header_string .= "</font> and <font style=\"color:navy; font-weight:bold;\">" . $group_name_array[1] . "</font>";
         } else if ($number > 2)
         {
             $index = 0;
@@ -208,15 +209,15 @@ class Load_locations extends CI_Model
             {
                 if (isset($group_name_array[$index + 1]))
                 {
-                    $header_string .= "$group_name, ";
+                    $header_string .= "<font style=\"color:navy; font-weight:bold;\">$group_name</font>, ";
                 } else
                 {
-                    $header_string .= "and $group_name";
+                    $header_string .= "and <font style=\"color:navy; font-weight:bold;\">$group_name</font>";
                 }
                 $index++;
             }
         }
-        $header_string .= " are going $display_day";
+        $header_string .= " are going <font style=\"font-weight:bold;\">$display_day</font>";
         return $header_string;
     }
 
@@ -247,7 +248,7 @@ class Load_locations extends CI_Model
         foreach ($place_id_array as $place_id => $count)
         {
             echo "<hr/>";
-            echo $place_array[$place_id] ."<br/> ";
+            echo $place_array[$place_id] . "<br/> ";
             echo $count . " attending";
             echo "<hr/>";
         }
