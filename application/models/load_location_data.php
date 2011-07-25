@@ -3,11 +3,21 @@
 class Load_location_data extends CI_Model
 {
     function display_location_info($place_id, $date, $selected_groups)
-    {
+    {   
         $place_info = $this->get_place_info($place_id);
-        $this->load->model('load_locations');
-        $group_names_selected = $this->load_locations->get_group_names($selected_groups);
-        var_dump($place_info, $group_names_selected);
+         if ($selected_groups[0] == 'current_location')
+        {
+            
+        } else if ($selected_groups[0] == 'friends')
+        {
+            
+        } else if ($selected_groups[0] == 'school')
+        {
+            
+        } else
+        {
+            
+        }
     }
     
     function get_place_info($place_id)

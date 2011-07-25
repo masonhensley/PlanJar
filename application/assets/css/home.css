@@ -211,7 +211,7 @@ a{
     width: 74px;
     height:100%;
     border-left: 1px solid lightgray;
-    background:-webkit-gradient(linear,left top,left bottom,from(#AAA),to(#EEE));
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     line-height: 30px;
 }
 
