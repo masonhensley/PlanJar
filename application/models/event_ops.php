@@ -60,17 +60,16 @@ class Event_ops extends CI_Model
         $query_string = "SELECT id, title, privacy FROM events WHERE date = ? AND time = ? AND place_id = ? AND title <> ''";
         $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time, $place_id));
 
-        // Echo the select
-        echo('<select id="plan_event_select" size="6" multiple="multiple">');
-
-        // Echo the intermediate entries
+        // Echo the event entries
+        echo('<div class="selectable_event" event_id<hr/="">Just going</div>');
+        if ($query->num_rows() > 0)
+        {
+            echo('<hr/>');
+        }
         foreach ($query->result() as $row)
         {
-            echo('<option value="' . $row->id . '" priv_type="' . $row->privacy . '">' . $row->title . '</option>');
+            echo('<div class="selectable_event" event_id="' . $row->id . '">' . $row->title . '</div>');
         }
-
-        // Close the select
-        echo('</select>');
     }
 
 }
