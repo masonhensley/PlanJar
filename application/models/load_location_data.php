@@ -18,6 +18,7 @@ class Load_location_data extends CI_Model
         {
             
         }
+        var_dump($place_info);
     }
     
     function get_place_info($place_id)
