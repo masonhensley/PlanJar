@@ -249,7 +249,7 @@ function generate_full_plan_text() {
     var return_string = "Start a plan to ";
     
     if ($('#plan_event_id').val() != '') {
-        return_string += '<b>' + $('#plan_event_select option[selected="selected"]').html() + '</b> at ';
+        return_string += '<b>' + $('#plan_event_select_wrapper .selected_event').attr('event_name') + '</b> at ';
     } else if ($('#event_title').val() != '') {
         return_string += '<b>' + $('#event_title').val() + '</b> at ';
     }
