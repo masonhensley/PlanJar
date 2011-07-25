@@ -44,14 +44,14 @@
                 <div id="plan_event_select_wrapper"></div>
 
                 <div style="float: left; height: auto; width: auto">
-                    <input type="button" id="no_event_title" value="Just go"/>
+                    <input type="button" id="no_event_title" value="Just going"/>
                     or
                     <input type="button" id="create_event" value="Start an event"/>
                 </div>
 
                 <div id="event_title_wrapper" class="in-field_block">
+                    <div class="header">
                     <label for="event_title">Title</label>
-                    <input type="text" id="event_title" name="event_title" class="textbox"/>
 
                     <div id="plan_privacy_wrapper">
                         Privacy options

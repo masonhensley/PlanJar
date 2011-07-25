@@ -47,7 +47,7 @@
 }
 
 #plan_location {
-    
+
 }
 
 #event_title_wrapper {
@@ -66,8 +66,25 @@
 #plan_event_select {
     width: 150px;
     float: left;
+    margin-left: 20px;
 }
 
 #create_plan_content h3 {
     margin-top: 0px;
+}
+
+.selectable_event {
+    border:1px solid lightgray;
+    height: 1.2em;
+    padding: 5px 0px 5px;
+    color: black;
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
+    text-align:left;
+    margin-bottom: 10px;
+    width:95%;
+    margin-left:2.5%;
+}
+.selected_event {
+    background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
+    color: white;
 }
