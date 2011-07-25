@@ -11,13 +11,11 @@
     <div id="plan_page_wrapper">
         <form id="plan_form" style="height: 100%;">
             <div class="plan_page_content" page_index="0">
-                <div class="in-field_block">
+                <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
                     <label for="plan_location">Where are you going?</label>
                     <input type="text" id="plan_location" class="textbox"/>
                 </div>
-            </div>
-
-            <div class="plan_page_content" page_index="1" style="display: none; text-align: center;">
+                
                 <h2>When are you going?</h2>
 
                 <div id="plan_day">
@@ -43,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="plan_page_content" page_index="2" style="display: none;">
+            <div class="plan_page_content" page_index="1" style="display: none;">
                 <div id="plan_events_title"></div>
 
                 <div id="plan_event_select_wrapper"></div>
@@ -64,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="plan_page_content" page_index="3" style="display: none;">
+            <div class="plan_page_content" page_index="2" style="display: none;">
                 <div id="plan_invite_header"></div>
 
                 <div id="plan_invite_privacy_header"></div>
