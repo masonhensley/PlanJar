@@ -64,12 +64,14 @@ function initialize_create_group_modal()
     $('#group_invite_users').tokenInput('/home/get_followers_invite', {
         hintText: 'Search followers...',
         preventDuplicates: true,
-        queryParam: 'needle'
+        queryParam: 'needle',
+        theme: 'facebook'
     });
     
     $('#group_invite_groups').tokenInput('/home/get_groups_invite', {
         hintText: 'Search joined groups...',
         preventDuplicates: true,
-        queryParam: 'needle'
+        queryParam: 'needle',
+        theme: 'facebook'
     });
 }
