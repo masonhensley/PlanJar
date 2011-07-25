@@ -113,7 +113,7 @@ class Plan_actions extends CI_Model
         $row['user_id'] = $user_id;
         unset($row['id']);
         
-        var_dump($row['id']);
+        var_dump($row);
 
         // Insert the new plan.
         $query = $this->db->insert('plans', $row);
