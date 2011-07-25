@@ -5,6 +5,8 @@ class Load_location_data extends CI_Model
     function display_location_info($place_id, $date, $selected_groups)
     {   
         $place_info = $this->get_place_info($place_id);
+        $people_attending_info = $this->get_people_attending_info();
+        
          if ($selected_groups[0] == 'current_location')
         {
             
@@ -23,6 +25,7 @@ class Load_location_data extends CI_Model
     
     function get_place_info($place_id)
     {
+        $user = $this->ion_auth->get_user();
         $query = "SELECT name, latitude, longitude, category, 
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
