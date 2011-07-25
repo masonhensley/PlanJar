@@ -87,6 +87,7 @@ function initialize_plan_modal() {
         
         // Store the selected event id
         $('#plan_event_id').val($(this).attr('event_id'));
+        console.log($(this));
         
         // Reset and hide the title and privacy settings
         $('#event_title').val('');
