@@ -240,6 +240,7 @@ class Load_locations extends CI_Model
 
     function display_location_tabs($display_message, $place_id_array, $place_array)
     {
+        echo "<hr/>" .$display_message ."<hr/>";
         $place_id_array = array_count_values($place_id_array);
         asort($place_id_array);
         $place_id_array = array_reverse($place_id_array, TRUE);
