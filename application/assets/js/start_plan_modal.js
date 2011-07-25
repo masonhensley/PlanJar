@@ -55,7 +55,7 @@ function initialize_plan_modal() {
             // Second page
             case 1:
                 // Make sure an event is selected or an event has been created
-                if ($('#plan_event_select .selected_event').length == 1 || $('#event_title').val() != '') {
+                if ($('#plan_event_select_wrapper .selected_event').length == 1 || $('#event_title').val() != '') {
                     $('#plan_invite_header').html(generate_full_plan_text());
                     next_plan_panel();
                 }
@@ -111,19 +111,18 @@ function initialize_plan_modal() {
         
     // New event click handler
     $('#create_event').click(function () {
+        
         // Hide the button
         $(this).hide('fast');
         
         // Clear the select
-        $('#plan_event_select .selected_event').removeClass('selected_event');
+        $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
             
         // Show the title and privacy settings
         $('#plan_event_id').val('');
+        console.log($('#start_event_content'));
         $('#start_event_content').show('fast');
         $('#event_title').focus();
-            
-        // Show invite boxes
-        show_hide_invite_boxes('new_event');
     });
     
     // TokenInput
@@ -132,7 +131,6 @@ function initialize_plan_modal() {
         preventDuplicates: true,
         queryParam: 'needle'
     });
-    
     $('#invite_plan_groups').tokenInput('/home/get_groups_invite', {
         hintText: 'Search joined groups...',
         preventDuplicates: true,
@@ -143,10 +141,10 @@ function initialize_plan_modal() {
     $('#submit_plan').click(function () {
         // Get the privacy setting from either the divSet or the <select>
         var privacy;
-        if ($('#plan_event_select .selected_event').length == 0) {
+        if ($('#plan_event_select_wrapper .selected_event').length == 0) {
             privacy = $('#plan_privacy_wrapper .divset_selected').attr('priv_val');
         } else {
-            privacy = $('#plan_event_select .selected_event').attr('priv_type');
+            privacy = $('#plan_event_select_wrapper .selected_event').attr('priv_type');
         }
         
         $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
@@ -182,27 +180,6 @@ function initialize_event_select_page() {
         place_id: $('#plan_location_id').val()
     }, function (data) {
         $('#plan_event_select_wrapper').html(data);
-                        
-        // Handle the select change event (overwriting default functionality)
-        $('#plan_event_select option').unbind('mousedown');
-        $('#plan_event_select option').mousedown(function () {
-            $(this).siblings().removeAttr('selected')
-            $(this).attr('selected', 'selected');
-            
-            // Store the plan id
-            $('#plan_event_id').val($(this).parent().val());
-            
-            // Reset and hide the title and privacy settings
-            $('#event_title').val('');
-            $('#event_title').blur();
-            $('#event_title_wrapper').css('display', 'none');
-            
-            // Hide the invite boxes as necessary
-            var priv_type = $('#plan_event_select option[selected="selected"]').attr('priv_type');
-            show_hide_invite_boxes(priv_type);
-            
-            $('#plan_right').click();
-        });
     });
 }
 
@@ -298,7 +275,7 @@ function prev_plan_panel() {
 function next_plan_panel() {
     var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
     
-    if (current_index < 3) {
+    if (current_index < 2) {
         $('.plan_page_content:visible').hide('slide', {
             }, 'fast', function () {
                 $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('slide', {
@@ -308,13 +285,14 @@ function next_plan_panel() {
     }
 }
 
+// Returns the distance between the two locations in miles
 function get_distance_between(lat0, long0, lat1, long1) {
     return ((Math.acos(Math.sin(lat0 * Math.PI / 180) * Math.sin(lat1 * Math.PI / 180) 
         + Math.cos(lat0 * Math.PI / 180) * Math.cos(lat1 * Math.PI / 180) * Math.cos((long0 - long1)
             * Math.PI / 180)) * 180 / Math.PI) * 60 * 1.1515);
 }
 
-// Resets and clears the 
+// Resets and clears the modal
 function reset_modal() {
     // Go the the first panel
     $('.plan_page_content').css('display', 'none');
