@@ -55,7 +55,7 @@ function initialize_plan_modal() {
             // Second page
             case 1:
                 // Make sure an event is selected or an event has been created
-                if ($('#plan_event_select').val() != null || $('#event_title').val() != '') {
+                if ($('#plan_event_select .event_selected').length == 1 || $('#event_title').val() != '') {
                     $('#plan_invite_header').html(generate_full_plan_text());
                     next_plan_panel();
                 }
@@ -79,30 +79,34 @@ function initialize_plan_modal() {
         $('#plan_right').click();
     });
     
-    // No title click handler
-    $('#no_event_title').click(function () {
-        // Clear the select
-        $('#plan_event_select option[selected="selected"]').removeAttr('selected');
+    // Event select click handler
+    $('#plan_event_select_wrapper > div').click(function () {
+        // Make only this selected
+        $(this).siblings().removeClass('event_selected');
+        $(this).addClass('event_selected');
+        
+        // Just going handler
+        if ($(this).attr('event_id') == '') {
+            // Reset and hide the title and privacy settings
+            $('#plan_event_id').val('');
+            $('#event_title').val('');
+            $('#event_title').blur();
+            $('#plan_privacy_wrapper div').first().click();
+            $('#event_title_wrapper').css('display', 'none')
             
-        // Reset and hide the title and privacy settings
-        $('#plan_event_id').val('');
-        $('#event_title').val('');
-        $('#event_title').blur();
-        $('#plan_privacy_wrapper div').first().click();
-        $('#event_title_wrapper').css('display', 'none')
+            // Show both invite boxes
+            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
             
-        // Show both invite boxes
-        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
-            
-        // Bypass the "validating" click function
-        $('#plan_invite_header').html(generate_full_plan_text());
-        next_plan_panel();
+            // Bypass the "validating" click function
+            $('#plan_invite_header').html(generate_full_plan_text());
+            next_plan_panel();
+        }
     });
         
     // New event click handler
     $('#create_event').click(function () {
         // Clear the select
-        $('#plan_event_select option[selected="selected"]').removeAttr('selected');
+        $('#plan_event_select .event_selected').removeClass('event_selected');
             
         // Reset and show the title and privacy settings
         $('#plan_event_id').val('');
