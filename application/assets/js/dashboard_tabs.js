@@ -14,7 +14,7 @@ function initialize_dashboard_tabs() {
             show_data_container($(this).attr('assoc_div'));
         } else {
             // Call the js setup function again (reload)
-            eval($(this).attr('setup_func') + '()');
+            eval($($(this).attr('assoc_div')).attr('setup_func') + '()');
         }
     });
 }
