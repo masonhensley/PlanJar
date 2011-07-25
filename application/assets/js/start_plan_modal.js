@@ -469,7 +469,8 @@ function initialize_plan_autocomplete() {
                 $('#new_place_factual_id').val(ui.item.factual_id);
             }
             
-            next_plan_panel();
+            // Try to advance the panel
+            $('#plan_right').click();
         }
     });
 }
