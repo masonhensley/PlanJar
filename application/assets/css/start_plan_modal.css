@@ -50,10 +50,6 @@
 
 }
 
-#event_title_wrapper {
-    display: none;
-}
-
 #plan_invite_header {
     width: 100%;
     height: auto;
@@ -68,7 +64,7 @@
     height: 160px;
     float: left;
     margin-left: 20px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 #create_plan_content h3 {
@@ -99,6 +95,6 @@
 #new_event_side {
     float: right;
     text-align: center;
-    width: 100px;
+    width: 300px;
     height: 100%;
 }

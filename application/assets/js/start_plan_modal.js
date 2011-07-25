@@ -55,7 +55,7 @@ function initialize_plan_modal() {
             // Second page
             case 1:
                 // Make sure an event is selected or an event has been created
-                if ($('#plan_event_select .event_selected').length == 1 || $('#event_title').val() != '') {
+                if ($('#plan_event_select .selected_event').length == 1 || $('#event_title').val() != '') {
                     $('#plan_invite_header').html(generate_full_plan_text());
                     next_plan_panel();
                 }
@@ -80,10 +80,10 @@ function initialize_plan_modal() {
     });
     
     // Event select click handler
-    $('#plan_event_select_wrapper > div').click(function () {
+    $('#plan_event_select_wrapper').delegate('div', 'click', function () {
         // Make only this selected
-        $(this).siblings().removeClass('event_selected');
-        $(this).addClass('event_selected');
+        $(this).siblings().removeClass('selected_event');
+        $(this).addClass('selected_event');
         
         // Just going handler
         if ($(this).attr('event_id') == '') {
@@ -100,20 +100,22 @@ function initialize_plan_modal() {
             // Bypass the "validating" click function
             $('#plan_invite_header').html(generate_full_plan_text());
             next_plan_panel();
-        }
+        } else {
+            
+    }
     });
         
     // New event click handler
     $('#create_event').click(function () {
         // Clear the select
-        $('#plan_event_select .event_selected').removeClass('event_selected');
+        $('#plan_event_select .selected_event').removeClass('selected_event');
             
         // Reset and show the title and privacy settings
         $('#plan_event_id').val('');
         $('#event_title').blur();
         $('#event_title').focus();
         $('#plan_privacy_wrapper div').first().click();
-        $('#event_title_wrapper').show('fast');
+        $('#event_title_wrapper, #plan_privacy_wrapper').show('fast');
             
         // Show both invite boxes
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');

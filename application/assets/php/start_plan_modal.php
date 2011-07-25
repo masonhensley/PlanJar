@@ -46,13 +46,14 @@
                 <div id="new_event_side">
                     <input type="button" id="create_event" value="Start an event"/>
 
-                    <div id="event_title_wrapper" class="in-field_block">
+                    <div id="event_title_wrapper" class="in-field_block" style="display: none;">
                         <label for="event_title">Title</label>
                         <input type="text" id="event_title" name="event_title"/>
                     </div>
 
-                    <div id="plan_privacy_wrapper">
-                        Privacy options
+                    <div id="plan_privacy_wrapper" style="display: none;">
+                        Privacy options<br/>
+
                         <div priv_val="open">None</div>
                         <div priv_val="strict">Fixed invitation list</div>
                         <div priv_val="loose">Invitees can invite others</div>
