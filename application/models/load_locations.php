@@ -38,14 +38,14 @@ class Load_locations extends CI_Model
     function on_nothing_selected($display_day)
     {
         echo "<hr/>Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for ";
-        echo "<font style=\"font-weight:bold;color:lightblue;\">$display_day<br/><hr/>";
+        echo "<font style=\"font-weight:bold;color:navy;\">$display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "Places near your <font style=\"color:blue; font-weight:bold;\">current location</font> ";
-        $display_message .= "for <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
+        $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">current location</font> ";
+        $display_message .= "for <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $query = "SELECT places.id, places.name, places.category, 
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
@@ -72,7 +72,8 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message = "Places your friends are going <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
+        $display_message = "Places your <font style=\"font-weight:bold;color:green;\">friends</font>";
+        $display_message .= "are going <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $query = "SELECT events.id, events.title, places.name FROM plans 
@@ -104,8 +105,8 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Places <font style=\"color:blue; font-weight:bold;\">$school</font> ";
-        $display_message .= "students are going <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
+        $display_message = "Places <font style=\"color:green; font-weight:bold;\">$school</font> ";
+        $display_message .= "students are going <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $query = "SELECT events.title, places.name, places.id 
                   FROM user_meta
@@ -200,11 +201,11 @@ class Load_locations extends CI_Model
         $number = count($group_name_array);
         if ($number == 1)
         {
-            $header_string .= "<font style=\"color:blue; font-weight:bold;\">" . $group_name_array[0] . "</font>";
+            $header_string .= "<font style=\"color:orange; font-weight:bold;\">" . $group_name_array[0] . "</font>";
         } else if ($number == 2)
         {
-            $header_string .= "<font style=\"color:blue; font-weight:bold;\">" . $group_name_array[0];
-            $header_string .= "</font> and <font style=\"color:blue; font-weight:bold;\">" . $group_name_array[1] . "</font>";
+            $header_string .= "<font style=\"color:orange; font-weight:bold;\">" . $group_name_array[0];
+            $header_string .= "</font> and <font style=\"color:orange; font-weight:bold;\">" . $group_name_array[1] . "</font>";
         } else if ($number > 2)
         {
             $index = 0;
@@ -212,15 +213,15 @@ class Load_locations extends CI_Model
             {
                 if (isset($group_name_array[$index + 1]))
                 {
-                    $header_string .= "<font style=\"color:blue; font-weight:bold;\">$group_name</font>, ";
+                    $header_string .= "<font style=\"color:orange; font-weight:bold;\">$group_name</font>, ";
                 } else
                 {
-                    $header_string .= "and <font style=\"color:blue; font-weight:bold;\">$group_name</font>";
+                    $header_string .= "and <font style=\"color:orange; font-weight:bold;\">$group_name</font>";
                 }
                 $index++;
             }
         }
-        $header_string .= " are going <font style=\"font-weight:bold; color:lightblue;\">$display_day</font>";
+        $header_string .= " are going <font style=\"font-weight:bold; color:navy;\">$display_day</font>";
         return $header_string;
     }
 
