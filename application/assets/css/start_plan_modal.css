@@ -65,6 +65,7 @@
     float: left;
     margin-left: 20px;
     overflow: auto;
+    margin-bottom: 10px;
 }
 
 #create_plan_content h3 {
@@ -78,7 +79,7 @@
     color: black;
     background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     text-align:left;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     width:95%;
     margin-left:2.5%;
 }
