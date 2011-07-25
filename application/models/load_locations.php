@@ -247,7 +247,8 @@ class Load_locations extends CI_Model
         foreach ($place_id_array as $place_id => $count)
         {
             echo "<hr/>";
-            echo $place_array[$place_id] . " " . $count . " attending<br/>";
+            echo $place_array[$place_id] ." ";
+            echo $count . " attending<br/>";
             echo "<hr/>";
         }
     }
