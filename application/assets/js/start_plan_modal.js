@@ -85,40 +85,45 @@ function initialize_plan_modal() {
         $(this).siblings().removeClass('selected_event');
         $(this).addClass('selected_event');
         
-        // Just going handler
+        // Store the selected event id
+        $('#plan_event_id').val($(this).attr('event_id'));
+        
+        // Reset and hide the title and privacy settings
+        $('#event_title').val('');
+        $('#event_title').blur();
+        $('#plan_privacy_wrapper div').first().click();
+        $('#start_event_content').css('display', 'none');
+        $('#create_event').show('fast');
+        
+        
         if ($(this).attr('event_id') == '') {
-            // Reset and hide the title and privacy settings
-            $('#plan_event_id').val('');
-            $('#event_title').val('');
-            $('#event_title').blur();
-            $('#plan_privacy_wrapper div').first().click();
-            $('#event_title_wrapper').css('display', 'none')
-            
-            // Show both invite boxes
-            $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
-            
-            // Bypass the "validating" click function
-            $('#plan_invite_header').html(generate_full_plan_text());
-            next_plan_panel();
+            // Just going (open)
+            show_hide_invite_boxes('open');
         } else {
-            
-    }
+            // Use the corresponding event privacy
+            show_hide_invite_boxes($(this).attr('event_id'));
+        }
+        
+        // Next page
+        $('#plan_right').click();
+        
     });
         
     // New event click handler
     $('#create_event').click(function () {
+        // Hide the button
+        $(this).hide('fast');
+        
         // Clear the select
         $('#plan_event_select .selected_event').removeClass('selected_event');
             
-        // Reset and show the title and privacy settings
+        // Show the title and privacy settings
         $('#plan_event_id').val('');
-        $('#event_title').blur();
+        $('#start_event_content').show('fast');
         $('#event_title').focus();
-        $('#plan_privacy_wrapper div').first().click();
-        $('#event_title_wrapper, #plan_privacy_wrapper').show('fast');
             
-        // Show both invite boxes
-        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
+        // Show invite boxes
+        show_hide_invite_boxes('new_event');
     });
     
     // TokenInput
@@ -138,10 +143,10 @@ function initialize_plan_modal() {
     $('#submit_plan').click(function () {
         // Get the privacy setting from either the divSet or the <select>
         var privacy;
-        if ($('#plan_event_select').val() == undefined) {
+        if ($('#plan_event_select .selected_event').length == 0) {
             privacy = $('#plan_privacy_wrapper .divset_selected').attr('priv_val');
         } else {
-            privacy = $('#plan_event_select option[selected="selected"]').attr('priv_type');
+            privacy = $('#plan_event_select .selected_event').attr('priv_type');
         }
         
         $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
@@ -227,6 +232,8 @@ function show_hide_invite_boxes(priv_type) {
     } else if (priv_type == 'new_event') {
         // The user is making an event. If an event of the same name already exists,
         // the existing event will be used instead (that's done on the server, btw).
+        $('#plan_invite_privacy_header').html("You're creating an event. Invite whoever you want.");
+        
         // Show both boxes
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
     }

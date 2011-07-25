@@ -61,14 +61,14 @@ class Event_ops extends CI_Model
         $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time, $place_id));
 
         // Echo the event entries
-        echo('<div class="selectable_event" event_id="">Just going</div>');
+        echo('<div class="selectable_event" event_id="" priv_type="open">Just going</div>');
         if ($query->num_rows() > 0)
         {
             echo('<hr/>');
         }
         foreach ($query->result() as $row)
         {
-            echo('<div class="selectable_event" event_id="' . $row->id . '">' . $row->title . '</div>');
+            echo('<div class="selectable_event" event_id="' . $row->id . '" priv_type="' . $row->privacy . '">' . $row->title . '</div>');
         }
     }
 
