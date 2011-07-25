@@ -53,7 +53,7 @@ class Home extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
-
+    
 // load and return user plan data
     public function loadMyEvents()
     {

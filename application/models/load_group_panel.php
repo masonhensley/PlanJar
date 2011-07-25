@@ -17,7 +17,7 @@
         </div>
         </font>
         <hr/>
-        <font style="font-weight:bold;color:navy;">Groups</font><br/><hr/>
+        <a href="/dashboard/groups"><font style="font-weight:bold;color:navy;">Groups</font></a><br/><hr/>
         <?php
         foreach ($joined_groups as $group)
         {

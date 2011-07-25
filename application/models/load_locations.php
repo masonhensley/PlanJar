@@ -10,6 +10,7 @@ class Load_locations extends CI_Model
         {
             $day = 0;
         }
+
         $display_day = $this->get_day($day); // shows the day selected in correct format
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
@@ -30,19 +31,19 @@ class Load_locations extends CI_Model
             $this->on_school_selected($display_day, $sql_date, $school);
         } else
         {
-            $this->on_groups_selected($selected_groups);
+            $this->on_groups_selected($selected_groups, $sql_date);
         }
     }
 
     function on_nothing_selected($display_day)
     {
-        echo "Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for $display_day<br/><hr/>";
+        echo "<hr/>Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for $display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        echo "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day<br/><hr/>";
+        $display_message = "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day";
 
         $query = "SELECT places.id, places.name, places.category, 
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
@@ -53,19 +54,24 @@ class Load_locations extends CI_Model
                   WHERE events.date='$sql_date'
                   ORDER BY distance ASC";
         $result = $this->db->query($query);
+
+        $place_array = array();
         $place_id_array = array();
-        $place_name_array = array();
         foreach ($result->result() as $place)
         {
+            if (!isset($place_array[$place->id]))
+            {
+                $place_array[$place->id] = $place->name;
+            }
             $place_id_array[] = $place->id;
-            $place_name_array[] = $place->name;
         }
-        $this->display_location_tabs($place_id_array, $place_name_array);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
     function on_friends_selected($display_day, $sql_date)
     {
-        echo "Popular places your friends are going $display_day<br/><hr/>";
+        $display_message = "Popular places your friends are going $display_day";
+
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $query = "SELECT events.id, events.title, places.name FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
@@ -78,21 +84,25 @@ class Load_locations extends CI_Model
         $query = substr($query, 0, -4);
         $query .= ")";
         $result = $this->db->query($query);
+
+        $place_array = array();
         $place_id_array = array();
-        $place_name_array = array();
         foreach ($result->result() as $place)
         {
+            if (!isset($place_array[$place->id]))
+            {
+                $place_array[$place->id] = $place->name;
+            }
             $place_id_array[] = $place->id;
-            $place_name_array = $place->name;
         }
-        $this->display_location_tabs($place_id_array, $place_name_array);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
     function on_school_selected($display_day, $sql_date, $school)
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        echo "Popluar places $school students are going $display_day<br/><hr/>";
+        $display_message = "Popluar places $school students are going $display_day";
 
         $query = "SELECT events.title, places.name, places.id 
                   FROM user_meta
@@ -101,33 +111,48 @@ class Load_locations extends CI_Model
                   JOIN places ON places.id=events.place_id
                   WHERE user_meta.school_id=$school_id";
         $result = $this->db->query($query);
-        $place_name_array = array();
+
+        $place_array = array();
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
+            if (!isset($place_array[$place->id]))
+            {
+                $place_array[$place->id] = $place->name;
+            }
             $place_id_array[] = $place->id;
-            $place_name_array[] = $place->name;
         }
-        $this->display_location_tabs($place_id_array, $place_name_array);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
-    function on_groups_selected($group_list)
+    function on_groups_selected($group_list, $sql_date)
     {
         $group_name_array = $this->get_group_names($group_list);
-        $header_string = $this->setup_groups_header($group_name_array);
-        
+        $display_message = $this->setup_groups_header($group_name_array);
 
-       
-        echo $header_string;
-        $query = "";
+        $query = "SELECT places.name, places.id, events.title FROM group_relationships 
+                  JOIN plans ON plans.user_id=group_relationships.user_joined_id
+                  JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
+                  JOIN places ON places.id=events.place_id
+                  WHERE ";
+        foreach ($group_list as $group_id)
+        {
+            $query .= "group_relationships.group_id=$group_id OR ";
+        }
+        $query = substr($query, 0, -4);
+        $result = $this->db->query($query);
 
-        /*
-          if (isset($group_ids_selected[$index]))
-          {
-          $id_array = $this->get_user_ids($user_id, $group_ids_selected, $id_array); // populate $id_array with the group member ids
-          }
-         * 
-         */
+        $place_array = array();
+        $place_id_array = array();
+        foreach ($result->result() as $place)
+        {
+            if (!isset($place_array[$place->id]))
+            {
+                $place_array[$place->id] = $place->name;
+            }
+            $place_id_array[] = $place->id;
+        }
+        $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
@@ -154,31 +179,6 @@ class Load_locations extends CI_Model
         return $friend_ids;
     }
 
-    // this function updates the $id_array with members joined in groups selected
-    function get_user_ids($user_id, $group_ids_selected, $id_array)
-    {
-        $group_query = "SELECT user_joined_id FROM group_relationships WHERE";
-        foreach ($group_ids_selected as $id)
-        {
-            $group_query .= " group_id=$id OR";
-        }
-        $group_query = substr($group_query, 0, strlen($group_query) - 3);  // trim off the last "OR" before querying
-        $query_result = $this->db->query($group_query);
-
-        // generate the list of user ids from the
-        foreach ($query_result->result() as $row)
-        {
-            if ($row->user_joined_id != $user_id)
-            {
-                if (isset($row->user_joined_id))
-                {
-                    $id_array[] = $row->user_joined_id;
-                }
-            }
-        }
-        return $id_array;
-    }
-
     function get_day($day)
     {
         $date = new DateTime();
@@ -190,12 +190,12 @@ class Load_locations extends CI_Model
         }
         return $display_day;
     }
-    
+
     function setup_groups_header($group_name_array)
-    {        
+    {
         $header_string = "Popular places people from ";
         $number = count($group_name_array);
-         if ($number == 1)
+        if ($number == 1)
         {
             $header_string .= $group_name_array[0];
         } else if ($number == 2)
@@ -209,7 +209,8 @@ class Load_locations extends CI_Model
                 if (isset($group_name_array[$index + 1]))
                 {
                     $header_string .= "$group_name, ";
-                }else{
+                } else
+                {
                     $header_string .= "and $group_name";
                 }
                 $index++;
@@ -237,9 +238,18 @@ class Load_locations extends CI_Model
         return $group_name_list;
     }
 
-    function display_location_tabs($place_id_array, $place_name_array)
+    function display_location_tabs($display_message, $place_id_array, $place_array)
     {
-        var_dump($place_name_array);
+        echo "<hr/>" . $display_message . "<hr/>";
+        $place_id_array = array_count_values($place_id_array);
+        asort($place_id_array);
+        $place_id_array = array_reverse($place_id_array, TRUE);
+        foreach ($place_id_array as $place_id => $count)
+        {
+            echo "<hr/>";
+            echo $place_array[$place_id] . " " . $count . " attending<br/>";
+            echo "<hr/>";
+        }
     }
 
 }

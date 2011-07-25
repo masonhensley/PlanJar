@@ -18,7 +18,8 @@ class Plan_actions extends CI_Model
          FROM plans
          LEFT JOIN events ON plans.event_id=events.id
          LEFT JOIN places ON places.id=events.place_id
-         WHERE plans.user_id=$user_id AND events.date >= CURDATE()";
+         WHERE plans.user_id=$user_id AND events.date >= CURDATE()
+         ORDER BY events.date ASC";
 
         $query_result = $this->db->query($query);
 
@@ -148,11 +149,13 @@ class Plan_actions extends CI_Model
             $title = $plan->title;
             $time = $plan->time;
             $date = date('l', strtotime($plan->date));
+            
             if ($date_organizer != $date)
             {
                 $return_string .= "<hr>$date<br><hr>";
             }
             $date_organizer = $date;
+            
             $return_string .= "<div class =\"plan_content\" plan_id=\"$id\" >";
             $return_string .= $name;
             $return_string .= "</div>";
