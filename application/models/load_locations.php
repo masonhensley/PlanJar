@@ -31,7 +31,7 @@ class Load_locations extends CI_Model
             $this->on_school_selected($display_day, $sql_date, $school);
         } else
         {
-            $this->on_groups_selected($selected_groups, $sql_date);
+            $this->on_groups_selected($selected_groups, $sql_date, $display_day);
         }
     }
 
@@ -125,10 +125,10 @@ class Load_locations extends CI_Model
         $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
-    function on_groups_selected($group_list, $sql_date)
+    function on_groups_selected($group_list, $sql_date, $display_day)
     {
         $group_name_array = $this->get_group_names($group_list);
-        $display_message = $this->setup_groups_header($group_name_array);
+        $display_message = $this->setup_groups_header($group_name_array, $display_day);
 
         $query = "SELECT places.name, places.id, events.title FROM group_relationships 
                   JOIN plans ON plans.user_id=group_relationships.user_joined_id
@@ -191,7 +191,7 @@ class Load_locations extends CI_Model
         return $display_day;
     }
 
-    function setup_groups_header($group_name_array)
+    function setup_groups_header($group_name_array, $display_day)
     {
         $header_string = "Popular places people from ";
         $number = count($group_name_array);
@@ -216,7 +216,7 @@ class Load_locations extends CI_Model
                 $index++;
             }
         }
-        $header_string .= " are going";
+        $header_string .= " are going $display_day";
         return $header_string;
     }
 
@@ -247,8 +247,8 @@ class Load_locations extends CI_Model
         foreach ($place_id_array as $place_id => $count)
         {
             echo "<hr/>";
-            echo $place_array[$place_id] ." ";
-            echo $count . " attending<br/>";
+            echo $place_array[$place_id] ."<br/> ";
+            echo $count . " attending";
             echo "<hr/>";
         }
     }
