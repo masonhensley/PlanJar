@@ -255,6 +255,15 @@ a{
     text-align: center;
 }
 
+.upcoming_events{
+    width:49%;
+    height:600px;
+    border-left:1px solid lightgray;
+    border-right:1px solid lightgray;
+    background-color:white;
+    text-align:center;
+}
+
 .plan{
     width:50%;
     height:200px;
