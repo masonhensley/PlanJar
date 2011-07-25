@@ -251,7 +251,7 @@ class Load_locations extends CI_Model
             <?php echo $display_message; ?>
         </div>
         <?php
-        if (count($place_id_array) == 0)
+        if (count($place_id_array) > 0)
         {
             $place_id_array = array_count_values($place_id_array);
             asort($place_id_array);
