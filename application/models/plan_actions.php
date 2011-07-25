@@ -112,6 +112,8 @@ class Plan_actions extends CI_Model
         // Change to the argument user id and remove the previous plan id
         $row['user_id'] = $user_id;
         unset($row['id']);
+        
+        var_dump($row);
 
         // Insert the new plan.
         $query = $this->db->insert('plans', $row);

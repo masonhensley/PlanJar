@@ -10,8 +10,11 @@ function initialize_dashboard_tabs() {
     $('.tab_container .tab').click(function () {
         if (!$(this).hasClass('tab_selected')) {
             $('.create_group').hide(); // hide the create group icon when the group tab isn't selected'
-                $('#followers_content .right').hide(); // hide the profile for the followers content
+            $('#followers_content .right').hide(); // hide the profile for the followers content
             show_data_container($(this).attr('assoc_div'));
+        } else {
+            // Call the js setup function again (reload)
+            eval($($(this).attr('assoc_div')).attr('setup_func') + '()');
         }
     });
 }

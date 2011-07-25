@@ -15,7 +15,8 @@
 }
 
 .create_group_top_bar{
-    background-color:purple;
+    background-color: #555;
+background: url( /application/assets/images/stripe_c.png);
     padding:3px;
     color:white;
 }
