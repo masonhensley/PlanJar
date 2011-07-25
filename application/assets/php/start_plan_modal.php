@@ -52,7 +52,7 @@
                     </div>
 
                     <div id="plan_privacy_wrapper" style="display: none;">
-                        <div style="widht: 100%; height: auto;">Privacy options</div>
+                        Privacy options<br/>
 
                         <div priv_val="open">None</div>
                         <div priv_val="strict">Fixed invitation list</div>
