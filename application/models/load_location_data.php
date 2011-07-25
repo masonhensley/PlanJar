@@ -4,23 +4,11 @@ class Load_location_data extends CI_Model
 {
     function display_location_info($place_id, $date, $selected_groups)
     {   
-        $place_info = $this->get_place_info($place_id);
+        $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
         $people_attending_info = $this->get_people_attending_info($place_id);
         
-         if ($selected_groups[0] == 'current_location')
-        {
-            
-        } else if ($selected_groups[0] == 'friends')
-        {
-            
-        } else if ($selected_groups[0] == 'school')
-        {
-            
-        } else
-        {
-            
-        }
-        var_dump($place_info);
+        $this->display_place_info($place_info);
+        
     }
     
     function get_place_info($place_id)
@@ -39,6 +27,13 @@ class Load_location_data extends CI_Model
     function get_people_attending_info($place_id)
     {
         
+    }
+    
+    function display_place_info($place_info) // name, lat, lon, category, distance
+    {
+        echo "Name: " .$place_info['name'];
+        echo "<br/>Category: " .$place_info['category'];
+        echo "<br/>Distance from your location: " .$place_info['distance'];
     }
     
 }
