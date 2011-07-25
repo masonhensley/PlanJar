@@ -5,8 +5,8 @@ $(function() {
 
 function initialize_selectable_groups() {
     
-    //default tab used is the city_tab
-    set_city_tab();
+    //default tab used is the network_tab
+    set_network_tab();
     
     // Divset
     $('#group_select_type').divSet();
@@ -31,9 +31,9 @@ function on_groups_change() {
 }
 
 // this is the "use current location" tab. clicking it de-selects all other group tabs and uses the current location
-function set_city_tab()
+function set_network_tab()
 {
-    $('.city_tab').click(function(){
+    $('.network_tab').click(function(){
         if($(this).hasClass('city_active'))
         {
             $(this).removeClass('city_active');

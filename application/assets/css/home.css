@@ -87,7 +87,7 @@ a{
     margin-left:5px;
 }
 
-.city_tab{
+.network_tab{
     background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     border:1px solid lightgray;
     height:100%;
@@ -99,7 +99,7 @@ a{
     margin-left:5px;
 }
 
-.city_tab.city_active{
+.network_tab.city_active{
     background:-webkit-gradient(linear,left top,left bottom,from(#F8BA78),to(#F5952E));
     color:white;
 }
