@@ -282,6 +282,12 @@ class Home extends CI_Controller
         $this->load->model('load_location_data');
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
+        $this->load_location_data->display_location_info($place_id, $date);
+    }
+    
+    public function load_upcoming_events()
+    {
+        
     }
 
     // Returns HTML for the list of the user's plans (right panel)

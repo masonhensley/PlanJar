@@ -86,7 +86,10 @@
                         <?php echo($day_html); ?>
                     </div>
                 </div>
-                <div class="suggested_locations"></div>
+                <div class="suggested_locations">
+                </div>
+                <div class="upcoming_events">
+                </div>
             </div>
             <div class ="right">
                 <div class ="right_header">

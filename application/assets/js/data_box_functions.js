@@ -6,7 +6,8 @@ function update_groups_and_locations()
     selected_groups = get_selected_groups();
     
     load_data_box(selected_day, selected_groups); // update the data box to reflect selections
-    load_visible_locations(selected_day, selected_groups); // delete all other instances of load_visible_plans
+    load_visible_locations(selected_day, selected_groups); // update the popular locations shown
+    load_upcoming_events(selected_day, selected_groups); //update the upcoming events
 }
 
 // updates the data box based on the selected groups
@@ -28,5 +29,14 @@ function load_visible_locations(selected_day, selected_groups){
         'selected_day': selected_day
     }, function (data) {
         $('.suggested_locations').html(data); 
+    });
+}
+
+function load_upcoming_events(selected_day, selected_groups){
+    $.get('/home/load_upcoming_events', {
+        'selected_groups': selected_groups,
+        'selected_day': selected_day
+    }, function (data) {
+        $('.upcoming_events').html(data); 
     });
 }
