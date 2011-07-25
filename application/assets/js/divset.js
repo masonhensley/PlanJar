@@ -4,7 +4,7 @@ $.fn.divSet = function() {
     this.children().addClass('divset');
     
     // Click event
-    this.children().click(function() {
+    this.children('div').click(function() {
         if (!$(this).hasClass('divset_selected')) {
             // Remove all selected classes
             $(this).siblings('div').removeClass('divset_selected');

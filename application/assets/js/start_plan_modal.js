@@ -87,12 +87,10 @@ function initialize_plan_modal() {
         
         // Store the selected event id
         $('#plan_event_id').val($(this).attr('event_id'));
-        console.log($(this));
         
         // Reset and hide the title and privacy settings
         $('#event_title').val('');
         $('#event_title').blur();
-        $('#plan_privacy_wrapper div').first().click();
         $('#start_event_content').css('display', 'none');
         $('#create_event').show('fast');
         
@@ -121,8 +119,8 @@ function initialize_plan_modal() {
             
         // Show the title and privacy settings
         $('#plan_event_id').val('');
-        console.log($('#start_event_content'));
         $('#start_event_content').show('fast');
+        $('#plan_privacy_wrapper > div').filter(':first').click();
         $('#event_title').focus();
     });
     
