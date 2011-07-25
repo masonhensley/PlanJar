@@ -4,23 +4,11 @@ class Load_location_data extends CI_Model
 {
     function display_location_info($place_id, $date, $selected_groups)
     {   
-        $place_info = $this->get_place_info($place_id);
-        $people_attending_info = $this->get_people_attending_info();
+        $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
+        $people_attending_info = $this->get_people_attending_info($place_id);
         
-         if ($selected_groups[0] == 'current_location')
-        {
-            
-        } else if ($selected_groups[0] == 'friends')
-        {
-            
-        } else if ($selected_groups[0] == 'school')
-        {
-            
-        } else
-        {
-            
-        }
-        var_dump($place_info);
+        $this->display_place_info($place_info);
+        
     }
     
     function get_place_info($place_id)
@@ -34,6 +22,22 @@ class Load_location_data extends CI_Model
         $result = $this->db->query($query);
          $place_array = $result->row_array();
          return $place_array;
+    }
+    
+    function get_people_attending_info($place_id)
+    {
+        
+    }
+    
+    function display_place_info($place_info) // name, lat, lon, category, distance
+    {
+        if(strlen($place_info['distance']) > 3)
+        {
+            $place_info['distance'] = substr($place_info['distance'], 0, 3);
+        }
+        echo "<font style=\"font-weight:bold;\">" .$place_info['name'] ."</font>";
+        echo "<br/><font style=\"color:gray;\">Category: " .$place_info['category'];
+        echo "<br/>Distance from your location: " .$place_info['distance'] ." miles</font>";
     }
     
 }
