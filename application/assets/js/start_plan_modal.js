@@ -111,6 +111,7 @@ function initialize_plan_modal() {
         
     // New event click handler
     $('#create_event').click(function () {
+        
         // Hide the button
         $(this).hide('fast');
         
@@ -119,6 +120,7 @@ function initialize_plan_modal() {
             
         // Show the title and privacy settings
         $('#plan_event_id').val('');
+        console.log($('#start_event_content'));
         $('#start_event_content').show('fast');
         $('#event_title').focus();
     });
