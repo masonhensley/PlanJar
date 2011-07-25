@@ -8,7 +8,7 @@
         <title>Wells Johnston</title>
     </head>
     <body>
-        <div class="top_strip" style="width:100%; margin-top:0px; height:32px; background-color:#567DA1;"></div>
+        <div class="top_strip" style="width:100%; margin-top:0px; height:37px; background-color:#567DA1;"></div>
         <div class="container">
             <div class="left_side">
                 <div class="resume_tab about_me_tab left_tab">
@@ -35,7 +35,7 @@
                     <div class="tab otherstuff">
                         Other
                     </div>
-                    <div style="font-size:20px; color:lightgray;  display:inline-block; position:relative; left:270px;">
+                    <div style="font-size:20px; color:lightgray;  display:inline-block; position:relative; top:-3px;left:270px;">
                         Wells C. Johnston
                     </div>
                 </div>
