@@ -284,7 +284,7 @@ a{
 }
 
 /*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
-.location_tab_shown{
+.location_tab{
     text-align:center;
     background-color:white;
     color:navy;
@@ -295,7 +295,7 @@ a{
     padding-bottom:10px;
 }
 
-.selected_location{
+.selected_location_tab{
     background-color:beige;
     color:navy;
 }

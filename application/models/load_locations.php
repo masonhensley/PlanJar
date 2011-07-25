@@ -250,10 +250,12 @@ class Load_locations extends CI_Model
         $place_id_array = array_reverse($place_id_array, TRUE);
         foreach ($place_id_array as $place_id => $count)
         {
-            echo "<hr/>";
-            echo "<font style=\"font-weight:bold;\">" .$place_array[$place_id] . "</font><br/> ";
-            echo "<font style=\"font-weight:bold;color:lightgray;text-size:13px;\">" .$count . " people in selected tab(s) are attending</font>";
-            echo "<hr/>";
+            ?>
+            <div class="location_tab">
+                <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
+                <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font>
+            </div>
+            <?php
         }
     }
 
