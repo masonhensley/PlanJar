@@ -7,7 +7,7 @@ body{
     font-family: helvetica;
     font-size: 15px;
     margin:0px;
-    border-color: #aaa;
+    border-color: #AAAAAA;
 }
 
 div{
@@ -253,6 +253,15 @@ a{
     border-right: 1px solid lightgray;
     background-color: white;
     text-align: center;
+}
+
+.upcoming_events{
+    width:49%;
+    height:600px;
+    border-left:1px solid lightgray;
+    border-right:1px solid lightgray;
+    background-color:white;
+    text-align:center;
 }
 
 .plan{

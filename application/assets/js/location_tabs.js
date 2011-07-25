@@ -13,7 +13,8 @@ function show_selected_location() {
             $(this).addClass('selected_location_tab');
             $.get('/home/show_location_data', {
                 'place_id': $('.selected_location_tab').attr('place_id'),
-                'date': $('.selected_location_tab').attr('date')
+                'date': $('.selected_location_tab').attr('date'),
+                'selected_groups':get_selected_groups()
             }, function (data) {
                 $('#location_data').html(data);        
             });

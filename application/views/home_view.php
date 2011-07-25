@@ -45,8 +45,8 @@
                     <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <!--<a href="/dashboard/" id="dashboard link">dashboard &middot;</a>-->
                     <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Profile</div></div></a>
-                    <a href="/dashboard/followers" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Followers</div></div></a>
                     <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Groups</div></div></a>
+                    <a href="/dashboard/followers" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Followers</div></div></a>
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Following</div></div></a>
                     <a href="/home/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
                 </div>
@@ -86,7 +86,10 @@
                         <?php echo($day_html); ?>
                     </div>
                 </div>
-                <div class="suggested_locations"></div>
+                <div class="suggested_locations">
+                </div>
+                <div class="upcoming_events">
+                </div>
             </div>
             <div class ="right">
                 <div class ="right_header">
