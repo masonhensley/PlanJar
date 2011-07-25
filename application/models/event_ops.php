@@ -68,7 +68,11 @@ class Event_ops extends CI_Model
         }
         foreach ($query->result() as $row)
         {
-            echo('<div class="selectable_event" event_id="' . $row->id . '" priv_type="' . $row->privacy . '">' . $row->title . '</div>');
+            $id = $row->id;
+            $privacy = $row->privacy;
+            $title = $row->title;
+            $event_text = "$title ($privacy)";
+            echo("<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\" event_name=\"$title\">$event_text</div>");
         }
     }
 
