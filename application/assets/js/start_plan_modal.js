@@ -87,6 +87,7 @@ function initialize_plan_modal() {
         
         // Store the selected event id
         $('#plan_event_id').val($(this).attr('event_id'));
+        console.log($(this));
         
         // Reset and hide the title and privacy settings
         $('#event_title').val('');
@@ -309,7 +310,7 @@ function reset_modal() {
     $('.plan_page_content input').not('[type="button"]').val('');
     
     // Hide the new event div
-    $('#event_title_wrapper').css('display', 'none');
+    $('#start_event_content').css('display', 'none');
     
     // Clear the toekn inputs
     $('#invite_plan_users, #invite_plan_groups').tokenInput('clear');
