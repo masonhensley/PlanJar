@@ -47,7 +47,7 @@ class Load_locations extends CI_Model
         $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">current location</font> ";
         $display_message .= "for <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
-        $query = "SELECT places.id, places.name, places.category, events.title
+        $query = "SELECT places.id, places.name, places.category, events.title,
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
@@ -72,7 +72,7 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message = "Places your <font style=\"font-weight:bold;color:green;\">friends</font>";
+        $display_message = "Places your <font style=\"font-weight:bold;color:green;\">friends</font> ";
         $display_message .= "are going <br/><font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
