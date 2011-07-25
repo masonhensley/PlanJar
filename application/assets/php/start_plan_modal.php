@@ -14,7 +14,7 @@
                 <h3>Where are you going?</h3>
                 <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
 
-                <h3>When are you going?</h3>
+                <h3 style="margin-top: 5px;">When are you going?</h3>
                 <div id="plan_day">
                     <div plan_day="0">Today</div>
 
@@ -43,8 +43,11 @@
 
                 <div id="plan_event_select_wrapper"></div>
 
-                <input type="button" id="no_event_title" value="Just go"/>
-                <input type="button" id="create_event" value="Start an event"/>
+                <div style="float: left; height: auto; width: auto">
+                    <input type="button" id="no_event_title" value="Just go"/>
+                    or
+                    <input type="button" id="create_event" value="Start an event"/>
+                </div>
 
                 <div id="event_title_wrapper" class="in-field_block">
                     <label for="event_title">Title</label>
