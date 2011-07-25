@@ -69,9 +69,13 @@ function initialize_plan_modal() {
     // Divsets
     $('#plan_time, #plan_day, #plan_privacy_wrapper').divSet();
     
+    // In-field labels
+    $('#new_event_side label').inFieldLabels();
+    
     // Privacy click handler
     $('#plan_privacy_wrapper > div').click(function () {
         show_hide_invite_boxes('new_event');
+        $('#plan_right').click();
     });
     
     // Try to advance the plan panel when a time or a day is selected
@@ -100,7 +104,7 @@ function initialize_plan_modal() {
             show_hide_invite_boxes('open');
         } else {
             // Use the corresponding event privacy
-            show_hide_invite_boxes($(this).attr('event_id'));
+            show_hide_invite_boxes($(this).attr('priv_type'));
         }
         
         // Next page
