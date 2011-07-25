@@ -48,7 +48,5 @@ function update_notification_viewed(id, value) {
     $.get('/dashboard/update_notification_viewed', {
         notif_id: id,
         value: value
-    }, function() {
-        get_notifications();
     });
 }
