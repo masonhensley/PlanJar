@@ -70,7 +70,7 @@
                         <div class="in_concert music_content">
                             <div class="other_stuff_top display_text">
                                 <br/>
-                                These videos were taken of my band (Reverend Zero) in 2008 from the Fillmore West. <br/>It was a benefit concert we opened for. <br/><br/>
+                                These videos were taken of my band (Reverend Zero) in 2008 from the Fillmore West. <br/>It was a benefit concert where we opened for Phil Lesh (from the Grateful Dead!). <br/><br/>
                                 <iframe width="425" height="349" src="http://www.youtube.com/embed/pgt4sBWnm0E" frameborder="0" allowfullscreen></iframe><br/>
                                 <iframe width="425" height="349" src="http://www.youtube.com/embed/flbYmDXaR9o" frameborder="0" allowfullscreen></iframe><br/>
                                 <iframe width="425" height="349" src="http://www.youtube.com/embed/qVLNCYuA7pI" frameborder="0" allowfullscreen></iframe><br/>
