@@ -148,14 +148,13 @@ class Plan_actions extends CI_Model
             $name = $plan->name;
             $title = $plan->title;
             $time = $plan->time;
-            
             $date = date('l', strtotime($plan->date));
-            $date_organizer = $date;
             
             if ($date_organizer != $date)
             {
                 $return_string .= "<hr>$date<br><hr>";
             }
+            $date_organizer = $date;
             
             $return_string .= "<div class =\"plan_content\" plan_id=\"$id\" >";
             $return_string .= $name;
