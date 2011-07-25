@@ -51,13 +51,14 @@
 
                 <div id="event_title_wrapper" class="in-field_block">
                     <div class="header">
-                    <label for="event_title">Title</label>
+                        <label for="event_title">Title</label>
 
-                    <div id="plan_privacy_wrapper">
-                        Privacy options
-                        <div priv_val="open">None</div>
-                        <div priv_val="strict">Fixed invitation list</div>
-                        <div priv_val="loose">Invitees can invite others</div>
+                        <div id="plan_privacy_wrapper">
+                            Privacy options
+                            <div priv_val="open">None</div>
+                            <div priv_val="strict">Fixed invitation list</div>
+                            <div priv_val="loose">Invitees can invite others</div>
+                        </div>
                     </div>
                 </div>
             </div>
