@@ -37,13 +37,15 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "<hr/>Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for $display_day<br/><hr/>";
+        echo "<hr/>Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for ";
+        echo "<font style=\"font-weight:bold;color:lightblue;\">$display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day";
+        $display_message = "Popular places near your <font style=\"color:blue; font-weight:bold;\">current location</font> ";
+        $display_message .= "for <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
 
         $query = "SELECT places.id, places.name, places.category, 
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
@@ -70,7 +72,7 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message = "Popular places your friends are going $display_day";
+        $display_message = "Popular places your friends are going <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $query = "SELECT events.id, events.title, places.name FROM plans 
@@ -102,7 +104,8 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Popluar places <font style=\"color:navy; font-weight:bold;\">$school</font> students are going $display_day";
+        $display_message = "Popluar places <font style=\"color:navy; font-weight:bold;\">$school</font> ";
+        $display_message .= "students are going <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
 
         $query = "SELECT events.title, places.name, places.id 
                   FROM user_meta
@@ -217,7 +220,7 @@ class Load_locations extends CI_Model
                 $index++;
             }
         }
-        $header_string .= " are going <font style=\"font-weight:bold;\">$display_day</font>";
+        $header_string .= " are going <font style=\"font-weight:bold; color:lightblue;\">$display_day</font>";
         return $header_string;
     }
 
@@ -248,8 +251,8 @@ class Load_locations extends CI_Model
         foreach ($place_id_array as $place_id => $count)
         {
             echo "<hr/>";
-            echo $place_array[$place_id] . "<br/> ";
-            echo $count . " attending";
+            echo "<font style=\"font-weight:bold;\">" .$place_array[$place_id] . "</font><br/> ";
+            echo "<font style=\"font-weight:bold;color:lightgray;text-size:13px;\">" .$count . " people in selected tab(s) are attending</font>";
             echo "<hr/>";
         }
     }
