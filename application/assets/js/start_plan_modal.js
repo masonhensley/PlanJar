@@ -15,6 +15,9 @@ function initialize_plan_modal() {
         $('#create_plan_content').show('fast');
     });
     
+    // Focus the location box.
+    $('#plan_location').focus();
+    
     // Closing click handler
     $('#cancel_plan').click(function () {
         $('#create_plan_content').hide();
@@ -59,9 +62,6 @@ function initialize_plan_modal() {
                 break;
         }
     });
-    
-    // In-field label
-    $('#create_plan_content .in-field_block label').inFieldLabels();
     
     // Initialize the plan location autocomplete instance.
     initialize_plan_autocomplete();
@@ -366,7 +366,7 @@ function initialize_plan_autocomplete() {
                 // Call the response function with the a copy of the response JSON.
                 var temp = response_json.slice(0);
                 temp.push({
-                    label: 'Expanding search results...', 
+                    label: 'Expanding search results using factual.com...', 
                     value: '',
                     id: ''
                 });
