@@ -284,6 +284,10 @@ a{
 }
 
 /*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
+.display_message{
+    background:-webkit-gradient(linear,left top,left bottom,from(#AAA),to(#EEE));
+}
+
 .location_tab{
     text-align:center;
     background-color:white;
