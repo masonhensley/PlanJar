@@ -31,7 +31,7 @@ class Load_location_data extends CI_Model
     
     function display_place_info($place_info) // name, lat, lon, category, distance
     {
-        if(strlen($place_info['distance']))
+        if(strlen($place_info['distance']) > 8)
         {
             $place_info['distance'] = substr($place_info['distance'], 0, -7);
         }
