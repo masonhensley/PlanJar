@@ -16,7 +16,7 @@
 #create_plan_content .draggable_title_bar {
     height: 25px;
     background-color:#555;
-background-image: url( /../assets/images/stripe_b.png);
+background-image: url( /../assets/images/stripe_b.png) repeat-x;
     color:white;
     font-size:18px;
     padding-left:10px;
