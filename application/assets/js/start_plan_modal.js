@@ -100,7 +100,9 @@ function initialize_plan_modal() {
             // Bypass the "validating" click function
             $('#plan_invite_header').html(generate_full_plan_text());
             next_plan_panel();
-        }
+        } else {
+            
+    }
     });
         
     // New event click handler
@@ -113,7 +115,7 @@ function initialize_plan_modal() {
         $('#event_title').blur();
         $('#event_title').focus();
         $('#plan_privacy_wrapper div').first().click();
-        $('#event_title_wrapper').show('fast');
+        $('#event_title_wrapper, #plan_privacy_wrapper').show('fast');
             
         // Show both invite boxes
         $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
