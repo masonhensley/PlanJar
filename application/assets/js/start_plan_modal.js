@@ -41,29 +41,16 @@ function initialize_plan_modal() {
         switch(current_index) {
             // First page
             case 0:
-                // An autocomplete entry must have been chosen (this field is populated by the autocomplete)
-                if ($('#plan_location_id').val() != '') {
+                // An autocomplete entry must have been chosen (this field is populated by the autocomplete),
+                // and both the time and day must be selected
+                if ($('#plan_location_id').val() != '' && $('#plan_time divset_selected, #plan_day divset_selected').length == 2) {
+                    initialize_event_select_page();
                     next_plan_panel();
                 }
                 break;
                 
             // Second page
             case 1:
-                // Both time and day must be selected
-                if ($('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
-                    initialize_event_select_page();
-                    next_plan_panel();
-                }
-                break;
-                
-            // Third page
-            case 2:
-                // Hide the necessary invite boxes if an event is selected
-                if ($('#plan_event_select').val() != undefined) {
-                    console.log('here');
-                    
-                }
-            
                 // Make sure an event is selected or an event has been created
                 if ($('#plan_event_select').val() != null || $('#event_title').val() != '') {
                     $('#plan_invite_header').html(generate_full_plan_text());

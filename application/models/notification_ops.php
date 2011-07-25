@@ -36,7 +36,7 @@ class Notification_ops extends CI_Model
     }
 
     // Returns HTML for the user's recent notifications
-    public function get_notifications()
+    function get_notifications()
     {
         $user_id = $this->ion_auth->get_user()->id;
 
@@ -56,13 +56,13 @@ class Notification_ops extends CI_Model
 
 
                 //$accept = $this->deduce_accepted($row);
-                $this->echo_notification($row, true);
+                $this->echo_notification($row, false);
             }
         }
     }
 
     // Echos the HTML for one notification entry
-    public function echo_notification($row, $accepted)
+    function echo_notification($row, $accepted)
     {
         $this->load->model('load_profile');
 
@@ -103,7 +103,7 @@ class Notification_ops extends CI_Model
     }
 
     // Returns appropriate notification text for the supplied notification row
-    private function make_notification_text($notification_row)
+    function make_notification_text($notification_row)
     {
         if ($notification_row->type == 'plan_invite')
         {
@@ -138,31 +138,32 @@ class Notification_ops extends CI_Model
     }
 
     // Updates the viewed status of the supplied notification id to the supplied value
-    public function update_notification_viewed($id, $value)
+    function update_notification_viewed($id, $value)
     {
         $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
         $query = $this->db->query($query_string, array($value, $id));
     }
 
-//    // Accepts the notification given by id
-//    public function accept_notification($id)
-//    {
-//        // Get the notification row
-//        $query_string = "SELECT id, type, subject_id FROM notifications WHERE id = ?";
-//        $query = $this->db->query($query_string, array($id));
-//        $row = $query->row();
-//
-//        switch ($row->type)
-//        {
-//            case 'plan_invite':
-//                $this->load->model('plan_actions');
-//                $this->plan_actions->copy_plan($row->subject_id, $this->ion_auth->get_user()->id);
-//                $this->update_notification_viewed($row->id, true);
-//                break;
-//            case 'group_invite':
-//                break;
-//        }
-//    }
+    // Accepts the notification given by id
+    function accept_notification($id)
+    {
+        // Get the notification row
+        $query_string = "SELECT id, type, subject_id FROM notifications WHERE id = ?";
+        $query = $this->db->query($query_string, array($id));
+        $row = $query->row();
+
+        switch ($row->type)
+        {
+            case 'plan_invite':
+                $this->load->model('plan_actions');
+                $this->plan_actions->copy_plan($row->subject_id, $this->ion_auth->get_user()->id);
+                $this->update_notification_viewed($row->id, true);
+                break;
+            case 'group_invite':
+                break;
+        }
+    }
+
 //
 //    // Returns true if the user has accepted the notification (data in $notif_row).
 //    public function deduce_accepted($notif_row)
