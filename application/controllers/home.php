@@ -280,11 +280,8 @@ class Home extends CI_Controller
     public function show_location_data()
     {
         $this->load->model('load_location_data');
-        $user = $this->ion_auth->get_user();
-        $user_id = $user->id;
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
-        //$return_string = $this->load_location_data->display_location_info($place_id, $date, $user_id)
     }
 
     // Returns HTML for the list of the user's plans (right panel)

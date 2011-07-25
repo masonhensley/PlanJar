@@ -259,7 +259,7 @@ class Load_locations extends CI_Model
             foreach ($place_id_array as $place_id => $count)
             {
                 ?>
-                <div class="location_tab">
+                <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
                     <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font><br/>
                     <?php echo "id: " . $place_id; ?>
@@ -270,7 +270,7 @@ class Load_locations extends CI_Model
         {
             ?>
             <div class ="no_places_to_show">
-                Nothing to show
+                <br/>Nothing to show
             </div>
             <?php
         }
