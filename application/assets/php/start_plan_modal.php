@@ -43,9 +43,7 @@
 
                 <div id="plan_event_select_wrapper"></div>
 
-                <div style="float: left; height: auto; width: auto">
-                    <input type="button" id="no_event_title" value="Just going"/>
-                    or
+                <div id="new_event_side">
                     <input type="button" id="create_event" value="Start an event"/>
                 </div>
 
