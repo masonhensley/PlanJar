@@ -4,6 +4,10 @@ class Load_location_data extends CI_Model
 {
     function display_location_info($place_id, $day, $selected_groups)
     {   
+        if (!$day)
+        {
+            $day = 0;
+        }
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d');
