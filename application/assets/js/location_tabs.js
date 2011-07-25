@@ -5,10 +5,8 @@ $(function() {
 function show_selected_location() {
     $('div.location_tab').click(function() {
         
-        if($(this).hasClass('selected_location_tab'))
+        if(!$(this).hasClass('selected_location_tab'))
         {
-            $(this).removeClass('selected_location_tab');
-        }else{
             $('.selected_location_tab').removeClass('selected_location_tab');
             $(this).addClass('selected_location_tab');
             $.get('/home/show_location_data', {
