@@ -42,9 +42,10 @@ class Load_location_data extends CI_Model
             $number_friends_query .= "plans.user_id=$id OR ";
         }
         $number_friends_query = substr($number_friends_query, 0, -4);
-        $result = $this->db->query($number_friends_query);
-        $number_of_friends = $result->num_rows();
-        var_dump($number_of_friends);
+        var_dump($number_friends_query);
+        //$result = $this->db->query($number_friends_query);
+        //$number_of_friends = $result->num_rows();
+        //var_dump($number_of_friends);
     }
     
     function display_place_info($place_info) // name, lat, lon, category, distance
