@@ -11,12 +11,7 @@
     <div id="plan_page_wrapper">
         <form id="plan_form" style="height: 100%;">
             <div class="plan_page_content" page_index="0" style="text-align: center;">
-                <!--                <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
-                                    <label for="plan_location">Where are you going?</label>
-                                    <input type="text" id="plan_location" class="textbox"/>
-                                </div>-->
-
-                <h3>WHere are you going?</h3>
+                <h3>Where are you going?</h3>
                 <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
 
                 <h3>When are you going?</h3>

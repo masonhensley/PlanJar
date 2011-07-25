@@ -67,3 +67,7 @@
     width: 150px;
     float: left;
 }
+
+#create_plan_content h3 {
+    margin-top: 0px;
+}
