@@ -244,7 +244,6 @@ class Load_locations extends CI_Model
         $place_id_array = array_reverse($place_id_array, TRUE);
         var_dump($place_id_array);
     }
-
 }
 ?>
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
