@@ -4,15 +4,16 @@
     <div class="groups_wrapper">
         <hr/><font style="font-weight:bold;color:navy;">Networks</font><br/><hr/>
         <font>
-        <div class="city_tab" group_id="friends">
+        <div class="
+             network_tab" group_id="friends">
             Friends
         </div>
-        <div class="city_tab" group_id="school">
+        <div class="network_tab" group_id="school">
             <?php
             echo $school;
             ?>
         </div>
-        <div class="city_tab" group_id="current_location">
+        <div class="network_tab" group_id="current_location">
             Current Location
         </div>
         </font>

@@ -80,14 +80,14 @@ function mapThisGoogle(latitude,longitude)
 // Returns a list of selected groups.
 function get_selected_groups() {
     var return_list = ([]);
-    if(!$('.city_tab').hasClass('city_active'))
+    if(!$('.network_tab').hasClass('city_active'))
     {
         $('.selectable_group.selected_group').each(function (index, element) {
             return_list.push($(element).attr('group_id'));
         });
-    }else if($('.city_tab').hasClass('city_active'))
+    }else if($('.network_tab').hasClass('city_active'))
     {
-            return_list.push($('.city_active').attr('group_id'));
+            return_list.push($('.network_active').attr('group_id'));
     }
     // if nothing is selected, you can check the php variable for (false)
     return return_list;

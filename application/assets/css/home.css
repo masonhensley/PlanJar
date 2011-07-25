@@ -87,7 +87,7 @@ a{
     margin-left:5px;
 }
 
-.city_tab{
+.network_tab{
     background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     border:1px solid lightgray;
     height:100%;
@@ -99,13 +99,13 @@ a{
     margin-left:5px;
 }
 
-.city_tab.city_active{
+.network_tab.network_active{
     background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
     color:white;
 }
 
 .selected_group {
-    background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
+    background:-webkit-gradient(linear,left top,left bottom,from(#F8BA78),to(#F5952E));
     color: white;
 }
 
@@ -284,7 +284,7 @@ a{
 }
 
 /*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
-.location_tab_shown{
+.location_tab{
     text-align:center;
     background-color:white;
     color:navy;
@@ -295,7 +295,7 @@ a{
     padding-bottom:10px;
 }
 
-.selected_location{
+.selected_location_tab{
     background-color:beige;
     color:navy;
 }

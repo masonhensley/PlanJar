@@ -3,14 +3,14 @@ $(function() {
 });
 
 function show_selected_location() {
-    $('div.location_tab_shown').click(function() {
+    $('div.location_tab').click(function() {
         
-        if($(this).hasClass('selected_location'))
+        if($(this).hasClass('selected_location_tab'))
         {
-            $(this).removeClass('selected_location');
+            $(this).removeClass('selected_location_tab');
         }else{
-            $('.selected_location').removeClass('selected_location');
-            $(this).addClass('selected_location');
+            $('.selected_location').removeClass('selected_location_tab');
+            $(this).addClass('selected_location_tab');
             $.get('/home/show_location_data', {
                 'place_id': $('.selected_location').attr('place_id'),
                 'date': $('.selected_location').attr('date')
