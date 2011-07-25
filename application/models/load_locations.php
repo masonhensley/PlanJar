@@ -251,8 +251,8 @@ class Load_locations extends CI_Model
         foreach ($place_id_array as $place_id => $count)
         {
             echo "<hr/>";
-            echo $place_array[$place_id] . "<br/> ";
-            echo $count . " attending";
+            echo "<font style=\"font-weight:bold;\">" .$place_array[$place_id] . "</font><br/> ";
+            echo "<font style=\"font-weight:bold;color:lightgray;text-size:13px;\">" .$count . " people in selected tab(s) are attending</font>";
             echo "<hr/>";
         }
     }
