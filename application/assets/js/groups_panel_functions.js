@@ -30,17 +30,17 @@ function on_groups_change() {
     update_groups_and_locations();// this should update the graphs so they match what is selected
 }
 
-// this is the "use current location" tab. clicking it de-selects all other group tabs and uses the current location
+// this is the "use current locatiohn" tab. clicking it de-selects all other group tabs and uses the current location
 function set_network_tab()
 {
     $('.network_tab').click(function(){
-        if($(this).hasClass('city_active'))
+        if($(this).hasClass('network_active'))
         {
-            $(this).removeClass('city_active');
+            $(this).removeClass('network_active');
         }else{
             $('.selected_group').removeClass('selected_group');
-            $('.city_active').removeClass('city_active');
-            $(this).addClass('city_active');
+            $('.network_active').removeClass('network_active');
+            $(this).addClass('network_active');
             
             // Change to select one group
             $('#select_one_group').click();
@@ -55,7 +55,7 @@ function initialize_one_group_select() {
     on_groups_change();
     
     $('.groups_wrapper .selectable_group').click(function() {
-        $('.city_active').removeClass('city_active'); // unselect the city tab
+        $('.network_active').removeClass('network_active'); // unselect the city tab
         
         $('.groups_wrapper .selectable_group.selected_group').not(this).removeClass('selected_group');
         if ($(this).hasClass('selected_group')) {
@@ -70,7 +70,7 @@ function initialize_one_group_select() {
 function initialize_mult_groups_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group').click(function() {
-        $('.city_active').removeClass('city_active'); // unselect the city tab
+        $('.network_active').removeClass('network_active'); // unselect the city tab
         
         // unselect plan on right panel
         $('.plan_content').removeClass('selected_plan');
