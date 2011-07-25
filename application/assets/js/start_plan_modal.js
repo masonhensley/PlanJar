@@ -43,7 +43,7 @@ function initialize_plan_modal() {
             case 0:
                 // An autocomplete entry must have been chosen (this field is populated by the autocomplete),
                 // and both the time and day must be selected
-                if ($('#plan_location_id').val() != '' && $('#plan_time divset_selected, #plan_day divset_selected').length == 2) {
+                if ($('#plan_location_id').val() != '' && $('#plan_time .divset_selected, #plan_day .divset_selected').length == 2) {
                     initialize_event_select_page();
                     next_plan_panel();
                 }
