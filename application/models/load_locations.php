@@ -38,16 +38,16 @@ class Load_locations extends CI_Model
     function on_nothing_selected($display_day)
     {
         echo "<hr/>Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for ";
-        echo "<font style=\"font-weight:bold;color:lightblue;\">$display_day<br/><hr/>";
+        echo "<font style=\"font-weight:bold;color:navy;\">$display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "Places near your <font style=\"color:blue; font-weight:bold;\">current location</font> ";
-        $display_message .= "for <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
+        $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">current location</font> ";
+        $display_message .= "for <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
-        $query = "SELECT places.id, places.name, places.category, 
+        $query = "SELECT places.id, places.name, places.category, events.title,
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
@@ -72,10 +72,11 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message = "Places your friends are going <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
+        $display_message = "Places your <font style=\"font-weight:bold;color:green;\">friends</font> ";
+        $display_message .= "are going <br/><font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
-        $query = "SELECT events.id, events.title, places.name FROM plans 
+        $query = "SELECT places.id, events.title, places.name, places.category FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
                   WHERE (";
@@ -104,10 +105,10 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Places <font style=\"color:blue; font-weight:bold;\">$school</font> ";
-        $display_message .= "students are going <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
+        $display_message = "Places <font style=\"color:green; font-weight:bold;\">$school</font> ";
+        $display_message .= "students are going <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
-        $query = "SELECT events.title, places.name, places.id 
+        $query = "SELECT events.title, places.name, places.id, places.category 
                   FROM user_meta
                   LEFT JOIN plans ON plans.user_id=user_meta.user_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
@@ -133,7 +134,8 @@ class Load_locations extends CI_Model
         $group_name_array = $this->get_group_names($group_list);
         $display_message = $this->setup_groups_header($group_name_array, $display_day);
 
-        $query = "SELECT places.name, places.id, events.title FROM group_relationships 
+        $query = "SELECT places.name, places.id, events.title, places.category 
+                  FROM group_relationships 
                   JOIN plans ON plans.user_id=group_relationships.user_joined_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   JOIN places ON places.id=events.place_id
@@ -200,11 +202,11 @@ class Load_locations extends CI_Model
         $number = count($group_name_array);
         if ($number == 1)
         {
-            $header_string .= "<font style=\"color:blue; font-weight:bold;\">" . $group_name_array[0] . "</font>";
+            $header_string .= "<font style=\"color:orange; font-weight:bold;\">" . $group_name_array[0] . "</font>";
         } else if ($number == 2)
         {
-            $header_string .= "<font style=\"color:blue; font-weight:bold;\">" . $group_name_array[0];
-            $header_string .= "</font> and <font style=\"color:blue; font-weight:bold;\">" . $group_name_array[1] . "</font>";
+            $header_string .= "<font style=\"color:orange; font-weight:bold;\">" . $group_name_array[0];
+            $header_string .= "</font> and <font style=\"color:orange; font-weight:bold;\">" . $group_name_array[1] . "</font>";
         } else if ($number > 2)
         {
             $index = 0;
@@ -212,15 +214,15 @@ class Load_locations extends CI_Model
             {
                 if (isset($group_name_array[$index + 1]))
                 {
-                    $header_string .= "<font style=\"color:blue; font-weight:bold;\">$group_name</font>, ";
+                    $header_string .= "<font style=\"color:orange; font-weight:bold;\">$group_name</font>, ";
                 } else
                 {
-                    $header_string .= "and <font style=\"color:blue; font-weight:bold;\">$group_name</font>";
+                    $header_string .= "and <font style=\"color:orange; font-weight:bold;\">$group_name</font>";
                 }
                 $index++;
             }
         }
-        $header_string .= " are going <font style=\"font-weight:bold; color:lightblue;\">$display_day</font>";
+        $header_string .= " are going <font style=\"font-weight:bold; color:navy;\">$display_day</font>";
         return $header_string;
     }
 
@@ -248,6 +250,7 @@ class Load_locations extends CI_Model
         $place_id_array = array_count_values($place_id_array);
         asort($place_id_array);
         $place_id_array = array_reverse($place_id_array, TRUE);
+        var_dump($place_id_array, $place_array);
         foreach ($place_id_array as $place_id => $count)
         {
             ?>
