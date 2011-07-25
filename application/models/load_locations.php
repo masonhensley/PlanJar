@@ -270,8 +270,8 @@ class Load_locations extends CI_Model
         {
             ?>
 
-            <div class ="nothing_selected">
-                <font style="font-style:italic; color:gray; "
+            <div class ="no_places_to_show">
+                Nothing to show
             </div>
 
             <?php
