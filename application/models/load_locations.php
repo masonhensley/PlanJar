@@ -37,14 +37,14 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "<hr/>Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for";
+        echo "<hr/>Use the <font style=\"color:navy; font-weight:bold;\">group panel</font> to select the type of information you want to see for ";
         echo "<font style=\"font-weight:bold;color:lightblue;\">$display_day<br/><hr/>";
     }
 
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "Popular places near your <font style=\"color:blue; font-weight:bold;\">current location</font>";
+        $display_message = "Popular places near your <font style=\"color:blue; font-weight:bold;\">current location</font> ";
         $display_message .= "for <font style=\"font-weight:bold;color:lightblue;\">$display_day</font>";
 
         $query = "SELECT places.id, places.name, places.category, 
@@ -104,7 +104,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Popluar places <font style=\"color:navy; font-weight:bold;\">$school</font>";
+        $display_message = "Popluar places <font style=\"color:navy; font-weight:bold;\">$school</font> ";
         $display_message .= "students are going <font style=\"font-weight:bold;color:lightblue;\">$display_day";
 
         $query = "SELECT events.title, places.name, places.id 
