@@ -245,7 +245,7 @@ a{
     background-color:white;
 }
 
-.top_left_plans{
+.suggested_locations{
     float:left;
     width:49%;
     height:600px;
@@ -253,28 +253,6 @@ a{
     border-right: 1px solid lightgray;
     background-color: white;
     text-align: center;
-}
-
-.ad_box{
-    float:right;
-    text-align:center;
-    width:49%;
-    height:300px;
-    border-right: 1px solid lightgray;
-    border-left: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-    background-color: white;
-}
-
-
-
-.bottom_right_plans{
-    float:right;
-    width:49%;
-    height:300px;
-    border-right: 1px solid lightgray;
-    border-left: 1px solid lightgray;
-    background-color: white;
 }
 
 .plan{
