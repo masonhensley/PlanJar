@@ -68,6 +68,7 @@
     height: 160px;
     float: left;
     margin-left: 20px;
+    overflow: scroll;
 }
 
 #create_plan_content h3 {
