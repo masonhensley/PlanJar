@@ -2,7 +2,7 @@
 <!-- This file is included in home_view.php and not called from the controller -->
 <div style="position:relative; top:-20px;">
     <div class="groups_wrapper">
-        <hr/><font style="font-weight:bold;color:navy;">Networks</font><br/><hr/>
+        <font style="font-weight:bold;color:navy;">Networks</font><br/>
         <font>
         <div class="
              network_tab" group_id="friends">
@@ -17,8 +17,7 @@
             Current Location
         </div>
         </font>
-        <hr/>
-        <a href="/dashboard/groups"><font style="font-weight:bold;color:navy;">Groups</font></a><br/><hr/>
+        <a href="/dashboard/groups"><font style="font-weight:bold;color:navy;">Groups</font></a><br/>
         <?php
         foreach ($joined_groups as $group)
         {

@@ -9,11 +9,11 @@ function show_selected_location() {
         {
             $(this).removeClass('selected_location_tab');
         }else{
-            $('.selected_location').removeClass('selected_location_tab');
+            $('.selected_location_tab').removeClass('selected_location_tab');
             $(this).addClass('selected_location_tab');
             $.get('/home/show_location_data', {
-                'place_id': $('.selected_location').attr('place_id'),
-                'date': $('.selected_location').attr('date')
+                'place_id': $('.selected_location_tab').attr('place_id'),
+                'date': $('.selected_location_tab').attr('date')
             }, function (data) {
                 $('#location_data').html(data);        
             });

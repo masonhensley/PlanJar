@@ -246,18 +246,31 @@ class Load_locations extends CI_Model
 
     function display_location_tabs($display_message, $place_id_array, $place_array)
     {
-        echo "<hr/>" . $display_message . "<hr/>";
-        $place_id_array = array_count_values($place_id_array);
-        asort($place_id_array);
-        $place_id_array = array_reverse($place_id_array, TRUE);
-        var_dump($place_id_array, $place_array);
-        foreach ($place_id_array as $place_id => $count)
+        ?> 
+        <div class="display_message">
+            <?php echo $display_message; ?>
+        </div>
+        <?php
+        if (count($place_id_array) > 0)
+        {
+            $place_id_array = array_count_values($place_id_array);
+            asort($place_id_array);
+            $place_id_array = array_reverse($place_id_array, TRUE);
+            foreach ($place_id_array as $place_id => $count)
+            {
+                ?>
+                <div class="location_tab">
+                    <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
+                    <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font><br/>
+                    <?php echo "id: " . $place_id; ?>
+                </div>
+                <?php
+            }
+        } else
         {
             ?>
-            <div class="location_tab">
-                <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
-                <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font><br/>
-                <?php echo "id: " .$place_id;?>
+            <div class ="no_places_to_show">
+                Nothing to show
             </div>
             <?php
         }
