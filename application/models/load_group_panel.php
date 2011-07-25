@@ -3,8 +3,8 @@
 <div style="position:relative; top:-20px;">
     <div class="groups_wrapper">
         <a href="/dashboard/groups"><font style="font-weight:bold;color:navy;">Networks</font></a><br/>
-        
-        <br/>
+        <font style="color:gray;">(select one)</font>
+        <br/><hr/>
         <font>
         <div class="
              network_tab" group_id="friends">
@@ -21,7 +21,7 @@
         </font>
         <a href="/dashboard/groups"><font style="font-weight:bold;color:navy;">Groups</font></a><br/>
         <font style="color:gray;">(select one or multiple)</font>
-        <br/>
+        <br/><hr/>
         <?php
         foreach ($joined_groups as $group)
         {
