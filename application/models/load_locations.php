@@ -47,7 +47,7 @@ class Load_locations extends CI_Model
         $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">current location</font> ";
         $display_message .= "for <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
-        $query = "SELECT places.id, places.name, places.category, 
+        $query = "SELECT places.id, places.name, places.category, events.title
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
@@ -76,7 +76,7 @@ class Load_locations extends CI_Model
         $display_message .= "are going <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
-        $query = "SELECT events.id, events.title, places.name FROM plans 
+        $query = "SELECT places.id, events.title, places.name, places.category FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
                   WHERE (";
@@ -108,7 +108,7 @@ class Load_locations extends CI_Model
         $display_message = "Places <font style=\"color:green; font-weight:bold;\">$school</font> ";
         $display_message .= "students are going <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
-        $query = "SELECT events.title, places.name, places.id 
+        $query = "SELECT events.title, places.name, places.id, places.category 
                   FROM user_meta
                   LEFT JOIN plans ON plans.user_id=user_meta.user_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
@@ -134,7 +134,8 @@ class Load_locations extends CI_Model
         $group_name_array = $this->get_group_names($group_list);
         $display_message = $this->setup_groups_header($group_name_array, $display_day);
 
-        $query = "SELECT places.name, places.id, events.title FROM group_relationships 
+        $query = "SELECT places.name, places.id, events.title, places.category 
+                  FROM group_relationships 
                   JOIN plans ON plans.user_id=group_relationships.user_joined_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   JOIN places ON places.id=events.place_id
