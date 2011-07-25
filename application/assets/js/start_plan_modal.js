@@ -132,12 +132,14 @@ function initialize_plan_modal() {
     $('#invite_plan_users').tokenInput('/home/get_followers_invite', {
         hintText: 'Search followers...',
         preventDuplicates: true,
-        queryParam: 'needle'
+        queryParam: 'needle',
+        theme: 'facebook'
     });
     $('#invite_plan_groups').tokenInput('/home/get_groups_invite', {
         hintText: 'Search joined groups...',
         preventDuplicates: true,
-        queryParam: 'needle'
+        queryParam: 'needle',
+        theme: 'facebook'
     });
     
     // Submit
@@ -156,6 +158,10 @@ function initialize_plan_modal() {
             'privacy': privacy
         } ,function (data) {
             if (data == 'success') {
+                // Blur the invite boxes
+                $('#Invite_plan_users, #invite_plan_groups').blur();
+                
+                // Hide the modal
                 $('#create_plan_content').hide();
                 
                 // Refresh the plan list.
