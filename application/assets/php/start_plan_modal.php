@@ -46,7 +46,7 @@
                 <div id="new_event_side">
                     <input type="button" id="create_event" value="Start an event"/>
 
-                    <div id="start_event_content">
+                    <div id="start_event_content" style="display: none;">
                         <div id="event_title_wrapper" class="in-field_block">
                             <label for="event_title">Title</label>
                             <input type="text" id="event_title" name="event_title"/>
