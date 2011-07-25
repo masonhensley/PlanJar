@@ -10,7 +10,7 @@ class Load_locations extends CI_Model
         {
             $day = 0;
         }
-        
+
         $display_day = $this->get_day($day); // shows the day selected in correct format
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
@@ -43,7 +43,7 @@ class Load_locations extends CI_Model
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message =  "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day";
+        $display_message = "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day";
 
         $query = "SELECT places.id, places.name, places.category, 
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
@@ -70,8 +70,8 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message =  "Popular places your friends are going $display_day";
-        
+        $display_message = "Popular places your friends are going $display_day";
+
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $query = "SELECT events.id, events.title, places.name FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
@@ -102,7 +102,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message =  "Popluar places $school students are going $display_day";
+        $display_message = "Popluar places $school students are going $display_day";
 
         $query = "SELECT events.title, places.name, places.id 
                   FROM user_meta
@@ -129,7 +129,7 @@ class Load_locations extends CI_Model
     {
         $group_name_array = $this->get_group_names($group_list);
         $display_message = $this->setup_groups_header($group_name_array);
-        
+
         $query = "SELECT places.name, places.id, events.title FROM group_relationships 
                   JOIN plans ON plans.user_id=group_relationships.user_joined_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
@@ -240,15 +240,18 @@ class Load_locations extends CI_Model
 
     function display_location_tabs($display_message, $place_id_array, $place_array)
     {
-        echo "<hr/>" .$display_message ."<hr/>";
+        echo "<hr/>" . $display_message . "<hr/>";
         $place_id_array = array_count_values($place_id_array);
         asort($place_id_array);
         $place_id_array = array_reverse($place_id_array, TRUE);
-        foreach($place_id_array as $place_id => $count)
+        foreach ($place_id_array as $place_id => $count)
         {
-            echo $place_array[$place_id] . " " .$count ." attending";
+            echo "<hr/>";
+            echo $place_array[$place_id] . " " . $count . " attending<br/>";
+            echo "<hr/";
         }
     }
+
 }
 ?>
 <script type="text/javascript" src="/application/assets/js/location_tabs.js"></script>
