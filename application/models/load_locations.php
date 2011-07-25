@@ -237,9 +237,12 @@ class Load_locations extends CI_Model
         return $group_name_list;
     }
 
-    function display_location_tabs($place_id_array, $place_name_array)
+    function display_location_tabs($place_id_array, $place_array)
     {
-        var_dump($place_name_array);
+        $place_id_array = array_count_values($place_id_array);
+        asort($place_id_array);
+        $place_id_array = array_reverse($place_id_array, TRUE);
+        var_dump($place_id_array);
     }
 
 }
