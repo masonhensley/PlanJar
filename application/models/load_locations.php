@@ -43,7 +43,7 @@ class Load_locations extends CI_Model
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "Popular places near your <font style=\"color=blue;\">current location</font> for $display_day";
+        $display_message = "Popular places near your <font style=\"color:blue; font-weight:bold;\">current location</font> for $display_day";
 
         $query = "SELECT places.id, places.name, places.category, 
                   ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
@@ -102,7 +102,8 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Popluar places <font style=\"color:navy; font-weight:bold;\">$school</font> students are going $display_day";
+        $display_message = "Popluar places <font style=\"color:navy; font-weight:bold;\">$school</font>";
+        $display_message .= "students are going <font style=\"font-weight:bold;color:lightblue;\">$display_day";
 
         $query = "SELECT events.title, places.name, places.id 
                   FROM user_meta
@@ -217,7 +218,7 @@ class Load_locations extends CI_Model
                 $index++;
             }
         }
-        $header_string .= " are going <font style=\"font-weight:bold;\">$display_day</font>";
+        $header_string .= " are going <font style=\"font-weight:bold; color:lightblue;\">$display_day</font>";
         return $header_string;
     }
 
