@@ -42,7 +42,7 @@ function set_network_tab()
             $(this).addClass('network_active');
             
             // Change to select one group
-            $('#select_one_group').click();
+            //$('#select_one_group').click();
         }
         console.log('calling update once');
         update_groups_and_locations();
@@ -56,14 +56,14 @@ function initialize_one_group_select() {
     
     $('.groups_wrapper .selectable_group').click(function() {
         $('.network_active').removeClass('network_active'); // unselect the city tab
-        
-        $('.groups_wrapper .selectable_group.selected_group').not(this).removeClass('selected_group');
+     
         if ($(this).hasClass('selected_group')) {
             $(this).removeClass('selected_group');
         } else {
             $(this).addClass('selected_group');
+            on_groups_change();
         }
-        on_groups_change();
+        
     });
 }
 
