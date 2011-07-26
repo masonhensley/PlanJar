@@ -40,6 +40,7 @@ function location_data() {
                 // Update the city name.
                 update_current_city_name();
                 
+                alert('hehe');
                 mapThisGoogle(position.coords.latitude, position.coords.longitude);
             }, 
             // next function is the error callback
