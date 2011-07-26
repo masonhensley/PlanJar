@@ -53,9 +53,9 @@ function initialize_one_group_select(initial_update) {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group.selected_group').removeClass('selected_group');
     
-    if (initial_update != undefined) {
-    on_groups_change();
-}
+    if (initial_update == undefined) {
+        on_groups_change();
+    }
     
     $('.groups_wrapper .selectable_group').click(function() {
         $('.network_active').removeClass('network_active'); // unselect the city tab
