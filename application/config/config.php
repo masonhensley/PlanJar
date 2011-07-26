@@ -14,7 +14,9 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://testing.pagodabox.com/'; // http://planjar.orchestra.io
+
+//$config['base_url']	= 'http://testing.pagodabox.com/';
+$config['base_url']	= 'http://planjar.orchestra.io/';
 
 /*
 |--------------------------------------------------------------------------
