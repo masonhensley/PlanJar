@@ -16,8 +16,8 @@ class Load_coming_events extends CI_Model
                     JOIN places ON places.id=events.place_id
                     WHERE events.date>NOW()
                     ORDER BY date ASC";
-        //$this->db->query($query);
-        /*
+        $this->db->query($query);
+
         $place_array = array();
         $place_id_array = array();
         foreach ($result->result() as $place)
@@ -28,10 +28,39 @@ class Load_coming_events extends CI_Model
             }
             $place_id_array[] = $place->id;
         }
-         * 
-         */
-        var_dump($query);
+
+        $this->display_event_tabs($place_id_array, $place_array);
     }
 
+    function display_event_tabs($place_id_array, $place_array)
+    {
+         if (count($place_id_array) > 0)
+        {
+            $place_id_array = array_count_values($place_id_array);
+            asort($place_id_array);
+            $place_id_array = array_reverse($place_id_array, TRUE);
+            $number_tracker = 1;
+            foreach ($place_id_array as $place_id => $count)
+            {
+                ?>
+                <div class="location_tab" place_id="<?php echo $place_id; ?>">
+                    <div class="number">
+                        <?php echo $number_tracker; ?>
+                    </div>
+                    <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
+                    <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people are attending</font><br/>
+                    <?php echo "id: " . $place_id; ?>
+                </div>
+                <?php
+            }
+        } else
+        {
+            ?>
+            <div class ="no_places_to_show">
+                <br/>Nothing to show
+            </div>
+            <?php
+        }
+    }
 }
 ?>
