@@ -77,7 +77,7 @@
                     <div id="location_data" class ="data_container"></div>
                     <div id="map_data" class ="data_container">
                         <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
-                        <div id="map"></div>
+<!--                        <div id="map"></div>-->
                     </div>
                 </div>
                 <div class="days_panel">
@@ -102,5 +102,7 @@
         <div class="bottom_links">
             Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
         </div>
+        
+        <div id="map"></div>
     </body>
 </html>
