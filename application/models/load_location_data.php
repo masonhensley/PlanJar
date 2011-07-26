@@ -35,7 +35,7 @@ class Load_location_data extends CI_Model
         $friend_ids = $this->load_locations->get_friend_ids();
         // first find the number of friends attending
         $number_friends_query = "SELECT plans.user_id FROM plans 
-            JOIN events ON plans.event_id=event.id AND events.date='$date' AND events.place_id=$place_id
+            JOIN events ON plans.event_id=events.id AND events.date='$date' AND events.place_id=$place_id
             WHERE ";
         foreach($friend_ids as $id)
         {
