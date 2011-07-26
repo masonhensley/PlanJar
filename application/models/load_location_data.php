@@ -62,12 +62,12 @@ class Load_location_data extends CI_Model
             JOIN user_meta ON user_meta.user_id=plans.user_id
             LEFT JOIN school_data ON school_data.id=user_meta.school_id AND school_data.id=$user->school_id
             WHERE events.place_id=$place_id AND events.date='$sql_date'";
-      
-        $result = $this->db->query($query);
-        $people_info = array();
-        $total_attending = $result->num_rows();
-        $result_array = $result->row_array();
-        var_dump($total_attending, $result_array);
+      var_dump($query);
+        //$result = $this->db->query($query);
+        //$people_info = array();
+        //$total_attending = $result->num_rows();
+        //$result_array = $result->row_array();
+        //var_dump($total_attending, $result_array);
     }
 
     function display_place_info($place_info) // name, lat, lon, category, distance
