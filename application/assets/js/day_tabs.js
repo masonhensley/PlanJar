@@ -4,7 +4,7 @@ $(function () {
 
 function initialize_day_tab_rules() {
     // Set up the day of the week tabs.
-    $("div.days_panel .day:first").addClass("day_selected").select(); //Activate first tab
+    $("div.days_panel .day:first").addClass("day_selected").click(); //Activate first tab
 
     // On Click Event
     $("div.days_panel .day").click(function() {
@@ -37,7 +37,6 @@ function initialize_day_tab_rules() {
 // Callback function
 // reloads the data container with get_group_day_data()
 function on_day_change() {
-    show_data_container('#group_data');
     update_groups_and_locations();
 }
 
