@@ -39,3 +39,8 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.create_group_content table {
+    width: 100%;
+    margin-bottom: 15px;
+}
