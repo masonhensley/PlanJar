@@ -289,9 +289,9 @@ class Home extends CI_Controller
     // this function will load upcoming events on the right side of the center container
     public function load_upcoming_events()
     {
-        $this->load->model('load_coming_events');
-        $selected_groups = $this->input->get('selected_groups');
-         $this->load_coming_events->load_events($selected_groups);
+        $this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
+        $selected_groups = $this->input->get('selected_groups'); // this is not needed anymore
+         $this->load_coming_events->load_events();
     }
 
     // Returns HTML for the list of the user's plans (right panel)
