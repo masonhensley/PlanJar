@@ -25,8 +25,8 @@ class Load_coming_events extends CI_Model
 
     function on_nothing_selected()
     {
-        echo "<hr/>This panel will populate with <font style=\"font-weight:bold;color:navy;\">upcoming events</font>";
-        echo "based on the <font style=\"color:navy; font-weight:bold;\">groups</font> selected";
+        echo "<hr/>This panel will populate with <font style=\"font-weight:bold;color:navy;\">upcoming events</font> ";
+        echo "based on the <font style=\"color:navy; font-weight:bold;\">groups</font> selected<br/><hr/>";
     }
 
     function on_current_location_selected()
