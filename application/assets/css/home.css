@@ -285,11 +285,10 @@ a{
 }
 
 .location_tab{
+    position:relative;
     text-align:center;
     background-color:white;
     color:navy;
-    margin-top:10px;
-    border-top:1px solid lightgray;
     border-bottom: 1px solid lightgray;
     padding-top:10px;
     padding-bottom:10px;
