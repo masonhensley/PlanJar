@@ -33,18 +33,17 @@ function get_plan_data() {
     }, function (data) {
         // Replace the data and show the data tab.
         $('#plan_data').html(data);
-        delete_user_plan();
+        
+        // Handles clicking on the delete plan button
+        $('.delete_plan').click(delete_plan_outer_click);
     });
-}
-
-// Handles clicking on the delete plan button
-function delete_user_plan() {
-    $('.delete_plan').click(delete_plan_outer_click);
 }
 
 function delete_plan_outer_click(event) {
     // Clear previous handlers
     $('.delete_plan, html').unbind('click');
+    
+    console.log('still here');
     
     // Get the original text
     var orig_text = $(this).html();
