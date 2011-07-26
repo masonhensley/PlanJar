@@ -55,8 +55,8 @@ class Notification_ops extends CI_Model
             {
 
 
-                //$accept = $this->deduce_accepted($row);
-                $this->echo_notification($row, false);
+                $accepted = $this->deduce_accepted($row);
+                $this->echo_notification($row, $accepted);
             }
         }
     }
@@ -165,17 +165,22 @@ class Notification_ops extends CI_Model
         }
     }
 
-//
-//    // Returns true if the user has accepted the notification (data in $notif_row).
-//    public function deduce_accepted($notif_row)
-//    {
-//        switch ($notif_row->type)
-//        {
-//            case 'plan_invite':
-//                break;
-//            case 'group_invite':
-//                break;
-//        }
-//    }
+    // Returns true if the user has accepted the notification (using data in $notif_row).
+    public function deduce_accepted($notif_row)
+    {
+        switch ($notif_row->type)
+        {
+            case 'plan_invite':
+                $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
+                $query = $this->db->query($query_string, array(
+                            $this->ion_auth->get_user()->id,
+                            $notif_row->subject_id));
+                return $query->num_rows() > 0;
+                break;
+            case 'group_invite':
+                break;
+        }
+    }
+
 }
 ?>
