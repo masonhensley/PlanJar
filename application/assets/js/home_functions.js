@@ -40,7 +40,6 @@ function location_data() {
                 // Update the city name.
                 update_current_city_name();
                 
-                alert('hehe');
                 mapThisGoogle(position.coords.latitude, position.coords.longitude);
             }, 
             // next function is the error callback
@@ -188,6 +187,7 @@ function show_data_panel(data_div, callback) {
         callback();
         
         // Resize the map after the animation finishes to eliminate the missing tile errors.
+        console.log(map);
         google.maps.event.trigger(map, 'resize');
         map_user_position();
     });
