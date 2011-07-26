@@ -16,7 +16,7 @@ class Load_coming_events extends CI_Model
             $this->on_friends_selected();
         } else if ($selected_groups[0] == 'school')
         {
-            $this->on_school_selected($school);
+            $this->on_school_selected();
         } else
         {
             $this->on_groups_selected($selected_groups);
