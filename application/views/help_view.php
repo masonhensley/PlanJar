@@ -11,10 +11,11 @@
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
+<!-- Help Script -->
+<script src='http://planjar.helpjuice.com/orange-juice/iFrameHeightJuicer.js'></script>
+
         <title>PlanJar | Helpo</title>
 
-        <script src='http://planjar.helpjuice.com/orange-juice/iFrameHeightJuicer.js'></script>
-  
     </head>
     <body>
         <div class ="top_panel">
