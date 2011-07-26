@@ -57,6 +57,7 @@ class Load_coming_events extends CI_Model
                     <?php echo "id: " . $place_id; ?>
                 </div>
                 <?php
+                $number_tracker++;
             }
         } else
         {
