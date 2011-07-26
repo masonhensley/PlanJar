@@ -33,8 +33,8 @@ function location_data() {
                     longitude: myLongitude,
                     auto: true
                 }, function (data) {
-                    data = json_decode(data);
-                    
+                    console.log(data);
+                    console.log(data['status']);
                     if (data['status'] == 'adjusted') {
                         // Location automatically adjusted
                         alert(data['text']);
