@@ -53,7 +53,7 @@ class Home extends CI_Controller
         $this->ion_auth->logout();
         redirect('/login/');
     }
-    
+
 // load and return user plan data
     public function loadMyEvents()
     {
@@ -285,13 +285,13 @@ class Home extends CI_Controller
         $selected_groups = $this->input->get('selected_groups');
         $this->load_location_data->display_location_info($place_id, $date, $selected_groups);
     }
-    
+
     // this function will load upcoming events on the right side of the center container
     public function load_upcoming_events()
     {
         $this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
         $selected_groups = $this->input->get('selected_groups'); // this is not needed anymore
-         $this->load_coming_events->load_events();
+        $this->load_coming_events->load_events();
     }
 
     // Returns HTML for the list of the user's plans (right panel)
@@ -310,21 +310,29 @@ class Home extends CI_Controller
         $user = $this->ion_auth->get_user();
         $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
 
-        if ($this->input->get('auto') == 'false' || $user->latitude == NULL)
+        if ($this->input->get('auto') == 'false' || $user->latitude == NULL || $user->longitude == NULL)
         {
+            // Runs when the user location information is missing or when the location is manually changed
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
-            echo('success');
+            echo(json_encode(array('status' => 'silent')));
         } else if ($delta_distance > 20)
         {
+            // Runs when auto updating the location and the max distance is met
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
-            echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
+
+            $return_array = array('status' => 'adjusted',
+                'text' => "We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
+            echo(json_encode($return_array));
         } else
         {
-            echo('success');
+            // Returns the user's profile location if the distance offset is not met.
+            $return_array = array('status' => 'from_profile',
+                'data' => array($user->latitude, $user->longitude));
+            echo(json_encode($return_array));
         }
     }
 
