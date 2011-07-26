@@ -44,7 +44,7 @@ class Load_locations extends CI_Model
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">current location</font> ";
+        $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">Current Location</font> ";
         $display_message .= "for <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $query = "SELECT places.id, places.name, places.category, events.title,
@@ -72,7 +72,7 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message = "Places your <font style=\"font-weight:bold;color:green;\">friends</font> ";
+        $display_message = "Places your <font style=\"font-weight:bold;color:green;\">Friends</font> ";
         $display_message .= "are going <br/><font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
