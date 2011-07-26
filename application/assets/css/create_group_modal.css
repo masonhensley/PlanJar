@@ -15,6 +15,7 @@
 }
 
 .create_group_top_bar{
+height: 25px;
     background-color: #555;
 background: url( /application/assets/images/stripe_c.png);
     padding:3px;

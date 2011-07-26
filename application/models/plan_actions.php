@@ -112,8 +112,8 @@ class Plan_actions extends CI_Model
         // Change to the argument user id and remove the previous plan id
         $row['user_id'] = $user_id;
         unset($row['id']);
-        
-        var_dump($row);
+
+        var_dump($this->db->last_query());
 
         // Insert the new plan.
         $query = $this->db->insert('plans', $row);
@@ -151,13 +151,13 @@ class Plan_actions extends CI_Model
             $title = $plan->title;
             $time = $plan->time;
             $date = date('l', strtotime($plan->date));
-            
+
             if ($date_organizer != $date)
             {
                 $return_string .= "<hr>$date<br><hr>";
             }
             $date_organizer = $date;
-            
+
             $return_string .= "<div class =\"plan_content\" plan_id=\"$id\" >";
             $return_string .= $name;
             $return_string .= "</div>";
@@ -169,4 +169,5 @@ class Plan_actions extends CI_Model
     }
 
 }
+
 ?>
