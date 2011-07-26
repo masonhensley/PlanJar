@@ -40,8 +40,9 @@ function get_plan_data() {
     });
 }
 
-function delete_plan_outer_click() {
-console.log('delete clicked');
+function delete_plan_outer_click(event) {
+    console.log('delete clicked');
+    event.stopPropagation();
 
     // Clear previous handlers
     $('html').unbind('click');
