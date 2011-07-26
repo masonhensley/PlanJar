@@ -328,7 +328,7 @@ class Home extends CI_Controller
         {
             // Returns the user's profile location if the distance offset is not met.
             $return_array = array('status' => 'from_profile',
-                'data' => array($user->latitude, $user->longitude));
+                'loc' => array($user->latitude, $user->longitude));
             echo(json_encode($return_array));
         }
     }
