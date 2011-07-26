@@ -47,6 +47,7 @@ function delete_plan_outer_click(event) {
     //event.stopPropagation();
 
     // Clear previous handlers
+    $(this).unbind('click');
     $('html').unbind('click');
     
     // Get the original text
@@ -70,7 +71,7 @@ function delete_plan_outer_click(event) {
         }); 
     });
         
-    $('html').click('click', function() {
+    $('html').click(function() {
         console.log('html clicked');
         // Replace the original text and re-assign the click event
         $('.delete_plan').html(orig_text);
