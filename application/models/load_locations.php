@@ -261,7 +261,7 @@ class Load_locations extends CI_Model
             {
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
-                    <div class="number" style="background-color: white; color: black;position:absolute; top:0px; left:0px; height:auto;width:auto;border-right:1px solid gray; border-bottom:1px solid gray;">
+                    <div class="number" style="font-size:10px;padding:3px;background-color: white; color: black;position:absolute; top:0px; left:0px; height:auto;width:auto;border-right:1px solid gray; border-bottom:1px solid gray;">
                     <?php echo $number_tracker; ?>
                     </div>
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
