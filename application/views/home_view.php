@@ -72,10 +72,10 @@
             </div>
             <div class ="center">
                 <div class="data_container_wrapper">
-                    <div id="group_data" class ="data_container" style="display: block;"></div>
+                    <div id="group_data" class ="data_container"></div>
                     <div id="plan_data" class ="data_container"></div>
                     <div id="location_data" class ="data_container"></div>
-                    <div id="map_data" class ="data_container">
+                    <div id="map_data" class ="data_container"  style="display: block;">
                         <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                         <div id="map"></div>
                     </div>
