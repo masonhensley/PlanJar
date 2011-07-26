@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript">
             var myLatlng = new google.maps.LatLng(30, -90);
 
