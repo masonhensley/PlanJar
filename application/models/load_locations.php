@@ -10,7 +10,6 @@ class Load_locations extends CI_Model
         {
             $day = 0;
         }
-
         $display_day = $this->get_day($day); // shows the day selected in correct format
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
@@ -262,7 +261,7 @@ class Load_locations extends CI_Model
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">
-                    <?php echo $number_tracker; ?>
+                        <?php echo $number_tracker; ?>
                     </div>
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
                     <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font><br/>
