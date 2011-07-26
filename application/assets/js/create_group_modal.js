@@ -24,6 +24,9 @@ function initialize_create_group_modal()
     });
     
     $('#cancel_group_creation').click(function(){
+        // Blur the invite boxes
+        $('#invite_group_users, #invite_group_groups').blur();
+        
         $('.create_group_content').hide("fast");
     });
     
@@ -48,6 +51,9 @@ function initialize_create_group_modal()
                     // Repopulate the following groups.
                     populate_edit_groups_list();
                     
+                    // Blur the invite boxes
+                    $('#invite_group_users, #invite_group_groups').blur();
+        
                     $('.create_group_content').hide("fast");
                 } else {
                     alert(data);
