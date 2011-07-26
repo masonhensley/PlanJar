@@ -45,12 +45,11 @@ function delete_plan_outer_click(event) {
     
     // Get the original text
     var orig_text = $(this).html();
-    
-    console.log($(this));
-    console.log(orig_text);
         
     // Replacement text
+    console.log($(this).html());
     $(this).html('Sure?');
+    console.log($(this).html());
         
     // Assign a click event to actually delete the plan
     $(this).click(function(event){
