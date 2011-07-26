@@ -50,7 +50,7 @@ class Load_location_data extends CI_Model
         return $number_of_friends;
     }
 
-    function get_people_attending($place_id, $sql_date, $place_info);
+    function get_people_attending($place_id, $sql_date, $place_info)
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT school_data.id, user_meta.sex FROM events 
