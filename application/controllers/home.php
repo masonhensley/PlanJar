@@ -32,7 +32,7 @@ class Home extends CI_Controller
 
             // get the upcoming events HTML
             $this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
-            $this->load_coming_events->load_events();
+            $upcoming_event_html = $this->load_coming_events->load_events();
 
 
             // Pass the necessary information to the view.
