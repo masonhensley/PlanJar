@@ -10,14 +10,14 @@
     background-color:#efefef;
     padding: 5px;
     border: 3px solid black;
-    z-index:1001;
+    /*    z-index:1001;*/
     display: none;
 }
 
 .create_group_top_bar{
-height: 25px;
+    height: 25px;
     background-color: #555;
-background: url( /application/assets/images/stripe_c.png);
+    background: url( /application/assets/images/stripe_c.png);
     padding:3px;
     color:white;
 }
@@ -42,7 +42,7 @@ background: url( /application/assets/images/stripe_c.png);
     color:gray;
 }
 
-.invite_wrapper {
+/*.invite_wrapper {
     width: 100%;
 }
 
@@ -55,7 +55,7 @@ background: url( /application/assets/images/stripe_c.png);
     float: left;
     margin-left: 4%;
     width: 48%;
-}
+}*/
 
 #group_privacy_wrapper {
     text-align: center;

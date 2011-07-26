@@ -6,15 +6,15 @@
         <input type="button" id="cancel_group_creation" style="float:right; position:relative; bottom:2px;" value="X"/>
     </div>
     <form id="create_group">
-        <div class="create_group_middle">
-            <div class="in-field_block input_style"><label for="group_name">Group name</label>
-                <input type="text" id="group_name" name="group_name" class="textbox"/></div>
-
-            <div class="in-field_block input_style"><label for="group_description">Group description</label>
-                <textarea name="group_description" id="group_description" cols="40" rows="5"></textarea>
-            </div>
+        <div class="in-field_block input_style">
+            <label for="group_name">Group name</label>
+            <input type="text" id="group_name" name="group_name" class="textbox"/>
         </div>
 
+        <div class="in-field_block input_style" style="height: auto;">
+            <label for="group_description">Group description</label>
+            <textarea name="group_description" id="group_description" cols="40" rows="5"></textarea>
+        </div>
 
         <div id="group_privacy_wrapper">
             <div priv_type="open">
@@ -25,17 +25,33 @@
             </div>
         </div>
 
-        <div class="invite_wrapper">
-            <div class="left">
-                Invite people
-                <input type="text" id="group_invite_users" name="group_invite_users"/>
-            </div>
+        <table>
+            <tr>
+                <td>
+                    Invite people
+                    <input type="text" id="group_invite_users" name="group_invite_users"/>
+                </td>
+            </tr>
 
-            <div class="right">
-                Invite groups
-                <input type="text" id="group_invite_groups" name="group_invite_groups"/>
-            </div>
-        </div>
+            <tr>
+                <td>
+                    Invite groups
+                    <input type="text" id="group_invite_groups" name="group_invite_groups"/>
+                </td>
+            </tr>
+        </table>
+
+        <!--        <div class="invite_wrapper">
+                    <div class="left">
+                        Invite people
+                        <input type="text" id="group_invite_users" name="group_invite_users"/>
+                    </div>
+        
+                    <div class="right">
+                        Invite groups
+                        <input type="text" id="group_invite_groups" name="group_invite_groups"/>
+                    </div>
+                </div>-->
 
         <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($user_school); ?> network.</label>
         <br/>
