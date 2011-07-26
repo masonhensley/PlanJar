@@ -307,21 +307,29 @@ class Home extends CI_Controller
         $user = $this->ion_auth->get_user();
         $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
 
-        if ($this->input->get('auto') == 'false' || $user->latitude == NULL)
+        if ($this->input->get('auto') == 'false' || $user->latitude == NULL || $user->longitude == NULL)
         {
+            // Runs when the user location information is missing or when the location is manually changed
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
-            echo('success');
+            echo(json_encode(array('status' => 'silent')));
         } else if ($delta_distance > 20)
         {
+            // Runs when auto updating the location and the max distance is met
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
-            echo("We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
+
+            $return_array = array('status' => 'adjusted',
+                'text' => "We have adjusted your location by $delta_distance miles. Please change your location if this seems off.");
+            echo(json_encode($return_array));
         } else
         {
-            echo('success');
+            // Returns the user's profile location if the distance offset is not met.
+            $return_array = array('status' => 'from_profile',
+                'data' => array($user->latitude, $user->longitude));
+            echo(json_encode($return_array));
         }
     }
 

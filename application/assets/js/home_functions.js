@@ -33,11 +33,19 @@ function location_data() {
                     longitude: myLongitude,
                     auto: true
                 }, function (data) {
-                    if (data != 'success') {
-                        alert(data);
+                    console.log(data);
+                    console.log(data['status']);
+                    if (data['status'] == 'adjusted') {
+                        // Location automatically adjusted
+                        alert(data['text']);
                         map_user_position();
                         show_data_container('#map_data');
+                    } else if (data['status'] == 'from_profile') {
+                        // Assign the longitude and latitude coordinates from the server to the js variables
+                        myLatitude = data['data'][0];
+                        myLatitude = data['data'][1];
                     }
+                    map_user_position();
                 });
                 
                 // Update the city name.
@@ -195,7 +203,7 @@ function show_data_panel(data_div, callback) {
             google.maps.event.trigger(map, 'resize');
             map_tab_opened = true;
         }
-        //map_user_position();
+    //map_user_position();
     });
 }
 
