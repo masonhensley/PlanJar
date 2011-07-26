@@ -18,7 +18,7 @@ function load_data_box(selected_day, selected_groups)
         'selected_day': selected_day
     }, function (data) {
         $('#group_data').html(data);
-        $('#group_data').show('fast');
+        show_data_panel('#group_data');
     });
 }
 
