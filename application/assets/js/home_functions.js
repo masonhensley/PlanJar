@@ -67,7 +67,6 @@ function location_data() {
 function mapThisGoogle(latitude,longitude)
 {
     var myLatlng = new google.maps.LatLng(latitude,longitude);
-    console.log(myLatlng);
         
     var myOptions = {
         zoom: 14,

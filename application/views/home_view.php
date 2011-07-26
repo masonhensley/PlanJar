@@ -16,7 +16,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <!-- Google Maps API -->
-        <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
 
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/divset.js"></script>
