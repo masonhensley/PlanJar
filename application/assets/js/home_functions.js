@@ -152,8 +152,6 @@ function show_data_container(data_div, callback) {
     
     $('.change_location_panel').hide(); // closes the 'change location' div that gets added in the map div
     
-    console.log($('.tab_bar .data_tab').hasClass('tab_selected'));
-    
     // If no tab is selected, show the wrapper.
     if (!$('.tab_bar .data_tab').hasClass('tab_selected')) {
         $('.data_container_wrapper').show('blind', {}, 'fast', function () {

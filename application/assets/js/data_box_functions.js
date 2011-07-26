@@ -9,6 +9,7 @@ function update_groups_and_locations()
     load_visible_locations(selected_day, selected_groups); // update the popular locations shown
     load_upcoming_events(selected_groups); //update the upcoming events
     
+    console.log('update groups and locations call to show_data_container');
     show_data_container('#group_data');
 }
 
