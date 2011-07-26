@@ -57,7 +57,7 @@ class Load_location_data extends CI_Model
     function get_people_attending($place_id, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT school_data.school, user_meta.sex FROM events 
+        $query = "SELECT school_data.id, user_meta.sex FROM events 
             JOIN plans ON plans.event_id=events.id 
             JOIN user_meta ON user_meta.user_id=plans.user_id
             LEFT JOIN school_data ON school_data.id=user_meta.school_id AND school_data.id=$user->school_id
@@ -65,8 +65,17 @@ class Load_location_data extends CI_Model
         $result = $this->db->query($query);
         $people_info = array();
         $total_attending = $result->num_rows();
-        $result_array = $result->row_array();
-        var_dump($total_attending, $result_array, $query);
+        $genders = array();
+        $school = array();
+        foreach($result->result() as $result)
+        {
+            $genders[] = $result->sex;
+            $school[] = $result->id;
+        }
+        $genders = array_count_values($genders);
+        
+        $number_of_schoolmates_attending = count($school);
+        var_dump($genders, $number_of_schoolmates_attending);
     }
 
     function display_place_info($place_info) // name, lat, lon, category, distance
