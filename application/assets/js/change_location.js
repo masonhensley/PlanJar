@@ -160,6 +160,7 @@ function change_location_marker_click(mouse_event) {
         hide_change_location_panel();
         myLatitude = mouse_event.latLng.lat();
         myLongitude = mouse_event.latLng.lng();
+        console.log(myLatitude + ' ' + myLongitude);
         map_user_position();
         update_current_city_name();
     });
