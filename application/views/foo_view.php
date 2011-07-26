@@ -1,7 +1,8 @@
 <html>
     <head>
-        <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
+        
         <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script type="text/javascript">
             $(function () {
                 var myLatlng = new google.maps.LatLng(30, -90);
