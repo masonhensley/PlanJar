@@ -9,7 +9,6 @@ function initialize_map_data_tabs() {
         if ($(this).hasClass('tab_selected')) {
             hide_data_containers();
         } else {
-            console.log('initialize_map_data_tabs call to show_data_container');
             show_data_container($(this).attr('assoc_div'));
         }
     });

@@ -26,7 +26,7 @@ function initialize_selectable_groups() {
 
 // Callback function
 function on_groups_change() {
-    update_groups_and_locations();// this should update the graphs so they match what is selected
+    update_groups_and_locations(); // this should update the graphs so they match what is selected
 }
 
 // this is the "use current location" tab. clicking it de-selects all other group tabs and uses the current location
@@ -55,6 +55,7 @@ function initialize_one_group_select() {
     on_groups_change();
     
     $('.groups_wrapper .selectable_group').click(function() {
+        alert('hereee');
         $('.network_active').removeClass('network_active'); // unselect the city tab
         
         $('.groups_wrapper .selectable_group.selected_group').not(this).removeClass('selected_group');
