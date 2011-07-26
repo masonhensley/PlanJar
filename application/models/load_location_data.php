@@ -14,7 +14,7 @@ class Load_location_data extends CI_Model
         $sql_date = $sql_date->format('Y-m-d');
         $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
         $number_friends_attending = $this->get_friends_attending($place_id, $sql_date);
-        $place_info = $this->get_people_attending($place_id, $sql_date);
+        $place_info = $this->get_people_attending($place_id, $sql_date, $place_info);
         $this->display_place_info($place_info);
     }
 
@@ -31,7 +31,7 @@ class Load_location_data extends CI_Model
         return $place_array;
     }
 
-    function get_friends_attending($place_id, $date, $place_info)
+    function get_friends_attending($place_id, $date)
     {
         $this->load->model('load_locations');
         $friend_ids = $this->load_locations->get_friend_ids();
