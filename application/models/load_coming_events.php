@@ -71,6 +71,8 @@ class Load_coming_events extends CI_Model
                   JOIN places ON events.place_id=places.id
                   WHERE events.date>NOW()";
         
+        var_dump($query);
+        
     }
 
     function on_school_selected()
