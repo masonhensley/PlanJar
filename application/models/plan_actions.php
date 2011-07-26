@@ -61,7 +61,9 @@ class Plan_actions extends CI_Model
         $title at $name | $time | $date
         </div><br/><br/>
         <div class=\"delete_plan_container\"style=\"font-size: 20px; text-align:left;\">
-        <div class=\"delete_plan\">Delete Plan</div></div>";
+        <div class=\"delete_plan\">Delete Plan</div>
+        <div class=\"invite_people\">Invite people</div>
+        </div>";
 
         return $htmlString;
     }
