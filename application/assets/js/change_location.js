@@ -156,15 +156,11 @@ function change_location_marker_click(mouse_event) {
         auto: false,
         latitude: mouse_event.latLng.lat(),
         longitude: mouse_event.latLng.lng()
-    }, function (data) {
-        if (data != 'success') {
-            alert(data);
-        } else {
-            hide_change_location_panel();
-            myLatitude = mouse_event.latLng.lat();
-            myLongitude = mouse_event.latLng.lng();
-            map_user_position();
-            update_current_city_name();
-        }
+    }, function () {
+        hide_change_location_panel();
+        myLatitude = mouse_event.latLng.lat();
+        myLongitude = mouse_event.latLng.lng();
+        map_user_position();
+        update_current_city_name();
     });
 }
