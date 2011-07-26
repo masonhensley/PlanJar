@@ -16,7 +16,7 @@ class Load_coming_events extends CI_Model
                     JOIN places ON places.id=events.place_id
                     WHERE events.date>NOW()
                     ORDER BY date ASC";
-        $result =$this->db->query($query);
+        $result = $this->db->query($query);
 
         $place_array = array();
         $place_id_array = array();
@@ -29,17 +29,14 @@ class Load_coming_events extends CI_Model
             $place_id_array[] = $place->id;
         }
 
-        $this->display_event_tabs($place_id_array, $place_array);
+        $return_string = $this->display_event_tabs($place_id_array, $place_array);
+        return $return_string;
     }
 
     function display_event_tabs($place_id_array, $place_array)
     {
-        ?>
-        <div class="display_message">
-            Popular upcoming events open to you
-        </div>
-<?php
-         if (count($place_id_array) > 0)
+        $return_string = "<div class=\"display_message\">Popular upcoming events open to you</div>";
+        if (count($place_id_array) > 0)
         {
             $place_id_array = array_count_values($place_id_array);
             asort($place_id_array);
@@ -47,26 +44,17 @@ class Load_coming_events extends CI_Model
             $number_tracker = 1;
             foreach ($place_id_array as $place_id => $count)
             {
-                ?>
-                <div class="event_tab" place_id="<?php echo $place_id; ?>">
-                    <div class="number">
-                        <?php echo $number_tracker; ?>
-                    </div>
-                    <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
-                    <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people are attending</font><br/>
-                    <?php echo "id: " . $place_id; ?>
-                </div>
-                <?php
+                $return_string .= "<div class=\"event_tab\" place_id=\"$place_id\"><div class=\"number\">$number_tracker</div>";
+                $return_string .= "<font style=\"font-weight:bold;\">$place_array[$place_id]</font><br/>";
+                $return_string .= "<font style=\"font-weight:bold;color:lightgray; font-size:13px;\">$count people are attending</font><br/>\"id: \" $place_id</div>";
                 $number_tracker++;
             }
         } else
         {
-            ?>
-            <div class ="no_places_to_show">
-                <br/>Nothing to show
-            </div>
-            <?php
+            $return_string .= "<div class =\"no_places_to_show\"><br/>Nothing to show</div>";
         }
+        return $return_string;
     }
+
 }
 ?>
