@@ -40,7 +40,7 @@ class Load_coming_events extends CI_Model
                     JOIN event_invitees ON event_invitees.event_id=events.id
                     JOIN plans ON (plans.event_id=events.id AND events.privacy='open') OR (event_invitees.user_id=plans.user_id AND plans.event_id=event_invitees.event_id)
                     JOIN places ON events.place_id=places.id
-                    WHERE events.date>NOW() AND distance<15
+                    WHERE events.date>NOW()
                     ORDER BY distance ASC";
 
         $result = $this->db->query($query);
