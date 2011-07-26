@@ -12,6 +12,9 @@
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <title>PlanJar | Helpo</title>
+
+        <script src='http://planjar.helpjuice.com/orange-juice/iFrameHeightJuicer.js'></script>
+  
     </head>
     <body>
         <div class ="top_panel">
@@ -28,6 +31,9 @@
                 </div>
             </div>
         </div>
+
+success
+        <iframe src='http://planjar.helpjuice.com/' class='helpjuice-autoframe' width='710px' height='850px' frameborder='0'></iframe> 
         <div class="tab_bar">
             <div class="data_tab tab_selected" assoc_div="#group_data">Group Data</div>
             <div class="data_tab" assoc_div="#location_data">Location Data</div>
@@ -81,19 +87,3 @@
     </body>
 </html>
 
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <script src='http://planjar.helpjuice.com/orange-juice/iFrameHeightJuicer.js'></script>
-    </head>
-    <body>
-        success
-        <iframe src='http://planjar.helpjuice.com/' class='helpjuice-autoframe' width='710px' height='850px' frameborder='0'></iframe> 
-    </body>
-</html>
