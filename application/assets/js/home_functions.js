@@ -188,10 +188,15 @@ function show_data_panel(data_div, callback) {
         callback();
         
         // Resize the map after the animation finishes to eliminate the missing tile errors.
-        google.maps.event.trigger(map, 'resize');
+        if (foo) {
+            google.maps.event.trigger(map, 'resize');
+            foo = false;
+        }
         map_user_position();
     });
 }
+
+var foo = true;
 
 // Puts the user's position on the map and centers to it.'
 function map_user_position() {
