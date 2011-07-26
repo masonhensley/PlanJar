@@ -33,6 +33,8 @@ function location_data() {
                     longitude: myLongitude,
                     auto: true
                 }, function (data) {
+                    data = $.parseJSON(data);
+                    
                     console.log(data);
                     console.log(data.status);
                     if (data.status == 'adjusted') {
