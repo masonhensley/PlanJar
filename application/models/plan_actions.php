@@ -129,7 +129,7 @@ class Plan_actions extends CI_Model
         {
             // make easy to read variables
             $id = $plan->id;
-            $name = $plan->name;
+            $plan_name = $plan->name;
             $title = $plan->title;
             $time = $plan->time;
             $date = date('l', strtotime($plan->date));
@@ -140,10 +140,9 @@ class Plan_actions extends CI_Model
             }
             $date_organizer = $date;
 
-            $return_string .= "<div class =\"plan_content\" plan_id=\"$id\" >";
-            $return_string .= $name;
+            $return_string .= "<div class =\"plan_content\" plan_id=\"$id\">";
+            $return_string .= "<b>$plan_name<b><br>$title";
             $return_string .= "</div>";
-            $return_string .= "<div id=\"plan_padding\" style =\"width:100%; height:10px;\"></div>";
         }
         $return_string .= "</div>";
 
