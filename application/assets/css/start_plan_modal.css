@@ -32,6 +32,10 @@ background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
     font-size:18px;
     padding-left:10px;
     padding-top:3px;
+/*--CSS3 Rounded Corners--*/
+	-webkit-border-radius-top: 10px;
+	-moz-border-radius-top: 10px;
+	border-top-radius: 10px;
 
 }
 
