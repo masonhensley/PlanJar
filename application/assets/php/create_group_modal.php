@@ -10,7 +10,7 @@
             <label for="group_name">Group name</label>
             <input type="text" id="group_name" name="group_name" class="textbox"/>
         </div>
-        <br/>
+        
         <div class="in-field_block input_style" style="height: auto;">
             <label for="group_description">Group description</label>
             <textarea name="group_description" id="group_description" cols="40" rows="5"></textarea>
