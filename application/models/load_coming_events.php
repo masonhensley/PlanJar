@@ -35,11 +35,9 @@ class Load_coming_events extends CI_Model
     function display_event_tabs($place_id_array, $place_array)
     {
         ?>
-        <hr/>
         <div class="display_message">
-            Popular upcoming events that are open to you
+            Popular upcoming events open to you
         </div>
-        <hr/>
 <?php
          if (count($place_id_array) > 0)
         {
@@ -59,6 +57,7 @@ class Load_coming_events extends CI_Model
                     <?php echo "id: " . $place_id; ?>
                 </div>
                 <?php
+                $number_tracker++;
             }
         } else
         {
