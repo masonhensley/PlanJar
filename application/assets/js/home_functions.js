@@ -44,8 +44,8 @@ function location_data() {
                         show_data_container('#map_data');
                     } else if (data.status == 'from_profile') {
                         // Assign the longitude and latitude coordinates from the server to the js variables
-                        myLatitude = data.loc[0];
-                        myLatitude = data.loc[1];
+                        myLatitude = parseInt(data.loc[0]);
+                        myLatitude = parseInt(data.loc[1]);
                     }
                     map_user_position();
                 });
