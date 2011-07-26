@@ -14,9 +14,9 @@ function show_selected_location() {
                 'date': $('.selected_location_tab').attr('date'),
                 'selected_groups':get_selected_groups()
             }, function (data) {
-                $('#location_data').html(data);        
+                $('#location_data').html(data);
             });
         }
-        show_data_container('#location_data'); 
+        show_data_container('#location_data');
     });
 }

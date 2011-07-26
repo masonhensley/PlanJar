@@ -55,7 +55,6 @@ function initialize_one_group_select() {
     on_groups_change();
     
     $('.groups_wrapper .selectable_group').click(function() {
-        alert('hereee');
         $('.network_active').removeClass('network_active'); // unselect the city tab
         
         $('.groups_wrapper .selectable_group.selected_group').not(this).removeClass('selected_group');

@@ -30,6 +30,7 @@ function load_visible_locations(selected_day, selected_groups){
         'selected_day': selected_day
     }, function (data) {
         $('.suggested_locations').html(data); 
+        show_selected_location();
     });
 }
 
