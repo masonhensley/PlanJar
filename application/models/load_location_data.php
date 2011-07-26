@@ -77,9 +77,15 @@ class Load_location_data extends CI_Model
         $genders = array_count_values($genders);
 
         $number_of_schoolmates_attending = count($school);
-
-        $return_array['males_attending'] = $genders['male'];
-        $return_array['females_attending'] = $genders['female'];
+        $return_array = array();
+        if(isset($genders['male']))
+        {
+            $return_array['males_attending'] = $genders['male'];
+        }
+        if(isset($genders['female']))
+        {
+            $return_array['females_attending'] = $genders['female'];
+        }
         $return_array['schoolmates_attending'] = $number_of_schoolmates_attending;
         return $return_array;
     }
