@@ -16,6 +16,7 @@ class Load_coming_events extends CI_Model
                     JOIN places ON places.id=events.place_id
                     WHERE events.date>NOW()
                     ORDER BY date ASC";
+        $this->db->query($query);
         /*
         $place_array = array();
         $place_id_array = array();
