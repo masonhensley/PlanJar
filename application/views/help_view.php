@@ -43,14 +43,8 @@
 
                 </div>
                </div>
-            <div class ="right">
-                <div class ="right_header">
-                    Plans <input type="button" id="create_plan" value="+"/>
-                </div>
-                <div class="plans_wrapper"><?php echo($plans_html); ?></div>
-            </div>
+            
         </div>
-        <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <div class="bottom_links">
             Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
         </div>
