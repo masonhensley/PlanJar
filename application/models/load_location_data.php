@@ -58,28 +58,31 @@ class Load_location_data extends CI_Model
             JOIN user_meta ON user_meta.user_id=plans.user_id
             LEFT JOIN school_data ON school_data.id=user_meta.school_id AND school_data.id=$user->school_id
             WHERE events.place_id=$place_id AND events.date='$sql_date'";
-        $result = $this->db->query($query);
+        $result = $this->db->query($query); // pull school id, and gender from people attending
+        
         $total_attending = $result->num_rows();
-        $genders = array();
+        $place_info['total_attending'] = $total_attending;
+        
         $school = array();
+        $males = 0;
+        $females = 0;
         foreach ($result->result() as $result)
         {
-            $genders[] = $result->sex;
+            if($result->sex == 'male')
+            {
+                $males++;
+            }else if($result->sex == 'female')
+            {
+                $females++;
+            }
             $school[] = $result->id;
         }
-        $genders = array_count_values($genders);
+        $place_info['males'] = $males;
+        $place_info['females'] = $females;
+       
         $number_of_schoolmates_attending = count($school);
-        $place_info['number_of_friends'] = $number_of_schoolmates_attending;
+        $place_info['school_attending'] = $number_of_schoolmates_attending;
         
-        if(isset($genders['male']))
-        {
-           $place_info['males_attending'] = $people_going['males_attending'];
-        }
-        if(isset($genders['female']))
-        {
-          $place_info['females_attending'] = $people_going['females_going']; 
-        }
-         $place_info['schoolmates_attending'] = $people_going['schoolmates_attending'];
         return $place_info;
     }
 
@@ -89,12 +92,18 @@ class Load_location_data extends CI_Model
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
+        
+        var_dump($place_info);
+        
+        /*
         echo "<font style=\"font-weight:bold;\">" . $place_info['name'] . "</font>";
         echo "<br/><font style=\"color:gray;\">Category: " . $place_info['category'];
         echo "<br/>Distance from you: " . $place_info['distance'] . " miles";
         echo "<br/>Friends going: " . $place_info['number_of_friends'];
         echo "<br/>Schoolmates going: " .$place_info['schoolmates_going'];
         echo "<br/>% Male:  % Female:  </font>";
+         * 
+         */
     }
 
 }
