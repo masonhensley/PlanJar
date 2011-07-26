@@ -14,8 +14,11 @@ class Load_location_data extends CI_Model
         $sql_date = $sql_date->format('Y-m-d');
         $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
         $number_friends_attending = $this->get_friends_attending($place_id, $sql_date);
+      $people_going = $this->get_people_attending($place_id, $sql_date);
+        
         $place_info['number_of_friends'] = $number_friends_attending;
 
+        
         $this->display_place_info($place_info);
     }
 
@@ -50,6 +53,17 @@ class Load_location_data extends CI_Model
         $number_of_friends = $result->num_rows();
         return $number_of_friends;
     }
+    
+    function get_people_attending($place_id, $sql_date)
+    {
+        $query = "SELECT user_meta.school, user_meta.sex FROM events 
+            JOIN plans ON plans.event_id=events.id 
+            JOIN user_meta ON user_meta.user_id=plans.user_id
+            WHERE events.place_id=$place_id AND events.date='$sql_date'";
+        var_dump($query);
+        //$result = $this->db->query($query);
+        
+    }
 
     function display_place_info($place_info) // name, lat, lon, category, distance
     {
@@ -59,8 +73,8 @@ class Load_location_data extends CI_Model
         }
         echo "<font style=\"font-weight:bold;\">" . $place_info['name'] . "</font>";
         echo "<br/><font style=\"color:gray;\">Category: " . $place_info['category'];
-        echo "<br/>Distance from your location: " . $place_info['distance'] . " miles</font>";
-        echo "<br/>Number of friends going: " .$place_info['number_of_friends'];
+        echo "<br/>Distance from you: " . $place_info['distance'] . " miles";
+        echo "<br/>Friends going: " .$place_info['number_of_friends'] ."</font>";
     }
 
 }
