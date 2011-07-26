@@ -181,6 +181,7 @@ function show_data_wrapper(data_div, callback) {
             show_data_panel(data_div, callback);
         }
     } else {
+        alert('else');
         callback();
     }
 }
