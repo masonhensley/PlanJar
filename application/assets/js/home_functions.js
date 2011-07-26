@@ -3,6 +3,9 @@ var myLongitude;
 var myCity;
 var current_day_offset = 0;
 
+// Used to resize the map the first time it's shown (Google fuck up)
+var map_tab_opened = false;
+
 // Run when the DOM is loaded.
 $(function() {
     // places map
@@ -188,16 +191,13 @@ function show_data_panel(data_div, callback) {
         callback();
         
         // Resize the map after the animation finishes to eliminate the missing tile errors.
-        if (foo) {
-            alert('here');
+        if (!map_tab_opened) {
             google.maps.event.trigger(map, 'resize');
-            foo = false;
+            map_tab_opened = true;
         }
-        map_user_position();
+        //map_user_position();
     });
 }
-
-var foo = true;
 
 // Puts the user's position on the map and centers to it.'
 function map_user_position() {
