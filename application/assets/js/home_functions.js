@@ -187,7 +187,6 @@ function show_data_panel(data_div, callback) {
         callback();
         
         // Resize the map after the animation finishes to eliminate the missing tile errors.
-        console.log(map);
         google.maps.event.trigger(map, 'resize');
         map_user_position();
     });
