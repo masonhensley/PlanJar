@@ -1,6 +1,6 @@
 .create_group_content{
     display: none;
-    width: 600px;
+    width: 450px;
     height: auto;
     position: absolute;
     left: 50%;
@@ -22,14 +22,6 @@
     color:white;
 }
 
-.create_group_middle{
-
-}
-
-.create_group_privacy{
-    text-align: center;
-}
-
 .create_group_bottom{
 
 }
@@ -42,21 +34,8 @@
     color:gray;
 }
 
-/*.invite_wrapper {
-    width: 100%;
-}
-
-.invite_wrapper .left {
-    float: left;
-    width: 48%;
-}
-
-.invite_wrapper .right {
-    float: left;
-    margin-left: 4%;
-    width: 48%;
-}*/
-
 #group_privacy_wrapper {
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
