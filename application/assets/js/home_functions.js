@@ -74,7 +74,8 @@ function mapThisGoogle(latitude,longitude)
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
         
-    map = new google.maps.Map(document.getElementById("map"), myOptions);
+    //map = 
+    new google.maps.Map(document.getElementById("map"), myOptions);
 }
 
 // Returns a list of selected groups.
