@@ -32,15 +32,6 @@
             </div>
         </div>
 
-success
-        <iframe src='http://planjar.helpjuice.com/' class='helpjuice-autoframe' width='710px' height='850px' frameborder='0'></iframe> 
-        <div class="tab_bar">
-            <div class="data_tab tab_selected" assoc_div="#group_data">Group Data</div>
-            <div class="data_tab" assoc_div="#location_data">Location Data</div>
-            <div class="data_tab" assoc_div="#map_data">Map</div>
-            <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
-        </div>
-
         <div class ="container">
 
             <a href="/dashboard/notifications" id="notifications_link">Notifications</a>
@@ -61,6 +52,9 @@ success
                         <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                         <div id="map"></div>
                     </div>
+success
+        <iframe src='http://planjar.helpjuice.com/' class='helpjuice-autoframe' width='710px' height='850px' frameborder='0'></iframe> 
+
                 </div>
                 <div class="days_panel">
 
