@@ -43,10 +43,11 @@ function delete_plan_outer_click(event) {
     // Clear previous handlers
     $('.delete_plan, html').unbind('click');
     
-    console.log('still here');
-    
     // Get the original text
     var orig_text = $(this).html();
+    
+    console.log($(this));
+    console.log(orig_text);
         
     // Replacement text
     $(this).html('Sure?');
