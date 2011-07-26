@@ -14,13 +14,7 @@ class Load_location_data extends CI_Model
         $sql_date = $sql_date->format('Y-m-d');
         $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
         $number_friends_attending = $this->get_friends_attending($place_id, $sql_date);
-        $people_going = $this->get_people_attending($place_id, $sql_date);
-
-        $place_info['number_of_friends'] = $number_friends_attending;
-        $place_info['males_attending'] = $people_going['males_attending'];
-        $place_info['females_attending'] = $people_going['females_going']; 
-        $place_info['schoolmates_attending'] = $people_going['schoolmates_attending'];
-
+        $place_info = $this->get_people_attending($place_id, $sql_date);
         $this->display_place_info($place_info);
     }
 
@@ -37,7 +31,7 @@ class Load_location_data extends CI_Model
         return $place_array;
     }
 
-    function get_friends_attending($place_id, $date)
+    function get_friends_attending($place_id, $date, $place_info)
     {
         $this->load->model('load_locations');
         $friend_ids = $this->load_locations->get_friend_ids();
@@ -56,7 +50,7 @@ class Load_location_data extends CI_Model
         return $number_of_friends;
     }
 
-    function get_people_attending($place_id, $sql_date)
+    function get_people_attending($place_id, $sql_date, $place_info);
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT school_data.id, user_meta.sex FROM events 
@@ -75,19 +69,19 @@ class Load_location_data extends CI_Model
             $school[] = $result->id;
         }
         $genders = array_count_values($genders);
-
         $number_of_schoolmates_attending = count($school);
-        $return_array = array();
+        $place_info['number_of_friends'] = $number_friends_attending;
+        
         if(isset($genders['male']))
         {
-            $return_array['males_attending'] = $genders['male'];
+           $place_info['males_attending'] = $people_going['males_attending'];
         }
         if(isset($genders['female']))
         {
-            $return_array['females_attending'] = $genders['female'];
+          $place_info['females_attending'] = $people_going['females_going']; 
         }
-        $return_array['schoolmates_attending'] = $number_of_schoolmates_attending;
-        return $return_array;
+         $place_info['schoolmates_attending'] = $people_going['schoolmates_attending'];
+        return $place_info;
     }
 
     function display_place_info($place_info) // name, lat, lon, category, distance
