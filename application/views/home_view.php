@@ -16,7 +16,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <!-- Google Maps API -->
-        <script src="http://maps.google.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
 
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/divset.js"></script>
@@ -72,12 +72,12 @@
             </div>
             <div class ="center">
                 <div class="data_container_wrapper" style="display: block;">
-                     <div id="group_data" class ="data_container" style="display: block;"></div>
+                    <div id="group_data" class ="data_container" style="display: block;"></div>
                     <div id="plan_data" class ="data_container"></div>
                     <div id="location_data" class ="data_container"></div>
                     <div id="map_data" class ="data_container">
                         <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
-                        <div id="map"></div>
+                        <!--                        <div id="map"></div>-->
                     </div>
                 </div>
                 <div class="days_panel">
@@ -102,5 +102,7 @@
         <div class="bottom_links">
             Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
         </div>
+
+        <div id="map"></div>
     </body>
 </html>
