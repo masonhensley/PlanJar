@@ -89,6 +89,7 @@
                 <div class="suggested_locations">
                 </div>
                 <div class="upcoming_events">
+                    <?php echo $upcoming_event_html; ?>
                 </div>
             </div>
             <div class ="right">

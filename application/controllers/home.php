@@ -42,6 +42,7 @@ class Home extends CI_Controller
                 'joined_groups' => $joined_groups,
                 'followed_groups' => $followed_groups,
                 'day_html' => $day_html,
+                'upcoming_event_html' => $upcoming_event_html,
                 'school' => $school,
                 'plans_html' => $plans_html)
             );
