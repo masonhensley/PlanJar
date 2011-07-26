@@ -44,7 +44,7 @@ function set_network_tab()
             // Change to select one group
             $('#select_one_group').click();
         }
-        console.log('calling update once');
+        
         update_groups_and_locations();
     });
 }

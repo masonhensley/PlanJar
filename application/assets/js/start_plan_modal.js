@@ -20,6 +20,9 @@ function initialize_plan_modal() {
     
     // Closing click handler
     $('#cancel_plan').click(function () {
+        // Blur the invite boxes
+        $('#invite_plan_users, #invite_plan_groups').blur();
+        
         $('#create_plan_content').hide();
         
         // Clear the plan modal
