@@ -315,6 +315,11 @@ a{
     padding-bottom:10px;
 }
 
+.event_tab_active{
+    background:-webkit-gradient(linear,left top,left bottom,from(lightYellow),to(#F1FCD5));
+    color:navy;
+}
+
 .number{
     font-size:10px;
     padding:3px;
