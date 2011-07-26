@@ -26,11 +26,10 @@ function initialize_selectable_groups() {
 
 // Callback function
 function on_groups_change() {
-    show_data_container('#group_data');
-    update_groups_and_locations();// this should update the graphs so they match what is selected
+    update_groups_and_locations(); // this should update the graphs so they match what is selected
 }
 
-// this is the "use current locatiohn" tab. clicking it de-selects all other group tabs and uses the current location
+// this is the "use current location" tab. clicking it de-selects all other group tabs and uses the current location
 function set_network_tab()
 {
     $('.network_tab').click(function(){
@@ -45,6 +44,7 @@ function set_network_tab()
             // Change to select one group
             $('#select_one_group').click();
         }
+        console.log('calling update once');
         update_groups_and_locations();
     });
 }
@@ -55,6 +55,7 @@ function initialize_one_group_select() {
     on_groups_change();
     
     $('.groups_wrapper .selectable_group').click(function() {
+        alert('hereee');
         $('.network_active').removeClass('network_active'); // unselect the city tab
         
         $('.groups_wrapper .selectable_group.selected_group').not(this).removeClass('selected_group');

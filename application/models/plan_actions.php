@@ -61,7 +61,9 @@ class Plan_actions extends CI_Model
         $title at $name | $time | $date
         </div><br/><br/>
         <div class=\"delete_plan_container\"style=\"font-size: 20px; text-align:left;\">
-        <div class=\"delete_plan\">Delete Plan</div></div>";
+        <div class=\"delete_plan\">Delete Plan</div>
+        <div class=\"invite_people\">Invite people</div>
+        </div>";
 
         return $htmlString;
     }
@@ -129,7 +131,7 @@ class Plan_actions extends CI_Model
         {
             // make easy to read variables
             $id = $plan->id;
-            $name = $plan->name;
+            $place_name = $plan->name;
             $title = $plan->title;
             $time = $plan->time;
             $date = date('l', strtotime($plan->date));
@@ -140,11 +142,19 @@ class Plan_actions extends CI_Model
             }
             $date_organizer = $date;
 
-            $return_string .= "<div class =\"plan_content\" plan_id=\"$id\" >";
-            $return_string .= $name;
+            $return_string .= "<div class =\"plan_content\" plan_id=\"$id\">";
+
+            if ($title != '')
+            {
+                $return_string .= "<b>$title</b><br/>$place_name";
+            } else
+            {
+                $return_string .= "<b>$place_name</b>";
+            }
+
             $return_string .= "</div>";
-            $return_string .= "<div id=\"plan_padding\" style =\"width:100%; height:10px;\"></div>";
         }
+
         $return_string .= "</div>";
 
         return $return_string;

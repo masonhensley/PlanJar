@@ -159,7 +159,7 @@ function initialize_plan_modal() {
         } ,function (data) {
             if (data == 'success') {
                 // Blur the invite boxes
-                $('#Invite_plan_users, #invite_plan_groups').blur();
+                $('#invite_plan_users, #invite_plan_groups').blur();
                 
                 // Hide the modal
                 $('#create_plan_content').hide();

@@ -53,26 +53,26 @@
             </div>
         </div>
         <div class="tab_bar">
-            <div class="data_tab" assoc_div="#group_data">Group Data</div>
+            <div class="data_tab tab_selected" assoc_div="#group_data">Group Data</div>
             <div class="data_tab" assoc_div="#location_data">Location Data</div>
             <div class="data_tab" assoc_div="#map_data">Map</div>
             <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
         </div>
 
         <div class ="container">
-            
+
             <a href="/dashboard/notifications" id="notifications_link">Notifications</a>
             <div class ="left">
                 <div class="location_container">
                     <div id="using_location">Using location:</div>
                     <a href="#" id="change_location" >Change location</a>
-            </div>
-                
+                </div>
+
                 <?php include(APPPATH . 'models/load_group_panel.php'); ?>
             </div>
             <div class ="center">
-                <div class="data_container_wrapper">
-                    <div id="group_data" class ="data_container"></div>
+                <div class="data_container_wrapper" style="display: block;">
+                     <div id="group_data" class ="data_container" style="display: block;"></div>
                     <div id="plan_data" class ="data_container"></div>
                     <div id="location_data" class ="data_container"></div>
                     <div id="map_data" class ="data_container">

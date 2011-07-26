@@ -10,6 +10,15 @@
     margin-top: -125px;
     background-color:#efefef;
     padding: 5px;
+
+/*--CSS3 Box Shadows--*/
+	-webkit-box-shadow: 0px 0px 20px #000;
+	-moz-box-shadow: 0px 0px 20px #000;
+	box-shadow: 0px 0px 20px #000;
+	/*--CSS3 Rounded Corners--*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
     
 }
 
@@ -23,6 +32,14 @@ background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
     font-size:18px;
     padding-left:10px;
     padding-top:3px;
+/*--CSS3 Rounded Corners--*/
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-top-left: 10px;
+	border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-top-right: 10px;
+	border-top-right-radius: 10px;
+
 }
 
 #create_plan_content .draggable_title_bar .text {

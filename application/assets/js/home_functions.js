@@ -87,7 +87,7 @@ function get_selected_groups() {
         });
     }else if($('.network_tab').hasClass('network_active'))
     {
-            return_list.push($('.network_active').attr('group_id'));
+        return_list.push($('.network_active').attr('group_id'));
     }
     // if nothing is selected, you can check the php variable for (false)
     return return_list;
@@ -143,24 +143,27 @@ function hide_data_containers() {
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div, callback) {
+    console.log(data_div);
+    
+    // Make callback optional.
+    if (callback == undefined) {
+        callback = function() {};
+    }
+    
     $('.change_location_panel').hide(); // closes the 'change location' div that gets added in the map div
+    
     // If no tab is selected, show the wrapper.
     if (!$('.tab_bar .data_tab').hasClass('tab_selected')) {
         $('.data_container_wrapper').show('blind', {}, 'fast', function () {
-            show_data_container_helper(data_div, callback);
+            show_data_wrapper(data_div, callback);
         });
     } else {
-        show_data_container_helper(data_div, callback);
+        show_data_wrapper(data_div, callback);
     }
 }
 
 // Displays the data panel within the wrapper
-function show_data_container_helper(data_div, callback) {
-    // Make callback optional.
-    if (callback === undefined) {
-        callback = function() {};
-    }
-    
+function show_data_wrapper(data_div, callback) {
     // Select the appropriate tab.
     $('.tab_bar .data_tab').removeClass('tab_selected');
     $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
@@ -170,10 +173,10 @@ function show_data_container_helper(data_div, callback) {
         if ($('.data_container:visible').length > 0) {
             // Hide any visible data containers.
             $('.data_container:visible').hide('slide', {}, 'fast', function() {
-                show_data_container_helper_2(data_div, callback);
+                show_data_panel(data_div, callback);
             });
         } else {
-            show_data_container_helper_2(data_div, callback);
+            show_data_panel(data_div, callback);
         }
     } else {
         callback();
@@ -181,7 +184,7 @@ function show_data_container_helper(data_div, callback) {
 }
 
 // Shows the correct container and resizes the map.
-function show_data_container_helper_2(data_div, callback) {
+function show_data_panel(data_div, callback) {
     // Show the appropriate container
     $(data_div).show('slide', {}, 'fast', function () {
         callback();
