@@ -36,7 +36,7 @@ function load_visible_locations(selected_day, selected_groups){
 
 function load_upcoming_events(selected_groups){
     $.get('/home/load_upcoming_events', {
-        'selected_groups': selected_groups,
+        'selected_groups': selected_groups
     }, function (data) {
         $('.upcoming_events').html(data); 
     });
