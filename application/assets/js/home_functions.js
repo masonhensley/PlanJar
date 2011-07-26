@@ -43,6 +43,7 @@ function location_data() {
                         myLatitude = data['data'][0];
                         myLatitude = data['data'][1];
                     }
+                    map_user_position();
                 });
                 
                 // Update the city name.
