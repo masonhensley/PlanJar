@@ -285,14 +285,27 @@ a{
 }
 
 .location_tab{
+    position:relative;
     text-align:center;
     background-color:white;
     color:navy;
-    margin-top:10px;
-    border-top:1px solid lightgray;
     border-bottom: 1px solid lightgray;
     padding-top:10px;
     padding-bottom:10px;
+}
+
+.number{
+    font-size:10px;
+    padding:3px;
+    background-color: white;
+    color: black;
+    position:absolute; 
+    top:0px; 
+    left:0px; 
+    height:auto;
+    width:auto;
+    border-right:1px solid gray; 
+    border-bottom:1px solid gray;
 }
 
 .selected_location_tab{

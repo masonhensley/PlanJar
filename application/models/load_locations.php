@@ -256,10 +256,14 @@ class Load_locations extends CI_Model
             $place_id_array = array_count_values($place_id_array);
             asort($place_id_array);
             $place_id_array = array_reverse($place_id_array, TRUE);
+            $number_tracker = 1;
             foreach ($place_id_array as $place_id => $count)
             {
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
+                    <div class="number">
+                    <?php echo $number_tracker; ?>
+                    </div>
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
                     <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font><br/>
                     <?php echo "id: " . $place_id; ?>
