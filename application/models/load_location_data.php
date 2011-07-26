@@ -92,12 +92,18 @@ class Load_location_data extends CI_Model
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
+        
+        var_dump($place_info);
+        
+        /*
         echo "<font style=\"font-weight:bold;\">" . $place_info['name'] . "</font>";
         echo "<br/><font style=\"color:gray;\">Category: " . $place_info['category'];
         echo "<br/>Distance from you: " . $place_info['distance'] . " miles";
         echo "<br/>Friends going: " . $place_info['number_of_friends'];
         echo "<br/>Schoolmates going: " .$place_info['schoolmates_going'];
         echo "<br/>% Male:  % Female:  </font>";
+         * 
+         */
     }
 
 }
