@@ -5,6 +5,7 @@ class Load_coming_events extends CI_Model
 
     function load_events()
     {
+        $user = $this->ion_auth->get_user();
         $query = "SELECT places.id, places.name, 
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
