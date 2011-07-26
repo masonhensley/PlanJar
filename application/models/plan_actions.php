@@ -101,24 +101,6 @@ class Plan_actions extends CI_Model
         return "<div id=\"container\" class=\"plan_deleted\">Plan Deleted</div>";
     }
 
-    // Copies the specified plan and sets the originator as the passed user id
-    function copy_plan($plan_id, $user_id)
-    {
-        // Get the existing plan
-        $query_string = "SELECT * FROM plans WHERE id = ?";
-        $query = $this->db->query($query_string, array($plan_id));
-        $row = $query->row_array();
-
-        // Change to the argument user id and remove the previous plan id
-        $row['user_id'] = $user_id;
-        unset($row['id']);
-
-        var_dump($this->db->last_query());
-
-        // Insert the new plan.
-        $query = $this->db->insert('plans', $row);
-    }
-
     // Accepts an associative array containing plan data
     // Returns the plan id
     function add_plan($data)

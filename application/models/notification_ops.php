@@ -148,19 +148,15 @@ class Notification_ops extends CI_Model
     function accept_notification($id)
     {
         // Get the notification row
-        $query_string = "SELECT id, type, subject_id FROM notifications WHERE id = ?";
+        $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
         $query = $this->db->query($query_string, array($id));
         $row = $query->row();
-        
-        var_dump($row);
-        unset($row['id']);
-        var_dump($row);
 
         switch ($row->type)
         {
             case 'plan_invite':
                 $this->load->model('plan_actions');
-                $this->plan_actions->copy_plan($row->subject_id, $this->ion_auth->get_user()->id);
+                $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
                 $this->update_notification_viewed($row->id, true);
                 break;
             case 'group_invite':
