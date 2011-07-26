@@ -143,6 +143,7 @@ function hide_data_containers() {
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div, callback) {
+    console.log('showing' + data_div);
     $('.change_location_panel').hide(); // closes the 'change location' div that gets added in the map div
     // If no tab is selected, show the wrapper.
     if (!$('.tab_bar .data_tab').hasClass('tab_selected')) {
