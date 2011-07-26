@@ -36,8 +36,8 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "<hr/>This panel will populate with <font style=\"color:navy; font-weight:bold;\">popular events</font>";
-        echo "based on the  based on the <font style=\"color:navy; font-weight:bold;\">groups</font> selected";
+        echo "<hr/>This panel will populate with <font style=\"color:navy; font-weight:bold;\">popular events</font> ";
+        echo "based on the based on the <font style=\"color:navy; font-weight:bold;\">groups</font> selected";
         echo "for <font style=\"font-weight:bold;color:navy;\">$display_day<br/><hr/>";
     }
 
