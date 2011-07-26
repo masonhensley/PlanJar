@@ -1,16 +1,19 @@
 <html>
     <head>
+        <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
         <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
         <script type="text/javascript">
-            var myLatlng = new google.maps.LatLng(30, -90);
+            $(function () {
+                var myLatlng = new google.maps.LatLng(30, -90);
 
-            var myOptions = {
-                zoom: 14,
-                center: myLatlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
+                var myOptions = {
+                    zoom: 14,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
 
-            map = new google.maps.Map(document.getElementById("map"), myOptions);
+                map = new google.maps.Map(document.getElementById("map"), myOptions);
+            });
         </script>
     </head>
 
