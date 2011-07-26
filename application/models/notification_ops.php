@@ -155,9 +155,10 @@ class Notification_ops extends CI_Model
         switch ($row->type)
         {
             case 'plan_invite':
+                // Add a plan for the user to the specified event
                 $this->load->model('plan_actions');
                 $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
-                $this->update_notification_viewed($row->id, true);
+                $this->update_notification_viewed($id, true);
                 break;
             case 'group_invite':
                 break;
