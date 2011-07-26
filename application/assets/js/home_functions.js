@@ -195,6 +195,7 @@ function show_data_panel(data_div, callback) {
 
 // Puts the user's position on the map and centers to it.'
 function map_user_position() {
+    return;
     clear_map_markers();
     
     map_marker_array.push(new google.maps.Marker({
