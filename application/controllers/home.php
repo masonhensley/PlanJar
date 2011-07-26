@@ -30,6 +30,10 @@ class Home extends CI_Controller
             $this->load->model('plan_actions');
             $plans_html = $this->plan_actions->display_plans();
 
+            // get the upcoming events HTML
+            $this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
+            $upcoming_event_html = $this->load_coming_events->load_events();
+
 
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
@@ -38,6 +42,7 @@ class Home extends CI_Controller
                 'joined_groups' => $joined_groups,
                 'followed_groups' => $followed_groups,
                 'day_html' => $day_html,
+                'upcoming_event_html' => $upcoming_event_html,
                 'school' => $school,
                 'plans_html' => $plans_html)
             );
@@ -284,14 +289,6 @@ class Home extends CI_Controller
         $date = $this->input->get('date');
         $selected_groups = $this->input->get('selected_groups');
         $this->load_location_data->display_location_info($place_id, $date, $selected_groups);
-    }
-
-    // this function will load upcoming events on the right side of the center container
-    public function load_upcoming_events()
-    {
-        $this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
-        $selected_groups = $this->input->get('selected_groups'); // this is not needed anymore
-        $this->load_coming_events->load_events();
     }
 
     // Returns HTML for the list of the user's plans (right panel)
