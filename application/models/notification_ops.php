@@ -153,6 +153,8 @@ class Notification_ops extends CI_Model
         $row = $query->row();
         
         var_dump($row);
+        unset($row['id']);
+        var_dump($row);
 
         switch ($row->type)
         {
