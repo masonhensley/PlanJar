@@ -213,7 +213,7 @@ function show_data_panel(data_div, callback) {
 function map_user_position() {
     clear_map_markers();
     
-    console.log(myLatitude, myLongitude);
+    console.log(myLatitude + ' ' + myLongitude);
     
     map_marker_array.push(new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude),
