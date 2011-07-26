@@ -57,7 +57,7 @@ class Load_location_data extends CI_Model
     function get_people_attending($place_id, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT shcool_data.school, user_meta.sex FROM events 
+        $query = "SELECT school_data.school, user_meta.sex FROM events 
             JOIN plans ON plans.event_id=events.id 
             JOIN user_meta ON user_meta.user_id=plans.user_id
             LEFT JOIN school_data ON school_data.id=user_meta.school_id AND school_data.id=$user->school_id
