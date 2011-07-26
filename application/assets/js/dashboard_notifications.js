@@ -36,7 +36,8 @@ function get_notifications() {
         // Accept handler
         $('.notification_entry .accept').click(function() {
             $.get('/dashboard/accept_notification', {
-                notif_id: $(this).parent().attr('notif_id')
+                notif_id: $(this).parent().attr('notif_id'),
+                event_id: $(this).parent().attr('event_id')
             }, function (data) {
                 get_notifications();
             });
