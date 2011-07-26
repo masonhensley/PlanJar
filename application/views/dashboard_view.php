@@ -53,6 +53,7 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
+<img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
                 <div id="show_name" style="float:left; color:white; font-size:15px;"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
                 <div style="float:right">
                     <a href="/home/" style="font-size:15px;">Home &middot;</a>
