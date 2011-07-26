@@ -56,10 +56,15 @@ class Load_location_data extends CI_Model
     
     function get_people_attending($place_id, $sql_date)
     {
-        $query = "SELECT user_meta.school, user_meta.sex FROM events 
+        $query = "SELECT shcool_data.school, user_meta.sex FROM events 
             JOIN plans ON plans.event_id=events.id 
             JOIN user_meta ON user_meta.user_id=plans.user_id
+            JOIN school_data ON school_data.id=user_meta.school_id
             WHERE events.place_id=$place_id AND events.date='$sql_date'";
+        
+        
+        
+        
         var_dump($query);
         //$result = $this->db->query($query);
         
