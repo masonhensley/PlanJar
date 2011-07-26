@@ -14,11 +14,7 @@ class Load_location_data extends CI_Model
         $sql_date = $sql_date->format('Y-m-d');
         $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
         $number_friends_attending = $this->get_friends_attending($place_id, $sql_date);
-      $people_going = $this->get_people_attending($place_id, $sql_date);
-        
-        $place_info['number_of_friends'] = $number_friends_attending;
-
-        
+        $place_info = $this->get_people_attending($place_id, $sql_date, $place_info);
         $this->display_place_info($place_info);
     }
 
@@ -53,8 +49,8 @@ class Load_location_data extends CI_Model
         $number_of_friends = $result->num_rows();
         return $number_of_friends;
     }
-    
-    function get_people_attending($place_id, $sql_date)
+
+    function get_people_attending($place_id, $sql_date, $place_info)
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT school_data.id, user_meta.sex FROM events 
@@ -67,19 +63,32 @@ class Load_location_data extends CI_Model
         $total_attending = $result->num_rows();
         $genders = array();
         $school = array();
-        foreach($result->result() as $result)
+        foreach ($result->result() as $result)
         {
             $genders[] = $result->sex;
             $school[] = $result->id;
         }
         $genders = array_count_values($genders);
-        
         $number_of_schoolmates_attending = count($school);
-        var_dump($genders, $number_of_schoolmates_attending);
+        $place_info['number_of_friends'] = $number_friends_attending;
+        
+        if(isset($genders['male']))
+        {
+           $place_info['males_attending'] = $people_going['males_attending'];
+        }
+        if(isset($genders['female']))
+        {
+          $place_info['females_attending'] = $people_going['females_going']; 
+        }
+         $place_info['schoolmates_attending'] = $people_going['schoolmates_attending'];
+        return $place_info;
     }
 
     function display_place_info($place_info) // name, lat, lon, category, distance
     {
+        $total_attending = $place_info['males_attending'] + $place_info['females_attending'];
+        $percent_female = $place_info['females_attending']/$total_attending;
+        $percent_male = $place_info['males_attending']/$total_attending;
         if (strlen($place_info['distance']) > 3)
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
@@ -87,7 +96,9 @@ class Load_location_data extends CI_Model
         echo "<font style=\"font-weight:bold;\">" . $place_info['name'] . "</font>";
         echo "<br/><font style=\"color:gray;\">Category: " . $place_info['category'];
         echo "<br/>Distance from you: " . $place_info['distance'] . " miles";
-        echo "<br/>Friends going: " .$place_info['number_of_friends'] ."</font>";
+        echo "<br/>Friends going: " . $place_info['number_of_friends'];
+        echo "<br/>Schoolmates going: " .$place_info['schoolmates_going'];
+        echo "<br/>% Male: $percent_male % Female: $percent_female </font>";
     }
 
 }
