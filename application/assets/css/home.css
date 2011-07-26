@@ -164,7 +164,6 @@ a{
     position:relative;
     width: 598px;
     height: 300px;
-    display: none;
     border-left:1px solid lightgray;
     border-right: 1px solid lightgray;
 }
@@ -177,13 +176,24 @@ a{
 }
 
 .delete_plan{
+    float:left;
+    text-align: center;    
+    padding:4px;
+    position:relative;
+    left:5px;
+    border:1px solid lightgray;
+    background-color:#DC2F2F;
+    color:white;
+}
+
+.invite_people {
     float:right;
     text-align: center;    
     padding:4px;
     position:relative;
     right:5px;
     border:1px solid lightgray;
-    background-color:#DC2F2F;
+    background: -webkit-gradient(linear,left top,left bottom,from(#EBBEF0),to(#C64AD4));
     color:white;
 }
 

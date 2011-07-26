@@ -43,6 +43,9 @@ function delete_user_plan() {
 }
 
 function delete_plan_outer_click(event) {
+    // Clear previous handlers.
+    $(this + ', html').unbind('click');
+    
     // Stop propagation (to allow for clicking anywhere BUT the element)
     event.stopPropagation();
     
@@ -67,9 +70,6 @@ function delete_plan_outer_click(event) {
     });
         
     $('html').one('click', function (event) {
-        // Stop propagation (to allow for clicking anywhere BUT the element)
-        event.stopPropagation();
-        
         // Replace the original text and re-assign the one-time click event
         $('.delete_plan').html(orig_text);
         $('.delete_plan').one('click', delete_plan_outer_click);
