@@ -145,6 +145,7 @@ function hide_data_containers() {
 function show_data_container(data_div, callback) {
     console.log(data_div);
     
+    // Make callback optional.
     if (callback == undefined) {
         callback = function() {};
     }
@@ -162,11 +163,6 @@ function show_data_container(data_div, callback) {
 
 // Displays the data panel within the wrapper
 function show_data_wrapper(data_div, callback) {
-    // Make callback optional.
-    if (callback === undefined) {
-        callback = function() {};
-    }
-    
     // Select the appropriate tab.
     $('.tab_bar .data_tab').removeClass('tab_selected');
     $('.tab_bar [assoc_div="' + data_div + '"]').addClass('tab_selected');
