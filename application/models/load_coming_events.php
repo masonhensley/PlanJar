@@ -17,6 +17,16 @@ class Load_coming_events extends CI_Model
                     WHERE events.date>NOW()
                     ORDER BY date ASC";
 
+        $place_array = array();
+        $place_id_array = array();
+        foreach ($result->result() as $place)
+        {
+            if (!isset($place_array[$place->id]))
+            {
+                $place_array[$place->id] = $place->name;
+            }
+            $place_id_array[] = $place->id;
+        }
         var_dump($query);
     }
 
