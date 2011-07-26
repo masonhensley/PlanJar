@@ -6,15 +6,15 @@
         <input type="button" id="cancel_group_creation" style="float:right; position:relative; bottom:2px;" value="X"/>
     </div>
     <form id="create_group">
-        <div class="create_group_middle">
-            <div class="in-field_block input_style"><label for="group_name">Group name</label>
-                <input type="text" id="group_name" name="group_name" class="textbox"/></div>
-
-            <div class="in-field_block input_style"><label for="group_description">Group description</label>
-                <textarea name="group_description" id="group_description" cols="40" rows="5"></textarea>
-            </div>
+        <div class="in-field_block input_style">
+            <label for="group_name">Group name</label>
+            <input type="text" id="group_name" name="group_name" class="textbox"/>
         </div>
-
+        <br/>
+        <div class="in-field_block input_style" style="height: auto;">
+            <label for="group_description">Group description</label>
+            <textarea name="group_description" id="group_description" cols="40" rows="5"></textarea>
+        </div>
 
         <div id="group_privacy_wrapper">
             <div priv_type="open">
