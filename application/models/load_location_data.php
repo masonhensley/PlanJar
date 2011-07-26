@@ -70,7 +70,7 @@ class Load_location_data extends CI_Model
         }
         $genders = array_count_values($genders);
         $number_of_schoolmates_attending = count($school);
-        $place_info['number_of_friends'] = $number_friends_attending;
+        $place_info['number_of_friends'] = $number_of_schoolmates_attending;
         
         if(isset($genders['male']))
         {
