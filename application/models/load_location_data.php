@@ -66,7 +66,7 @@ class Load_location_data extends CI_Model
         $people_info = array();
         $total_attending = $result->num_rows();
         $result_array = $result->row_array();
-        var_dump($total_attending, $result_array);
+        var_dump($total_attending, $result_array, $query);
     }
 
     function display_place_info($place_info) // name, lat, lon, category, distance
