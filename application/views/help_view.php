@@ -34,39 +34,15 @@
 
         <div class ="container">
 
-            <a href="/dashboard/notifications" id="notifications_link">Notifications</a>
-            <div class ="left">
-                <div class="location_container">
-                    <div id="using_location">Using location:</div>
-                    <a href="#" id="change_location" >Change location</a>
-                </div>
-
-                <?php include(APPPATH . 'models/load_group_panel.php'); ?>
-            </div>
             <div class ="center">
                 <div class="data_container_wrapper" style="display: block;">
-                     <div id="group_data" class ="data_container" style="display: block;"></div>
-                    <div id="plan_data" class ="data_container"></div>
-                    <div id="location_data" class ="data_container"></div>
-                    <div id="map_data" class ="data_container">
-                        <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
-                        <div id="map"></div>
-                    </div>
-success
+                     success
         <iframe src='http://planjar.helpjuice.com/' class='helpjuice-autoframe' width='710px' height='850px' frameborder='0'></iframe> 
-
-                </div>
-                <div class="days_panel">
-
-                    <div class="seven_days">
-                        <?php echo($day_html); ?>
                     </div>
+
+
                 </div>
-                <div class="suggested_locations">
-                </div>
-                <div class="upcoming_events">
-                </div>
-            </div>
+               </div>
             <div class ="right">
                 <div class ="right_header">
                     Plans <input type="button" id="create_plan" value="+"/>
