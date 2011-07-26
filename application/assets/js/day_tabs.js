@@ -4,8 +4,7 @@ $(function () {
 
 function initialize_day_tab_rules() {
     // Set up the day of the week tabs.
-    $("div.days_panel .day:first").click(); //Activate first tab
-
+    //
     // On Click Event
     $("div.days_panel .day").click(function() {
 
@@ -19,6 +18,8 @@ function initialize_day_tab_rules() {
         
         return false;
     });
+    
+    $("div.days_panel .day:first").click(); //Activate first tab
     
     // Left and right arrow click functions
     $('.left_day_arrow').click(function () {
