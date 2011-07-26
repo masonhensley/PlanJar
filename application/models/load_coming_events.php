@@ -40,6 +40,7 @@ class Load_coming_events extends CI_Model
                     JOIN event_invitees ON event_invitees.event_id=events.id
                     JOIN plans ON (plans.event_id=events.id AND events.privacy='open') OR (event_invitees.user_id=plans.user_id AND plans.event_id=event_invitees.event_id)
                     JOIN places ON events.place_id=places.id
+                    WHERE events.date>NOW() AND distance<15
                     ORDER BY distance ASC";
 
         $result = $this->db->query($query);
@@ -60,6 +61,17 @@ class Load_coming_events extends CI_Model
 
     function on_friends_selected()
     {
+        $this->load->model('load_locations');
+        $friend_ids = $this->load_locations->get_friend_ids(); // get an array of friend ids
+        
+        $query = "SELECT places.name, places.id 
+                  FROM events
+                  JOIN event_invitees ON event_invitees.event_id=events.id
+                  JOIN plans ON (events.id=plans.event_id AND events.privacy='open') OR (event_invitees.user_id=plans.user_id AND plans.event_id=event_invitees.event_id)
+                  JOIN places ON events.place_id=places.id
+                  WHERE events.date>NOW()";
+        
+        var_dump($query);
         
     }
 
