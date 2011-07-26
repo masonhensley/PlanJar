@@ -48,7 +48,7 @@ class Load_coming_events extends CI_Model
             foreach ($place_id_array as $place_id => $count)
             {
                 ?>
-                <div class="location_tab" place_id="<?php echo $place_id; ?>">
+                <div class="event_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">
                         <?php echo $number_tracker; ?>
                     </div>
