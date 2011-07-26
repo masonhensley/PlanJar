@@ -59,7 +59,6 @@ class Load_location_data extends CI_Model
             LEFT JOIN school_data ON school_data.id=user_meta.school_id AND school_data.id=$user->school_id
             WHERE events.place_id=$place_id AND events.date='$sql_date'";
         $result = $this->db->query($query);
-        $people_info = array();
         $total_attending = $result->num_rows();
         $genders = array();
         $school = array();
@@ -70,7 +69,7 @@ class Load_location_data extends CI_Model
         }
         $genders = array_count_values($genders);
         $number_of_schoolmates_attending = count($school);
-        $place_info['number_of_friends'] = $number_friends_attending;
+        $place_info['number_of_friends'] = $number_of_schoolmates_attending;
         
         if(isset($genders['male']))
         {
@@ -86,9 +85,6 @@ class Load_location_data extends CI_Model
 
     function display_place_info($place_info) // name, lat, lon, category, distance
     {
-        $total_attending = $place_info['males_attending'] + $place_info['females_attending'];
-        $percent_female = $place_info['females_attending']/$total_attending;
-        $percent_male = $place_info['males_attending']/$total_attending;
         if (strlen($place_info['distance']) > 3)
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
@@ -98,7 +94,7 @@ class Load_location_data extends CI_Model
         echo "<br/>Distance from you: " . $place_info['distance'] . " miles";
         echo "<br/>Friends going: " . $place_info['number_of_friends'];
         echo "<br/>Schoolmates going: " .$place_info['schoolmates_going'];
-        echo "<br/>% Male: $percent_male % Female: $percent_female </font>";
+        echo "<br/>% Male:  % Female:  </font>";
     }
 
 }
