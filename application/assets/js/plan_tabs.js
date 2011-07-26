@@ -44,7 +44,8 @@ function delete_user_plan() {
 
 function delete_plan_outer_click(event) {
     // Clear previous handlers.
-    $(this + ', html').unbind('click');
+    $(this).unbind('click');
+    $('html').unbind('click');
     
     // Stop propagation (to allow for clicking anywhere BUT the element)
     event.stopPropagation();
