@@ -48,7 +48,7 @@ function delete_plan_outer_click(event) {
         
     // Replacement text
     console.log($(this).html());
-    $(this).html('Sure?');
+    $(this).text('Sure?');
     console.log($(this).html());
         
     // Assign a click event to actually delete the plan
