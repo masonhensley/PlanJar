@@ -29,7 +29,7 @@ function on_groups_change() {
     update_groups_and_locations();// this should update the graphs so they match what is selected
 }
 
-// this is the "use current locatiohn" tab. clicking it de-selects all other group tabs and uses the current location
+// this is the "use current location" tab. clicking it de-selects all other group tabs and uses the current location
 function set_network_tab()
 {
     $('.network_tab').click(function(){
