@@ -35,15 +35,15 @@ function location_data() {
                 }, function (data) {
                     console.log(data);
                     console.log(data['status']);
-                    if (data['status'] == 'adjusted') {
+                    if (data.status == 'adjusted') {
                         // Location automatically adjusted
-                        alert(data['text']);
+                        alert(data.text);
                         map_user_position();
                         show_data_container('#map_data');
-                    } else if (data['status'] == 'from_profile') {
+                    } else if (data.status == 'from_profile') {
                         // Assign the longitude and latitude coordinates from the server to the js variables
-                        myLatitude = data['data'][0];
-                        myLatitude = data['data'][1];
+                        myLatitude = data.loc[0];
+                        myLatitude = data.loc[1];
                     }
                     map_user_position();
                 });
