@@ -35,20 +35,21 @@ function get_plan_data() {
         $('#plan_data').html(data);
         
         // Handles clicking on the delete plan button
+        $('.delete_plan').unbind('click');
         $('.delete_plan').click(delete_plan_outer_click);
     });
 }
 
 function delete_plan_outer_click(event) {
     // Clear previous handlers
-    $('.delete_plan, html').unbind('click');
+    $('html').unbind('click');
     
     // Get the original text
     var orig_text = $(this).html();
         
     // Replacement text
     console.log($(this).html());
-    $(this).text('Sure?');
+    $(this).html('Sure?');
     console.log($(this).html());
         
     // Assign a click event to actually delete the plan
@@ -66,8 +67,9 @@ function delete_plan_outer_click(event) {
     });
         
     $('html').one('click', function() {
-        // Replace the original text and re-assign the one-time click event
+        // Replace the original text and re-assign the click event
         $('.delete_plan').html(orig_text);
+        $('.delete_plan').unbind('click');
         $('.delete_plan').click(delete_plan_outer_click);
     });
 }
