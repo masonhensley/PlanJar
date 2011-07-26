@@ -60,6 +60,10 @@ function initialize_one_group_select(initial_update) {
     $('.groups_wrapper .selectable_group').click(function() {
         $('.network_active').removeClass('network_active'); // unselect the city tab
      
+        // Deselect all other selected groups
+        $('.groups_wrapper .selected_group').not(this).removeClass('selected_group');
+     
+        // Toggle this group
         if ($(this).hasClass('selected_group')) {
             $(this).removeClass('selected_group');
         } else {
