@@ -1,14 +1,13 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<?php
+/* The echo construct output text directly to the page */
+echo "This is written to the page!!!";
 
-       
-        <title>PlanJar | Helpo</title>
+/* Remember header() must be called before any actual output is sent
+(normal HTML tags, blank lines in a file, or from PHP) */
+header("Location: http://www.faqme.com/planjar");
 
-    </head>
-    <body>
-        
-    </body>
-</html>
-
+exit;
+?>
