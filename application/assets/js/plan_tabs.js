@@ -39,6 +39,8 @@ function get_plan_data() {
 
 // Handles clicking on the delete plan button
 function delete_user_plan() {
+    $('.delete_plan').unbind('click');
+    $('html').unbind('click');
     $('.delete_plan').click('click', delete_plan_outer_click);
 }
 
@@ -53,7 +55,7 @@ function delete_plan_outer_click(event) {
     // Replacement text
     $(this).html('Sure?');
         
-    // Assign a one-time click event to actually delete the plan
+    // Assign a click event to actually delete the plan
     $(this).click('click', function(event){
         // Stop propagation (to allow for clicking anywhere BUT the element)
         event.stopPropagation();
