@@ -170,8 +170,11 @@ a{
 }
 
 .data_box_top_bar{
-    width:100%;
+    width:auto;
     height:50px;
+   margin-top:5px;
+   margin-left:10px;
+   margin-right:10px;
 }
 
 .delete_plan{
