@@ -196,7 +196,7 @@ function show_data_panel(data_div, callback) {
     });
 }
 
-// Puts the user's position on the map and centers to it.'
+// Puts the user's position on the map and centers to it.
 function map_user_position() {
     clear_map_markers();
     
@@ -213,6 +213,7 @@ function map_user_position() {
 
 // Calculates and sets the bounds for the map based on map_marker_array (global var)
 function calculate_map_bounds() {
+    console.log('marker length: ' + map_marker_array.length);
     if (map_marker_array.length > 1) {
         // Calculate the necessary viewport.
         var min_lat = get_min_marker(true);
