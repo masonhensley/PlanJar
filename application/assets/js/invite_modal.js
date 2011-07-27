@@ -28,7 +28,7 @@ function initialize_invite_modal() {
                 $('#invite_followers_list').find('div[user_id="' + item.id + '"]').click();
             }
         },
-        onRemove: function (item) {
+        onDelete: function (item) {
             // Unselect the appropriate follower if necessary
             console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]'));
             console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]').hasClass('divset_selected'));
@@ -50,7 +50,7 @@ function initialize_invite_modal() {
 // Opens the modal and hides the groups invite pane if necessary
 function open_invite_modal(priv_type, subject_type) {
     // Hide the modal
-    $('#invite_modal').hide('fast');
+    $('#close_invite_modal').click();
     
     // Create the invite title
     var title_text = 'This ' + subject_type + ' has <b>' + priv_type + '</b> privacy settings.<hr/>';
