@@ -36,9 +36,12 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "<hr/>This panel will populate with <font style=\"color:navy; font-weight:bold;\">popular events</font> ";
-        echo "based on the based on the <font style=\"color:navy; font-weight:bold;\">groups</font> selected ";
-        echo "for<font style=\"font-weight:bold;color:navy;\"> $display_day<br/><hr/>";
+          ?> 
+        <div class="display_message">
+            Popular locations for <?php echo $display_day; ?><br/>
+            (no groups selected)
+        </div>
+        <?php
     }
 
     function on_current_location_selected($display_day, $sql_date)
@@ -108,7 +111,7 @@ class Load_locations extends CI_Model
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
         $display_message = "Places <font style=\"color:green; font-weight:bold;\">$school</font> ";
-        $display_message .= "students are going <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
+        $display_message .= "students are going $display_day";
 
         $query = "SELECT events.title, places.name, places.id, places.category 
                   FROM user_meta
@@ -224,7 +227,7 @@ class Load_locations extends CI_Model
                 $index++;
             }
         }
-        $header_string .= " are going <font style=\"font-weight:bold; color:navy;\">$display_day</font>";
+        $header_string .= " are going $display_day";
         return $header_string;
     }
 

@@ -35,7 +35,7 @@ class Load_coming_events extends CI_Model
 
     function display_event_tabs($place_id_array, $place_array)
     {
-        $return_string = "<div class=\"display_message\">Popular upcoming events open to you</div>";
+        $return_string = "<div class=\"display_message\">Popular Upcoming Events</div>";
         if (count($place_id_array) > 0)
         {
             $place_id_array = array_count_values($place_id_array);
