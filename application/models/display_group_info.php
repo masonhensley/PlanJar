@@ -54,11 +54,10 @@ class Display_group_info extends CI_Model
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
                         FROM user_meta
-                        WHERE distance>15
-                        ORDER BY distance ASC";
-        //$result = $this->db->query($query);
-        //$result_array = $result->result_array();
-        var_dump($query);
+                        HAVING distance<15";
+        $result = $this->db->query($query);
+        $result_array = $result->result_array();
+        var_dump($result_array);
     }
 
     function on_friends_selected()
