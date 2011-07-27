@@ -273,6 +273,7 @@ class Load_locations extends CI_Model
                     <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font><br/>
                 </div>
                 <?php
+                $number_tracker++;
             }
         } else
         {
