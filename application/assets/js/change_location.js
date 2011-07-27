@@ -84,6 +84,16 @@ function initialize_change_location_panel() {
             }
         });
     });
+    
+    // Use current location
+    $('#use_cur_location').click(function() {
+        get_current_location(function (latitude, longitude) {
+            myLatitude = latitude;
+            myLongitude = longitude;
+            hide_change_location_panel();
+            map_user_position();
+        });
+    });
 }
 
 // Shows the panel.

@@ -1,93 +1,69 @@
+// Vars
 var myLatitude;
 var myLongitude;
 var myCity;
 var current_day_offset = 0;
-
-// Used to resize the map the first time it's shown (Google fuck up)
-var map_tab_opened = false;
+var map_tab_opened = false; // Used to resize the map the first time it's shown (Google fuck up)
+var map;
 
 // Run when the DOM is loaded.
 $(function() {
-    // places map
-    location_data();
+    initialize_map();
 });
 
-var initialLocation;
-var browserSupportFlag;
-var map;
-
-function location_data() {
-    
+// Gets the user's current location
+// Calls the callback function on success with parameters of latitude and longitude
+function get_current_location(callback) {
     if (navigator.geolocation) 
     {
-        navigator.geolocation.getCurrentPosition
-        ( 
-            function (position) 
-            {  
-                myLatitude=position.coords.latitude;
-                myLongitude=position.coords.longitude;
-                
-                // Update the user's profile with the new information.
-                $.get('/home/update_user_location', {
-                    latitude: myLatitude,
-                    longitude: myLongitude,
-                    auto: true
-                }, function (data) {
-                    data = $.parseJSON(data);
-                    
-                    console.log(data);
-                    console.log(data.status);
-                    if (data.status == 'adjusted') {
-                        // Location automatically adjusted
-                        alert(data.text);
-                        map_user_position();
-                        show_data_container('#map_data');
-                    } else if (data.status == 'from_profile') {
-                        // Assign the longitude and latitude coordinates from the server to the js variables
-                        myLatitude = parseFloat(data.loc[0]);
-                        myLongitude = parseFloat(data.loc[1]);
-                    }
-                    map_user_position();
-                });
-                
-                // Update the city name.
-                update_current_city_name();
-                
-                mapThisGoogle(position.coords.latitude, position.coords.longitude);
-            }, 
-            // next function is the error callback
-            function (error)
-            {
-                switch(error) {
-                    case error.TIMEOUT:
-                        alert ('Timeout');
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert ('Position unavailable');
-                        break;
-                    case error.PERMISSION_DENIED:
-                        alert ('Permission denied');
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        alert ('Unknown error');
-                        break;
-                }
-            });
+        // Location callback
+        navigator.geolocation.getCurrentPosition(function (position) {  
+            var latitude=position.coords.latitude;
+            var longitude=position.coords.longitude;
+            if (callback != undefined) {
+                callback(latitude, longitude);
+            }
+        },  function () {
+            // Error callback
+            alert('Your position is unavailable at this time.');
+        });
     }
 }
 
-// places the google map
-function mapThisGoogle(latitude,longitude)
-{
-    var myLatlng = new google.maps.LatLng(latitude,longitude);
+function initialize_map() {
+    get_current_location(function (latitude, longitude) {
+        // Update the user's profile with the new information.
+        $.get('/home/update_user_location', {
+            'latitude': latitude,
+            'longitude': longitude,
+            auto: true
+        }, function (data) {
+            data = $.parseJSON(data);
+            if (data.status == 'adjusted') {
+                // Location automatically adjusted
+                alert(data.text);
+                map_user_position();
+                show_data_container('#map_data');
+            } else if (data.status == 'from_profile') {
+                // Assign the longitude and latitude coordinates from the server to the js variables
+                myLatitude = parseFloat(data.loc[0]);
+                myLongitude = parseFloat(data.loc[1]);
+            }
+            map_user_position();
+        });
+                
+        // Update the city name.
+        update_current_city_name();
         
-    var myOptions = {
-        zoom: 14,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+        // Create the map
+        var map_options = {
+            zoom: 14,
+            center: new google.maps.LatLng(latitude,longitude),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
         
-    map = new google.maps.Map(document.getElementById("map"), myOptions);
+        map = new google.maps.Map(document.getElementById("map"), map_options);
+    });
 }
 
 // Returns a list of selected groups.
