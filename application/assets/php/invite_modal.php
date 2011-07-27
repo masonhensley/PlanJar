@@ -18,8 +18,12 @@
         <div id="invite_groups_list"></div>
     </div>
 
-    <label for="send_invites">Search for people in <?php echo($school); ?></label>
-    <input type="text" id="search_in_school"/>
+    <div id="search_in_school_wrapper">
+        <div class="header">
+            Search for people in <?php echo($school); ?>
+        </div>
+        <input type="text" id="search_in_school"/>
+    </div>
 
     <input type="button" id="send_invites" value="Invite"/>
 </div>
