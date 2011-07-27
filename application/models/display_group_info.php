@@ -137,7 +137,7 @@ class Display_group_info extends CI_Model
                 $display_groups = "";
                 foreach ($group_names as $group)
                 {
-                    $display_groups .= "<font style=\"font-size:30px;color:gray; font-weight:bold;\">$group</font>, ";
+                    $display_groups .= "<font style=\"font-size:30px;color:black;font-weight:bold;\">$group,</font> ";
                 }
                 $display_groups = substr($display_groups, 0, -2);
                 echo $display_groups;
