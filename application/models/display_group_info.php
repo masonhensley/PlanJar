@@ -53,11 +53,17 @@ class Display_group_info extends CI_Model
 
     function on_friends_selected()
     {
+        $this->load->model('load_locations');
+        $friends = $this->load_locations->get_friend_ids();
+        $friend_count = count($friend_ids);
         ?>
         <div class="data_box_top_bar">
-            <font style="font-size:30px; font-weight:bold; text-align: left;">Friends</font>
+            <div style="float:left;">
+                <font style="font-size:30px; font-weight:bold;">Friends</font>
+                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $friend_count; ?>)</font>
+            </div>
         </div>
-        
+
         <?php
     }
 
