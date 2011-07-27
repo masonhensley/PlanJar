@@ -73,6 +73,7 @@ class Display_group_info extends CI_Model
         $query = "SELECT * FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
+        
         $result = $this->db->query($query);
         $row = $result->row();
         $number_schoolmates = $result->num_rows();
@@ -81,7 +82,7 @@ class Display_group_info extends CI_Model
         <div class="data_box_top_bar">
             <div style="float:left;">
                 <font style="font-size:30px; font-weight:bold;"><?php echo $school; ?></font>
-                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $number_schoolmates; ?>)</font>
+                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $number_schoolmates; ?> on PlanJar)</font>
             </div>
         </div>
         <?php
