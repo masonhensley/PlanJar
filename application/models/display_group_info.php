@@ -109,7 +109,7 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
+                <font style="font-size:30px;color:gray; font-weight:bold;">Group: </font>
                 <font style="font-size:30px; font-weight:bold;"><?php echo $school; ?></font>
             </div>
         </div>
