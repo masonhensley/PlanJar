@@ -17,8 +17,8 @@ class Load_coming_events extends CI_Model
                     WHERE events.date>NOW()
                     ORDER BY date ASC";
         $result = $this->db->query($query);
-        var_dump($result->row_array());
-
+        
+        /*
         $place_array = array();
         $place_id_array = array();
         foreach ($result->result() as $place)
@@ -31,7 +31,10 @@ class Load_coming_events extends CI_Model
         }
 
         $return_string = $this->display_event_tabs($place_id_array, $place_array);
-        return $return_string;
+         * 
+         */
+        
+        return var_dump($return_string);
     }
 
     function display_event_tabs($place_id_array, $place_array)
