@@ -101,9 +101,10 @@
             </div>
             <div class ="right">
                 <div class ="right_header">
-                    Plans <input type="button" id="create_plan" value="+"/>
+                    
                 </div>
                 <div class="plans_wrapper"><?php echo($plans_html); ?></div>
+                <input type="button" id="create_plan" value="Create Plan"/>
             </div>
         </div>
 
