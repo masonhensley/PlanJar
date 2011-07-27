@@ -172,6 +172,8 @@ a{
 .data_box_top_bar{
     width:100%;
     height:50px;
+    padding-top:10px;
+    padding-left:10px;
 }
 
 .delete_plan{

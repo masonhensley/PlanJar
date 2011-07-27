@@ -55,7 +55,7 @@ class Display_group_info extends CI_Model
     {
         ?>
         <div class="data_box_top_bar">
-            <font style="font-size:30px; font-weight:bold;">Friends</font>
+            <font style="font-size:30px; font-weight:bold; text-align: left;">Friends</font>
         </div>
         
         <?php
