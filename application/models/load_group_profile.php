@@ -116,6 +116,7 @@ class Load_group_profile extends CI_Model
                 } else // if you are joined and it is a regular group
                 {
                     $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
+                    $bottom_bar_buttons.= "<div class=\"invite_people\">Invite people</div>";
                     $bottom_bar_buttons.= "<div class=\"remove_following\">unjoin</div>";
                 }
             } else if ($group_info['school_group']) // if you are following and it is a school group
@@ -126,7 +127,6 @@ class Load_group_profile extends CI_Model
                 $bottom_bar_text .= "Group is <font style=\"color:green;font-weight:bold;\">open</font>";
                 $bottom_bar_buttons .= "<div class=\"add_joined\" style=\"margin-right:3px;\">join group</div>";
                 $bottom_bar_buttons .= "<div class=\"remove_following\">unfollow</div>";
-                
             } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
             {
                 $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
@@ -138,15 +138,14 @@ class Load_group_profile extends CI_Model
             {
                 $bottom_bar_text .= "Group is <font style=\"color:red;font-weight:bold;\">closed</font>";
             }
-            echo "<div style=\"float:left;margin-left:10px;\">" . $bottom_bar_text . "</div>";                
-            if($group_info['school_group'])
+            echo "<div style=\"float:left;margin-left:10px;\">" . $bottom_bar_text . "</div>";
+            if ($group_info['school_group'])
             {
                 echo "<div style=\"position:absolute; right:0px; bottom:0px;\">" . $bottom_bar_buttons . "</div>";
-            }else{
+            } else
+            {
                 echo "<div style=\"position:absolute; right:-15px; bottom:-11px;\">" . $bottom_bar_buttons . "</div>";
             }
-            
-    
             ?>
         </div>
 

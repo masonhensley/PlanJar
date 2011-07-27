@@ -323,7 +323,7 @@ function reset_modal() {
     // Hide the new event div
     $('#start_event_content').css('display', 'none');
     
-    // Clear the toekn inputs
+    // Clear the token inputs
     $('#invite_plan_users, #invite_plan_groups').tokenInput('clear');
 }
 

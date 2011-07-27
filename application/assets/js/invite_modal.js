@@ -26,18 +26,34 @@ function initialize_invite_modal() {
     // Submit handler
     $('#send_invites').click(function () {
         
-        });
+        
+        // Call the close click handler
+        $('#close_invite_modal').click();
+    });
 }
 
-function open_invite_modal(priv_type, invite_type) {
+// Opens the modal and hides the groups invite pane if specified
+function open_invite_modal(hide_groups) {
+    if (hide_groups == undefined)
+    
     populate_invite_followers_list();
     populate_invite_groups_list();
     
     $('#invite_modal').show('fast');
 }
 
+// Resets the modal
 function reset_invite_modal() {
+    // Clear the invite boxes
+    $('#invite_followers_list, #invite_groups_list').html('');
     
+    // Show the group invite box
+    $('#invite_groups_list_wrapper').css('display', '');
+    
+    // Clear and blur the search box
+    $('#search_in_school').val('');
+    $('#search_in_school').tokenInput('clear');
+    $('#search_in_school').blur();
 }
 
 // Populates and initializes the followers list
