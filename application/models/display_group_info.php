@@ -70,8 +70,7 @@ class Display_group_info extends CI_Model
     function on_school_selected($school)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT user_meta.user_id, school_data.total_enrollment 
-        FROM user_meta 
+        $query = "SELECT * FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
         $result = $this->db->query($query);
@@ -83,9 +82,6 @@ class Display_group_info extends CI_Model
             <div style="float:left;">
                 <font style="font-size:30px; font-weight:bold;"><?php echo $school; ?></font>
                 <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $number_schoolmates; ?>)</font>
-            </div>
-            <div style="float:right">
-                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo "Total enrollment: " .$total_enrollment; ?>)</font>
             </div>
         </div>
         <?php
