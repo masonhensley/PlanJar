@@ -115,19 +115,15 @@ function update_current_city_name() {
             // Loop through each response entry and construct the date accordingly
             myCity = '';
             var types_index;
-            console.log(result);
             $.each(result, function (array_index, element) {
-                console.log(element);
                 // Find the city
                 types_index = $.inArray('locality', element.types);
-                console.log('city index: ' + types_index);
                 if (types_index != -1) {
                     myCity = result[array_index].long_name;
                 }
                 
                 // Find the state
-                types_index = $.inArray('administrative_level_1', element.types);
-                console.log('state index: ' + types_index);
+                types_index = $.inArray('administrative_area_level_1', element.types);
                 if (types_index  != -1) {
                     myCity += ', ' + result[array_index].short_name;
                 }
