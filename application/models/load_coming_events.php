@@ -6,6 +6,7 @@ class Load_coming_events extends CI_Model
     function load_events()
     {
         $user = $this->ion_auth->get_user();
+        // change later
         $query = "SELECT places.id, places.name, events.date, plans.event_id, events.title, plans.user_id,
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
@@ -14,9 +15,10 @@ class Load_coming_events extends CI_Model
                     LEFT JOIN event_invitees ON event_invitees.event_id=events.id
                     JOIN plans ON (plans.event_id=events.id AND events.privacy='open') OR (plans.user_id=event_invitees.user_id)
                     JOIN places ON places.id=events.place_id
-                    WHERE events.date>NOW()
+                    WHERE events.date>NOW() AND events.date<NOW()+5
+                    HAVING distance<15
                     ORDER BY date ASC";
-        var_dump($query);
+        
         $result = $this->db->query($query);
         $place_array = array();
         $place_id_array = array();
@@ -29,9 +31,7 @@ class Load_coming_events extends CI_Model
             $place_id_array[] = $place->id;
         }
         $result = $result->result();
-        $return_string = $this->display_event_tabs($place_id_array, $place_array, $result);
-         
-        
+        $return_string = $this->display_event_tabs($place_id_array, $place_array, $result);        
         
         return $return_string;
     }
@@ -52,7 +52,7 @@ class Load_coming_events extends CI_Model
             {
                 $return_string .= "<div class=\"event_tab\" place_id=\"$place_id\"><div class=\"number\">$number_tracker</div>";
                 $return_string .= "<font style=\"font-weight:bold;\">$place_array[$place_id]</font><br/>";
-                $return_string .= "<font style=\"font-weight:bold;color:lightgray; font-size:13px;\">$count people are attending</font></div>";
+                $return_string .= "<font style=\"font-weight:bold;color:lightgray; font-size:13px;\">$count upcoming plans</font></div>";
                 $number_tracker++;
             }
         } else
