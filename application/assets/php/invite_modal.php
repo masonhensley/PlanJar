@@ -6,11 +6,19 @@
         </div>
     </div>
 
-    <div id="invite_followers_list"></div>
+    <div id="invite_followers_list_wrapper">
+        <div class="header">Your followers</div>
 
-    <div id="invite_groups_list"></div>
+        <div id="invite_followers_list"></div>
+    </div>
 
-    Search for people in <?php echo($school); ?>
+    <div id="invite_groups_list_wrapper">
+        <div class="header">Your joined groups</div>
+
+        <div id="invite_groups_list"></div>
+    </div>
+
+    <label for="send_invites">Search for people in <?php echo($school); ?></label>
     <input type="text" id="search_in_school"/>
 
     <input type="button" id="send_invites" value="Invite"/>
