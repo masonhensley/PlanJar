@@ -17,6 +17,7 @@ function load_data_box(selected_day, selected_groups)
         'selected_groups': selected_groups,
         'selected_day': selected_day
     }, function (data) {
+        
         $('#group_data').html(data);
         var graph_data = selected_groups;
         var chart = d3.select("body")
