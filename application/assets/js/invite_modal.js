@@ -24,8 +24,6 @@ function initialize_invite_modal() {
         theme: 'facebook',
         onAdd: function (item) {
             // Select the appropriate follower if necessary
-            console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]'));
-            console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]').hasClass('divset_selected'));
             if (!$('#invite_followers_list').find('div[user_id="' + item.id + '"]').hasClass('divset_selected')) {
                 $('#invite_followers_list').find('div[user_id="' + item.id + '"]').click();
             }
@@ -33,6 +31,8 @@ function initialize_invite_modal() {
         onRemove: function (item) {
             // Unselect the appropriate follower if necessary
             if ($('#invite_followers_list').find('div[user_id="' + item.id + '"]').hasClass('divset_selected')) {
+                console.log('below was clicked');
+                console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]'));
                 $('#invite_followers_list').find('div[user_id="' + item.id + '"]').click();
             }
         }
