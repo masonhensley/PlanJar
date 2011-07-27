@@ -15,9 +15,6 @@ function initialize_invite_modal() {
         handle: '.title_bar'
     });
     
-    // In-field label
-    $('#invite_modal .in-field_block label').inFieldLabels();
-    
     // TokenInput
     $('#search_in_school').tokenInput('/home/search_school_users', {
         hintText: '',
@@ -25,6 +22,11 @@ function initialize_invite_modal() {
         queryParam: 'needle',
         theme: 'facebook'
     });
+    
+    // Submit handler
+    $('#send_invites').click(function () {
+        
+        });
 }
 
 function open_invite_modal(priv_type, invite_type) {

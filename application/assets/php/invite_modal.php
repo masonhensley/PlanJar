@@ -10,10 +10,8 @@
 
     <div id="invite_groups_list"></div>
 
-    <div class="in-field_block" style="text-align: center;">
-        <label for="search_in_school">Search <?php echo($school); ?></label>
-        <input type="text" id="search_in_school"/>
-    </div>
+    Search for people in <?php echo($school); ?>
+    <input type="text" id="search_in_school"/>
 
     <input type="button" id="send_invites" value="Invite"/>
 </div>
