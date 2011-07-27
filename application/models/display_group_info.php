@@ -57,7 +57,15 @@ class Display_group_info extends CI_Model
                         HAVING distance<15";
         $result = $this->db->query($query);
         $result_array = $result->result_array();
-        var_dump($result_array);
+        $total_near_by = $result->num_rows();
+        ?>
+        <div class="data_box_top_bar">
+            <div style="float:left;">
+                <font style="font-size:30px; font-weight:bold;">Current Location</font>
+                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> within 15 miles)</font>
+            </div>
+        </div>
+        <?php
     }
 
     function on_friends_selected()
@@ -66,14 +74,13 @@ class Display_group_info extends CI_Model
         $friends = $this->load_locations->get_friend_ids();
         $friend_count = count($friends);
         $query = "SELECT * FROM user_meta WHERE ";
-        foreach($friends as $friend)
+        foreach ($friends as $friend)
         {
             $query .= "user_meta.user_id=$friend OR ";
         }
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
         $result_array = $result->result_array();
-        
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
@@ -91,7 +98,7 @@ class Display_group_info extends CI_Model
         $query = "SELECT * FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
-        
+
         $result = $this->db->query($query);
         $row = $result->row();
         $number_schoolmates = $result->num_rows();
@@ -105,7 +112,6 @@ class Display_group_info extends CI_Model
             </div>
         </div>
         <?php
-        
     }
 
     function on_groups_selected()
