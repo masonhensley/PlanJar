@@ -466,10 +466,10 @@ class Home extends CI_Controller
         {
             if ($left)
             {
-                echo('<div class="invite_divset" user_id="' . $tuple['id'] . ' style="float: left;">');
+                echo('<div class="invite_divset" user_id="' . $tuple['id'] . '" style="float: left;">');
             } else
             {
-                echo('<div class="invite_divset" user_id="' . $tuple['id'] . ' style="float: right;">');
+                echo('<div class="invite_divset" user_id="' . $tuple['id'] . '" style="float: right;">');
             }
             $left = !$left;
             echo($tuple['name']);
