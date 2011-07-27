@@ -82,10 +82,7 @@ function populate_invite_followers_list() {
         
         // Click handler
         $('#invite_followers_list').find('div').click(function() {
-            console.log($(this));
             if ($(this).hasClass('divset_selected')) {
-                console.log($(this));
-                console.log($(this).attr('user_id'));
                 // Add the recently selected user to the tokenInput
                 $('#search_in_school').tokenInput('add', {
                     id: $(this).attr('user_id'), 
@@ -106,7 +103,5 @@ function populate_invite_groups_list() {
     $.get('/home/get_joined_groups_divset', function (data) {
         $('#invite_groups_list').html(data);
         $('#invite_groups_list').divSet(true);
-        
-        
     });
 }
