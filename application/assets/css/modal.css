@@ -38,14 +38,14 @@
     border-top-right-radius: 10px;
 }
 
-    .modalBackground
-        {
-            position: absolute;
-            z-index: 100;
-            top: 0px;
-            left: 0px;
-            background-color: #000;
-            filter: alpha(opacity=60);
-            -moz-opacity: 0.6;
-            opacity: 0.6;
-        }
+.modal_background
+{
+    position: absolute;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    background-color: #000;
+    filter: alpha(opacity=60);
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+}

@@ -9,6 +9,7 @@ var map;
 // Run when the DOM is loaded.
 $(function() {
     initialize_map();
+    $('.modal').addClass('modal_background');
 });
 
 // Gets the user's current location
