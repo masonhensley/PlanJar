@@ -6,7 +6,7 @@ class Load_coming_events extends CI_Model
     function load_events()
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT places.id, places.name, events.date, plans.event_id, events.title,
+        $query = "SELECT places.id, places.name, events.date, plans.event_id, events.title, plans.user_id
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
@@ -17,6 +17,7 @@ class Load_coming_events extends CI_Model
                     WHERE events.date>NOW()
                     ORDER BY date ASC";
         $result = $this->db->query($query);
+        var_dump($result->row_array());
 
         $place_array = array();
         $place_id_array = array();
