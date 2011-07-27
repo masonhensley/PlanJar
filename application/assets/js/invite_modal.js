@@ -95,6 +95,7 @@ function populate_invite_groups_list() {
         
         // Click handler
         $('#invite_followers_list').find('div').click(function() {
+            console.log($(this));
             if ($(this).hasClass('divset_selected')) {
                 console.log($(this));
                 console.log($(this).attr('user_id'));
