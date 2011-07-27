@@ -65,6 +65,22 @@ class Display_group_info extends CI_Model
                 <font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> people within 15 miles)</font>
             </div>
         </div>
+        <div class=graph_container>
+
+            <script type="text/javascript">
+                        
+                var chart = d3.select("body")
+                    .append("div")
+                    .attr("class", "graph_container");
+                
+                chart.selectAll("div").data(data)
+                    .enter()
+                    .append("div")
+                    .style("width", function(d) { return d * 10 + "px"; })
+                    .text(function(d) { return d; });
+                    
+            </script>
+        </div>
         <?php
     }
 
