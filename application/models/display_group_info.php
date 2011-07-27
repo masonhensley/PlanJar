@@ -32,8 +32,10 @@ class Display_group_info extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        echo "<br/>Select a group to see relevent information for $display_day";
-    }
+        ?>
+<br/><font style="font-size:20px; font-weight:bold; color:gray;">Select a group to see relevant information for <?php echo $display_day; ?></font>
+    <?php
+        }
 
     function on_current_location_selected()
     {
