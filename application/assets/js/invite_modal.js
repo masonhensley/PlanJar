@@ -12,7 +12,7 @@ function initialize_invite_modal() {
     
     // Draggable
     $('#invite_modal').draggable({
-        handle: '#invite_modal .title_bar'
+        handle: '.title_bar'
     });
     
     // In-field label
