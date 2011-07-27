@@ -227,7 +227,7 @@ class Load_locations extends CI_Model
                 $index++;
             }
         }
-        $header_string .= " are going <font style=\"font-weight:bold; color:navy;\">$display_day</font>";
+        $header_string .= " are going $display_day";
         return $header_string;
     }
 
