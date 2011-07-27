@@ -63,7 +63,7 @@ class Display_group_info extends CI_Model
         }
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
-        $result_array = $result->row_array();
+        $result_array = $result->result_array();
         
         ?>
         <div class="data_box_top_bar">
@@ -88,7 +88,7 @@ class Display_group_info extends CI_Model
         $row = $result->row();
         $number_schoolmates = $result->num_rows();
         $total_enrollment = $row->total_enrollment;
-        $result_array = $result->row_array();
+        $result_array = $result->result_array();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
