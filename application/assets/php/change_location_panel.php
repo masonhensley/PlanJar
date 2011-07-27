@@ -3,7 +3,9 @@
         <p>Your approximate location is shown. Change your location by searching for your city below and clicking on a marker.</p>
     </div>
 
-    <div style="display:inline-block;margin-top:25px;float:left;margin-left:10px;">
+    <div style="display:inline-block;margin-top:25px;float:left;margin-left:10px; text-align: center;">
+        <input type="button" id="use_cur_location" value="Use current location"/>
+
         <div class="in-field_block">
             <label for="change_location_search">Enter a new location.</label>
             <input type="text" id="change_location_search" class="textbox"/>
