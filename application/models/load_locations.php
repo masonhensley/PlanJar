@@ -271,7 +271,6 @@ class Load_locations extends CI_Model
                     </div>
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
                     <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font><br/>
-                    <?php echo "id: " . $place_id; ?>
                 </div>
                 <?php
             }

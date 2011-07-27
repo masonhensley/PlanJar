@@ -47,7 +47,7 @@ class Load_coming_events extends CI_Model
             {
                 $return_string .= "<div class=\"event_tab\" place_id=\"$place_id\"><div class=\"number\">$number_tracker</div>";
                 $return_string .= "<font style=\"font-weight:bold;\">$place_array[$place_id]</font><br/>";
-                $return_string .= "<font style=\"font-weight:bold;color:lightgray; font-size:13px;\">$count people are attending</font><br/>\"id: \" $place_id</div>";
+                $return_string .= "<font style=\"font-weight:bold;color:lightgray; font-size:13px;\">$count people are attending</font></div>";
                 $number_tracker++;
             }
         } else
