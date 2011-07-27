@@ -61,12 +61,11 @@ function initialize_map() {
                 map_user_position();
             }
             
+            // Update the city name.
+            update_current_city_name();
         });
                 
-        // Update the city name.
-        update_current_city_name();
-        
-        // Create the map
+        eate the map
         var map_options = {
             zoom: 14,
             center: new google.maps.LatLng(latitude,longitude),
@@ -208,7 +207,6 @@ function map_user_position() {
     
     map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
     map.setZoom(14);
-    console.log('zoom 14');
 }
 
 // Calculates and sets the bounds for the map based on map_marker_array (global var)
