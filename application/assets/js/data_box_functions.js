@@ -25,10 +25,10 @@ function load_data_box(selected_day, selected_groups)
         
         chart.selectAll("div").data(graph_data)
         .enter()
-        .append("div")
+        .append(".graph_data")
         .style("width", function(d) {
             return d * 10 + "px";
-        }).style("height", "17px").style("background-color:navy;")
+        }).style("height", "17px")
         .text(function(d) {
             return d;
         });
