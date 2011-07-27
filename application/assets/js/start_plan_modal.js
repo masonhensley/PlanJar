@@ -11,9 +11,7 @@ function initialize_plan_modal() {
         } else {
             $('#create_plan_content .draggable_title_bar .text').html('Start a plan');
         }
-
         $('#create_plan_content').show('fast');
-        $('body').addClass('modal_background');
     });
     
     // Focus the location box.
