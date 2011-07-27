@@ -13,6 +13,7 @@ function initialize_plan_modal() {
         }
 
         $('#create_plan_content').show('fast');
+        $('body').addClass('modal_background');
     });
     
     // Focus the location box.
