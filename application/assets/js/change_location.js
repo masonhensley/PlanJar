@@ -88,8 +88,18 @@ function initialize_change_location_panel() {
     // Use current location
     $('#use_cur_location').click(function() {
         get_current_location(function (latitude, longitude) {
+            // Store the coordinates
             myLatitude = latitude;
             myLongitude = longitude;
+            
+            // Update the profile with the new location
+            $.get('/home/update_user_location', {
+                'latitude': latitude,
+                'longitude': longitude,
+                auto: false
+            });
+            
+            // Hide the panel and update the map
             hide_change_location_panel();
             map_user_position();
         });
