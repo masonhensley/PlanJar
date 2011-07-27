@@ -190,9 +190,9 @@ function show_data_panel(data_div, callback) {
         // Resize the map after the animation finishes to eliminate the missing tile errors.
         if (!map_tab_opened) {
             google.maps.event.trigger(map, 'resize');
+            calculate_map_bounds();
             map_tab_opened = true;
         }
-    //map_user_position();
     });
 }
 
@@ -212,3 +212,69 @@ function map_user_position() {
     map.setZoom(14);
 }
 
+// Calculates and sets the bounds for the map based on map_marker_array (global var)
+function calculate_map_bounds() {
+    if (map_marker_array.length > 1) {
+        // Calculate the necessary viewport.
+        var min_lat = get_min_marker(true);
+        var min_lng = get_min_marker(false);
+        var max_lat = get_max_marker(true);
+        var max_lng = get_max_marker(false);
+                    
+        var bounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(min_lat, min_lng),
+            new google.maps.LatLng(max_lat, max_lng)
+            );
+                                                    
+        map.fitBounds(bounds);
+    } else if (map_marker_array.length == 1) {
+        // Center and zoom around the one location
+        map.setCenter(map_marker_array[0].position);
+        map.setZoom(10);
+    }
+}
+
+// The following two functions get the minimum or the maximum latitude or longitude
+// as specified in the parameter. Used in calculate_map_bounds.
+function get_min_marker(lat_lng) {
+    var min = 360;
+    
+    if (lat_lng) {
+        // Latitude
+        $.map(map_marker_array, function (item) {
+            if (item.position.lat() < min) {
+                min = item.position.lat();
+            }
+        });
+    } else {
+        // Longitude
+        $.map(map_marker_array, function (item) {
+            if (item.position.lng() < min) {
+                min = item.position.lng();
+            }
+        });
+    }
+    
+    return min;
+}
+function get_max_marker(lat_lng) {
+    var max = -360;
+    
+    if (lat_lng) {
+        // Latitude
+        $.map(map_marker_array, function (item) {
+            if (item.position.lat() > max) {
+                max = item.position.lat();
+            }
+        });
+    } else {
+        // Longitude
+        $.map(map_marker_array, function (item) {
+            if (item.position.lng() > max) {
+                max = item.position.lng();
+            }
+        });
+    }
+    
+    return max;
+}
