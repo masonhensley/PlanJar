@@ -67,19 +67,7 @@ class Display_group_info extends CI_Model
         </div>
         <div class=graph_container>
 
-            <script type="text/javascript">
-                        
-                var chart = d3.select("body")
-                    .append("div")
-                    .attr("class", "graph_container");
-                
-                chart.selectAll("div").data(data)
-                    .enter()
-                    .append("div")
-                    .style("width", function(d) { return d * 10 + "px"; })
-                    .text(function(d) { return d; });
-                    
-            </script>
+            
         </div>
         <?php
     }
@@ -140,7 +128,8 @@ class Display_group_info extends CI_Model
             $query .= "group_relationships.group_id=$group_id OR ";
         }
         $query = substr($query, 0, -4);
-        var_dump($query);
+        
+      
     }
 
 }
