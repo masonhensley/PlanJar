@@ -92,9 +92,15 @@ class Load_location_data extends CI_Model
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
-        var_dump($place_info);
+        ?>
+
+        <div class="data_box_top_bar">
+            <div style="float:left;">
+                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
+                <font style="font-size:30px; font-weight:bold;"><?php echo $place_info['name']; ?></font>
+            </div>
+        </div>
+        <?php
     }
-
 }
-
 ?>
