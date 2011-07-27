@@ -463,10 +463,10 @@ class Home extends CI_Controller
 
         echo('<table>');
 
-        $td_count = 0;
+        $begin_row = true;
         foreach ($this->follow_ops->get_followers_tuples() as $tuple)
         {
-            if ($td_count == 0)
+            if ($begin_row)
             {
                 // Add a table row
                 echo('<tr>');
@@ -479,12 +479,12 @@ class Home extends CI_Controller
             echo('</div>');
             echo('</td>');
 
-            if ($td_count == 1)
+            if (!$begin_row)
             {
                 // Close the table row
                 echo('</tr>');
             }
-            ++$td_count;
+            $begin_row = !$begin_row;
         }
 
         echo('</table>');
