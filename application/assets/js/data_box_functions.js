@@ -28,7 +28,7 @@ function load_data_box(selected_day, selected_groups)
         .append("div")
         .style("width", function(d) {
             return d * 10 + "px";
-        })
+        }).style("height", "17px").style("background-color:navy;")
         .text(function(d) {
             return d;
         });
