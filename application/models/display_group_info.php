@@ -56,6 +56,15 @@ class Display_group_info extends CI_Model
         $this->load->model('load_locations');
         $friends = $this->load_locations->get_friend_ids();
         $friend_count = count($friends);
+        $query = "SELECT * FROM user_meta WHERE ";
+        foreach($friends as $friend)
+        {
+            $query .= "user_meta.user_id=$friend OR ";
+        }
+        $query = substr($query, 0, -4);
+        $result = $this->db->query($query);
+        $result_array = $result->row_array();
+        
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
@@ -65,6 +74,7 @@ class Display_group_info extends CI_Model
         </div>
 
         <?php
+        var_dump($result_array);
     }
 
     function on_school_selected($school)
@@ -79,7 +89,6 @@ class Display_group_info extends CI_Model
         $number_schoolmates = $result->num_rows();
         $total_enrollment = $row->total_enrollment;
         $result_array = $result->row_array();
-        var_dump($result_array);
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
@@ -88,6 +97,7 @@ class Display_group_info extends CI_Model
             </div>
         </div>
         <?php
+        var_dump($result_array);
     }
 
     function on_groups_selected()
