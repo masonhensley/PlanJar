@@ -55,7 +55,7 @@ class Display_group_info extends CI_Model
     {
         $this->load->model('load_locations');
         $friends = $this->load_locations->get_friend_ids();
-        $friend_count = count($friend_ids);
+        $friend_count = count($friends);
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
