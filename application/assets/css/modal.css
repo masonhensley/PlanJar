@@ -8,9 +8,9 @@
     padding: 5px;
 
     /*--CSS3 Box Shadows--*/
-    -webkit-box-shadow: 0px 0px 20px #000;
-    -moz-box-shadow: 0px 0px 20px #000;
-    box-shadow: 0px 0px 20px #000;
+    -webkit-box-shadow: 0px 0px 100px #000;
+    -moz-box-shadow: 0px 0px 100px #000;
+    box-shadow: 0px 0px 100px #000;
 
     /*--CSS3 Rounded Corners--*/
     -webkit-border-radius: 10px;
@@ -36,16 +36,4 @@
     -webkit-border-top-right-radius: 10px;
     -moz-border-radius-top-right: 10px;
     border-top-right-radius: 10px;
-}
-
-.modal_background
-{
-    position: absolute;
-    z-index: 100;
-    top: 0px;
-    left: 0px;
-    background-color: #000;
-    filter: alpha(opacity=60);
-    -moz-opacity: 0.6;
-    opacity: 0.6;
 }
