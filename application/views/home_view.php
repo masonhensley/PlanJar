@@ -34,7 +34,7 @@
         <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
         
         <!-- D3 plugin -->
-        <!--<script type="text/javascript" src="/application/assets/js/D3/d3.js"></script>-->
+        <script type="text/javascript" src="/application/assets/js/D3/d3.js"></script>
         
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
