@@ -5,7 +5,10 @@ class Display_group_info extends CI_Model
 
     function _display_group_info($selected_groups, $day)  // being in this function ensures that $selected_groups is not NULL
     {
-        
+        if(!$day)
+        {
+            $day = 0;
+        }
         $this->load->model('load_locations');
         $display_day = $this->load_locations->get_day($day);
         
