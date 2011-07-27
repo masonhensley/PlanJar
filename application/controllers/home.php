@@ -62,25 +62,25 @@ class Home extends CI_Controller
     // not sure if this is needed
 // load and return user plan data
     /*
-    public function loadMyEvents()
-    {
-// get user info from ion_auth
-        $user_info = $this->ion_auth->get_user();
-        $user_id = $user_info->id;
+      public function loadMyEvents()
+      {
+      // get user info from ion_auth
+      $user_info = $this->ion_auth->get_user();
+      $user_id = $user_info->id;
 
-// pull all user's current events
-        $query = "SELECT plans.time_of_day, plans.date, places.name 
-        FROM plans 
-        LEFT JOIN places 
-        ON plans.place_id=places.id 
-        WHERE plans.user_id=$user_id";
+      // pull all user's current events
+      $query = "SELECT plans.time_of_day, plans.date, places.name
+      FROM plans
+      LEFT JOIN places
+      ON plans.place_id=places.id
+      WHERE plans.user_id=$user_id";
 
-// pull data
-        $query_result = $this->db->query($query);
-        $row = $query_result->row();
+      // pull data
+      $query_result = $this->db->query($query);
+      $row = $query_result->row();
 
-        return $row;
-    }
+      return $row;
+      }
      * 
      */
 
@@ -454,6 +454,19 @@ class Home extends CI_Controller
     {
         $this->load->model('event_ops');
         $this->event_ops->get_events_for_plan($this->input->get('day'), $this->input->get('time'), $this->input->get('place_id'));
+    }
+
+    // Returns HTML for divSet buttons containing names of the user's followers
+    function get_followers_divset()
+    {
+        $this->load->model('follow_ops');
+
+        foreach ($this->follow_ops->get_followers_tuples() as $tuple)
+        {
+            echo('<div class="invite_divset" user_id="' . $tuple['id'] . '">');
+            echo($tuple['name']);
+            echo('</div>');
+        }
     }
 
 }

@@ -72,6 +72,23 @@ class Follow_ops extends CI_Model
         return $return_array;
     }
 
+    // Returns (id, name) pairs of the user's followers
+    function get_followers_tuples()
+    {
+        $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name
+            FROM friends LEFT JOIN user_meta ON friends.user_id = user_meta.user_id
+            WHERE friends.follow_id = ? ORDER BY user_meta.last_name ASC";
+        $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id));
+
+        $return_array = array();
+        foreach ($query->result() as $row)
+        {
+            $return_array[] = array('id' => $row->user_id, 'name' => $row->first_name . ' ' . $row->last_name);
+        }
+
+        return $return_array;
+    }
+
     // Echos a user_entry, which is used as a following/follower list item
     function echo_user_entry($row, $option = '', $suggested_friends=null)
     {
@@ -92,16 +109,16 @@ class Follow_ops extends CI_Model
 
                 <div class="user_name">
                     <?php
-                    echo "<font style=\"font-weight:bold;\">" .$row->first_name . ' ' . $row->last_name ."</font>";
-                    
+                    echo "<font style=\"font-weight:bold;\">" . $row->first_name . ' ' . $row->last_name . "</font>";
+
                     echo "<br>";
                     $year_display = substr($row->grad_year, -2);
-                    echo "<font style=\"color:gray;\">" .$row->school . " ('" . $year_display . ")</font><br/>";
+                    echo "<font style=\"color:gray;\">" . $row->school . " ('" . $year_display . ")</font><br/>";
                     if ($option == 'suggested')
                     {
                         $number_of_connections = $suggested_friends[$row->user_id];
                         echo "<font style=\"color:green; font-size:10px; position:absolute;bottom:15px;right:8px;\">+$number_of_connections connections</font>";
-                    } 
+                    }
                     ?>
                 </div>          
             </div>
@@ -130,9 +147,9 @@ class Follow_ops extends CI_Model
             {
                 ?>
                 <div class="add_following">follow</div>
-            <?php
-        }
-        ?>
+                <?php
+            }
+            ?>
         </div>
         <?php
     }
@@ -144,6 +161,8 @@ class Follow_ops extends CI_Model
         $query = $this->db->query($query_string, array($user_id, $follow_id));
         return $query->num_rows() > 0;
     }
+    
+    
 
 }
 ?>

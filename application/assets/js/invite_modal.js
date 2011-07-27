@@ -20,9 +20,18 @@ function initialize_invite_modal() {
 }
 
 function open_invite_modal(priv_type, invite_type) {
+    populate_invite_followers_list();
+    
     $('#invite_modal').show('fast');
 }
 
 function reset_invite_modal() {
     
+}
+
+function populate_invite_followers_list() {
+    $.get('/home/get_followers_divset', function (data) {
+        $('#invite_followers_list').html(data);
+        $('#invite_followers_list').divSet(true);
+    });
 }
