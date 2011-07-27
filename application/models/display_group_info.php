@@ -53,7 +53,12 @@ class Display_group_info extends CI_Model
 
     function on_friends_selected()
     {
-        echo "friends tab is selected";
+        ?>
+        <div class="data_box_top_bar">
+            <font style="font-size:30px; font-weight:bold;">Friends</font>
+        </div>
+        
+        <?php
     }
 
     function on_school_selected()
