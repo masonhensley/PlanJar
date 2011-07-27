@@ -5,9 +5,10 @@ $(function () {
 function initialize_invite_modal() {
     // Close click handler
     $('#close_invite_modal').click(function () {
-        reset_invite_modal();
-        
-        $('#invite_modal').hide('fast');
+      
+        $('#invite_modal').hide('fast', function () {
+            reset_invite_modal();
+        });
     });
     
     // Draggable
@@ -38,7 +39,7 @@ function open_invite_modal(priv_type, subject_type) {
     
     // Determine whether to hide the groups
     var hide_groups = true;
-    if (subject_type == 'plan' && priv_type == 'open') {
+    if (subject_type == 'event' && priv_type == 'open') {
         // Only show your joined groups for an open event
         hide_groups = false;
     }
