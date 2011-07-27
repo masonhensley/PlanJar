@@ -33,7 +33,7 @@ class Load_group_profile extends CI_Model
         $number_joined = 0;
         foreach ($result3->result() as $group_relationship)
         {
-            if ($group_relationship != NULL)
+            if ($group_relationship)
             {
                 $number_joined++;
             }

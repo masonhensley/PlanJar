@@ -31,7 +31,7 @@ class Display_group_info extends CI_Model
             $this->on_school_selected($school);
         } else
         {
-            $this->on_groups_selected();
+            $this->on_groups_selected($selected_groups);
         }
     }
 
@@ -62,7 +62,7 @@ class Display_group_info extends CI_Model
         <div class="data_box_top_bar">
             <div style="float:left;">
                 <font style="font-size:30px; font-weight:bold;">Current Location</font>
-                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> within 15 miles)</font>
+                <font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> people within 15 miles)</font>
             </div>
         </div>
         <?php
@@ -108,15 +108,23 @@ class Display_group_info extends CI_Model
         <div class="data_box_top_bar">
             <div style="float:left;">
                 <font style="font-size:30px; font-weight:bold;"><?php echo $school; ?></font>
-                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $number_schoolmates; ?> on PlanJar)</font>
+                <font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $number_schoolmates; ?> are on PlanJar)</font>
             </div>
         </div>
         <?php
     }
 
-    function on_groups_selected()
+    function on_groups_selected($selected_groups)
     {
-        echo "groups are selected";
+        $query = "SELECT * FROM group_relationships
+                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
+                    WHERE ";
+        foreach ($selected_groups as $group_id)
+        {
+            $query .= "group_relationships.group_id=$group_id OR ";
+        }
+        $query = substr($query, 0, -4);
+        var_dump($query);
     }
 
 }
