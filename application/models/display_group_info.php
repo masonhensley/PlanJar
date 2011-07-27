@@ -5,9 +5,13 @@ class Display_group_info extends CI_Model
 
     function _display_group_info($selected_groups, $day)  // being in this function ensures that $selected_groups is not NULL
     {
+        
+        $this->load->model('load_locations');
+        $display_day = $this->load_locations->get_day($day);
+        
         if (!$selected_groups[0])
         {
-            $this->on_nothing_selected();
+            $this->on_nothing_selected($display_day);
         } else if ($selected_groups[0] == 'current_location')
         {
             $this->on_current_location_selected();
@@ -23,9 +27,9 @@ class Display_group_info extends CI_Model
         }
     }
 
-    function on_nothing_selected()
+    function on_nothing_selected($display_day)
     {
-        echo "nothing is selected";
+        echo "<br/>Select a group to see relevent information for $display_day";
     }
 
     function on_current_location_selected()
