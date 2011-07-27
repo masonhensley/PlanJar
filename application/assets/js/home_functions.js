@@ -230,7 +230,7 @@ function calculate_map_bounds() {
     } else if (map_marker_array.length == 1) {
         // Center and zoom around the one location
         map.setCenter(map_marker_array[0].position);
-        map.setZoom(10);
+        map.setZoom(14);
     }
 }
 
