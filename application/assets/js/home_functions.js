@@ -117,6 +117,7 @@ function update_current_city_name() {
             var index;
             console.log(result);
             for (entry in result) {
+                console.log('entry: ' + entry);
                 // Find the city
                 index = $.inArray('locality', entry.types);
                 console.log('city index: ' + index);
