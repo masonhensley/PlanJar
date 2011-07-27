@@ -65,7 +65,7 @@ function initialize_map() {
             update_current_city_name();
         });
                 
-        eate the map
+        // Create the map
         var map_options = {
             zoom: 14,
             center: new google.maps.LatLng(latitude,longitude),
