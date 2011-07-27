@@ -19,10 +19,10 @@ function load_data_box(selected_day, selected_groups)
     }, function (data) {
         
         $('#group_data').html(data);
-        var graph_data = selected_groups;
+        var graph_data = [1, 2, 3, 4, 5, 6, 7];
         var chart = d3.select("body")
         .append("div")
-        .attr("class", "graph_container");
+        .attr("class", "graph_data");
         
         chart.selectAll("div").data(graph_data)
         .enter()
