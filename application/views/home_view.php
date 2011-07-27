@@ -101,12 +101,10 @@
             </div>
             <div class ="right">
                 <font style="font-weight:bold; font-size:20px;">Plans</font>
-                <div class ="right_header">
-                    
-                </div>
                 <div class="plans_wrapper"><?php echo($plans_html); ?></div>
                 <hr/>
                 <input type="button" id="create_plan" value="Create Plan"/>
+                <br/>
             </div>
         </div>
 
