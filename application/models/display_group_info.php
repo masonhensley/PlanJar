@@ -61,8 +61,9 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
+                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
                 <font style="font-size:30px; font-weight:bold;">Current Location</font>
-                <font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> people within 15 miles)</font>
+                <br/><font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> people within 15 miles)</font>
             </div>
         </div>
         <?php
@@ -84,6 +85,7 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
+                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
                 <font style="font-size:30px; font-weight:bold;">Friends</font>
                 <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $friend_count; ?>)</font>
             </div>
@@ -107,8 +109,8 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
+                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
                 <font style="font-size:30px; font-weight:bold;"><?php echo $school; ?></font>
-                <font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $number_schoolmates; ?> are on PlanJar)</font>
             </div>
         </div>
         <?php
@@ -116,6 +118,9 @@ class Display_group_info extends CI_Model
 
     function on_groups_selected($selected_groups)
     {
+        $this->load->model('load_locations');
+        $group_names = $this->load_locations->get_group_names($selected_groups);
+        var_dump($group_names);
         $query = "SELECT * FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
                     WHERE ";
@@ -125,9 +130,23 @@ class Display_group_info extends CI_Model
         }
         $query = substr($query, 0, -4);
         ?>
+        <div class="data_box_top_bar">
+            <div style="float:left;">
+                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
+                <?php
+                $display_groups = "";
+                foreach ($group_names as $group)
+                {
+                    $display_groups .= "<font style=\"font-size:30px;color:gray; font-weight:bold;\">$group</font>, ";
+                }
+                $display_groups = substr($display_groups, 0, -2);
+                echo $display_groups;
+                ?>
+            </div>
+        </div>
         <div class="graph_data">
         </div>
-      <?php
+        <?php
     }
 
 }
