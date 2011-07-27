@@ -24,6 +24,8 @@ function initialize_invite_modal() {
         theme: 'facebook',
         onAdd: function (item) {
             // Select the appropriate follower if necessary
+            console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]'));
+            console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]').hasClass('divset_selected'));
             if (!$('#invite_followers_list').find('div[user_id="' + item.id + '"]').hasClass('divset_selected')) {
                 $('#invite_followers_list').find('div[user_id="' + item.id + '"]').click();
             }
