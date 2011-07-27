@@ -40,7 +40,9 @@ function open_invite_modal(hide_groups) {
     
     populate_invite_followers_list();
     
-    if (!hide_groups) {
+    if (hide_groups) {
+        $('#invite_followers_list_wrapper').css('display', 'none');
+    } else {
         populate_invite_groups_list();
     }
     
