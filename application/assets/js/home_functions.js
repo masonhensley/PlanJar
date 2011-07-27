@@ -44,8 +44,8 @@ function location_data() {
                         show_data_container('#map_data');
                     } else if (data.status == 'from_profile') {
                         // Assign the longitude and latitude coordinates from the server to the js variables
-                        myLatitude = data.loc[0];
-                        myLatitude = data.loc[1];
+                        myLatitude = parseFloat(data.loc[0]);
+                        myLongitude = parseFloat(data.loc[1]);
                     }
                     map_user_position();
                 });
@@ -212,6 +212,8 @@ function show_data_panel(data_div, callback) {
 // Puts the user's position on the map and centers to it.'
 function map_user_position() {
     clear_map_markers();
+    
+    console.log(myLatitude + ' ' + myLongitude);
     
     map_marker_array.push(new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude),
