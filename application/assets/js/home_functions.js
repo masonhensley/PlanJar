@@ -112,20 +112,23 @@ function update_current_city_name() {
         if (status == google.maps.GeocoderStatus.OK) {
             result = result[0].address_components;
             
-            // Find the city
-            console.log(result);
-            console.log(result.types);
+            // Loop through each response entry and construct the date accordingly
             myCity = '';
-            var index = $.inArray('locality', result.types);
-            if (index != -1) {
-                myCity = result[index].long_name;
+            var index;
+            for (entry in result) {
+                // Find the city
+                index = $.inArray('locality', entry.types);
+                if (index != -1) {
+                    myCity = result[index].long_name;
+                }
+                
+                // Find the state
+                index = $.inArray('administrative_level_1', result.types);
+                if (index  != -1) {
+                    myCity += ', ' + result[index].short_name;
+                }
             }
             
-            // Find the state
-            index = $.inArray('administrative_level_1', result.types);
-            if (index  != -1) {
-                myCity += ', ' + result[index].short_name;
-            }
             $('#using_location').html('Using location: ' + myCity);
         }
     });
@@ -233,9 +236,9 @@ function calculate_map_bounds() {
         var max_lng = get_max_marker(false);
                     
         var bounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(min_lat, min_lng),
-            new google.maps.LatLng(max_lat, max_lng)
-            );
+        new google.maps.LatLng(min_lat, min_lng),
+        new google.maps.LatLng(max_lat, max_lng)
+    );
                                                     
         map.fitBounds(bounds);
     } else if (map_marker_array.length == 1) {
