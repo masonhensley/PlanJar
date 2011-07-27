@@ -59,7 +59,9 @@ class Home extends CI_Controller
         redirect('/login/');
     }
 
+    // not sure if this is needed
 // load and return user plan data
+    /*
     public function loadMyEvents()
     {
 // get user info from ion_auth
@@ -79,6 +81,8 @@ class Home extends CI_Controller
 
         return $row;
     }
+     * 
+     */
 
 // Checks the PlanJar Places database for matching places.
     public function find_places()
