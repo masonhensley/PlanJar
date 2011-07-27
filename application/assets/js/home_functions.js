@@ -113,6 +113,8 @@ function update_current_city_name() {
             result = result[0].address_components;
             
             // Find the city
+            console.log(result);
+            console.log(result.types);
             myCity = '';
             var index = $.inArray('locality', result.types);
             if (index != -1) {
