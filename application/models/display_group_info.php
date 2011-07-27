@@ -119,13 +119,12 @@ class Display_group_info extends CI_Model
         $query = "SELECT * FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
                     WHERE ";
-        foreach($selected_groups as $group_id)
+        foreach ($selected_groups as $group_id)
         {
             $query .= "group_relationships.group_id=$group_id OR ";
         }
         $query = substr($query, 0, -4);
         var_dump($query);
-        
     }
 
 }
