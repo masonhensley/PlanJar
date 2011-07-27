@@ -50,6 +50,15 @@ class Plan_actions extends CI_Model
         $name = $row->name;
         $title = $row->title;
 
+        // Generate the invite people string
+        if ($row->privacy != 'strict')
+        {
+            $invite_people = "<div class=\"invite_people\">Invite people</div>";
+        } else
+        {
+            $invite_people = "This event has <b>strict</b> privacy settings. You can't invite anyone :(";
+        }
+
         // html to replace the data div
         $htmlString = "
         <div style=\"font-size:20px; width:100%; height:230px; color:darkblue; text-align: center;\">
@@ -57,7 +66,7 @@ class Plan_actions extends CI_Model
         </div><br/><br/>
         <div class=\"delete_plan_container\"style=\"font-size: 20px; text-align:left;\">
         <div class=\"delete_plan\">Delete Plan</div>
-        <div class=\"invite_people\">Invite people</div>
+        $invite_people
         </div>";
 
         return array('privacy' => $row->privacy, 'html' => $htmlString);
