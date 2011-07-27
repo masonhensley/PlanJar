@@ -503,7 +503,7 @@ class Home extends CI_Controller
         }
     }
 
-    public function search_in_school()
+    public function search_school_users()
     {
         $needle = trim($this->input->get('needle'));
         if ($needle != '')

@@ -4,10 +4,7 @@
 $.fn.divSet = function(multiple) {
     this.each(function() {
         var parent_wrapper = $(this);
-    
-        console.log(parent_wrapper.find('div'));
         parent_wrapper.find('div').addClass('divset');
-        console.log('-----');
     
         // Click event
         parent_wrapper.find('div').click(function() {
