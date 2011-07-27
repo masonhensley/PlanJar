@@ -38,7 +38,7 @@ class Load_locations extends CI_Model
     {
           ?> 
         <div class="display_message">
-            Popular locations for selected groups <?php echo $display_day; ?><br/>
+            Popular locations for <?php echo $display_day; ?><br/>
             (no groups selected)
         </div>
         <?php
