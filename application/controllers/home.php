@@ -523,8 +523,9 @@ class Home extends CI_Controller
             $needle_where = substr($needle_where, 0, -5);
 
             $query_string = "SELECT user_id, first_name, last_name
-                    FROM user_meta WHERE ($needle_where) AND user_meta.school_id = ?";
-            $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
+                    FROM user_meta WHERE ($needle_where) AND school_id = ? AND user_id <> ?";
+            $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id,
+                        $this->ion_auth->get_user()->user_id));
 
             // Echo the results
             $return_array = array();
