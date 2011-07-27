@@ -3,7 +3,7 @@
 class Display_group_info extends CI_Model
 {
 
-    function _display_group_info($selected_groups, $day)  // being in this function ensures that $selected_groups is not NULL
+    function _display_group_info($selected_groups, $day, $school)  // being in this function ensures that $selected_groups is not NULL
     {
         if (!$day)
         {
@@ -28,7 +28,7 @@ class Display_group_info extends CI_Model
             $this->on_friends_selected();
         } else if ($selected_groups[0] == 'school')
         {
-            $this->on_school_selected();
+            $this->on_school_selected($school);
         } else
         {
             $this->on_groups_selected();
@@ -67,9 +67,28 @@ class Display_group_info extends CI_Model
         <?php
     }
 
-    function on_school_selected()
+    function on_school_selected($school)
     {
-        echo "school tab is selected";
+        $user = $this->ion_auth->get_user();
+        $query = "SELECT user_meta.user_id, school_data.total_enrollment 
+        FROM user_meta 
+        JOIN school_data ON school_data.id=user_meta.school_id 
+        WHERE user_meta.school_id=$user->school_id";
+        $result = $this->db->query($query);
+        $row = $result->row();
+        $number_schoolmates = $result->num_rows();
+        $total_enrollment = $row->total_enrollment;
+        ?>
+        <div class="data_box_top_bar">
+            <div style="float:left;">
+                <font style="font-size:30px; font-weight:bold;">$school</font>
+                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $number_schoolmates; ?>)</font>
+            </div>
+            <div style="float:right">
+                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $total_enrollment; ?>)</font>
+            </div>
+        </div>
+        <?php
     }
 
     function on_groups_selected()

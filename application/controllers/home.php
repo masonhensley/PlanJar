@@ -282,7 +282,8 @@ class Home extends CI_Controller
         $selected_groups = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
         $this->load->model('display_group_info');
-        $this->display_group_info->_display_group_info($selected_groups, $day);
+        $school = $this->_get_user_school();
+        $this->display_group_info->_display_group_info($selected_groups, $day, $school);
     }
 
     // this function is called when a location tab is clicked to display its information
