@@ -25,7 +25,6 @@
 
 #invite_followers_list table {
     width: 100%;
-    
 }
 
 #invite_groups_list {
@@ -34,7 +33,7 @@
     overflow: auto;
 }
 
-#invite_divset {
+.invite_divset {
     width: 100%;
     text-align: center;
 }
