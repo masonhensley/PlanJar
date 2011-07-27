@@ -7,7 +7,7 @@ function initialize_event_tabs()
     $('.event_tab').click(function(){
         if(!$(this).hasClass('event_tab_active'))
         {
-            $('.event_tab_active').remove_Class('event_tab_active');
+            $('.event_tab_active').removeClass('event_tab_active');
             $(this).addClass('event_tab_active');
             $.get('/home/show_event_data', {
                 'place_id': $('.event_tab_active').attr('place_id'),
