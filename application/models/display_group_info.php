@@ -38,8 +38,10 @@ class Display_group_info extends CI_Model
     function on_nothing_selected($display_day)
     {
         ?>
-        <br/><br/><br/><font style="font-size:20px; font-weight:bold; color:gray;">Select a group to see relevant information for <?php echo $display_day; ?>
-        <br/><br/><br/><br/>
+        <br/><br/><br/><font style="font-size:20px; font-weight:bold; color:gray;">Select a group on the left to see relevant information for <?php echo $display_day; ?>
+        <br/><br/><br/>
+        Select a plan on the right to view its information and invite people
+        <br/><br/><br/>
         You can change the day using the panel below </font>
         <?php
     }
