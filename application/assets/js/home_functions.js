@@ -116,22 +116,21 @@ function update_current_city_name() {
             myCity = '';
             var index;
             console.log(result);
-            for (entry in result) {
-                console.log('entry: ' + entry);
+            $.each(result, function (array_index, element) {
                 // Find the city
-                index = $.inArray('locality', entry.types);
+                index = $.inArray('locality', element.types);
                 console.log('city index: ' + index);
                 if (index != -1) {
                     myCity = result[index].long_name;
                 }
                 
                 // Find the state
-                index = $.inArray('administrative_level_1', result.types);
+                index = $.inArray('administrative_level_1', element.types);
                 console.log('state index: ' + index);
                 if (index  != -1) {
                     myCity += ', ' + result[index].short_name;
                 }
-            }
+            });
             
             $('#using_location').html('Using location: ' + myCity);
         }
@@ -240,9 +239,9 @@ function calculate_map_bounds() {
         var max_lng = get_max_marker(false);
                     
         var bounds = new google.maps.LatLngBounds(
-        new google.maps.LatLng(min_lat, min_lng),
-        new google.maps.LatLng(max_lat, max_lng)
-    );
+            new google.maps.LatLng(min_lat, min_lng),
+            new google.maps.LatLng(max_lat, max_lng)
+            );
                                                     
         map.fitBounds(bounds);
     } else if (map_marker_array.length == 1) {
