@@ -61,7 +61,7 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
+                <font style="font-size:30px;color:gray; font-weight:bold;">Network: </font>
                 <font style="font-size:30px; font-weight:bold;">Current Location</font>
                 <br/><font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> people within 15 miles)</font>
             </div>
@@ -85,7 +85,7 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
+                <font style="font-size:30px;color:gray; font-weight:bold;">Network: </font>
                 <font style="font-size:30px; font-weight:bold;">Friends</font>
                 <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $friend_count; ?>)</font>
             </div>
@@ -109,7 +109,7 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Group: </font>
+                <font style="font-size:30px;color:gray; font-weight:bold;">Network: </font>
                 <font style="font-size:30px; font-weight:bold;"><?php echo $school; ?></font>
             </div>
         </div>
@@ -131,7 +131,8 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Selected: </font>
+                <font style="font-size:30px;color:gray; font-weight:bold;">
+                Group<?php if(count($selected_groups)>1){echo "s";}?>:</font>
                 <?php
                 $display_groups = "";
                 foreach ($group_names as $group)
