@@ -36,6 +36,7 @@ function load_visible_locations(selected_day, selected_groups){
 
 function show_selected_location() {
     $('div.location_tab').click(function() {
+        $('.event_tab_active').removeClass('event_tab_active');
         if(!$(this).hasClass('selected_location_tab'))
         {
             $('.selected_location_tab').removeClass('selected_location_tab');
