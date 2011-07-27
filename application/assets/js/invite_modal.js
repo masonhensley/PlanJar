@@ -94,9 +94,19 @@ function populate_invite_groups_list() {
         $('#invite_groups_list').divSet(true);
         
         // Click handler
-        $('#invite_groups_list').find('div').click(function() {
-            console.log($(this).hasClass('divset_selected'));
-        //$('#search_in_school')
+        $('#invite_followers_list').find('div').click(function() {
+            if ($(this).hasClass('divset_selected')) {
+                // Add the recently selected user to the tokenInput
+                $('#search_in_school').tokenInput('add', {
+                    id: $(this).attr('user_id'), 
+                    name: $(this).html()
+                });
+            } else {
+                // Remove the just unselected user from the tokenInput
+                $('#search_in_school').tokenInput('remove', {
+                    id: $(this).attr('user_id')
+                });
+            }
         });
     });
 }
