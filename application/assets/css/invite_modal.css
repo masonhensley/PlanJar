@@ -20,7 +20,12 @@
     overflow: auto;
 }
 
-.invite_divset {
+.invite_followers_divset {
     width: 115px;
+    text-align: center;
+}
+
+.invite_groups_divset {
+    width: 130px;
     text-align: center;
 }

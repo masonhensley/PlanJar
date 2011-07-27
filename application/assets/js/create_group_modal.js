@@ -32,7 +32,7 @@ function initialize_create_group_modal()
     
     $('#create_group_content .in-field_block label').inFieldLabels();   
     
-    // divset
+    // divSet
     $('#group_privacy_wrapper').divSet();
     
     // --------- validator ----------

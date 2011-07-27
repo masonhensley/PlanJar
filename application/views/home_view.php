@@ -8,7 +8,7 @@
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/token-input-facebook.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/start_plan_modal.css" type="text/css" />
-        <link rel=stylesheet href="/application/assets/css/divset.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/divSet.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/invite_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/modal.css" type="text/css" />
@@ -21,7 +21,7 @@
         <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
 
         <!-- Encapsulated JS files -->
-        <script type="text/javascript" src="/application/assets/js/divset.js"></script>
+        <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
