@@ -25,8 +25,6 @@ function initialize_invite_modal() {
     
     // Submit handler
     $('#send_invites').click(function () {
-        
-        
         // Call the close click handler
         $('#close_invite_modal').click();
     });
@@ -41,7 +39,7 @@ function open_invite_modal(hide_groups) {
     populate_invite_followers_list();
     
     if (hide_groups) {
-        $('#invite_followers_list_wrapper').css('display', 'none');
+        $('#invite_groups_list_wrapper').css('display', 'none');
     } else {
         populate_invite_groups_list();
     }
