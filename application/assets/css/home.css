@@ -190,7 +190,7 @@ a{
     position:relative;
     left:5px;
     border:1px solid lightgray;
-    background-color:#DC2F2F;
+    background:-webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
     color:white;
 }
 
