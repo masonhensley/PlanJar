@@ -34,10 +34,15 @@ function initialize_invite_modal() {
 
 // Opens the modal and hides the groups invite pane if specified
 function open_invite_modal(hide_groups) {
-    if (hide_groups == undefined)
+    if (hide_groups == undefined) {
+        hide_groups = false;
+    }
     
     populate_invite_followers_list();
-    populate_invite_groups_list();
+    
+    if (!$hide_groups) {
+        populate_invite_groups_list();
+    }
     
     $('#invite_modal').show('fast');
 }
