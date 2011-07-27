@@ -17,8 +17,6 @@ class Load_coming_events extends CI_Model
                     WHERE events.date>NOW()
                     ORDER BY date ASC";
         $result = $this->db->query($query);
-        
-        /*
         $place_array = array();
         $place_id_array = array();
         foreach ($result->result() as $place)
@@ -29,17 +27,19 @@ class Load_coming_events extends CI_Model
             }
             $place_id_array[] = $place->id;
         }
-
-        $return_string = $this->display_event_tabs($place_id_array, $place_array);
-         * 
-         */
-        $return_string = $result->result();
+        $result = $result->result();
+        $return_string = $this->display_event_tabs($place_id_array, $place_array, $result);
+         
+        
+        
         return $return_string;
     }
 
-    function display_event_tabs($place_id_array, $place_array)
+    function display_event_tabs($place_id_array, $place_array, $result)
     {
+        
         $return_string = "<div class=\"display_message\">Popular Upcoming Events<br/>";
+        $return_string .= var_dump($result);
         $return_string .= "(select to view info)</div>";
         if (count($place_id_array) > 0)
         {
