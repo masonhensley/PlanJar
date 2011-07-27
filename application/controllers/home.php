@@ -290,7 +290,7 @@ class Home extends CI_Controller
         $selected_groups = $this->input->get('selected_groups');
         $this->load_location_data->display_location_info($place_id, $date, $selected_groups);
     }
-    
+
     public function show_event_data()
     {
         $this->load->model('load_event_data');
@@ -312,7 +312,7 @@ class Home extends CI_Controller
         $new_long = $this->input->get('longitude');
 
         $user = $this->ion_auth->get_user();
-        $delta_distance = $this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long);
+        $delta_distance = round($this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long), 2);
 
         if ($this->input->get('auto') == 'false' || $user->latitude == NULL || $user->longitude == NULL)
         {

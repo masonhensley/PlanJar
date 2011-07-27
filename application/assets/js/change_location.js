@@ -120,6 +120,8 @@ function show_change_location_panel() {
 
 // Hides the panel.
 function hide_change_location_panel() {
+    $('#change_location_search').val();
+    
     $('div.change_location_panel').hide('fast');
         
     $('.data_container_wrapper').animate({

@@ -30,6 +30,7 @@ function get_current_location(callback) {
     }
 }
 
+// Initializes the map and updates the user's location with the server'
 function initialize_map() {
     get_current_location(function (latitude, longitude) {
         // Update the user's profile with the new information.
@@ -42,14 +43,24 @@ function initialize_map() {
             if (data.status == 'adjusted') {
                 // Location automatically adjusted
                 alert(data.text);
+                
+                // Assign the latitude and longitude vars
+                myLatitude = latitude;
+                myLongitude = longitude;
+                
+                // Map the user's position and show the map
                 map_user_position();
                 show_data_container('#map_data');
             } else if (data.status == 'from_profile') {
                 // Assign the longitude and latitude coordinates from the server to the js variables
                 myLatitude = parseFloat(data.loc[0]);
                 myLongitude = parseFloat(data.loc[1]);
+                
+                map_user_position();
+            } else if (data.status == 'silent') {
+                map_user_position();
             }
-            map_user_position();
+            
         });
                 
         // Update the city name.
