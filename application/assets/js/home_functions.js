@@ -114,21 +114,22 @@ function update_current_city_name() {
             
             // Loop through each response entry and construct the date accordingly
             myCity = '';
-            var index;
+            var types_index;
             console.log(result);
             $.each(result, function (array_index, element) {
+                console.log(element);
                 // Find the city
-                index = $.inArray('locality', element.types);
+                types_index = $.inArray('locality', element.types);
                 console.log('city index: ' + index);
                 if (index != -1) {
-                    myCity = result[index].long_name;
+                    myCity = result[array_index].long_name;
                 }
                 
                 // Find the state
-                index = $.inArray('administrative_level_1', element.types);
+                types_index = $.inArray('administrative_level_1', element.types);
                 console.log('state index: ' + index);
                 if (index  != -1) {
-                    myCity += ', ' + result[index].short_name;
+                    myCity += ', ' + result[array_index].short_name;
                 }
             });
             
