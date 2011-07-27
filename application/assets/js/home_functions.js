@@ -120,7 +120,7 @@ function update_current_city_name() {
                 console.log(element);
                 // Find the city
                 types_index = $.inArray('locality', element.types);
-                console.log('city index: ' + index);
+                console.log('city index: ' + types_index);
                 if (index != -1) {
                     myCity = result[array_index].long_name;
                 }
