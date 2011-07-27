@@ -28,13 +28,9 @@ function initialize_invite_modal() {
                 $('#invite_followers_list').find('div[user_id="' + item.id + '"]').click();
             }
         },
-        onRemove: function (item) {
+        onDelete: function (item) {
             // Unselect the appropriate follower if necessary
-            console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]'));
-            console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]').hasClass('divset_selected'));
             if ($('#invite_followers_list').find('div[user_id="' + item.id + '"]').hasClass('divset_selected')) {
-                console.log('below was clicked');
-                console.log($('#invite_followers_list').find('div[user_id="' + item.id + '"]'));
                 $('#invite_followers_list').find('div[user_id="' + item.id + '"]').click();
             }
         }
@@ -50,32 +46,34 @@ function initialize_invite_modal() {
 // Opens the modal and hides the groups invite pane if necessary
 function open_invite_modal(priv_type, subject_type) {
     // Hide the modal
-    $('#invite_modal').hide('fast');
+    $('#invite_modal').hide('fast', function () {
+        reset_invite_modal();
+            
+        // Create the invite title
+        var title_text = 'This ' + subject_type + ' has <b>' + priv_type + '</b> privacy settings.<hr/>';
+        $('#invite_modal .title').html(title_text);
     
-    // Create the invite title
-    var title_text = 'This ' + subject_type + ' has <b>' + priv_type + '</b> privacy settings.<hr/>';
-    $('#invite_modal .title').html(title_text);
+        // Determine whether to hide the groups
+        var hide_groups = true;
+        if (subject_type == 'event' && priv_type == 'open') {
+            // Only show your joined groups for an open event
+            hide_groups = false;
+        }
     
-    // Determine whether to hide the groups
-    var hide_groups = true;
-    if (subject_type == 'event' && priv_type == 'open') {
-        // Only show your joined groups for an open event
-        hide_groups = false;
-    }
+        // Populate the followers
+        populate_invite_followers_list();
     
-    // Populate the followers
-    populate_invite_followers_list();
+        // Hide the groups pane or populate it
+        if (hide_groups) {
+            $('#invite_groups_list_wrapper').css('display', 'none');
+            $('#invite_modal').css('width', '300px');
+        } else {
+            populate_invite_groups_list();
+        }
     
-    // Hide the groups pane or populate it
-    if (hide_groups) {
-        $('#invite_groups_list_wrapper').css('display', 'none');
-        $('#invite_modal').css('width', '300px');
-    } else {
-        populate_invite_groups_list();
-    }
-    
-    // Show the modal
-    $('#invite_modal').show('fast');
+        // Show the modal
+        $('#invite_modal').show('fast');
+    });
 }
 
 // Resets the modal
