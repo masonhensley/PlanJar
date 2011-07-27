@@ -37,7 +37,7 @@ class Plan_actions extends CI_Model
 
         // pull data
         $query_result = $this->db->query($query);
-        $row = $query->row();
+        $row = $query_result->row();
 
         // populate variables
         $time = $row->time;
