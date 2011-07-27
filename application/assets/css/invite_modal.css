@@ -4,6 +4,10 @@
     top: 30%;
 }
 
+#invite_modal .title {
+    width: 100%;
+    text-align: center;
+}
 
 #invite_followers_list_wrapper {
     width: 300px;

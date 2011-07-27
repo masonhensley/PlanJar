@@ -30,14 +30,23 @@ function initialize_invite_modal() {
     });
 }
 
-// Opens the modal and hides the groups invite pane if specified
-function open_invite_modal(hide_groups) {
-    if (hide_groups == undefined) {
+// Opens the modal and hides the groups invite pane if necessary
+function open_invite_modal(priv_type, subject_type) {
+    // Create the invite title
+    var title_text = 'This ' + subject_type + ' has <b>' + priv_type + '</b> privacy settings.';
+    $('#invite_modal .title').html(title_text);
+    
+    // Determine whether to hide the groups
+    var hide_groups = true;
+    if (subject_type == 'plan' && priv_type == 'open') {
+        // Only show your joined groups for an open event
         hide_groups = false;
     }
     
+    // Populate the followers
     populate_invite_followers_list();
     
+    // Hide the groups pane or populate it
     if (hide_groups) {
         $('#invite_groups_list_wrapper').css('display', 'none');
         $('#invite_modal').css('width', '300px');
@@ -45,6 +54,7 @@ function open_invite_modal(hide_groups) {
         populate_invite_groups_list();
     }
     
+    // Show the modal
     $('#invite_modal').show('fast');
 }
 

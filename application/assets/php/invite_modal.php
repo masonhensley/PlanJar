@@ -6,6 +6,8 @@
         </div>
     </div>
 
+    <div class="title"></div>
+
     <div id="invite_followers_list_wrapper">
         <div class="header">Your followers</div>
 
