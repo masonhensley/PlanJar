@@ -1,4 +1,4 @@
-<div id="invite_modal">
+<div id="invite_modal" class="modal">
     <div class="title_bar">
         Invite people
         <div style="float: right;">
@@ -11,7 +11,7 @@
     <div id="invite_groups_list"></div>
 
     <div class="in-field_block" style="text-align: center;">
-        <label for="search_in_school">Search all of <?php echo($school); ?></label>
+        <label for="search_in_school">Search <?php echo($school); ?></label>
         <input type="text" id="search_in_school"/>
     </div>
 

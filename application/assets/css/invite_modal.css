@@ -1,23 +1,9 @@
 #invite_modal {
-    display: none;
-    position: absolute;
-
-    padding: 5px;
     width: auto;
-    height: auto;
-    background-color: lightgray;
-    left: 50%;
-    top: 50%;
-}
-
-#invite_modal .title_bar {
-    height: 1.5em;
-    width: 100%;
-    background-color: purple;
 }
 
 #invite_followers_list {
-    width: 200px;
+    width: 300px;
     height: 100px;
     overflow: auto;
     float: left;
@@ -25,6 +11,7 @@
 
 #invite_followers_list table {
     width: 100%;
+    text-align: center;
 }
 
 #invite_groups_list {
@@ -34,6 +21,6 @@
 }
 
 .invite_divset {
-    width: 100%;
+    width: 115px;
     text-align: center;
 }

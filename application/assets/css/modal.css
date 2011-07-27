@@ -1,0 +1,38 @@
+.modal {
+    display: none;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color:#efefef;
+    padding: 5px;
+
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 0px 20px #000;
+    -moz-box-shadow: 0px 0px 20px #000;
+    box-shadow: 0px 0px 20px #000;
+    /*--CSS3 Rounded Corners--*/
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.modal .title_bar {
+    height: 25px;
+    background-color:#555;
+    background: url( /application/assets/images/stripe_c.png);
+    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
+    background: -moz-linear-gradient(top,#333,#666);
+    color:white;
+    font-size:18px;
+    padding-left:10px;
+    padding-top:3px;
+
+    /*--CSS3 Rounded Corners--*/
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-top-left: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-top-right: 10px;
+    border-top-right-radius: 10px;
+}

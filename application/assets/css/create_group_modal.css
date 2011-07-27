@@ -1,4 +1,4 @@
-.create_group_content{
+#create_group_content{
     display: none;
     width: 450px;
     height: auto;
@@ -35,7 +35,7 @@
     margin-bottom: 15px;
 }
 
-.create_group_content table {
+#create_group_content table {
     width: 100%;
     margin-bottom: 15px;
 }
