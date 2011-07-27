@@ -91,6 +91,7 @@ function initialize_change_location_panel() {
 
 // Shows the panel.
 function show_change_location_panel() {
+    // Extend the data box
     $('.data_container_wrapper').animate({
         height: ($('.change_location_panel').height() + 300) + 'px'
     });
@@ -98,20 +99,22 @@ function show_change_location_panel() {
     $('.change_location_panel').show('fast');
     
     // Auto-select the search box.
-    $('#change_location_search').select();
+    $('#change_location_search').focus();
 }
 
 // Hides the panel.
 function hide_change_location_panel() {
+    // Blur out the search box
     $('#change_location_search').val('');
+    $('#change_location_search').blur();
     
+    // Hide the panel
     $('div.change_location_panel').hide('fast');
         
+    // Reduce the data box
     $('.data_container_wrapper').animate({
         height: '300px'
     });
-    
-    clear_map_markers();
 }
 
 // Handles a change of location marker click
