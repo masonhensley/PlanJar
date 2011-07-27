@@ -96,6 +96,8 @@ function populate_invite_groups_list() {
         // Click handler
         $('#invite_followers_list').find('div').click(function() {
             if ($(this).hasClass('divset_selected')) {
+                console.log($(this));
+                console.log($(this).attr('user_id'));
                 // Add the recently selected user to the tokenInput
                 $('#search_in_school').tokenInput('add', {
                     id: $(this).attr('user_id'), 
