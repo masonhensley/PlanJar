@@ -4,21 +4,33 @@
     top: 30%;
 }
 
-#invite_followers_list {
+
+#invite_followers_list_wrapper {
     width: 300px;
-    height: 100px;
-    overflow: auto;
     float: left;
     margin-right: 30px;
 }
 
-#invite_followers_list table {
+#invite_followers_list_wrapper .header {
     width: 100%;
-    text-align: center;
+}
+    
+#invite_followers_list {
+    height: 100px;
+    overflow: auto;
 }
 
-#invite_groups_list {
+#invite_groups_list_wrapper {
     width: 170px;
+    float: left;
+    margin-right: 30px;
+}
+
+#invite_groups_list_wrapper .header {
+    width: 100%;
+}
+    
+#invite_groups_list {
     height: 100px;
     overflow: auto;
 }
