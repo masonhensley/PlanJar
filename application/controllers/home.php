@@ -484,6 +484,7 @@ class Home extends CI_Controller
                 // Close the table row
                 echo('</tr>');
             }
+            ++$td_count;
         }
 
         echo('</table>');
