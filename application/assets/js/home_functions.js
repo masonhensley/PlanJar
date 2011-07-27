@@ -200,8 +200,6 @@ function show_data_panel(data_div, callback) {
 function map_user_position() {
     clear_map_markers();
     
-    console.log(myLatitude + ' ' + myLongitude);
-    
     map_marker_array.push(new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude),
         map: map,
@@ -210,6 +208,7 @@ function map_user_position() {
     
     map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
     map.setZoom(14);
+    console.log('zoom 14');
 }
 
 // Calculates and sets the bounds for the map based on map_marker_array (global var)
