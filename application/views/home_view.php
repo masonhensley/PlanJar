@@ -32,10 +32,11 @@
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/upcoming_events.js"></script>
         <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
-        
+
         <!-- D3 plugin -->
         <!--<script type="text/javascript" src="/application/assets/js/D3/d3.js"></script>-->
-        
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
+
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
