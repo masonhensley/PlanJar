@@ -31,7 +31,9 @@ function get_plan_data() {
     $.get('/home/load_selected_plan_data', {
         'plan_selected': $('.selected_plan').attr('plan_id')
     }, function (data) {
+        console.log(data);
         data = $.parseJSON(data);
+        console.log(data);
         
         // Replace the data and show the data tab.
         $('#plan_data').html(data.html);
