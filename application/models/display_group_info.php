@@ -81,11 +81,11 @@ class Display_group_info extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="font-size:30px; font-weight:bold;">$school</font>
+                <font style="font-size:30px; font-weight:bold;"><?php echo $school; ?></font>
                 <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $number_schoolmates; ?>)</font>
             </div>
             <div style="float:right">
-                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $total_enrollment; ?>)</font>
+                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo "Total enrollment: " .$total_enrollment; ?>)</font>
             </div>
         </div>
         <?php
