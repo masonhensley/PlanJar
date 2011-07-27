@@ -55,7 +55,7 @@ function reset_invite_modal() {
     
     // Show the group invite box
     $('#invite_groups_list_wrapper').css('display', '');
-    $('#invite_modal').css('width', '600px');
+    $('#invite_modal').css('width', '500px');
     
     // Clear and blur the search box
     $('#search_in_school').val('');
