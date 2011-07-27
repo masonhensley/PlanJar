@@ -25,8 +25,8 @@ function load_data_box(selected_day, selected_groups)
         
         chart.enter()
         .append("div")
-        .style("width", function(d) {
-            return d * 10 + "px";
+        .style("width", function(graph_data) {
+            return graph_data * 10 + "px";
         }).style("height", "17px")
         .text(function(d) {
             return d;
