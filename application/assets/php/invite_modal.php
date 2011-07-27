@@ -18,7 +18,7 @@
         <div id="invite_groups_list"></div>
     </div>
 
-    Search for people in <?php echo($school); ?>
+    <label for="send_invites">Search for people in <?php echo($school); ?></label>
     <input type="text" id="search_in_school"/>
 
     <input type="button" id="send_invites" value="Invite"/>
