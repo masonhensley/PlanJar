@@ -112,8 +112,18 @@ function update_current_city_name() {
         if (status == google.maps.GeocoderStatus.OK) {
             result = result[0].address_components;
             
-            myCity = result[2].long_name + ', ' + result[5].short_name;
-            console.log(result);
+            // Find the city
+            myCity = '';
+            var index = $.inArray('locality', result.types);
+            if (index != -1) {
+                myCity = result[index].long_name;
+            }
+            
+            // Find the state
+            index = $.inArray('administrative_level_1', result.types);
+            if (index  != -1) {
+                myCity += ', ' + result[index].short_name;
+            }
             $('#using_location').html('Using location: ' + myCity);
         }
     });
