@@ -34,7 +34,7 @@ class Load_coming_events extends CI_Model
          * 
          */
         $return_string = $result->result();
-        return var_dump($return_string);
+        return $return_string;
     }
 
     function display_event_tabs($place_id_array, $place_array)
