@@ -38,7 +38,7 @@
     border-top-right-radius: 10px;
 }
 
-.modal_background
+.modalBackground
 {
     position: absolute;
     z-index: 100;
