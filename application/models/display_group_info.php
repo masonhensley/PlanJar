@@ -78,6 +78,8 @@ class Display_group_info extends CI_Model
         $row = $result->row();
         $number_schoolmates = $result->num_rows();
         $total_enrollment = $row->total_enrollment;
+        $result_array = $result->row_array();
+        var_dump($result_array);
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
