@@ -82,19 +82,6 @@ function populate_invite_followers_list() {
         
         // Click handler
         $('#invite_followers_list').find('div').click(function() {
-            
-            });
-    });
-}
-
-// Populates and initializes the groups list
-function populate_invite_groups_list() {
-    $.get('/home/get_joined_groups_divset', function (data) {
-        $('#invite_groups_list').html(data);
-        $('#invite_groups_list').divSet(true);
-        
-        // Click handler
-        $('#invite_followers_list').find('div').click(function() {
             console.log($(this));
             if ($(this).hasClass('divset_selected')) {
                 console.log($(this));
@@ -111,5 +98,15 @@ function populate_invite_groups_list() {
                 });
             }
         });
+    });
+}
+
+// Populates and initializes the groups list
+function populate_invite_groups_list() {
+    $.get('/home/get_joined_groups_divset', function (data) {
+        $('#invite_groups_list').html(data);
+        $('#invite_groups_list').divSet(true);
+        
+        
     });
 }
