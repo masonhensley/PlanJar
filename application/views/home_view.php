@@ -100,11 +100,11 @@
                 </div>
             </div>
             <div class ="right">
-                <font style="font-weight:bold; font-size:20px;">Plans</font>
+                <font style="font-weight:bold; font-size:20px;">Plans</font><br/><hr/>
                 <div class="plans_wrapper"><?php echo($plans_html); ?></div>
                 <hr/>
                 <input type="button" id="create_plan" value="Create Plan"/>
-                <br/>
+                <br/><br/>
             </div>
         </div>
 
