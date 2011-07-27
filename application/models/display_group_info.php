@@ -56,9 +56,9 @@ class Display_group_info extends CI_Model
                         FROM user_meta
                         WHERE distance>15
                         ORDER BY distance ASC";
-        $result = $this->db->query($query);
-        $result_array = $result->result_array();
-        var_dump($result_array);
+        //$result = $this->db->query($query);
+        //$result_array = $result->result_array();
+        var_dump($query);
     }
 
     function on_friends_selected()
