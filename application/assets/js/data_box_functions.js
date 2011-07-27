@@ -21,8 +21,7 @@ function load_data_box(selected_day, selected_groups)
         $('#group_data').html(data);
         
         var graph_data = [1, 2, 3, 4, 5, 6, 7];
-        var chart = d3.select(".graph_data")
-        .enter().append('div');
+        var chart = d3.select(".graph_data");
         
         chart.selectAll("div").data(graph_data)
         .enter()
