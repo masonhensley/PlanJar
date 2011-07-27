@@ -23,6 +23,11 @@
     float: left;
 }
 
+#invite_followers_list table {
+    width: 100%;
+    
+}
+
 #invite_groups_list {
     width: 200px;
     height: 100px;
@@ -30,5 +35,6 @@
 }
 
 #invite_divset {
-    width: auto;
+    width: 100%;
+    text-align: center;
 }

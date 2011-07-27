@@ -461,21 +461,32 @@ class Home extends CI_Controller
     {
         $this->load->model('follow_ops');
 
-        $left = true;
-        
+        echo('<table>');
+
+        $td_count = 0;
         foreach ($this->follow_ops->get_followers_tuples() as $tuple)
         {
-            if ($left)
+            if ($td_count == 0)
             {
-                echo('<div class="invite_divset" user_id="' . $tuple['id'] . '" style="float: left;">');
-            } else
-            {
-                echo('<div class="invite_divset" user_id="' . $tuple['id'] . '" style="float: right;">');
+                // Add a table row
+                echo('<tr>');
             }
-            $left = !$left;
+
+            // Td body
+            echo('<td>');
+            echo('<div class="invite_divset" user_id="' . $tuple['id'] . '">');
             echo($tuple['name']);
             echo('</div>');
+            echo('</td>');
+
+            if ($td_count == 1)
+            {
+                // Close the table row
+                echo('</tr>');
+            }
         }
+
+        echo('</table>');
     }
 
 }
