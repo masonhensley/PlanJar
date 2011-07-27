@@ -9,10 +9,8 @@ function initialize_event_tabs()
         {
             $('.event_tab_active').remove_Class('event_tab_active');
             $(this).addClass('event_tab_active');
-            $.get('/home/show_location_data', {
-                'place_id': $('.selected_location_tab').attr('place_id'),
-                'date': $('.selected_location_tab').attr('date'),
-                'selected_groups':get_selected_groups()
+            $.get('/home/show_event_data', {
+                'place_id': $('.event_tab_active').attr('place_id'),
             }, function (data) {
                 $('#location_data').html(data);
             });

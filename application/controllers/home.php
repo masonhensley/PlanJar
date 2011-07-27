@@ -290,6 +290,13 @@ class Home extends CI_Controller
         $selected_groups = $this->input->get('selected_groups');
         $this->load_location_data->display_location_info($place_id, $date, $selected_groups);
     }
+    
+    public function show_event_data()
+    {
+        $this->load->model('load_event_data');
+        $place_id = $this->input->get('place_id');
+        $this->load_event_data->display($place_id);
+    }
 
     // Returns HTML for the list of the user's plans (right panel)
     public function get_my_plans()
