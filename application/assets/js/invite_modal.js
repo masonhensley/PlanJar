@@ -1,8 +1,18 @@
+$(function () {
+    initialize_invite_modal();
+})
+
 function initialize_invite_modal() {
+    // Close click handler
     $('#close_invite_modal').click(function () {
         reset_invite_modal();
         
         $('#invite_modal').hide('fast');
+    });
+    
+    // Draggable
+    $('#invite_modal').draggable({
+        handle: '#invite_modal .title_bar'
     });
 }
 
