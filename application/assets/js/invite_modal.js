@@ -33,7 +33,7 @@ function initialize_invite_modal() {
 // Opens the modal and hides the groups invite pane if necessary
 function open_invite_modal(priv_type, subject_type) {
     // Create the invite title
-    var title_text = 'This ' + subject_type + ' has <b>' + priv_type + '</b> privacy settings.';
+    var title_text = 'This ' + subject_type + ' has <b>' + priv_type + '</b> privacy settings.<hr/>';
     $('#invite_modal .title').html(title_text);
     
     // Determine whether to hide the groups

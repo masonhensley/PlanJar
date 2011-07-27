@@ -56,7 +56,8 @@ class Plan_actions extends CI_Model
             $invite_people = "<div class=\"invite_people\">Invite people</div>";
         } else
         {
-            $invite_people = "<div style=\"font-size: 14px;\">This event has <b>strict</b> privacy settings. You can't invite anyone.</div>";
+            $invite_people = "<div style=\"font-size: 14px; float: right; line-height: 30px; margin-right: 10px;\">
+                This event has <b>strict</b> privacy settings. You can't invite anyone.</div>";
         }
 
         // html to replace the data div
