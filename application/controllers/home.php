@@ -489,15 +489,54 @@ class Home extends CI_Controller
 
         echo('</table>');
     }
-    
+
     // Returns HTML for divSet buttons containing names of the user's joined gorups
-    public function get_joined_groups_divset() {
+    public function get_joined_groups_divset()
+    {
         $this->load->model('group_ops');
-        
-        foreach($this->group_ops->get_joined_groups_tuples() as $tuple) {
+
+        foreach ($this->group_ops->get_joined_groups_tuples() as $tuple)
+        {
             echo('<div class="invite_groups_divset" user_id="' . $tuple['id'] . '">');
             echo($tuple['name']);
             echo('</div>');
+        }
+    }
+
+    public function search_in_school()
+    {
+        $needle = trim($this->input->get('needle'));
+        if ($needle != '')
+        {
+            // Break into search terms
+            $needle_array = explode(' ', $needle);
+
+            // Generate query strings to cross-reference all needle terms with the first and last names in the db
+            $needle_where = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $needle_where .= "(user_meta.first_name LIKE '%%$cur_needle%%' OR " .
+                        "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
+            }
+
+            // Trim the end of the string
+            $needle_where = substr($needle_where, 0, -5);
+
+            $query_string = "SELECT user_id, first_name, last_name
+                    FROM user_meta WHERE ($needle_where) AND user_meta.school_id = ?";
+            $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
+
+            // Echo the results
+            $return_array = array();
+            foreach ($query->result() as $row)
+            {
+                $return_array[] = array(
+                    'id' => $row->user_id,
+                    'name' => $row->first_name . ' ' . $row->last_name
+                );
+            }
+
+            echo(json_encode($return_array));
         }
     }
 
