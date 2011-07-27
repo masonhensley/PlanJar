@@ -14,6 +14,9 @@ function initialize_invite_modal() {
     $('#invite_modal').draggable({
         handle: '#invite_modal .title_bar'
     });
+    
+    // In-field label
+    $('#invite_modal .in-field_block label').inFieldLabels();
 }
 
 function open_invite_modal(priv_type, invite_type) {
