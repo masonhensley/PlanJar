@@ -1,5 +1,7 @@
 #invite_modal {
-    width: auto;
+    width: 500px;
+    left: 250px;
+    top: 30%;
 }
 
 #invite_followers_list {
@@ -7,6 +9,7 @@
     height: 100px;
     overflow: auto;
     float: left;
+    margin-right: 30px;
 }
 
 #invite_followers_list table {
@@ -15,7 +18,7 @@
 }
 
 #invite_groups_list {
-    width: 200px;
+    width: 170px;
     height: 100px;
     overflow: auto;
 }
