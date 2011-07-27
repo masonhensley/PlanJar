@@ -14,7 +14,7 @@
 #invite_followers_list_wrapper .header {
     width: 100%;
 }
-    
+
 #invite_followers_list {
     height: 100px;
     overflow: auto;
@@ -28,10 +28,18 @@
 #invite_groups_list_wrapper .header {
     width: 100%;
 }
-    
+
 #invite_groups_list {
     height: 100px;
     overflow: auto;
+}
+
+#search_in_school_wrapper {
+    width: 100%;
+}
+
+#search_in_school_wrapper .header {
+    width: 100%;
 }
 
 .invite_followers_divset {
