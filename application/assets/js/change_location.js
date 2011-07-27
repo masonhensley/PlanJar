@@ -21,14 +21,7 @@ function initialize_change_location_panel() {
     // Set up the in-field labels.
     $('.change_location_panel label').inFieldLabels();
     
-    // Push the current location onto the marker list.
-    var temp_marker = new google.maps.Marker({
-        position: new google.maps.LatLng(myLatitude, myLongitude), 
-        map: map,
-        title:"Your location!"
-    });
-    
-    map_marker_array.push(temp_marker);
+    map_user_position();
     
     // Assign the click event.
     google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
