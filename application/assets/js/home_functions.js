@@ -127,7 +127,7 @@ function update_current_city_name() {
                 
                 // Find the state
                 types_index = $.inArray('administrative_level_1', element.types);
-                console.log('state index: ' + index);
+                console.log('state index: ' + types_index);
                 if (types_index  != -1) {
                     myCity += ', ' + result[array_index].short_name;
                 }
