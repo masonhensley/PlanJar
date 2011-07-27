@@ -12,6 +12,7 @@
         <link rel=stylesheet href="/application/assets/css/divset.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/dashboard_groups.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/modal.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
