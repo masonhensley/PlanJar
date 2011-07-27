@@ -4,15 +4,20 @@
     top: 30%;
 }
 
+#invite_modal .title {
+    width: 100%;
+    text-align: center;
+}
+
+#invite_modal .header {
+    width: 100%;
+    margin-bottom: 5px;
+}
 
 #invite_followers_list_wrapper {
     width: 300px;
     float: left;
     margin-right: 30px;
-}
-
-#invite_followers_list_wrapper .header {
-    width: 100%;
 }
 
 #invite_followers_list {
@@ -27,6 +32,7 @@
 
 #invite_groups_list_wrapper .header {
     width: 100%;
+    margin-bottom: 5px;
 }
 
 #invite_groups_list {
@@ -35,10 +41,6 @@
 }
 
 #search_in_school_wrapper {
-    width: 100%;
-}
-
-#search_in_school_wrapper .header {
     width: 100%;
 }
 
