@@ -65,10 +65,6 @@ class Display_group_info extends CI_Model
                 <font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> people within 15 miles)</font>
             </div>
         </div>
-        <div class=graph_container>
-
-            
-        </div>
         <?php
     }
 
@@ -128,8 +124,10 @@ class Display_group_info extends CI_Model
             $query .= "group_relationships.group_id=$group_id OR ";
         }
         $query = substr($query, 0, -4);
-        
-      
+        ?>
+        <div class="graph_data">
+        </div>
+      <?php
     }
 
 }
