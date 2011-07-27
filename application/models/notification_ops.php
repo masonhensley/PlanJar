@@ -105,7 +105,7 @@ class Notification_ops extends CI_Model
     // Returns appropriate notification text for the supplied notification row
     function make_notification_text($notification_row)
     {
-        if ($notification_row->type == 'plan_invite')
+        if ($notification_row->type == 'event_invite')
         {
             $query_string = "SELECT places.name, events.date, events.title, events.id FROM plans
                 LEFT JOIN events ON events.id = plans.event_id
@@ -154,7 +154,7 @@ class Notification_ops extends CI_Model
 
         switch ($row->type)
         {
-            case 'plan_invite':
+            case 'event_invite':
                 // Add a plan for the user to the specified event
                 $this->load->model('plan_actions');
                 $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
@@ -170,7 +170,7 @@ class Notification_ops extends CI_Model
     {
         switch ($notif_row->type)
         {
-            case 'plan_invite':
+            case 'event_invite':
                 $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
                 $query = $this->db->query($query_string, array(
                             $this->ion_auth->get_user()->id,

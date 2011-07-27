@@ -1,0 +1,28 @@
+#invite_modal {
+    display: none;
+    position: absolute;
+    
+    padding: 5px;
+    width: auto;
+    height: auto;
+    background-color: lightgray;
+}
+
+#invite_modal .title_bar {
+    height: 1.5em;
+    width: 100%;
+    background-color: purple;
+}
+
+#invite_followers_list {
+    width: 200px;
+    height: 100px;
+    overflow: auto;
+}
+
+#invite_groups_list {
+    width: 200px;
+    height: 100px;
+    overflow: auto;
+}
+

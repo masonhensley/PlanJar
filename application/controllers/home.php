@@ -229,7 +229,7 @@ class Home extends CI_Controller
 
         // Notify users
         $this->load->model('notification_ops');
-        $this->notification_ops->notify($invited_users, 'plan_invite', $event_id);
+        $this->notification_ops->notify($invited_users, 'event_invite', $event_id);
 
         // Success
         echo('success');
@@ -240,7 +240,7 @@ class Home extends CI_Controller
         $plan = $this->input->get('plan_selected');
         $this->load->model('plan_actions');
         $return = $this->plan_actions->load_plan_data($plan);
-        echo $return;
+        echo json_encode($return);
     }
 
     // permanently deletes plan

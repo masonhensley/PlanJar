@@ -31,11 +31,18 @@ function get_plan_data() {
     $.get('/home/load_selected_plan_data', {
         'plan_selected': $('.selected_plan').attr('plan_id')
     }, function (data) {
+        data = $.parseJSON(data);
+        
         // Replace the data and show the data tab.
-        $('#plan_data').html(data);
+        $('#plan_data').html(data.html);
         
         // Handles clicking on the delete plan button
         $('.delete_plan').click(delete_plan_outer_click);
+        
+        // Handles clicking on invite people
+        $('.invite_people').click(function () {
+            open_invite_modal(data.privacy, 'event_invite');
+        });
     });
 }
 

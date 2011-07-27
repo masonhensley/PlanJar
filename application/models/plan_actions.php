@@ -26,34 +26,29 @@ class Plan_actions extends CI_Model
         return $query_result->result();
     }
 
+    // Returns an array containing privacy type and the HTML for the plan
     function load_plan_data($plan)
     {
         // pull all user's current events
-        $query = "SELECT plans.id, events.date, events.time, events.title, places.name
+        $query = "SELECT plans.id, events.date, events.time, events.title, events.privacy, places.name
             FROM plans LEFT JOIN events ON plans.event_id = events.id
             LEFT JOIN places ON events.place_id = places.id
             WHERE plans.id = $plan";
 
         // pull data
         $query_result = $this->db->query($query);
+        $row = $query->row();
 
-        // initialize plan information
-        $time_of_day;
-        $date;
-        $name;
+        // populate variables
+        $time = $row->time;
 
-        foreach ($query_result->result() as $row)
-        {
-            // populate variables
-            $time = $row->time;
-            // get rid of the "-"
-            $time = str_replace("_", " ", $time);
+        // get rid of the "-"
+        $time = str_replace("_", " ", $time);
 
-            $date = $row->date;
-            $date = date('m/d', strtotime($date));
-            $name = $row->name;
-            $title = $row->title;
-        }
+        $date = $row->date;
+        $date = date('m/d', strtotime($date));
+        $name = $row->name;
+        $title = $row->title;
 
         // html to replace the data div
         $htmlString = "
@@ -65,7 +60,7 @@ class Plan_actions extends CI_Model
         <div class=\"invite_people\">Invite people</div>
         </div>";
 
-        return $htmlString;
+        return array('privacy' => $row->privacy, 'html' => $htmlString);
     }
 
     // function to delete plan from database
@@ -93,7 +88,7 @@ class Plan_actions extends CI_Model
 
             // Delete all relevant notifications
             $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
-            $query = $this->db->query($query_string, array('plan_invite', $event_id));
+            $query = $this->db->query($query_string, array('event_invite', $event_id));
         }
 
         // Delete the plan
