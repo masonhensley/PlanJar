@@ -113,6 +113,7 @@ function update_current_city_name() {
             result = result[0].address_components;
             
             myCity = result[2].long_name + ', ' + result[5].short_name;
+            console.log(result);
             $('#using_location').html('Using location: ' + myCity);
         }
     });
@@ -212,7 +213,6 @@ function map_user_position() {
 
 // Calculates and sets the bounds for the map based on map_marker_array (global var)
 function calculate_map_bounds() {
-    console.log('marker length: ' + map_marker_array.length);
     if (map_marker_array.length > 1) {
         // Calculate the necessary viewport.
         var min_lat = get_min_marker(true);
