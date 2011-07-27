@@ -9,7 +9,7 @@
         <link rel=stylesheet href="/application/assets/css/dashboard_notifications.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/create_group_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/token-input-facebook.css" type="text/css" />
-        <link rel=stylesheet href="/application/assets/css/divset.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/divSet.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/dashboard_groups.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/modal.css" type="text/css" />
@@ -25,7 +25,7 @@
         <script type="text/javascript" src="/application/assets/js/dashboard_groups.js"></script>
         <script type="text/javascript" src="/application/assets/js/create_group_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_notifications.js"></script>
-        <script type="text/javascript" src="/application/assets/js/divset.js"></script>
+        <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>

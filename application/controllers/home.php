@@ -457,7 +457,7 @@ class Home extends CI_Controller
     }
 
     // Returns HTML for divSet buttons containing names of the user's followers
-    function get_followers_divset()
+    public function get_followers_divset()
     {
         $this->load->model('follow_ops');
 
@@ -474,7 +474,7 @@ class Home extends CI_Controller
 
             // Td body
             echo('<td>');
-            echo('<div class="invite_divset" user_id="' . $tuple['id'] . '">');
+            echo('<div class="invite_followers_divset" user_id="' . $tuple['id'] . '">');
             echo($tuple['name']);
             echo('</div>');
             echo('</td>');
@@ -488,6 +488,17 @@ class Home extends CI_Controller
         }
 
         echo('</table>');
+    }
+    
+    // Returns HTML for divSet buttons containing names of the user's joined gorups
+    public function get_joined_groups_divset() {
+        $this->load->model('group_ops');
+        
+        foreach($this->group_ops->get_joined_groups_tuples() as $tuple) {
+            echo('<div class="invite_groups_divset" user_id="' . $tuple['id'] . '">');
+            echo($tuple['name']);
+            echo('</div>');
+        }
     }
 
 }
