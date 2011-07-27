@@ -119,7 +119,7 @@ class Follow_ops extends CI_Model
             } else if ($option == 'following')
             {
                 ?>
-                <div class="following">following</div>
+                <div class="following">friends</div>
                 <?php
             } else if ($option == 'suggested')
             {
