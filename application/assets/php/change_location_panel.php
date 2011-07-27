@@ -4,7 +4,7 @@
     </div>
 
     <div style="display:inline-block;margin-top:10px;float:left;margin-left:10px; text-align: center;">
-        <input type="button" id="use_cur_location" value="Use current location"/>
+        <input type="button" id="use_cur_location" value="Approximate current location"/>
 
         <div class="in-field_block">
             <label for="change_location_search">Enter a new location.</label>

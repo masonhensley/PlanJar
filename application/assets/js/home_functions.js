@@ -61,11 +61,10 @@ function initialize_map() {
                 map_user_position();
             }
             
+            // Update the city name.
+            update_current_city_name();
         });
                 
-        // Update the city name.
-        update_current_city_name();
-        
         // Create the map
         var map_options = {
             zoom: 14,
@@ -190,25 +189,91 @@ function show_data_panel(data_div, callback) {
         // Resize the map after the animation finishes to eliminate the missing tile errors.
         if (!map_tab_opened) {
             google.maps.event.trigger(map, 'resize');
+            calculate_map_bounds();
             map_tab_opened = true;
         }
-    //map_user_position();
     });
 }
 
-// Puts the user's position on the map and centers to it.'
+// Puts the user's position on the map and centers to it.
 function map_user_position() {
     clear_map_markers();
-    
-    console.log(myLatitude + ' ' + myLongitude);
     
     map_marker_array.push(new google.maps.Marker({
         position: new google.maps.LatLng(myLatitude, myLongitude),
         map: map,
-        title: 'Your location'
+        title: 'Your location',
+        icon: 'http://www.google.com/mapfiles/arrow.png'
     }));
     
     map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
     map.setZoom(14);
 }
 
+// Calculates and sets the bounds for the map based on map_marker_array (global var)
+function calculate_map_bounds() {
+    console.log('marker length: ' + map_marker_array.length);
+    if (map_marker_array.length > 1) {
+        // Calculate the necessary viewport.
+        var min_lat = get_min_marker(true);
+        var min_lng = get_min_marker(false);
+        var max_lat = get_max_marker(true);
+        var max_lng = get_max_marker(false);
+                    
+        var bounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(min_lat, min_lng),
+            new google.maps.LatLng(max_lat, max_lng)
+            );
+                                                    
+        map.fitBounds(bounds);
+    } else if (map_marker_array.length == 1) {
+        // Center and zoom around the one location
+        map.setCenter(map_marker_array[0].position);
+        map.setZoom(14);
+    }
+}
+
+// The following two functions get the minimum or the maximum latitude or longitude
+// as specified in the parameter. Used in calculate_map_bounds.
+function get_min_marker(lat_lng) {
+    var min = 360;
+    
+    if (lat_lng) {
+        // Latitude
+        $.map(map_marker_array, function (item) {
+            if (item.position.lat() < min) {
+                min = item.position.lat();
+            }
+        });
+    } else {
+        // Longitude
+        $.map(map_marker_array, function (item) {
+            if (item.position.lng() < min) {
+                min = item.position.lng();
+            }
+        });
+    }
+    
+    return min;
+}
+function get_max_marker(lat_lng) {
+    var max = -360;
+    
+    if (lat_lng) {
+        // Latitude
+        $.map(map_marker_array, function (item) {
+            if (item.position.lat() > max) {
+                max = item.position.lat();
+            }
+        });
+    } else {
+        // Longitude
+        $.map(map_marker_array, function (item) {
+            if (item.position.lng() > max) {
+                max = item.position.lng();
+            }
+        });
+    }
+    
+    return max;
+}

@@ -21,14 +21,7 @@ function initialize_change_location_panel() {
     // Set up the in-field labels.
     $('.change_location_panel label').inFieldLabels();
     
-    // Push the current location onto the marker list.
-    var temp_marker = new google.maps.Marker({
-        position: new google.maps.LatLng(myLatitude, myLongitude), 
-        map: map,
-        title:"Your location!"
-    });
-    
-    map_marker_array.push(temp_marker);
+    map_user_position();
     
     // Assign the click event.
     google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
@@ -63,24 +56,7 @@ function initialize_change_location_panel() {
                     map_marker_array.push(temp_marker);
                 });
                     
-                if (map_marker_array.length > 1) {
-                    // Calculate the necessary viewport.
-                    var min_lat = get_min_marker(true);
-                    var min_lng = get_min_marker(false);
-                    var max_lat = get_max_marker(true);
-                    var max_lng = get_max_marker(false);
-                    
-                    var bounds = new google.maps.LatLngBounds(
-                        new google.maps.LatLng(min_lat, min_lng),
-                        new google.maps.LatLng(max_lat, max_lng)
-                        );
-                                                    
-                    map.fitBounds(bounds);
-                } else if (map_marker_array.length == 1) {
-                    map.setCenter(map_marker_array[0].position);
-                    map.setZoom(10);
-                }
-                    
+                calculate_map_bounds();
             }
         });
     });
@@ -108,6 +84,7 @@ function initialize_change_location_panel() {
 
 // Shows the panel.
 function show_change_location_panel() {
+    // Extend the data box
     $('.data_container_wrapper').animate({
         height: ($('.change_location_panel').height() + 300) + 'px'
     });
@@ -115,60 +92,22 @@ function show_change_location_panel() {
     $('.change_location_panel').show('fast');
     
     // Auto-select the search box.
-    $('#change_location_search').select();
+    $('#change_location_search').focus();
 }
 
 // Hides the panel.
 function hide_change_location_panel() {
-    $('#change_location_search').val();
+    // Blur out the search box
+    $('#change_location_search').val('');
+    $('#change_location_search').blur();
     
+    // Hide the panel
     $('div.change_location_panel').hide('fast');
         
+    // Reduce the data box
     $('.data_container_wrapper').animate({
         height: '300px'
     });
-    
-    clear_map_markers();
-}
-
-function get_min_marker(lat_lng) {
-    var min = 360;
-    
-    if (lat_lng) {
-        $.map(map_marker_array, function (item) {
-            if (item.position.lat() < min) {
-                min = item.position.lat();
-            }
-        });
-    } else {
-        $.map(map_marker_array, function (item) {
-            if (item.position.lng() < min) {
-                min = item.position.lng();
-            }
-        });
-    }
-    
-    return min;
-}
-
-function get_max_marker(lat_lng) {
-    var max = -360;
-    
-    if (lat_lng) {
-        $.map(map_marker_array, function (item) {
-            if (item.position.lat() > max) {
-                max = item.position.lat();
-            }
-        });
-    } else {
-        $.map(map_marker_array, function (item) {
-            if (item.position.lng() > max) {
-                max = item.position.lng();
-            }
-        });
-    }
-    
-    return max;
 }
 
 // Handles a change of location marker click
