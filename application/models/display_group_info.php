@@ -120,7 +120,6 @@ class Display_group_info extends CI_Model
     {
         $this->load->model('load_locations');
         $group_names = $this->load_locations->get_group_names($selected_groups);
-        var_dump($group_names);
         $query = "SELECT * FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
                     WHERE ";
