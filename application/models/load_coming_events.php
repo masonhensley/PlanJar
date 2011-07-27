@@ -39,7 +39,7 @@ class Load_coming_events extends CI_Model
     {
         
         $return_string = "<div class=\"display_message\">Popular Upcoming Events<br/>";
-        $return_string .= var_dump($result);
+        //$return_string .= var_dump($result);
         $return_string .= "(select to view info)</div>";
         if (count($place_id_array) > 0)
         {
