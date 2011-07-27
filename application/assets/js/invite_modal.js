@@ -40,6 +40,7 @@ function open_invite_modal(hide_groups) {
     
     if (hide_groups) {
         $('#invite_groups_list_wrapper').css('display', 'none');
+        $('#invite_modal').css('width', '300px');
     } else {
         populate_invite_groups_list();
     }
@@ -54,6 +55,7 @@ function reset_invite_modal() {
     
     // Show the group invite box
     $('#invite_groups_list_wrapper').css('display', '');
+    $('#invite_modal').css('width', '600px');
     
     // Clear and blur the search box
     $('#search_in_school').val('');
