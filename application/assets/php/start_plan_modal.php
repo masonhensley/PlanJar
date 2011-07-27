@@ -1,5 +1,5 @@
-<div id="create_plan_content">
-    <div class="draggable_title_bar">
+<div id="create_plan_content" class="modal">
+    <div class="title_bar">
         <!-- Dynamically loaded in js to display "Start a plan in <city>" -->
         <div class="text"></div>
 

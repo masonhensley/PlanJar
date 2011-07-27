@@ -1,7 +1,7 @@
 <!-- CSS file is /assets/css/create_group_modal.css -->
 
-<div class="create_group_content">
-    <div class="create_group_top_bar">
+<div id="create_group_content" class="modal">
+    <div class="title_bar">
         Create Group
         <input type="button" id="cancel_group_creation" style="float:right; position:relative; bottom:2px;" value="X"/>
     </div>

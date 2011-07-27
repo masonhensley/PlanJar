@@ -31,7 +31,7 @@ function initialize_plan_modal() {
     
     // Make it draggable (with a handle).
     $('#create_plan_content').draggable({
-        handle: '.draggable_title_bar'
+        handle: '.title_bar'
     });
     
     // Left scroll

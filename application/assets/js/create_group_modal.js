@@ -10,16 +10,16 @@ function initialize_create_group_modal()
         
         // Initial selects
         $('#group_privacy_wrapper :first').click();
-        $('.create_group_content input[type="radio"]:first').click();
+        $('#create_group_content input[type="radio"]:first').click();
         $('#group_name').focus();
     
         // Clear the token inputs
         $('#group_invite_users, #group_invite_groups').tokenInput('clear');
         
-        $('.create_group_content').show("fast");
+        $('#create_group_content').show("fast");
         // Make it draggable (with a handler).
-        $('.create_group_content').draggable({
-            handle: '.create_group_top_bar'
+        $('#create_group_content').draggable({
+            handle: '.title_bar'
         });
     });
     
@@ -27,10 +27,10 @@ function initialize_create_group_modal()
         // Blur the invite boxes
         $('#invite_group_users, #invite_group_groups').blur();
         
-        $('.create_group_content').hide("fast");
+        $('#create_group_content').hide("fast");
     });
     
-    $('.create_group_content .in-field_block label').inFieldLabels();   
+    $('#create_group_content .in-field_block label').inFieldLabels();   
     
     // divset
     $('#group_privacy_wrapper').divSet();
@@ -54,7 +54,7 @@ function initialize_create_group_modal()
                     // Blur the invite boxes
                     $('#invite_group_users, #invite_group_groups').blur();
         
-                    $('.create_group_content').hide("fast");
+                    $('#create_group_content').hide("fast");
                 } else {
                     alert(data);
                 }
