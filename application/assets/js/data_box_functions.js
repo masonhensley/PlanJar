@@ -23,9 +23,8 @@ function load_data_box(selected_day, selected_groups)
         var graph_data = [1, 2, 3, 4, 5, 6, 7];
         var chart = d3.select(".graph_data");
         
-        chart.selectAll("div").data(graph_data)
-        .enter()
-        .append(".graph_data")
+        chart.enter()
+        .append("div")
         .style("width", function(d) {
             return d * 10 + "px";
         }).style("height", "17px")
