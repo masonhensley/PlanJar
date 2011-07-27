@@ -2,10 +2,11 @@
 // Call this function on a div containing the divs you want to make into buttons. Everything else is done for you.
 // Pass true to enable multiple selection
 $.fn.divSet = function(multiple) {
-    this.children('div').addClass('divset');
+    var parent_wrapper = $(this);
+    parent_wrapper.find('div').addClass('divset');
     
     // Click event
-    this.children('div').click(function() {
+    parent_wrapper.find('div').click(function() {
         if (multiple == true) {
             // Multiple select
             if ($(this).hasClass('divset_selected')) {
@@ -18,7 +19,7 @@ $.fn.divSet = function(multiple) {
             if (!$(this).hasClass('divset_selected')) {
                 
                 // Select only this
-                $(this).siblings('div').removeClass('divset_selected');
+                parent_wrapper.find('div').removeClass('divset_selected');
                 $(this).addClass('divset_selected');
             }
         }
