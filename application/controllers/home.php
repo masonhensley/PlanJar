@@ -471,7 +471,7 @@ class Home extends CI_Controller
             {
                 echo('<div class="invite_divset" user_id="' . $tuple['id'] . ' style="float: right;">');
             }
-            $left = !left;
+            $left = !$left;
             echo($tuple['name']);
             echo('</div>');
         }
