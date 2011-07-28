@@ -36,3 +36,7 @@ function populate_percentage_box(container, data) {
     // Append the newly created wrapper to the supplied container
     marker_wrapper.appendTo(container);
 }
+
+function populate_day_graph(container, data) {
+    
+}
