@@ -66,6 +66,7 @@
             <div class="data_tab" assoc_div="#map_data">Map</div>
             <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
         </div>
+        <input type="button" id="create_plan" value="Create Plan"/>
         <div class ="container">
             <div class ="left">
                 <div class="location_container">
@@ -100,9 +101,6 @@
             <div class ="right">
                 <font style="font-weight:bold; font-size:20px;">Plans</font><br/><hr/>
                 <div class="plans_wrapper"><?php echo($plans_html); ?></div>
-                <hr/>
-                <input type="button" id="create_plan" value="Create Plan"/>
-                <br/><br/>
             </div>
         </div>
 
