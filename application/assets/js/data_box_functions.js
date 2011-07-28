@@ -45,6 +45,26 @@ function load_data_box(selected_day, selected_groups)
         {
             'date': '2011-07-30', 
             'count': 3
+        },
+
+        {
+            'date': '2011-07-31', 
+            'count': 7
+        },
+
+        {
+            'date': '2011-08-01', 
+            'count': 6
+        },
+
+        {
+            'date': '2011-08-02', 
+            'count': 2
+        },
+
+        {
+            'date': '2011-08-03', 
+            'count': 4
         }]);
     });
 }
