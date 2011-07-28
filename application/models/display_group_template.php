@@ -39,10 +39,10 @@ class Display_group_template extends CI_Model
         $result = $this->db->query($query);
         $result_array = $result->result_array();
         // Data to be returned
-        $number_males;
-        $number_females;
-        $males_going_out;
-        $females_going_out;
+        $number_males = 0;
+        $number_females = 0;
+        $males_going_out = 0;
+        $females_going_out = 0;
 
         $total_people = $result->num_rows();
         $user_ids = array();
