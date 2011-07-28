@@ -23,12 +23,12 @@ function load_data_box(selected_day, selected_groups)
         'selected_day': selected_day
     }, function (data) {
         // Apply the layout HTML
-        $('#group_data').html(data.html);
+        $('#group_data').html(data);
 
         // Capture the data
-        data = data.data;
+        //data = data.data;
         
-    // Populate the graphs
+        // Populate the graphs
         populate_sex_info('.group_graph_top_right')
     });
 }
