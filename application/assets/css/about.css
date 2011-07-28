@@ -14,14 +14,14 @@
 
 .inside_top_panel{
     width:1024px;
-    height:50px;
+    height:100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .top_links{
     width:1024px;
-    height:100%;
+    height:50px;
     margin-left: auto;
     margin-right: auto;
 }
