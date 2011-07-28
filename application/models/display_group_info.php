@@ -135,7 +135,7 @@ class Display_group_info extends CI_Model
         }
         $return_html .= ": </font>";
 
-        $display_groups = "<font style=\"font-size:30px;color:black;font-weight:bold;\">";
+        $display_groups = "<font style=\"font-size:15px;color:black;font-weight:bold;\">";
         foreach ($group_names as $group)
         {
             $display_groups .= $group .", ";
