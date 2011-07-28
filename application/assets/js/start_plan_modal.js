@@ -39,30 +39,8 @@ function initialize_plan_modal() {
     });
     
     // Right scroll
-    // This function essentially acts as a step-by-step validator.
     $('#plan_right').click(function() {
-        // Check the current page before continuing on
-        var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
-        switch(current_index) {
-            // First page
-            case 0:
-                // An autocomplete entry must have been chosen (this field is populated by the autocomplete),
-                // and both the time and day must be selected
-                if ($('#plan_location_id').val() != '' && $('#plan_time .divset_selected, #plan_day .divset_selected').length == 2) {
-                    initialize_event_select_page();
-                    next_plan_panel();
-                }
-                break;
-                
-            // Second page
-            case 1:
-                // Make sure an event is selected or an event has been created
-                if ($('#plan_event_select_wrapper .selected_event').length == 1 || $('#event_title').val() != '') {
-                    $('#plan_invite_header').html(generate_full_plan_text());
-                    next_plan_panel();
-                }
-                break;
-        }
+        next_plan_panel();
     });
     
     // Initialize the plan location autocomplete instance.
@@ -202,21 +180,24 @@ function generate_plan_text() {
 
 // Moves to the next plan panel
 function next_plan_panel() {
-    
+    if ($('.plan_page_content:first:visible').length == 1) {
+        // The first panel is visible. Don't continue unless a place was selected and a time is selected
+        if ($('#plan_location_id').val() != '' && $('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
+            // Hide the first panel and show the second
+            $('.plan_page_content:first').hide('slide', {}, 'fast', function () {
+                $('.plan_page_content:eq(1)').show('slide', {
+                    direction: 'right'
+                }, 'fast');
+            });
+        }
+    }
 }
 
-// Toggles the panel that is shown
-function toggle_plan_panel() {
-    if ($('.plan_page_content:first:visible').length == 1) {
-        // The first panel is visible. Hide the first panel and show the second
-        $('.plan_page_content:first').hide('slide', {}, 'fast', function () {
-            $('.plan_page_content:last').show('slide', {
-                direction: 'right'
-            }, 'fast');
-        });
-    } else {
+// Moves to the previous panel
+function prev_plan_panel() {
+    if ($('.plan_page_content:eq(1):visible').length == 1) {
         // The second panel is visible. Hide the second panel and show the first panel
-        $('.plan_page_content:last').hide('slide', {
+        $('.plan_page_content:eq(1)').hide('slide', {
             direction: 'right'
         }, 'fast', function () {
             $('.plan_page_content:first').show('slide', {}, 'fast');
