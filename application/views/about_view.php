@@ -4,7 +4,7 @@
 
     <!-- CSS -->
     <link rel=stylesheet href="/application/assets/css/about.css" type="text/css" />
-    <title>CSS Shapes</title>  
+    <title>About us</title>  
   
     <!--[if IE]>  
         <style>  
