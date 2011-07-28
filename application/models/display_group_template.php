@@ -61,7 +61,7 @@ class Display_group_template extends CI_Model
         // query for all the plans that people in the groups have made
         $plan_query = "SELECT places.name, places.id, user_meta.sex FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date BETWEEN NOW()-3 AND NOW()+3
+                            JOIN events ON events.id=plans.event_id AND events.date>DATE_ADD(NOW(), INTERVAL -3 DAY) AND events.date<DATE_ADD(NOW(), INTERVAL 3 DAY)
                             JOIN places ON places.id=events.place_id
                             WHERE ";
         foreach ($user_ids as $id)
