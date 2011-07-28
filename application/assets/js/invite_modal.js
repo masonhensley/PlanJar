@@ -1,6 +1,6 @@
 $(function () {
     initialize_invite_modal();
-})
+});
 
 function initialize_invite_modal() {
     // Close click handler
@@ -38,16 +38,49 @@ function initialize_invite_modal() {
     
     // Submit handler
     $('#send_invites').click(function () {
-        // Call the close click handler
-        $('#close_invite_modal').click();
+        // Make sure at least something is selected
+        if ($('#search_in_school').val() != '' || $('#invite_groups_list .divset_selected').length > 0) {    
+            // Populate the selected group list
+            var group_list = [];
+            $('#invite_groups_list .divset_selected').each(function (index, element) {
+                group_list.push($(element).attr('group_id'));
+            });
+            
+            // Calculate data to send
+            var user_ids = $('#search_in_school').val().split(',');
+            if (user_ids[0] == '') {
+                user_ids = [];
+            }
+            
+            var data = {
+                'user_ids': user_ids,
+                'group_ids': group_list,
+                'subject_id': $('#invite_subject_id').val(),
+                'subject_type': $('#invite_subject_type').val(),
+                'privacy': $('#invite_priv_type').val()
+            };
+            
+            // Send to the server
+            $.get('/home/invite_people', data, function(data) {
+                if (data == 'success') {
+                    // Call the close click handler
+                    $('#close_invite_modal').click();
+                }
+            });
+        }
     });
 }
 
 // Opens the modal and hides the groups invite pane if necessary
-function open_invite_modal(priv_type, subject_type) {
+function open_invite_modal(subject_type, subject_id, priv_type, originator) {
     // Hide the modal
     $('#invite_modal').hide('fast', function () {
         reset_invite_modal();
+            
+        // Store the information in hidden inputs
+        $('#invite_subject_type').val(subject_type);
+        $('#invite_subject_id').val(subject_id);
+        $('#invite_priv_type').val(priv_type);
             
         // Create the invite title
         var title_text = 'This ' + subject_type + ' has <b>' + priv_type + '</b> privacy settings.<hr/>';
@@ -55,7 +88,7 @@ function open_invite_modal(priv_type, subject_type) {
     
         // Determine whether to hide the groups
         var hide_groups = true;
-        if (subject_type == 'event' && priv_type == 'open') {
+        if (subject_type == 'event' && (priv_type == 'open' || originator != undefined)) {
             // Only show your joined groups for an open event
             hide_groups = false;
         }
@@ -89,6 +122,9 @@ function reset_invite_modal() {
     $('#search_in_school').val('');
     $('#search_in_school').tokenInput('clear');
     $('#search_in_school').blur();
+        
+    // Clear the hidden fields
+    $('#invite_modal input[type="hidden"]').val('');
 }
 
 // Populates and initializes the followers list

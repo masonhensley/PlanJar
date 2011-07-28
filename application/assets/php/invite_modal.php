@@ -28,4 +28,8 @@
     </div>
 
     <input type="button" id="send_invites" value="Invite"/>
+
+    <input type="hidden" id="invite_subject_type"/>
+    <input type="hidden" id="invite_subject_id"/>
+    <input type="hidden" id="invite_priv_type"/>
 </div>

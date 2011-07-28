@@ -30,7 +30,7 @@ class Plan_actions extends CI_Model
     function load_plan_data($plan)
     {
         // pull all user's current events
-        $query = "SELECT plans.id, events.date, events.time, events.title, events.privacy, places.name
+        $query = "SELECT events.id, events.date, events.time, events.title, events.privacy, places.name
             FROM plans LEFT JOIN events ON plans.event_id = events.id
             LEFT JOIN places ON events.place_id = places.id
             WHERE plans.id = $plan";
@@ -70,7 +70,7 @@ class Plan_actions extends CI_Model
         $invite_people
         </div>";
 
-        return array('privacy' => $row->privacy, 'html' => $htmlString);
+        return array('privacy' => $row->privacy, 'html' => $htmlString, 'event_id' => $row->id);
     }
 
     // function to delete plan from database

@@ -247,7 +247,7 @@ class Group_ops extends CI_Model
                 $query_string .= "group_id = $group OR ";
             }
             $query_string = substr($query_string, 0, -4);
-            $query_string .= ") AND user_joined_id <> NULL";
+            $query_string .= ") AND user_joined_id <> 'NULL'";
 
             $query = $this->db->query($query_string);
 

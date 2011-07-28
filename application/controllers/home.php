@@ -126,41 +126,6 @@ class Home extends CI_Controller
         }
     }
 
-    // Checks the plan cotegories with the server.
-    public function find_plan_categories()
-    {
-        $needle = $this->input->get('needle');
-        $search_terms = explode(' ', $needle);
-
-        $like_clauses = '';
-        foreach ($search_terms as $term)
-        {
-            $term = $this->db->escape_like_str($term);
-            $like_clauses .= "`category` LIKE '%%$term%%' OR ";
-        }
-        $like_clauses = substr($like_clauses, 0, -4);
-
-// Check the PlanJar database.
-        $query_string = "SELECT id, category FROM plan_categories WHERE $like_clauses LIMIT 10";
-        $query = $this->db->query($query_string);
-
-// Return a JSON array.
-        foreach ($query->result_array() as $row)
-        {
-// Append to the return array.
-            $return_array[] = $row;
-        }
-
-// Check for no results.
-        if (!isset($return_array))
-        {
-            echo('no results');
-        } else
-        {
-            echo(json_encode($return_array));
-        }
-    }
-
     // Adds a plan entry to the database, creates an event if necessary, and invites and notifies users if required.
     public function submit_plan()
     {
@@ -497,7 +462,7 @@ class Home extends CI_Controller
 
         foreach ($this->group_ops->get_joined_groups_tuples() as $tuple)
         {
-            echo('<div class="invite_groups_divset" user_id="' . $tuple['id'] . '">');
+            echo('<div class="invite_groups_divset" group_id="' . $tuple['id'] . '">');
             echo($tuple['name']);
             echo('</div>');
         }
@@ -539,6 +504,50 @@ class Home extends CI_Controller
 
             echo(json_encode($return_array));
         }
+    }
+
+    // Invites and notifies the given users and groups
+    public function invite_people()
+    {
+        // Capture vars
+        $user_ids = $this->input->get('user_ids');
+        if (!$user_ids)
+        {
+            $user_ids = array();
+        }
+        $group_ids = $this->input->get('group_ids');
+        if (!$group_ids)
+        {
+            $group_ids = array();
+        }
+
+        $this->load->model('group_ops');
+        $user_ids = array_merge($user_ids, $this->group_ops->get_users($group_ids));
+
+        $subject_id = $this->input->get('subject_id');
+        $subject_type = $this->input->get('subject_type');
+        $privacy = $this->input->get('privacy');
+
+        // Handle the different subject types
+        if ($subject_type == 'event')
+        {
+            if ($privacy != 'open')
+            {
+                $this->load->model('event_ops');
+                $this->event_ops->add_invitees($subject_id, $user_ids);
+            }
+
+            $notif_type = 'event_invite';
+        } else if ($subject_type == 'group')
+        {
+            $notif_type = 'group_invite';
+        }
+
+        // Send notifications
+        $this->load->model('notification_ops');
+        $this->notification_ops->notify($user_ids, $notif_type, $subject_id);
+
+        echo('success');
     }
 
 }
