@@ -7,6 +7,8 @@ function initialize_create_group_modal()
 {
     // Opening click handler
     $('#create_group').click(function(){
+        console.log('here');
+        
         // Initial selects
         $('#group_privacy_wrapper :first').click();
         $('#create_group_content input[type="radio"]:first').click();
