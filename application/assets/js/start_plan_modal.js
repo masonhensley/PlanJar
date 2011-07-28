@@ -2,6 +2,7 @@ $(function() {
     initialize_plan_modal();
 });
 
+// Initializes the plan modal
 function initialize_plan_modal() {
     // Opening click handler
     $('#create_plan').click(function () {
@@ -11,21 +12,20 @@ function initialize_plan_modal() {
         } else {
             $('#create_plan_content .draggable_title_bar .text').html('Start a plan');
         }
+        
+        // Focus the location box.
+        $('#plan_location').focus();
+    
+        // Show the modal
         $('#create_plan_content').show('fast');
     });
     
-    // Focus the location box.
-    $('#plan_location').focus();
-    
     // Closing click handler
     $('#cancel_plan').click(function () {
-        // Blur the invite boxes
-        $('#invite_plan_users, #invite_plan_groups').blur();
-        
-        $('#create_plan_content').hide();
-        
-        // Clear the plan modal
-        reset_modal();
+        $('#create_plan_content').hide('fast', function () {
+            // Clear the plan modal
+            reset_modal();
+        });
     });
     
     // Make it draggable (with a handle).
@@ -130,20 +130,6 @@ function initialize_plan_modal() {
         $('#event_title').focus();
     });
     
-    // TokenInput
-    $('#invite_plan_users').tokenInput('/home/get_followers_invite', {
-        hintText: 'Search followers...',
-        preventDuplicates: true,
-        queryParam: 'needle',
-        theme: 'facebook'
-    });
-    $('#invite_plan_groups').tokenInput('/home/get_groups_invite', {
-        hintText: 'Search joined groups...',
-        preventDuplicates: true,
-        queryParam: 'needle',
-        theme: 'facebook'
-    });
-    
     // Submit
     $('#submit_plan').click(function () {
         // Get the privacy setting from either the divSet or the <select>
@@ -160,19 +146,11 @@ function initialize_plan_modal() {
             'privacy': privacy
         } ,function (data) {
             if (data == 'success') {
-                // Blur the invite boxes
-                $('#invite_plan_users, #invite_plan_groups').blur();
-                
-                // Hide the modal
-                $('#create_plan_content').hide();
+                // Hide and reset the modal
+                $('#cancel_plan').click();
                 
                 // Refresh the plan list.
                 populate_plan_panel();
-                
-                // Clear the plan modal
-                reset_modal();
-            } else {
-                console.log(data);
             }
         });
     });
@@ -192,39 +170,6 @@ function initialize_event_select_page() {
     }, function (data) {
         $('#plan_event_select_wrapper').html(data);
     });
-}
-
-// Shows the correct invite boxes based off the given privacy setting
-function show_hide_invite_boxes(priv_type) {
-    if (priv_type == 'strict') {
-        // Privacy description
-        $('#plan_invite_privacy_header').html("This event has <b>strict</b> privacy settings. You can't invite anyone :(.");
-                
-        // Strict privacy. Hide both invite boxes
-        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', 'none');
-        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').val('');
-    } else if (priv_type == 'loose') {
-        // Privacy description
-        $('#plan_invite_privacy_header').html("This event has <b>loose</b> privacy settings. You can invite people following you.");
-                
-        // Loose privacy. Hide the group invite box
-        $('#invite_plan_users_wrapper').css('display', '');
-        $('#invite_plan_groups_wrapper').css('display', 'none');
-        $('#invite_plan_groups_wrapper').val('');
-    } else if (priv_type == 'open') {
-        // Privacy description
-        $('#plan_invite_privacy_header').html("This event is <b>open</b>. You can invite people following you and your joined groups.");
-                
-        // Open privacy. Show both boxes
-        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
-    } else if (priv_type == 'new_event') {
-        // The user is making an event. If an event of the same name already exists,
-        // the existing event will be used instead (that's done on the server, btw).
-        $('#plan_invite_privacy_header').html("You're creating an event. Invite whoever you want.");
-        
-        // Show both boxes
-        $('#invite_plan_users_wrapper, #invite_plan_groups_wrapper').css('display', '');
-    }
 }
 
 // Returns a string with the plan description (place and day/time)
@@ -255,44 +200,27 @@ function generate_plan_text() {
     return return_string;
 }
 
-// Returns a string with the full plan description (used on the invite page)
-function generate_full_plan_text() {
-    var return_string = "Start a plan to ";
+// Moves to the next plan panel
+function next_plan_panel() {
     
-    if ($('#plan_event_id').val() != '') {
-        return_string += '<b>' + $('#plan_event_select_wrapper .selected_event').attr('event_name') + '</b> at ';
-    } else if ($('#event_title').val() != '') {
-        return_string += '<b>' + $('#event_title').val() + '</b> at ';
-    }
-    
-    return return_string + generate_plan_text() + '.';
 }
 
-// Scrolls to the previous plan panel
-function prev_plan_panel() {
-    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
-    
-    if (current_index > 0) {
-        $('.plan_page_content:visible').hide('slide', {
+// Toggles the panel that is shown
+function toggle_plan_panel() {
+    if ($('.plan_page_content:first:visible').length == 1) {
+        // The first panel is visible. Hide the first panel and show the second
+        $('.plan_page_content:first').hide('slide', {}, 'fast', function () {
+            $('.plan_page_content:last').show('slide', {
+                direction: 'right'
+            }, 'fast');
+        });
+    } else {
+        // The second panel is visible. Hide the second panel and show the first panel
+        $('.plan_page_content:last').hide('slide', {
             direction: 'right'
         }, 'fast', function () {
-            $('.plan_page_content[page_index="' + (current_index - 1) + '"]').show('slide', {
-                }, 'fast');
+            $('.plan_page_content:first').show('slide', {}, 'fast');
         });
-    }
-}
-
-// Scrolls to the next plan panel
-function next_plan_panel() {
-    var current_index = parseInt($('.plan_page_content:visible').attr('page_index'));
-    
-    if (current_index < 2) {
-        $('.plan_page_content:visible').hide('slide', {
-            }, 'fast', function () {
-                $('.plan_page_content[page_index="' + (current_index + 1) + '"]').show('slide', {
-                    direction: 'right'
-                }, 'fast');
-            });
     }
 }
 
@@ -304,10 +232,10 @@ function get_distance_between(lat0, long0, lat1, long1) {
 }
 
 // Resets and clears the modal
-function reset_modal() {
+function reset_plan_modal() {
     // Go the the first panel
     $('.plan_page_content').css('display', 'none');
-    $('.plan_page_content[page_index="0"]').css('display', '');
+    $('.plan_page_content:first').css('display', '');
     
     // Clear the place box
     $('#plan_location').val('');
@@ -316,14 +244,11 @@ function reset_modal() {
     // Reset divSets
     $('.plan_page_content .divset_selected').removeClass('divset_selected');
     
-    // Clear the textboxes
+    // Clear the inputs
     $('.plan_page_content input').not('[type="button"]').val('');
     
     // Hide the new event div
     $('#start_event_content').css('display', 'none');
-    
-    // Clear the token inputs
-    $('#invite_plan_users, #invite_plan_groups').tokenInput('clear');
 }
 
 // Encapsulates the autocomplete setup

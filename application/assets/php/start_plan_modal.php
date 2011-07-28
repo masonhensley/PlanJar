@@ -63,26 +63,6 @@
                 </div>
             </div>
 
-            <div class="plan_page_content" page_index="2" style="display: none;">
-                <div id="plan_invite_header"></div>
-
-                <div id="plan_invite_privacy_header"></div>
-
-                <div id="plan_invite_wrapper">
-                    <div id="invite_plan_users_wrapper">
-                        Invite people
-                        <input type="text" id="invite_plan_users" name="invite_plan_users"/>
-                    </div>
-
-                    <div id="invite_plan_groups_wrapper">
-                        Invite groups
-                        <input type="text" id="invite_plan_groups" name="invite_plan_groups"/>
-                    </div>
-                </div>
-
-                <input type="button" id="submit_plan" value="Start a plan"/>
-            </div>
-
             <input id="plan_location_id" name="plan_location_id" type="hidden"/>
             <input id="plan_location_name" type="hidden"/>
             <input id="new_place_name" name="new_place_name" type="hidden"/>
