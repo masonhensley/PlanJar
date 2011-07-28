@@ -9,20 +9,13 @@ class Display_group_template extends CI_Model
         {
             $day = 0;
         }
-        $this->load->model('load_locations');
-        $display_day = $this->load_locations->get_day($day);
-        
-        if ($day == 0)
-        {
-            $display_day = "today";
-        }
 
-       if ($selected_groups[0] == 'current_location')
+        if ($selected_groups[0] == 'current_location')
         {
             $data_array = $this->get_current_location_data();
         } else if ($selected_groups[0] == 'friends')
         {
-            $data_array =$this->get_friend_data();
+            $data_array = $this->get_friend_data();
         } else if ($selected_groups[0] == 'school')
         {
             $data_array = $this->get_school_data($school);
@@ -30,8 +23,7 @@ class Display_group_template extends CI_Model
         {
             $data_array = $this->get_selected_group_data($selected_groups);
         }
-        $this->get_groups_template();
-        
+        $this->get_groups_template($selected_groups, $day);
     }
 
     function get_selected_group_data($selected_groups)
@@ -47,11 +39,11 @@ class Display_group_template extends CI_Model
         $result = $this->db->query($query);
         $result_array = $result->result_array();
         // Data to be returned
-        $number_males;
-        $number_females;
-        $males_going_out;
-        $females_going_out;
-        
+        $number_males = 0;
+        $number_females = 0;
+        $males_going_out = 0;
+        $females_going_out = 0;
+
         $total_people = $result->num_rows();
         $user_ids = array();
 
@@ -78,14 +70,10 @@ class Display_group_template extends CI_Model
             $plan_query .= "plans.user_id=$id OR ";
         }
         $plan_query = substr($plan_query, 0, -4);
-        $result = $this->db->query($plan_query);
-
-        foreach ($result->result() as $plan)
-        {
-            
-        }
+        //$result = $this->db->query($plan_query);
+        var_dump($query);
     }
-    
+
     function get_current_location_data()
     {
         $user = $this->ion_auth->get_user();
@@ -156,8 +144,23 @@ class Display_group_template extends CI_Model
         <?php
     }
 
-    function get_groups_template($selected_groups)
+    function get_groups_template($selected_groups, $day)
     {
+
+        if (!$day)
+        {
+            $day = 0;
+        }
+        $this->load->model('load_locations');
+        $display_day = $this->load_locations->get_day($day);
+
+        if ($day == 0)
+        {
+            $display_day = "today";
+        }
+
+
+
         $this->load->model('load_locations');
         $group_names = $this->load_locations->get_group_names($selected_groups);
 
@@ -209,5 +212,6 @@ class Display_group_template extends CI_Model
         <?php
         return ob_get_clean();
     }
+
 }
 ?>
