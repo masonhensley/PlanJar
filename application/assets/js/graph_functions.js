@@ -38,11 +38,12 @@ function populate_percentage_box(container, data) {
 // x = day, y = plan count
 function populate_day_graph(container, data) {
     // Select the chart bars (they don't exist yet)
-    d3.select(container) //.selectAll('div.graph_bar')
+    var bars = d3.select(container).selectAll('div.graph_bar')
     // Add data to the bars
-    .data(data)
+    .data(data);
+    
     // Instantiate enough elements to match the data count
-    .enter().append('div').classed('graph_bar')
+    bars.enter().append('div').classed('graph_bar')
     // Set the height according to the input data
     .style('height', function (d) {
         return d.count * 10 + 'px';
