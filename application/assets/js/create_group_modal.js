@@ -8,9 +8,6 @@ function initialize_create_group_modal()
     // divSet
     $('#group_privacy_wrapper').divSet();
     
-    // Initial select
-    reset_group_modal();
-    
     // Opening click handler
     $('#create_group').click(function(){
         // Show the modal
@@ -34,6 +31,9 @@ function initialize_create_group_modal()
     
     // In-field labels
     $('#create_group_content .in-field_block label').inFieldLabels();   
+    
+    // Initial select
+    reset_group_modal();
     
     // Submit handler
     $('#submit_create_group').click(function() {
