@@ -19,3 +19,10 @@
     height: 100%;
     width: 100%;
 }
+
+.graph_bar {
+    width: 10px;
+    background-color: blue;
+    border: none;
+    float: left;
+}
