@@ -70,12 +70,8 @@ class Display_group_template extends CI_Model
             $plan_query .= "plans.user_id=$id OR ";
         }
         $plan_query = substr($plan_query, 0, -4);
-        $result = $this->db->query($plan_query);
-
-        foreach ($result->result() as $plan)
-        {
-            
-        }
+        //$result = $this->db->query($plan_query);
+        var_dump($query);
     }
 
     function get_current_location_data()
