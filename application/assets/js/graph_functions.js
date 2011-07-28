@@ -40,10 +40,9 @@ function populate_day_graph(container, data) {
     // Select the chart bars (they don't exist yet)
     var bars = d3.select(container).selectAll('div.graph_bar')
     // Add data to the bars
-    .data(data);
-    
+    .data(data)
     // Instantiate enough elements to match the data count
-    bars.enter().append('div').classed('graph_bar')
+    .enter().append('div').classed('graph_bar', true)
     // Set the height according to the input data
     .style('height', function (d) {
         return d.count * 10 + 'px';
