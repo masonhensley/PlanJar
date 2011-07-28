@@ -251,8 +251,6 @@ class Group_ops extends CI_Model
 
             $query = $this->db->query($query_string);
 
-            var_dump($this->db->last_query());
-
             foreach ($query->result() as $row)
             {
                 $return_array[] = $row->user_joined_id;
