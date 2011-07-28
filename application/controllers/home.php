@@ -502,12 +502,11 @@ class Home extends CI_Controller
 
         $subject_id = $this->input->get('subject_id');
         $subject_type = $this->input->get('subject_type');
-        $privacy = $this->input->get('privacy');
 
         // Handle the different subject types
         if ($subject_type == 'event')
         {
-            if ($privacy != 'open')
+            if ($this->input->get('privacy') != 'open')
             {
                 $this->load->model('event_ops');
                 $this->event_ops->add_invitees($subject_id, $user_ids);

@@ -64,7 +64,7 @@
 
 .suggest_groups{
     display:inline-block;
-     background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
+    background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
     height:auto;
     width:auto;
     border:1px solid black;
@@ -131,6 +131,16 @@
     float:right;
     width: 75px;
     background: -webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
+    color: white;
+    padding: 3px;
+    text-align: center;
+    display:inline-block;
+}
+
+.invite_people {
+    float:right;
+    width: 75px;
+    background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
     text-align: center;

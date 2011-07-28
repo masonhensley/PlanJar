@@ -116,7 +116,7 @@ class Load_group_profile extends CI_Model
                 } else // if you are joined and it is a regular group
                 {
                     $bottom_bar_text .= "You are a <font style=\"color:purple;font-weight:bold;\">member</font> of this group";
-                    $bottom_bar_buttons.= "<div class=\"invite_people\">Invite people</div>";
+                    $bottom_bar_buttons.= "<div class=\"invite_people\" style=\"margin-right:3px;\">Invite people</div>";
                     $bottom_bar_buttons.= "<div class=\"remove_following\">unjoin</div>";
                 }
             } else if ($group_info['school_group']) // if you are following and it is a school group

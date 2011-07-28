@@ -72,7 +72,8 @@ function initialize_invite_modal() {
 }
 
 // Opens the modal and hides the groups invite pane if necessary
-function open_invite_modal(subject_type, subject_id, priv_type, originator) {
+// priv_type is '' for groups
+function open_invite_modal(subject_type, subject_id, priv_type, plan_originator) {
     // Hide the modal
     $('#invite_modal').hide('fast', function () {
         reset_invite_modal();
@@ -88,7 +89,7 @@ function open_invite_modal(subject_type, subject_id, priv_type, originator) {
     
         // Determine whether to hide the groups
         var hide_groups = true;
-        if (subject_type == 'event' && (priv_type == 'open' || originator != undefined)) {
+        if (subject_type == 'event' && (priv_type == 'open' || plan_originator != undefined)) {
             // Only show your joined groups for an open event
             hide_groups = false;
         }

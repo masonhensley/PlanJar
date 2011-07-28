@@ -94,12 +94,19 @@ function populate_edit_groups_list() {
                 $.get('/dashboard/get_group_details', {
                     group_id: $(this).attr('group_id')
                 }, function (data) {
-                    $('#groups_content .middle').html(data);
+                    data = $.parseJSON(data);
+                    $('#groups_content .middle').html(data.html);
                     $('.middle').show("slow");
+                    
                     // Button click handlers
                     group_click_handler('#groups_content .remove_following', 'remove_group_following');
                     group_click_handler('#groups_content .remove_joined', 'remove_group_joined');
                     group_click_handler('#groups_content .add_joined', 'add_group_joined');
+                    
+                    // Invite people
+                    $('#groups_content .middle .invite_people').click(function() {
+                        open_invite_modal('group', data.group_id, '');
+                    })
                 });
             }
         });

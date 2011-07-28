@@ -50,7 +50,7 @@ function initialize_create_group_modal()
                     reset_group_modal();
                     
                     // Open the invite modal
-                    open_invite_modal('group', data, privacy, true);
+                    open_invite_modal('group', data, '');
                 });
                 
                 // Repopulate the following groups.

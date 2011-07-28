@@ -136,8 +136,8 @@ class Notification_ops extends CI_Model
             $query = $this->db->query($query_string, array($notification_row->subject_id));
             $row = $query->row();
 
-            return '<b>' . $notification_row->first_name . ' ' . $notification_row->last_name . '</b> ' .
-            'has invited you to the group <b>' . $row->name . '</b>';
+            return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
+            '</b>has invited you to join the group <b>' . $row->name . '</b>';
         }
     }
 
@@ -151,7 +151,7 @@ class Notification_ops extends CI_Model
     // Accepts the notification given by id
     function accept_notification($id)
     {
-        // Get the notification row
+        // Get the notification rowF
         $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
         $query = $this->db->query($query_string, array($id));
         $row = $query->row();
@@ -168,6 +168,7 @@ class Notification_ops extends CI_Model
                 $this->load->model('group_ops');
                 $this->group_ops->follow_group($row->subject_id);
                 $this->group_ops->join_group($row->subject_id);
+                $this->update_notification_viewed($id, true);
                 break;
         }
     }
@@ -185,6 +186,8 @@ class Notification_ops extends CI_Model
                 return $query->num_rows() > 0;
                 break;
             case 'group_invite':
+                $this->load->model('group_ops');
+                return $this->group_ops->user_is_joined($notif_row->subject_id);
                 break;
         }
     }
