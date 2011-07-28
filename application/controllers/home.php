@@ -126,7 +126,8 @@ class Home extends CI_Controller
         }
     }
 
-    // Adds a plan entry to the database, creates an event if necessary, and invites and notifies users if required.
+    // Adds a plan entry to the database and creates an event if necessary
+    // Returns the event id
     public function submit_plan()
     {
         $event_id = $this->input->get('plan_event_id');
@@ -176,32 +177,7 @@ class Home extends CI_Controller
         $this->load->model('plan_actions');
         $plan_id = $this->plan_actions->add_plan($plan_data);
 
-        // Capture the invite lists
-        $invited_users = explode(',', $this->input->get('invite_plan_users'));
-        $invited_groups = explode(',', $this->input->get('invite_plan_groups'));
-        if ($invited_users[0] == '')
-        {
-            $invited_users = array();
-        }
-        if ($invited_groups[0] == '')
-        {
-            $invited_groups = array();
-        }
-        $this->load->model('group_ops');
-        $invited_users = array_merge($invited_users, $this->group_ops->get_users($invited_groups));
-
-        // Add invitees if necessary.
-        if ($privacy != 'open')
-        {
-            $this->event_ops->add_invitees($event_id, $invited_users);
-        }
-
-        // Notify users
-        $this->load->model('notification_ops');
-        $this->notification_ops->notify($invited_users, 'event_invite', $event_id);
-
-        // Success
-        echo('success');
+        echo($event_id);
     }
 
     public function load_selected_plan_data()

@@ -92,27 +92,34 @@ function initialize_plan_modal() {
     
     // Submit
     $('#submit_plan').click(function () {
-        // Get the privacy setting from either the divSet or the <select>
-        var privacy;
-        if ($('#plan_event_select_wrapper .selected_event').length == 0) {
-            privacy = $('#plan_privacy_wrapper .divset_selected').attr('priv_val');
-        } else {
-            privacy = $('#plan_event_select_wrapper .selected_event').attr('priv_type');
-        }
+        //Make sure an event is selected or an event has been created
+        if ($('#plan_event_select_wrapper .selected_event').length == 1 || $('#event_title').val() != '') {
+            // Get the privacy setting from either the divSet or the <select>
+            var privacy;
+            if ($('#plan_event_select_wrapper .selected_event').length == 0) {
+                privacy = $('#plan_privacy_wrapper .divset_selected').attr('priv_val');
+            } else {
+                privacy = $('#plan_event_select_wrapper .selected_event').attr('priv_type');
+            }
         
-        $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
-            'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-            'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
-            'privacy': privacy
-        } ,function (data) {
-            if (data == 'success') {
-                // Hide and reset the modal
-                $('#cancel_plan').click();
+            $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
+                'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
+                'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
+                'privacy': privacy
+            } ,function (data) {
+                // Hide and reset the modal and then open the invite modal
+                $('#create_plan_content').hide('fast', function () {
+                    // Clear the plan modal
+                    reset_modal();
+                    
+                    // Open the invite modal
+                    open_invite_modal('event', data, privacy, true);
+                });
                 
                 // Refresh the plan list.
                 populate_plan_panel();
-            }
-        });
+            });  
+        }
     });
     
 // End of DOM ready function
