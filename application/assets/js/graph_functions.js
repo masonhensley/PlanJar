@@ -2,8 +2,7 @@
 
 // Outputs ten boxes with the supplied percentage of them filled in
 function populate_percentage_box(container, data) {
-    // Vars needed to construct a set of marker boxes in a wrapper
-    var marker_wrapper = $('<div class="marker_wrapper"></div>');
+    // Vars needed to construct a set of marker boxes
     var marker_box;
     var half_marker_box;
     var number_of_active_halves = Math.round(data * 20);
@@ -30,9 +29,10 @@ function populate_percentage_box(container, data) {
         half_marker_box.appendTo(marker_box);
         
         // Append the marker box to its wrapper
-        marker_box.appendTo(marker_wrapper);
+        marker_box.appendTo(container);
     }
+}
+
+function populate_day_graph(container, data) {
     
-    // Append the newly created wrapper to the supplied container
-    marker_wrapper.appendTo(container);
 }
