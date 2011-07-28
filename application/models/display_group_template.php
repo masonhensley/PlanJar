@@ -243,8 +243,9 @@ class Display_group_template extends CI_Model
             $display_day = "today";
         }
 
-        //$this->load->model('load_locations');
-        //$group_names = $this->load_locations->get_group_names($selected_groups);
+        $this->load->model('load_locations');
+        $group_names = $this->load_locations->get_group_names($selected_groups);
+        var_dump($group_names);
         //ob_start();
         ?>
         <div class="data_box_top_bar">

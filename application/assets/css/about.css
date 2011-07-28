@@ -64,12 +64,13 @@ h1 {
     text-shadow: 0 1px 0 white;  
 }  
 
-h2 {  
+h3 {  
+     float: right;
      background: #e3e3e3;  
      background: -moz-linear-gradient(top, #e3e3e3, #c8c8c8);  
      background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
      padding: 10px 20px;  
-     margin-left: -20px;  
+     margin-right: -20px;  
      margin-top: 0;  
      position: relative;  
      width: 70%;  
@@ -95,9 +96,9 @@ h2 {
 .arrow_right {  
      width: 0; height: 0;  
      line-height: 0;  
-     border-left: 20px solid transparent;  
+     border-right: 20px solid transparent;  
      border-top: 10px solid #c8c8c8;  
      top: 104%;  
-     left: 0;  
+     right: 0;  
      position: absolute;  
 }  
