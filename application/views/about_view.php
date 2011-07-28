@@ -23,7 +23,9 @@
                  </div>  
      <div id="container">  
   
-        <h1> About our Team <span class="arrow"></span> </h1>  
+        <h1> About our Team <span class="arrow"></span> </h1> 
+
+        <h2> Mason Hensley <span class="arrow_right"></span> </h2>
   
     </div>  
 </body>  
