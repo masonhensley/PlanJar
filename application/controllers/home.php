@@ -516,6 +516,7 @@ class Home extends CI_Controller
             $user_ids = array();
         }
         $group_ids = $this->input->get('group_ids');
+        var_dump($group_ids);
         if (!$group_ids)
         {
             $group_ids = array();
