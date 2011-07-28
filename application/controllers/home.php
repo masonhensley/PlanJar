@@ -506,6 +506,7 @@ class Home extends CI_Controller
         }
     }
     
+    // Invites and notifies the given users and groups
     public function invite_people() {
         
     }

@@ -41,7 +41,7 @@ function get_plan_data() {
         
         // Handles clicking on invite people
         $('.invite_people').click(function () {
-            open_invite_modal(data.privacy, 'event');
+            open_invite_modal('event', data.event_id, data.privacy);
         });
     });
 }
