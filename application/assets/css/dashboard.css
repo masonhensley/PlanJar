@@ -48,7 +48,7 @@ a{
 
 .top_right_link_outer{
     height:100%;
-    width:86px;
+    padding:5px;
     display:inline-block;
     position:relative;
     top:-12px;
