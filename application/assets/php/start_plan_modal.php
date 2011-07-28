@@ -41,25 +41,23 @@
             <div class="plan_page_content" style="display: none;">
                 <div id="plan_events_title"></div>
 
-                <div style="width: 100%; height: auto;">
-                    <div id="plan_event_select_wrapper"></div>
+                <div id="plan_event_select_wrapper"></div>
 
-                    <div id="new_event_side">
-                        <input type="button" id="create_event" value="Start an event"/>
+                <div id="new_event_side">
+                    <input type="button" id="create_event" value="Start an event"/>
 
-                        <div id="start_event_content" style="display: none;">
-                            <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
-                                <label for="event_title">Title</label>
-                                <input type="text" id="event_title" name="event_title"/>
-                            </div>
+                    <div id="start_event_content" style="display: none;">
+                        <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
+                            <label for="event_title">Title</label>
+                            <input type="text" id="event_title" name="event_title"/>
+                        </div>
 
-                            <div id="plan_privacy_wrapper">
-                                Privacy options<br/>
+                        <div id="plan_privacy_wrapper">
+                            Privacy options<br/>
 
-                                <div priv_val="open">None</div>
-                                <div priv_val="strict">Fixed invitation list</div>
-                                <div priv_val="loose">Invitees can invite others</div>
-                            </div>
+                            <div priv_val="open">None</div>
+                            <div priv_val="strict">Fixed invitation list</div>
+                            <div priv_val="loose">Invitees can invite others</div>
                         </div>
                     </div>
                 </div>
