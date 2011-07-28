@@ -171,14 +171,6 @@ a{
     display: none;
 }
 
-.data_box_top_bar{
-    width:auto;
-    height:50px;
-   margin-top:5px;
-   margin-left:10px;
-   margin-right:10px;
-}
-
 .graph_data{
     width:100px;
     height:100px;

@@ -1,0 +1,28 @@
+.data_box_top_bar{
+    width:auto;
+    height:50px;
+   margin-top:5px;
+   margin-left:10px;
+   margin-right:10px;
+   white-space: nowrap;
+   overflow:hidden;
+}
+
+.group_graph_top_left{
+    width:49%;
+    height:50px;
+    float:left;
+}
+.group_graph_top_right{
+    width:49%;
+    height:50px;
+}
+.group_graph_bottom_left{
+    width:49%;
+    height:50px;
+    float:left;
+}
+.group_graph_bottom_right{
+    width:50%;
+    height:50px;
+}
