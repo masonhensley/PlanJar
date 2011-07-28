@@ -7,21 +7,19 @@ function initialize_create_group_modal()
 {
     // Opening click handler
     $('.create_group').click(function(){
-        
-        
         // Initial selects
         $('#group_privacy_wrapper :first').click();
         $('#create_group_content input[type="radio"]:first').click();
-        $('#group_name').focus();
-    
-        // Clear the token inputs
-        $('#group_invite_users, #group_invite_groups').tokenInput('clear');
         
-        $('#create_group_content').show("fast");
-        // Make it draggable (with a handler).
-        $('#create_group_content').draggable({
-            handle: '.title_bar'
+        // Show the modal
+        $('#create_group_content').show("fast", function () {
+            $('#group_name').focus();
         });
+    });
+    
+    // Make it draggable (with a handler).
+    $('#create_group_content').draggable({
+        handle: '.title_bar'
     });
     
     // Closing click handler
@@ -53,9 +51,6 @@ function initialize_create_group_modal()
                     // Repopulate the following groups.
                     populate_edit_groups_list();
                     
-                    // Blur the invite boxes
-                    $('#invite_group_users, #invite_group_groups').blur();
-        
                     $('#create_group_content').hide("fast");
                 } else {
                     alert(data);
@@ -66,20 +61,5 @@ function initialize_create_group_modal()
             // Don't display errors
             return true;
         }
-    });
-    
-    // token-input
-    $('#group_invite_users').tokenInput('/home/get_followers_invite', {
-        hintText: 'Search followers...',
-        preventDuplicates: true,
-        queryParam: 'needle',
-        theme: 'facebook'
-    });
-    
-    $('#group_invite_groups').tokenInput('/home/get_groups_invite', {
-        hintText: 'Search joined groups...',
-        preventDuplicates: true,
-        queryParam: 'needle',
-        theme: 'facebook'
     });
 }
