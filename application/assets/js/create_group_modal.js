@@ -2,11 +2,12 @@ $(function() {
     initialize_create_group_modal();
 });
 
+// Initializes the create group modal
 function initialize_create_group_modal()
 {
+    // Opening click handler
     $('.create_group').click(function(){
-        // Clear the fields.
-        $('#group_name, #group_description').val('').blur();
+        
         
         // Initial selects
         $('#group_privacy_wrapper :first').click();
@@ -23,9 +24,10 @@ function initialize_create_group_modal()
         });
     });
     
+    // Closing click handler
     $('#cancel_group_creation').click(function(){
-        // Blur the invite boxes
-        $('#invite_group_users, #invite_group_groups').blur();
+        // Clear the fields.
+        $('#group_name, #group_description').val('').blur();
         
         $('#create_group_content').hide("fast");
     });
