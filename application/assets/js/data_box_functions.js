@@ -5,7 +5,7 @@ function update_groups_and_locations()
     selected_day = get_selected_day();
     selected_groups = get_selected_groups();
     
-    if(selected_groups != null)
+    if(selected_groups.length != 0)
     {
         load_data_box(selected_day, selected_groups); // update the data box to reflect selections
     }else{
