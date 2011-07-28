@@ -4,6 +4,7 @@ function populate_sex_info(container, data) {
     var first_container_width = $(container + ' div:first').width();
     
     // Add the squares
+    $(container);
     for (var i = 0; i < 20; ++i) {
         $(container).append('<div class="sex_box"></div>')
     }
