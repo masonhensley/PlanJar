@@ -159,8 +159,8 @@ class Display_group_template extends CI_Model
             $display_day = "today";
         }
 
-
-
+        /*
+        
         $this->load->model('load_locations');
         $group_names = $this->load_locations->get_group_names($selected_groups);
 
@@ -211,6 +211,8 @@ class Display_group_template extends CI_Model
         </div>
         <?php
         return ob_get_clean();
+         * 
+         */
     }
 
 }
