@@ -19,7 +19,7 @@ function update_groups_and_locations()
 function load_data_box(selected_day, selected_groups)
 {
     $.get('/home/load_data_box', {
-        'selected_groups': JSON.stringify(selected_groups),
+        'selected_groups': selected_groups,
         'selected_day': selected_day
     }, function (data) {
         // Apply the layout HTML
