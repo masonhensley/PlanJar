@@ -523,6 +523,7 @@ class Home extends CI_Controller
 
         $this->load->model('group_ops');
         $user_ids = array_merge($user_ids, $this->group_ops->get_users($group_ids));
+        var_dump($this->group_ops->get_users($group_ids));
 
         $subject_id = $this->input->get('subject_id');
         $subject_type = $this->input->get('subject_type');
