@@ -33,8 +33,9 @@ a{
     height:100%;
     margin-left: auto;
     margin-right: auto;
-    padding-top:12px;
     text-align: center;
+    position:relative;
+    right:175px;
 }
 
 .top_links{
@@ -67,7 +68,7 @@ a{
 #show_name{
     display:inline-block;
     color:white;
-    margin-right:100px;
+    margin-right:300px;
     margin-top:12px;
 }
 
