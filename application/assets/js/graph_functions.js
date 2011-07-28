@@ -34,6 +34,5 @@ function populate_percentage_box(container, data) {
     }
     
     // Append the newly created wrapper to the supplied container
-    console.log($(container));
     marker_wrapper.appendTo(container);
 }
