@@ -70,8 +70,8 @@ class Display_group_template extends CI_Model
             $plan_query .= "plans.user_id=$id OR ";
         }
         $plan_query = substr($plan_query, 0, -4);
+        var_dump($plan_query);
         //$result = $this->db->query($plan_query);
-        var_dump($query);
     }
 
     function get_current_location_data()
@@ -118,13 +118,11 @@ class Display_group_template extends CI_Model
                 <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $friend_count; ?>)</font>
             </div>
         </div>
-
         <?php
     }
 
     function get_school_data($school)
     {
-
         $user = $this->ion_auth->get_user();
         $query = "SELECT * FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
@@ -163,7 +161,7 @@ class Display_group_template extends CI_Model
         //$this->load->model('load_locations');
         //$group_names = $this->load_locations->get_group_names($selected_groups);
 
-        ob_start();
+        //ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
@@ -187,8 +185,8 @@ class Display_group_template extends CI_Model
         <div class="group_graph_bottom_left">
         </div>
         <?php
-        $return_array['html'] = ob_get_clean();
-        return $return_array;
+        //$return_array['html'] = ob_get_clean();
+        //return $return_array;
     }
 
 }
