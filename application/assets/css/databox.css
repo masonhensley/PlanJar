@@ -18,24 +18,32 @@
     width:49%;
     height:150px;
     border: 1px solid black;
-    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
 }
 .group_graph_bottom_left{
     width:49%;
     height:50px;
     border: 1px solid black;
-    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
 }
 .group_graph_bottom_right{
     width:49%;
     height:50px;
     border: 1px solid black;
-    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
 }
 
 .percent_container{
     width:90%;
-    display:inline-block;
     margin-right:5px;
     height:10px;
+    position:absolute;
+    top:0px;
+    right:0px;
 }
