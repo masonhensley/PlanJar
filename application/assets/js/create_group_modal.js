@@ -40,24 +40,22 @@ function initialize_create_group_modal()
         // Make sure there is a name
         if ($('#group_name').val() != '') {
             var privacy = $('#group_privacy_wrapper .divset_selected').attr('priv_type');
-            //            $.get('/dashboard/create_group?' + $('#create_group_form').serialize(), {
-            //                'privacy': privacy
-            //            }, function (data) {
-            //                
-            //                // Hide and reset the modal and then open the invite modal
-            //                $('#create_group_content').hide('fast', function () {
-            //                    // Clear the group modal
-            //                    reset_group_modal();
-            //                    
-            //                    // Open the invite modal
-            //                    open_invite_modal('group', data, privacy, true);
-            //                });
-            //                
-            //                // Repopulate the following groups.
-            //                populate_edit_groups_list();
-            //            });
-            console.log($('#create_group_form').serialize());
-            console.log(privacy);
+            $.get('/dashboard/create_group?' + $('#create_group_form').serialize(), {
+                'privacy': privacy
+            }, function (data) {
+                
+                // Hide and reset the modal and then open the invite modal
+                $('#create_group_content').hide('fast', function () {
+                    // Clear the group modal
+                    reset_group_modal();
+                    
+                    // Open the invite modal
+                    open_invite_modal('group', data, privacy, true);
+                });
+                
+                // Repopulate the following groups.
+                populate_edit_groups_list();
+            });
         } else {
             $('#group_name').focus();
         }
