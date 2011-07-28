@@ -31,11 +31,5 @@ function populate_sex_info(container, data) {
         
         // Append the marker box to its wrapper
         marker_box.appendTo(j_wrapper);
-        
-        // Add the marker box to the wrapper
-        j_wrapper.append('<div class="marker_box"></div>');
     }
-    
-    // Append the newly created wrapper to the first container
-    j_wrapper.appendTo(j_first_container);
 }
