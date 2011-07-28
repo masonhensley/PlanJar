@@ -10,25 +10,25 @@
 
 .group_graph_top_left{
     width:49%;
-    height:50px;
+    height:150px;
     border: 1px solid black;
     display: inline-block;
 }
 .group_graph_top_right{
     width:49%;
-    height:50px;
+    height:150px;
     border: 1px solid black;
     display:inline-block;
 }
 .group_graph_bottom_left{
     width:49%;
-    height:50px;
+    height:150px;
     border: 1px solid black;
     display:inline-block;
 }
 .group_graph_bottom_right{
     width:49%;
-    height:50px;
+    height:150px;
     border: 1px solid black;
     display:inline-block;
 }
