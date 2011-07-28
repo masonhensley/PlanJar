@@ -1,0 +1,67 @@
+/* ---------- TOP PANEL ----------- */
+.top_panel{
+    height: 40px;
+    width:100%;
+    background: #333;
+    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
+    background: -moz-linear-gradient(top,#333,#666);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333',endColorstr='#666');
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 0px 9px #000;
+    -moz-box-shadow: 0px 0px 9px #000;
+    box-shadow: 0px 0px 9px #000;
+}
+
+.inside_top_panel{
+    width:1024px;
+    height:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top_links{
+    width:1024px;
+    height:50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* -------------- Container-----------------------*/
+#container {  
+    background: #666;  
+    margin: auto;  
+    width: 500px;  
+    height: 700px;  
+    padding-top: 30px;  
+    font-family: helvetica, arial, sans-serif;  
+    }  
+  
+h1 {  
+     background: #e3e3e3;  
+     background: -moz-linear-gradient(top, #e3e3e3, #c8c8c8);  
+     background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
+     padding: 10px 20px;  
+     margin-left: -20px;  
+     margin-top: 0;  
+     position: relative;  
+     width: 70%;  
+  
+    -moz-box-shadow: 1px 1px 3px #292929;  
+    -webkit-box-shadow: 1px 1px 3px #292929;  
+       box-shadow: 1px 1px 3px #292929;  
+  
+    color: #454545;  
+    text-shadow: 0 1px 0 white;  
+}  
+  
+.arrow {  
+     width: 0; height: 0;  
+     line-height: 0;  
+     border-left: 20px solid transparent;  
+     border-top: 10px solid #c8c8c8;  
+     top: 104%;  
+     left: 0;  
+     position: absolute;  
+}  
