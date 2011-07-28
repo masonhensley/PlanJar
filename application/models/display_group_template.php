@@ -29,7 +29,7 @@ class Display_group_template extends CI_Model
         return $this->get_groups_template($selected_groups, $day);
     }
 
-    function get_selected_group_data($selected_groups)
+    function get_selected_group_data($selected_groups, $sql_date)
     {
         $query = "SELECT * FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
@@ -73,6 +73,7 @@ class Display_group_template extends CI_Model
         }
         $girl_boy_query = substr($girl_boy_query, 0, -4);
         $result = $this->db->query($girl_boy_query);
+        
         foreach ($result->result() as $person)
         {
             if ($person->sex == 'male')
