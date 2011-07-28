@@ -7,7 +7,7 @@
     border: 1px solid black
 }
 
-half_marker_box {
+.half_marker_box {
     width: 50%;
     height: 100%;
     float: left;
