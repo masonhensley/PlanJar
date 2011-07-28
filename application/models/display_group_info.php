@@ -38,11 +38,7 @@ class Display_group_info extends CI_Model
     function on_nothing_selected($display_day)
     {
         ?>
-        <br/><br/><br/><font style="font-size:20px; font-weight:bold; color:gray;">Select a group on the left to see relevant information for <?php echo $display_day; ?>
-        <br/><br/><br/>
-        Select a plan on the right to view its information and invite people
-        <br/><br/><br/>
-        You can change the day using the panel below </font>
+        <img src="/application/assets/images/help.png" style="width: 100%; height: 100%"/>
         <?php
     }
 
@@ -132,7 +128,10 @@ class Display_group_info extends CI_Model
         <div class="data_box_top_bar">
             <div style="float:left;">
                 <font style="font-size:30px;color:gray; font-weight:bold;">
-                Group<?php if(count($selected_groups)>1){echo "s";}?>:</font>
+                Group<?php if (count($selected_groups) > 1)
+        {
+            echo "s";
+        } ?>:</font>
                 <?php
                 $display_groups = "";
                 foreach ($group_names as $group)

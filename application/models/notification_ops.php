@@ -20,7 +20,11 @@ class Notification_ops extends CI_Model
         $date = $this->db->escape($date->format('Y-m-d'));
         foreach ($user_list as $user_id)
         {
-            $values_string .= "(DEFAULT, $user_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT), ";
+            // Only add the notification if the originating user is not the current user
+            if ($user_id != $this->ion_auth->get_user()->id)
+            {
+                $values_string .= "(DEFAULT, $user_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT), ";
+            }
         }
 
         // Only continue if there were results
