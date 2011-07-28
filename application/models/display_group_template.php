@@ -20,7 +20,7 @@ class Display_group_template extends CI_Model
             $format_type .= "current_location";
         } else if ($selected_groups[0] == 'friends')
         {
-            $data_array = $this->get_friend_data(); // get information for friends
+            $data_array = $this->get_friend_data($sql_date); // get information for friends
             $format_type .= "friends";
         } else if ($selected_groups[0] == 'school')
         {
@@ -34,8 +34,65 @@ class Display_group_template extends CI_Model
         return $this->get_group_template($format_type, $selected_groups, $day, $data_array);
     }
 
+    function get_friend_data($sql_date)
+    {
+        $this->load->model('load_locations');
+        $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
+
+        $return_array = array(); // data to be returned
+        $number_males = 0;
+        $number_females = 0;
+        $males_going_out = 0;
+        $females_going_out = 0;
+        $total_people = count($user_ids);
+        $user_ids = array();
+
+        $query = "SELECT user_meta.sex FROM user_meta WHERE ";
+        foreach ($user_ids as $friend_id)
+        {
+            $query .= "user_id=$friend_id OR ";
+        }
+        $query = substr($query, 0, -4);
+        $result = $this->db->query($query);
+        
+        foreach($result->result() as $person)
+        {
+            if($person->sex == 'male')
+            {
+                $number_males++;
+            }else{
+                $number_females++;
+            }
+        }
+        
+        $return_array['total_males'] = $number_males;
+        $return_array['total_females'] = $number_females;
+        
+        // query for number of girls and boys going out on the date selected
+        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females); 
+        // query for all the plans that people in the groups have made for the surrounding week
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);  
+        
+        return $return_array;
+    }
+
+    function get_school_data($school)
+    {
+        $user = $this->ion_auth->get_user();
+        $query = "SELECT * FROM user_meta 
+        JOIN school_data ON school_data.id=user_meta.school_id 
+        WHERE user_meta.school_id=$user->school_id";
+
+        $result = $this->db->query($query);
+        $row = $result->row();
+        $number_schoolmates = $result->num_rows();
+        $total_enrollment = $row->total_enrollment;
+        $result_array = $result->result_array();
+    }
+
     function get_selected_group_data($selected_groups, $sql_date)
     {
+        // first get all the ids of people in the groups
         $query = "SELECT user_meta.user_id, user_meta.sex FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
                     WHERE ";
@@ -199,60 +256,35 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_friend_data()
-    {
-        $this->load->model('load_locations');
-        $friends = $this->load_locations->get_friend_ids();
-        $friend_count = count($friends);
-        $query = "SELECT * FROM user_meta WHERE ";
-        foreach ($friends as $friend)
-        {
-            $query .= "user_meta.user_id=$friend OR ";
-        }
-        $query = substr($query, 0, -4);
-        $result = $this->db->query($query);
-        $result_array = $result->result_array();
-    }
-
-    function get_school_data($school)
-    {
-        $user = $this->ion_auth->get_user();
-        $query = "SELECT * FROM user_meta 
-        JOIN school_data ON school_data.id=user_meta.school_id 
-        WHERE user_meta.school_id=$user->school_id";
-
-        $result = $this->db->query($query);
-        $row = $result->row();
-        $number_schoolmates = $result->num_rows();
-        $total_enrollment = $row->total_enrollment;
-        $result_array = $result->result_array();
-    }
-
     function get_group_template($format_type, $selected_groups, $day, $data_array)
     {
         $return_array = array();
-        if (!$day)
+        $top_display .= "";
+        if ($format_type == 'friends')
         {
-            $day = 0;
-        }
-        $this->load->model('load_locations');
-        $display_day = $this->load_locations->get_day($day);
-
-        if ($day == 0)
+            $top_display = "Friends"; // you can use data_array to find total number of friends
+        } else if ($format_type == 'current_location')
         {
-            $display_day = "today";
+            $top_display .= "Current Location";
+        } else if ($format_type == 'school')
+        {
+            $top_display .= "School";
+        } else if ($format_type == 'groups')
+        {
+            $this->load->model('load_locations');
+            $group_names = $this->load_locations->get_group_names($selected_groups);
+            foreach ($group_names as $group)
+            {
+                $top_display .= $group . ", ";
+            }
+            $top_display = substr($top_display, 0, -2);
         }
 
-        $this->load->model('load_locations');
-        $group_names = $this->load_locations->get_group_names($selected_groups);
-        var_dump($group_names);
         //ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="font-size:20px;color:black;font-weight:bold;">
-                Groups go here.
-                </font>
+                <?php echo $top_display; ?> 
             </div>
         </div>
         <div class="group_graph_top_left" >
