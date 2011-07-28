@@ -92,7 +92,7 @@ h2 {
      position: absolute;  
 }  
 
-.arrow_left {  
+.arrow_right {  
      width: 0; height: 0;  
      line-height: 0;  
      border-left: 20px solid transparent;  
