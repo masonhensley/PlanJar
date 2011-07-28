@@ -12,6 +12,7 @@
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/invite_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/modal.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/databox.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -107,10 +108,10 @@
         <div class="bottom_links">
             Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
 
-                    <a href="/dashboard/followers" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Followers</div></div></a>
-                    <a href="/dashboard/following" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Following</div></div></a>
-                    <a href="/dashboard/notifications" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Notifications</div></div></a>
-                    <a href="/home/logout" ><div class ="bottom_link_outer"><div class="bottom_link_inner">Log out</div></div></a>
+                    <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
+                    <a href="#" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
+                    <a href="#" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
+                    
                     
                 </div>
 

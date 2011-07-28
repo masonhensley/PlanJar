@@ -1,0 +1,49 @@
+.data_box_top_bar{
+    width:auto;
+    height:30px;
+    margin-top:5px;
+    margin-left:10px;
+    margin-right:10px;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.group_graph_top_left{
+    width:49%;
+    height:150px;
+    border: 1px solid black;
+    position:absolute;
+    top:34px;
+    left:0px;
+}
+.group_graph_top_right{
+    width:49%;
+    height:150px;
+    border: 1px solid black;
+    position:absolute;
+    top:34px;
+    right:0px;
+}
+.group_graph_bottom_left{
+    width:49%;
+    height:50px;
+    border: 1px solid black;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+}
+.group_graph_bottom_right{
+    width:100px;
+    height:100px;
+    border: 1px solid black;
+    position:absolute;
+    bottom:0px;
+    right:0px;
+}
+
+.percent_container{
+    width:90%;
+    margin-right:5px;
+    height:10px;
+    border: 1px solid black;
+}

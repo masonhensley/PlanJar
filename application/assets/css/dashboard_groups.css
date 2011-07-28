@@ -138,13 +138,15 @@
 }
 
 .invite_people {
-    float:right;
     width: 75px;
     background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
     text-align: center;
     display:inline-block;
+    position:absolute;
+    top:-280px;
+    height:38px;
 }
 
 .middle .add_joined {
