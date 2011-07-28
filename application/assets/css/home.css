@@ -415,11 +415,16 @@ a{
     width:1024px;
     margin-left:auto;
     margin-right:auto;
-    height:40px;
+    height:50px;
     background-color: black;
     opacity: .4;
     text-align:left;
-    position:relative;        
+    position:relative;      
+}
+
+.bottom_link_inner {
+    position: relative;
+    top: 10px;
 }
 
 #group_select_type{
