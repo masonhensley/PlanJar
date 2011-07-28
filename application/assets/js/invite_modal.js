@@ -48,7 +48,7 @@ function initialize_invite_modal() {
             
             // Send to the server
             var data = {
-                user_id_string: $('#search_in_school').val(),
+                user_ids: $('#search_in_school').val().split(','),
                 group_ids: group_list,
                 subject_id: $('#invite_subject_id').val(),
                 subject_type: $('#invite_subject_type').val()
