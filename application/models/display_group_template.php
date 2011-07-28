@@ -70,7 +70,7 @@ class Display_group_template extends CI_Model
         $return_array['total_males'] = $number_males;
         $return_array['total_females'] = $number_females;
 
-        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids); // query for number of girls and boys going out on the date selected
+        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females); // query for number of girls and boys going out on the date selected
         $return_array = $this->get_surrounding_day_info($return_array, $user_ids);  // query for all the plans that people in the groups have made for the surrounding week
 
         return $return_array;
@@ -107,13 +107,13 @@ class Display_group_template extends CI_Model
         $return_array['total_males'] = $number_males;
         $return_array['total_females'] = $number_females;
 
-        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids); // fill return array with percentage information
+        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females); // fill return array with percentage information
         $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
         
         return $return_array;
     }
 
-    function get_percentages($return_array, $sql_date, $user_ids)
+    function get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females)
     {
         // query for number of girls and boys going out on the date selected
         $girl_boy_query = "SELECT user_meta.sex FROM plans 
@@ -127,6 +127,9 @@ class Display_group_template extends CI_Model
         $girl_boy_query = substr($girl_boy_query, 0, -4);
         $result = $this->db->query($girl_boy_query);
 
+        $males_going_out = 0;
+        $females_going_out = 0;
+        
         foreach ($result->result() as $person)
         {
             if ($person->sex == 'male')
