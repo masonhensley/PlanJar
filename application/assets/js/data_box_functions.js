@@ -22,20 +22,14 @@ function load_data_box(selected_day, selected_groups)
         'selected_groups': selected_groups,
         'selected_day': selected_day
     }, function (data) {
+        // Apply the layout HTML
+        $('#group_data').html(data.html);
+
+        // Capture the data
+        data = data.data;
         
-        $('#group_data').html(data);
-        
-        var graph_data = [1, 2, 3, 4, 5, 6, 7];
-        var chart = d3.select(".graph_data");
-        
-        chart.enter()
-        .append("div")
-        .style("width", function(graph_data) {
-            return graph_data * 10 + "px";
-        }).style("height", "17px")
-        .text(function(d) {
-            return d;
-        });
+    // Populate the graphs
+        populate_sex_info('.group_graph_top_right')
     });
 }
 
