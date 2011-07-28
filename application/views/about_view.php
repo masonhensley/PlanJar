@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-
-<html>
-<?php
-/* The echo construct output text directly to the page */
-echo "This is written to the page!!!";
-
-/* Remember header() must be called before any actual output is sent
-(normal HTML tags, blank lines in a file, or from PHP) */
-header("Location: http://www.faqme.com/planjar");
-
-exit;
-?>
+<html lang="en">  
+<head>  
+    <meta charset="utf-8">  
+    <title>CSS Shapes</title>  
+  
+    <!--[if IE]>  
+        <style>  
+            .arrow { top: 100%; }  
+        </style>  
+    <![endif]-->  
+  
+</head>  
+<body>  
+     <div id="container">  
+  
+        <h1> My Heading <span class="arrow"></span> </h1>  
+  
+    </div>  
+</body>  
+</html>  
