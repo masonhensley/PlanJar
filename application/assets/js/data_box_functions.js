@@ -9,7 +9,7 @@ function update_groups_and_locations()
     {
         load_data_box(selected_day, selected_groups); // update the data box to reflect selections
     }else{
-        $('#group_data').html('<img src="/application/assets/images/help.png"');
+        $('#group_data').html('<img src="/application/assets/images/help.png">');
     }
     load_visible_locations(selected_day, selected_groups); // update the popular locations shown    
     show_data_container('#group_data');

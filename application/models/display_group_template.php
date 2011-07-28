@@ -11,39 +11,29 @@ class Display_group_template extends CI_Model
         }
         $this->load->model('load_locations');
         $display_day = $this->load_locations->get_day($day);
+        
         if ($day == 0)
         {
             $display_day = "today";
         }
 
-        if (!$selected_groups[0])
-        {
-            $this->on_nothing_selected($display_day);
-        } else if ($selected_groups[0] == 'current_location')
+       if ($selected_groups[0] == 'current_location')
         {
             $this->on_current_location_selected();
         } else if ($selected_groups[0] == 'friends')
         {
-            $this->on_friends_selected();
+            $this->get_friend_data();
         } else if ($selected_groups[0] == 'school')
         {
-            $this->on_school_selected($school);
+            $this->get_school_data($school);
         } else // when groups are selected
         {
-            $data_array = $this->get_groups_selected_data($selected_groups);
+            $data_array = $this->get_selected_group_data($selected_groups);
             $return_html = $this->get_groups_template($selected_groups, $data_array);
-            
         }
     }
 
-    function on_nothing_selected($display_day)
-    {
-        ?>
-        <img src="/application/assets/images/help.png" style="width: 100%; height: 100%"/>
-        <?php
-    }
-
-    function on_current_location_selected()
+    function get_current_location_data()
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT *,
@@ -66,7 +56,7 @@ class Display_group_template extends CI_Model
         <?php
     }
 
-    function on_friends_selected()
+    function get_friend_data()
     {
         $this->load->model('load_locations');
         $friends = $this->load_locations->get_friend_ids();
@@ -91,7 +81,7 @@ class Display_group_template extends CI_Model
         <?php
     }
 
-    function on_school_selected($school)
+    function get_school_data($school)
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT * FROM user_meta 
