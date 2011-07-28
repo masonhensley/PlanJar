@@ -29,7 +29,9 @@ function load_data_box(selected_day, selected_groups)
         //data = data.data;
         
         // Populate the graphs
-        populate_sex_info('.group_graph_top_right')
+        populate_percentage_box('.group_graph_top_right > div:eq(0)', .45);
+        populate_percentage_box('.group_graph_top_right > div:eq(1)', .85);
+        populate_percentage_box('.group_graph_top_right > div:eq(2)', .24);
     });
 }
 

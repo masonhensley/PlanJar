@@ -1,25 +1,38 @@
 // -------------------------------------------------- group data box view --------------------------------------------------
-function populate_sex_info(container, data) {
-    var j_first_container = $(container + ' div:first');
-    var d_first_container = d3.select(container + ' div').node();
+
+// Outputs ten boxes with the supplied percentage of them filled in
+function populate_percentage_box(container, data) {
+    // Vars needed to construct a set of marker boxes in a wrapper
+    var marker_wrapper = $('<div class="marker_wrapper"></div>');
+    var marker_box;
+    var half_marker_box;
+    var number_of_active_halves = Math.round(data * 20);
     
-    // Add the lower markers
-    var j_wrapper = $('<div class="sex_box_wrapper"></div>');
+    // Loop through each marker box
     for (var i = 0; i < 10; ++i) {
-        j_wrapper.append('<div class="sex_box"></div>');
+        // Create a marker box
+        marker_box = $('<div class="marker_box"></div>');
+        
+        // Append the first half marker box and change color if necessary
+        half_marker_box = $('<div class="half_marker_box"></div>');
+        if (number_of_active_halves > 0) {
+            half_marker_box.css('background-color', 'purple');
+            --number_of_active_halves;
+        }
+        half_marker_box.appendTo(marker_box);
+        
+        // Append the second half marker box and change color if necessary
+        half_marker_box = $('<div class="half_marker_box"></div>');
+        if (number_of_active_halves > 0) {
+            half_marker_box.css('background-color', 'purple');
+            --number_of_active_halves;
+        }
+        half_marker_box.appendTo(marker_box);
+        
+        // Append the marker box to its wrapper
+        marker_box.appendTo(marker_wrapper);
     }
-    j_wrapper.find('.sex_box').css('background-color', '#480085');
-    j_wrapper.appendTo(j_first_container);
     
-    
-    var graph_data = [.5];
-    
-    
-    // Add the upper markers
-    j_wrapper = $('<div class="sex_box_wrapper"></div>');
-    for (i = 0; i < 5; ++i) {
-        j_wrapper.append('<div class="sex_box"></div>');
-    }
-    j_wrapper.find('.sex_box').css('background-color', 'purple');
-    j_wrapper.appendTo(j_first_container);
+    // Append the newly created wrapper to the supplied container
+    marker_wrapper.appendTo(container);
 }

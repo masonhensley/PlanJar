@@ -1,15 +1,21 @@
-.sex_box {
-    width: 18px;
+.marker_box {
+    width: 16px;
     height: 14px;
     display: inline-block;
     margin-left: 5px;
     vertical-align: middle;
+    border: 1px solid black
 }
 
-.sex_box_wrapper {
+.half_marker_box {
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-color: white;
+    border: none;
+}
+
+.marker_wrapper {
     height: 100%;
     width: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }
