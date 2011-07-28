@@ -1,6 +1,7 @@
 // -------------------------------------------------- group data box view --------------------------------------------------
 
 // Outputs ten boxes with the supplied percentage of them filled in
+// Accepts 0 <= n <= 1
 function populate_percentage_box(container, data) {
     // Vars needed to construct a set of marker boxes
     var marker_box;
@@ -33,6 +34,22 @@ function populate_percentage_box(container, data) {
     }
 }
 
+// Populates the container with a vertical bar graph
+// x = day, y = plan count
 function populate_day_graph(container, data) {
+    // Save a link to the chart
+    var chart = d3.select($(container));
+    
+    // Select thre chart bars (they don't exist yet)
+    chart.select('div.graph_bar')
+    // Add data to the bars
+    .data(data)
+    // Instantiate enough elements to match the data count
+    .enter().append('div').classed('graph_bar')
+    // Set the height according to the input data
+    .style('height', function (d) {
+        return d.count * 10 + 'px';
+    });
+    
     
 }

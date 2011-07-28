@@ -32,6 +32,20 @@ function load_data_box(selected_day, selected_groups)
         populate_percentage_box('.group_graph_top_right > div:eq(0)', .45);
         populate_percentage_box('.group_graph_top_right > div:eq(1)', .85);
         populate_percentage_box('.group_graph_top_right > div:eq(2)', .24);
+        populate_day_graph('.group_graph_bottom_middle', [{
+            'date': '2011-07-28', 
+            'count': 5
+        },
+
+        {
+            'date': '2011-07-29', 
+            'count': 1
+        },
+
+        {
+            'date': '2011-07-30', 
+            'count': 3
+        }]);
     });
 }
 
