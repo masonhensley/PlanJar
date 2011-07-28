@@ -7,31 +7,36 @@ class Display_group_template extends CI_Model
     {
         if (!$day)
         {
-            $day = 0;
+            $day = 0; // reformat the day if it is null
         }
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
-        $sql_date = $sql_date->format('Y-m-d');
+        $sql_date = $sql_date->format('Y-m-d'); // this date is sql friendly
+        $format_type = ""; // this is used to distinguish between the different types of display formats
 
         if ($selected_groups[0] == 'current_location')
         {
-            $data_array = $this->get_current_location_data();
+            $data_array = $this->get_current_location_data(); // get information for current location
+            $format_type .= "current_location";
         } else if ($selected_groups[0] == 'friends')
         {
-            $data_array = $this->get_friend_data();
+            $data_array = $this->get_friend_data(); // get information for friends
+            $format_type .= "friends";
         } else if ($selected_groups[0] == 'school')
         {
-            $data_array = $this->get_school_data($school);
+            $data_array = $this->get_school_data($school);  // get information for school
+            $format_type .= "school";
         } else // when groups are selected
         {
-            $data_array = $this->get_selected_group_data($selected_groups, $sql_date);
+            $data_array = $this->get_selected_group_data($selected_groups, $sql_date);  // get information for groups
+            $format_type .= "groups";
         }
-        return $this->get_groups_template($selected_groups, $day);
+        return $this->get_group_template($format_type, $selected_groups, $day, $data_array);
     }
 
     function get_selected_group_data($selected_groups, $sql_date)
     {
-        $query = "SELECT * FROM group_relationships
+        $query = "SELECT user_meta.user_id, user_meta.sex FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
                     WHERE ";
         foreach ($selected_groups as $group_id)
@@ -40,8 +45,9 @@ class Display_group_template extends CI_Model
         }
         $query = substr($query, 0, -4); // contains information for all the users in the selected groups
         $result = $this->db->query($query);
-        $result_array = $result->result_array();
+
         // Data to be returned
+        $return_array = array();
         $number_males = 0;
         $number_females = 0;
         $males_going_out = 0;
@@ -61,7 +67,54 @@ class Display_group_template extends CI_Model
             }
         }
 
+        $return_array['total_males'] = $number_males;
+        $return_array['total_females'] = $number_females;
 
+        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids); // query for number of girls and boys going out on the date selected
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);  // query for all the plans that people in the groups have made for the surrounding week
+
+        return $return_array;
+    }
+
+    function get_current_location_data()
+    {
+        $user = $this->ion_auth->get_user();
+        $query = "SELECT user_meta.user_id, user_meta.sex,
+                        ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
+                        + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
+                        * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
+                        FROM user_meta
+                        HAVING distance<15";
+        $result = $this->db->query($query);
+
+        // data to be returned
+        $return_array = array();
+        $number_males = 0;
+        $number_females = 0;
+        $user_ids = array();
+        foreach ($result->result() as $person)
+        {
+            $user_ids[] = $person->user_id;
+            if ($person->sex == 'male')
+            {
+                $number_males++;
+            } else
+            {
+                $number_females++;
+            }
+        }
+
+        $return_array['total_males'] = $number_males;
+        $return_array['total_females'] = $number_females;
+
+        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids); // fill return array with percentage information
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        
+        return $return_array;
+    }
+
+    function get_percentages($return_array, $sql_date, $user_ids)
+    {
         // query for number of girls and boys going out on the date selected
         $girl_boy_query = "SELECT user_meta.sex FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
@@ -73,7 +126,7 @@ class Display_group_template extends CI_Model
         }
         $girl_boy_query = substr($girl_boy_query, 0, -4);
         $result = $this->db->query($girl_boy_query);
-        
+
         foreach ($result->result() as $person)
         {
             if ($person->sex == 'male')
@@ -85,6 +138,22 @@ class Display_group_template extends CI_Model
             }
         }
 
+        $return_array['males_going_out'] = $males_going_out;
+        $return_array['females_going_out'] = $females_going_out;
+
+        $percent_total_goingout = ($males_going_out + $females_going_out) / $total_people;
+        $percent_males_goingout = $males_going_out / $number_males;
+        $percent_females_goingout = $females_going_out / $number_females;
+
+        $return_array['percent_total_going_out'] = $percent_total_goingout;
+        $return_array['percent_males_going_out'] = $percent_males_goingout;
+        $return_array['percent_females_going_out'] = $percent_females_goingout;
+
+        return $return_array;
+    }
+
+    function get_surrounding_day_info($return_array, $user_ids)
+    {
         // query for all the plans that people in the groups have made for the surrounding week
         $recent_plans_query = "SELECT events.date FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
@@ -105,30 +174,9 @@ class Display_group_template extends CI_Model
             $plan_dates[] = $plan->date;
         }
         $plan_dates = array_count_values($plan_dates);
-        var_dump($plan_dates);
-    }
+        $return_array['plan_dates'] = $plan_dates;
 
-    function get_current_location_data()
-    {
-        $user = $this->ion_auth->get_user();
-        $query = "SELECT *,
-                        ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
-                        + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
-                        * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
-                        FROM user_meta
-                        HAVING distance<15";
-        $result = $this->db->query($query);
-        $result_array = $result->result_array();
-        $total_near_by = $result->num_rows();
-        ?>
-        <div class="data_box_top_bar">
-            <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Network: </font>
-                <font style="font-size:30px; font-weight:bold;">Current Location</font>
-                <br/><font style="font-size:20px; font-weight:bold; color:gray;">(<?php echo $total_near_by; ?> people within 15 miles)</font>
-            </div>
-        </div>
-        <?php
+        return $return_array;
     }
 
     function get_friend_data()
@@ -144,15 +192,6 @@ class Display_group_template extends CI_Model
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
         $result_array = $result->result_array();
-        ?>
-        <div class="data_box_top_bar">
-            <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Network: </font>
-                <font style="font-size:30px; font-weight:bold;">Friends</font>
-                <font style="font-size:30px; font-weight:bold; color:gray;">(<?php echo $friend_count; ?>)</font>
-            </div>
-        </div>
-        <?php
     }
 
     function get_school_data($school)
@@ -167,17 +206,9 @@ class Display_group_template extends CI_Model
         $number_schoolmates = $result->num_rows();
         $total_enrollment = $row->total_enrollment;
         $result_array = $result->result_array();
-        ?>
-        <div class="data_box_top_bar">
-            <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Network: </font>
-                <font style="font-size:30px; font-weight:bold;"><?php echo $school; ?></font>
-            </div>
-        </div>
-        <?php
     }
 
-    function get_groups_template($selected_groups, $day)
+    function get_group_template($format_type, $selected_groups, $day, $data_array)
     {
         $return_array = array();
         if (!$day)
@@ -200,7 +231,9 @@ class Display_group_template extends CI_Model
             <div style="float:left;">
                 <font style="font-size:20px;color:black;font-weight:bold;">
                 Groups go here.
-                </font></div></div>
+                </font>
+            </div>
+        </div>
         <div class="group_graph_top_left" >
         </div>
         <div class="group_graph_top_right">
