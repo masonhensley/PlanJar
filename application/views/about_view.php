@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- CSS -->
-    <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
+    <link rel=stylesheet href="/application/assets/css/about.css" type="text/css" />
     <title>CSS Shapes</title>  
   
     <!--[if IE]>  
