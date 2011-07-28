@@ -419,7 +419,12 @@ a{
     background-color: black;
     opacity: .4;
     text-align:left;
-    position:relative;        
+    position:relative;      
+}
+
+.bottom_link_inner {
+    position: relative;
+    top: 10px;
 }
 
 #group_select_type{
