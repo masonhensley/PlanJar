@@ -1,6 +1,9 @@
 <html lang="en">  
 <head>  
-    <meta charset="utf-8">  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- CSS -->
+    <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
     <title>CSS Shapes</title>  
   
     <!--[if IE]>  
