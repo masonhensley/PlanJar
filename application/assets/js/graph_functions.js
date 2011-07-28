@@ -37,11 +37,8 @@ function populate_percentage_box(container, data) {
 // Populates the container with a vertical bar graph
 // x = day, y = plan count
 function populate_day_graph(container, data) {
-    // Save a link to the chart
-    var chart = d3.select($(container));
-    
-    // Select thre chart bars (they don't exist yet)
-    chart.select('div.graph_bar')
+    // Select the chart bars (they don't exist yet)
+    d3.select($(container)).selectAll('div.graph_bar')
     // Add data to the bars
     .data(data)
     // Instantiate enough elements to match the data count
@@ -50,6 +47,4 @@ function populate_day_graph(container, data) {
     .style('height', function (d) {
         return d.count * 10 + 'px';
     });
-    
-    
 }
