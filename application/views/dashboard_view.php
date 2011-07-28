@@ -54,11 +54,9 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <div id="show_name" style="float:left; color:white; font-size:15px;"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
-                <div style="float:right">
+                <div id="show_name"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
                     <a href="/home/"><div class ="top_right_link_outer"><div class="top_right_link_inner">Home</div></div></a>
                     <a href="/home/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
-                </div>
             </div>
         </div>
         <div class="container">

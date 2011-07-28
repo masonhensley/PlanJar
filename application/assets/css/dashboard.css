@@ -64,6 +64,13 @@ a{
     top:10px;
 }
 
+#show_name{
+    display:inline-block;
+    color:white;
+    margin-right:100px;
+    margin-top:12px;
+}
+
 /* ---------- CONTAINER ---------- */
 
 .container{
