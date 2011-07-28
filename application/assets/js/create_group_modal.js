@@ -5,6 +5,9 @@ $(function() {
 // Initializes the create group modal
 function initialize_create_group_modal()
 {
+    // Initial select
+    reset_group_modal();
+    
     // Opening click handler
     $('#create_group').click(function(){
         // Show the modal
