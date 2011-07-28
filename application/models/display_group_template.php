@@ -9,6 +9,9 @@ class Display_group_template extends CI_Model
         {
             $day = 0;
         }
+        $date = new DateTime();
+        $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
+        $sql_date = $sql_date->format('Y-m-d');
 
         if ($selected_groups[0] == 'current_location')
         {
@@ -21,12 +24,12 @@ class Display_group_template extends CI_Model
             $data_array = $this->get_school_data($school);
         } else // when groups are selected
         {
-            $data_array = $this->get_selected_group_data($selected_groups);
+            $data_array = $this->get_selected_group_data($selected_groups, $sql_date);
         }
         return $this->get_groups_template($selected_groups, $day);
     }
 
-    function get_selected_group_data($selected_groups)
+    function get_selected_group_data($selected_groups, $sql_date)
     {
         $query = "SELECT * FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
@@ -58,29 +61,51 @@ class Display_group_template extends CI_Model
             }
         }
 
-        // query for all the plans that people in the groups have made
-        $plan_query = "SELECT places.name, places.id, user_meta.sex, events.date, places.category FROM plans 
+
+        // query for number of girls and boys going out on the date selected
+        $girl_boy_query = "SELECT user_meta.sex FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date>DATE_ADD(NOW(), INTERVAL -3 DAY) AND events.date<DATE_ADD(NOW(), INTERVAL 3 DAY)
+                            JOIN events ON events.id=plans.event_id AND events.date=$sql_date
+                            WHERE ";
+        foreach ($user_ids as $id)
+        {
+            $girl_boy_query .= "plans.user_id=$id OR ";
+        }
+        $girl_boy_query = substr($girl_boy_query, 0, -4);
+        $result = $this->db->query($girl_boy_query);
+        
+        foreach ($result->result() as $person)
+        {
+            if ($person->sex == 'male')
+            {
+                $males_going_out++;
+            } else
+            {
+                $females_going_out++;
+            }
+        }
+
+        // query for all the plans that people in the groups have made for the surrounding week
+        $recent_plans_query = "SELECT events.date FROM plans 
+                            JOIN user_meta ON plans.user_id=user_meta.user_id
+                            JOIN events ON events.id=plans.event_id AND events.date>DATE_ADD(NOW(), INTERVAL -3 DAY) AND events.date<DATE_ADD(NOW(), INTERVAL 4 DAY)
                             JOIN places ON places.id=events.place_id
                             WHERE ";
         foreach ($user_ids as $id)
         {
-            $plan_query .= "plans.user_id=$id OR ";
+            $recent_plans_query .= "plans.user_id=$id OR ";
         }
-        $plan_query = substr($plan_query, 0, -4);
-        $plan_query .= " ORDER BY date ASC";
-        $result = $this->db->query($plan_query);
-        
-        foreach($result->result() as $plan) // count number of males and females going out
+        $recent_plans_query = substr($recent_plans_query, 0, -4);
+        $recent_plans_query .= " ORDER BY date ASC";
+        $result = $this->db->query($recent_plans_query);
+
+        $plan_dates = array();
+        foreach ($result->result() as $plan)
         {
-            if($plan->sex == 'male')
-            {
-                $males_going_out++;
-            }else{
-                $females_going_out++;
-            }
+            $plan_dates[] = $plan->date;
         }
+        $plan_dates = array_count_values($plan_dates);
+        var_dump($plan_dates);
     }
 
     function get_current_location_data()
@@ -169,7 +194,6 @@ class Display_group_template extends CI_Model
 
         //$this->load->model('load_locations');
         //$group_names = $this->load_locations->get_group_names($selected_groups);
-
         //ob_start();
         ?>
         <div class="data_box_top_bar">
