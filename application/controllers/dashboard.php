@@ -175,11 +175,14 @@ class Dashboard extends CI_Controller
         echo "$returnHTML";
     }
 
+    // Returns the HTML for the group info as well as the associated group id
     public function get_group_details()
     {
         $this->load->model('load_group_profile');
         $group_id = $this->input->get('group_id');
-        $this->load_group_profile->_load_group_profile($group_id);
+        $group_profile = $this->load_group_profile->load_group_profile($group_id);
+
+        return json_encode($group_profile);
     }
 
     public function add_group_following()
