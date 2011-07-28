@@ -1,6 +1,6 @@
 .data_box_top_bar{
     width:auto;
-    height:50px;
+    height:30px;
    margin-top:5px;
    margin-left:10px;
    margin-right:10px;
@@ -22,13 +22,13 @@
 }
 .group_graph_bottom_left{
     width:49%;
-    height:150px;
+    height:50px;
     border: 1px solid black;
     display:inline-block;
 }
 .group_graph_bottom_right{
     width:49%;
-    height:150px;
+    height:50px;
     border: 1px solid black;
     display:inline-block;
 }
