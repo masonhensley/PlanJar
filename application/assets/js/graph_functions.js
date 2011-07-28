@@ -18,7 +18,7 @@ function populate_sex_info(container, data) {
     // Add the upper markers
     j_wrapper = $('<div class="sex_box_wrapper"></div>');
     for (i = 0; i < 5; ++i) {
-        j_wrapper.append('<div class="sex_box_lower"></div>');
+        j_wrapper.append('<div class="sex_box"></div>');
     }
     j_wrapper.find('.sex_box').css('background-color', 'purple');
     j_wrapper.appendTo(j_first_container);
