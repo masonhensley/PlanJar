@@ -11,22 +11,24 @@
 .group_graph_top_left{
     width:49%;
     height:50px;
-    float:left;
     border: 1px solid black;
+    display: inline-block;
 }
 .group_graph_top_right{
     width:49%;
     height:50px;
     border: 1px solid black;
+    display:inline-block;
 }
 .group_graph_bottom_left{
     width:49%;
     height:50px;
-    float:left;
     border: 1px solid black;
+    display:inline-block;
 }
 .group_graph_bottom_right{
-    width:50%;
+    width:49%;
     height:50px;
     border: 1px solid black;
+    display:inline-block;
 }
