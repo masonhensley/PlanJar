@@ -1,5 +1,7 @@
 .sex_box {
     background-color: purple;
     width: 20px;
+    height: 20px;
     display: inline-block;
+    margin-left: 2px;
 }
