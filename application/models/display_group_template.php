@@ -43,7 +43,6 @@ class Display_group_template extends CI_Model
         $number_females = 0;
         $males_going_out = 0;
         $females_going_out = 0;
-
         $total_people = $result->num_rows();
         $user_ids = array();
 
@@ -62,7 +61,7 @@ class Display_group_template extends CI_Model
         // query for all the plans that people in the groups have made
         $plan_query = "SELECT places.name, places.id, user_meta.sex FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date>=NOW() AND events.date()<NOW()+7
+                            JOIN events ON events.id=plans.event_id AND events.date BETWEEN NOW()-3 AND NOW()+3
                             JOIN places ON places.id=events.place_id
                             WHERE ";
         foreach ($user_ids as $id)
