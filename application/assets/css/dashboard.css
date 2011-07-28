@@ -45,6 +45,20 @@ a{
     top:10px;
 }
 
+.top_right_link_outer{
+    height:100%;
+    width:86px;
+    display:inline-block;
+    position:relative;
+    top:-12px;
+    text-align: center;
+}
+
+.top_right_link_inner{
+    position:relative;
+    top:10px;
+}
+
 /* ---------- CONTAINER ---------- */
 
 .container{
