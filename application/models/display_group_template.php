@@ -124,6 +124,7 @@ class Display_group_template extends CI_Model
 
     function get_school_data($school)
     {
+        $return_array = array();
         $user = $this->ion_auth->get_user();
         $query = "SELECT * FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
@@ -185,6 +186,7 @@ class Display_group_template extends CI_Model
         <div class="group_graph_bottom_left">
         </div>
         <?php
+        
         $return_array['html'] = ob_get_clean();
         return $return_array;
     }
