@@ -45,6 +45,32 @@ a{
     top:10px;
 }
 
+.top_right_link_outer{
+    height:100%;
+    width:86px;
+    display:inline-block;
+    position:relative;
+    top:-12px;
+    text-align: center;
+}
+
+.top_right_link_outer:hover{
+    background: -webkit-gradient(linear,left top,left bottom,from(darkGray),to(gray));
+    color:lightgray;
+}
+
+.top_right_link_inner{
+    position:relative;
+    top:10px;
+}
+
+#show_name{
+    display:inline-block;
+    color:white;
+    margin-right:100px;
+    margin-top:12px;
+}
+
 /* ---------- CONTAINER ---------- */
 
 .container{

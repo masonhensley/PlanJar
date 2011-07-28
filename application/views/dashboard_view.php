@@ -54,20 +54,16 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <div id="show_name" style="float:left; color:white; font-size:15px;"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
-                <div style="float:right">
-                    <a href="/home/" style="font-size:15px;">Home &middot;</a>
-                    <a href="/home/logout" style="font-size:15px;" >Log out</a>
-                </div>
+                <div id="show_name"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
+                    <a href="/home/"><div class ="top_right_link_outer"><div class="top_right_link_inner">Home</div></div></a>
+                    <a href="/home/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
             </div>
         </div>
         <div class="container">
             <div class="tab_container">
                 <div class="tab" assoc_div="#profile_content">Profile</div>
                 <div class="tab" assoc_div="#groups_content">Groups</div>
-
                 <div class="tab" assoc_div="#followers_content">Followers</div>
-
                 <!--<div class="tab" assoc_div="#plans_content">Plans</div>-->
                 <div class="tab" assoc_div="#following_content">Following</div>
                 <div class="tab" assoc_div="#notifications_content">Notifications</div>

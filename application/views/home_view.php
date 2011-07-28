@@ -55,6 +55,7 @@
                     <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Groups</div></div></a>
                     <a href="/dashboard/followers" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Followers</div></div></a>
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Following</div></div></a>
+                    <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer"><div class="top_right_link_inner">Notifications</div></div></a>
                     <a href="/home/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
                 </div>
             </div>
@@ -65,10 +66,8 @@
             <div class="data_tab" assoc_div="#map_data">Map</div>
             <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
         </div>
-
         <div class ="container">
-
-            <a href="/dashboard/notifications" id="notifications_link">Notifications</a>
+            <input type="button" id="create_plan" value="Create Plan"/>
             <div class ="left">
                 <div class="location_container">
                     <div id="using_location">Using location:</div>
@@ -102,9 +101,6 @@
             <div class ="right">
                 <font style="font-weight:bold; font-size:20px;">Plans</font><br/><hr/>
                 <div class="plans_wrapper"><?php echo($plans_html); ?></div>
-                <hr/>
-                <input type="button" id="create_plan" value="Create Plan"/>
-                <br/><br/>
             </div>
         </div>
 
