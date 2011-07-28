@@ -39,31 +39,29 @@ function initialize_invite_modal() {
     // Submit handler
     $('#send_invites').click(function () {
         // Make sure at least something is selected
-        if (1) {
+        if ($('#search_in_school').val() != '' || $('#invite_groups_list .divset_selected').length > 0) {    
+            // Populate the selected group list
+            var group_list = [];
+            $('#invite_groups_list .divset_selected').each(function (index, element) {
+                group_list.push($(element).attr('group_id'));
+            });
             
-        }
+            // Send to the server
+            var data = {
+                user_id_string: $('#search_in_school').val(),
+                group_ids: group_list,
+                subject_id: $('#invite_subject_id').val(),
+                subject_type: $('#invite_subject_type').val()
+            };
         
-        // Populate the selected group list
-        var group_list = [];
-        $('#invite_groups_list .divset_selected').each(function (index, element) {
-            group_list.push($(element).attr('group_id'));
-        });
-            
-        // Send to the server
-        var data = {
-            user_id_string: $('#search_in_school').val(),
-            group_ids: group_list,
-            subject_id: $('#invite_subject_id').val(),
-            subject_type: $('#invite_subject_type').val()
+            console.log(data);
+        //        $.get('/home/invite_people', data, function(data) {
+        //            if (data == 'success') {
+        //                // Call the close click handler
+        //                $('#close_invite_modal').click();
+        //            }
+        //        });
         }
-        
-        console.log(data);
-    //        $.get('/home/invite_people', data, function(data) {
-    //            if (data == 'success') {
-    //                // Call the close click handler
-    //                $('#close_invite_modal').click();
-    //            }
-    //        });
     });
 
     // Opens the modal and hides the groups invite pane if necessary
