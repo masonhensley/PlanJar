@@ -32,6 +32,7 @@ function populate_percentage_box(container, percentage) {
     }
      
     // Select all half boxes
+    console.log(container);
     d3.select(container).selectAll('.half_marker_box')
     // Add the data to the selection
     .data(d3_data)
