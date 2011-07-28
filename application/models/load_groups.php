@@ -46,12 +46,10 @@ class Load_groups extends CI_Model
     
     function user_school()
     {
-        $school_id = $this->ion_auth->get_user()->school_id;
-        $query = "SELECT school FROM school_data WHERE $school_id=id";
-        $result = $this->db->query($query);
-        $row = $result->row_array();
-        $school = $row['school'];
-        return $school;
+        $query_string = "SELECT school FROM school_data WHERE id = ?";
+        $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
+
+        return $query->row()->school;
     }
 
 }

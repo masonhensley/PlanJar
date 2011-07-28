@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($user_school); ?> network.</label>
+        <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($school); ?> network.</label>
         <br/>
         <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
 

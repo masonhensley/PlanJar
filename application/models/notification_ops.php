@@ -165,6 +165,9 @@ class Notification_ops extends CI_Model
                 $this->update_notification_viewed($id, true);
                 break;
             case 'group_invite':
+                $this->load->model('group_ops');
+                $this->group_ops->follow_group($row->subject_id);
+                $this->group_ops->join_group($row->subject_id);
                 break;
         }
     }
