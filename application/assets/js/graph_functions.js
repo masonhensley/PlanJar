@@ -15,7 +15,7 @@ function populate_sex_info(container, data) {
     var graph_data = [.75];
     
     var d_overlay = d3.select(container + ' div.sex_overlay');
-    d_overlay.style("width", function(graph_data) {
-        return first_container_width * (1-graph_data) + "px";
+    d_overlay.style("width", function() {
+        return first_container_width * (1-graph_data[0]) + "px";
     });
 }
