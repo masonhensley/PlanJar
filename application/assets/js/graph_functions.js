@@ -1,12 +1,11 @@
 // -------------------------------------------------- group data box view --------------------------------------------------
 function populate_sex_info(container, data) {
-    var first_container = d3.select(container + ' div').node();
-    var first_container_width = $(container + ' div:first').width();
+    var j_first_container = $(container + ' div:first');
+    var d_first_container = d3.select(container + ' div').node();
     
     // Add the squares
-    $(container);
-    for (var i = 0; i < 20; ++i) {
-        $(container).append('<div class="sex_box"></div>')
+    for (var i = 0; i < 10; ++i) {
+        j_first_container.append('<div class="sex_box"></div>');
     }
     
 //    var graph_data = [.75];
