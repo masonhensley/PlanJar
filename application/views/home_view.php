@@ -25,13 +25,13 @@
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
+        <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
         <script type="text/javascript" src="/application/assets/js/data_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/data_box_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/upcoming_events.js"></script>
-        <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
 
         <!-- D3 plugin -->
         <!--<script type="text/javascript" src="/application/assets/js/D3/d3.js"></script>-->
