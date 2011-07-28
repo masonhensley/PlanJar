@@ -65,6 +65,6 @@ function reset_group_modal() {
     $('#group_name, #group_description').val('').blur();
         
     // Select the first item among both the divSet and the radio buttons
-    $('#group_privacy_wrapper :first').click();
+    $('#group_privacy_wrapper div:first').click();
     $('#create_group_content input[type="radio"]:first').click();
 }
