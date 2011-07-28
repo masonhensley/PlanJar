@@ -29,6 +29,6 @@
         <br/>
         <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
 
-        <input type="submit" class="submit_create_group" value="Go" style="float:right;" />
+        <input type="button" id="submit_create_group" value="Go" style="float:right;" />
     </form>
 </div>

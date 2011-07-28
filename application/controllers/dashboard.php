@@ -264,6 +264,8 @@ class Dashboard extends CI_Controller
         return $query->row()->school;
     }
 
+    // Creates a group as defined by the given data
+    // Returns the group id
     public function create_group()
     {
         $this->load->model('group_ops');
@@ -282,34 +284,8 @@ class Dashboard extends CI_Controller
         $this->group_ops->follow_group($group_id);
         $this->group_ops->join_group($group_id);
 
-        // Capture and process the invite lists
-        $invited_users = explode(',', $this->input->get('group_invite_users'));
-        if ($invited_users[0] == '')
-        {
-            $invited_users = array();
-        }
-
-        $invited_groups = explode(',', $this->input->get('group_invite_groups'));
-        if ($invited_groups[0] == '')
-        {
-            $invited_groups = array();
-        }
-
-        // Invite people and groups if necessary.
-        if (count($invited_users) > 0)
-        {
-            $this->load->model('notification_ops');
-            $this->notification_ops->notify_users($invited_users, 'group_invite', $group_id);
-        }
-
-        if (count($invited_groups) > 0)
-        {
-            $this->load->model('notification_ops');
-            $this->notification_ops->notify_joined_groups($invited_groups, 'group_invite', $group_id);
-        }
-
         // Success
-        echo('success');
+        echo($group_id);
     }
 
     public function update_notification_viewed()

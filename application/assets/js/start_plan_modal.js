@@ -118,7 +118,7 @@ function initialize_plan_modal() {
                 
                 // Refresh the plan list.
                 populate_plan_panel();
-            });  
+            }); 
         }
     });
     
