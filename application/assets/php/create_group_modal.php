@@ -25,34 +25,6 @@
             </div>
         </div>
 
-        <table>
-            <tr>
-                <td>
-                    Invite people
-                    <input type="text" id="group_invite_users" name="group_invite_users"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Invite groups
-                    <input type="text" id="group_invite_groups" name="group_invite_groups"/>
-                </td>
-            </tr>
-        </table>
-
-        <!--        <div class="invite_wrapper">
-                    <div class="left">
-                        Invite people
-                        <input type="text" id="group_invite_users" name="group_invite_users"/>
-                    </div>
-        
-                    <div class="right">
-                        Invite groups
-                        <input type="text" id="group_invite_groups" name="group_invite_groups"/>
-                    </div>
-                </div>-->
-
         <label><input type="radio" name="location_source" value="school"/>Associate this group with the <?php echo($user_school); ?> network.</label>
         <br/>
         <label><input type="radio" name="location_source" value="current"/>Associate this group with your general location</label>
