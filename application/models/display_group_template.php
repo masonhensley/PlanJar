@@ -59,7 +59,7 @@ class Display_group_template extends CI_Model
         }
 
         // query for all the plans that people in the groups have made
-        $plan_query = "SELECT places.name, places.id, user_meta.sex FROM plans 
+        $plan_query = "SELECT places.name, places.id, user_meta.sex, events.date, places.category FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
                             JOIN events ON events.id=plans.event_id AND events.date>DATE_ADD(NOW(), INTERVAL -3 DAY) AND events.date<DATE_ADD(NOW(), INTERVAL 3 DAY)
                             JOIN places ON places.id=events.place_id
@@ -69,8 +69,18 @@ class Display_group_template extends CI_Model
             $plan_query .= "plans.user_id=$id OR ";
         }
         $plan_query = substr($plan_query, 0, -4);
-        var_dump($plan_query);
-        //$result = $this->db->query($plan_query);
+        $plan_query .= " ORDER BY date ASC";
+        $result = $this->db->query($plan_query);
+        
+        foreach($result->result() as $plan) // count number of males and females going out
+        {
+            if($plan->sex == 'male')
+            {
+                $males_going_out++;
+            }else{
+                $females_going_out++;
+            }
+        }
     }
 
     function get_current_location_data()
