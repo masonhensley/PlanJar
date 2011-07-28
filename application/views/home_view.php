@@ -111,8 +111,8 @@
             Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
 
             <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
-            <a href="#" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
-            <a href="#" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
+            <a href="/about" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
+            <a href="/Privacy" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
 
 
         </div>
