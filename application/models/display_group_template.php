@@ -104,6 +104,7 @@ class Display_group_template extends CI_Model
             $plan_dates[] = $plan->date;
         }
         $plan_dates = array_count_values($plan_dates);
+        var_dump($plan_dates);
     }
 
     function get_current_location_data()
