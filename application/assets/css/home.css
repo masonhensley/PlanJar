@@ -415,7 +415,7 @@ a{
     width:1024px;
     margin-left:auto;
     margin-right:auto;
-    height:50px;
+    height:40px;
     background-color: black;
     opacity: .4;
     text-align:left;
@@ -424,7 +424,7 @@ a{
 
 .bottom_link_inner {
     position: relative;
-    top: 10px;
+    top: 20px;
 }
 
 .bottom_link_outer{
