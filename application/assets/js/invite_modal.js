@@ -46,25 +46,26 @@ function initialize_invite_modal() {
                 group_list.push($(element).attr('group_id'));
             });
             
-            // Send to the server
+            // Calculate data to send
             var user_ids = $('#search_in_school').val().split(',');
             if (user_ids[0] == '') {
                 user_ids = [];
             }
+            
             var data = {
                 'user_ids': user_ids,
                 group_ids: group_list,
                 subject_id: $('#invite_subject_id').val(),
                 subject_type: $('#invite_subject_type').val()
             };
-        
-            console.log(data);
-        //        $.get('/home/invite_people', data, function(data) {
-        //            if (data == 'success') {
-        //                // Call the close click handler
-        //                $('#close_invite_modal').click();
-        //            }
-        //        });
+            
+            // Send to the server
+            $.get('/home/invite_people', data, function(data) {
+                if (data == 'success') {
+                    // Call the close click handler
+                    $('#close_invite_modal').click();
+                }
+            });
         }
     });
 }
