@@ -66,8 +66,8 @@
             <div class="data_tab" assoc_div="#map_data">Map</div>
             <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
         </div>
-        <input type="button" id="create_plan" value="Create Plan"/>
         <div class ="container">
+            <input type="button" id="create_plan" value="Create Plan"/>
             <div class ="left">
                 <div class="location_container">
                     <div id="using_location">Using location:</div>
