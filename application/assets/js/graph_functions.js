@@ -35,4 +35,4 @@ function populate_sex_info(container, data) {
     
     // Append the newly created wrapper to the first container
     j_wrapper.appendTo(j_first_container);
-    
+}
