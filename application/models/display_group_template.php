@@ -16,7 +16,7 @@ class Display_group_template extends CI_Model
 
         if ($selected_groups[0] == 'current_location')
         {
-            $data_array = $this->get_current_location_data(); // get information for current location
+            $data_array = $this->get_current_location_data($sql_date); // get information for current location
             $format_type .= "current_location";
         } else if ($selected_groups[0] == 'friends')
         {
@@ -76,7 +76,7 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_current_location_data()
+    function get_current_location_data($sql_date)
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT user_meta.user_id, user_meta.sex,
