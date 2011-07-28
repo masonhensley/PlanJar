@@ -24,7 +24,7 @@ function initialize_plan_modal() {
     $('#cancel_plan').click(function () {
         $('#create_plan_content').hide('fast', function () {
             // Clear the plan modal
-            reset_modal();
+            reset_plan_modal();
         });
     });
     
@@ -110,7 +110,7 @@ function initialize_plan_modal() {
                 // Hide and reset the modal and then open the invite modal
                 $('#create_plan_content').hide('fast', function () {
                     // Clear the plan modal
-                    reset_modal();
+                    reset_plan_modal();
                     
                     // Open the invite modal
                     open_invite_modal('event', data, privacy, true);
