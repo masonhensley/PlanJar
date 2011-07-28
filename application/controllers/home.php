@@ -515,7 +515,6 @@ class Home extends CI_Controller
         {
             $user_ids = array();
         }
-        var_dump($user_ids);
         $group_ids = $this->input->get('group_ids');
         if (!$group_ids)
         {
@@ -529,13 +528,24 @@ class Home extends CI_Controller
         $subject_type = $this->input->get('subject_type');
         $privacy = $this->input->get('privacy');
 
+        // Handle the different subject types
         if ($subject_type == 'event')
         {
+            if ($privacy != 'open')
+            {
+                $this->load->model('event_ops');
+                $this->event_ops->add_invitees($subject_id, $user_ids);
+            }
+
             $notif_type = 'event_invite';
         } else if ($subject_type == 'group')
         {
             $notif_type = 'group_invite';
         }
+
+        // Send notifications
+        $thid->load->model('notification_ops');
+        $this->notification_ops->notify($user_ids, $notif_type, $subject_id);
     }
 
 }
