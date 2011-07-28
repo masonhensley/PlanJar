@@ -109,7 +109,7 @@ class Display_group_template extends CI_Model
 
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females); // fill return array with percentage information
         $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
-        
+
         return $return_array;
     }
 
@@ -129,7 +129,7 @@ class Display_group_template extends CI_Model
 
         $males_going_out = 0;
         $females_going_out = 0;
-        
+
         foreach ($result->result() as $person)
         {
             if ($person->sex == 'male')
@@ -144,9 +144,22 @@ class Display_group_template extends CI_Model
         $return_array['males_going_out'] = $males_going_out;
         $return_array['females_going_out'] = $females_going_out;
 
-        $percent_total_goingout = ($males_going_out + $females_going_out) / $total_people;
-        $percent_males_goingout = $males_going_out / $number_males;
-        $percent_females_goingout = $females_going_out / $number_females;
+        $percent_total_goingout = 0;
+        $percent_males_goingout = 0;
+        $percent_females_goingout = 0;
+
+        if ($total_people != 0)
+        {
+            $percent_total_goingout = ($males_going_out + $females_going_out) / $total_people;
+        }
+        if ($number_males != 0)
+        {
+            $percent_males_goingout = $males_going_out / $number_males;
+        }
+        if ($number_females != 0)
+        {
+            $percent_females_goingout = $females_going_out / $number_females;
+        }
 
         $return_array['percent_total_going_out'] = $percent_total_goingout;
         $return_array['percent_males_going_out'] = $percent_males_goingout;
