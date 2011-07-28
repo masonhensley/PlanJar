@@ -30,10 +30,10 @@
 
 /* -------------- Container-----------------------*/
 #container {  
-    background: #666;  
+    background: #aaa;  
     margin: auto;  
     width: 500px;  
-    height: 700px;  
+    height: 90%;  
     padding-top: 30px;  
     font-family: helvetica, arial, sans-serif;  
     }  
