@@ -124,28 +124,25 @@ class Display_group_info extends CI_Model
             $query .= "group_relationships.group_id=$group_id OR ";
         }
         $query = substr($query, 0, -4);
-        ?>
-        <div class="data_box_top_bar">
-            <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">
-                Group<?php if (count($selected_groups) > 1)
+        $result = $this->db->query($query);
+        $return_html = "<div class=\"data_box_top_bar\">"; // Top bar
+        $return_html .= "<div style=\"float:left;\">"; // float the groups left
+        $return_html .= "<font style=\"font-size:30px;color:gray; font-weight:bold;\">";
+        $return_html .= "Group";
+        if (count($selected_groups) > 1)
         {
-            echo "s";
-        } ?>:</font>
-                <?php
-                $display_groups = "";
-                foreach ($group_names as $group)
-                {
-                    $display_groups .= "<font style=\"font-size:30px;color:black;font-weight:bold;\">$group,</font> ";
-                }
-                $display_groups = substr($display_groups, 0, -2);
-                echo $display_groups;
-                ?>
-            </div>
-        </div>
-        <div class="graph_data">
-        </div>
-        <?php
+            $return_html .= "s";
+        }
+        $return_html .= "</font>";
+
+        $display_groups = "";
+        foreach ($group_names as $group)
+        {
+            $display_groups .= "<font style=\"font-size:30px;color:black;font-weight:bold;\">$group,</font> ";
+        }
+        $display_groups = substr($display_groups, 0, -3);
+        echo $display_groups;
+        $return_html .= "</div></div>";
     }
 
 }
