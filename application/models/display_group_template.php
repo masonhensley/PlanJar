@@ -86,9 +86,10 @@ class Display_group_template extends CI_Model
                         FROM user_meta
                         HAVING distance<15";
         $result = $this->db->query($query);
-
+        
         // data to be returned
         $return_array = array();
+        $total_people = $result->num_rows();
         $number_males = 0;
         $number_females = 0;
         $user_ids = array();
