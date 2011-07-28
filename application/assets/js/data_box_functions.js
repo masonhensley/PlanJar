@@ -5,7 +5,12 @@ function update_groups_and_locations()
     selected_day = get_selected_day();
     selected_groups = get_selected_groups();
     
-    load_data_box(selected_day, selected_groups); // update the data box to reflect selections
+    if(selected_groups != null)
+    {
+        load_data_box(selected_day, selected_groups); // update the data box to reflect selections
+    }else{
+        $('#group_data').html('<img src="/application/assets/images/help.png">');
+    }
     load_visible_locations(selected_day, selected_groups); // update the popular locations shown    
     show_data_container('#group_data');
 }
@@ -13,7 +18,7 @@ function update_groups_and_locations()
 // updates the data box based on the selected groups
 function load_data_box(selected_day, selected_groups)
 {
-    $.get('/home/load_data_box', {
+    $.get('/home/load_data_box_template', {
         'selected_groups': selected_groups,
         'selected_day': selected_day
     }, function (data) {
