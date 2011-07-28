@@ -32,3 +32,10 @@
     border: 1px solid black;
     display:inline-block;
 }
+
+.percent_container{
+    width:90%;
+    display:inline-block;
+    margin-right:5px;
+    height:10px;
+}

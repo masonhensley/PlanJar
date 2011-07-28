@@ -150,7 +150,12 @@ class Display_group_info extends CI_Model
             
         </div>
         <div class="group_graph_top_right">
-
+            <div class="percent_container">
+            </div>
+            <div class="percent_container">
+            </div>
+            <div class="percent_container">
+            </div>
         </div>
         
         <div class="group_graph_bottom_left">
