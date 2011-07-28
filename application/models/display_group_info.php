@@ -143,6 +143,8 @@ class Display_group_info extends CI_Model
         $display_groups = substr($display_groups, 0, -2);
         $display_groups .="</font>";
         $return_html .= "$display_groups</div></div>";
+        
+        echo $return_html;
         ?>
         <div class="group_graph_top_left" >
             
@@ -158,7 +160,6 @@ class Display_group_info extends CI_Model
             
         </div>
         <?php
-        echo $return_html;
     }
 
 }
