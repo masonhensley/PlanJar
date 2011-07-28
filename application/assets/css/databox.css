@@ -26,11 +26,11 @@
 }
 .group_graph_bottom_left{
     width:49%;
-    height:50px;
+    height:100px;
     border: 1px solid black;
     position:absolute;
     bottom:0px;
-    left:0px;
+    left:190px;
 }
 .group_graph_bottom_right{
     width:100px;
@@ -42,8 +42,10 @@
 }
 
 .percent_container{
-    width:90%;
+    width:80%;
     margin-right:5px;
-    height:10px;
+    height:20px;
     border: 1px solid black;
+    margin-left:50px;
+    margin-top:20px;
 }
