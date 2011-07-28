@@ -16,7 +16,6 @@ class Display_group_template extends CI_Model
             $display_day = "today";
         }
 
-
         if (!$selected_groups[0])
         {
             $this->on_nothing_selected($display_day);
@@ -29,9 +28,11 @@ class Display_group_template extends CI_Model
         } else if ($selected_groups[0] == 'school')
         {
             $this->on_school_selected($school);
-        } else
+        } else // when groups are selected
         {
-            $this->on_groups_selected($selected_groups);
+            $data_array = $this->get_groups_selected_data($selected_groups);
+            $return_html = $this->get_groups_template($selected_groups, $data_array);
+            
         }
     }
 
@@ -112,42 +113,37 @@ class Display_group_template extends CI_Model
         <?php
     }
 
-    function on_groups_selected($selected_groups)
+    function get_groups_template($selected_groups)
     {
         $this->load->model('load_locations');
         $group_names = $this->load_locations->get_group_names($selected_groups);
-        $query = "SELECT * FROM group_relationships
-                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
-                    WHERE ";
-        foreach ($selected_groups as $group_id)
-        {
-            $query .= "group_relationships.group_id=$group_id OR ";
-        }
-        $query = substr($query, 0, -4);
-        $result = $this->db->query($query);
-        $return_html = "<div class=\"data_box_top_bar\">"; // Top bar
-        $return_html .= "<div style=\"float:left;\">"; // float the groups left
-        $return_html .= "<font style=\"font-size:20px;color:gray; font-weight:bold;\">";
-        $return_html .= "Group";
-        if (count($selected_groups) > 1)
-        {
-            $return_html .= "s";
-        }
-        $return_html .= ": </font>";
 
-        $display_groups = "<font style=\"font-size:20px;color:black;font-weight:bold;\">";
-        foreach ($group_names as $group)
-        {
-            $display_groups .= $group . ", ";
-        }
-        $display_groups = substr($display_groups, 0, -2);
-        $display_groups .="</font>";
-        $return_html .= "$display_groups</div></div>";
-        
-        echo $return_html;
+        ob_start();
         ?>
+        <div class="data_box_top_bar">
+            <div style="float:left;">
+                <font style="font-size:20px;color:gray; font-weight:bold;">
+                Group
+                <?php
+                if (count($selected_groups) > 1)
+                {
+                    echo "s";
+                }
+                ?>
+                </font>
+                <font style="font-size:20px;color:black;font-weight:bold;">
+                <?php
+                $display_groups = "";
+                foreach ($group_names as $group)
+                {
+                    $display_groups .= $group . ", ";
+                }
+                $display_groups = substr($display_groups, 0, -2);
+                echo $display_groups;
+                ?>
+                </font></div></div>
         <div class="group_graph_top_left" >
-            
+
         </div>
         <div class="group_graph_top_right">
             <div class="percent_container">
@@ -157,17 +153,70 @@ class Display_group_template extends CI_Model
             <div class="percent_container">
             </div>
         </div>
-        
+        <div class="group_graph_bottom_right">
+
+        </div>
         <div class="group_graph_bottom_middle">
 
         </div>
-        <div class="group_graph_bottom_right">
-            
-        </div>
+
         <div class="group_graph_bottom_left">
-            
+
         </div>
         <?php
+        return ob_get_clean();
+    }
+
+    function get_selected_group_data($selected_groups)
+    {
+        $query = "SELECT * FROM group_relationships
+                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
+                    WHERE ";
+        foreach ($selected_groups as $group_id)
+        {
+            $query .= "group_relationships.group_id=$group_id OR ";
+        }
+        $query = substr($query, 0, -4); // contains information for all the users in the selected groups
+        $result = $this->db->query($query);
+        $result_array = $result->result_array();
+        // Data to be returned
+        $number_males;
+        $number_females;
+        $males_going_out;
+        $females_going_out;
+        
+        $total_people = $result->num_rows();
+        $user_ids = array();
+
+        foreach ($result->result() as $person)
+        {
+            $user_ids[] = $person->user_id;
+            if ($person->sex == 'male')
+            {
+                $number_males++;
+            } else
+            {
+                $number_females++;
+            }
+        }
+
+        // query for all the plans that people in the groups have made
+        $plan_query = "SELECT places.name, places.id, user_meta.sex FROM plans 
+                            JOIN user_meta ON plans.user_id=user_meta.user_id
+                            JOIN events ON events.id=plans.event_id AND events.date>=NOW() AND events.date()<NOW()+7
+                            JOIN places ON places.id=events.place_id
+                            WHERE ";
+        foreach ($user_ids as $id)
+        {
+            $plan_query .= "plans.user_id=$id OR ";
+        }
+        $plan_query = substr($plan_query, 0, -4);
+        $result = $this->db->query($plan_query);
+
+        foreach ($result->result() as $plan)
+        {
+            
+        }
     }
 
 }

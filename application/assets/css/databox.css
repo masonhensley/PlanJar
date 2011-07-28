@@ -32,6 +32,15 @@
     bottom:0px;
     left:190px;
 }
+
+.group_graph_bottom_middle{
+    width:100px;
+    height:100px;
+    border: 1px solid black;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+}
 .group_graph_bottom_right{
     width:100px;
     height:100px;
