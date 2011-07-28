@@ -48,6 +48,11 @@
     margin-bottom: 10px;
 }
 
+#plan_submit_wrapper {
+    width: 100%;
+    text-align: center;
+}
+
 #create_plan_content h3 {
     margin-top: 0px;
 }

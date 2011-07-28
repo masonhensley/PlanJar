@@ -61,6 +61,10 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="plan_submit_wrapper">
+                    <input type="button" id="submit_plan" value="Go"/>
+                </div>
             </div>
 
             <input id="plan_location_id" name="plan_location_id" type="hidden"/>
