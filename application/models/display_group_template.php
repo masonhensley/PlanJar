@@ -19,20 +19,73 @@ class Display_group_template extends CI_Model
 
        if ($selected_groups[0] == 'current_location')
         {
-            $this->on_current_location_selected();
+            $data_array = $this->get_current_location_data();
         } else if ($selected_groups[0] == 'friends')
         {
-            $this->get_friend_data();
+            $data_array =$this->get_friend_data();
         } else if ($selected_groups[0] == 'school')
         {
-            $this->get_school_data($school);
+            $data_array = $this->get_school_data($school);
         } else // when groups are selected
         {
             $data_array = $this->get_selected_group_data($selected_groups);
-            $return_html = $this->get_groups_template($selected_groups, $data_array);
         }
+        $this->get_groups_template();
+        
     }
 
+    function get_selected_group_data($selected_groups)
+    {
+        $query = "SELECT * FROM group_relationships
+                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
+                    WHERE ";
+        foreach ($selected_groups as $group_id)
+        {
+            $query .= "group_relationships.group_id=$group_id OR ";
+        }
+        $query = substr($query, 0, -4); // contains information for all the users in the selected groups
+        $result = $this->db->query($query);
+        $result_array = $result->result_array();
+        // Data to be returned
+        $number_males;
+        $number_females;
+        $males_going_out;
+        $females_going_out;
+        
+        $total_people = $result->num_rows();
+        $user_ids = array();
+
+        foreach ($result->result() as $person)
+        {
+            $user_ids[] = $person->user_id;
+            if ($person->sex == 'male')
+            {
+                $number_males++;
+            } else
+            {
+                $number_females++;
+            }
+        }
+
+        // query for all the plans that people in the groups have made
+        $plan_query = "SELECT places.name, places.id, user_meta.sex FROM plans 
+                            JOIN user_meta ON plans.user_id=user_meta.user_id
+                            JOIN events ON events.id=plans.event_id AND events.date>=NOW() AND events.date()<NOW()+7
+                            JOIN places ON places.id=events.place_id
+                            WHERE ";
+        foreach ($user_ids as $id)
+        {
+            $plan_query .= "plans.user_id=$id OR ";
+        }
+        $plan_query = substr($plan_query, 0, -4);
+        $result = $this->db->query($plan_query);
+
+        foreach ($result->result() as $plan)
+        {
+            
+        }
+    }
+    
     function get_current_location_data()
     {
         $user = $this->ion_auth->get_user();
@@ -156,58 +209,5 @@ class Display_group_template extends CI_Model
         <?php
         return ob_get_clean();
     }
-
-    function get_selected_group_data($selected_groups)
-    {
-        $query = "SELECT * FROM group_relationships
-                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
-                    WHERE ";
-        foreach ($selected_groups as $group_id)
-        {
-            $query .= "group_relationships.group_id=$group_id OR ";
-        }
-        $query = substr($query, 0, -4); // contains information for all the users in the selected groups
-        $result = $this->db->query($query);
-        $result_array = $result->result_array();
-        // Data to be returned
-        $number_males;
-        $number_females;
-        $males_going_out;
-        $females_going_out;
-        
-        $total_people = $result->num_rows();
-        $user_ids = array();
-
-        foreach ($result->result() as $person)
-        {
-            $user_ids[] = $person->user_id;
-            if ($person->sex == 'male')
-            {
-                $number_males++;
-            } else
-            {
-                $number_females++;
-            }
-        }
-
-        // query for all the plans that people in the groups have made
-        $plan_query = "SELECT places.name, places.id, user_meta.sex FROM plans 
-                            JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date>=NOW() AND events.date()<NOW()+7
-                            JOIN places ON places.id=events.place_id
-                            WHERE ";
-        foreach ($user_ids as $id)
-        {
-            $plan_query .= "plans.user_id=$id OR ";
-        }
-        $plan_query = substr($plan_query, 0, -4);
-        $result = $this->db->query($plan_query);
-
-        foreach ($result->result() as $plan)
-        {
-            
-        }
-    }
-
 }
 ?>

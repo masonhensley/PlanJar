@@ -18,7 +18,7 @@ function update_groups_and_locations()
 // updates the data box based on the selected groups
 function load_data_box(selected_day, selected_groups)
 {
-    $.get('/home/load_data_box_template', {
+    $.get('/home/load_data_box', {
         'selected_groups': selected_groups,
         'selected_day': selected_day
     }, function (data) {
