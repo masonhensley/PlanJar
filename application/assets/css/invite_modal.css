@@ -1,7 +1,7 @@
 #invite_modal {
     width: 500px;
-    left: 250px;
-    top: 30%;
+    margin-left: -250px;
+    margin-top: -125px;
 }
 
 #invite_modal .title {
