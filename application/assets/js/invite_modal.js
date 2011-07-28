@@ -56,7 +56,8 @@ function initialize_invite_modal() {
                 'user_ids': user_ids,
                 'group_ids': group_list,
                 'subject_id': $('#invite_subject_id').val(),
-                'subject_type': $('#invite_subject_type').val()
+                'subject_type': $('#invite_subject_type').val(),
+                'privacy': $('#invite_priv_type').val()
             };
             
             // Send to the server

@@ -505,10 +505,37 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
-    
+
     // Invites and notifies the given users and groups
-    public function invite_people() {
-        
+    public function invite_people()
+    {
+        // Capture vars
+        $user_ids = $this->input->get('user_ids');
+        if (!$user_ids)
+        {
+            $user_ids = array();
+        }
+        var_dump($user_ids);
+        $group_ids = $this->input->get('group_ids');
+        if (!$group_ids)
+        {
+            $group_ids = array();
+        }
+
+        $this->load->model('group_ops');
+        $user_ids = array_merge($user_ids, $this->group_ops->get_users($group_ids));
+
+        $subject_id = $this->input->get('subject_id');
+        $subject_type = $this->input->get('subject_type');
+        $privacy = $this->input->get('privacy');
+
+        if ($subject_type == 'event')
+        {
+            $notif_type = 'event_invite';
+        } else if ($subject_type == 'group')
+        {
+            $notif_type = 'group_invite';
+        }
     }
 
 }
