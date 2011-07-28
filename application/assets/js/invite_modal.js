@@ -47,8 +47,12 @@ function initialize_invite_modal() {
             });
             
             // Send to the server
+            var user_ids = $('#search_in_school').val().split(',');
+            if (user_ids[0] == '') {
+                user_ids = [];
+            }
             var data = {
-                user_ids: $('#search_in_school').val().split(','),
+                'user_ids': user_ids,
                 group_ids: group_list,
                 subject_id: $('#invite_subject_id').val(),
                 subject_type: $('#invite_subject_type').val()
