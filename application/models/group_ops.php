@@ -236,6 +236,7 @@ class Group_ops extends CI_Model
     // Returns a list of users who joined the supplied groups
     function get_users($group_list)
     {
+        var_dump($group_list);
         $return_array = array();
 
         if (count($group_list) > 0)
