@@ -13,6 +13,7 @@
         <link rel=stylesheet href="/application/assets/css/invite_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/databox.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/graphs.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -33,6 +34,7 @@
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/upcoming_events.js"></script>
         <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
+        <script type="text/javascript" src="/application/assets/js/graph_functions.js"></script>
 
         <!-- D3 plugin -->
         <!--<script type="text/javascript" src="/application/assets/js/D3/d3.js"></script>-->
@@ -108,12 +110,12 @@
         <div class="bottom_links">
             Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
 
-                    <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
-                    <a href="#" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
-                    <a href="#" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
-                    
-                    
-                </div>
+            <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
+            <a href="#" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
+            <a href="#" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
+
+
+        </div>
 
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
