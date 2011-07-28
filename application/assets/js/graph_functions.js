@@ -1,7 +1,8 @@
 // -------------------------------------------------- group data box view --------------------------------------------------
 function populate_sex_info(container, data) {
+    console.log($(container + ' div:first'));
     var first_container = d3.select(container + ' div:first');
-    var first_container_width = $(container + ' div:first').width();
+    //var first_container_width = $(container + ' div:first').width();
     
     // Add the squares
     for (var i = 0; i < 20; ++i) {
