@@ -12,17 +12,21 @@
     width:49%;
     height:50px;
     float:left;
+    border: 1px solid black;
 }
 .group_graph_top_right{
     width:49%;
     height:50px;
+    border: 1px solid black;
 }
 .group_graph_bottom_left{
     width:49%;
     height:50px;
     float:left;
+    border: 1px solid black;
 }
 .group_graph_bottom_right{
     width:50%;
     height:50px;
+    border: 1px solid black;
 }
