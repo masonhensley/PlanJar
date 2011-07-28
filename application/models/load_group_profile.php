@@ -65,7 +65,7 @@ class Load_group_profile extends CI_Model
         $return_string .= '</div>';
         $return_string .= '<div class="profile_top_bar">';
         $return_string .= '<div class="profile_picture">';
-        $return_string .= $this->insert_profile_picture();
+        $return_string .= $this->return_profile_picture();
         $return_string .= '</div>';
         $return_string .= '<div class="profile_user_information">';
 
@@ -156,12 +156,11 @@ class Load_group_profile extends CI_Model
         return $return_string;
     }
 
-    function insert_profile_picture()
+    function return_profile_picture()
     {
         $logo_text = "logo_" . rand(1, 25) . ".png";
-        ?>
-        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" />
-        <?php
+
+        return "/application/assets/images/logos/$logo_text";
     }
 
 }
