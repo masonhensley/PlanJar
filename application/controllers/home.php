@@ -546,6 +546,8 @@ class Home extends CI_Controller
         // Send notifications
         $this->load->model('notification_ops');
         $this->notification_ops->notify($user_ids, $notif_type, $subject_id);
+
+        echo('success');
     }
 
 }
