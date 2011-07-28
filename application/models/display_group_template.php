@@ -1,6 +1,6 @@
 <?php
 
-class Display_group_info extends CI_Model
+class Display_group_template extends CI_Model
 {
 
     function _display_group_info($selected_groups, $day, $school)  // being in this function ensures that $selected_groups is not NULL
@@ -158,10 +158,13 @@ class Display_group_info extends CI_Model
             </div>
         </div>
         
-        <div class="group_graph_bottom_left">
+        <div class="group_graph_bottom_middle">
 
         </div>
         <div class="group_graph_bottom_right">
+            
+        </div>
+        <div class="group_graph_bottom_left">
             
         </div>
         <?php

@@ -218,13 +218,18 @@ class Home extends CI_Controller
     }
 
     // this function populates the data box for when a group or location is selected
-    public function load_data_box()
+    public function load_data_box_template()
     {
         $selected_groups = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
-        $this->load->model('display_group_info');
+        $this->load->model('display_group_template');
         $school = $this->_get_user_school();
-        $this->display_group_info->_display_group_info($selected_groups, $day, $school);
+        $this->display_group_template->_display_group_info($selected_groups, $day, $school);
+    }
+    
+    public function load_data_box_data()
+    {
+        // primes the data for the graphs when a group is selected
     }
 
     // this function is called when a location tab is clicked to display its information
