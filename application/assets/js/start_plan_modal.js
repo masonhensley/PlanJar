@@ -52,12 +52,6 @@ function initialize_plan_modal() {
     // In-field labels
     $('#new_event_side label').inFieldLabels();
     
-    // Privacy click handler
-    $('#plan_privacy_wrapper > div').click(function () {
-        show_hide_invite_boxes('new_event');
-        $('#plan_right').click();
-    });
-    
     // Try to advance the plan panel when a time or a day is selected
     $('#plan_day, #plan_time').click(function () {
         $('#plan_right').click();
@@ -77,19 +71,6 @@ function initialize_plan_modal() {
         $('#event_title').blur();
         $('#start_event_content').css('display', 'none');
         $('#create_event').show('fast');
-        
-        
-        if ($(this).attr('event_id') == '') {
-            // Just going (open)
-            show_hide_invite_boxes('open');
-        } else {
-            // Use the corresponding event privacy
-            show_hide_invite_boxes($(this).attr('priv_type'));
-        }
-        
-        // Next page
-        $('#plan_right').click();
-        
     });
         
     // New event click handler
@@ -103,9 +84,10 @@ function initialize_plan_modal() {
             
         // Show the title and privacy settings
         $('#plan_event_id').val('');
-        $('#start_event_content').show('fast');
+        $('#start_event_content').show('fast', function () {
+            $('#event_title').focus();
+        });
         $('#plan_privacy_wrapper > div').filter(':first').click();
-        $('#event_title').focus();
     });
     
     // Submit
