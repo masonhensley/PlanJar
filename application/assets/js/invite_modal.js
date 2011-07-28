@@ -43,7 +43,7 @@ function initialize_invite_modal() {
         // Populate the selected group list
         var group_list = [];
         $('#invite_groups_list .divset_selected').each(function (index, element) {
-            group_list.push(element.attr('group_id'));
+            group_list.push($(element).attr('group_id'));
         });
         console.log(group_list);
             
