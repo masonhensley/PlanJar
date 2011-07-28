@@ -12,7 +12,9 @@
     width:49%;
     height:150px;
     border: 1px solid black;
-    display: inline-block;
+    position:absolute;
+    top:0px;
+    left:0px;
 }
 .group_graph_top_right{
     width:49%;
