@@ -107,7 +107,7 @@ class Load_group_profile extends CI_Model
 
         $return_string .= '</div>';
         $return_string .= '</div>';
-        $return_string .= '<div class="profile_bottom_bar" group_id="<?php echo $group_info["id"] ?>">';
+        $return_string .= '<div class="profile_bottom_bar" group_id="' . $group_info["id"] . '">';
 
         $bottom_bar_text = "";
         $bottom_bar_buttons = "";
