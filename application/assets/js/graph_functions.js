@@ -1,19 +1,19 @@
 // -------------------------------------------------- group data box view --------------------------------------------------
-function populate_sex_info(container, data) {
-    var j_first_container = $(container + ' div:first');
-    var d_first_container = d3.select($(container + ' div')).node();
-    
-    // Create and add the marker boxes
-    var j_wrapper = $('<div class="marker_wrapper"></div>');
+
+// Outputs ten boxes with the supplied percentage of them filled in
+function populate_percentage_box(container, data) {
+    // Vars needed to construct a set of marker boxes in a wrapper
+    var marker_wrapper = $('<div class="marker_wrapper"></div>');
     var marker_box;
     var half_marker_box;
     var number_of_active_halves = Math.round(data * 20);
     
+    // Loop through each marker box
     for (var i = 0; i < 10; ++i) {
-        // Create the marker box
+        // Create a marker box
         marker_box = $('<div class="marker_box"></div>');
         
-        // Append the first marker box and change color if necessary
+        // Append the first half marker box and change color if necessary
         half_marker_box = $('<div class="half_marker_box"></div>');
         if (number_of_active_halves > 0) {
             half_marker_box.css('background-color', 'purple');
@@ -21,7 +21,7 @@ function populate_sex_info(container, data) {
         }
         half_marker_box.appendTo(marker_box);
         
-        // Append the second marker box and change color if necessary
+        // Append the second half marker box and change color if necessary
         half_marker_box = $('<div class="half_marker_box"></div>');
         if (number_of_active_halves > 0) {
             half_marker_box.css('background-color', 'purple');
@@ -30,9 +30,9 @@ function populate_sex_info(container, data) {
         half_marker_box.appendTo(marker_box);
         
         // Append the marker box to its wrapper
-        marker_box.appendTo(j_wrapper);
+        marker_box.appendTo(marker_wrapper);
     }
     
-    // Append the newly created wrapper to the first container
-    j_wrapper.appendTo(j_first_container);
+    // Append the newly created wrapper to the supplied container
+    marker_wrapper.appendTo(container);
 }
