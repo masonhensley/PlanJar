@@ -23,7 +23,7 @@ class Display_group_template extends CI_Model
         {
             $data_array = $this->get_selected_group_data($selected_groups);
         }
-        $this->get_groups_template($selected_groups, $day);
+        return $this->get_groups_template($selected_groups, $day);
     }
 
     function get_selected_group_data($selected_groups)
@@ -146,7 +146,6 @@ class Display_group_template extends CI_Model
 
     function get_groups_template($selected_groups, $day)
     {
-
         if (!$day)
         {
             $day = 0;
@@ -159,37 +158,17 @@ class Display_group_template extends CI_Model
             $display_day = "today";
         }
 
-        /*
-        
-        $this->load->model('load_locations');
-        $group_names = $this->load_locations->get_group_names($selected_groups);
+        //$this->load->model('load_locations');
+        //$group_names = $this->load_locations->get_group_names($selected_groups);
 
         ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="font-size:20px;color:gray; font-weight:bold;">
-                Group
-                <?php
-                if (count($selected_groups) > 1)
-                {
-                    echo "s";
-                }
-                ?>
-                </font>
                 <font style="font-size:20px;color:black;font-weight:bold;">
-                <?php
-                $display_groups = "";
-                foreach ($group_names as $group)
-                {
-                    $display_groups .= $group . ", ";
-                }
-                $display_groups = substr($display_groups, 0, -2);
-                echo $display_groups;
-                ?>
+                Groups go here.
                 </font></div></div>
         <div class="group_graph_top_left" >
-
         </div>
         <div class="group_graph_top_right">
             <div class="percent_container">
@@ -200,19 +179,14 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_bottom_right">
-
         </div>
         <div class="group_graph_bottom_middle">
-
         </div>
-
         <div class="group_graph_bottom_left">
-
         </div>
         <?php
-        return ob_get_clean();
-         * 
-         */
+        $return_array['html'] = ob_get_clean();
+        return $return_array;
     }
 
 }
