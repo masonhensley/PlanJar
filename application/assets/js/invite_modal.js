@@ -38,6 +38,20 @@ function initialize_invite_modal() {
     
     // Submit handler
     $('#send_invites').click(function () {
+        console.log($('#search_in_school').val());
+        
+        // Populate the selected group list
+        var group_list = [];
+        $('#invite_groups_list .divset_selected').each(function (index, element) {
+            group_list.push(element.attr('group_id'));
+        });
+        console.log(group_list);
+            
+        //        $.get('/home/invite_people', {
+        //            user_ids: 1,
+        //            group_ids: $('#invite_group_list')
+        //        })
+        
         // Call the close click handler
         $('#close_invite_modal').click();
     });
@@ -55,7 +69,7 @@ function open_invite_modal(priv_type, subject_type) {
     
         // Determine whether to hide the groups
         var hide_groups = true;
-        if (subject_type == 'event' && priv_type == 'open') {
+        if (subject_type == 'event' && (priv_type == 'open' || priv_type == 'originator')) {
             // Only show your joined groups for an open event
             hide_groups = false;
         }
