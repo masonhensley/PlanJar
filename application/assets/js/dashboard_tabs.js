@@ -9,7 +9,7 @@ function initialize_dashboard_tabs() {
     // Click handler.
     $('.tab_container .tab').click(function () {
         if (!$(this).hasClass('tab_selected')) {
-            $('.create_group').hide(); // hide the create group icon when the group tab isn't selected'
+            $('#create_group').hide(); // hide the create group icon when the group tab isn't selected'
             $('#followers_content .right').hide(); // hide the profile for the followers content
             show_data_container($(this).attr('assoc_div'));
         } else {
@@ -54,7 +54,7 @@ function show_data_container(data_div) {
     if(data_div == '#groups_content')
     {
         // if the group tab is selected, show the + Create Group button
-        $('.create_group').show("fast");
+        $('#create_group').show("fast");
     }else if(data_div == '#profile_content') // --------------- HANDLER FOR PROFILE TAB --------------
     {
         $.get('/dashboard/get_profile',  {

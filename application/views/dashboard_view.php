@@ -13,6 +13,7 @@
         <link rel=stylesheet href="/application/assets/css/dashboard_groups.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/modal.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/invite_modal.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -26,6 +27,7 @@
         <script type="text/javascript" src="/application/assets/js/create_group_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_notifications.js"></script>
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
+        <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -69,7 +71,7 @@
                 <div class="tab" assoc_div="#notifications_content">Notifications</div>
                 <div class="tab" assoc_div="#settings_content">Settings</div>
 
-                <div class="create_group">+ Create Group</div>
+                <div id="create_group">+ Create Group</div>
             </div>
 
             <div id="following_content" class="page_content" setup_func="following_setup">
