@@ -1,13 +1,13 @@
 // -------------------------------------------------- group data box view --------------------------------------------------
 function populate_sex_info(container, data) {
     var j_first_container = $(container + ' div:first');
-    var d_first_container = d3.select(container + ' div').node();
+    var d_first_container = d3.select($(container + ' div')).node();
     
     // Create and add the marker boxes
     var j_wrapper = $('<div class="marker_wrapper"></div>');
     var marker_box;
     var half_marker_box;
-    var number_of_active_halves = .75 * 20;
+    var number_of_active_halves = Math.round(data * 20);
     
     for (var i = 0; i < 10; ++i) {
         // Create the marker box

@@ -29,7 +29,9 @@ function load_data_box(selected_day, selected_groups)
         //data = data.data;
         
         // Populate the graphs
-        populate_sex_info('.group_graph_top_right')
+        populate_sex_info('.group_graph_top_right');
+        populate_sex_info('.group_graph_top_right');
+        populate_sex_info('.group_graph_top_right');
     });
 }
 
