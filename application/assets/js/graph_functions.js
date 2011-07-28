@@ -12,7 +12,7 @@ function populate_sex_info(container, data) {
     // Add the overlay
     j_first_container.append('<div class="sex_overlay"></div>');
     
-    var graph_data = [.75];
+    var graph_data = [.5];
     
     var d_overlay = d3.select(container + ' div.sex_overlay');
     d_overlay.style("width", function() {
