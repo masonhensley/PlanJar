@@ -107,7 +107,7 @@
         <div class="bottom_links">
             Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
 
-                    <a href="/dashboard/profile" id="profile_link"><div class ="bottom_links"><div class="top_right_link_inner">Profile</div></div></a>
+                    <a href="/help" id="profile_link"><div class ="bottom_links"><div class="top_right_link_inner">Help</div></div></a>
                     <a href="/dashboard/groups" id="profile_link"><div class ="bottom_links"><div class="top_right_link_inner">Groups</div></div></a>
                     <a href="/dashboard/followers" id="profile_link"><div class ="bottom_links"><div class="top_right_link_inner">Followers</div></div></a>
                     <a href="/dashboard/following" id="profile_link"><div class ="bottom_links"><div class="top_right_link_inner">Following</div></div></a>
