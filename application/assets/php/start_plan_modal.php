@@ -41,6 +41,7 @@
             <div class="plan_page_content" style="display: none;">
                 <div id="plan_events_title"></div>
 
+                <div style="width: 100%; height: auto;"
                 <div id="plan_event_select_wrapper"></div>
 
                 <div id="new_event_side">
