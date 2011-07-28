@@ -5,6 +5,9 @@ $(function() {
 // Initializes the create group modal
 function initialize_create_group_modal()
 {
+    // divSet
+    $('#group_privacy_wrapper').divSet();
+    
     // Initial select
     reset_group_modal();
     
@@ -31,9 +34,6 @@ function initialize_create_group_modal()
     
     // In-field labels
     $('#create_group_content .in-field_block label').inFieldLabels();   
-    
-    // divSet
-    $('#group_privacy_wrapper').divSet();
     
     // Submit handler
     $('#submit_create_group').click(function() {
