@@ -4,7 +4,7 @@
 
     <!-- CSS -->
     <link rel=stylesheet href="/application/assets/css/about.css" type="text/css" />
-    <title>CSS Shapes</title>  
+    <title>About us</title>  
   
     <!--[if IE]>  
         <style>  
@@ -23,7 +23,7 @@
                  </div>  
      <div id="container">  
   
-        <h1> My Heading <span class="arrow"></span> </h1>  
+        <h1> About our Team <span class="arrow"></span> </h1>  
   
     </div>  
 </body>  
