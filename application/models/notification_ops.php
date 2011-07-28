@@ -138,7 +138,7 @@ class Notification_ops extends CI_Model
 
             return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
             $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
-            '</b>has invited you to join the group <b>' . $row->name . '</b>';
+            '</b> has invited you to join the group <b>' . $row->name . '</b>';
         }
     }
 
