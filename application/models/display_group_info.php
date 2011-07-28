@@ -133,15 +133,16 @@ class Display_group_info extends CI_Model
         {
             $return_html .= "s";
         }
-        $return_html .= "</font>";
+        $return_html .= ": </font>";
 
-        $display_groups = "";
+        $display_groups = "<font style=\"font-size:30px;color:black;font-weight:bold;\">";
         foreach ($group_names as $group)
         {
-            $display_groups .= "<font style=\"font-size:30px;color:black;font-weight:bold;\">$group,</font> ";
+            $display_groups .= $group .", ";
         }
-        $display_groups = substr($display_groups, 0, -3);
-        $return_html .= "</div></div>";
+        $display_groups = substr($display_groups, 0, -2);
+        $display_groups .="</font>";
+        $return_html .= "$display_groups</div></div>";
         echo $return_html;
     }
 
