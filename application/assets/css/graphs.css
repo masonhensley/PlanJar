@@ -1,5 +1,4 @@
 .sex_box {
-    background-color: purple;
     width: 18px;
     height: 14px;
     display: inline-block;
@@ -7,12 +6,7 @@
     vertical-align: middle;
 }
 
-.sex_overlay {
+.sex_box_wrapper {
     height: 100%;
-    width: 0px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background-color: black;
-    opacity: 0.8;
+    width: 100%;
 }
