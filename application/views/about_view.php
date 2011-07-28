@@ -23,7 +23,7 @@
                  </div>  
      <div id="container">  
   
-        <h1> My Heading <span class="arrow"></span> </h1>  
+        <h1> About our Team <span class="arrow"></span> </h1>  
   
     </div>  
 </body>  
