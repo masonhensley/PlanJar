@@ -10,7 +10,7 @@
 
     <div id="plan_page_wrapper">
         <form id="plan_form" style="height: 100%;">
-            <div class="plan_page_content" page_index="0" style="text-align: center;">
+            <div class="plan_page_content" style="text-align: center;">
                 <h3>Where are you going?</h3>
                 <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
 
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="plan_page_content" page_index="1" style="display: none;">
+            <div class="plan_page_content" style="display: none;">
                 <div id="plan_events_title"></div>
 
                 <div id="plan_event_select_wrapper"></div>

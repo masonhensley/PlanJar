@@ -180,6 +180,7 @@ function generate_plan_text() {
 
 // Moves to the next plan panel
 function next_plan_panel() {
+    console.log($('.plan_page_content:first:visible'));
     if ($('.plan_page_content:first:visible').length == 1) {
         // The first panel is visible. Don't continue unless a place was selected and a time is selected
         if ($('#plan_location_id').val() != '' && $('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
