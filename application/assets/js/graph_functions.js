@@ -76,7 +76,7 @@ function populate_day_graph(container, data) {
     // Define the bar height scaling function
     var bar_scale = d3.scale.linear()
     .domain([0, d3.max(plan_counts)])
-    .range(['0px', '80px']);
+    .range(['16px', '100px']);
     
     // Select the chart bars
     d3.select(container).selectAll('div.graph_bar')
@@ -89,9 +89,15 @@ function populate_day_graph(container, data) {
     // Set the number of plans text
     .text(function (d) {
         return d.count;
-    });
+    })
     // Toggle the selected class
-    //.classed
+    .classed('bar_selected', function (d) {
+        var cur_date = new Date();
+        var given_date = new Date(d.date);
+        
+        // Return true if the date is today
+        return cur_date.toString().substr(0, 15) == given_date.toString().substr(0, 15);
+    });
     
     // Select the chart bars
     d3.select(container).selectAll('div.graph_bar_label')

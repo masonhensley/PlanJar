@@ -29,6 +29,10 @@
     bottom: 15px;
 }
 
+.bar selected {
+    background-color: green;
+}
+
 .vert_bar_wrapper {
     width: 45px;
     height: 100%;
