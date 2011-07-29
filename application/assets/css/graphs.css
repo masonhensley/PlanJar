@@ -30,7 +30,7 @@
 }
 
 .bar_today {
-    background-color: green !important;
+    background-color: green;
 }
 
 .bar_selected_day {
