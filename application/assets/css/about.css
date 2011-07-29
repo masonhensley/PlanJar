@@ -85,8 +85,8 @@ h3 {
      background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
      padding: 10px 20px;  
      margin-right: -20px;  
-     margin-top: 0;
-     margin-bottom: 30px;  
+     margin-top: 10;
+     margin-bottom: 20px;  
      position: relative;  
      width: 70%;
      padding-top: 15px;
@@ -124,9 +124,9 @@ h3 {
 .person{
     width:100%;
     height:160px;
-    margin: auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .pic{
