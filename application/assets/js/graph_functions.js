@@ -83,7 +83,9 @@ function populate_day_graph(container, data) {
     // Add data to the bars
     .data(data)
     // Set the height according to the input data
-    .style('height', bar_scale(d.count))
+    .style('height', function (d) {
+        return bar_scale(d.count);
+    })
     // Set the number of plans text
     .text(function (d) {
         return d.count;
