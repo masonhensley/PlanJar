@@ -86,8 +86,6 @@ class Display_group_template extends CI_Model
         WHERE user_meta.school_id=$user->school_id";
         $result = $this->db->query($query);
         
-        var_dump($query);
-
         // Data to be returned
         $return_array = array();
         $number_males = 0;
@@ -322,7 +320,7 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_top_left" >
-            <?php //var_dump($data_array);?>
+            <?php var_dump($data_array);?>
         </div>
         <div class="group_graph_top_right">
             <div class="total_percent_container">
