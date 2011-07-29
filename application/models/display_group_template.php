@@ -14,6 +14,7 @@ class Display_group_template extends CI_Model
         $sql_date = $sql_date->format('Y-m-d'); // this date is sql friendly
         $format_type = ""; // this is used to distinguish between the different types of display formats
 
+        // determine format type and retrieve data for selected group(s) and store it in $data_array
         if ($selected_groups[0] == 'current_location')
         {
             $data_array = $this->get_current_location_data($sql_date); // get information for current location
@@ -31,6 +32,7 @@ class Display_group_template extends CI_Model
             $data_array = $this->get_selected_group_data($selected_groups, $sql_date);  // get information for groups
             $format_type .= "groups";
         }
+        // return an array(2) that will be json encoded and sent to the browser for graph animation
         return $this->get_group_template($format_type, $selected_groups, $day, $data_array);
     }
 
@@ -53,40 +55,67 @@ class Display_group_template extends CI_Model
         }
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
-        
-        foreach($result->result() as $person)
+
+        foreach ($result->result() as $person)
         {
-            if($person->sex == 'male')
+            if ($person->sex == 'male')
             {
                 $number_males++;
-            }else{
+            } else
+            {
                 $number_females++;
             }
         }
-        
+
         $return_array['total_males'] = $number_males;
         $return_array['total_females'] = $number_females;
-        
+
         // query for number of girls and boys going out on the date selected
-        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females); 
+        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);  
-        
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+
         return $return_array;
     }
 
     function get_school_data($school)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT * FROM user_meta 
+        $query = "SELECT user_meta.id, user_meta.sex FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
-
         $result = $this->db->query($query);
-        $row = $result->row();
-        $number_schoolmates = $result->num_rows();
-        $total_enrollment = $row->total_enrollment;
-        $result_array = $result->result_array();
+
+        // Data to be returned
+        $return_array = array();
+        $number_males = 0;
+        $number_females = 0;
+        $males_going_out = 0;
+        $females_going_out = 0;
+        $total_people = $result->num_rows();
+        $user_ids = array();
+
+        foreach ($result->result() as $person)
+        {
+            $user_ids[] = $person->id;
+            if ($person->sex == 'male')
+            {
+                $number_males++;
+            } else
+            {
+                $number_females++;
+            }
+        }
+
+        $return_array['total_males'] = $number_males;
+        $return_array['total_females'] = $number_females;
+
+        // query for number of girls and boys going out on the date selected 
+        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
+        // query for all the plans that people in the groups have made for the surrounding week
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+
+        return $return_array;
     }
 
     function get_selected_group_data($selected_groups, $sql_date)
@@ -126,8 +155,10 @@ class Display_group_template extends CI_Model
         $return_array['total_males'] = $number_males;
         $return_array['total_females'] = $number_females;
 
-        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females); // query for number of girls and boys going out on the date selected
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);  // query for all the plans that people in the groups have made for the surrounding week
+        // query for number of girls and boys going out on the date selected
+        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
+        // query for all the plans that people in the groups have made for the surrounding week
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
 
         return $return_array;
     }
@@ -257,8 +288,8 @@ class Display_group_template extends CI_Model
 
     function get_group_template($format_type, $selected_groups, $day, $data_array)
     {
-        $return_array = array();
-        $top_display = "";
+        $return_array = array(); // this array will hold a jscon encoded array with html, and array of data to put in it
+        $top_display = ""; // this contains the text for the header
         if ($format_type == 'friends')
         {
             $top_display = "Friends"; // you can use data_array to find total number of friends
@@ -287,6 +318,7 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_top_left" >
+            <?php var_dump($data_array);?>
         </div>
         <div class="group_graph_top_right">
             <div class="total_percent_container">
