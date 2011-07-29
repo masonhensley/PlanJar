@@ -346,7 +346,7 @@ class Display_group_template extends CI_Model
         </div>
         <div class="group_graph_bottom_right">
         </div>
-        <div class="group_graph_bottom_middle">
+        <div class="group_graph_bottom_left">
         </div>
         <?php
         return ob_get_clean();
