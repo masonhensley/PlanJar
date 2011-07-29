@@ -102,3 +102,12 @@ h3 {
      right: 0;  
      position: absolute;  
 }  
+
+
+.person{
+    width:100%;
+    height:50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #rrr
+}
