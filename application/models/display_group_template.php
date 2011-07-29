@@ -293,7 +293,7 @@ class Display_group_template extends CI_Model
             $plan_dates[$date]++;
         }
 
-        // Convert the plan dates array entries from <'m/d': count> to <'date': 'm/d', 'count': count>
+        // Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
         $keys = array_keys($plan_dates);
         $conversion_array = array();
         foreach ($keys as $key)
