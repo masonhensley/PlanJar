@@ -81,6 +81,8 @@ function populate_day_graph(container, data) {
     .domain([0, d3.max(plan_counts)])
     .range(['0px', '65px']);
     
+    console.log(bar_scale(3));
+    
     // Select the chart bars
     d3.select(container).selectAll('div.graph_bar')
     // Add data to the bars
