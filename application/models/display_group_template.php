@@ -32,6 +32,7 @@ class Display_group_template extends CI_Model
             $format_type .= "groups";
         }
         // return an array(2) that will be json encoded and sent to the browser for graph animation
+       
         return array('html' => $this->get_group_template($format_type, $selected_groups, $day, $data_array),
             'data' => $data_array);
     }
@@ -263,7 +264,8 @@ class Display_group_template extends CI_Model
         // query for all the plans that people in the groups have made for the surrounding week
         $recent_plans_query = "SELECT events.date FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date>=DATE_ADD($sql_date, INTERVAL -3 DAY) AND events.date<DATE_ADD($sql_date, INTERVAL 4 DAY)
+                            JOIN events ON events.id=plans.event_id 
+                            AND events.date>=DATE_ADD('$sql_date', INTERVAL -3 DAY) AND events.date<DATE_ADD('$sql_date', INTERVAL 4 DAY)
                             JOIN places ON places.id=events.place_id
                             WHERE ";
         foreach ($user_ids as $id)
@@ -275,19 +277,19 @@ class Display_group_template extends CI_Model
         $result = $this->db->query($recent_plans_query);
         $plan_dates = array();
 
-        $date_tracker = new DateTime();
+        $date_tracker = new DateTime($sql_date);
         $date_tracker->modify('-2 day');
 
         for ($i = 0; $i < 7; $i++)
         {
-            $plan_dates[$date_tracker->format('D')] = 0;
+            $plan_dates[$date_tracker->format('Y-m-d')] = 0;
             $date_tracker->modify('+1 day');
         }
 
         foreach ($result->result() as $plan)
         {
             $date = new DateTime($plan->date);
-            $date = $date->format('D');
+            $date = $date->format('Y-m-d');
             $plan_dates[$date]++;
         }
 
@@ -327,6 +329,14 @@ class Display_group_template extends CI_Model
             $top_display = substr($top_display, 0, -2);
         }
 
+        $date = new DateTime();
+        $date2 = new DateTime();
+        $month = 
+        $big_display_day = $date->add(new DateInterval('P' . $day . 'D'));
+        $little_display_day = $date2->add(new DateInterval('P' . $day . 'D'));
+        $big_display_day = $big_display_day->format('D');
+        $little_display_day = $little_display_day->format('l');
+
         ob_start();
         ?>
         <div class="data_box_top_bar">
@@ -345,6 +355,8 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_bottom_right">
+            <font style="color:darkgray; position:absolute; top:0px; left:0px;"> Day selected:<?php echo " " . $little_display_day; ?></font>
+            <font style="font-size:120px; color:lightblue;"><?php echo $big_display_day; ?></font>
         </div>
         <div class="group_graph_bottom_left">
         </div>
