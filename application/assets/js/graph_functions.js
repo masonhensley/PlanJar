@@ -83,8 +83,8 @@ function populate_day_graph(container, data) {
     .data(data)
     // Set the height according to the input data
     .text(function (d) {
-        var date = new Date(d);
-        if (d == (date.getMonth() + 1) + '/' + date.getDate()) {
+        var date = new Date();
+        if (d.date == (date.getMonth() + 1) + '/' + date.getDate()) {
             return 'Today'
         } else {
             return d.date;
