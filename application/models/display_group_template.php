@@ -285,6 +285,7 @@ class Display_group_template extends CI_Model
             $plan_dates[$date_tracker->format('Y-m-d')] = 0;
             $date_tracker->modify('+1 day');
         }
+        var_dump($plan_dates);
 
         foreach ($result->result() as $plan)
         {
