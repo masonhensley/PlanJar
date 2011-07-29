@@ -263,7 +263,7 @@ class Display_group_template extends CI_Model
         // query for all the plans that people in the groups have made for the surrounding week
         $recent_plans_query = "SELECT events.date FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date>=DATE_ADD(NOW(), INTERVAL -3 DAY) AND events.date<DATE_ADD(NOW(), INTERVAL 4 DAY)
+                            JOIN events ON events.id=plans.event_id AND events.date>=DATE_ADD(NOW(), INTERVAL -2 DAY) AND events.date<=DATE_ADD(NOW(), INTERVAL 4 DAY)
                             JOIN places ON places.id=events.place_id
                             WHERE ";
         foreach ($user_ids as $id)
@@ -276,21 +276,21 @@ class Display_group_template extends CI_Model
         $plan_dates = array();
 
         $date_tracker = new DateTime();
-        $date_tracker->modify('-3 day');
-        
-        for($i=0; $i<7; $i++)
+        $date_tracker->modify('-2 day');
+
+        for ($i = 0; $i < 7; $i++)
         {
             $plan_dates[$date_tracker->format('n/j')] = 0;
             $date_tracker->modify('+1 day');
         }
-        var_dump($plan_dates);
+
         foreach ($result->result() as $plan)
         {
             $date = new DateTime($plan->date);
-            $date->format('n/j');
+            $date = $date->format('n/j');
             $plan_dates[$date]++;
         }
-        
+
         //$plan_dates = array_count_values($plan_dates);
 
         $return_array['plan_dates'] = $plan_dates;
