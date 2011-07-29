@@ -88,7 +88,9 @@ h3 {
      margin-top: 0;
      margin-bottom: 30px;  
      position: relative;  
-     width: 70%;  
+     width: 70%;
+     padding-top: 15px;
+     padding-bottom: 15px;  
   
     -moz-box-shadow: 1px 1px 3px #292929;  
     -webkit-box-shadow: 1px 1px 3px #292929;  
@@ -132,8 +134,6 @@ h3 {
     height:100%;
     margin: auto;
     background: #d2d2d2;
-    padding-top: 15px;
-    padding-bottom: 15px;
     float: right;
 }
 
@@ -142,7 +142,5 @@ h3 {
     height:100%;
     margin: auto;
     background: #c3c3c3;
-    padding-top: 15px;
-    padding-bottom: 15px;
     float: right;
 }
