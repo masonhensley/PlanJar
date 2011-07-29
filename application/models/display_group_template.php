@@ -310,6 +310,8 @@ class Display_group_template extends CI_Model
     function get_group_template($format_type, $selected_groups, $day, $data_array)
     {
         $top_display = ""; // this contains the text for the header
+        $s = ""; // this will make anything plural that needs to be for groups selected
+        
         if ($format_type == 'friends')
         {
             $top_display = "Friends"; // you can use data_array to find total number of friends
@@ -321,6 +323,10 @@ class Display_group_template extends CI_Model
             $top_display .= "School";
         } else if ($format_type == 'groups')
         {
+            if(count($selected_groups)>1)
+            {
+                $s = "s";
+            }
             $this->load->model('load_locations');
             $group_names = $this->load_locations->get_group_names($selected_groups);
             foreach ($group_names as $group)
@@ -330,9 +336,23 @@ class Display_group_template extends CI_Model
             $top_display = substr($top_display, 0, -2);
         }
 
+        // setup display data
         $date = new DateTime();
         $month = $big_display_day = $date->add(new DateInterval('P' . $day . 'D'));
         $big_display_day = $big_display_day->format('D');
+        if(strlen($data_array['percent_total_going_out']) > 3)
+        {
+            $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+        }
+        if(strlen($data_array['percent_males_going_out']) > 3)
+        {
+            $data_array['percent_females_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+        }
+        if(strlen($data_array['percent_total_going_out']) > 3)
+        {
+            $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+        }
+        
 
         ob_start();
         ?>
@@ -343,20 +363,24 @@ class Display_group_template extends CI_Model
         </div>
         <div class="group_graph_top_left" >
             <font style="font-weight:bold;">Statistics</font><br/>
-                <?php ?>
+            <?php ?>
         </div>
-        <div class="group_graph_bottom_left">
-            <div class="total_percent_container">
-            </div>
-            <div class="male_percent_container">
-            </div>
-            <div class="female_percent_container">
-            </div>
+        <div class="group_graph_top_right">
         </div>
         <div class="group_graph_bottom_right">
             <font style="font-size:120px; color:lightblue;"><?php echo $big_display_day; ?></font>
         </div>
-        <div class="group_graph_top_right">
+        <div class="group_graph_bottom_left">
+            
+            <div class="total_percent_container">
+                <?php echo $data_array['percent_total_going_out'] ."% "?><font style="color:darkgray"> of people in selected group<?php echo $s;  ?> are going out</font>
+            </div>
+            <?php echo $data_array['percent_males_going_out'] ."% "?><font style="color:darkgray">of males in group<?php echo $s;  ?> are going out</font>
+            <div class="male_percent_container">
+            </div>
+            <?php echo $data_array['percent_females_going_out'] ."% "?><font style="color:darkgray;">of females in group<?php echo $s;  ?> are going out</font>
+            <div class="female_percent_container">
+            </div>
         </div>
         <?php
         return ob_get_clean();
