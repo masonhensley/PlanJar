@@ -29,7 +29,7 @@
     bottom: 15px;
 }
 
-.bar selected {
+.bar_selected {
     background-color: green;
 }
 
