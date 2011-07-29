@@ -276,13 +276,14 @@ class Display_group_template extends CI_Model
         $result = $this->db->query($recent_plans_query);
 
         $plan_dates = array();
+        $date_tracker = "";
+        $index_tracker = 0;
         foreach ($result->result() as $plan)
         {
-            $plan_dates[] = $plan->date;
+            $plan_dates[] = $plan->date->format('j');
         }
         $plan_dates = array_count_values($plan_dates);
         $return_array['plan_dates'] = $plan_dates;
-
         return $return_array;
     }
 
