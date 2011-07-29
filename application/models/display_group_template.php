@@ -354,7 +354,6 @@ class Display_group_template extends CI_Model
             $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
         }
 
-
         ob_start();
         ?>
         <div class="data_box_top_bar">
@@ -363,8 +362,13 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_top_left" >
-            <font style="font-weight:bold;">Statistics</font><br/>
-            <?php ?>
+            <font style="font-weight:bold;font-size:20px;">Statistics</font><br/>
+            <?php
+            $total = $data_array['total_males'] + $data_array['total_females'];
+            echo "Group members: $total<br/>";
+            echo "males: " . $data_array['total_males'] . "<br/>";
+            echo "females: " . $data_array['total_females'] . "<br/>";
+            ?>
         </div>
         <div class="group_graph_top_right">
         </div>
