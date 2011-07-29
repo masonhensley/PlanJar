@@ -220,7 +220,7 @@ class Display_group_template extends CI_Model
 
         $males_going_out = 0;
         $females_going_out = 0;
-        $id_tracker_array() = array();
+        $id_tracker_array = array();
 
         foreach ($result->result() as $person)
         {
