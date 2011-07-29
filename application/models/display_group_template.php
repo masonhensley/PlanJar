@@ -286,7 +286,7 @@ class Display_group_template extends CI_Model
 
         foreach ($result->result() as $plan)
         {
-            $plan_dates[$plan->date]++;
+            $plan_dates[substr($plan->date, -2)]++;
         }
         var_dump($plan_dates);
         //$plan_dates = array_count_values($plan_dates);
