@@ -27,26 +27,26 @@
 
         <h3> Name <span class="arrow_right"></span> </h3>
                 <div class ="person">
-                      <div class ="pic">
-                        </div>
                       <div class ="info">
+                        </div>
+                      <div class ="pic">
                         </div>
         
         </div>
         <h3> Name <span class="arrow_right"></span> </h3>
                 <div class ="person">
-                   <div class ="pic">
-                     </div>
                    <div class ="info">
+                     </div>
+                   <div class ="pic">
                      </div>
         
         </div>
 
         <h3> Name <span class="arrow_right"></span> </h3>
                 <div class ="person">
-                    <div class ="pic">
-                     </div>
                     <div class ="info">
+                     </div>
+                    <div class ="pic">
                       </div>
         
         </div> 
