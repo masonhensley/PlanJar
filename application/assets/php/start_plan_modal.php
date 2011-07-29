@@ -47,10 +47,11 @@
 
                 <div class="right">
                     <div id="create_event_title">
-                        Don't find anything you want to go to? Click <b>Just going</b> on the left<br/>
-                        or <b>create an event</b> below.
+                        Don't find anything you want to go to?<br/>
+                        <input type="button" id="just_going" value="Just go"/>
+                        <br/>
+                        <input type="button" id="create_event" value="Start an event"/>
                     </div>
-                    <input type="button" id="create_event" value="Start an event"/>
 
                     <div id="start_event_content" style="display: none;">
                         <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
