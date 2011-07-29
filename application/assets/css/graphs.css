@@ -33,11 +33,13 @@
 
 .graph_bar {
     width: 100%;
-    background-color: blue;
+    background-color: navy;
     color: white;
     border: none;
     position: absolute;
     bottom: 15px;
+    padding-top:2px;
+    padding-bottom:2px;
 }
 
 .bar_today {
@@ -64,4 +66,5 @@
     height: 15px;
     position: absolute;
     bottom: 0px;
+    color:darkgray;
 }
