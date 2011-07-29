@@ -45,7 +45,7 @@ function populate_percentage_box(container, percentage) {
 
 // Populates the container with a vertical bar graph
 // x = day, y = plan count
-function populate_day_graph(container, data) {
+function populate_day_graph(container, data, selected_date) {
     // Create the bars and labels if they aren't there
     if ($(container).children().length != data.length) {
         // Clear the container
@@ -90,13 +90,21 @@ function populate_day_graph(container, data) {
     .text(function (d) {
         return d.count;
     })
-    // Toggle the selected class
-    .classed('bar_selected', function (d) {
-        var cur_date = new Date();
-        var given_date = new Date(d.date);
+    // Toggle the selected day class
+    .classed('bar_selected_day', function (d) {
+        var sel_date = new Date(selected_date);
+        var data_date = new Date(d.date);
         
-        // Return true if the date is today
-        return cur_date.toString().substr(0, 15) == given_date.toString().substr(0, 15);
+        // Return true if the date matches the selected date
+        return data_date.toString().substr(0, 15) == sel_date.toString().substr(0, 15);
+    })
+    // Toggle the current day class
+    .classed('bar_today', function (d) {
+        var cur_date = new Date();
+        var data_date = new Date(d.date);
+        
+        // Return true if the date matches the current date
+        return cur_date.toString().substr(0, 15) == data_date.toString().substr(0, 15);
     });
     
     // Select the chart bars
