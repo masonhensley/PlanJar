@@ -19,7 +19,6 @@
 .group_graph_top_right{
     width:49%;
     height:150px;
-    border: 1px solid black;
     position:absolute;
     top:34px;
     right:0px;
@@ -41,12 +40,10 @@
 }
 
 .total_percent_container, .male_percent_container, .female_percent_container{
-    width:80%;
-    margin-right:5px;
+    width:235px;
     height:20px;
-    border: 1px solid black;
-    margin-left:50px;
-    margin-top:20px;
+    margin-left:25px;
+    margin-top:23px;
     position: relative;
     text-align: left;
 }

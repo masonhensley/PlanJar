@@ -330,21 +330,18 @@ class Display_group_template extends CI_Model
         }
 
         $date = new DateTime();
-        $date2 = new DateTime();
-        $month =
-                $big_display_day = $date->add(new DateInterval('P' . $day . 'D'));
-        $little_display_day = $date2->add(new DateInterval('P' . $day . 'D'));
+        $month = $big_display_day = $date->add(new DateInterval('P' . $day . 'D'));
         $big_display_day = $big_display_day->format('D');
-        $little_display_day = $little_display_day->format('l');
 
         ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <?php echo $top_display; ?> 
+                <font style="color:darkgray;">Selected:</font> <font style="font-size:15px; font-weight:bold;"><?php echo " " . $top_display; ?></font> 
             </div>
         </div>
         <div class="group_graph_top_left" >
+            <font style="color:darkgray;"></font><?php ?>
         </div>
         <div class="group_graph_top_right">
             <div class="total_percent_container">
@@ -355,7 +352,6 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_bottom_right">
-            <font style="color:darkgray; position:absolute; top:0px; left:0px;"> Day selected:<?php echo " " . $little_display_day; ?></font>
             <font style="font-size:120px; color:lightblue;"><?php echo $big_display_day; ?></font>
         </div>
         <div class="group_graph_bottom_left">
