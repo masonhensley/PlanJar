@@ -34,37 +34,37 @@ function load_data_box(selected_day, selected_groups)
         populate_percentage_box('.female_percent_container', Math.random());
         populate_day_graph('.group_graph_bottom_middle', [{
             'date': '2011-07-28', 
-            'count': 5
+            'count': Math.random()*10
         },
 
         {
             'date': '2011-07-29', 
-            'count': 1
+            'count': Math.random()*10
         },
 
         {
             'date': '2011-07-30', 
-            'count': 3
+            'count': Math.random()*10
         },
 
         {
             'date': '2011-07-31', 
-            'count': 7
+            'count': Math.random()*10
         },
 
         {
             'date': '2011-08-01', 
-            'count': 6
+            'count': Math.random()*10
         },
 
         {
             'date': '2011-08-02', 
-            'count': 2
+            'count': Math.random()*10
         },
 
         {
             'date': '2011-08-03', 
-            'count': 4
+            'count': Math.random()*10
         }]);
     });
 }

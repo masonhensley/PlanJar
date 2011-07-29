@@ -27,7 +27,6 @@ function populate_percentage_box(container, percentage) {
         for (var i = 0; i < 20; ++i) {
             d3_data.push(i < percentage * 20);
         }
-        console.log(d3_data);
     }
      
     // Select all half boxes
