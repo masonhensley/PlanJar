@@ -106,7 +106,6 @@ class Display_group_template extends CI_Model
                 $number_females++;
             }
         }
-        var_dump($user_ids);
 
         $return_array['total_males'] = $number_males;
         $return_array['total_females'] = $number_females;
@@ -321,7 +320,7 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_top_left" >
-            <?php var_dump($data_array);?>
+            <?php //var_dump($data_array);?>
         </div>
         <div class="group_graph_top_right">
             <div class="total_percent_container">
