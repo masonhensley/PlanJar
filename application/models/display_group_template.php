@@ -234,6 +234,8 @@ class Display_group_template extends CI_Model
 
         $return_array['males_going_out'] = $males_going_out;
         $return_array['females_going_out'] = $females_going_out;
+        
+        var_dump($females_going_out);
 
         $percent_total_goingout = 0;
         $percent_males_goingout = 0;
