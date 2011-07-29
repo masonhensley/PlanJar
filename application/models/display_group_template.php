@@ -208,7 +208,7 @@ class Display_group_template extends CI_Model
 
         $girl_boy_query = "SELECT user_meta.sex FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date=$sql_date
+                            JOIN events ON events.id=plans.event_id AND events.date='$sql_date'
                             WHERE ";
         foreach ($user_ids as $id)
         {
