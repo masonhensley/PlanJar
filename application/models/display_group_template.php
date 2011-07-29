@@ -265,7 +265,7 @@ class Display_group_template extends CI_Model
         $recent_plans_query = "SELECT events.date FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
                             JOIN events ON events.id=plans.event_id 
-                            AND events.date>=DATE_ADD('$sql_date', INTERVAL -3 DAY) AND events.date<DATE_ADD('$sql_date', INTERVAL 4 DAY)
+                            AND events.date>=DATE_ADD('$sql_date', INTERVAL -2 DAY) AND events.date<DATE_ADD('$sql_date', INTERVAL 4 DAY)
                             JOIN places ON places.id=events.place_id
                             WHERE ";
         foreach ($user_ids as $id)
