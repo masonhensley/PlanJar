@@ -255,6 +255,7 @@ class Display_group_template extends CI_Model
         $return_array['percent_total_going_out'] = $percent_total_goingout;
         $return_array['percent_males_going_out'] = $percent_males_goingout;
         $return_array['percent_females_going_out'] = $percent_females_goingout;
+        $return_array['selected_date'] = $sql_date;
 
         return $return_array;
     }

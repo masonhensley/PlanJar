@@ -29,8 +29,12 @@
     bottom: 15px;
 }
 
-.bar_selected {
+.bar_today {
     background-color: green;
+}
+
+.bar_selected_day {
+    background-color: lightblue;
 }
 
 .vert_bar_wrapper {
