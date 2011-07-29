@@ -275,13 +275,11 @@ class Display_group_template extends CI_Model
         $result = $this->db->query($recent_plans_query);
         $plan_dates = array();
 
-        $date = date("Y-m-d");
-        $date_tracker = strtotime(date("Y-m-d", strtotime($date)) . " -3 day");
-        var_dump($date_tracker);
+        $date_tracker = date("Y-m-d", strtotime("-3 day"));
         for($i=0; $i<7; $i++)
         {
             $plan_dates[$date_tracker] = 0;
-            $date_tracker =  strtotime(date("Y-m-d", strtotime($date_tracker)) . " +1 day");
+            $date_tracker->modify('+1 day');
         }
 
         foreach ($result->result() as $plan)
