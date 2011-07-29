@@ -13,7 +13,6 @@ class Display_group_template extends CI_Model
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d'); // this date is sql friendly
         $format_type = ""; // this is used to distinguish between the different types of display formats
-
         // determine format type and retrieve data for selected group(s) and store it in $data_array
         if ($selected_groups[0] == 'current_location')
         {
@@ -73,7 +72,7 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
         return $return_array;
     }
@@ -85,7 +84,7 @@ class Display_group_template extends CI_Model
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
         $result = $this->db->query($query);
-        
+
         // Data to be returned
         $return_array = array();
         $number_males = 0;
@@ -113,7 +112,7 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected 
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
         return $return_array;
     }
@@ -158,7 +157,7 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
         return $return_array;
     }
@@ -196,7 +195,7 @@ class Display_group_template extends CI_Model
         $return_array['total_females'] = $number_females;
 
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females); // fill return array with percentage information
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
         return $return_array;
     }
@@ -259,7 +258,7 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_surrounding_day_info($return_array, $user_ids)
+    function get_surrounding_day_info($return_array, $user_ids, $sql_date)
     {
         // query for all the plans that people in the groups have made for the surrounding week
         $recent_plans_query = "SELECT events.date FROM plans 
@@ -275,15 +274,23 @@ class Display_group_template extends CI_Model
         $recent_plans_query .= " ORDER BY date ASC";
         $result = $this->db->query($recent_plans_query);
         $plan_dates = array();
+
+        $date = date("Y-m-d");
+        $date_tracker = strtotime(date("Y-m-d", strtotime($date)) . " -3 day");
         
+        for($i=0; $i<8; $i++)
+        {
+            $plan_dates[$date_tracker] = 0;
+            $date_tracker =  strtotime(date("Y-m-d", strtotime($date_tracker)) . " +1 day");
+        }
+
         foreach ($result->result() as $plan)
         {
-            $date = $plan->date;
-            $plan_dates[] = substr($date, -2);
+            $plan_dates[$plan->date]++;
         }
-        
+        var_dump($plan_dates);
         //$plan_dates = array_count_values($plan_dates);
-        
+
         $return_array['plan_dates'] = $plan_dates;
         return $return_array;
     }
@@ -320,7 +327,6 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_top_left" >
-            <?php var_dump($data_array);?>
         </div>
         <div class="group_graph_top_right">
             <div class="total_percent_container">
