@@ -80,6 +80,7 @@ function initialize_plan_modal() {
     $('#close_new_event').click(function () {
         // Reset and hide the title and privacy settings
         $('#close_new_event').hide('fast');
+        $('#just_going').show('fast');
         $('#event_title').val('');
         $('#event_title').blur();
         $('#start_event_content').hide('fast');
@@ -92,8 +93,11 @@ function initialize_plan_modal() {
         // Hide the button
         $(this).hide('fast');
         
+        // Hide the just going button
+        $('#just_going').hide('fast');
+        
         // Show the cancel button
-        $('close_new_event').show('fast');
+        $('#close_new_event').show('fast');
         
         // Clear the select
         $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
@@ -257,11 +261,7 @@ function reset_plan_modal() {
     // Clear the inputs
     $('#create_plan_content input').not('[type="button"]').val('');
     
-    // Hide the new event div
-    $('#start_event_content').css('display', 'none');
-    
-    // Show the button
-    $('#create_event').css('display', '');
+    $('#close_new_event').click();
 }
 
 // Encapsulates the autocomplete setup
