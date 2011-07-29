@@ -71,7 +71,8 @@ h3 {
      background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
      padding: 10px 20px;  
      margin-right: -20px;  
-     margin-top: 0;  
+     margin-top: 0;
+     margin-bottom: 30px;  
      position: relative;  
      width: 70%;  
   
