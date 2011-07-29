@@ -49,6 +49,7 @@
                     <div id="create_event_title">
                         Don't find anything you want to go to?<br/><br/>
                         <input type="button" id="just_going" value="Just go"/>
+                        <input type="button" id="close_new_event" value="Cancel" style="display: none"/>
                         <br/>
                         <input type="button" id="create_event" value="Start an event"/>
                     </div>
