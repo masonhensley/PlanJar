@@ -85,6 +85,8 @@ class Display_group_template extends CI_Model
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
         $result = $this->db->query($query);
+        
+        var_dump($query);
 
         // Data to be returned
         $return_array = array();
@@ -274,7 +276,6 @@ class Display_group_template extends CI_Model
         $recent_plans_query = substr($recent_plans_query, 0, -4);
         $recent_plans_query .= " ORDER BY date ASC";
         $result = $this->db->query($recent_plans_query);
-        var_dump($this->db->last_query());
         $plan_dates = array();
         
         foreach ($result->result() as $plan)
