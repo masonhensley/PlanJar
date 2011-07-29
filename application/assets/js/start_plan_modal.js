@@ -73,9 +73,16 @@ function initialize_plan_modal() {
         $('#plan_event_id').val($(this).attr('event_id'));
         
         // Reset and hide the title and privacy settings
+        $('#close_new_event').click();
+    });
+    
+    // Cancel event click handler
+    $('#close_new_event').click(function () {
+        // Reset and hide the title and privacy settings
+        $('#close_new_event').hide('fast');
         $('#event_title').val('');
         $('#event_title').blur();
-        $('#start_event_content').css('display', 'none');
+        $('#start_event_content').hide('fast');
         $('#create_event').show('fast');
     });
         
@@ -84,6 +91,9 @@ function initialize_plan_modal() {
         
         // Hide the button
         $(this).hide('fast');
+        
+        // Show the cancel button
+        $('close_new_event').show('fast');
         
         // Clear the select
         $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
