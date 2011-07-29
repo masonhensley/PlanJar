@@ -68,14 +68,22 @@ function populate_day_graph(container, data) {
         }
     }
     
+    // Extract the plan counts from the data so that we can get the max with D3
+    var plan_counts = $.map(data, function (item) {
+        return item.count;
+    });
+    
+    // Define the bar height scaling function
+    var bar_scale = d3.scale.linear()
+    .domain([0, d3.max(plan_counts)])
+    .range(['0px', '50px']);
+    
     // Select the chart bars
     d3.select(container).selectAll('div.graph_bar')
     // Add data to the bars
     .data(data)
     // Set the height according to the input data
-    .style('height', function (d) {
-        return d.count * 10 + 'px';
-    })
+    .style('height', bar_scale)
     // Set the number of plans text
     .text(function (d) {
         return d.count;
