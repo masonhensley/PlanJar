@@ -252,9 +252,9 @@ class Display_group_template extends CI_Model
             $percent_females_goingout = $females_going_out / $number_females;
         }
 
-        $return_array['percent_total_going_out'] = $percent_total_goingout * 10;
-        $return_array['percent_males_going_out'] = $percent_males_goingout * 10;
-        $return_array['percent_females_going_out'] = $percent_females_goingout * 10;
+        $return_array['percent_total_going_out'] = $percent_total_goingout * 100;
+        $return_array['percent_males_going_out'] = $percent_males_goingout * 100;
+        $return_array['percent_females_going_out'] = $percent_females_goingout * 100;
         $return_array['selected_date'] = $sql_date;
 
         return $return_array;
