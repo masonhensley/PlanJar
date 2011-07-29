@@ -336,9 +336,23 @@ class Display_group_template extends CI_Model
             $top_display = substr($top_display, 0, -2);
         }
 
+        // setup display data
         $date = new DateTime();
         $month = $big_display_day = $date->add(new DateInterval('P' . $day . 'D'));
         $big_display_day = $big_display_day->format('D');
+        if(strlen($data_array['percent_total_going_out']) > 3)
+        {
+            $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+        }
+        if(strlen($data_array['percent_males_going_out']) > 3)
+        {
+            $data_array['percent_females_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+        }
+        if(strlen($data_array['percent_total_going_out']) > 3)
+        {
+            $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+        }
+        
 
         ob_start();
         ?>
