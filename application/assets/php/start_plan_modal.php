@@ -11,10 +11,10 @@
     <div id="plan_page_wrapper">
         <form id="plan_form" style="height: 100%;">
             <div class="plan_page_content" style="text-align: center;">
-                <h3>Where are you going?</h3>
+                <h3>Where do you want to go?</h3>
                 <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
 
-                <h3 style="margin-top: 5px;">When are you going?</h3>
+                <h3 style="margin-top: 5px;">When do you want to go?</h3>
                 <div id="plan_day">
                     <div plan_day="0">Today</div>
 

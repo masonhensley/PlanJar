@@ -15,6 +15,11 @@ function initialize_plan_modal() {
         
         // Focus the location box.
         $('#plan_location').focus();
+        
+        // Select everything when focused
+        $('#plan_location').focus(function () {
+            $(this).select();
+        });
     
         // Show the modal
         $('#create_plan_content').show('fast');
@@ -223,6 +228,9 @@ function reset_plan_modal() {
     
     // Hide the new event div
     $('#start_event_content').css('display', 'none');
+    
+    // Show the button
+    $('#submit_plan').css('display', '');
 }
 
 // Encapsulates the autocomplete setup
