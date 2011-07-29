@@ -62,6 +62,7 @@
 #create_event_title {
     width: 100%;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 #plan_event_select_wrapper {

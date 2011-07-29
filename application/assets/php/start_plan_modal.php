@@ -47,8 +47,8 @@
 
                 <div class="right">
                     <div id="create_event_title">
-                        Don't find anything you want to go to? Click <b>Just going</b> to the right or
-                        <b>create an event</b> below.
+                        Don't find anything you want to go to? Click <b>Just going</b> on the left<br/>
+                        or <b>create an event</b> below.
                     </div>
                     <input type="button" id="create_event" value="Start an event"/>
 
