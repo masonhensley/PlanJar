@@ -331,8 +331,8 @@ class Display_group_template extends CI_Model
         $date2 = new DateTime();
         $big_display_day = $date->add(new DateInterval('P' . $day . 'D')); 
         $little_display_day  = $date2->add(new DateInterval('P' .$day .'D'));
-         $big_display_day->format('D');
-        $little_display_day->format('l');
+         $big_display_day = $big_display_day->format('D');
+        $little_display_day = $little_display_day->format('l');
         
         ob_start();
         ?>
