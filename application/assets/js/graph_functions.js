@@ -87,7 +87,7 @@ function populate_day_graph(container, data) {
         if (d == (date.getMonth() + 1) + '/' + date.getDate()) {
             return 'Today'
         } else {
-            return d;
+            return d.date;
         }
     });
 }
