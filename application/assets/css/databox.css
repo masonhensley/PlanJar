@@ -30,7 +30,7 @@
     width:49%;
     height:138px;
     position:absolute;
-    bottom:-9px;
+    bottom:-23px;
     left:20px;
 }
 .group_graph_bottom_right{
@@ -45,7 +45,6 @@
     width:235px;
     height:20px;
     margin-left:25px;
-    margin-top:5px;
     position: relative;
     text-align: left;
 }
