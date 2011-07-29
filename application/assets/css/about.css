@@ -126,7 +126,7 @@ h3 {
     width: 200px;
     height:100%;
     margin: auto;
-    background: blue;
+    background: #eee;
     padding-top: 15px;
     padding-bottom: 15px;
     float: right;
@@ -136,7 +136,7 @@ h3 {
     width: 340px;
     height:100%;
     margin: auto;
-    background: orange;
+    background: #ededed;
     padding-top: 15px;
     padding-bottom: 15px;
     float: right;
