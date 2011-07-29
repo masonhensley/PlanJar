@@ -284,6 +284,7 @@ class Display_group_template extends CI_Model
             $plan_dates[] = substr($date, -2);
         }
         $plan_dates = array_count_values($plan_dates);
+        var_dump($plan_dates);
         $return_array['plan_dates'] = $plan_dates;
         return $return_array;
     }
