@@ -107,14 +107,14 @@ h3 {
 
 .person{
     width:100%;
-    height:100px;
+    height:160px;
     margin: auto;
     background: yellow;
     padding-top: 30px;
 }
 
 .pic{
-    width: 300px;
+    width: 160px;
     height:100%;
     margin: auto;
     background: blue;
@@ -123,7 +123,7 @@ h3 {
 }
 
 .info{
-    width: 300px;
+    width: 340px;
     height:100%;
     margin: auto;
     background: orange;
