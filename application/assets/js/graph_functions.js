@@ -100,7 +100,8 @@ function populate_day_graph(container, data) {
         var cur_date = new Date();
         var given_date = new Date(d.date);
         var day_array = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        
+        console.log(given_date.toString());
+        console.log(cur_date.toString());
         if (cur_date.toString() == given_date.toString()) {
             return 'Today';
         } else {
