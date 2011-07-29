@@ -280,7 +280,7 @@ class Display_group_template extends CI_Model
         
         for($i=0; $i<8; $i++)
         {
-            $plan_dates[$date_tracker] = 0;
+            $plan_dates[substr($date_tracker, -2)] = 0;
             $date_tracker =  strtotime(date("Y-m-d", strtotime($date_tracker)) . " +1 day");
         }
 
