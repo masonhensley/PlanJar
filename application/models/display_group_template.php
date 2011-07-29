@@ -290,7 +290,7 @@ class Display_group_template extends CI_Model
         {
             $date = new DateTime($plan->date);
             $date = $date->format('Y-m-d');
-            $plan_dates[$date->format('Y-m-d')]++;
+            $plan_dates[$date]++;
         }
 
         // Convert the plan dates array entries from <'m/d': count> to <'date': 'm/d', 'count': count>
