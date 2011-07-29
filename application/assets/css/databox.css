@@ -47,3 +47,12 @@
     position: relative;
     text-align: left;
 }
+
+.show_percent{
+    position:absolute;
+    top:20px; 
+    left:-2px;
+    font-weight: bold;
+    position:relative;
+    top:2px;
+}
