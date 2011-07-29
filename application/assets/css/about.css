@@ -106,9 +106,10 @@ h3 {
 
 .person{
     width:100%;
-    height:50px;
+    height:100px;
     margin: auto;
     background: #yellow;
+    padding-top: 30px;
 }
 
 .pic{
@@ -116,6 +117,7 @@ h3 {
     height:100%;
     margin: auto;
     background: #blue;
+    padding-top: 30px;
 }
 
 .info{
@@ -123,4 +125,5 @@ h3 {
     height:100%;
     margin: auto;
     background: #orange;
+    padding-top: 30px;
 }
