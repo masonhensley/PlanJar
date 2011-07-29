@@ -274,7 +274,7 @@ class Display_group_template extends CI_Model
         $recent_plans_query = substr($recent_plans_query, 0, -4);
         $recent_plans_query .= " ORDER BY date ASC";
         $result = $this->db->query($recent_plans_query);
-
+        var_dump($this->db->last_query());
         $plan_dates = array();
         
         foreach ($result->result() as $plan)
@@ -282,9 +282,9 @@ class Display_group_template extends CI_Model
             $date = $plan->date;
             $plan_dates[] = substr($date, -2);
         }
-        var_dump($plan_dates);
+        
         //$plan_dates = array_count_values($plan_dates);
-        var_dump($plan_dates);
+        
         $return_array['plan_dates'] = $plan_dates;
         return $return_array;
     }
