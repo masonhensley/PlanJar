@@ -29,9 +29,9 @@ function load_data_box(selected_day, selected_groups)
         //data = data.data;
         
         // Populate the graphs
-        populate_percentage_box('.group_graph_top_right > div:eq(0)', .45);
-        populate_percentage_box('.group_graph_top_right > div:eq(1)', .85);
-        populate_percentage_box('.group_graph_top_right > div:eq(2)', .24);
+        populate_percentage_box('.total_percent_container', .45);
+        populate_percentage_box('.male_percent_container', .85);
+        populate_percentage_box('.female_percent_container', .24);
         populate_day_graph('.group_graph_bottom_middle', [{
             'date': '2011-07-28', 
             'count': 5

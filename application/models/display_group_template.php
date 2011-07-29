@@ -290,11 +290,11 @@ class Display_group_template extends CI_Model
         <div class="group_graph_top_left" >
         </div>
         <div class="group_graph_top_right">
-            <div class="percent_container">
+            <div class="total_percent_container">
             </div>
-            <div class="percent_container">
+            <div class="male_percent_container">
             </div>
-            <div class="percent_container">
+            <div class="female_percent_container">
             </div>
         </div>
         <div class="group_graph_bottom_right">

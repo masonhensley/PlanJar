@@ -50,7 +50,7 @@
     right:0px;
 }
 
-.percent_container{
+.total_percent_container, .male_percent_container, .female_percent_container{
     width:80%;
     margin-right:5px;
     height:20px;
