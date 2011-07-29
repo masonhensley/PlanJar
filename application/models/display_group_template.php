@@ -259,7 +259,7 @@ class Display_group_template extends CI_Model
     function get_group_template($format_type, $selected_groups, $day, $data_array)
     {
         $return_array = array();
-        $top_display .= "";
+        $top_display = "";
         if ($format_type == 'friends')
         {
             $top_display = "Friends"; // you can use data_array to find total number of friends
