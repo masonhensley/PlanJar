@@ -14,6 +14,7 @@ class Display_group_template extends CI_Model
         $sql_date = $sql_date->format('Y-m-d'); // this date is sql friendly
         $format_type = ""; // this is used to distinguish between the different types of display formats
 
+        // determine format type and retrieve data for selected group(s) and store it in $data_array
         if ($selected_groups[0] == 'current_location')
         {
             $data_array = $this->get_current_location_data($sql_date); // get information for current location
@@ -31,6 +32,7 @@ class Display_group_template extends CI_Model
             $data_array = $this->get_selected_group_data($selected_groups, $sql_date);  // get information for groups
             $format_type .= "groups";
         }
+        // return an array(2) that will be json encoded and sent to the browser for graph animation
         return $this->get_group_template($format_type, $selected_groups, $day, $data_array);
     }
 
@@ -286,8 +288,8 @@ class Display_group_template extends CI_Model
 
     function get_group_template($format_type, $selected_groups, $day, $data_array)
     {
-        $return_array = array();
-        $top_display = "";
+        $return_array = array(); // this array will hold a jscon encoded array with html, and array of data to put in it
+        $top_display = ""; // this contains the text for the header
         if ($format_type == 'friends')
         {
             $top_display = "Friends"; // you can use data_array to find total number of friends
@@ -316,6 +318,7 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_top_left" >
+            <?php var_dump($data_array);?>
         </div>
         <div class="group_graph_top_right">
             <div class="total_percent_container">
