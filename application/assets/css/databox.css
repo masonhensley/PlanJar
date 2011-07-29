@@ -17,19 +17,20 @@
     left:0px;
 }
 .group_graph_top_right{
-    width:49%;
-    height:150px;
-    position:absolute;
-    top:34px;
-    right:0px;
-}
-
-.group_graph_bottom_left{
     width:350px;
     height:130px;
     position:absolute;
     bottom:3px;
     left:3px;
+
+}
+
+.group_graph_bottom_left{
+    width:49%;
+    height:150px;
+    position:absolute;
+    top:34px;
+    right:0px;
 }
 .group_graph_bottom_right{
     width:215px;

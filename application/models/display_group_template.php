@@ -342,9 +342,10 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_top_left" >
-            <font style="color:darkgray;"></font><?php ?>
+            <font style="font-weight:bold;">Statistics</font><br/>
+                <?php ?>
         </div>
-        <div class="group_graph_top_right">
+        <div class="group_graph_bottom_left">
             <div class="total_percent_container">
             </div>
             <div class="male_percent_container">
@@ -355,7 +356,7 @@ class Display_group_template extends CI_Model
         <div class="group_graph_bottom_right">
             <font style="font-size:120px; color:lightblue;"><?php echo $big_display_day; ?></font>
         </div>
-        <div class="group_graph_bottom_left">
+        <div class="group_graph_top_right">
         </div>
         <?php
         return ob_get_clean();
