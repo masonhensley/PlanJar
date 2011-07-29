@@ -274,7 +274,7 @@ class Display_group_template extends CI_Model
         $recent_plans_query .= " ORDER BY date ASC";
         $result = $this->db->query($recent_plans_query);
         $plan_dates = array();
-        var_dump($recent_plans_query);
+        //var_dump($recent_plans_query);
 
         $date_tracker = new DateTime();
         $date_tracker->modify('-2 day');
