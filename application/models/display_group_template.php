@@ -381,9 +381,9 @@ class Display_group_template extends CI_Model
             <font style="font-size:120px; color:lightblue;"><?php echo $big_display_day; ?></font>
         </div>
         <div class="group_graph_bottom_left">
-            <div class="show_percent"style="position:absolute; top:20px; left:-2px;font-weight: bold;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
-            <div class="show_percent" style="position:absolute; top:57px;left:-2px;font-weight: bold;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
-            <div class="show_percent" style="position:absolute; top:93px;left:-2px;font-weight: bold;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
+            <div class="show_percent"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
+            <div class="show_percent"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
+            <div class="show_percent"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
 
             <font style="color:darkgray">everyone in group<?php echo $s; ?> going out</font>
             <div class="total_percent_container">
