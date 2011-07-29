@@ -107,7 +107,6 @@ h3 {
 .person{
     width:100%;
     height:50px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #rrr
+    margin: auto;
+    background: #rrr;
 }
