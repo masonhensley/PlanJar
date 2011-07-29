@@ -70,7 +70,7 @@
             <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
         </div>
         <div class ="container">
-            <input type="button" id="create_plan" value="Create Plan"/>
+            <input type="button" id="create_plan" value="Make a plan"/>
             <div class ="left">
                 <div class="location_container">
                     <div id="using_location">Using location:</div>

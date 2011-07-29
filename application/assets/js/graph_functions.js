@@ -95,14 +95,17 @@ function populate_day_graph(container, data) {
     d3.select(container).selectAll('div.graph_bar_label')
     // Add data to the bars
     .data(data)
-    // Set the height according to the input data
+    // Set the text (day of the week or Today)
     .text(function (d) {
-        var date = new Date();
+        var cur_date = new Date();
+        var given_date = new Date(d.date);
         var day_array = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        if (d.date == day_array[date.getDay()]) {
+        console.log(given_date.toString());
+        console.log(cur_date.toString());
+        if (cur_date.toString() == given_date.toString()) {
             return 'Today';
         } else {
-            return d.date;
+            return day_array[given_date.getDay()];
         }
     });
 }
