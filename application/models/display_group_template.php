@@ -207,7 +207,7 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected
         $result = "";
 
-        $girl_boy_query = "SELECT user_meta.sex FROM plans 
+        $girl_boy_query = "SELECT user_meta.sex, user_meta.user_id FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
                             JOIN events ON events.id=plans.event_id AND events.date='$sql_date'
                             WHERE ";
@@ -220,15 +220,20 @@ class Display_group_template extends CI_Model
 
         $males_going_out = 0;
         $females_going_out = 0;
+        $id_tracker_array() = array();
 
         foreach ($result->result() as $person)
         {
-            if ($person->sex == 'male')
+            if (!in_array($person->user_id, $id_tracker_array))
             {
-                $males_going_out++;
-            } else
-            {
-                $females_going_out++;
+                if ($person->sex == 'male')
+                {
+                    $males_going_out++;
+                } else
+                {
+                    $females_going_out++;
+                }
+                $id_tracker_array[] = $person->user_id;
             }
         }
 
