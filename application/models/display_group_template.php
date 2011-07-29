@@ -99,7 +99,7 @@ class Display_group_template extends CI_Model
 
         foreach ($result->result() as $person)
         {
-            $user_ids[] = $person->id;
+            $user_ids[] = $person->user_id;
             if ($person->sex == 'male')
             {
                 $number_males++;
