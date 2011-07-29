@@ -74,6 +74,11 @@ h1 {
     -webkit-box-shadow: 1px 1px 3px #292929;  
        box-shadow: 1px 1px 3px #292929;  
   
+
+	font-family: 'Molengo', Georgia, Times, serif;
+	font-size: 56px;
+	line-height: 80px;
+
     color: #454545;  
     text-shadow: 0 1px 0 white;  
 }  
