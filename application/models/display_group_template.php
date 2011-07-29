@@ -280,7 +280,7 @@ class Display_group_template extends CI_Model
         
         for($i=0; $i<7; $i++)
         {
-            $plan_dates[$date_tracker->format('m/d')] = 0;
+            $plan_dates[$date_tracker->format('n/j')] = 0;
             $date_tracker->modify('+1 day');
         }
 
