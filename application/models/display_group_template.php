@@ -274,21 +274,20 @@ class Display_group_template extends CI_Model
         $recent_plans_query .= " ORDER BY date ASC";
         $result = $this->db->query($recent_plans_query);
         $plan_dates = array();
-        //var_dump($recent_plans_query);
 
         $date_tracker = new DateTime();
         $date_tracker->modify('-2 day');
 
         for ($i = 0; $i < 7; $i++)
         {
-            $plan_dates[$date_tracker->format('n/j')] = 0;
+            $plan_dates[$date_tracker->format('D')] = 0;
             $date_tracker->modify('+1 day');
         }
 
         foreach ($result->result() as $plan)
         {
             $date = new DateTime($plan->date);
-            $date = $date->format('n/j');
+            $date = $date->format('D');
             $plan_dates[$date]++;
         }
 
