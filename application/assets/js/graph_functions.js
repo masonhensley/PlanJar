@@ -90,6 +90,8 @@ function populate_day_graph(container, data) {
     .text(function (d) {
         return d.count;
     });
+    // Toggle the selected class
+    //.classed
     
     // Select the chart bars
     d3.select(container).selectAll('div.graph_bar_label')
@@ -102,7 +104,7 @@ function populate_day_graph(container, data) {
         var day_array = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         console.log(given_date.toString());
         console.log(cur_date.toString());
-        if (cur_date.toString() == given_date.toString()) {
+        if (cur_date.toString().substr(0, -18) == given_date.toString().substr(0, -18)) {
             return 'Today';
         } else {
             return day_array[given_date.getDay()];
