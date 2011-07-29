@@ -381,17 +381,17 @@ class Display_group_template extends CI_Model
             <font style="font-size:120px; color:lightblue;"><?php echo $big_display_day; ?></font>
         </div>
         <div class="group_graph_bottom_left">
-            <div class="show_percent"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
-            <div class="show_percent"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
-            <div class="show_percent"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
+            <div class="show_percent" style="top:20px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
+            <div class="show_percent"style="top:20px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
+            <div class="show_percent" style="top:20px;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
 
-            <font style="color:darkgray">everyone in group<?php echo $s; ?> going out</font>
+            <font style="color:darkgray; font-weight:bold;">everyone in group<?php echo $s; ?> going out</font>
             <div class="total_percent_container">
             </div>
-            <font style="color:darkgray">males in group<?php echo $s . " "; ?>going out</font>
+            <font style="color:darkgray; font-weight:bold;">males in group<?php echo $s . " "; ?>going out</font>
             <div class="male_percent_container">
             </div>
-            <font style="color:darkgray;">females in group<?php echo $s . " "; ?>going out</font>
+            <font style="color:darkgray; font-weight:bold;">females in group<?php echo $s . " "; ?>going out</font>
             <div class="female_percent_container">
             </div>
         </div>
