@@ -28,10 +28,10 @@
 
 .group_graph_bottom_left{
     width:49%;
-    height:150px;
+    height:138px;
     position:absolute;
     bottom:-9px;
-    left:38px;
+    left:20px;
 }
 .group_graph_bottom_right{
     width:215px;
