@@ -365,9 +365,10 @@ class Display_group_template extends CI_Model
         <div class="group_graph_top_left" >
             <font style="font-weight:bold;">Statistics</font><br/>
             <?php 
-            echo "Total members in selected group: " .$data_array['total_males'] + $data_array['total_females'] ."<br/>";
-            echo "# male: " .$data_array['total_males'] ."<br/>";
-            echo "# female: " .$data_array['total_females'] ."<br/>";
+            $total = $data_array['total_males'] + $data_array['total_females'];
+            echo "Total members in selected group: $total<br/>";
+            echo "males: " .$data_array['total_males'] ."<br/>";
+            echo "females: " .$data_array['total_females'] ."<br/>";
                 
             ?>
         </div>
