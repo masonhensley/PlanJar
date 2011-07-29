@@ -11,8 +11,19 @@
     width: 50%;
     height: 100%;
     float: left;
-    background-color: white;
     border: none;
+}
+
+.marker_total {
+    background-color: purple;
+}
+
+.marker_male {
+    background-color: lightblue;
+}
+
+.marker_female {
+    background-color: pink;
 }
 
 .marker_wrapper {

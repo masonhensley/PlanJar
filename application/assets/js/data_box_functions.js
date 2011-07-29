@@ -34,9 +34,9 @@ function load_data_box(selected_day, selected_groups)
         console.log(data);
         
         // Populate the graphs
-        populate_percentage_box('.total_percent_container', data.percent_total_going_out);
-        populate_percentage_box('.male_percent_container', data.percent_males_going_out);
-        populate_percentage_box('.female_percent_container', data.percent_females_going_out);
+        populate_percentage_box('.total_percent_container', data.percent_total_going_out, 'marker_total');
+        populate_percentage_box('.male_percent_container', data.percent_males_going_out, 'marker_male');
+        populate_percentage_box('.female_percent_container', data.percent_females_going_out, 'marker_female');
         populate_day_graph('.group_graph_top_right', data.plan_dates, data.selected_date);
     });
 }

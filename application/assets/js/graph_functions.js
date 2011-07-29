@@ -2,7 +2,7 @@
 
 // Outputs ten boxes with the supplied percentage of them filled in
 // Accepts 0 <= n <= 100
-function populate_percentage_box(container, percentage) {
+function populate_percentage_box(container, percentage, active_class) {
     percentage = percentage/100;
     
     // Create the marker boxes if they aren't there
@@ -35,13 +35,9 @@ function populate_percentage_box(container, percentage) {
     d3.select(container).selectAll('.half_marker_box')
     // Add the data to the selection
     .data(d3_data)
-    // Set the background to purple if necessary
-    .style('background-color', function (d) {
-        if (d) {
-            return 'purple'
-        } else {
-            return 'white'
-        }
+    // Set the background to the color specified by the given active class
+    .classed(active_class, function (d) {
+        return d;
     });
 }
 
