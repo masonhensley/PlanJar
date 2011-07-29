@@ -17,7 +17,8 @@ function initialize_plan_modal() {
         $('#plan_location').focus();
         
         // Select everything when focused
-        $('#plan_location').focus(function () {
+        $('#plan_location').click(function () {
+            $(this).focus();
             $(this).select();
         });
     
@@ -133,7 +134,7 @@ function initialize_plan_modal() {
 // Does what it's called
 function initialize_event_select_page() {
     // Populate the header for the next page
-    $('#plan_events_title').html("Here's what's happening at " + generate_plan_text() + '.');
+    $('#plan_events_title').html("Here's what other people are doing at " + generate_plan_text() + '.');
                     
     // Populate the event select
     $.get('/home/get_events_for_plan', {
