@@ -32,7 +32,8 @@ class Display_group_template extends CI_Model
             $format_type .= "groups";
         }
         // return an array(2) that will be json encoded and sent to the browser for graph animation
-        return $this->get_group_template($format_type, $selected_groups, $day, $data_array);
+        return array('html' => $this->get_group_template($format_type, $selected_groups, $day, $data_array),
+            'data' => $data_array);
     }
 
     function get_friend_data($sql_date)
@@ -207,7 +208,7 @@ class Display_group_template extends CI_Model
 
         $girl_boy_query = "SELECT user_meta.sex FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date=$sql_date
+                            JOIN events ON events.id=plans.event_id AND events.date='$sql_date'
                             WHERE ";
         foreach ($user_ids as $id)
         {
@@ -215,7 +216,6 @@ class Display_group_template extends CI_Model
         }
         $girl_boy_query = substr($girl_boy_query, 0, -4);
         $result = $this->db->query($girl_boy_query);
-
 
         $males_going_out = 0;
         $females_going_out = 0;
@@ -276,30 +276,36 @@ class Display_group_template extends CI_Model
         $plan_dates = array();
 
         $date_tracker = new DateTime();
-        $date_tracker->modify('-3 day');
-        
-        for($i=0; $i<7; $i++)
+        $date_tracker->modify('-2 day');
+
+        for ($i = 0; $i < 7; $i++)
         {
             $plan_dates[$date_tracker->format('n/j')] = 0;
             $date_tracker->modify('+1 day');
         }
-        var_dump($plan_dates);
+
         foreach ($result->result() as $plan)
         {
             $date = new DateTime($plan->date);
-            $date->format('n/j');
+            $date = $date->format('n/j');
             $plan_dates[$date]++;
         }
-        
-        //$plan_dates = array_count_values($plan_dates);
 
-        $return_array['plan_dates'] = $plan_dates;
+        // Convert the plan dates array entries from <'m/d': count> to <'date': 'm/d', 'count': count>
+        $keys = array_keys($plan_dates);
+        $conversion_array = array();
+        foreach ($keys as $key)
+        {
+            $conversion_array[] = array('date' => $key, 'count' => $plan_dates[$key]);
+        }
+
+        // Return
+        $return_array['plan_dates'] = $conversion_array;
         return $return_array;
     }
 
     function get_group_template($format_type, $selected_groups, $day, $data_array)
     {
-        $return_array = array(); // this array will hold a jscon encoded array with html, and array of data to put in it
         $top_display = ""; // this contains the text for the header
         if ($format_type == 'friends')
         {
@@ -321,7 +327,7 @@ class Display_group_template extends CI_Model
             $top_display = substr($top_display, 0, -2);
         }
 
-        //ob_start();
+        ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
@@ -345,8 +351,7 @@ class Display_group_template extends CI_Model
         <div class="group_graph_bottom_middle">
         </div>
         <?php
-        //$return_array['html'] = ob_get_clean();
-        //return $return_array;
+        return ob_get_clean();
     }
 
 }

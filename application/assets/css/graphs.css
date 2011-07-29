@@ -21,8 +21,28 @@
 }
 
 .graph_bar {
-    width: 10px;
+    width: 100%;
     background-color: blue;
+    color: white;
     border: none;
-    float: left;
+    position: absolute;
+    bottom: 15px;
+}
+
+.vert_bar_wrapper {
+    width: 45px;
+    height: 100%;
+    position: relative;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.graph_bar_label {
+    width: 100%;
+    height: 15px;
+    position: absolute;
+    bottom: 0px;
 }

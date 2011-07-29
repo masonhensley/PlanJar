@@ -1,6 +1,7 @@
 /* ---------- body ----------- */
 body{
     margin: 0px;
+    background: #F3F6FF
 }
 
 
@@ -43,7 +44,20 @@ body{
     width: 800px;  
     height: 900px;  
     padding-top: 30px;  
-    font-family: helvetica, arial, sans-serif;  
+    font-family: helvetica, arial, sans-serif;
+
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-top-left: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-top-right: 10px;
+    border-top-right-radius: 10px;
+
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 0px 20px #000;
+    -moz-box-shadow: 0px 0px 20px #000;
+    box-shadow: 0px 0px 20px #000;  
+
     }  
   
 h1 {  
@@ -71,10 +85,12 @@ h3 {
      background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
      padding: 10px 20px;  
      margin-right: -20px;  
-     margin-top: 0;
-     margin-bottom: 30px;  
+     margin-top: 10;
+     margin-bottom: 0px;  
      position: relative;  
-     width: 70%;  
+     width: 70%;
+     padding-top: 15px;
+     padding-bottom: 15px;  
   
     -moz-box-shadow: 1px 1px 3px #292929;  
     -webkit-box-shadow: 1px 1px 3px #292929;  
@@ -108,16 +124,15 @@ h3 {
 .person{
     width:100%;
     height:160px;
-    margin: auto;
-    padding-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .pic{
     width: 200px;
     height:100%;
     margin: auto;
-    background: blue;
-    padding-top: 30px;
+    background: #d2d2d2;
     float: right;
 }
 
@@ -125,7 +140,6 @@ h3 {
     width: 340px;
     height:100%;
     margin: auto;
-    background: orange;
-    padding-top: 30px;
+    background: #c3c3c3;
     float: right;
 }

@@ -34,12 +34,12 @@
 }
 
 .group_graph_bottom_middle{
-    width:49%;
+    width:350px;
     height:100px;
     border: 1px solid black;
     position:absolute;
     bottom:0px;
-    left:190px;
+    left:150px;
 }
 .group_graph_bottom_right{
     width:100px;
