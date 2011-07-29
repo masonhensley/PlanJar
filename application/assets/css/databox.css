@@ -12,15 +12,15 @@
     width:200px;
     height:150px;
     position:absolute;
-    top:34px;
-    left:10px;
+    top:42px;
+    left:38px;
     text-align: left;
 }
 .group_graph_top_right{
     width:310px;
     height:130px;
     position:absolute;
-    top:53px;
+    top:40px;
     right:3px;
 
 }
