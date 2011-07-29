@@ -354,7 +354,6 @@ class Display_group_template extends CI_Model
             $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
         }
 
-
         ob_start();
         ?>
         <div class="data_box_top_bar">
