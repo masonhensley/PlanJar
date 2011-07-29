@@ -46,14 +46,48 @@ function populate_percentage_box(container, percentage) {
 // Populates the container with a vertical bar graph
 // x = day, y = plan count
 function populate_day_graph(container, data) {
-    // Select the chart bars (they don't exist yet)
-    var bars = d3.select(container).selectAll('div.graph_bar')
+    // Create the bars and labels if they aren't there
+    if ($(container).children().length != data.length) {
+        // Clear the container
+        $(container).html('');
+        
+        // Loop through each bar/label wrapper box to be created
+        var vert_bar_wrapper;
+        for (i = 0; i < data.length; ++i) {
+            // Store the wrapper
+            vert_bar_wrapper = $('<div class="vert_bar_wrapper"></div');
+            
+            // Append a bar div
+            vert_bar_wrapper.append($('<div class="graph_bar"></div>'));
+            
+            // Append a label div
+            vert_bar_wrapper.append($('<div class="graph_bar_label"></div>'));
+            
+            // Append the resulting wrapper to the container
+            $(container).append(vert_bar_wrapper);
+        }
+    }
+    
+    // Select the chart bars
+    d3.select(container).selectAll('div.graph_bar')
     // Add data to the bars
     .data(data)
-    // Instantiate enough elements to match the data count
-    .enter().append('div').classed('graph_bar', true)
     // Set the height according to the input data
     .style('height', function (d) {
         return d.count * 10 + 'px';
+    });
+    
+    // Select the chart bars
+    d3.select(container).selectAll('div.graph_bar_label')
+    // Add data to the bars
+    .data(data)
+    // Set the height according to the input data
+    .text(function (d) {
+        var date = new Date(d);
+        if (d == (date.getMonth() + 1) + '/' + date.getDate()) {
+            return 'Today'
+        } else {
+            return d;
+        }
     });
 }
