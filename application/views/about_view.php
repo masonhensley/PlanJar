@@ -40,7 +40,6 @@
                      </div>
                    <div class ="pic">
                      </div>
-        
         </div>
 
         <h3> Name <span class="arrow_right"></span> </h3>
