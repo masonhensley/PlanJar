@@ -262,6 +262,7 @@ class Display_group_template extends CI_Model
     function get_surrounding_day_info($return_array, $user_ids)
     {
         // query for all the plans that people in the groups have made for the surrounding week
+        var_dump($user_ids);
         $recent_plans_query = "SELECT events.date FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
                             JOIN events ON events.id=plans.event_id AND events.date>DATE_ADD(NOW(), INTERVAL -3 DAY) AND events.date<DATE_ADD(NOW(), INTERVAL 4 DAY)
