@@ -61,18 +61,19 @@ class Event_ops extends CI_Model
         $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time, $place_id));
 
         // Echo the event entries
-        echo('<div class="selectable_event" event_id="" priv_type="open">Just going</div>');
         if ($query->num_rows() > 0)
         {
-            echo('<hr/>');
-        }
-        foreach ($query->result() as $row)
+            foreach ($query->result() as $row)
+            {
+                $id = $row->id;
+                $privacy = $row->privacy;
+                $title = $row->title;
+                $event_text = "$title ($privacy)";
+                echo("<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\" event_name=\"$title\">$event_text</div>");
+            }
+        } else
         {
-            $id = $row->id;
-            $privacy = $row->privacy;
-            $title = $row->title;
-            $event_text = "$title ($privacy)";
-            echo("<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\" event_name=\"$title\">$event_text</div>");
+            echo("<i>There aren't any events yet<br/>Create one on the right.</i>");
         }
     }
 
