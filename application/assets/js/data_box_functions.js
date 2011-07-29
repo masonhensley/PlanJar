@@ -37,7 +37,7 @@ function load_data_box(selected_day, selected_groups)
         populate_percentage_box('.total_percent_container', data.percent_total_going_out);
         populate_percentage_box('.male_percent_container', data.percent_males_going_out);
         populate_percentage_box('.female_percent_container', data.percent_females_going_out);
-        populate_day_graph('.group_graph_bottom_middle', data.plan_dates);
+        populate_day_graph('.group_graph_bottom_left', data.plan_dates);
     });
 }
 
