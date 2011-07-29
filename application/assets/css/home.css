@@ -59,7 +59,7 @@ a{
 }
 
 /* -------------- LEFT PANEL ---------------- */ 
-.left{
+.container > .left{
     float:left;
     width: 210px;
     min-height: 100px;
@@ -365,7 +365,7 @@ a{
 }
 
 /* ------------------ RIGHT PANEL -----------------------*/
-.right{
+.container > .right{
     float:left;
     width:210px;
     min-height: 30px;
