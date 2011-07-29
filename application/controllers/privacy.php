@@ -6,12 +6,12 @@ if (!defined('BASEPATH'))
 
 class Privacy extends CI_Controller
 {
+
     public function index()
     {
-        if ($this->ion_auth->logged_in())
-        {
-            $this->load->view('privacy_view');
-        }
+        $this->load->view('privacy_view');
     }
+
 }
+
 ?>
