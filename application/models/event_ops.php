@@ -73,7 +73,7 @@ class Event_ops extends CI_Model
             }
         } else
         {
-            echo("<i>There aren't any events yet<br/>Create one on the right.</i>");
+            echo("<br/><br/><br/><i>There aren't any events yet<br/>Create one on the right.</i>");
         }
     }
 
