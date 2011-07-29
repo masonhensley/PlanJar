@@ -34,9 +34,22 @@
         
         </div>
         <h3> Parker Bossier <span class="arrow_right"></span> </h3>
+                <div class ="person">
+                   <div class ="pic">
+                     </div>
+                   <div class ="info">
+                     </div>
+        
+        </div>
 
         <h3> Wells Johnston <span class="arrow_right"></span> </h3>
-  
+                <div class ="person">
+                    <div class ="pic">
+                     </div>
+                    <div class ="info">
+                      </div>
+        
+        </div> 
     </div>  
 </body>  
 </html>  
