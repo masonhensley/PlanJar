@@ -23,6 +23,7 @@
 .graph_bar {
     width: 100%;
     background-color: blue;
+    color: white;
     border: none;
     position: absolute;
     bottom: 15px;
@@ -33,13 +34,13 @@
     height: 100%;
     position: relative;
     border: none;
-    display: inline-block
+    display: inline-block;
+    text-align: center;
 }
 
 .graph_bar_label {
     width: 100%;
     height: 15px;
-    text-align: center;
     position: absolute;
     bottom: 0px;
 }
