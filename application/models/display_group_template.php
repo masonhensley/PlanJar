@@ -217,9 +217,6 @@ class Display_group_template extends CI_Model
         $girl_boy_query = substr($girl_boy_query, 0, -4);
         $result = $this->db->query($girl_boy_query);
 
-        var_dump($this->db->last_query());
-
-
         $males_going_out = 0;
         $females_going_out = 0;
 
