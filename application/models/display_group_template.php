@@ -106,6 +106,7 @@ class Display_group_template extends CI_Model
                 $number_females++;
             }
         }
+        var_dump($user_ids);
 
         $return_array['total_males'] = $number_males;
         $return_array['total_females'] = $number_females;
@@ -276,8 +277,7 @@ class Display_group_template extends CI_Model
         $result = $this->db->query($recent_plans_query);
 
         $plan_dates = array();
-        $date_tracker = "";
-        $index_tracker = 0;
+        
         foreach ($result->result() as $plan)
         {
             $date = $plan->date;
