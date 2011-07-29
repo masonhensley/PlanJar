@@ -352,7 +352,8 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_bottom_right">
-            <font style="color:darkgray;">Day selected:</font> <font style="font-weight:bold;"><?php echo " " .$little_display_day; ?></font>
+            <div style="position:relative;"
+            <font style="color:darkgray; position:absolute; top:0px; left:0px;">Day selected:<?php echo " " .$little_display_day; ?></font>
             <font style="font-size:120px; color:lightblue;"><?php echo $big_display_day; ?></font>
         </div>
         <div class="group_graph_bottom_left">
