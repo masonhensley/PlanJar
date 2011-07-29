@@ -134,7 +134,7 @@ function initialize_plan_modal() {
 // Does what it's called
 function initialize_event_select_page() {
     // Populate the header for the next page
-    $('#plan_events_title').html("Here's what other people are doing at " + generate_plan_text() + '.');
+    $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
                     
     // Populate the event select
     $.get('/home/get_events_for_plan', {
@@ -150,7 +150,7 @@ function initialize_event_select_page() {
 function generate_plan_text() {
     var day = $('#plan_day .divset_selected').html();
     var time = $('#plan_time .divset_selected').html().toLowerCase();
-    var return_string = '<b>' + $('#plan_location_name').val() + '</b> ';
+    var return_string = '<b>' + $('#plan_location_name').val() + '</b><br/>';
     
     if (day == 'Today') {
         // Today
@@ -225,7 +225,7 @@ function reset_plan_modal() {
     $('.plan_page_content .divset_selected').removeClass('divset_selected');
     
     // Clear the inputs
-    $('.plan_page_content input').not('[type="button"]').val('');
+    $('#create_plan_content input').not('[type="button"]').val('');
     
     // Hide the new event div
     $('#start_event_content').css('display', 'none');

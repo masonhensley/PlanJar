@@ -56,6 +56,13 @@
 
 #plan_events_title {
     width: 100%;
+    text-align: center;
+}
+
+#create_event_title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 #plan_event_select_wrapper {
@@ -84,8 +91,4 @@
 .selected_event {
     background:-webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
     color: white;
-}
-
-#new_event_side {
-
 }
