@@ -292,7 +292,6 @@ class Display_group_template extends CI_Model
             $plan_dates[$date]++;
         }
 
-        //$plan_dates = array_count_values($plan_dates);
         // Convert the plan dates array entries from <'m/d': count> to <'date': 'm/d', 'count': count>
         $keys = array_keys($plan_dates);
         $conversion_array = array();
@@ -333,7 +332,7 @@ class Display_group_template extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-        <?php echo $top_display; ?> 
+                <?php echo $top_display; ?> 
             </div>
         </div>
         <div class="group_graph_top_left" >
