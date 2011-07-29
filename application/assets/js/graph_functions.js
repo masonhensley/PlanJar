@@ -74,6 +74,7 @@ function populate_day_graph(container, data) {
     });
     
     console.log(plan_counts);
+    console.log(d3.max(plan_counts));
     
     // Define the bar height scaling function
     var bar_scale = d3.scale.linear()
