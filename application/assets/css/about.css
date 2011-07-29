@@ -40,10 +40,18 @@ body{
 #container {  
     background: #eee;  
     margin: auto;  
-    width: 600px;  
-    height: 700px;  
+    width: 800px;  
+    height: 900px;  
     padding-top: 30px;  
-    font-family: helvetica, arial, sans-serif;  
+    font-family: helvetica, arial, sans-serif;
+
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-top-left: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-top-right: 10px;
+    border-top-right-radius: 10px;  
+
     }  
   
 h1 {  
@@ -71,7 +79,8 @@ h3 {
      background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
      padding: 10px 20px;  
      margin-right: -20px;  
-     margin-top: 0;  
+     margin-top: 0;
+     margin-bottom: 30px;  
      position: relative;  
      width: 70%;  
   
@@ -102,3 +111,32 @@ h3 {
      right: 0;  
      position: absolute;  
 }  
+
+
+.person{
+    width:100%;
+    height:160px;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.pic{
+    width: 200px;
+    height:100%;
+    margin: auto;
+    background: blue;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    float: right;
+}
+
+.info{
+    width: 340px;
+    height:100%;
+    margin: auto;
+    background: orange;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    float: right;
+}

@@ -13,7 +13,6 @@ class Display_group_template extends CI_Model
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d'); // this date is sql friendly
         $format_type = ""; // this is used to distinguish between the different types of display formats
-
         // determine format type and retrieve data for selected group(s) and store it in $data_array
         if ($selected_groups[0] == 'current_location')
         {
@@ -73,7 +72,7 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
         return $return_array;
     }
@@ -81,7 +80,7 @@ class Display_group_template extends CI_Model
     function get_school_data($school, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT user_meta.id, user_meta.sex FROM user_meta 
+        $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
         $result = $this->db->query($query);
@@ -97,7 +96,7 @@ class Display_group_template extends CI_Model
 
         foreach ($result->result() as $person)
         {
-            $user_ids[] = $person->id;
+            $user_ids[] = $person->user_id;
             if ($person->sex == 'male')
             {
                 $number_males++;
@@ -113,7 +112,7 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected 
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
         return $return_array;
     }
@@ -158,7 +157,7 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
         return $return_array;
     }
@@ -196,7 +195,7 @@ class Display_group_template extends CI_Model
         $return_array['total_females'] = $number_females;
 
         $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females); // fill return array with percentage information
-        $return_array = $this->get_surrounding_day_info($return_array, $user_ids);
+        $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
         return $return_array;
     }
@@ -259,12 +258,12 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_surrounding_day_info($return_array, $user_ids)
+    function get_surrounding_day_info($return_array, $user_ids, $sql_date)
     {
         // query for all the plans that people in the groups have made for the surrounding week
         $recent_plans_query = "SELECT events.date FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date>DATE_ADD(NOW(), INTERVAL -3 DAY) AND events.date<DATE_ADD(NOW(), INTERVAL 4 DAY)
+                            JOIN events ON events.id=plans.event_id AND events.date>=DATE_ADD(NOW(), INTERVAL -3 DAY) AND events.date<DATE_ADD(NOW(), INTERVAL 4 DAY)
                             JOIN places ON places.id=events.place_id
                             WHERE ";
         foreach ($user_ids as $id)
@@ -274,15 +273,26 @@ class Display_group_template extends CI_Model
         $recent_plans_query = substr($recent_plans_query, 0, -4);
         $recent_plans_query .= " ORDER BY date ASC";
         $result = $this->db->query($recent_plans_query);
-
         $plan_dates = array();
-        $date_tracker = "";
-        $index_tracker = 0;
+
+        $date_tracker = new DateTime();
+        $date_tracker->modify('-3 day');
+        
+        for($i=0; $i<7; $i++)
+        {
+            $plan_dates[$date_tracker->format('n/j')] = 0;
+            $date_tracker->modify('+1 day');
+        }
+        var_dump($plan_dates);
         foreach ($result->result() as $plan)
         {
-            $plan_dates[] = $plan->date->format('j');
+            $date = new DateTime($plan->date);
+            $date->format('n/j');
+            $plan_dates[$date]++;
         }
-        $plan_dates = array_count_values($plan_dates);
+        
+        //$plan_dates = array_count_values($plan_dates);
+
         $return_array['plan_dates'] = $plan_dates;
         return $return_array;
     }
@@ -319,7 +329,6 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div class="group_graph_top_left" >
-            <?php var_dump($data_array);?>
         </div>
         <div class="group_graph_top_right">
             <div class="total_percent_container">
