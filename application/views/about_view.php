@@ -25,7 +25,7 @@
   
         <h1> Our Team <span class="arrow"></span> </h1> 
 
-        <h3> Mason Hensley <span class="arrow_right"></span> </h3>
+        <h3> Name <span class="arrow_right"></span> </h3>
                 <div class ="person">
                       <div class ="pic">
                         </div>
@@ -33,7 +33,7 @@
                         </div>
         
         </div>
-        <h3> Parker Bossier <span class="arrow_right"></span> </h3>
+        <h3> Name <span class="arrow_right"></span> </h3>
                 <div class ="person">
                    <div class ="pic">
                      </div>
@@ -42,7 +42,7 @@
         
         </div>
 
-        <h3> Wells Johnston <span class="arrow_right"></span> </h3>
+        <h3> Name <span class="arrow_right"></span> </h3>
                 <div class ="person">
                     <div class ="pic">
                      </div>
