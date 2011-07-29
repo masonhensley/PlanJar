@@ -25,7 +25,7 @@ class Display_group_template extends CI_Model
             $format_type .= "friends";
         } else if ($selected_groups[0] == 'school')
         {
-            $data_array = $this->get_school_data($school);  // get information for school
+            $data_array = $this->get_school_data($school, $sql_date);  // get information for school
             $format_type .= "school";
         } else // when groups are selected
         {
@@ -78,7 +78,7 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_school_data($school)
+    function get_school_data($school, $sql_date)
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT user_meta.id, user_meta.sex FROM user_meta 
