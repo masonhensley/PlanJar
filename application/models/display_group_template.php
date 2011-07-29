@@ -32,6 +32,7 @@ class Display_group_template extends CI_Model
             $format_type .= "groups";
         }
         // return an array(2) that will be json encoded and sent to the browser for graph animation
+       
         return array('html' => $this->get_group_template($format_type, $selected_groups, $day, $data_array),
             'data' => $data_array);
     }
@@ -281,14 +282,14 @@ class Display_group_template extends CI_Model
 
         for ($i = 0; $i < 7; $i++)
         {
-            $plan_dates[$date_tracker->format('D')] = 0;
+            $plan_dates[$date_tracker->format('Y-m-d')] = 0;
             $date_tracker->modify('+1 day');
         }
 
         foreach ($result->result() as $plan)
         {
             $date = new DateTime($plan->date);
-            $date = $date->format('D');
+            $date = $date->format('Y-m-d');
             $plan_dates[$date]++;
         }
 
@@ -330,6 +331,7 @@ class Display_group_template extends CI_Model
 
         $date = new DateTime();
         $date2 = new DateTime();
+        $month = 
         $big_display_day = $date->add(new DateInterval('P' . $day . 'D'));
         $little_display_day = $date2->add(new DateInterval('P' . $day . 'D'));
         $big_display_day = $big_display_day->format('D');
