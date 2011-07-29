@@ -1,8 +1,10 @@
 // -------------------------------------------------- group data box view --------------------------------------------------
 
 // Outputs ten boxes with the supplied percentage of them filled in
-// Accepts 0 <= n <= 1
+// Accepts 0 <= n <= 100
 function populate_percentage_box(container, percentage) {
+    percentage = percentage/100;
+    
     // Create the marker boxes if they aren't there
     if ($(container).children().length < 10) {
         // Clear the container and add the boxes
