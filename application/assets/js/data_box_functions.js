@@ -22,50 +22,22 @@ function load_data_box(selected_day, selected_groups)
         'selected_groups': selected_groups,
         'selected_day': selected_day
     }, function (data) {
+        // Parse the JSON
+        data = $.parseJSON(data);
+        
         // Apply the layout HTML
-        $('#group_data').html(data);
+        $('#group_data').html(data.html);
 
         // Capture the data
-        //data = data.data;
+        data = data.data;
+        
+        console.log(data);
         
         // Populate the graphs
-        populate_percentage_box('.total_percent_container', Math.random());
-        populate_percentage_box('.male_percent_container', Math.random());
-        populate_percentage_box('.female_percent_container', Math.random());
-        populate_day_graph('.group_graph_bottom_middle', [{
-            'date': '7/28', 
-            'count': Math.random()*10
-        },
-
-        {
-            'date': '7/29', 
-            'count': Math.random()*10
-        },
-
-        {
-            'date': '7/30', 
-            'count': Math.random()*10
-        },
-
-        {
-            'date': '7/31', 
-            'count': Math.random()*10
-        },
-
-        {
-            'date': '8/1', 
-            'count': Math.random()*10
-        },
-
-        {
-            'date': '8/2', 
-            'count': Math.random()*10
-        },
-
-        {
-            'date': '7/28', 
-            'count': Math.random()*10
-        }]);
+//        populate_percentage_box('.total_percent_container', );
+//        populate_percentage_box('.male_percent_container', );
+//        populate_percentage_box('.female_percent_container', );
+//        populate_day_graph('.group_graph_bottom_middle', );
     });
 }
 

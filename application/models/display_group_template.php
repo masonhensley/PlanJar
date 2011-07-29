@@ -32,7 +32,8 @@ class Display_group_template extends CI_Model
             $format_type .= "groups";
         }
         // return an array(2) that will be json encoded and sent to the browser for graph animation
-        return $this->get_group_template($format_type, $selected_groups, $day, $data_array);
+        return array('html' => $this->get_group_template($format_type, $selected_groups, $day, $data_array),
+            'data' => $data_array);
     }
 
     function get_friend_data($sql_date)
@@ -299,7 +300,6 @@ class Display_group_template extends CI_Model
 
     function get_group_template($format_type, $selected_groups, $day, $data_array)
     {
-        $return_array = array(); // this array will hold a jscon encoded array with html, and array of data to put in it
         $top_display = ""; // this contains the text for the header
         if ($format_type == 'friends')
         {
@@ -321,7 +321,7 @@ class Display_group_template extends CI_Model
             $top_display = substr($top_display, 0, -2);
         }
 
-        //ob_start();
+        ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
@@ -345,8 +345,7 @@ class Display_group_template extends CI_Model
         <div class="group_graph_bottom_middle">
         </div>
         <?php
-        //$return_array['html'] = ob_get_clean();
-        //return $return_array;
+        return ob_get_clean();
     }
 
 }

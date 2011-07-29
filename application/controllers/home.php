@@ -224,8 +224,8 @@ class Home extends CI_Controller
         $day = $this->input->get('selected_day');
         $this->load->model('display_group_template');
         $school = $this->_get_user_school();
-        $json_array = $this->display_group_template->_display_group_info($selected_groups, $day, $school);
-        //echo json_encode($json_array);
+        $return_array = $this->display_group_template->_display_group_info($selected_groups, $day, $school);
+        echo json_encode($return_array);
     }
 
     // this function is called when a location tab is clicked to display its information

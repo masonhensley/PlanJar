@@ -76,7 +76,7 @@ function populate_day_graph(container, data) {
     // Define the bar height scaling function
     var bar_scale = d3.scale.linear()
     .domain([0, d3.max(plan_counts)])
-    .range(['0px', '100px']);
+    .range(['0px', '80px']);
     
     // Select the chart bars
     d3.select(container).selectAll('div.graph_bar')
