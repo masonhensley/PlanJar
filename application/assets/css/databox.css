@@ -11,7 +11,6 @@
 .group_graph_top_left{
     width:200px;
     height:150px;
-    border: 1px solid black;
     position:absolute;
     top:34px;
     left:10px;
@@ -34,11 +33,11 @@
     left:8px;
 }
 .group_graph_bottom_right{
-    width:215px;
-    height:125px;
+    width:auto;
+    height:auto;
     position:absolute;
-    bottom:-10px;
-    right:15px;
+    bottom:-20px;
+    margin-right:90px;
 }
 
 .total_percent_container, .male_percent_container, .female_percent_container{
