@@ -96,6 +96,21 @@ function initialize_plan_modal() {
         $('#plan_privacy_wrapper > div').filter(':first').click();
     });
     
+    // Just go click handler
+    $('#just_going').click(function () {
+        // Clear the select
+        $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
+        
+        // Clear the event id box
+        $('#plan_event_id').val('');
+        
+        // Reset and hide the title and privacy settings
+        $('#event_title').val('');
+        $('#event_title').blur();
+        $('#start_event_content').hide('fast');
+        $('#create_event').show('fast');
+    });
+    
     // Submit
     $('#submit_plan').click(function () {
         //Make sure an event is selected or an event has been created
