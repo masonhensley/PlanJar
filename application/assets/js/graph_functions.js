@@ -9,16 +9,14 @@ function populate_percentage_box(container, percentage) {
         $(container).html('');
         
         var marker_box;
-        var half_marker_box = $('<div class="half_marker_box"></div>');
-    
         // Loop through each marker box
         for (i = 0; i < 10; ++i) {
             // Create a marker box
             marker_box = $('<div class="marker_box"></div>');
         
             // Append the half marker boxes
-            half_marker_box.appendTo(marker_box);
-            half_marker_box.appendTo(marker_box);
+            marker_box.append($('<div class="half_marker_box"></div>'));
+            marker_box.append($('<div class="half_marker_box"></div>'));
         
             // Append the marker box to its wrapper
             marker_box.appendTo(container);
@@ -29,6 +27,7 @@ function populate_percentage_box(container, percentage) {
         for (var i = 0; i < 20; ++i) {
             d3_data.push(i < percentage * 20);
         }
+        console.log(d3_data);
     }
      
     // Select all half boxes
