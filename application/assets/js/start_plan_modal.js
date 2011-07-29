@@ -97,7 +97,7 @@ function initialize_plan_modal() {
         $('#just_going').hide('fast');
         
         // Show the cancel button
-        $('close_new_event').show('fast');
+        $('#close_new_event').show('fast');
         
         // Clear the select
         $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
