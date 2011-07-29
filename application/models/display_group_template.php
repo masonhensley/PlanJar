@@ -280,7 +280,8 @@ class Display_group_template extends CI_Model
         $index_tracker = 0;
         foreach ($result->result() as $plan)
         {
-            $plan_dates[] = $plan->date->format('j');
+            $date = $plan->date;
+            $plan_dates[] = $date->format('j');
         }
         $plan_dates = array_count_values($plan_dates);
         $return_array['plan_dates'] = $plan_dates;
