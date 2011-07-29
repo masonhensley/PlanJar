@@ -56,7 +56,7 @@ function initialize_plan_modal() {
     $('#plan_time, #plan_day, #plan_privacy_wrapper').divSet();
     
     // In-field labels
-    $('#new_event_side label').inFieldLabels();
+    $('#start_event_content .in-field_block label').inFieldLabels();
     
     // Try to advance the plan panel when a time or a day is selected
     $('#plan_day, #plan_time').click(function () {
@@ -231,7 +231,7 @@ function reset_plan_modal() {
     $('#start_event_content').css('display', 'none');
     
     // Show the button
-    $('#submit_plan').css('display', '');
+    $('#create_event').css('display', '');
 }
 
 // Encapsulates the autocomplete setup
