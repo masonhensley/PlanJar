@@ -27,10 +27,10 @@
 
         <h3> Mason Hensley <span class="arrow_right"></span> </h3>
                 <div class ="person">
-        <div class ="pic">
-        </div>
-        <div class ="info">
-        </div>
+                      <div class ="pic">
+                        </div>
+                      <div class ="info">
+                        </div>
         
         </div>
         <h3> Parker Bossier <span class="arrow_right"></span> </h3>
