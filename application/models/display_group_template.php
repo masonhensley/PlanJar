@@ -278,7 +278,7 @@ class Display_group_template extends CI_Model
         $date = date("Y-m-d");
         $date_tracker = strtotime(date("Y-m-d", strtotime($date)) . " -3 day");
         
-        for($i=0; $i<8; $i++)
+        for($i=0; $i<7; $i++)
         {
             $plan_dates[$date_tracker] = 0;
             $date_tracker =  strtotime(date("Y-m-d", strtotime($date_tracker)) . " +1 day");
@@ -286,6 +286,7 @@ class Display_group_template extends CI_Model
 
         foreach ($result->result() as $plan)
         {
+            var_dump($plan->date);
             $plan_dates[$plan->date]++;
         }
         
