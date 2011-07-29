@@ -47,7 +47,7 @@ class Display_group_template extends CI_Model
         $total_people = count($user_ids);
         $user_ids = array();
 
-        $query = "SELECT user_meta.sex FROM user_meta WHERE ";
+        $query = "SELECT sex FROM user_meta WHERE ";
         foreach ($user_ids as $friend_id)
         {
             $query .= "user_id=$friend_id OR ";
