@@ -17,7 +17,8 @@ function initialize_plan_modal() {
         $('#plan_location').focus();
         
         // Select everything when focused
-        $('#plan_location').focus(function () {
+        $('#plan_location').click(function () {
+            $(this).focus();
             $(this).select();
         });
     
