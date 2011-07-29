@@ -217,6 +217,8 @@ class Display_group_template extends CI_Model
         $girl_boy_query = substr($girl_boy_query, 0, -4);
         $result = $this->db->query($girl_boy_query);
 
+        var_dump($this->db->last_query());
+
 
         $males_going_out = 0;
         $females_going_out = 0;
@@ -234,8 +236,6 @@ class Display_group_template extends CI_Model
 
         $return_array['males_going_out'] = $males_going_out;
         $return_array['females_going_out'] = $females_going_out;
-        
-        var_dump($females_going_out);
 
         $percent_total_goingout = 0;
         $percent_males_goingout = 0;
