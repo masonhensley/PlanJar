@@ -39,9 +39,11 @@
             </div>
 
             <div class="plan_page_content" style="display: none;">
-                <div id="plan_events_title"></div>
+                <div class="left">
+                    <div id="plan_events_title"></div>
 
-                <div id="plan_event_select_wrapper"></div>
+                    <div id="plan_event_select_wrapper"></div>
+                </div>
 
                 <div id="new_event_side">
                     <input type="button" id="create_event" value="Start an event"/>
