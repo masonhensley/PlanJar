@@ -25,7 +25,7 @@
             <div class = "inside_top_panel">
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:40%; position:relative; top:10px;"/>
 
-                <div class="top_links">
+                <div class="top_form">
                 
                     <form id="log_in" class="form">
 
