@@ -28,7 +28,26 @@
 
                 <div class="rfloat">
 
-                
+                <table border="1">
+  <tr>
+    <th>
+              <label for="li_password">Password</label>
+              <input id="li_password" name="li_password" type="password" class="textbox"/>
+    </th>
+
+    <th>
+              <label for="li_password">Password</label>
+              <input id="li_password" name="li_password" type="password" class="textbox"/>
+
+    </th>
+
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+  
+  </tr>
+</table>
 
                 <div class="top_form">
                 
