@@ -24,8 +24,8 @@
     
             <div class = "inside_top_panel">
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
-                <div class="top_links">
-                <form id="log_in" class="form">
+
+                         <form id="log_in" class="form">
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
@@ -50,6 +50,10 @@
                                 </div>
 
                             </form>
+
+
+                <div class="top_links">
+                
                 </div> 
 
 
