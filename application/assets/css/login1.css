@@ -1,42 +1,8 @@
-/* ---------- TOP PANEL ----------- */
-.top_panel{
-    height: 80px;
-    width: 100%;
-    min-width: 964px;
-    background: #333;
-
-    /*--CSS3 Gradients--*/
-    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
-    background: -moz-linear-gradient(top,#333,#666);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333',endColorstr='#666');
-    /*--CSS3 Box Shadows--*/
-    -webkit-box-shadow: 0px 0px 9px #000;
-    -moz-box-shadow: 0px 0px 9px #000;
-    box-shadow: 0px 0px 9px #000;
-}
-
-.inside_top_panel{
-    width:1024px;
-    height:100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: inline-block;
-}
-
-.top_form{
-    width:80px;
-    height:100%;
-    float: right;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 body {
-    background-color:#f2f2f2;
-    margin: 0px;
+    background-color:#F7F7F7;
 }
 fieldset {
-    border:1px solid #c2c2c2;
+    border:1px solid #000000;
     background-color: white;
     width:312px;
 }
@@ -75,10 +41,6 @@ h1 {
     width:260px;
     padding-top:30px;
     float:right;
-    background: #eee;  
-    margin: auto;  
-    height: 900px;
-    margin-top: 100px;
 }
 
 #leftside{
@@ -126,7 +88,7 @@ h1 {
 .button_div {
     position:relative;
     float:left;
-    width:80px;
+    width:100%;
 }
 
 .buttons {
@@ -160,7 +122,7 @@ h1 {
     height: 25px;
     padding: 0 5px 0 0;
     background: url(checkbox.gif) no-repeat;
-    display: inline-block;
+    display: block;
     clear: left;
     float: left;
 }
