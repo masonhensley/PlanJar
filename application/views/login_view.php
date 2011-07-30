@@ -48,6 +48,10 @@
                                     <div style="position:relative; top:5px;">
                                         <input type="submit" class="buttons" value="Log In" />
                                         <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
+
+                            <font color="purple" >
+                            <div id="li_error" class ="error_message">
+                                <!-- Errors will be displayed here --></div>
                                     </div>
                                 </div>
 
@@ -59,25 +63,7 @@
 
         <div id="container">
 
-            <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
-                <div id="leftside">
-
-                    <fieldset>
-
-                        <legend>Enter site</legend>
-
-                        <font color="purple" >
-                            <div id="li_error" class ="error_message">
-                                <!-- Errors will be displayed here --></div>
-                        </font>
-                        <center>
-                            
-                        </center>
-                    </fieldset>
-                    <div style="position:relative; width:338px; top:23px; text-align: center;"><center><img src="/application/assets/images/Planjar_logo.png" alt="PlanJar Logo"></center></div>
-
-
-                </div>
+            
                 <div id="rightside">
                     <fieldset>
                         <legend>Not a member?  Sign up for free.</legend>
