@@ -34,13 +34,16 @@
                                     <div class="in-field_block">
                                         <label for="li_email">Email</label>
                                         <input id="li_email" name="li_email" type="email" class="textbox"/>
-                                    </div>
+                                    
+                                        <label for="li_password">Password</label>
+                                        <input id="li_password" name="li_password" type="password" class="textbox"/>
+
+                                     </div>
                                 </div>
                                 <div id="padding" style="position:relative; width:10px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="in-field_block">
-                                        <label for="li_password">Password</label>
-                                        <input id="li_password" name="li_password" type="password" class="textbox"/>
+                                        
                                     </div>
                                 </div>
                                 <div id="padding" style="position:relative; width:10px; height:10px;"></div>
