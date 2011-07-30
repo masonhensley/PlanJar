@@ -4,6 +4,8 @@
     width: 100%;
     min-width: 964px;
     background: #333;
+
+    /*--CSS3 Gradients--*/
     background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
     background: -moz-linear-gradient(top,#333,#666);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333',endColorstr='#666');
