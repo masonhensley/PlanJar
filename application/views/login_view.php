@@ -43,7 +43,7 @@
                                         <input id="li_password" name="li_password" type="password" class="textbox"/>
                                     </div>
                                 </div>
-                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                                <div id="padding" style="position:relative; width:10px; height:10px;"></div>
                                 <div class="button_div">
                                     <div style="position:relative; top:5px;">
                                         <input type="submit" class="buttons" value="Log In" />
