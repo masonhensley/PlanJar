@@ -1,8 +1,8 @@
 body {
-    background-color:#F7F7F7;
+    background-color:#f2f2f2;
 }
 fieldset {
-    border:1px solid #000000;
+    border:1px solid #c2c2c2;
     background-color: white;
     width:312px;
 }
@@ -14,7 +14,7 @@ legend {
     line-height: 1.1;
     color:#fff;
     background: #990099;
-    border: 1px solid #333;
+    border: 1px solid #c2c2c2;
     padding: 2px 6px;
 }
 h1 {
