@@ -24,7 +24,7 @@
 }
 
 .top_form{
-    width:1024px;
+    width:80px;
     height:100%;
     float: right;
     margin-left: auto;
@@ -75,6 +75,9 @@ h1 {
     width:260px;
     padding-top:30px;
     float:right;
+    background: #eee;  
+    margin: auto;  
+    height: 900px;
 }
 
 #leftside{
