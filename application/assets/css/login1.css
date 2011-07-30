@@ -156,7 +156,7 @@ h1 {
     height: 25px;
     padding: 0 5px 0 0;
     background: url(checkbox.gif) no-repeat;
-    display: block;
+    display: inline-block;
     clear: left;
     float: left;
 }
