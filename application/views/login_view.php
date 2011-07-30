@@ -12,85 +12,57 @@
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
 
-        <link type="text/css" rel=stylesheet href="/application/assets/css/login1.css"/>
+        <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
 
-  
-
     <body>
 
-<div class ="top_panel">
-    
-            <div class = "inside_top_panel">
-                <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:40%; position:relative; top:10px;"/>
+        <div id="container">
 
+            <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
+                <div id="leftside">
 
-                <div class="rfloat">
+                    <fieldset>
 
-                <table border="1">
-  <tr>
-    <th>
-              <label for="li_password">Password</label>
-              <input id="li_password" name="li_password" type="password" class="textbox"/>
-    </th>
+                        <legend>Enter site</legend>
 
-    <th>
-              <label for="li_password">Password</label>
-              <input id="li_password" name="li_password" type="password" class="textbox"/>
-
-    </th>
-
-  <tr>
-    <td>January</td>
-    <td>$100</td>
-  </tr>
-  
-  </tr>
-</table>
-
-                <div class="top_form">
-                
-                    <form id="log_in" class="form">
+                        <font color="purple" >
+                            <div id="li_error" class ="error_message">
+                                <!-- Errors will be displayed here --></div>
+                        </font>
+                        <center>
+                            <form id="log_in" class="form">
 
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="in-field_block">
                                         <label for="li_email">Email</label>
                                         <input id="li_email" name="li_email" type="email" class="textbox"/>
-                                   
-                                     </div>
-                                </div>
-                                <div id="padding" style="position:relative; width:10px; height:10px;"></div>
-                                <div class="div_texbox">
-                                    <div class="in-field_block">
-                                        
-                                        <label for="li_password">Password</label>
-                                        <input id="li_password" name="li_password" type="password" class="textbox"/>
-
                                     </div>
                                 </div>
-                                <div id="padding" style="position:relative; width:10px; height:10px;"></div>
+                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                                <div class="div_texbox">
+                                    <div class="in-field_block">
+                                        <label for="li_password">Password</label>
+                                        <input id="li_password" name="li_password" type="password" class="textbox"/>
+                                    </div>
+                                </div>
+                                <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="button_div">
                                     <div style="position:relative; top:5px;">
                                         <input type="submit" class="buttons" value="Log In" />
                                         <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
-
-                            <font color="purple" >
-                            <div id="li_error" class ="error_message">
-                                <!-- Errors will be displayed here --></div>
                                     </div>
                                 </div>
 
                             </form>
+                        </center>
+                    </fieldset>
+                    <div style="position:relative; width:338px; top:23px; text-align: center;"><center><img src="/application/assets/images/Planjar_logo.png" alt="PlanJar Logo"></center></div>
 
-                </div> 
+
                 </div>
-
-
-        <div id="container">
-
-            
                 <div id="rightside">
                     <fieldset>
                         <legend>Not a member?  Sign up for free.</legend>
