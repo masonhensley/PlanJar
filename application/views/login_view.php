@@ -18,6 +18,14 @@
 
     <body>
 
+
+<div class ="top_panel">
+            <div class = "inside_top_panel">
+                <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
+                <div class="top_links">
+                    
+                 </div>  
+
         <div id="container">
 
             <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
