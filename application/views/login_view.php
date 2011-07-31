@@ -32,12 +32,7 @@
                             <label for="li_password">Password</label>
                             <input id="li_password" name="li_password" type="password" class="textbox"/>
                         </div>
-                        
-                            <div style="position:relative; top:5px;">
-                                <input type="submit" class="buttons" value="Log In" />
-
-                            </div>
-                       
+                        <input type="submit" class="buttons" value="Log In" />
                         <font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
                         <input type="checkbox" name="li_remember" value="1" />
                     </form>
