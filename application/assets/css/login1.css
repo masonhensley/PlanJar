@@ -214,6 +214,7 @@ h1 {
 .log_in_bar{
     display:inline-block;
     width:210px;
+    margin-right:10px;
 }
 #log_in label, #sign_up label {
     font:normal 18px Arial;

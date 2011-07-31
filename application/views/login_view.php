@@ -14,7 +14,6 @@
         <link type="text/css" rel=stylesheet href="/application/assets/css/login1.css"/>
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
-    
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
@@ -31,6 +30,7 @@
                             <input id="li_password" name="li_password" type="password" class="textbox"/>
                         </div>
                         <input type="submit" class="buttons" value="Log In" />
+                        <br/>
                         <font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
                         <input type="checkbox" name="li_remember" value="1" />
                     </form>
