@@ -35,11 +35,11 @@
                         <div class="button_div">
                             <div style="position:relative; top:5px;">
                                 <input type="submit" class="buttons" value="Log In" />
-                                
+
                             </div>
                         </div>
-                        <input type="checkbox" name="li_remember" value="1" />&nbsp;
                         <font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
+                        <input type="checkbox" name="li_remember" value="1" />
                     </form>
                 </div>  
 
