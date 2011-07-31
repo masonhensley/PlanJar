@@ -25,19 +25,19 @@
                 <div class="top_links">
                     <form id="log_in" class="form">
                         
-                        <div class="div_texbox">
+                        
                             <div class="in-field_block">
                                 <label for="li_email">Email</label>
                                 <input id="li_email" name="li_email" type="email" class="textbox"/>
                             </div>
-                        </div>
                         
-                        <div class="div_texbox">
+                        
+                        
                             <div class="in-field_block">
                                 <label for="li_password">Password</label>
                                 <input id="li_password" name="li_password" type="password" class="textbox"/>
                             </div>
-                        </div>
+                        
                         
                         <div class="button_div">
                             <div style="position:relative; top:5px;">
