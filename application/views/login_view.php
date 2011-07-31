@@ -31,8 +31,8 @@
                         </div>
                         <input type="submit" class="buttons" value="Log In" />
                         <br/>
-                        <font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
-                        <input type="checkbox" name="li_remember" value="1" />
+                        <font style="font-family:Arial, Helvetica, sans-serif; color:white;">Stay logged in</font>
+                        <input type="checkbox" name="li_remember" value="1" style="margin-top:13px" />
                     </form>
                 </div>  
             </div>
