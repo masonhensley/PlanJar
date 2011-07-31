@@ -62,6 +62,26 @@ h1 {
     width:1024px;
     margin:auto;
     padding:10px;
+    
+    background: #eee;  
+    margin: auto;  
+    width: 800px;  
+    height: 900px;  
+    padding-top: 30px;  
+    font-family: helvetica, arial, sans-serif;
+
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-top-left: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-top-right: 10px;
+    border-top-right-radius: 10px;
+
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 0px 5px #555;
+    -moz-box-shadow: 0px 0px 5px #555;
+    box-shadow: 0px 0px 5px #555;  
+  
 }
 
 #rightside {
