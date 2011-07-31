@@ -24,27 +24,22 @@
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
                 <div class="top_links">
                     <form id="log_in" class="form">
-                        
-                        
-                            <div class="in-field_block">
-                                <label for="li_email">Email</label>
-                                <input id="li_email" name="li_email" type="email" class="textbox"/>
-                            </div>
-                        
-                        
-                        
-                            <div class="in-field_block">
-                                <label for="li_password">Password</label>
-                                <input id="li_password" name="li_password" type="password" class="textbox"/>
-                            </div>
-                        
-                        
+                        <div class="in-field_block log_in_bar">
+                            <label for="li_email">Email</label>
+                            <input id="li_email" name="li_email" type="email" class="textbox"/>
+                        </div>
+                        <div class="in-field_block log_in_bar">
+                            <label for="li_password">Password</label>
+                            <input id="li_password" name="li_password" type="password" class="textbox"/>
+                        </div>
                         <div class="button_div">
                             <div style="position:relative; top:5px;">
                                 <input type="submit" class="buttons" value="Log In" />
-                                <input type="checkbox" name="li_remember" value="1" />&nbsp;<font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
+                                
                             </div>
                         </div>
+                        <input type="checkbox" name="li_remember" value="1" />&nbsp;
+                        <font style="font-family:Arial, Helvetica, sans-serif;">Stay logged in</font>
                     </form>
                 </div>  
 

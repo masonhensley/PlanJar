@@ -56,8 +56,7 @@ h1 {
 }
 
 .form {
-    margin:0;
-    padding:10px;
+    float:right;
 }
 #container {
     width:1024px;
@@ -207,7 +206,12 @@ h1 {
 /* The following two classes are used for the in-field labels. */
 .in-field_block {
     position:relative;
-    width: 275px !important;
+    width: 275px;
+}
+
+.log_in_bar{
+    display:inline-block;
+    width:210px;
 }
 #log_in label, #sign_up label {
     font:normal 18px Arial;
