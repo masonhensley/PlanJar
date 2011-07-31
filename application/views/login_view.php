@@ -20,7 +20,7 @@
                 <div id="li_error" class ="error_message"><!-- Errors will be displayed here --></div>     
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
                 <div class="top_links">
-                    <form id="log_in" class="form">
+                    <form id="log_in">
                         <div class="in-field_block log_in_bar">
                             <label for="li_email">Email</label>
                             <input id="li_email" name="li_email" type="email" class="textbox"/>
@@ -48,7 +48,7 @@
                             </div>
                         </font>
                         <center>
-                            <form id="sign_up" class="form">
+                            <form id="sign_up">
                                 <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                                 <div class="div_texbox">
                                     <div class="in-field_block">

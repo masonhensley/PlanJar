@@ -56,13 +56,10 @@ h1 {
     color:#333;
 }
 
-.form {
-    float:right;
-}
 #container {
     width:1024px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 20px;
     padding:10px;
     
     background: #eee;  
@@ -218,4 +215,8 @@ h1 {
 }
 #log_in label, #sign_up label {
     font:normal 18px Arial;
+}
+
+#sign_up{
+    float: right;
 }
