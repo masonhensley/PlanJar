@@ -21,10 +21,10 @@ class Load_profile extends CI_Model
             <div class="profile_picture">
                 <?php $this->insert_profile_picture(); ?>
             </div>
-            <div class="profile_user_information"><?php
-        $year_display = substr($user->grad_year, -2);
-        echo "<br/>" .$user->first_name . " " . $user->last_name . "<br/>";
-        echo $row->school . " ('" . $year_display . ")<br/>";
+            <div class="profile_user_information">
+        
+        <br/><?php echo $user->first_name ." " .$user->last_name; ?><br/>
+        echo $row->school . " ('" . echo substr($user->grad_year, -2);  ")<br/>";
         ?>
             </div>
         </div>

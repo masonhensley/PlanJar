@@ -294,6 +294,8 @@ a{
 
 .profile_user_information{
     width:260px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .profile_body{
