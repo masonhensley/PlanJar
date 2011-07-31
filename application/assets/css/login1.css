@@ -34,22 +34,9 @@ body {
 }
 fieldset {
     background-color: white;
-    width:312px;
-
-
-    /*------ borders ----*/
-    -webkit-border-top-left-radius: 10px;
-    -moz-border-radius-top-left: 10px;
-    border-top-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -moz-border-radius-top-right: 10px;
-    border-top-right-radius: 10px;
-
-    /*--CSS3 Box Shadows--*/
-    -webkit-box-shadow: 0px 0px 5px #555;
-    -moz-box-shadow: 0px 0px 5px #555;
-    box-shadow: 0px 0px 5px #555;  
+    width:312px;  
 }
+
 legend {
     font-family:Arial, Helvetica, sans-serif;
     font-size: 100%;
@@ -61,6 +48,7 @@ legend {
     border: 1px solid #c2c2c2;
     padding: 2px 6px;
 }
+
 h1 {
     font-family:Arial, Helvetica, sans-serif;
     font-size: 175%;
