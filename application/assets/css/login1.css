@@ -1,6 +1,6 @@
 /* ---------- TOP PANEL ----------- */
 .top_panel{
-    height: 40px;
+    height: 80px;
     width:100%;
     background: #333;
     background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
