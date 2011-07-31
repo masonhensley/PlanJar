@@ -25,8 +25,6 @@
 
                     <fieldset>
 
-                        <legend>Enter site</legend>
-
                         <font color="purple" >
                             <div id="li_error" class ="error_message">
                                 <!-- Errors will be displayed here --></div>
