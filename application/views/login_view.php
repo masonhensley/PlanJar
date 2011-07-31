@@ -16,7 +16,10 @@
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
 
- <div class ="top_panel">
+    <body>
+
+
+<div class ="top_panel">
             <div class = "inside_top_panel">
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
                 <div class="top_links">
@@ -64,9 +67,7 @@
                           
                         </center>
                     </fieldset>
-                    <div style="position:relative; width:338px; top:23px; text-align: center;"><center><img src="/application/assets/images/Planjar_logo.png" alt="PlanJar Logo"></center></div>
-
-
+                    
                 </div>
                 <div id="rightside">
                     <fieldset>
