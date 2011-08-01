@@ -50,7 +50,7 @@ class Plan_actions extends CI_Model
         $name = $row->name;
         $title = $row->title;
 
-
+        ob_start();
         // html to replace the data div
         ?>
 
@@ -79,7 +79,7 @@ class Plan_actions extends CI_Model
 
 
 
-        return array('privacy' => $row->privacy, 'html' => $htmlString, 'event_id' => $row->id);
+        return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
     }
 
     // function to delete plan from database
