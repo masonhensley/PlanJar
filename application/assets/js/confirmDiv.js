@@ -3,6 +3,7 @@
 // (asks for confirmation before continuing)
 // The parameter is the function to call on success.
 $.fn.confirmDiv = function(callback) {
+    $('html').click();
     this.click({
         'callback': callback
     }, outer_confirm_handler);
@@ -14,7 +15,6 @@ function outer_confirm_handler(main_event) {
 
     // Clear previous handlers
     $(this).unbind('click');
-    $('html').unbind('click');
     
     // Get the original text
     var orig_text = $(this).html();
@@ -31,7 +31,7 @@ function outer_confirm_handler(main_event) {
         main_event.data.callback($(this)); 
     });
     
-    $('html').click(function() {
+    $('html').one('click', function() {
         // Replace the original text and re-assign the click event
         $(main_event.target).html(orig_text);
         $(main_event.target).unbind('click');
