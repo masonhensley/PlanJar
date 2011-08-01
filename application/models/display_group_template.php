@@ -391,16 +391,16 @@ class Display_group_template extends CI_Model
 
         if ($font_style == 'groups')
         {
-            $font_style = "<font style=\"font-size:15px; font-weight:bold;color:orange;\">";
+            $font_style = "<font style=\"font-weight:bold; color:orange;\">";
         } else
         {
-            $font_style = "<font style=\"font-size:15px; font-weight:bold;color:green;\">";
+            $font_style = "<font style=\"font-weight:bold; color:green;\">";
         }
 
         ob_start();
         ?>
         <div class="data_box_top_bar">
-            <div style="float:left;">
+            <div style="float:left; font-size:20px;">
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
