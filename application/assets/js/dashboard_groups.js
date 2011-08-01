@@ -104,7 +104,7 @@ function populate_edit_groups_list() {
                     
                     // Invite people
                     $('#groups_content .middle .invite_people').click(function() {
-                        open_invite_modal('group', $('#find_groups_list .selected_group').attr('group_id'), '');
+                        open_invite_modal('group', $('.group_profile_header').attr('group_id'), $('.group_profile_header').attr('priv_type'));
                     })
                 });
             }
@@ -115,7 +115,7 @@ function populate_edit_groups_list() {
 function group_click_handler(button_class, dashboard_function) {
     $(button_class).confirmDiv(function () {
         $.get('/dashboard/' + dashboard_function, {
-            group_id: $('.profile_bottom_bar').attr('group_id')
+            group_id: $('.group_profile_header').attr('group_id')
         }, function (data) {
             populate_edit_groups_list();
             if(dashboard_function == 'remove_group_following' || dashboard_function == 'remove_group_joined')

@@ -49,7 +49,7 @@ class Load_group_profile extends CI_Model
     function return_display_profile($group_info)
     {
         $this->load->model('group_ops');
-        ?><div class="group_profile_header"><?php
+        ?><div class="group_profile_header" group_id="<?php echo $group_info["id"]; ?>" priv_type="<?php echo($group_info['privacy']); ?>"><?php
         if ($group_info['school_group'])
         {
             ?>School Profile<?php
@@ -103,7 +103,7 @@ class Load_group_profile extends CI_Model
 
             </div>
         </div>
-        <div class="profile_bottom_bar" group_id="<?php echo $group_info["id"]; ?>">
+        <div class="profile_bottom_bar">
 
             <?php
             if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
