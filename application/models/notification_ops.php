@@ -202,19 +202,27 @@ class Notification_ops extends CI_Model
     // Returns true if the user has accepted the notification (using data in $notif_row).
     public function deduce_accepted($notif_row)
     {
+        $user_id = $this->ion_auth->get_user()->id;
+
         switch ($notif_row->type)
         {
+            // Event invite
             case 'event_invite':
                 $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
                 $query = $this->db->query($query_string, array(
-                            $this->ion_auth->get_user()->id,
+                            $user_id,
                             $notif_row->subject_id));
                 return $query->num_rows() > 0;
-                break;
+
+            // Group invite
             case 'group_invite':
                 $this->load->model('group_ops');
                 return $this->group_ops->user_is_joined($notif_row->subject_id);
-                break;
+
+            // Follow notification
+            case 'follow_notif':
+                $this->load->model('follow_ops');
+                return $this->follow_ops->is_following($user_id, $notif_row->subject_id);
         }
     }
 
