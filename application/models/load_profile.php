@@ -30,12 +30,20 @@ class Load_profile extends CI_Model
         <div class="profile_body">
             <div class="profile_body_text"><?php
         // Code to display groups joined
-                ?><br/><font style="font-size:25px; margin-left:195px;">Groups</font><br/>Joined<br/><?php
+                ?><br/><font style="font-size:25px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
         if (count($groups_joined > 0))
         {
+            $index = 0;
+            $group_count = count($groups_joined);
             foreach ($groups_joined as $group)
             {
-                         ?><font style="color:green; font-size: 16px;"><?php echo $group ."&nbsp;&nbsp;&nbsp;&nbsp;"; ?></font><?php
+                         ?><font style="color:green; font-size: 16px;"><?php echo $group; ?><?php
+                         if($index + 1 != $group_count)
+                         {
+                           echo ", ";  
+                         }
+                         $index++;
+                         ?></font><?php
             }
         } else
         {
@@ -43,12 +51,12 @@ class Load_profile extends CI_Model
         }
 
         // Code to display groups following
-                ?><br/><br/>Following<br/><?php
+                ?><br/><br/><font style="font-size:20px;">Following</font><br/><?php
         if (count($groups_following) > 0)
         {
             foreach ($groups_following as $group)
             {
-                        ?><font style="color:purple; font-size:16px;"><?php echo $group ."&nbsp;&nbsp;&nbsp;&nbsp;"; ?></font><?php
+                        ?><font style="color:purple; font-size:16px;"><?php echo $group .", "; ?></font><?php
             }
         } else
         {
