@@ -387,7 +387,7 @@ class Display_group_template extends CI_Model
         <div class="data_box_top_bar">
             <div style="float:left;">
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
-                <br/>
+                <br/><br/>
                 view:&nbsp;
                 <select>
                     <option value="all">All</option>
