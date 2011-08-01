@@ -16,11 +16,18 @@ function update_groups_and_locations()
 }
 
 // updates the data box based on the selected groups
-function load_data_box(selected_day, selected_groups)
+function load_data_box(selected_day, selected_groups, filter)
 {
+    
+    if(filter == undefined)
+    {
+        filter = 'all';
+    }
+    
     $.get('/home/load_data_box', {
         'selected_groups': selected_groups,
-        'selected_day': selected_day
+        'selected_day': selected_day,
+        'filter': filter
     }, function (data) {
         // Parse the JSON
         data = $.parseJSON(data);
@@ -38,6 +45,10 @@ function load_data_box(selected_day, selected_groups)
         populate_percentage_box('.male_percent_container', data.percent_males_going_out, 'marker_male');
         populate_percentage_box('.female_percent_container', data.percent_females_going_out, 'marker_female');
         populate_day_graph('.group_graph_top_right', data.plan_dates, data.selected_date);
+        
+        $('#filter').change(function(){
+            load_data_box(selected_day, selected_groups, $(this).val());
+        });
     });
 }
 

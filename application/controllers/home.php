@@ -221,6 +221,8 @@ class Home extends CI_Controller
     {
         $selected_groups = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
+        $filter = $this->input->get('filter');
+        
         $this->load->model('display_group_template');
         $school = $this->_get_user_school();
         $return_array = $this->display_group_template->_display_group_info($selected_groups, $day, $school);
