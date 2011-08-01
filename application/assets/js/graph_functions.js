@@ -94,6 +94,9 @@ function populate_day_graph(container, data, selected_date) {
         var data_date = new Date(d.date);
         
         // Return true if the date matches the selected date
+        console.log(data_date);
+        console.log(sel_date);
+        console.log(data_date == sel_date);
         return data_date == sel_date;
     })
     // Toggle the current day class
