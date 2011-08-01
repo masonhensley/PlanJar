@@ -347,3 +347,14 @@ a{
     color:green;
     font-weight:bold;
 }
+
+.group_bottom_text{
+    float:left;
+    margin-left:10px;
+}
+
+.group_bottom_button{
+    position:absolute; 
+    right:0px; 
+    bottom:0px;
+}
