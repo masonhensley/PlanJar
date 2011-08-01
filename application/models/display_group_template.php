@@ -3,7 +3,7 @@
 class Display_group_template extends CI_Model
 {
 
-    function _display_group_info($selected_groups, $day, $school)  // being in this function ensures that $selected_groups is not NULL
+    function _display_group_info($selected_groups, $day, $school, $filter)  // being in this function ensures that $selected_groups is not NULL
     {
         if (!$day)
         {
@@ -33,6 +33,7 @@ class Display_group_template extends CI_Model
         }
         // return an array(2) that will be json encoded and sent to the browser for graph animation
 
+        $data_array['filter'] = $filter;
         return array('html' => $this->get_group_template($format_type, $selected_groups, $day, $data_array),
             'data' => $data_array);
     }
@@ -403,8 +404,8 @@ class Display_group_template extends CI_Model
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
             ?>
-            People<?php echo " " . $total; ?><br/>
-            males<?php echo " " . $data_array['total_males']; ?>&nbsp;&nbsp;&nbsp;
+            people<?php echo " " . $total; ?>
+            males<?php echo " " . $data_array['total_males']; ?>
             females<?php echo " " . $data_array['total_females']; ?><br/>
         </div>
         <div class="group_graph_top_right">
