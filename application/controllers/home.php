@@ -225,7 +225,7 @@ class Home extends CI_Controller
         
         $this->load->model('display_group_template');
         $school = $this->_get_user_school();
-        $return_array = $this->display_group_template->_display_group_info($selected_groups, $day, $school);
+        $return_array = $this->display_group_template->_display_group_info($selected_groups, $day, $school, $filter);
         echo json_encode($return_array);
     }
 
