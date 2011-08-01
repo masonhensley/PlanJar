@@ -203,7 +203,7 @@ function show_data_panel(data_div, callback) {
         callback();
         
         // Resize the map after the animation finishes to eliminate the missing tile errors.
-        if (!map_tab_opened) {
+        if (!map_tab_opened && data_div == '#map_data') {
             google.maps.event.trigger(map, 'resize');
             calculate_map_bounds();
             map_tab_opened = true;

@@ -33,9 +33,9 @@ class Login extends CI_Controller
         $password = $this->input->get('su_password');
 
         // Pre-calculate values
-        $birthday = $this->input->get('su_month') . '/' .
-                $this->input->get('su_day') . '/' .
-                $this->input->get('su_year');
+        $birthday = new DateTime();
+        $birthday->setDate($this->input->get('su_year'), $this->input->get('su_month'), $this->input->get('su_day'));
+
         $this->load->model('sign_up_ops');
         $school_id = $this->sign_up_ops->get_school_from_email($email);
 
