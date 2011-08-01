@@ -133,21 +133,6 @@ a{
     border-top: 1px solid lightgray;
     margin-right:10px;
     margin-left:10px;
-    
-    /* ------ border ----- */
-    -webkit-border-top-left-radius: 10px;
-    -moz-border-radius-top-left: 10px;
-    border-top-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -moz-border-radius-top-right: 10px;
-    border-top-right-radius: 10px;
-
-    /*--CSS3 Box Shadows-- */
-    -webkit-box-shadow: 0px 0px 5px #555;
-    -moz-box-shadow: 0px 0px 5px #555;
-    box-shadow: 0px 0px 5px #555;  
-    
-    border-bottom:none;
 }
 
 .tab_bar{
@@ -415,7 +400,7 @@ a{
     /*--CSS3 Box Shadows-- */
     -webkit-box-shadow: 0px 0px 5px #555;
     -moz-box-shadow: 0px 0px 5px #555;
-    box-shadow: 0px 0px 5px #555;  
+    box-shadow: 0px 0px 5px #555;
 }
 
 .right_header{
