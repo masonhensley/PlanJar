@@ -90,19 +90,19 @@ function populate_day_graph(container, data, selected_date) {
     })
     // Toggle the selected day class
     .classed('bar_selected_day', function (d) {
-        var sel_date = new Date(selected_date);
-        var data_date = new Date(d.date);
+        var sel_date = Date.parse(selected_date);
+        var data_date = Date.parse(d.date);
         
         // Return true if the date matches the selected date
-        return data_date == sel_date;
+        return data_date.equals(sel_date);
     })
     // Toggle the current day class
     .classed('bar_today', function (d) {
-        var cur_date = new Date();
-        var data_date = new Date(d.date);
+        var cur_date = Date.parse('today');
+        var data_date = Date.parse(d.date);
         
         // Return true if the date matches the current date
-        return cur_date.toString().substr(0, 15) == data_date.toString().substr(0, 15);
+        return cur_date.equals(data_date);
     });
     
     // Select the chart bars
@@ -111,14 +111,13 @@ function populate_day_graph(container, data, selected_date) {
     .data(data)
     // Set the text (day of the week or Today)
     .text(function (d) {
-        var cur_date = new Date();
-        var given_date = new Date(d.date);
-        var day_array = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        var cur_date = Date.parse('today');
+        var given_date = Date.parse(d.date);
         
-        if (cur_date.toString().substr(0, 15) == given_date.toString().substr(0, 15)) {
+        if (cur_date.equals(given_date)) {
             return 'Today';
         } else {
-            return day_array[given_date.getDay()];
+            return given_date.toString('ddd');
         }
     });
 }

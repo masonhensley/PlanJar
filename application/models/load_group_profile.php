@@ -8,13 +8,11 @@ class Load_group_profile extends CI_Model
         parent::__construct();
     }
 
-    // Returns the HTML of the group profile and the gorup id in an array
+    // Returns the HTML of the group profile
     function load_group_profile($group_id)
     {
         $group_info = $this->get_group_details($group_id);
         $return_html = $this->return_display_profile($group_info);
-
-        return array('html' => $return_html, 'group_id' => $group_info['id']);
     }
 
     // Gathers information about the group and returns it in an array
@@ -47,12 +45,11 @@ class Load_group_profile extends CI_Model
         return $return_array;
     }
 
-    // Returns the HTML of a group profile in string form
+    // Echos the HTML of a group profile
     function return_display_profile($group_info)
     {
         $this->load->model('group_ops');
-        ob_start();
-        ?><div class="group_profile_header"><?php
+        ?><div class="group_profile_header" group_id="<?php echo $group_info["id"]; ?>" priv_type="<?php echo($group_info['privacy']); ?>"><?php
         if ($group_info['school_group'])
         {
             ?>School Profile<?php
@@ -106,7 +103,7 @@ class Load_group_profile extends CI_Model
 
             </div>
         </div>
-        <div class="profile_bottom_bar" group_id="<?php echo $group_info["id"]; ?>">
+        <div class="profile_bottom_bar">
 
             <?php
             if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
@@ -172,15 +169,14 @@ class Load_group_profile extends CI_Model
             }
             ?>
         </div>
-            <?php
-            return ob_get_clean();
-        }
-
-        function return_profile_picture()
-        {
-            $logo_text = "logo_" . rand(1, 25) . ".png";
-            return "<img src=\"/application/assets/images/logos/$logo_text\"/>";
-        }
-
+        <?php
     }
-    ?>
+
+    function return_profile_picture()
+    {
+        $logo_text = "logo_" . rand(1, 25) . ".png";
+        return "<img src=\"/application/assets/images/logos/$logo_text\"/>";
+    }
+
+}
+?>

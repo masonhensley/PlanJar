@@ -23,6 +23,7 @@
         <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
 
         <!-- Encapsulated JS files -->
+        <script type="text/javascript" src="/application/assets/js/date.js"></script>
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
         <script type="text/javascript" src="/application/assets/js/confirmDiv.js"></script>
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>

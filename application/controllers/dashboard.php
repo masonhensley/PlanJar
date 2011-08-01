@@ -183,9 +183,7 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('load_group_profile');
         $group_id = $this->input->get('group_id');
-        $group_profile = $this->load_group_profile->load_group_profile($group_id);
-
-        echo json_encode($group_profile);
+        $this->load_group_profile->load_group_profile($group_id);
     }
 
     public function add_group_following()
