@@ -64,8 +64,9 @@ class Load_profile extends CI_Model
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
                 }
+                $index++;
             }
-            $index++;
+            
         } else
         {
                     ?><font style="font-style:italic;">Nothing to show</font><?php
