@@ -30,13 +30,12 @@ class Load_profile extends CI_Model
         <div class="profile_body">
             <div class="profile_body_text"><?php
         // Code to display groups joined
-                ?><br/><font style="font-size:25px; margin-left:205px;">Groups</font><br/>Joined<br/><?php
+                ?><br/><font style="font-size:25px; margin-left:195px;">Groups</font><br/>Joined<br/><?php
         if (count($groups_joined > 0))
         {
-            $index = 1;
             foreach ($groups_joined as $group)
             {
-                        echo $index .". "; ?><font style="color:green;"><?php echo $group ." "; ?></font><?php $index++;
+                         ?><font style="color:green; font-size: 16px;"><?php echo $group ."     "; ?></font><?php
             }
         } else
         {
@@ -47,10 +46,9 @@ class Load_profile extends CI_Model
                 ?><br/><br/>Following<br/><?php
         if (count($groups_following) > 0)
         {
-            $index = 1;
             foreach ($groups_following as $group)
             {
-                        echo $index ." "; ?><font style="color:purple;"><?php echo $group ." "; ?></font><?php
+                        ?><font style="color:purple; font-size:16px;"><?php echo $group ."     "; ?></font><?php
             }
         } else
         {
@@ -123,8 +121,8 @@ class Load_profile extends CI_Model
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
         
         ob_start();
-        ?><font style="font-size:25px; margin-left:209px;">Places</font><br/>
-        <font style="">Recently visited</font><br/><?php
+        ?><font style="font-size:25px; margin-left:200px;">Places</font><br/>
+        <font style="font-size:18px;">Recently visited</font><br/><?php
         if (count($recent_locations) > 0)
         {
             foreach ($recent_locations as $location)
@@ -135,7 +133,7 @@ class Load_profile extends CI_Model
             ?><font style="font-style:italic;">Nothing to show</font><?php
         }
         
-        ?><br/><br/><font style="">Most visited</font><br/><?php
+        ?><br/><br/><font style="font-size:18px;">Most visited</font><br/><?php
         if (count($most_visited_locations) > 0)
         {
             foreach ($most_visited_locations as $location => $count)
