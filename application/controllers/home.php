@@ -31,8 +31,8 @@ class Home extends CI_Controller
             $plans_html = $this->plan_actions->display_plans();
 
             // get the upcoming events HTML
-            $this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
-            $upcoming_event_html = $this->load_coming_events->load_events();
+            //$this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
+            //$upcoming_event_html = $this->load_coming_events->load_events();
 
 
             // Pass the necessary information to the view.
