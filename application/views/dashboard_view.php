@@ -98,7 +98,6 @@
             <div id="profile_content" setup_func="$.noop" class="page_content">
                 <div class="profile_container">
                     <div class="profile_box">
-
                     </div>
                     <div class="profile_edit">
                     </div>

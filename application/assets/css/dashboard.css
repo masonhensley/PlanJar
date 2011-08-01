@@ -294,6 +294,10 @@ a{
 
 .profile_user_information{
     width:260px;
+    margin-left:auto;
+    margin-right:auto;
+    position:relative;
+    top:10px;
 }
 
 .profile_body{

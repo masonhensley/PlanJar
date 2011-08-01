@@ -316,7 +316,8 @@ class Display_group_template extends CI_Model
     {
         $top_display = ""; // this contains the text for the header
         $s = ""; // this will make anything plural that needs to be for groups selected
-
+        $font_style = ""; // used to determine font based on groups selected
+        
         if ($format_type == 'friends')
         {
             $top_display = "Friends"; // you can use data_array to find total number of friends
@@ -328,6 +329,7 @@ class Display_group_template extends CI_Model
             $top_display .= "School";
         } else if ($format_type == 'groups')
         {
+            $font_style = "groups";
             if (count($selected_groups) > 1)
             {
                 $s = "s";
@@ -359,11 +361,18 @@ class Display_group_template extends CI_Model
             $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
         }
 
+        if($font_style == 'groups')
+        {
+            $font_style = "<font style=\"font-size:15px; font-weight:bold;color:orange;\">";
+        }else{
+            $font_style = "<font style=\"font-size:15px; font-weight:bold;color:green;\">";
+        }
+        
         ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="color:darkgray;">Selected:</font> <font style="font-size:15px; font-weight:bold;"><?php echo " " . $top_display; ?></font> 
+                <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display; ?></font> 
             </div>
         </div>
         <div class="group_graph_top_left" >

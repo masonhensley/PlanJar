@@ -18,7 +18,6 @@ class Load_coming_events extends CI_Model
                     WHERE events.date>NOW() AND events.date<NOW()+5
                     HAVING distance<15
                     ORDER BY date ASC";
-        
         $result = $this->db->query($query);
         $place_array = array();
         $place_id_array = array();
