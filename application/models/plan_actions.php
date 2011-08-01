@@ -155,7 +155,7 @@ class Plan_actions extends CI_Model
                     }
                     $date_organizer = $date;
                     ?>
-                    <div class ="plan_content" plan_id="$id">
+                        <div class ="plan_content" plan_id="<?php echo $id; ?>">
                         <?php
                         if ($title != '')
                         {
