@@ -90,13 +90,13 @@ function populate_day_graph(container, data, selected_date) {
     })
     // Toggle the selected day class
     .classed('bar_selected_day', function (d) {
+        console.log(selected_date);
+        console.log(d.date);
+        
         var sel_date = new Date(selected_date);
         var data_date = new Date(d.date);
         
         // Return true if the date matches the selected date
-        console.log(data_date.toString().substr(0, 15));
-        console.log(sel_date.toString().substr(0, 15));
-        console.log(data_date.toString().substr(0, 15) == sel_date.toString().substr(0, 15));
         return data_date.toString().substr(0, 15) == sel_date.toString().substr(0, 15);
     })
     // Toggle the current day class
