@@ -51,6 +51,7 @@ class Load_group_profile extends CI_Model
     function return_display_profile($group_info)
     {
         $this->load->model('group_ops');
+        ob_start();
         ?><div class="group_profile_header"><?php
         if ($group_info['school_group'])
         {
@@ -172,12 +173,12 @@ class Load_group_profile extends CI_Model
             ?>
         </div>
             <?php
+            return ob_get_clean();
         }
 
         function return_profile_picture()
         {
             $logo_text = "logo_" . rand(1, 25) . ".png";
-
             return "<img src=\"/application/assets/images/logos/$logo_text\"/>";
         }
 
