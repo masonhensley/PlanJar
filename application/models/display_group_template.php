@@ -402,10 +402,10 @@ class Display_group_template extends CI_Model
             <br/>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
-            echo "Group members: $total<br/>";
-            echo "males: " . $data_array['total_males'] . "&nbsp;&nbsp;&nbsp;";
-            echo "females: " . $data_array['total_females'] . "<br/>";
             ?>
+            People<?php echo " " . $total; ?><br/>
+            males<?php echo " " . $data_array['total_males']; ?>&nbsp;&nbsp;&nbsp;
+            females<?php echo " " . $data_array['total_females']; ?><br/>
         </div>
         <div class="group_graph_top_right">
         </div>
