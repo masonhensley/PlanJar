@@ -278,8 +278,8 @@ class Load_locations extends CI_Model
         } else
         {
             ?>
-            <div class ="no_places_to_show">
-                <br/>Nothing to show<br/>
+            <div class ="no_places_to_show" style="border-bottom: 1px solid lightgray;">
+                <br/>Nothing to show<br/><br/>
             </div>
             <?php
         }
