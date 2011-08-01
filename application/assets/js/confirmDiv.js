@@ -32,7 +32,7 @@ function outer_confirm_handler(event) {
         inner_event.stopPropagation();
         
         // Success
-        event.data.callback(this); 
+        event.data.callback($(this)); 
     });
         
     $('html').click(function() {
