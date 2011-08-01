@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div class ="right">
-                <font style="font-weight:bold; font-size:20px;">Plans</font><br/><hr/>
+                <font style="font-weight:bold; color:navy;  font-size:20px;">Plans</font><br/><hr/>
                 <div class="plans_wrapper"><?php echo($plans_html); ?></div>
             </div>
         </div>
