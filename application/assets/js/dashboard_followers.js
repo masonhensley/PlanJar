@@ -9,17 +9,13 @@ function populate_followers_list() {
         $('#followers_list').html(data);
         
         // Click handler.
-        $('#followers_list .add_following').click(function () {
-            if ($(this).text() == 'Follow') {
-                $(this).text('You sure?');
-            } else {
-                $.get('/dashboard/add_user_following', {
-                    following_id: $(this).parent().attr('user_id')
-                }, function (data) {
-                    populate_followers_list();
-                    populate_following_list();
-                });
-            }
+        $('#followers_list .add_following').confirmDiv(function (clicked_elem) {
+            $.get('/dashboard/add_user_following', {
+                following_id: clicked_elem.parent().attr('user_id')
+            }, function (data) {
+                populate_followers_list();
+                populate_following_list();
+            });
         });
         
         // Make followers selectable
