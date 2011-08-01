@@ -37,7 +37,7 @@ function get_plan_data() {
         $('#plan_data').html(data.html);
         
         // Handles clicking on the delete plan button
-        $('.delete_plan').confirmDiv(function () {
+        $('.delete_plan').confirmDiv(function (clicked_elem) {
             $.get('/home/delete_plan', {
                 'plan_selected': $('.selected_plan').attr('plan_id')
             }, function (data) {

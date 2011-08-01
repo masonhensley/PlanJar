@@ -31,12 +31,8 @@ function outer_confirm_handler(event) {
         // Stop propagation (to allow for clicking anywhere BUT the element)
         inner_event.stopPropagation();
         
-        console.log(event.currentTarget);
-        console.log(event.target);
-        console.log(this);
-        
         // Success
-        event.data.callback(); 
+        event.data.callback(this); 
     });
         
     $('html').click(function() {
