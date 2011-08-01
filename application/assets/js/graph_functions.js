@@ -117,7 +117,7 @@ function populate_day_graph(container, data, selected_date) {
         if (cur_date.equals(given_date)) {
             return 'Today';
         } else {
-            return day_array[given_date.toString('ddd')];
+            return given_date.toString('ddd');
         }
     });
 }
