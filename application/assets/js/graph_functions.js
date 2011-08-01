@@ -93,11 +93,8 @@ function populate_day_graph(container, data, selected_date) {
         var sel_date = new Date(selected_date);
         var data_date = new Date(d.date);
         
-        console.log(sel_date);
-        console.log(data_date);
-        
         // Return true if the date matches the selected date
-        return data_date.toString().substr(0, 15) == sel_date.toString().substr(0, 15);
+        return data_date == sel_date;
     })
     // Toggle the current day class
     .classed('bar_today', function (d) {
