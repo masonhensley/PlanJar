@@ -67,6 +67,7 @@ a{
 .top_right_link_inner{
     position:relative;
     top:10px;
+    font-size:12px;
 }
 
 #show_name{
@@ -350,7 +351,6 @@ a{
 
 .group_bottom_text{
     float:left;
-    margin-left:10px;
 }
 
 .group_bottom_button{
