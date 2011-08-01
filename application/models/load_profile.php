@@ -22,8 +22,8 @@ class Load_profile extends CI_Model
                 <?php $this->insert_profile_picture(); ?>
             </div>
             <div class="profile_user_information">
-                <br/><font style="font-weight:bold;"><?php echo $user->first_name . " " . $user->last_name; ?></font><br/>
-                <font style="color:darkgray;"><?php echo $row->school ." "; ?>('<?php echo substr($user->grad_year, -2); ?>)</font><br/>
+                <br/><font style="font-size:20px;"><font style="font-weight:bold;"><?php echo $user->first_name . " " . $user->last_name; ?></font><br/>
+                <font style="color:darkgray;"><?php echo $row->school ." "; ?>('<?php echo substr($user->grad_year, -2); ?>)</font></font><br/>
             </div>
         </div>
         <hr/>
@@ -54,7 +54,7 @@ class Load_profile extends CI_Model
         {
                     ?><font style="font-style:italic;">Nothing to show</font><?php
         }
-                ?><br/><br/><?php
+                ?><br/><hr/><br/><?php
         echo $locations_data;
                 ?>
             </div>
