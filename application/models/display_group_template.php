@@ -42,6 +42,8 @@ class Display_group_template extends CI_Model
         $this->load->model('load_locations');
         $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
 
+        $this->filter_by_age_group_selected();
+        
         $return_array = array(); // data to be returned
         $number_males = 0;
         $number_females = 0;
@@ -87,6 +89,8 @@ class Display_group_template extends CI_Model
         WHERE user_meta.school_id=$user->school_id";
         $result = $this->db->query($query);
 
+        $this->filter_by_age_group_selected();
+        
         // Data to be returned
         $return_array = array();
         $number_males = 0;
@@ -132,6 +136,8 @@ class Display_group_template extends CI_Model
         $query = substr($query, 0, -4); // contains information for all the users in the selected groups
         $result = $this->db->query($query);
 
+        $this->filter_by_age_group_selected();
+        
         // Data to be returned
         $return_array = array();
         $number_males = 0;
@@ -174,7 +180,9 @@ class Display_group_template extends CI_Model
                         FROM user_meta
                         HAVING distance<15";
         $result = $this->db->query($query);
-
+        
+        $this->filter_by_age_group_selected();
+        
         // data to be returned
         $return_array = array();
         $total_people = $result->num_rows();
@@ -310,6 +318,11 @@ class Display_group_template extends CI_Model
         // Return
         $return_array['plan_dates'] = $conversion_array;
         return $return_array;
+    }
+    
+    function filter_by_age_group_selected()
+    {
+        
     }
 
     function get_group_template($format_type, $selected_groups, $day, $data_array)
