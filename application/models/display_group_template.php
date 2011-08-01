@@ -391,7 +391,7 @@ class Display_group_template extends CI_Model
         </div>
         <div class="group_graph_top_left" >
             view:&nbsp;
-            <select>
+            <select id="filter">
                 <option value="all">All</option>
                 <option value="freshmen">Freshmen</option>
                 <option value="sophomores">Sophomores</option>
