@@ -23,7 +23,7 @@ class Load_profile extends CI_Model
             </div>
             <div class="profile_user_information">
                 <br/><font style="font-size:20px;"><font style="font-weight:bold;"><?php echo $user->first_name . " " . $user->last_name; ?></font><br/>
-                <font style="color:darkgray;"><?php echo $row->school ." "; ?>('<?php echo substr($user->grad_year, -2); ?>)</font></font><br/>
+                <font style="color:darkgray;"><?php echo $row->school . " "; ?>('<?php echo substr($user->grad_year, -2); ?>)</font></font><br/>
             </div>
         </div>
         <hr/>
@@ -31,32 +31,35 @@ class Load_profile extends CI_Model
             <div class="profile_body_text"><?php
         // Code to display groups joined
                 ?><br/><font style="font-size:25px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
-        if (count($groups_joined > 0))
+        $group_count = count($groups_joined);
+        if ($group_count > 0)
         {
             $index = 0;
-            $group_count = count($groups_joined);
+
             foreach ($groups_joined as $group)
             {
-                         ?><font style="color:green; font-size: 16px;"><?php echo $group; ?><?php
-                         if($index + 1 != $group_count)
-                         {
-                           echo ", ";  
-                         }
-                         $index++;
-                         ?></font><?php
+                        ?><font style="color:green; font-size: 16px;"><?php echo $group; ?><?php
+                if ($index + 1 != $group_count)
+                {
+                            ?><font style="color:black;"><?php echo ", "; ?></font><?php
+                    $index++;
+                            ?></font><?php
+                } else
+                {
+                            ?><font style="font-style:italic;">Nothing to show</font><?php
+                }
             }
-        } else
-        {
-                    ?><font style="font-style:italic;">Nothing to show</font><?php
         }
 
         // Code to display groups following
                 ?><br/><br/><font style="font-size:20px;">Following</font><br/><?php
-        if (count($groups_following) > 0)
+        $index = 0;
+        $following_count = count($groups_following);
+        if ($following_count > 0)
         {
             foreach ($groups_following as $group)
             {
-                        ?><font style="color:purple; font-size:16px;"><?php echo $group .", "; ?></font><?php
+                        ?><font style="color:purple; font-size:16px;"><?php echo $group . ", "; ?></font><?php
             }
         } else
         {
@@ -127,7 +130,7 @@ class Load_profile extends CI_Model
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
-        
+
         ob_start();
         ?><font style="font-size:25px; margin-left:200px;">Places</font><br/>
         <font style="font-size:18px;">Recently visited</font><br/><?php
@@ -135,20 +138,21 @@ class Load_profile extends CI_Model
         {
             foreach ($recent_locations as $location)
             {
-                ?><font style="color:navy;"><?php echo $location ."&nbsp;&nbsp;&nbsp;&nbsp;";?></font><?php
+                ?><font style="color:navy;"><?php echo $location . "&nbsp;&nbsp;&nbsp;&nbsp;"; ?></font><?php
             }
-        }else{
+        } else
+        {
             ?><font style="font-style:italic;">Nothing to show</font><?php
         }
-        
         ?><br/><br/><font style="font-size:18px;">Most visited</font><br/><?php
         if (count($most_visited_locations) > 0)
         {
             foreach ($most_visited_locations as $location => $count)
             {
-                ?><font style="color:navy;"><?php echo $location ."&nbsp;&nbsp;&nbsp;&nbsp;"; ?></font><?php
-            }  
-        }else{
+                ?><font style="color:navy;"><?php echo $location . "&nbsp;&nbsp;&nbsp;&nbsp;"; ?></font><?php
+            }
+        } else
+        {
             ?><font style="font-style:italic;">Nothing to show</font><?php
         }
         return ob_get_clean();
