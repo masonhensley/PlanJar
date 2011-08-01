@@ -362,18 +362,32 @@ class Display_group_template extends CI_Model
         $month = $big_display_day = $date->add(new DateInterval('P' . $day . 'D'));
         $big_display_day = $big_display_day->format('D');
 
+        // make the percentage readable
         if (strlen($data_array['percent_total_going_out']) > 3)
         {
             $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+            if(substr($data_array['percent_total_going_out'], -1) == ".")
+            {
+                $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, -1);
+            }
         }
         if (strlen($data_array['percent_males_going_out']) > 3)
         {
             $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, 3);
+            if(substr($data_array['percent_males_going_out'], -1) == ".")
+            {
+                $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, -1);
+            }
         }
         if (strlen($data_array['percent_females_going_out']) > 3)
         {
             $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
+            if(substr($data_array['percent_females_going_out'], -1) == ".")
+            {
+                $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, -1);
+            }
         }
+        
 
         if ($font_style == 'groups')
         {
