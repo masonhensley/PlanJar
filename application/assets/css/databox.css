@@ -27,9 +27,9 @@
 
 .group_graph_bottom_left{
     width:49%;
-    height:138px;
+    height:auto;
     position:absolute;
-    bottom:-16px;
+    bottom:-17px;
     left:8px;
 }
 .group_graph_bottom_right{

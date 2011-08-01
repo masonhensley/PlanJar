@@ -404,9 +404,9 @@ class Display_group_template extends CI_Model
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
             ?>
-            people<?php echo " " . $total; ?>
-            males<?php echo " " . $data_array['total_males']; ?>
-            females<?php echo " " . $data_array['total_females']; ?><br/>
+            <font style="color:darkgray;">people</font><font style="font-weight:bold;"><?php echo " " . $total; ?></font>
+            <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $data_array['total_males']; ?></font>
+            <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $data_array['total_females']; ?></font><br/>
         </div>
         <div class="group_graph_top_right">
         </div>
