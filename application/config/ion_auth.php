@@ -65,7 +65,8 @@ $config['columns'] = array(
     'grad_year',
     'latitude',
     'longitude',
-    'phone');
+    'phone',
+    'tag');
 
 /**
  * A database column which is used to

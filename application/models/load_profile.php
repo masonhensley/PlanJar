@@ -95,7 +95,7 @@ class Load_profile extends CI_Model
     function get_groups_following($user)
     {
         $query = "SELECT groups.name, group_relationships.id 
-        FROM group_relationships LEFT JOIN groups ON groups.id=group_relationships.group_id 
+        FROM group_relationships JOIN groups ON groups.id=group_relationships.group_id 
         WHERE group_relationships.user_following_id=$user->id";
         $result = $this->db->query($query);
         $groups_following = array();
