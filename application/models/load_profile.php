@@ -16,7 +16,8 @@ class Load_profile extends CI_Model
         $groups_joined = $this->get_groups_joined($user); // array containing group information
         $groups_following = $this->get_groups_following($user); // array containing group information
         $locations_data = $this->get_location_stats($user); // string containing the location statistics
-        $user_age = $this->calculate_age($user->birthday);
+        $birthday = $user->birthday;
+        $user_age = $this->calculate_age($birthday);
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -32,14 +33,14 @@ class Load_profile extends CI_Model
             <div class="profile_body_text"><?php
                 ?><font style="color:darkgray;">sex</font><font style="font-weight:bold;"><?php echo " " . $user->sex; ?></font>&nbsp;&nbsp;&nbsp;
                 <font style="color:darkgray;">age</font><font style="font-weight:bold;"><?php echo " " . $user_age; ?></font><br/><br/>
-                <?php 
-                if($user->tag)
+                <?php
+                if ($user->tag)
                 {
                     ?><font style="font-style: italic;"><?php echo $user->tag; ?></font><?php
-                }else{
+        } else
+        {
                     ?><font style="font-style: italic;">Nothing to show</font><?php
-                }
-                    
+        }
                 ?>
                 <br/><hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
         $group_count = count($groups_joined);
@@ -196,16 +197,16 @@ class Load_profile extends CI_Model
         <?php
     }
 
-    function calculate_age($date) // calculates user's age given a date
+    function calculate_age($birthday)
     {
-        list($year, $month, $day) = explode("-", $date);
+        list($year, $month, $day) = explode("-", $birthday);
         $year_diff = date("Y") - $year;
         $month_diff = date("m") - $month;
         $day_diff = date("d") - $day;
-        if ($day_diff < 0 || $month_diff < 0)
+        if ($month_diff < 0)
             $year_diff--;
-
+        elseif (($month_diff == 0) && ($day_diff < 0))
+            $year_diff--;
         return $year_diff;
     }
-
 }
