@@ -404,7 +404,7 @@ class Display_group_template extends CI_Model
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
-        <div style="position:absolute; top:15px; right:50px;color:darkgray;">
+        <div style="position:absolute; top:25px; right:50px;color:darkgray;">
             # people going out by day
         </div>
         <div class="group_graph_top_left" >
