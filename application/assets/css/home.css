@@ -431,6 +431,14 @@ a{
     color:white;
 }
 
+.plan_body{
+    width:100%;
+    height:auto;
+    margin-top:20px;
+}
+
+/* --------BOTTOM LINKS ---------*/
+
 .bottom_links{
     width:1024px;
     margin-left:auto;
@@ -522,6 +530,6 @@ a{
 #create_plan{
     position:absolute;
     top:-39px;
-    right:67px;
+    right:75px;
 }
 
