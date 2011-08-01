@@ -131,40 +131,53 @@ class Plan_actions extends CI_Model
     function display_plans()
     {
         $date_organizer = "";
-        $return_string = '<div class="active_plans">';
-        foreach ($this->get_plans() as $plan)
+        $plans_result = $this->get_plans();
+        ob_start(); // start the output buffer 
+
+        if ($plans_result->num_rows() > 0)
         {
-            // make easy to read variables
-            $id = $plan->id;
-            $place_name = $plan->name;
-            $title = $plan->title;
-            $time = $plan->time;
-            $date = date('l', strtotime($plan->date));
-
-            if ($date_organizer != $date)
+            foreach ($plans_result as $plan)
             {
-                $return_string .= "<font style=\"font-size:16px; color:gray;\">$date<br/></font>";
+                // make easy to read variables
+                $id = $plan->id;
+                $place_name = $plan->name;
+                $title = $plan->title;
+                $time = $plan->time;
+                $date = date('l', strtotime($plan->date));
+                ?>
+                <div class="active_plans"> 
+                    <?php
+                    if ($date_organizer != $date)
+                    {
+                        ?>
+                        <font style="font-size:16px; color:gray;">$date<br/></font>
+                        <?php
+                    }
+                    $date_organizer = $date;
+                    ?>
+                    <div class ="plan_content" plan_id="$id">
+                        <?php
+                        if ($title != '')
+                        {
+                            echo "<b>$title</b><br/>$place_name";
+                        } else
+                        {
+                            echo "<b>$place_name</b>";
+                        }
+                        ?>
+                    </div>
+                </div>
+                <?php
             }
-            $date_organizer = $date;
-
-            $return_string .= "<div class =\"plan_content\" plan_id=\"$id\">";
-
-            if ($title != '')
-            {
-                $return_string .= "<b>$title</b><br/>$place_name";
-            } else
-            {
-                $return_string .= "<b>$place_name</b>";
-            }
-
-            $return_string .= "</div>";
+        } else
+        {
+            ?>
+            <br/><font style="font-style:italic;">Nothing to show</font><br/>
+            <?php
         }
 
-        $return_string .= "</div>";
-
-        return $return_string;
+        return ob_get_clean();
     }
 
 }
-
 ?>
