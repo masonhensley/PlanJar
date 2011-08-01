@@ -38,17 +38,16 @@ class Load_profile extends CI_Model
 
             foreach ($groups_joined as $group)
             {
-                        ?><font style="color:green; font-size: 16px;"><?php echo $group; ?><?php
+                        ?><font style="color:green; font-size: 16px;"><?php echo $group; ?></font><?php
                 if ($index + 1 != $group_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
-                    $index++;
-                            ?></font><?php
-                } else
-                {
-                            ?><font style="font-style:italic;">Nothing to show</font><?php
                 }
+                $index++;
             }
+        } else
+        {
+                    ?><font style="font-style:italic;">Nothing to show</font><?php
         }
 
         // Code to display groups following
@@ -57,17 +56,24 @@ class Load_profile extends CI_Model
         $following_count = count($groups_following);
         if ($following_count > 0)
         {
+            $index = 0;
             foreach ($groups_following as $group)
             {
-                        ?><font style="color:purple; font-size:16px;"><?php echo $group . ", "; ?></font><?php
+                        ?><font style="color:purple; font-size:16px;"><?php echo $group; ?></font><?php
+                if ($index + 1 != $following_count)
+                {
+                            ?><font style="color:black;"><?php echo ", "; ?></font><?php
+                            ?></font><?php
+                }
             }
+            $index++;
         } else
         {
                     ?><font style="font-style:italic;">Nothing to show</font><?php
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
-                ?>
+        ?>
             </div>
         </div>
         <?php
@@ -134,22 +140,37 @@ class Load_profile extends CI_Model
         ob_start();
         ?><font style="font-size:25px; margin-left:200px;">Places</font><br/>
         <font style="font-size:18px;">Recently visited</font><br/><?php
-        if (count($recent_locations) > 0)
+        $recent_locations_count = count($recent_locations);
+        if ($recent_locations_count > 0)
         {
+            $index = 0;
             foreach ($recent_locations as $location)
             {
-                ?><font style="color:navy;"><?php echo $location . "&nbsp;&nbsp;&nbsp;&nbsp;"; ?></font><?php
+                ?><font style="color:navy;"><?php echo $location; ?></font><?php
+                if($index+1 != $recent_locations_count)
+                {
+                    ?><font style="color:black;"><?php echo ", "; ?></font><?php
+                }
+                $index++;
             }
         } else
         {
             ?><font style="font-style:italic;">Nothing to show</font><?php
         }
         ?><br/><br/><font style="font-size:18px;">Most visited</font><br/><?php
-        if (count($most_visited_locations) > 0)
+        
+        $most_visited_count = count($most_visited_locations);
+        if ($most_visited_count > 0)
         {
+            $index = 0;
             foreach ($most_visited_locations as $location => $count)
             {
-                ?><font style="color:navy;"><?php echo $location . "&nbsp;&nbsp;&nbsp;&nbsp;"; ?></font><?php
+                ?><font style="color:navy;"><?php echo $location; ?></font><?php
+                if($index + 1 != $most_visited_count)
+                {
+                    ?><font style="color:black;"><?php echo ", "; ?></font><?php
+                }
+                $index++;
             }
         } else
         {
