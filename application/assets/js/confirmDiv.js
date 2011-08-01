@@ -8,7 +8,7 @@ $.fn.confirmDiv = function(callback) {
     }, outer_confirm_handler);
 }
 
-function outer_confirm_handler(event) {
+function outer_confirm_handler(main_event) {
     // Stop propagation (to allow for clicking anywhere BUT the element)
     event.stopPropagation();
 
@@ -23,16 +23,18 @@ function outer_confirm_handler(event) {
     $(this).html('Sure?');
         
     // Assign the secondary (final) click event
-    $(event.currentTarget).click(function(inner_event){
+    $(main_event.target).click(function(inner_event){
         // Stop propagation (to allow for clicking anywhere BUT the element)
         inner_event.stopPropagation();
         
         // Success
-        event.data.callback(); 
+        main_event.data.callback($(this)); 
     });
-        
+    
     $('html').click(function() {
         // Replace the original text and re-assign the click event
+        console.log(main_event.target);
+        
         $('.delete_plan').html(orig_text);
         $('.delete_plan').unbind('click');
         $('.delete_plan').click({

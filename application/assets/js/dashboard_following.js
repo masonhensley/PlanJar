@@ -15,11 +15,9 @@ function populate_following_list() {
         $('#following_list').html(data);
        
         // Click handler.
-        $('#following_list .remove_following').confirmDiv(function () {
-            console.log(this);
-            console.log($(this));
+        $('#following_list .remove_following').confirmDiv(function (clicked_elem) {
             $.get('/dashboard/remove_following', {
-                following_id: $(this).parent().attr('user_id')
+                following_id: clicked_elem.parent().attr('user_id')
             }, function (data) {
                 populate_following_list();
                 populate_followers_list();           
