@@ -53,7 +53,6 @@ function group_select_click_handler()
             $.get('/dashboard/get_group_details', {
                 group_id: $(this).attr('group_id')
             }, function (data) {
-              
                 $('#groups_content .middle').html(data);
                 $('.middle').show("slow");
             });

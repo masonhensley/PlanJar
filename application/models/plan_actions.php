@@ -50,6 +50,23 @@ class Plan_actions extends CI_Model
         $name = $row->name;
         $title = $row->title;
 
+
+        // html to replace the data div
+        ?>
+
+        <div class="plan_body">
+            <?php
+            echo $title;
+            echo $name;
+            echo $time;
+            echo $date;
+            ?>
+        </div><br/><br/>
+        <div class="delete_plan_container"style="font-size: 20px; text-align:left;">
+            <div class="delete_plan">Delete Plan</div>
+            $invite_people
+        </div>";
+        <?php
         // Generate the invite people string
         if ($row->privacy != 'strict')
         {
@@ -60,15 +77,7 @@ class Plan_actions extends CI_Model
                 This event has <b>strict</b> privacy settings. You can't invite anyone.</div>";
         }
 
-        // html to replace the data div
-        $htmlString = "
-        <div style=\"font-size:20px; width:100%; height:230px; color:darkblue; text-align: center;\">
-        $title at $name | $time | $date
-        </div><br/><br/>
-        <div class=\"delete_plan_container\"style=\"font-size: 20px; text-align:left;\">
-        <div class=\"delete_plan\">Delete Plan</div>
-        $invite_people
-        </div>";
+
 
         return array('privacy' => $row->privacy, 'html' => $htmlString, 'event_id' => $row->id);
     }
@@ -155,13 +164,13 @@ class Plan_actions extends CI_Model
                     }
                     $date_organizer = $date;
                     ?>
-                        <div class ="plan_content" plan_id="<?php echo $id; ?>">
+                    <div class ="plan_content" plan_id="<?php echo $id; ?>">
                         <?php
                         if ($title != '')
                         {
                             ?>
-                        <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
-                        <font style="color:darkgray;"><?php echo $place_name; ?></font>
+                            <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
+                            <font style="color:darkgray;"><?php echo $place_name; ?></font>
                             <?php
                         } else
                         {
