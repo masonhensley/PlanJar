@@ -1,7 +1,7 @@
 // Custom jQuery confirmDiv function
 // Call this function on a div button that you want to make into a confirmation button
 // (asks for confirmation before continuing)
-// The parameter is the functino to call on success.
+// The parameter is the function to call on success.
 $.fn.confirmDiv = function(callback) {
     this.click({
         'callback': callback

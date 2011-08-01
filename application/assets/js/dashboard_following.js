@@ -46,8 +46,6 @@ function populate_following_list() {
         });
 
     });
-    
-
 }
 
 function initialize_follow_search() {
@@ -55,13 +53,14 @@ function initialize_follow_search() {
     $('.in-field_block label').inFieldLabels();
     
     $('#friend_search').keyup(function () {
-        $('.following_profile_body').hide("slow");
+        $('.following_profile_body').hide('fast');
         $('.suggested_active').removeClass('suggested_active'); // this unselects the "suggested friends" tab first
         $.get('/dashboard/follow_search', {
             needle: $(this).val()
         }, function (data) {
             $('#follow_search').html(data);
             $('#follow_search').show("slow");
+            
             
             $('.user_entry').click(function(){ // click handler for getting the profile
                 $.get('/dashboard/get_profile', {
@@ -74,19 +73,15 @@ function initialize_follow_search() {
             });
             
             // Click handler.
-            $('#follow_search .add_following').click(function () {
-                $(this).text('+ You sure?');
-                $(this).unbind('click');
-                $(this).click(function () {
-                    $.get('/dashboard/add_user_following', {
-                        following_id: $(this).parent().attr('user_id')
-                    }, function () {
-                        $('#follow_search').hide();
-                        $('#follow_search').html('');
-                        $('#friend_search').val('');
-                        populate_following_list();
-                        $('#friend_search').blur();
-                    });
+            $('#follow_search .add_following').confirmDiv(function () {
+                $.get('/dashboard/add_user_following', {
+                    following_id: $(this).parent().attr('user_id')
+                }, function () {
+                    $('#follow_search').hide();
+                    $('#follow_search').html('');
+                    $('#friend_search').val('');
+                    populate_following_list();
+                    $('#friend_search').blur();
                 });
             });
         });
