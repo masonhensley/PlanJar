@@ -23,7 +23,7 @@ class Plan_actions extends CI_Model
 
         $query_result = $this->db->query($query);
 
-        return $query_result->result();
+        return $query_result;
     }
 
     // Returns an array containing privacy type and the HTML for the plan
@@ -136,7 +136,7 @@ class Plan_actions extends CI_Model
 
         if ($plans_result->num_rows() > 0)
         {
-            foreach ($plans_result as $plan)
+            foreach ($plans_result->result() as $plan)
             {
                 // make easy to read variables
                 $id = $plan->id;
@@ -175,7 +175,6 @@ class Plan_actions extends CI_Model
             <br/><font style="font-style:italic;">Nothing to show</font><br/>
             <?php
         }
-
         return ob_get_clean();
     }
 
