@@ -10,7 +10,6 @@ class Notification_ops extends CI_Model
     }
 
     // Notifies the given users of the given subject id
-    // Optionally accepts an array of group ids to include in the notifications
     function notify($user_list, $type, $subject_id)
     {
         // Build the string containing the multiple entries to insert.
@@ -92,7 +91,14 @@ class Notification_ops extends CI_Model
             <?php
             if (!$accepted)
             {
-                echo('<div class="accept">Accept</div>');
+                // Echo "follow back" instead of "accept" if necessary
+                if ($row->type == 'follow_notif')
+                {
+                    echo('<div class="accept">Follow back</div>');
+                } else
+                {
+                    echo('<div class="accept">Accept</div>');
+                }
             }
             if ($row->viewed)
             {
@@ -109,36 +115,46 @@ class Notification_ops extends CI_Model
     // Returns appropriate notification text for the supplied notification row
     function make_notification_text($notification_row)
     {
-        if ($notification_row->type == 'event_invite')
+        // Take action depending on the type
+        switch ($notification_row->type)
         {
-            $query_string = "SELECT places.name, events.date, events.title, events.id FROM plans
+            // Event invite
+            case 'event_invite':
+                $query_string = "SELECT places.name, events.date, events.title, events.id FROM plans
                 LEFT JOIN events ON events.id = plans.event_id
                 LEFT JOIN places ON events.place_id = places.id
                 WHERE events.id = ?";
-            $query = $this->db->query($query_string, array($notification_row->subject_id));
-            $row = $query->row();
+                $query = $this->db->query($query_string, array($notification_row->subject_id));
+                $row = $query->row();
 
-            $date = new DateTime($row->date);
+                $date = new DateTime($row->date);
 
-            $event_text = '';
-            if ($row->title != '')
-            {
-                $event_text = '<b>' . $row->title . '</b> at ';
-            }
+                $event_text = '';
+                if ($row->title != '')
+                {
+                    $event_text = '<b>' . $row->title . '</b> at ';
+                }
 
-            return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
-            $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
-            '</b> has invited you to ' . $event_text . '<b>' . $row->name . '</b> ' .
-            'on ' . $date->format('l') . ' the ' . $date->format('jS');
-        } else if ($notification_row->type == 'group_invite')
-        {
-            $query_string = "SELECT name FROM groups WHERE id = ?";
-            $query = $this->db->query($query_string, array($notification_row->subject_id));
-            $row = $query->row();
+                return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
+                $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
+                '</b> has invited you to ' . $event_text . '<b>' . $row->name . '</b> ' .
+                'on ' . $date->format('l') . ' the ' . $date->format('jS');
 
-            return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
-            $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
-            '</b> has invited you to join the group <b>' . $row->name . '</b>';
+            // Group invite
+            case 'group_invite':
+                $query_string = "SELECT name FROM groups WHERE id = ?";
+                $query = $this->db->query($query_string, array($notification_row->subject_id));
+                $row = $query->row();
+
+                return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
+                $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
+                '</b> has invited you to join the group <b>' . $row->name . '</b>';
+
+            // Follow notification
+            case 'follow_notif':
+                return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->subject_id . '">' .
+                $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
+                '</b> has followed you';
         }
     }
 
@@ -152,25 +168,34 @@ class Notification_ops extends CI_Model
     // Accepts the notification given by id
     function accept_notification($id)
     {
-        // Get the notification rowF
+        // Get the notification row
         $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
         $query = $this->db->query($query_string, array($id));
         $row = $query->row();
 
         switch ($row->type)
         {
+            // Event invite
             case 'event_invite':
                 // Add a plan for the user to the specified event
                 $this->load->model('plan_actions');
                 $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
                 $this->update_notification_viewed($id, true);
                 break;
+
+            // Group invite
             case 'group_invite':
                 $this->load->model('group_ops');
                 $this->group_ops->follow_group($row->subject_id);
                 $this->group_ops->join_group($row->subject_id);
                 $this->update_notification_viewed($id, true);
                 break;
+
+            // Follow notification
+            case 'follow_notif':
+                $this->load->model('follow_ops');
+                $this->follow_ops->add_user_following($row->subject_id);
+                $this->update_notification_viewed($id, true);
         }
     }
 

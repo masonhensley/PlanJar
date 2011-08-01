@@ -40,13 +40,16 @@ class Dashboard extends CI_Controller
     // Adds a following relationship if one doesn't already exist.
     public function add_user_following()
     {
-        $user = $this->ion_auth->get_user();
+        // Capture the parameter
+        $following_id = $this->input->get('following_id');
 
-        $query_string = "INSERT IGNORE INTO friends VALUES (DEFAULT, ?, ?)";
-        $query = $this->db->query($query_string, array(
-                    $user->id,
-                    $this->input->get('following_id')
-                ));
+        // Add the relationship entry
+        $this->load->model('follow_ops');
+        $this->follow_ops->add_user_following($following_id);
+
+        // Notify the given user
+        $this->load->model('notification_ops');
+        $this->notification_ops->notify(array($following_id), 'follow_notif', $this->ion_auth->get_user()->id);
     }
 
     // Removes a following relationship.

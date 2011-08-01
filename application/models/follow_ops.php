@@ -155,14 +155,22 @@ class Follow_ops extends CI_Model
     }
 
     // Returns true if $user_id is following $follow_id
-    public function is_following($user_id, $follow_id)
+    function is_following($user_id, $follow_id)
     {
         $query_string = "SELECT * FROM friends WHERE user_id = ? AND follow_id = ?";
         $query = $this->db->query($query_string, array($user_id, $follow_id));
         return $query->num_rows() > 0;
     }
-    
-    
+
+    // Adds the specified user to the user's following list
+    function add_user_following($following_id)
+    {
+        $query_string = "INSERT IGNORE INTO friends VALUES (DEFAULT, ?, ?)";
+        $query = $this->db->query($query_string, array(
+                    $this->ion_auth->get_user()->id,
+                    $following_id
+                ));
+    }
 
 }
 ?>
