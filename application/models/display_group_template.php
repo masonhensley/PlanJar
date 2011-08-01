@@ -43,7 +43,7 @@ class Display_group_template extends CI_Model
         $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
 
         $this->filter_by_age_group_selected();
-        
+
         $return_array = array(); // data to be returned
         $number_males = 0;
         $number_females = 0;
@@ -90,7 +90,7 @@ class Display_group_template extends CI_Model
         $result = $this->db->query($query);
 
         $this->filter_by_age_group_selected();
-        
+
         // Data to be returned
         $return_array = array();
         $number_males = 0;
@@ -137,7 +137,7 @@ class Display_group_template extends CI_Model
         $result = $this->db->query($query);
 
         $this->filter_by_age_group_selected();
-        
+
         // Data to be returned
         $return_array = array();
         $number_males = 0;
@@ -180,9 +180,9 @@ class Display_group_template extends CI_Model
                         FROM user_meta
                         HAVING distance<15";
         $result = $this->db->query($query);
-        
+
         $this->filter_by_age_group_selected();
-        
+
         // data to be returned
         $return_array = array();
         $total_people = $result->num_rows();
@@ -319,7 +319,7 @@ class Display_group_template extends CI_Model
         $return_array['plan_dates'] = $conversion_array;
         return $return_array;
     }
-    
+
     function filter_by_age_group_selected()
     {
         
@@ -330,7 +330,7 @@ class Display_group_template extends CI_Model
         $top_display = ""; // this contains the text for the header
         $s = ""; // this will make anything plural that needs to be for groups selected
         $font_style = ""; // used to determine font based on groups selected
-        
+
         if ($format_type == 'friends')
         {
             $top_display = "Friends"; // you can use data_array to find total number of friends
@@ -374,26 +374,36 @@ class Display_group_template extends CI_Model
             $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
         }
 
-        if($font_style == 'groups')
+        if ($font_style == 'groups')
         {
             $font_style = "<font style=\"font-size:15px; font-weight:bold;color:orange;\">";
-        }else{
+        } else
+        {
             $font_style = "<font style=\"font-size:15px; font-weight:bold;color:green;\">";
         }
-        
+
         ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
-                <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display; ?></font> 
+                <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
+                <br/>
+                view:&nbsp;
+                <select>
+                    <option value="all">All</option>
+                    <option value="freshmen">Freshmen</option>
+                    <option value="sophomores">Sophomores</option>
+                    <option value="juniors">Juniors</option>
+                    <option value="seniors">Seniors</option>
+                    <option value="alumni">Alumni</option>
+                </select>
             </div>
         </div>
         <div class="group_graph_top_left" >
-            <font style="font-weight:bold;font-size:20px;">Statistics</font><br/>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
             echo "Group members: $total<br/>";
-            echo "males: " . $data_array['total_males'] ."&nbsp;&nbsp;&nbsp;";
+            echo "males: " . $data_array['total_males'] . "&nbsp;&nbsp;&nbsp;";
             echo "females: " . $data_array['total_females'] . "<br/>";
             ?>
         </div>
