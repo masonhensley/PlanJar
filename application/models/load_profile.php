@@ -127,7 +127,7 @@ class Load_profile extends CI_Model
         {
             foreach ($recent_locations as $location)
             {
-                ?><font style="color:navy;"><?php echo $location;?></font><?php
+                ?><font style="color:navy;"><?php echo $location ."    ";?></font><?php
             }
         }else{
             ?><font style="font-style:italic;">Nothing to show</font><?php
@@ -138,7 +138,7 @@ class Load_profile extends CI_Model
         {
             foreach ($most_visited_locations as $location => $count)
             {
-                ?><font style="color:navy;"><?php echo $location; ?></font><?php
+                ?><font style="color:navy;"><?php echo $location ."    "; ?></font><?php
             }  
         }else{
             ?><font style="font-style:italic;">Nothing to show</font><?php
