@@ -16,6 +16,8 @@ function populate_following_list() {
        
         // Click handler.
         $('#following_list .remove_following').confirmDiv(function () {
+            console.log(this);
+            console.log($(this));
             $.get('/dashboard/remove_following', {
                 following_id: $(this).parent().attr('user_id')
             }, function (data) {
