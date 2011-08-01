@@ -40,6 +40,8 @@ function load_data_box(selected_day, selected_groups, filter)
         console.log(data);
         
         // Select the correct value for the select box
+        console.log($('#filter option[value="' + data['filter'] + '"]'));
+        console.log('#filter option[value="' + data['filter'] + '"]');
         $('#filter option[value="' + data['filter'] + '"]').click();
         
         // Populate the graphs
