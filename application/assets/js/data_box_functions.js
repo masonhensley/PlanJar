@@ -42,7 +42,7 @@ function load_data_box(selected_day, selected_groups, filter)
         // Select the correct value for the select box
         console.log($('#filter option[value="' + data['filter'] + '"]'));
         console.log('#filter option[value="' + data['filter'] + '"]');
-        $('#filter option[value="' + data['filter'] + '"]').click();
+        $('#filter option[value="' + data['filter'] + '"]').select();
         
         // Populate the graphs
         populate_percentage_box('.total_percent_container', data.percent_total_going_out, 'marker_total');
