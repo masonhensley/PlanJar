@@ -155,13 +155,13 @@ class Plan_actions extends CI_Model
                     }
                     $date_organizer = $date;
                     ?>
-                    <div class ="plan_content" plan_id="$id">
+                        <div class ="plan_content" plan_id="<?php echo $id; ?>">
                         <?php
                         if ($title != '')
                         {
                             ?>
                         <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
-                        <font style="color:darkgray";><?php echo $place_name; ?></font>
+                        <font style="color:darkgray;"><?php echo $place_name; ?></font>
                             <?php
                         } else
                         {
