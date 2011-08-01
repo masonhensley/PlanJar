@@ -3,14 +3,12 @@
 // (asks for confirmation before continuing)
 // The parameter is the function to call on success.
 $.fn.confirmDiv = function(callback) {
-    console.log(callback);
     this.click({
         'callback': callback
     }, outer_confirm_handler);
 }
 
 function outer_confirm_handler(event) {
-    console.log(event.data.callback);
     // Stop propagation (to allow for clicking anywhere BUT the element)
     event.stopPropagation();
 
@@ -25,18 +23,20 @@ function outer_confirm_handler(event) {
     $(this).html('Sure?');
         
     // Assign the secondary (final) click event
-    $(this).click(function(event){
+    $(this).click(function(inner_event){
         // Stop propagation (to allow for clicking anywhere BUT the element)
-        event.stopPropagation();
+        inner_event.stopPropagation();
         
         // Success
-        callback();
+        event.data.callback();
     });
         
     $('html').click(function() {
         // Replace the original text and re-assign the click event
         $('.delete_plan').html(orig_text);
         $('.delete_plan').unbind('click');
-        $('.delete_plan').click(outer_confirm_handler);
+        $('.delete_plan').click({
+            'callback': event.data.callback
+        }, outer_confirm_handler);
     });
 }
