@@ -33,9 +33,10 @@ class Load_profile extends CI_Model
                 ?><font style="font-size:20px; margin-left:205px;"><br/>Groups</font><br/>Joined<br/><?php
         if (count($groups_joined > 0))
         {
+            $index = 1;
             foreach ($groups_joined as $group)
             {
-                        ?><font style="color:green;"><?php echo $group; ?></font><?php
+                        echo $index .". "; ?><font style="color:green;"><?php echo $group; ?></font><?php $index++;
             }
         } else
         {
