@@ -387,19 +387,19 @@ class Display_group_template extends CI_Model
         <div class="data_box_top_bar">
             <div style="float:left;">
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
-                <br/><br/>
-                view:&nbsp;
-                <select>
-                    <option value="all">All</option>
-                    <option value="freshmen">Freshmen</option>
-                    <option value="sophomores">Sophomores</option>
-                    <option value="juniors">Juniors</option>
-                    <option value="seniors">Seniors</option>
-                    <option value="alumni">Alumni</option>
-                </select>
             </div>
         </div>
         <div class="group_graph_top_left" >
+            view:&nbsp;
+            <select>
+                <option value="all">All</option>
+                <option value="freshmen">Freshmen</option>
+                <option value="sophomores">Sophomores</option>
+                <option value="juniors">Juniors</option>
+                <option value="seniors">Seniors</option>
+                <option value="alumni">Alumni</option>
+            </select>
+            <br/>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
             echo "Group members: $total<br/>";
