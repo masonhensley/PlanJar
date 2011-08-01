@@ -200,7 +200,7 @@ class Load_profile extends CI_Model
 
     function calculate_age($birthday)
     {
-        list($day, $month, $year) = explode("/", $birthday);
+        list($year, $month, $day) = explode("-", $birthday);
         $year_diff = date("Y") - $year;
         $month_diff = date("m") - $month;
         $day_diff = date("d") - $day;
