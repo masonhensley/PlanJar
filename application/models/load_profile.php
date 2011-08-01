@@ -63,7 +63,6 @@ class Load_profile extends CI_Model
                 if ($index + 1 != $following_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
-                            ?></font><?php
                 }
             }
             $index++;
