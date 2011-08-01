@@ -2,7 +2,7 @@
 // Call this function on a div button that you want to make into a confirmation button
 // (asks for confirmation before continuing)
 // The parameter is the functino to call on success.
-$.fn.divSet = function(callback) {
+$.fn.confirmDiv = function(callback) {
     this.click(outer_confirm_handler, callback);
 }
 
