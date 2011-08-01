@@ -3,7 +3,7 @@
 // (asks for confirmation before continuing)
 // The parameter is the functino to call on success.
 $.fn.divSet = function(callback) {
-    $this.click(outer_confirm_handler, callback);
+    this.click(outer_confirm_handler, callback);
 }
 
 function outer_confirm_handler(event, callback) {
