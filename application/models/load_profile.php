@@ -16,6 +16,7 @@ class Load_profile extends CI_Model
         $groups_joined = $this->get_groups_joined($user); // array containing group information
         $groups_following = $this->get_groups_following($user); // array containing group information
         $locations_data = $this->get_location_stats($user); // string containing the location statistics
+        $user_age = $this->calculate_age($user->birthday);
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -29,8 +30,10 @@ class Load_profile extends CI_Model
         <hr/>
         <div class="profile_body">
             <div class="profile_body_text"><?php
-        // Code to display groups joined
-                ?><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
+            ?><font style="color:darkgray;">sex</font><font style="font-weight:bold;"><?php echo " " .$user->sex; ?></font>&nbsp;&nbsp;&nbsp;
+            <font style="color:darkgray;">age</font><font style="font-weight:bold;"><?php echo " " .$user_age; ?></font><hr/><?php
+                ?>
+                <br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
         $group_count = count($groups_joined);
         if ($group_count > 0)
         {
@@ -66,14 +69,13 @@ class Load_profile extends CI_Model
                 }
                 $index++;
             }
-            
         } else
         {
                     ?><font style="font-style:italic;">Nothing to show</font><?php
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
-        ?>
+                ?>
             </div>
         </div>
         <?php
@@ -147,7 +149,7 @@ class Load_profile extends CI_Model
             foreach ($recent_locations as $location)
             {
                 ?><font style="color:navy;"><?php echo $location; ?></font><?php
-                if($index+1 != $recent_locations_count)
+                if ($index + 1 != $recent_locations_count)
                 {
                     ?><font style="color:black;"><?php echo ", "; ?></font><?php
                 }
@@ -158,7 +160,6 @@ class Load_profile extends CI_Model
             ?><font style="font-style:italic;">Nothing to show</font><?php
         }
         ?><br/><br/><font style="font-size:18px;">Most visited</font><br/><?php
-        
         $most_visited_count = count($most_visited_locations);
         if ($most_visited_count > 0)
         {
@@ -166,7 +167,7 @@ class Load_profile extends CI_Model
             foreach ($most_visited_locations as $location => $count)
             {
                 ?><font style="color:navy;"><?php echo $location; ?></font><?php
-                if($index + 1 != $most_visited_count)
+                if ($index + 1 != $most_visited_count)
                 {
                     ?><font style="color:black;"><?php echo ", "; ?></font><?php
                 }
@@ -185,6 +186,18 @@ class Load_profile extends CI_Model
         ?>
         <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" />
         <?php
+    }
+
+    function calculate_age($date) // calculates user's age given a date
+    {
+        list($year, $month, $day) = explode("-", $date);
+        $year_diff = date("Y") - $year;
+        $month_diff = date("m") - $month;
+        $day_diff = date("d") - $day;
+        if ($day_diff < 0 || $month_diff < 0)
+            $year_diff--;
+
+        return $year_diff;
     }
 
 }
