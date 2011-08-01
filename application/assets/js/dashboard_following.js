@@ -69,9 +69,9 @@ function initialize_follow_search() {
             });
             
             // Click handler.
-            $('#follow_search .add_following').confirmDiv(function () {
+            $('#follow_search .add_following').confirmDiv(function (clicked_elem) {
                 $.get('/dashboard/add_user_following', {
-                    following_id: $(this).parent().attr('user_id')
+                    following_id: clicked_elem.parent().attr('user_id')
                 }, function () {
                     $('#follow_search').hide();
                     $('#follow_search').html('');
@@ -126,7 +126,6 @@ function get_suggested_friends()
         function (data) {
             $('#follow_search').html(data);
             $('.add_following').confirmDiv(function (clicked_elem) {
-                console.log(clicked_elem);
                 $.get('/dashboard/add_user_following', {
                     following_id: clicked_elem.parent().attr('user_id')
                 }, function (data) {
