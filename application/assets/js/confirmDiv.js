@@ -33,12 +33,10 @@ function outer_confirm_handler(main_event) {
     
     $('html').click(function() {
         // Replace the original text and re-assign the click event
-        console.log(main_event.target);
-        
-        $('.delete_plan').html(orig_text);
-        $('.delete_plan').unbind('click');
-        $('.delete_plan').click({
-            'callback': event.data.callback
+        $(main_event.target).html(orig_text);
+        $(main_event.target).unbind('click');
+        $(main_event.target).click({
+            'callback': main_event.data.callback
         }, outer_confirm_handler);
     });
 }
