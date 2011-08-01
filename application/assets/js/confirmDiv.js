@@ -4,9 +4,9 @@
 // The parameter is the function to call on success.
 $.fn.confirmDiv = function(callback) {
     console.log(callback);
-    this.click({
+    this.click(outer_confirm_handler, {
         'callback': callback
-    }, outer_confirm_handler);
+    });
 }
 
 function outer_confirm_handler(event, callback) {
