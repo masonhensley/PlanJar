@@ -23,10 +23,7 @@ function outer_confirm_handler(event) {
     $(this).html('Sure?');
         
     // Assign the secondary (final) click event
-    console.log(event.currentTarget);
-    console.log(event.target);
-    
-    event.currentTarget.click(function(inner_event){
+    $(event.currentTarget).click(function(inner_event){
         // Stop propagation (to allow for clicking anywhere BUT the element)
         inner_event.stopPropagation();
         
