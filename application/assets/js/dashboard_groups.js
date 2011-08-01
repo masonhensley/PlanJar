@@ -94,9 +94,8 @@ function populate_edit_groups_list() {
                 $.get('/dashboard/get_group_details', {
                     group_id: $(this).attr('group_id')
                 }, function (data) {
-                    data = $.parseJSON(data);
-                    $('#groups_content .middle').html(data.html);
-                    $('.middle').show("slow");
+                    $('#groups_content .middle').html(data);
+                    $('.middle').show("fast");
                     
                     // Button click handlers
                     group_click_handler('#groups_content .remove_following', 'remove_group_following');
@@ -105,7 +104,7 @@ function populate_edit_groups_list() {
                     
                     // Invite people
                     $('#groups_content .middle .invite_people').click(function() {
-                        open_invite_modal('group', data.group_id, '');
+                        open_invite_modal('group', $('#find_groups_list .selected_group').attr('group_id'), '');
                     })
                 });
             }
