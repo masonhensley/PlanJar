@@ -34,9 +34,11 @@ function outer_confirm_handler(event) {
         // Success
         event.data.callback($(this)); 
     });
-        
+    
     $('html').click(function() {
         // Replace the original text and re-assign the click event
+        console.log(this);
+        
         $('.delete_plan').html(orig_text);
         $('.delete_plan').unbind('click');
         $('.delete_plan').click({
