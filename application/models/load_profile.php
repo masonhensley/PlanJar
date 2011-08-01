@@ -22,47 +22,40 @@ class Load_profile extends CI_Model
                 <?php $this->insert_profile_picture(); ?>
             </div>
             <div class="profile_user_information">
-        
-        <br/><?php echo $user->first_name ." " .$user->last_name; ?><br/>
-        echo $row->school . " ('" . echo substr($user->grad_year, -2);  ")<br/>";
-        ?>
+                <br/><?php echo $user->first_name . " " . $user->last_name; ?><br/>
+                <?php echo $row->school; ?>(<?php echo substr($user->grad_year, -2); ?>)<br/>
             </div>
         </div>
         <div class="profile_body">
             <div class="profile_body_text"><?php
         // Code to display groups joined
-        if (count($groups_following) > 0 || count($groups_joined))
+                ?><font style="font-size:20px;">Groups</font><br/>Joined:<?php
+        if (count($groups_joined > 0))
         {
-            $groups_joined_text = "<font style=\"font-size:20px;\">Groups</font><br/>";
-            if (count($groups_joined > 0))
+            foreach ($groups_joined as $group)
             {
-                $groups_joined_text .= "Joined: ";
-                foreach ($groups_joined as $group)
-                {
-                    $groups_joined_text .= "<font style=\"color:purple;\">" . $group . "</font>, ";
-                }
-                $groups_joined_text = substr($groups_joined_text, 0, -2);
-                $groups_joined_text .= "<br/>";
+                        ?><font style="color:green;"><?php echo $group; ?></font><?php
             }
-            echo $groups_joined_text;
-
-            // Code to display groups following
-            $groups_following_text = "";
-            if (count($groups_following) > 0)
-            {
-                $groups_following_text .= "Following: ";
-                foreach ($groups_following as $group)
-                {
-                    $groups_following_text .= "<font style=\"color:green;\">" . $group . "</font>, ";
-                }
-                $groups_following_text = substr($groups_following_text, 0, -2);
-                $groups_following_text .= "<br/><br/>";
-            }
-            echo $groups_following_text;
+        } else
+        {
+                    ?><font style="font-style:italic;">Nothing to show</font><?php
         }
 
+        // Code to display groups following
+                ?><br/>Following:<?php
+        if (count($groups_following) > 0)
+        {
+            foreach ($groups_following as $group)
+            {
+                        ?><font style="color:purple;"><?php echo $group; ?></font><?php
+            }
+        } else
+        {
+                    ?><font style="font-style:italic;">Nothing to show</font><?php
+        }
+                ?><br/><br/><?php
         echo $locations_data;
-        ?>
+                ?>
             </div>
         </div>
 
@@ -99,14 +92,14 @@ class Load_profile extends CI_Model
 
     function get_location_stats($user)
     {
-        $query = 
-            "SELECT places.name, events.place_id, events.date
+        $query =
+                "SELECT places.name, events.place_id, events.date
        FROM plans
        LEFT JOIN events ON plans.event_id=events.id
        LEFT JOIN places ON places.id=events.place_id
        WHERE plans.user_id=$user->id AND events.date<NOW()
        ORDER BY events.date DESC LIMIT 0, 20"; // this query pulls all plans a user has made before the current timestamp
-        
+
         $result = $this->db->query($query);
 
         $recent_locations = array(); // variables to keep track of locations
@@ -123,50 +116,42 @@ class Load_profile extends CI_Model
             }
             $most_visited_locations[] = $place->name;
         }
-
-        $recent_locations_text = "";
-        if (count($recent_locations) > 0)
-        {
-            $recent_locations_text = "Recently visited:<br/>";
-            foreach ($recent_locations as $location)
-            {
-                $recent_locations_text .= "<font style=\"color:blue;\">" . $location . "</font>, ";
-            }
-            $recent_locations_text = substr($recent_locations_text, 0, -2);
-            $recent_locations_text .= "<br/><br/>";
-        }
-
         $most_visited_locations = array_count_values($most_visited_locations);
         asort($most_visited_locations);
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
-
-        $most_visited_text = "";
+        
+        ob_start();
+        ?><font style="font-size:20px; text-align:center;">Locations</font><br/>
+        <font style="font-weight:bold;">Recently visited</font><br/><?php
+        if (count($recent_locations) > 0)
+        {
+            foreach ($recent_locations as $location)
+            {
+                ?><font style="color:navy;"><?php echo $location;?></font><?php
+            }
+        }else{
+            ?><font style="font-style:italic;">Nothing to show</font><?php
+        }
+        
+        ?><br/><br/><font style="font-weight:bold;">Most visited</font><br/><?php
         if (count($most_visited_locations) > 0)
         {
-            $most_visited_text .= "Most visited:<br/>";
             foreach ($most_visited_locations as $location => $count)
             {
-                $most_visited_text .= "<font style=\"color:blue;\">" . $location . "</font>, ";
-            }
-            $most_visited_text = substr($most_visited_text, 0, -2);
-            $most_visited_text .= "<br/>";
-        }
-
-        $return_string = "<font style=\"font-size:20px; text-align:center;\">Locations</font><br/>" .$recent_locations_text . $most_visited_text;
-        if(!(empty($recent_locations_text) && empty($most_visited_text)))
-        {
-                    return $return_string;
+                ?><font style="color:blue;"><?php echo $location; ?></font><?php
+            }  
         }else{
-            return "";
+            ?><font style="font-style:italic;">Nothing to show</font><?php
         }
+        return ob_get_clean();
     }
-    
+
     function insert_profile_picture()
     {
-        $logo_text = "logo_" .rand(1,25) .".png";
+        $logo_text = "logo_" . rand(1, 25) . ".png";
         ?>
         <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" />
-             <?php
+        <?php
     }
 
 }
