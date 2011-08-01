@@ -14,7 +14,7 @@ function outer_confirm_handler(main_event) {
 
     // Clear previous handlers
     $(this).unbind('click');
-    $('html').unbind('click');
+    //$('html').unbind('click');
     
     // Get the original text
     var orig_text = $(this).html();
