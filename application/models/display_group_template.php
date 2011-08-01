@@ -366,7 +366,7 @@ class Display_group_template extends CI_Model
         if (strlen($data_array['percent_total_going_out']) > 3)
         {
             $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
-            if(substr($data_array['percent_total_going_out'], -1) == ".")
+            if (substr($data_array['percent_total_going_out'], -1) == ".")
             {
                 $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, -1);
             }
@@ -374,7 +374,7 @@ class Display_group_template extends CI_Model
         if (strlen($data_array['percent_males_going_out']) > 3)
         {
             $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, 3);
-            if(substr($data_array['percent_males_going_out'], -1) == ".")
+            if (substr($data_array['percent_males_going_out'], -1) == ".")
             {
                 $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, -1);
             }
@@ -382,12 +382,12 @@ class Display_group_template extends CI_Model
         if (strlen($data_array['percent_females_going_out']) > 3)
         {
             $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
-            if(substr($data_array['percent_females_going_out'], -1) == ".")
+            if (substr($data_array['percent_females_going_out'], -1) == ".")
             {
                 $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, -1);
             }
         }
-        
+
 
         if ($font_style == 'groups')
         {
@@ -404,8 +404,11 @@ class Display_group_template extends CI_Model
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
+        <div style="position:absolute; top:15px; right:50px;">
+            # people going out by day
+        </div>
         <div class="group_graph_top_left" >
-            view:&nbsp;
+            viewing&nbsp;
             <select id="filter">
                 <option value="all">All</option>
                 <option value="freshmen">Freshmen</option>
