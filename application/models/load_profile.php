@@ -30,7 +30,7 @@ class Load_profile extends CI_Model
         <div class="profile_body">
             <div class="profile_body_text"><?php
         // Code to display groups joined
-                ?><br/><font style="font-size:25px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
+                ?><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
         $group_count = count($groups_joined);
         if ($group_count > 0)
         {
@@ -138,7 +138,7 @@ class Load_profile extends CI_Model
         $most_visited_locations = array_reverse($most_visited_locations, TRUE);
 
         ob_start();
-        ?><font style="font-size:25px; margin-left:200px;">Places</font><br/>
+        ?><font style="font-size:23px; margin-left:200px;">Places</font><br/>
         <font style="font-size:18px;">Recently visited</font><br/><?php
         $recent_locations_count = count($recent_locations);
         if ($recent_locations_count > 0)
