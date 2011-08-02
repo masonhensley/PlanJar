@@ -45,7 +45,7 @@ class Load_profile extends CI_Model
                     ?><font style="font-style: italic;">Nothing to show</font><?php
         }
                 ?>
-                <br/>
+                <br/><br/>
                 <?php
                 if ($format == 'profile_edit')
                 {
@@ -53,6 +53,9 @@ class Load_profile extends CI_Model
                     <div class="add_box">
                         edit box
                     </div>
+                    <textarea name="comments" cols="40" rows="5" maxlength="80">
+            Write something about yourself in here.  Anyone can see.  Pressure's on.
+                    </textarea>
                     <?php
                 }
                 ?>
