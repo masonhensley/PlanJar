@@ -337,7 +337,7 @@ class Display_group_template extends CI_Model
             $top_display = "Friends"; // you can use data_array to find total number of friends
         } else if ($format_type == 'current_location')
         {
-            $top_display .= "Current Location";
+            $top_display .= "Current Location <font style=\"color:gray;\">15 mile radius</font>";
         } else if ($format_type == 'school')
         {
             $top_display .= "School";
