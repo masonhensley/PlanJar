@@ -62,19 +62,19 @@ class Plan_actions extends CI_Model
             echo $date;
             ?>
         </div><br/><br/>
-            <div class="delete_plan" style="position:absolute; bottom:0px; left:0px; ">Delete Plan</div>
+        <div class="delete_plan" style="position:absolute; bottom:0px; left:0px; ">Delete Plan</div>
+        <?php
+        // Generate the invite people string
+        if ($row->privacy != 'strict')
+        {
+            ?><div class="invite_people" style="position:absolute; bottom:0px; right:0px;">Invite people</div><?php
+        } else
+        {
+            ?><div style="font-size: 14px; position:absolute; bottom:10px; right:10px;">
+                This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
             <?php
-            // Generate the invite people string
-            if ($row->privacy != 'strict')
-            {
-                ?><div class="invite_people" style="position:absolute; bottom:0px; right:0px;">Invite people</div><?php
-            } else
-            {
-                ?><div style="font-size: 14px; position:absolute; bottom:10px; right:10px;">
-                    This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
-                <?php
-            }
-  
+        }
+
         return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
     }
 
@@ -197,7 +197,7 @@ class Plan_actions extends CI_Model
         $event_row = $query->row();
 
         // Get the list of plans to the given location at the given time
-        $query_string = "SELECT plans.id
+        $query_string = "SELECT events.id
             FROM plans JOIN events
             ON plans.event_id = events.id
             WHERE plans.user_id = ? AND events.date = ? AND events.time = ? AND events.place_id = ?";
@@ -210,12 +210,12 @@ class Plan_actions extends CI_Model
 
         if ($query->num_rows() > 0)
         {
-            // Prior plan. Return the plan id
+            // Prior plan. Return the event id
             return $query->row()->id;
         } else
         {
             // No prior plans
-            return $this->db->last_query();
+            return true;
         }
     }
 

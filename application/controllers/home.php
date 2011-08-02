@@ -157,8 +157,7 @@ class Home extends CI_Controller
         } else
         {
             // Pre-existing plan. Return HTML for two options
-            //echo(json_encode(array('status' => 'error', 'error' => $plan_check)));
-            echo($plan_check);
+            echo(json_encode(array('status' => 'conflict')));
         }
     }
 
