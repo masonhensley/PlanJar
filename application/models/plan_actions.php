@@ -30,7 +30,7 @@ class Plan_actions extends CI_Model
     function load_plan_data($plan)
     {
         // pull all user's current events
-        $query = "SELECT events.id, events.date, events.time, events.title, events.privacy, places.name
+        $query = "SELECT events.id, events.date, events.time, events.title, events.privacy, events.originator_id, places.name
             FROM plans LEFT JOIN events ON plans.event_id = events.id
             LEFT JOIN places ON events.place_id = places.id
             WHERE plans.id = $plan";
@@ -65,7 +65,7 @@ class Plan_actions extends CI_Model
         <div class="delete_plan" style="position:absolute; bottom:0px; left:0px; ">Delete Plan</div>
         <?php
         // Generate the invite people string
-        if ($row->privacy != 'strict')
+        if ($row->privacy != 'strict' || $row->originator_id == $this->ion_auth->get_user()->id)
         {
             ?><div class="invite_people" style="position:absolute; bottom:0px; right:0px;">Invite people</div><?php
         } else
