@@ -37,6 +37,7 @@
     width: 100%;
 }
 #groups_content > .middle {
+    position:relative;
     width: 340px;
     float: left;
     margin-left: 10px;
