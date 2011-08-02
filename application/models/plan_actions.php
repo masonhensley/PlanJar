@@ -76,8 +76,11 @@ class Plan_actions extends CI_Model
             }
             ?>
             <?php
-            return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
         }
+        ?>
+        <?php
+        return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
+    }
 
     // function to delete plan from database
     function delete_plan($plan)
@@ -216,7 +219,8 @@ class Plan_actions extends CI_Model
         } else
         {
             // No prior plans
-            return true;
+            return str_replace("
+                    ", ' ', $this->db->last_query());
         }
     }
 
