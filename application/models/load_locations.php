@@ -63,7 +63,7 @@ class Load_locations extends CI_Model
         */
         
         $query = "SELECT places.id, places.name, events.title
-            FROM (SELECT user_meta.user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
+            FROM (SELECT user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance FROM user_meta HAVING distance < 15)new_users
                 JOIN plans ON user_meta.user_id=plans.user_id
