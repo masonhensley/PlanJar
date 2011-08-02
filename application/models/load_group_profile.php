@@ -103,73 +103,69 @@ class Load_group_profile extends CI_Model
 
             </div>
         </div>
-        <div class="profile_bottom_bar">
 
-            <?php
-            if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
-            {
-                if ($group_info['school_group']) // if you are joined and it is a school group
-                {
-                    ?>
-                    <div class="group_bottom_text">
-                        Group is <font style="color:red;font-weight:bold;">closed</font>
-                        <font style="color:gray; font-style:italic;">cannot leave school group</font>
-                    </div>
-                    <?php
-                } else // if you are joined and it is a regular group
-                {
-                    ?>
-                    <div class="group_bottom_text">
-                        You are a <font style="color:purple;font-weight:bold;">member</font> of this group
-                        <div class="invite_people" style="margin-right:3px;">Invite people</div>
-                    </div>
-                    <div class="group_bottom_button">
-                        <div class="remove_following">unjoin</div> 
-                    </div>
-                    <?php
-                }
-            } else if ($group_info['school_group']) // if you are following and it is a school group
+        <?php
+        if ($this->group_ops->user_is_joined($group_info['id']))  // if you are joined
+        {
+            if ($group_info['school_group']) // if you are joined and it is a school group
             {
                 ?>
                 <div class="group_bottom_text">
                     Group is <font style="color:red;font-weight:bold;">closed</font>
+                    <font style="color:gray; font-style:italic;">cannot leave school group</font>
                 </div>
                 <?php
-            } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are following and group is open
+            } else // if you are joined and it is a regular group
             {
                 ?>
                 <div class="group_bottom_text">
-                    Group is <font style="color:green;font-weight:bold;">open</font>
+                    You are a <font style="color:purple;font-weight:bold;">member</font> of this group
+                    <div class="invite_people" style="margin-right:3px;">Invite people</div>
                 </div>
-                <div class="add_joined" style="margin-right:3px;">join group</div>
-                <div class="remove_following">unfollow</div>
-                <?php
-            } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
-            {
-                ?>
-                <div class="group_bottom_text">
-                    Group is <font style="color:red;font-weight:bold;">closed</font>
-                </div>
-                <div class="remove_following">unfollow</div>
-                <?php
-            } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are not following and the group is open
-            {
-                ?>
-                <div class="group_bottom_text">
-                    Group is <font style="color:green;font-weight:bold;">open</font>
-                </div>
-                <?php
-            } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose')
-            {
-                ?>
-                <div class="group_bottom_text">
-                    Group is <font style="color:red;font-weight:bold;">closed</font>
+                <div class="group_bottom_button">
+                    <div class="remove_following">unjoin</div> 
                 </div>
                 <?php
             }
+        } else if ($group_info['school_group']) // if you are following and it is a school group
+        {
             ?>
-        </div>
-        <?php
+            <div class="group_bottom_text">
+                Group is <font style="color:red;font-weight:bold;">closed</font>
+            </div>
+            <?php
+        } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are following and group is open
+        {
+            ?>
+            <div class="group_bottom_text">
+                Group is <font style="color:green;font-weight:bold;">open</font>
+            </div>
+            <div class="add_joined" style="margin-right:3px;">join group</div>
+            <div class="remove_following">unfollow</div>
+            <?php
+        } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
+        {
+            ?>
+            <div class="group_bottom_text">
+                Group is <font style="color:red;font-weight:bold;">closed</font>
+            </div>
+            <div class="remove_following">unfollow</div>
+            <?php
+        } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'open') // if you are not following and the group is open
+        {
+            ?>
+            <div class="group_bottom_text">
+                Group is <font style="color:green;font-weight:bold;">open</font>
+            </div>
+            <?php
+        } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose')
+        {
+            ?>
+            <div class="group_bottom_text">
+                Group is <font style="color:red;font-weight:bold;">closed</font>
+            </div>
+            <?php
+        }
     }
 
     function return_profile_picture()

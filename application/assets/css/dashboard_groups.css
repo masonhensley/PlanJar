@@ -178,7 +178,9 @@
 }
 
 .profile_bottom_bar .remove_following{
-    margin-right:5px;
+    position:absolute;
+    bottom:-10px;
+    right:-10px;
 }
 
 .group_entry_left_side{
