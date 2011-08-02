@@ -194,15 +194,21 @@ class Plan_actions extends CI_Model
     // Don't forget to use === for the return value
     function unique_plan($event_id)
     {
+        // Get the event info
+        $query_string = "SELECT place_id, date, time FROM events WHERE id = ?";
+        $query = $this->db->query($query_string, array($event_id));
+        $event_row = $query->row();
+
+        // Get the list of plans to the given location at the given time
         $query_string = "SELECT plans.id
             FROM plans RIGHT JOIN events
             ON plans.event_id = events.id
             WHERE plans.user_id = ? AND events.day = ? AND events.time = ? AND events.place_id = ?";
         $query = $this->db->query($query_string, array(
                     $this->ion_auth->get_user()->id,
-                    $day,
-                    $time,
-                    $place_id
+                    $event_row->day,
+                    $event_row->time,
+                    $event_row->place_id
                 ));
 
         if ($query->num_rows() > 0)
