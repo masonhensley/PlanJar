@@ -60,6 +60,7 @@ class Load_locations extends CI_Model
                   JOIN places ON places.id=events.place_id
                   WHERE events.date='$sql_date'
                   ORDER BY distance ASC";
+        var_dump($query);
         $result = $this->db->query($query);
 
         $place_array = array();
