@@ -42,8 +42,12 @@
         <script type="text/javascript" src="/application/assets/js/plan_conflict_modal.js"></script>
 
         <!-- D3 plugin -->
-        <!--<script type="text/javascript" src="/application/assets/js/D3/d3.js"></script>-->
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
+
+        <!-- notifications plugin -->
+        <script type="text/javascript" src="/application/assets/js/badger.min/badger.min.js"></script>
+        <!-- notifications css -->
+        <link rel=stylesheet href="/application/assets/js/badger.min/badger.min.css" type="text/css" />
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -63,7 +67,13 @@
                     <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Groups</div></div></a>
                     <a href="/dashboard/followers" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Followers</div></div></a>
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Following</div></div></a>
-                    <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer"><div class="top_right_link_inner">Notifications</div></div></a>
+                    <a href="/dashboard/notifications" id="profile_link">
+                        <div class="top_right_link_outer" id="notifications">
+                            <div class="top_right_link_inner">
+                                Notifications
+                            </div>        
+                        </div>
+                    </a>
                     <a href="/home/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
                 </div>
             </div>

@@ -9,6 +9,11 @@ var map;
 // Run when the DOM is loaded.
 $(function() {
     initialize_map();
+    
+    // populate the notifications!
+    $.get('/home/get_notification_popup/', function(){
+        
+    });
 });
 
 // Gets the user's current location
