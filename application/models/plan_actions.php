@@ -218,7 +218,7 @@ class Plan_actions extends CI_Model
         } else
         {
             // No prior plans
-            return true;
+            return $this->db->last_query();
         }
     }
 
