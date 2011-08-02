@@ -181,7 +181,7 @@ function submit_plan_helper(from_just_go) {
             reset_plan_modal();
                     
             if (data.status == 'success') {
-                if (data.privacy != 'strict') {
+                if (privacy != 'strict') {
                     // Open the invite modal
                     open_invite_modal('event', data, privacy, data.originator);
                 }
