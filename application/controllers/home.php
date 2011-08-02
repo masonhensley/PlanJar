@@ -166,10 +166,10 @@ class Home extends CI_Controller
         );
 
         // Add the plan
+        $this->load->model('plan_actions');
         $this->plan_actions->add_plan($plan_data);
 
         // Check if the user already has plans to that place at that time
-        $this->load->model('plan_actions');
         $plan_check = $this->plan_actions->unique_plan($event_id);
         if ($plan_check === true)
         {
