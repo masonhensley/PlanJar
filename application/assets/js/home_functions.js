@@ -14,7 +14,7 @@ $(function() {
     $.get('/home/get_notification_popup/', function(data){
         if(data>0)
         {
-            $('#notifications').badger(data);
+            $('#notifications .top_right_link_inner').badger(data);
         }
     });
 });
