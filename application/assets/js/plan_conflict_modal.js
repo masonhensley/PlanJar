@@ -30,9 +30,6 @@ function open_conflict_modal(data, callback) {
             keep_event: $(this).attr('event_id'),
             discard_event: $(this).siblings(':first').attr('event_id')
         }, function (data) {
-            // Refresh the plan panel
-            populate_plan_panel();
-            
             // Hide the modal
             $('#plan_conflict_modal').hide('fast', function () {
                 callback();

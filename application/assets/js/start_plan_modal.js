@@ -164,6 +164,10 @@ function submit_plan(from_just_go) {
             } else {
                 // Open the conflict modal
                 open_conflict_modal(data, function () {
+                    // Refresh the plan panel
+                    populate_plan_panel();
+            
+                    // Invite people
                     open_invite_modal('event', data, privacy, true);
                 });
             }
