@@ -177,12 +177,10 @@ class Notification_ops extends CI_Model
         {
             // Event invite
             case 'event_invite':
-
-                $this->load->model('plan_actions');
-
                 $this->update_notification_viewed($id, true);
 
                 // Check if the user already has plans to that place at that time
+                $this->load->model('plan_actions');
                 $plan_check = $this->plan_actions->unique_plan($row->subject_id);
 
                 if ($plan_check === true)
@@ -195,7 +193,7 @@ class Notification_ops extends CI_Model
                 {
                     // Pre-existing plan. Return HTML for two options
                     $this->load->model('event_ops');
-                    $choice_data = $this->event_ops->get_events_for_choice($event_id, $plan_check);
+                    $choice_data = $this->event_ops->get_events_for_choice($row->subject_id, $plan_check);
                     echo(json_encode(array_merge(array('status' => 'conflict'), $choice_data)));
                 }
                 break;
