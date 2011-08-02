@@ -168,6 +168,9 @@ class Event_ops extends CI_Model
         $query_string = "SELECT id FROM plans WHERE event_id = ?";
         $query = $this->db->query($query_string, array($event_id));
 
+        var_dump($this->db->last_query());
+        var_dump($query->num_rows());
+
         // Delete the event if there is only one attendee (the current user)
         if ($query->num_rows() <= 1)
         {

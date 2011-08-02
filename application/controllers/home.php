@@ -542,7 +542,6 @@ class Home extends CI_Controller
                     $this->input->get('discard_event'),
                     $this->ion_auth->get_user()->id
                 ));
-        var_dump($this->db->last_query());
 
         if ($query->num_rows() > 0)
         {

@@ -86,7 +86,7 @@ class Plan_actions extends CI_Model
         $query = $this->db->query($query_string, array($plan));
         $event_id = $query->row()->event_id;
 
-        // Delete the event
+        // Delete the event (necessary checks are inside)
         $this->load->model('event_ops');
         $this->event_ops->delete_event($event_id);
 
