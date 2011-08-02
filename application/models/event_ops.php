@@ -9,21 +9,27 @@ class Event_ops extends CI_Model
         parent::__construct();
     }
 
-    // Accepts an associative array of data to create an event
-    // Returns the event id
-    public function create_event($data)
+    // Return an event id if an event is found based on the given data
+    // Returns false otherwise (remember to use ===)
+    public function check_event($data)
     {
-        // Return the id if the event already exists
         $query_string = "SELECT * FROM events WHERE 
             title = ? AND place_id = ? AND date = ? AND time = ? AND privacy = ?";
         $query = $this->db->query($query_string, $data);
         if ($query->num_rows() > 0)
         {
             return $query->row()->id;
+        } else
+        {
+            return false;
         }
+    }
 
-        // Add the event
-        $query_string = "INSERT IGNORE INTO events VALUES (DEFAULT, ?, ?, ?, ?, ?)";
+    // Accepts an associative array of data to create an event
+    // Returns the event id
+    public function create_event($data)
+    {
+        $query_string = "INSERT IGNORE INTO events VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
         $query = $this->db->query($query_string, $data);
 
         return $this->db->insert_id();

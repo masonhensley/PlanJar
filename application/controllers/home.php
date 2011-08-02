@@ -109,8 +109,6 @@ class Home extends CI_Controller
         $new_event = false;
         if ($event_id == '')
         {
-            $new_event = true;
-
             // Event data
             $date = new DateTime();
             $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
@@ -119,7 +117,8 @@ class Home extends CI_Controller
                 'place_id' => $this->input->get('plan_location_id'),
                 'date' => $date->format('Y-m-d'),
                 'time' => $this->input->get('plan_time'),
-                'privacy' => $privacy
+                'privacy' => $privacy,
+                'originator_id' => $this->ion_auth->get_user()->id
             );
 
             // Add the place to the PlanJar database if a Factual place was selected.
@@ -139,7 +138,19 @@ class Home extends CI_Controller
 
             // Update event id with the new event
             $this->load->model('event_ops');
-            $event_id = $this->event_ops->create_event($event_data);
+            $existing_event = $this->event_ops->check_event($event_data);
+
+            if ($existing_event === false)
+            {
+                // Create an event
+                $new_event = true;
+                $event_id = $this->event_ops->create_event($event_data);
+            } else
+            {
+                // Use the existing event
+                $event_id = $existing_event;
+            }
+
 
             // Add the user to the invite list if necessary
             if ($privacy != 'open')
@@ -558,7 +569,9 @@ class Home extends CI_Controller
         // Capture the input
         $needle = $this->input->get('needle');
         $plan_time = $this->input->get('plan_time');
-        $plan_day = $this->input->get('plan_day');
+        $plan_date = new DateTime();
+        $plan_date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
+        $plan_date = $plan_date->format('Y-m-d');
         $place_id = $this->input->get('place_id');
 
         // Check for a new place (impossible to have pre-existing events)
@@ -572,7 +585,7 @@ class Home extends CI_Controller
         $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ?";
         $query = $this->db->query($query_string, array(
                     $needle,
-                    $plan_day,
+                    $plan_date,
                     $plan_time
                 ));
 
