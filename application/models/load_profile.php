@@ -38,7 +38,7 @@ class Load_profile extends CI_Model
                 <font style="color:darkgray; float:left;">box</font><?php
         echo " ";
         ?><div class="my_box"><?php
-        if (isset($user->box))
+        if (isset($user->box) && $user->box != "")
         {
                     ?><font style="font-weight: bold;"><?php echo $user->box; ?></font><?php
         } else
