@@ -268,7 +268,7 @@ class Dashboard extends CI_Controller
     {
         // update a user's box
         $box_text = $this->input->get('box_text');
-        $query = "INSERT INTO user_meta (box) VALUES ($box_text)";
+        $query = "INSERT INTO user_meta (box) VALUES ('$box_text')";
         $this->db->query($query);
         echo $box_text;
     }
