@@ -49,17 +49,30 @@ class Load_locations extends CI_Model
         $user = $this->ion_auth->get_user();
         $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">Current Location</font> ";
         $display_message .= "for <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
-
+        
+        $query = "SELECT user_meta.user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
+                        + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
+                        * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
+                FROM user_meta
+                HAVING distance<15";
+        
+        
+        
+/*
         $query = "SELECT places.id, places.name, places.category, events.title,
-                  ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
-                        + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
+                  ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
+                        + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
                   FROM events
-                  LEFT JOIN event_invitees ON event_invitees.event_id=events.id
-                  JOIN plans ON (plans.event_id=events.id AND events.privacy='open') OR (plans.user_id=event_invitees.user_id)
+                  JOIN user_meta ON 
+                  JOIN plans ON 
+                  JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
+                  LEFT JOIN event_invitees ON plans.user_id=event_invitees.user_id
                   JOIN places ON places.id=events.place_id
-                  WHERE events.date='$sql_date'
                   ORDER BY distance ASC";
+ * 
+ */
+        
         var_dump($query);
         $result = $this->db->query($query);
 
