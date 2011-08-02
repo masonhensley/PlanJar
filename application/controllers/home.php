@@ -173,7 +173,7 @@ class Home extends CI_Controller
         {
             // Add the plan and echo success
             $this->plan_actions->add_plan($plan_data);
-            echo(json_encode(array('status' => 'success', 'originator' => $new_event)));
+            echo(json_encode(array('status' => 'success', 'originator' => $new_event, 'event_id' => $event_id)));
         } else
         {
             // Pre-existing plan. Return HTML for two options
@@ -503,9 +503,6 @@ class Home extends CI_Controller
         {
             $group_ids = array();
         }
-
-        var_dump($user_ids);
-        var_dump($group_ids);
 
         $this->load->model('group_ops');
         $user_ids = array_merge($user_ids, $this->group_ops->get_users($group_ids));
