@@ -15,6 +15,7 @@
         <link rel=stylesheet href="/application/assets/css/databox.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/graphs.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_conflict_modal.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/selectable_event.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>

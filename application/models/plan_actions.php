@@ -86,25 +86,9 @@ class Plan_actions extends CI_Model
         $query = $this->db->query($query_string, array($plan));
         $event_id = $query->row()->event_id;
 
-        // Get all people with plans to the event
-        $query_string = "SELECT id FROM plans WHERE event_id = ?";
-        $query = $this->db->query($query_string, array($event_id));
-
-        // Delete the event if there is only one attendee (the current user)
-        if ($query->num_rows() == 1)
-        {
-            $query_string = "DELETE FROM events WHERE id = ?";
-            $query = $this->db->query($query_string, array($event_id));
-            var_dump($this->db->last_query());
-
-            // Delete all relevant invites
-            $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
-            $query = $this->db->query($query_string, array($event_id));
-
-            // Delete all relevant notifications
-            $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
-            $query = $this->db->query($query_string, array('event_invite', $event_id));
-        }
+        // Delete the event
+        $this->load->model('event_ops');
+        $this->event_ops->delete_event($event_id);
 
         // Delete the plan
         $query = "DELETE FROM plans WHERE plans.id = $plan";
@@ -200,12 +184,14 @@ class Plan_actions extends CI_Model
         $query_string = "SELECT events.id
             FROM plans JOIN events
             ON plans.event_id = events.id
-            WHERE plans.user_id = ? AND events.date = ? AND events.time = ? AND events.place_id = ?";
+            WHERE plans.user_id = ? AND events.date = ? AND events.time = ? AND events.place_id = ?
+            AND events.title <> '' AND events.id <> ?";
         $query = $this->db->query($query_string, array(
                     $this->ion_auth->get_user()->id,
                     $event_row->date,
                     $event_row->time,
-                    $event_row->place_id
+                    $event_row->place_id,
+                    $event_id
                 ));
 
         if ($query->num_rows() > 0)

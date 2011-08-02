@@ -58,9 +58,9 @@ class Event_ops extends CI_Model
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
         $query_string = "SELECT events.id, events.title, events.privacy
-            FROM events RIGHT JOIN event_invitees ON events.id = event_invitees.event_id
+            FROM events LEFT JOIN event_invitees ON events.id = event_invitees.event_id
             WHERE events.date = ? AND events.time = ? AND events.place_id = ? AND events.title <> ''
-            AND event_invitees.user_id = ?";
+            AND (event_invitees.user_id = ? OR events.privacy = 'open')";
         $query = $this->db->query($query_string, array(
                     $date->format('Y-m-d'),
                     $time,
@@ -151,6 +151,29 @@ class Event_ops extends CI_Model
         $return_array['title_text'] .= '.<br/>Choose which one you want to go to.';
 
         return $return_array;
+    }
+
+    // Deletes an event
+    function delete_event($event_id)
+    {
+        // Get all people with plans to the event
+        $query_string = "SELECT id FROM plans WHERE event_id = ?";
+        $query = $this->db->query($query_string, array($event_id));
+
+        // Delete the event if there is only one attendee (the current user)
+        if ($query->num_rows() <= 1)
+        {
+            $query_string = "DELETE FROM events WHERE id = ?";
+            $query = $this->db->query($query_string, array($event_id));
+
+            // Delete all relevant invites
+            $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
+            $query = $this->db->query($query_string, array($event_id));
+
+            // Delete all relevant notifications
+            $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
+            $query = $this->db->query($query_string, array('event_invite', $event_id));
+        }
     }
 
 }

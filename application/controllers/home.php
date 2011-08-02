@@ -137,6 +137,12 @@ class Home extends CI_Controller
             // Update event id with the new event
             $this->load->model('event_ops');
             $event_id = $this->event_ops->create_event($event_data);
+
+            // Add the user to the invite list if necessary
+            if ($privacy != 'open')
+            {
+                $this->event_ops->add_invitees($event_id, array($this->ion_auth->get_user()->id));
+            }
         }
 
         // Plan data
@@ -522,9 +528,18 @@ class Home extends CI_Controller
                     $this->ion_auth->get_user()->id
                 ));
         var_dump($this->db->last_query());
-        // Discard the plan
-        $this->load->model('plan_actions');
-        $this->plan_actions->delete_plan($query->row()->id);
+
+        if ($query->num_rows() > 0)
+        {
+            // Discard the plan
+            $this->load->model('plan_actions');
+            $this->plan_actions->delete_plan($query->row()->id);
+        } else
+        {
+            // Delete the event (the function call does checks beforehand)
+            $this->load->model('event_ops');
+            $this->event_ops->delete_event($this->input->get('discard_event'));
+        }
 
         // Add the other plan
         $this->plan_actions->add_plan(array(
