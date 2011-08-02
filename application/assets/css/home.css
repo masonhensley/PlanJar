@@ -214,11 +214,10 @@ a{
 }
 
 .plan_deleted{
-    width:50px;
-
+    width:auto;
     height:50px; 
     position:relative; 
-    top:40px;
+    top:70px;
     text-align:center;
     margin-right:auto; 
     margin-left:auto;
