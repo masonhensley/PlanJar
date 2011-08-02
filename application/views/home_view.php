@@ -45,9 +45,9 @@
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
 
         <!-- notifications plugin -->
-        <script type="text/javascript" src="/application/assets/js/badger.min/badger.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/badger/badger.js"></script>
         <!-- notifications css -->
-        <link rel=stylesheet href="/application/assets/js/badger.min/badger.min.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/js/badger/badger.css" type="text/css" />
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
