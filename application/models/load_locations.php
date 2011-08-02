@@ -62,8 +62,8 @@ class Load_locations extends CI_Model
                   WHERE events.date='$sql_date' HAVING distance<15";
         
         var_dump($query);
-        $result = $this->db->query($query);
-
+        //$result = $this->db->query($query);
+        /*
         $place_array = array();
         $place_id_array = array();
         foreach ($result->result() as $place)
@@ -75,6 +75,8 @@ class Load_locations extends CI_Model
             $place_id_array[] = $place->id;
         }
         $this->display_location_tabs($display_message, $place_id_array, $place_array);
+         * 
+         */
     }
 
     function on_friends_selected($display_day, $sql_date)
