@@ -70,7 +70,7 @@ class Plan_actions extends CI_Model
                 ?><div class="invite_people" style="position:absolute; bottom:0px; right:0px;">Invite people</div><?php
             } else
             {
-                ?><div style="font-size: 14px; float: right; line-height: 30px; margin-right: 10px;">
+                ?><div style="font-size: 14px; position:absolute; bottom:10px; right:10px;">
                     This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
                 <?php
             }
