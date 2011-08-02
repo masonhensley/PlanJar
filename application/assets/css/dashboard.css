@@ -277,8 +277,14 @@ a{
     background-color:white;
 }
 
-.add_box{
+.edit_box{
     color:blue;
+    font-weight:bold;
+}
+
+.update_box{
+    color:green;
+    font-weight:bold;
 }
 
 .profile_top_bar{
