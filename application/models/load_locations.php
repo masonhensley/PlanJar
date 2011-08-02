@@ -36,7 +36,7 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-          ?> 
+        ?> 
         <div class="display_message">
             Popular locations for <?php echo $display_day; ?><br/>
             (no groups selected)
@@ -55,8 +55,8 @@ class Load_locations extends CI_Model
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
                   FROM events
-                  LEFT JOIN event_invitees ON event_invitees.event_id=events.id
                   JOIN plans ON (plans.event_id=events.id AND events.privacy='open') OR (plans.user_id=event_invitees.user_id)
+                  LEFT JOIN event_invitees ON event_invitees.event_id=events.id
                   JOIN places ON places.id=events.place_id 
                   WHERE events.date='$sql_date'
                   ORDER BY distance ASC";
