@@ -61,7 +61,7 @@ class Load_locations extends CI_Model
                   JOIN places ON places.id=events.place_id
                   WHERE events.date='$sql_date' HAVING distance<15";
         
-        var_dump($query);
+        var_dump($query, $user->user_id);
         //$result = $this->db->query($query);
         /*
         $place_array = array();
