@@ -92,7 +92,7 @@ class Event_ops extends CI_Model
     public function get_events_for_choice($event0, $event1)
     {
         $query_string = "SELECT events.id, events.title, events.privacy, events.date, events.time, places.name
-            FROM events JOIN places ON events.place_id = event_invitees.event_id
+            FROM events JOIN places ON events.place_id = places.id
             WHERE events.id = ? OR events.id = ?";
         $query = $this->db->query($query_string, array($event0, $event1));
 
