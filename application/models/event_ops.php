@@ -137,6 +137,8 @@ class Event_ops extends CI_Model
         {
             // Any other day
             $day = $day->format('D - j');
+            var_dump($day);
+            var_dump($time);
 
             if ($time == 'late_night')
             {
