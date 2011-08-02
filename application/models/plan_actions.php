@@ -64,110 +64,110 @@ class Plan_actions extends CI_Model
         </div><br/><br/>
         <div class="delete_plan_container"style="font-size: 20px; text-align:left;">
             <div class="delete_plan">Delete Plan</div>
-            $invite_people
-        </div>";
-        <?php
-        // Generate the invite people string
-        if ($row->privacy != 'strict')
-        {
-            $invite_people = "<div class=\"invite_people\">Invite people</div>";
-        } else
-        {
-            $invite_people = "<div style=\"font-size: 14px; float: right; line-height: 30px; margin-right: 10px;\">
-                This event has <b>strict</b> privacy settings. You can't invite anyone.</div>";
-        }
-
-
-
-        return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
-    }
-
-    // function to delete plan from database
-    function delete_plan($plan)
-    {
-        // Get the associated event
-        $query_string = "SELECT event_id FROM plans WHERE id = ?";
-        $query = $this->db->query($query_string, array($plan));
-        $event_id = $query->row()->event_id;
-
-        // Get all people with plans to the event
-        $query_string = "SELECT id FROM plans WHERE event_id = ?";
-        $query = $this->db->query($query_string, array($event_id));
-
-        // Delete the event if there is only one attendee (the current user)
-        if ($query->num_rows() == 1)
-        {
-            $query_string = "DELETE FROM events WHERE id = ?";
-            $query = $this->db->query($query_string, array($event_id));
-            var_dump($this->db->last_query());
-
-            // Delete all relevant invites
-            $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
-            $query = $this->db->query($query_string, array($event_id));
-
-            // Delete all relevant notifications
-            $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
-            $query = $this->db->query($query_string, array('event_invite', $event_id));
-        }
-
-        // Delete the plan
-        $query = "DELETE FROM plans WHERE plans.id = $plan";
-        $this->db->query($query);
-
-        return "<div id=\"container\" class=\"plan_deleted\">Plan Deleted</div>";
-    }
-
-    // Accepts an associative array containing plan data
-    function add_plan($data)
-    {
-        // Return the id if the plan already exists
-        $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
-        $query = $this->db->query($query_string, $data);
-        if ($query->num_rows() > 0)
-        {
-            return $query->row()->id;
-        }
-
-        // Add the plan
-        $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
-        $query = $this->db->query($query_string, $data);
-
-        return $this->db->insert_id();
-    }
-
-    // Returns an HTML string for the plan panel on the right
-    function display_plans()
-    {
-        $date_organizer = "";
-        $plans_result = $this->get_plans();
-        ob_start(); // start the output buffer 
-
-        if ($plans_result->num_rows() > 0)
-        {
-            foreach ($plans_result->result() as $plan)
+            <?php
+            // Generate the invite people string
+            if ($row->privacy != 'strict')
             {
-                // make easy to read variables
-                $id = $plan->id;
-                $place_name = $plan->name;
-                $title = $plan->title;
-                $time = $plan->time;
-                $date = date('l', strtotime($plan->date));
-                ?>
+                ?><div class="invite_people">Invite people</div><?php
+            } else
+            {
+                ?><div style="font-size: 14px; float: right; line-height: 30px; margin-right: 10px;">
+                This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
+                <?php
+            }
+            ?>
+        </div>
+            <?php
+            return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
+        }
+
+        // function to delete plan from database
+        function delete_plan($plan)
+        {
+            // Get the associated event
+            $query_string = "SELECT event_id FROM plans WHERE id = ?";
+            $query = $this->db->query($query_string, array($plan));
+            $event_id = $query->row()->event_id;
+
+            // Get all people with plans to the event
+            $query_string = "SELECT id FROM plans WHERE event_id = ?";
+            $query = $this->db->query($query_string, array($event_id));
+
+            // Delete the event if there is only one attendee (the current user)
+            if ($query->num_rows() == 1)
+            {
+                $query_string = "DELETE FROM events WHERE id = ?";
+                $query = $this->db->query($query_string, array($event_id));
+                var_dump($this->db->last_query());
+
+                // Delete all relevant invites
+                $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
+                $query = $this->db->query($query_string, array($event_id));
+
+                // Delete all relevant notifications
+                $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
+                $query = $this->db->query($query_string, array('event_invite', $event_id));
+            }
+
+            // Delete the plan
+            $query = "DELETE FROM plans WHERE plans.id = $plan";
+            $this->db->query($query);
+
+            return "<div id=\"container\" class=\"plan_deleted\">Plan Deleted</div>";
+        }
+
+        // Accepts an associative array containing plan data
+        // Returns the plan id
+        function add_plan($data)
+        {
+            // Return the id if the plan already exists
+            $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
+            $query = $this->db->query($query_string, $data);
+            if ($query->num_rows() > 0)
+            {
+                return $query->row()->id;
+            }
+
+            // Add the plan
+            $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
+            $query = $this->db->query($query_string, $data);
+
+            return $this->db->insert_id();
+        }
+
+        // Returns an HTML string for the plan panel on the right
+        function display_plans()
+        {
+            $date_organizer = "";
+            $plans_result = $this->get_plans();
+            ob_start(); // start the output buffer 
+
+            if ($plans_result->num_rows() > 0)
+            {
+                foreach ($plans_result->result() as $plan)
+                {
+                    // make easy to read variables
+                    $id = $plan->id;
+                    $place_name = $plan->name;
+                    $title = $plan->title;
+                    $time = $plan->time;
+                    $date = date('l', strtotime($plan->date));
+                    ?>
                 <div class="active_plans"> 
-                    <?php
-                    if ($date_organizer != $date)
-                    {
-                        ?>
+                <?php
+                if ($date_organizer != $date)
+                {
+                    ?>
                         <br/><font style="font-size:16px; color:gray;"><?php echo $date; ?><br/></font>
                         <?php
                     }
                     $date_organizer = $date;
                     ?>
                     <div class ="plan_content" plan_id="<?php echo $id; ?>">
-                        <?php
-                        if ($title != '')
-                        {
-                            ?>
+                    <?php
+                    if ($title != '')
+                    {
+                        ?>
                             <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
                             <font style="color:darkgray;"><?php echo $place_name; ?></font>
                             <?php
@@ -178,11 +178,11 @@ class Plan_actions extends CI_Model
                         ?>
                     </div>
                 </div>
-                <?php
-            }
-        } else
-        {
-            ?>
+                        <?php
+                    }
+                } else
+                {
+                    ?>
             <font style="font-style:italic;">Nothing to show</font><br/><br/>
             <?php
         }

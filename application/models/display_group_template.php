@@ -362,36 +362,53 @@ class Display_group_template extends CI_Model
         $month = $big_display_day = $date->add(new DateInterval('P' . $day . 'D'));
         $big_display_day = $big_display_day->format('D');
 
+        // make the percentage readable
         if (strlen($data_array['percent_total_going_out']) > 3)
         {
             $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+            if (substr($data_array['percent_total_going_out'], -1) == ".")
+            {
+                $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, -1);
+            }
         }
         if (strlen($data_array['percent_males_going_out']) > 3)
         {
             $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, 3);
+            if (substr($data_array['percent_males_going_out'], -1) == ".")
+            {
+                $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, -1);
+            }
         }
         if (strlen($data_array['percent_females_going_out']) > 3)
         {
             $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
+            if (substr($data_array['percent_females_going_out'], -1) == ".")
+            {
+                $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, -1);
+            }
         }
+
 
         if ($font_style == 'groups')
         {
-            $font_style = "<font style=\"font-size:15px; font-weight:bold;color:orange;\">";
+            $font_style = "<font style=\"font-weight:bold; color:orange;\">";
         } else
         {
-            $font_style = "<font style=\"font-size:15px; font-weight:bold;color:green;\">";
+            $font_style = "<font style=\"font-weight:bold; color:green;\">";
         }
 
         ob_start();
         ?>
         <div class="data_box_top_bar">
-            <div style="float:left;">
+            <div style="float:left; font-size:20px;">
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
+        <div style="position:absolute; top:25px; right:50px;color:darkgray;">
+            # people going out by day
+        </div>
         <div class="group_graph_top_left" >
-            view:&nbsp;
+            viewing&nbsp;
             <select id="filter">
                 <option value="all">All</option>
                 <option value="freshmen">Freshmen</option>
@@ -404,9 +421,9 @@ class Display_group_template extends CI_Model
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
             ?>
-            people<?php echo " " . $total; ?>
-            males<?php echo " " . $data_array['total_males']; ?>
-            females<?php echo " " . $data_array['total_females']; ?><br/>
+            <font style="color:darkgray;">people</font><font style="font-weight:bold;"><?php echo " " . $total; ?></font>
+            <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $data_array['total_males']; ?></font>
+            <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $data_array['total_females']; ?></font><br/>
         </div>
         <div class="group_graph_top_right">
         </div>
@@ -418,13 +435,13 @@ class Display_group_template extends CI_Model
             <div class="show_percent"style="top:56px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
             <div class="show_percent" style="top:94px;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
 
-            <font style="color:darkgray; font-weight:bold;">everyone in group<?php echo $s; ?> going out</font>
+            <font style="color:darkgray; font-weight:bold;">people going out</font>
             <div class="total_percent_container">
             </div>
-            <font style="color:darkgray; font-weight:bold;">males in group<?php echo $s . " "; ?>going out</font>
+            <font style="color:darkgray; font-weight:bold;">males going out</font>
             <div class="male_percent_container">
             </div>
-            <font style="color:darkgray; font-weight:bold;">females in group<?php echo $s . " "; ?>going out</font>
+            <font style="color:darkgray; font-weight:bold;">females going out</font>
             <div class="female_percent_container">
             </div>
         </div>

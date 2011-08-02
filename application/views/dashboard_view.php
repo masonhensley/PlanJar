@@ -59,7 +59,6 @@
             <div class = "inside_top_panel">
                 <div id="show_name"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
                 <a href="/home/"><div class ="top_right_link_outer"><div class="top_right_link_inner">Home</div></div></a>
-                <a href="/home/"><div class ="top_right_link_outer"><div class="top_right_link_inner">Create Plan</div></div></a>
                 <a href="/home/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
             </div>
         </div>
