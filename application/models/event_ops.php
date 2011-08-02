@@ -130,6 +130,8 @@ class Event_ops extends CI_Model
         } else
         {
             // Any other day
+            $day = $day->format('D - j');
+
             if ($time == 'late_night')
             {
                 $return_array['title_text'] .= 'late into the night';
