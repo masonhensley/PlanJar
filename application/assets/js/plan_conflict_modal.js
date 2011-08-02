@@ -30,14 +30,16 @@ function open_conflict_modal(data, callback) {
         $('#plan_conflict_select .selectable_event').unbind('click');
         
         // Resolve the conflict
+        var keep_event = $(this).attr('event_id');
         $.get('/home/resolve_plan_conflict', {
-            keep_event: $(this).attr('event_id'),
+            'keep_event': keep_event,
             discard_event: $(this).siblings(':first').attr('event_id')
         }, function (data) {
             // Hide the modal
             $('#plan_conflict_modal').hide('fast', function () {
-                // Call the callback with the privacy type of the selected event and the originator bool value
-                callback(privacy, originator);
+                // Call the callback with the privacy type of the selected event, the originator bool value,
+                // and the event id
+                callback(privacy, originator, keep_event);
             });
         });
     });

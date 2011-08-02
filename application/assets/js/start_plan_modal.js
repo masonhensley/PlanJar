@@ -181,18 +181,18 @@ function submit_plan_helper(from_just_go) {
             reset_plan_modal();
                     
             if (data.status == 'success') {
-                if (privacy != 'strict') {
+                if (privacy != 'strict' || data.originator) {
                     // Open the invite modal
-                    open_invite_modal('event', data, privacy, data.originator);
+                    open_invite_modal('event', data.event_id, privacy, data.originator);
                 }
             } else {
                 // Open the conflict modal
-                open_conflict_modal(data, function (resulting_privacy, originator) {
+                open_conflict_modal(data, function (resulting_privacy, originator, event_id) {
                     // Refresh the plan panel
                     populate_plan_panel();
             
                     // Invite people
-                    open_invite_modal('event', data, resulting_privacy, originator);
+                    open_invite_modal('event', event_id, resulting_privacy, originator);
                 });
             }
         });
