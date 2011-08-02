@@ -160,7 +160,7 @@ function submit_plan(from_just_go) {
                     
             if (data.status == 'success') {
                 // Open the invite modal
-                open_invite_modal('event', data, privacy, true);
+                open_invite_modal('event', data, privacy, data.originator);
             } else {
                 // Open the conflict modal
                 open_conflict_modal(data, function () {
