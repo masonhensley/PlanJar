@@ -126,7 +126,7 @@ class Plan_actions extends CI_Model
         }
 
         // Add the plan
-        $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
+        $query_string = "INSERT INTO plans VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, $data);
 
         return $this->db->insert_id();
