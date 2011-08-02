@@ -22,6 +22,9 @@ function open_conflict_modal(data, callback) {
     
     // Assign the click handler
     $('#plan_conflict_select .selectable_event').click(function() {
+        // Capture the privacy value
+        var privacy = $(this).attr('priv_type');
+        
         // Remove the click handlers
         $('#plan_conflict_select .selectable_event').unbind('click');
         
@@ -32,7 +35,8 @@ function open_conflict_modal(data, callback) {
         }, function (data) {
             // Hide the modal
             $('#plan_conflict_modal').hide('fast', function () {
-                callback();
+                // Call the callback with the privacy type of the selected event
+                callback(privacy);
             });
         });
     });
