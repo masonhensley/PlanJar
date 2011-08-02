@@ -37,7 +37,7 @@ class Load_profile extends CI_Model
                 <br/>
                 <font style="color:darkgray; float:left;">box</font><?php
         echo " ";
-        ?><div class="my_box"><?php
+                ?><div class="my_box"><?php
         if (isset($user->box) && trim($user->box) != "")
         {
                     ?><font style="font-weight: bold;"><?php echo $user->box; ?></font><?php
@@ -46,13 +46,15 @@ class Load_profile extends CI_Model
                     ?><font style="font-style: italic;">Nothing to show</font><?php
         }
                 ?>
-        </div>
+                </div>
                 <br/><br/>
                 <?php
                 if ($format == 'profile_edit')
                 {
                     ?>
-                    <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80">Write something about yourself</textarea>
+                    <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80"onclick="document.myform.mytext.value=''; ">
+                        You have 80 characters to work with
+                    </textarea>
                     <div class="edit_box">
                         edit box
                     </div>
