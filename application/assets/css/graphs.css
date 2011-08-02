@@ -8,8 +8,8 @@
 }
 
 .half_marker_box {
-    width: 16px;
-    height: 8px;
+    width: 8px;
+    height: 16px;
     float: left;
     border: none;
 }
