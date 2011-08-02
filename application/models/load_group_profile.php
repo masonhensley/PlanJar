@@ -78,7 +78,7 @@ class Load_group_profile extends CI_Model
                 ?><font style="color:gray">(not following)</font><?php
         }
             ?>
-                <br/>
+                <br/><br/><br/><br/>
             </div>
         </div>
 
