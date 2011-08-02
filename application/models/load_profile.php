@@ -46,9 +46,16 @@ class Load_profile extends CI_Model
         }
                 ?>
                 <br/>
-                <div class="add_box">
-                    edit box
-                </div>
+                <?php
+                if ($format == 'profile_edit')
+                {
+                    ?>
+                    <div class="add_box">
+                        edit box
+                    </div>
+                    <?php
+                }
+                ?>
                 <br/>
                 <hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
         $group_count = count($groups_joined);
