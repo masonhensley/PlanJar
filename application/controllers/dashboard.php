@@ -248,16 +248,20 @@ class Dashboard extends CI_Controller
     public function get_profile()
     {
         $this->load->model('load_profile');
-
         $user = $this->input->get('user_id');
+        $format = ""; // this keeps track of whether the profile is being viewed by the user or someone else
+        
         if ($user == 'user')
         {
             $user = $this->ion_auth->get_user();
+            $format = "profile_edit";
         } else
         {
             $user = $this->ion_auth->get_user($user);
+            $format = "profile_view";
         }
-        $this->load_profile->display_profile($user);
+        
+        $this->load_profile->display_profile($user, $format);
     }
 
     // Creates a group as defined by the given data
