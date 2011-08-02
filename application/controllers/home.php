@@ -552,6 +552,23 @@ class Home extends CI_Controller
         ));
     }
 
+    // Returns 'available' or an error message if the event name is already in use
+    public function check_preexisting_event()
+    {
+        $query_string = "SELECT * FROM events WHERE title = ?";
+        $query = $this->db->query($query_string, array($this->input->get('needle')));
+
+        if ($query->num_rows() > 0)
+        {
+            // Pre-existing event
+            echo("There's already an event with that title. Note that, because of privacy settings, the event may not be visible to you.");
+        } else
+        {
+            // No event
+            echo('available');
+        }
+    }
+
 }
 
 ?>
