@@ -179,15 +179,15 @@ class Notification_ops extends CI_Model
             case 'event_invite':
                 $this->update_notification_viewed($id, true);
 
-                // Check if the user already has plans to that place at that time
+                // Add a plan for the user to the specified event
                 $this->load->model('plan_actions');
+                $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
+
+                // Check if the user already has plans to that place at that time
                 $plan_check = $this->plan_actions->unique_plan($row->subject_id);
 
                 if ($plan_check === true)
                 {
-                    // Add a plan for the user to the specified event
-                    $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
-
                     echo(json_encode(array('status' => 'success')));
                 } else
                 {
