@@ -57,8 +57,7 @@
     border: none;
     display: inline-block;
     text-align: center;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-left: 1px;
 }
 
 .graph_bar_label {
