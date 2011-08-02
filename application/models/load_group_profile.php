@@ -59,26 +59,26 @@ class Load_group_profile extends CI_Model
         }
         ?>
         </div>
-        <div class="profile_top_bar">
-            <div class="profile_picture">
-                <?php echo $this->return_profile_picture(); ?>
-            </div>
-          
 
-                <br/><font style="font-size:20px; font-weight:bold;"><?php echo $group_info['name']; ?></font><br/><?php
+        <div class="profile_picture">
+            <?php echo $this->return_profile_picture(); ?>
+        </div>
+
+
+        <br/><font style="font-size:20px; font-weight:bold;"><?php echo $group_info['name']; ?></font><br/><?php
         if ($this->group_ops->user_is_following($group_info['id']))
         {
-                    ?> <font style="color:green; font-weight:bold;">following</font><?php
+                ?> <font style="color:green; font-weight:bold;">following</font><?php
         } else if ($this->group_ops->user_is_joined($group_info['id']))
         {
-                    ?><font style="color:purple; font-weight:bold;">joined</font><?php
+                ?><font style="color:purple; font-weight:bold;">joined</font><?php
         } else
         {
-                    ?><font style="color:gray">(not following)</font><?php
+                ?><font style="color:gray">(not following)</font><?php
         }
-                ?>
-           
-        </div>
+            ?>
+
+
         <div class="profile_body">
             <div class="profile_body_text">
 
