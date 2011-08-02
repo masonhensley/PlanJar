@@ -73,7 +73,7 @@ class Event_ops extends CI_Model
                     $place_id,
                     $this->ion_auth->get_user()->id));
         
-        var_dump($this->db->last-query());
+        var_dump($this->db->last_query());
 
         // Echo the event entries
         if ($query->num_rows() > 0)
