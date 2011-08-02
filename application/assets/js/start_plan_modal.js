@@ -162,9 +162,9 @@ function submit_plan(from_just_go) {
                 // Open the invite modal
                 open_invite_modal('event', data, privacy, true);
             } else {
-        // Open the conflict modal
-        open_conflict_modal(data);
-        }
+                // Open the conflict modal
+                open_conflict_modal(data);
+            }
         });
                 
         // Refresh the plan list.
