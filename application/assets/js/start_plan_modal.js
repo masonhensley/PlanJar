@@ -181,8 +181,10 @@ function submit_plan_helper(from_just_go) {
             reset_plan_modal();
                     
             if (data.status == 'success') {
-                // Open the invite modal
-                open_invite_modal('event', data, privacy, data.originator);
+                if (data.privacy != 'strict') {
+                    // Open the invite modal
+                    open_invite_modal('event', data, privacy, data.originator);
+                }
             } else {
                 // Open the conflict modal
                 open_conflict_modal(data, function () {
