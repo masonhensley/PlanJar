@@ -271,12 +271,12 @@ function reset_plan_modal() {
     $('#create_plan_content input').not('[type="button"]').val('');
     
     // Reset and hide the title and privacy settings
-    $('#close_new_event').hide('fast');
-    $('#just_going').show('fast');
+    $('#close_new_event').css('display', 'none');
+    $('#just_going').css('display', '');
     $('#event_title').val('');
     $('#event_title').blur();
-    $('#start_event_content').hide('fast');
-    $('#create_event').show('fast');
+    $('#start_event_content').css('display', 'none');
+    $('#create_event').css('display', '');
 }
 
 // Encapsulates the autocomplete setup
