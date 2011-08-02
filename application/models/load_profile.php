@@ -53,7 +53,7 @@ class Load_profile extends CI_Model
                     <div class="add_box">
                         edit box
                     </div>
-                    <textarea name="comments" cols="40" rows="5" maxlength="80">
+                    <textarea id="box_text_area" name="comments" cols="40" rows="5" maxlength="80">
             Write something about yourself in here.  Anyone can see.  Pressure's on.
                     </textarea>
                     <?php
