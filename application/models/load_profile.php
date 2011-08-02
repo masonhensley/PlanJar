@@ -47,7 +47,7 @@ class Load_profile extends CI_Model
         }
                 ?>
                 </div>
-                <br/><br/>
+                <br/>
                 <?php
                 if ($format == 'profile_edit')
                 {
