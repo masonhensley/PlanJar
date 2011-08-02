@@ -1,6 +1,6 @@
 .badger-outter
 	{
-            /*
+            
 	background:#fff;
 	border:1px solid #ccc;
 	min-width: 18px;
@@ -16,7 +16,7 @@
 	top:-18px;
 	right:-18px;
 	z-index:9999;
-        */
+        
 	}
 .badger-inner
 	{
