@@ -66,7 +66,7 @@ class Load_group_profile extends CI_Model
         </div>
         <div class="user_profile_header">
             <div class="profile_name_display">
-                <font style="font-size:20px; font-weight:bold;"><?php echo $group_info['name']; ?></font><br/><?php
+                <br/><font style="font-size:20px; font-weight:bold;"><?php echo $group_info['name']; ?></font><br/><br/><?php
         if ($this->group_ops->user_is_following($group_info['id']))
         {
                 ?> <font style="color:green; font-weight:bold;">following</font><?php
