@@ -74,11 +74,7 @@ class Plan_actions extends CI_Model
                     This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
                 <?php
             }
-            ?>
-            <?php
-        }
-        ?>
-        <?php
+  
         return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
     }
 
