@@ -103,8 +103,14 @@ class Event_ops extends CI_Model
             $id = $row->id;
             $privacy = $row->privacy;
             $title = $row->title;
-            $event_text = "$title ($privacy)";
-            $return_array['html'] .= ( "<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\" event_name=\"$title\">$event_text</div>");
+            if ($title == '')
+            {
+                $event_text = 'Just going to ' . $row->name . " ($privacy)";
+            } else
+            {
+                $event_text = $title . ' at ' . $row->name . " ($privacy)";
+            }
+            $return_array['html'] .= ( "<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\">$event_text</div>");
         }
 
         // Create the title text
@@ -141,6 +147,8 @@ class Event_ops extends CI_Model
             }
             $return_array['title_text'] .= ' of <b>' + $day + '</b>';
         }
+
+        $return_array['title_text'] .= '. Choose which one you want to go to.';
 
         return $return_array;
     }

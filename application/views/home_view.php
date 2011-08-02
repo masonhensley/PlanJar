@@ -37,6 +37,7 @@
         <script type="text/javascript" src="/application/assets/js/upcoming_events.js"></script>
         <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/graph_functions.js"></script>
+        <script type="text/javascript" src="/application/assets/js/plan_conflict_modal.js"></script>
 
         <!-- D3 plugin -->
         <!--<script type="text/javascript" src="/application/assets/js/D3/d3.js"></script>-->
@@ -116,7 +117,7 @@
             <a href="/about" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
             <a href="/Privacy" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
 
-<a href="http://blog.planjar.com/" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Blog</div></div></a>
+            <a href="http://blog.planjar.com/" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Blog</div></div></a>
 
 
 
@@ -124,5 +125,6 @@
 
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
+        <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
     </body>
 </html>
