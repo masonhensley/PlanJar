@@ -497,18 +497,15 @@ class Home extends CI_Controller
         if (!$user_ids)
         {
             $user_ids = array();
-        } else
-        {
-            $user_ids = explode(',', $user_ids);
         }
         $group_ids = $this->input->get('group_ids');
         if (!$group_ids)
         {
             $group_ids = array();
-        } else
-        {
-            $group_ids = explode(',', $group_ids);
         }
+
+        var_dump($user_ids);
+        var_dump($group_ids);
 
         $this->load->model('group_ops');
         $user_ids = array_merge($user_ids, $this->group_ops->get_users($group_ids));
