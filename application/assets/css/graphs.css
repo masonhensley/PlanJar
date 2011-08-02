@@ -15,15 +15,15 @@
 }
 
 .marker_total {
-    background-color: purple;
+    background-color: #A13D97;
 }
 
 .marker_male {
-    background-color: lightblue;
+    background-color: #3FA9F5;
 }
 
 .marker_female {
-    background-color: pink;
+    background-color: #E80C7A;
 }
 
 .marker_wrapper {
@@ -33,7 +33,7 @@
 
 .graph_bar {
     width: 100%;
-    background-color: navy;
+    background-color: #3FA9F5;
     color: white;
     border: none;
     position: absolute;
@@ -43,11 +43,11 @@
 }
 
 .bar_today {
-    background-color: green;
+    background-color: #7BC848;
 }
 
 .bar_selected_day {
-    background-color: lightblue;
+    background-color: #F9D972;
 }
 
 .vert_bar_wrapper {
