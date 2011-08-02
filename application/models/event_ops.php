@@ -105,10 +105,10 @@ class Event_ops extends CI_Model
             $title = $row->title;
             if ($title == '')
             {
-                $event_text = 'Just going to ' . $row->name . " ($privacy)";
+                $event_text = 'Just going';
             } else
             {
-                $event_text = $title . ' at ' . $row->name . " ($privacy)";
+                $event_text = $title->name . " ($privacy)";
             }
             $return_array['html'] .= ( "<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\">$event_text</div>");
         }
