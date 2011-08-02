@@ -65,11 +65,13 @@ function show_data_container(data_div) {
             $('#box_text_area').hide();
             $('.update_box').hide();
             
+            // click handler for edit box
             $('.edit_box').click(function(){
                 $('.my_box').hide();
                 $('.edit_box').hide();
                 $('#box_text_area').show();
                 
+                // make sure the text clears when you click the first time, but not subsequent times
                 $('#box_text_area').click(function(){
                     if(!$('#box_text_area').hasClass('box_text_area_selected'))
                     {
@@ -80,8 +82,8 @@ function show_data_container(data_div) {
                 
                 $('.update_box').show();
                 
+                // click handler for updating box
                 $('.update_box').click(function(){
-                    
                     $.get('/dashboard/update_box', {
                         'box_text':$('#box_text_area').val()
                     }, function (data) {
@@ -90,9 +92,7 @@ function show_data_container(data_div) {
                         $('.update_box').hide();
                         $('#box_text_area').hide();
                     });
-                    
                 });
-                
             });
         });
     }
