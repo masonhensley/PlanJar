@@ -62,24 +62,22 @@ class Plan_actions extends CI_Model
             echo $date;
             ?>
         </div><br/><br/>
-        <div class="delete_plan_container"style="font-size: 20px; text-align:left;">
-            <div class="delete_plan">Delete Plan</div>
+            <div class="delete_plan" style="position:absolute; bottom:0px; left:0px; ">Delete Plan</div>
             <?php
             // Generate the invite people string
             if ($row->privacy != 'strict')
             {
-                ?><div class="invite_people">Invite people</div><?php
-        } else
-        {
+                ?><div class="invite_people" style="position:absolute; bottom:0px; right:0px;">Invite people</div><?php
+            } else
+            {
                 ?><div style="font-size: 14px; float: right; line-height: 30px; margin-right: 10px;">
                     This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
                 <?php
             }
             ?>
-        </div>
-        <?php
-        return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
-    }
+            <?php
+            return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
+        }
 
     // function to delete plan from database
     function delete_plan($plan)
