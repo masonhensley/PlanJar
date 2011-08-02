@@ -58,7 +58,7 @@ class Event_ops extends CI_Model
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
         $query_string = "SELECT events.id, events.title, events.privacy
-            FROM events RIGHT JOIN event_invitees ON events.id = event_invitees.event_id
+            FROM events LEFT JOIN event_invitees ON events.id = event_invitees.event_id
             WHERE events.date = ? AND events.time = ? AND events.place_id = ? AND events.title <> ''
             AND (event_invitees.user_id = ? OR events.privacy = 'open')";
         $query = $this->db->query($query_string, array(

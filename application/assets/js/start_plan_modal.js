@@ -270,7 +270,13 @@ function reset_plan_modal() {
     // Clear the inputs
     $('#create_plan_content input').not('[type="button"]').val('');
     
-    $('#close_new_event').click();
+    // Reset and hide the title and privacy settings
+    $('#close_new_event').hide('fast');
+    $('#just_going').show('fast');
+    $('#event_title').val('');
+    $('#event_title').blur();
+    $('#start_event_content').hide('fast');
+    $('#create_event').show('fast');
 }
 
 // Encapsulates the autocomplete setup
