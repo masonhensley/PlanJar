@@ -1,3 +1,4 @@
+
 $(function() {
     initialize_dashboard_tabs();
 });
@@ -61,6 +62,10 @@ function show_data_container(data_div) {
             'user_id': 'user'
         },function (data) {
             $('.profile_box').html(data); 
+            $('#box_text_area').hide();
+            $('.add_box').click(function(){
+                $('#box_text_area').show();
+            });
         });
     }
     
