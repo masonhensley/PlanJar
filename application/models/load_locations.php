@@ -48,20 +48,10 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">Current Location</font> ";
-        $display_message .= "for <font style=\"font-weight:bold;color:navy;\">$display_day</font>";    
-        
-        /*
-        $query = "SELECT places.id, places.name, places.category, events.title,
-                  ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
-                        + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
-                        * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
-                  FROM events, user_meta
-                  LEFT JOIN event_invitees ON event_invitees.user_id=$user->user_id
-                  JOIN plans ON plans.event_id=events.id                  
-                  JOIN places ON places.id=events.place_id
-                  WHERE events.date='$sql_date' HAVING distance<15";
-        */
-        
+        $display_message .= "for <font style=\"font-weight:bold;color:navy;\">$display_day</font>";
+
+
+        // query to pull all plans from people within 15 miles from your current location
         $query = "SELECT places.id, places.name, events.title
             FROM (SELECT user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
@@ -69,11 +59,10 @@ class Load_locations extends CI_Model
                 JOIN plans ON new_users.user_id=plans.user_id
                 JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                 JOIN places ON events.place_id=places.id";
-        
-        
-        var_dump($query, $user->user_id);
+
+
         $result = $this->db->query($query);
-        
+
         $place_array = array();
         $place_id_array = array();
         foreach ($result->result() as $place)
