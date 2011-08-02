@@ -179,8 +179,6 @@ class Plan_actions extends CI_Model
         $query_string = "SELECT place_id, date, time FROM events WHERE id = ?";
         $query = $this->db->query($query_string, array($event_id));
         $event_row = $query->row();
-        
-        var_dump($this->db->last_query());
 
         // Get the list of plans to the given location at the given time
         $query_string = "SELECT events.id
@@ -195,6 +193,8 @@ class Plan_actions extends CI_Model
                     $event_row->place_id,
                     $event_id
                 ));
+        
+        var_dump($this->db->last_query());
 
         if ($query->num_rows() > 0)
         {
