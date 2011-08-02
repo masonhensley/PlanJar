@@ -132,6 +132,25 @@ function initialize_plan_modal() {
 // Submits the plan and closes the window (also opens the invite window)
 // from_just_go should be set if this function is called from the "just go" button
 function submit_plan(from_just_go) {
+    // Make sure a new event name isn't already taken
+    if ($('#event_title').val() != '') {
+        $.get('/home/check_preexisting_event', {
+            needle: $('#event_title').val()
+        }, function (data) {
+            if (data != 'available') {
+                // Alert the error message from the server
+                alert(data);
+            } else {
+                submit_plan_helper(from_just_go);
+            }
+        });
+    } else {
+        submit_plan_helper(from_just_go)
+    }
+}
+
+// Encapsulates some of the submit code so it can be run from multiple locations in the submit function
+function submit_plan_helper(from_just_go) {
     // Get the privacy setting from either the divSet or the <select>
     var privacy;
     if (from_just_go != undefined) {
