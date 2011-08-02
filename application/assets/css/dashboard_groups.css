@@ -163,6 +163,14 @@
     text-align: center;
 }
 
+.user_profile_header{
+    width:100%;
+}
+
+.profile_name_display{
+    margin-left: auto;
+    margin-right:auto;
+}
 
 .group_entry .add_following {
     float: right;
