@@ -135,7 +135,10 @@ function submit_plan(from_just_go) {
     // Make sure a new event name isn't already taken
     if ($('#event_title').val() != '') {
         $.get('/home/check_preexisting_event', {
-            needle: $('#event_title').val()
+            needle: $('#event_title').val(),
+            'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
+            'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
+            'place_id': $('#plan_location_id').val()
         }, function (data) {
             if (data != 'available') {
                 // Alert the error message from the server

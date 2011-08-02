@@ -552,6 +552,41 @@ class Home extends CI_Controller
         ));
     }
 
+    // Returns 'available' or an error message if the event name is already in use
+    public function check_preexisting_event()
+    {
+        // Capture the input
+        $needle = $this->input->get('needle');
+        $plan_time = $this->input->get('plan_time');
+        $plan_day = $this->input->get('plan_day');
+        $place_id = $this->input->get('place_id');
+
+        // Check for a new place (impossible to have pre-existing events)
+        if ($place_id == 'factual')
+        {
+            // No event
+            echo('available');
+            return;
+        }
+
+        $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ?";
+        $query = $this->db->query($query_string, array(
+                    $needle,
+                    $plan_day,
+                    $plan_time
+                ));
+
+        if ($query->num_rows() > 0)
+        {
+            // Pre-existing event
+            echo("There's already an event with that title. Note that, because of privacy settings, the event may not be visible to you.");
+        } else
+        {
+            // No event
+            echo('available');
+        }
+    }
+
 }
 
 ?>
