@@ -106,8 +106,11 @@ class Home extends CI_Controller
         $privacy = $this->input->get('privacy');
 
         // Create a new event if one wasn't selected
+        $new_event = false;
         if ($event_id == '')
         {
+            $new_event = true;
+
             // Event data
             $date = new DateTime();
             $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
@@ -165,7 +168,8 @@ class Home extends CI_Controller
             // Pre-existing plan. Return HTML for two options
             $this->load->model('event_ops');
             $choice_data = $this->event_ops->get_events_for_choice($event_id, $plan_check);
-            echo(json_encode(array_merge(array('status' => 'conflict'), $choice_data)));
+            echo(json_encode(array_merge(
+                            array('status' => 'conflict'), $choice_data, array('originator' => $new_event))));
         }
     }
 

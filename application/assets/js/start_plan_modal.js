@@ -168,7 +168,7 @@ function submit_plan(from_just_go) {
                     populate_plan_panel();
             
                     // Invite people
-                    open_invite_modal('event', data, privacy, true);
+                    open_invite_modal('event', data, privacy, data.originator);
                 });
             }
         });
