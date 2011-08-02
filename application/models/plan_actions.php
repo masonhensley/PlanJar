@@ -185,12 +185,13 @@ class Plan_actions extends CI_Model
             FROM plans JOIN events
             ON plans.event_id = events.id
             WHERE plans.user_id = ? AND events.date = ? AND events.time = ? AND events.place_id = ?
-            AND events.title <> ''";
+            AND events.title <> '' AND events.id <> ?";
         $query = $this->db->query($query_string, array(
                     $this->ion_auth->get_user()->id,
                     $event_row->date,
                     $event_row->time,
-                    $event_row->place_id
+                    $event_row->place_id,
+                    $event_id
                 ));
 
         if ($query->num_rows() > 0)
