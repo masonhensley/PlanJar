@@ -282,6 +282,11 @@ a{
     font-weight:bold;
 }
 
+.my_box{
+    width:300px;
+    margin-left:35px;
+}
+
 .update_box{
     color:blue;
     font-weight:bold;
