@@ -63,7 +63,7 @@ class Event_ops extends CI_Model
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
-        $query_string = "SELECT events.id, events.title, events.privacy
+        $query_string = "SELECT DISTINCT events.id, events.title, events.privacy
             FROM events LEFT JOIN event_invitees ON events.id = event_invitees.event_id
             WHERE events.date = ? AND events.time = ? AND events.place_id = ? AND events.title <> ''
             AND (event_invitees.user_id = ? OR events.privacy = 'open')";
@@ -72,8 +72,6 @@ class Event_ops extends CI_Model
                     $time,
                     $place_id,
                     $this->ion_auth->get_user()->id));
-        
-        var_dump($this->db->last_query());
 
         // Echo the event entries
         if ($query->num_rows() > 0)
