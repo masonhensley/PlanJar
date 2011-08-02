@@ -277,6 +277,9 @@ function reset_plan_modal() {
     $('#event_title').blur();
     $('#start_event_content').css('display', 'none');
     $('#create_event').css('display', '');
+    
+    // Clear the select
+    $('#plan_event_select_wrapper').html('');
 }
 
 // Encapsulates the autocomplete setup
