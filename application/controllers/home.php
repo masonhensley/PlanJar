@@ -515,7 +515,22 @@ class Home extends CI_Controller
     // at the same place at the same time)
     public function resolve_plan_conflict()
     {
-        
+        // Get the plan to discard
+        $query_string = "SELECT id FROM plans WHERE event_id = ? AND user_id = ?";
+        $query = $this->db->query($query_string, array(
+                    $this->input->get('discard_event'),
+                    $this->ion_auth->get_user()->id
+                ));
+
+        // Discard the plan
+        $this->load->model('plan_actions');
+        $this->plan_actions->delete_plan($query->row()->id);
+
+        // Add the other plan
+        $this->plan_actions->add_plan(array(
+            $this->ion_auth->get_user()->id,
+            $this->input->get('keep_event')
+       ));
     }
 
 }
