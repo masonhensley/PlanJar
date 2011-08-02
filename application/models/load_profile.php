@@ -34,7 +34,6 @@ class Load_profile extends CI_Model
                 ?><font style="color:darkgray;">sex</font><font style="font-weight:bold;"><?php echo " " . $user->sex; ?></font>&nbsp;&nbsp;&nbsp;
                 <font style="color:darkgray;">age</font><font style="font-weight:bold;"><?php echo " " . $user_age; ?></font>
                 <br/>
-                <div class="add_box"></div>
                 <br/>
                 <font style="color:darkgray;">box</font><?php
         echo " ";
@@ -45,8 +44,13 @@ class Load_profile extends CI_Model
         {
                     ?><font style="font-style: italic;">Nothing to show</font><?php
         }
-        ?>
-                <br/><hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
+                ?>
+                <br/>
+                <div class="add_box">
+                    edit box
+                </div>
+                <br/>
+                <hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
         $group_count = count($groups_joined);
         if ($group_count > 0)
         {
@@ -88,7 +92,7 @@ class Load_profile extends CI_Model
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
-        ?>
+                ?>
             </div>
         </div>
         <?php
