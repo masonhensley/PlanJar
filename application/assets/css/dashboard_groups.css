@@ -136,6 +136,9 @@
     padding: 3px;
     text-align: center;
     display:inline-block;
+    position:absolute;
+    bottom:0px;
+    right:0px;
 }
 
 .invite_people {
@@ -146,8 +149,8 @@
     text-align: center;
     display:inline-block;
     position:absolute;
-    top:-280px;
-    height:38px;
+    top:0px;
+    right:0px;
 }
 
 .middle .add_joined {
