@@ -66,7 +66,7 @@ $config['columns'] = array(
     'latitude',
     'longitude',
     'phone',
-    'tag');
+    'box');
 
 /**
  * A database column which is used to
