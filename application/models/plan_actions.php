@@ -194,8 +194,6 @@ class Plan_actions extends CI_Model
                     $event_id
                 ));
 
-        var_dump($this->db->last_query());
-
         if ($query->num_rows() > 0)
         {
             // Prior plan. Return the event id
