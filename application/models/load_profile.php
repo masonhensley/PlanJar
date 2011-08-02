@@ -35,12 +35,12 @@ class Load_profile extends CI_Model
                 <font style="color:darkgray;">age</font><font style="font-weight:bold;"><?php echo " " . $user_age; ?></font>
                 <br/>
                 <br/>
-                <font style="color:darkgray;">box</font><?php
+                <font style="color:darkgray; float:left;">box</font><?php
         echo " ";
         ?><div class="my_box"><?php
         if (isset($user->box))
         {
-                    ?><font style="font-style: italic;"><?php echo $user->box; ?></font><?php
+                    ?><font style="font-weight: bold;"><?php echo $user->box; ?></font><?php
         } else
         {
                     ?><font style="font-style: italic;">Nothing to show</font><?php
