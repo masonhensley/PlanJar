@@ -52,7 +52,7 @@ class Load_profile extends CI_Model
                 if ($format == 'profile_edit')
                 {
                     ?>
-                    <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80" onclick="this.value='';">You have 80 characters to work with</textarea>
+                    <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80" onclick="this.value='';"><font style="color:darkgray;">You have 80 characters to work with</font></textarea>
                     <div class="edit_box">
                         edit box
                     </div>
