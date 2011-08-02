@@ -199,7 +199,7 @@ class Plan_actions extends CI_Model
 
         // Get the list of plans to the given location at the given time
         $query_string = "SELECT plans.id
-            FROM plans RIGHT JOIN events
+            FROM plans JOIN events
             ON plans.event_id = events.id
             WHERE plans.user_id = ? AND events.date = ? AND events.time = ? AND events.place_id = ?";
         $query = $this->db->query($query_string, array(
@@ -216,8 +216,7 @@ class Plan_actions extends CI_Model
         } else
         {
             // No prior plans
-            return str_replace("
-                    ", ' ', $this->db->last_query());
+            return $this->db->last_query();
         }
     }
 
