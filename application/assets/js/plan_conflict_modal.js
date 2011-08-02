@@ -28,7 +28,7 @@ function open_conflict_modal(data, callback) {
         // Resolve the conflict
         $.get('/home/resolve_plan_conflict', {
             discard_event: $(this).attr('event_id'),
-            keep_event: $(this).attr('event_id').siblings().filter(':first').attr('event_id')
+            keep_event: $(this).siblings(':first').attr('event_id')
         }, function (data) {
             console.log(data);
             
