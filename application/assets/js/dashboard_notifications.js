@@ -39,7 +39,17 @@ function get_notifications() {
                 notif_id: $(this).parent().attr('notif_id'),
                 event_id: $(this).parent().attr('event_id')
             }, function (data) {
-                get_notifications();
+                data = $.parseJSON(data);
+                
+                if (data.status == 'success') {
+                    // Success. Repopulate notifications
+                    get_notifications();
+                } else {
+                    // Plan conflict
+                    open_conflict_modal(data, function() {
+                        get_notifications();
+                    });
+                }
             });
         });
     });
