@@ -35,7 +35,7 @@ class Load_profile extends CI_Model
                 <font style="color:darkgray;">age</font><font style="font-weight:bold;"><?php echo " " . $user_age; ?></font>
                 <br/>
                 <br/>
-                <font style="color:darkgray; float:left;">box</font><?php
+                <font style="color:darkgray; float:left;">jar</font><?php
         echo " ";
                 ?><div class="my_box"><?php
         if (isset($user->box) && trim($user->box) != "")
@@ -56,7 +56,7 @@ class Load_profile extends CI_Model
                     <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80">You have 80 characters to work with</textarea>
                     </font>
                     <div class="edit_box">
-                        edit box
+                        change jar
                     </div>
                     <div class="update_box">
                         update
@@ -64,7 +64,6 @@ class Load_profile extends CI_Model
                     <?php
                 }
                 ?>
-                <br/>
                 <hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
         $group_count = count($groups_joined);
         if ($group_count > 0)
