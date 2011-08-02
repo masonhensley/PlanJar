@@ -50,12 +50,13 @@ class Load_profile extends CI_Model
                 if ($format == 'profile_edit')
                 {
                     ?>
-                    <div class="add_box">
+                    <textarea id="box_text_area" name="comments" cols="40" rows="5" maxlength="80">Write something about yourself</textarea>
+                    <div class="edit_box">
                         edit box
                     </div>
-                    <textarea id="box_text_area" name="comments" cols="40" rows="5" maxlength="80">
-            Write something about yourself in here.  Anyone can see.  Pressure's on.
-                    </textarea>
+                    <div class="update_box">
+                        update
+                    </div>
                     <?php
                 }
                 ?>

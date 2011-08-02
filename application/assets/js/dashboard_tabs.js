@@ -63,8 +63,10 @@ function show_data_container(data_div) {
         },function (data) {
             $('.profile_box').html(data); 
             $('#box_text_area').hide();
-            $('.add_box').click(function(){
+            $('.edit_box').click(function(){
+                $('.edit_box').hide();
                 $('#box_text_area').show();
+                $('.update_box').show();
             });
         });
     }
