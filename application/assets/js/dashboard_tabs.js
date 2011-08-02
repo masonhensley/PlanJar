@@ -66,6 +66,7 @@ function show_data_container(data_div) {
             $('.update_box').hide();
             
             $('.edit_box').click(function(){
+                $('.my_box').hide();
                 $('.edit_box').hide();
                 $('#box_text_area').show();
                 $('.update_box').show();
@@ -73,9 +74,10 @@ function show_data_container(data_div) {
                 $('.update_box').click(function(){
                     
                     $.get('/dashboard/update_box', {
-                        'box_text':$('.#box_text_area').val()
+                        'box_text':$('#box_text_area').val()
                     }, function (data) {
                         $('.my_box').html(data);
+                        $('.my_box').show("slow");
                         $('.update_box').hide();
                         $('#box_text_area').hide();
                     });
