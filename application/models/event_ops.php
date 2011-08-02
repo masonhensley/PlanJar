@@ -165,7 +165,6 @@ class Event_ops extends CI_Model
         {
             $query_string = "DELETE FROM events WHERE id = ?";
             $query = $this->db->query($query_string, array($event_id));
-            var_dump($this->db->last_query());
 
             // Delete all relevant invites
             $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
