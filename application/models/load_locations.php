@@ -62,7 +62,7 @@ class Load_locations extends CI_Model
                   WHERE events.date='$sql_date' HAVING distance<15";
         
         var_dump($query, $user->user_id);
-        //$result = $this->db->query($query);
+        $result = $this->db->query($query);
         /*
         $place_array = array();
         $place_id_array = array();
