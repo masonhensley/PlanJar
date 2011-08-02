@@ -22,9 +22,14 @@ function open_conflict_modal(data, callback) {
     
     // Assign the click handler
     $('#plan_conflict_select .selectable_event').click(function() {
-        console.log('done');
-        
         // Remove the click handlers
         $('#plan_conflict_select .selectable_event').unbind('click');
+        
+        
+        
+        // Hide the modal
+        $('#plan_content_modal').hide('fast');
+        
+        callback();
     });
 }
