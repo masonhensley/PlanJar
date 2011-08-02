@@ -56,31 +56,6 @@ class Home extends CI_Controller
         redirect('/login/');
     }
 
-    // not sure if this is needed
-// load and return user plan data
-    /*
-      public function loadMyEvents()
-      {
-      // get user info from ion_auth
-      $user_info = $this->ion_auth->get_user();
-      $user_id = $user_info->id;
-
-      // pull all user's current events
-      $query = "SELECT plans.time_of_day, plans.date, places.name
-      FROM plans
-      LEFT JOIN places
-      ON plans.place_id=places.id
-      WHERE plans.user_id=$user_id";
-
-      // pull data
-      $query_result = $this->db->query($query);
-      $row = $query_result->row();
-
-      return $row;
-      }
-     * 
-     */
-
 // Checks the PlanJar Places database for matching places.
     public function find_places()
     {
@@ -172,12 +147,18 @@ class Home extends CI_Controller
 
         // Check if the user already has plans to that place at that time
         $this->load->model('plan_actions');
-        $this->unique_plan($event_id);
+        $plan_check = $this->plan_actions->unique_plan($event_id);
 
-        // Add the plan
-        $this->plan_actions->add_plan($plan_data);
-
-        echo($event_id);
+        if ($plan_check === true)
+        {
+            // Add the plan and echo success
+            $this->plan_actions->add_plan($plan_data);
+            echo(json_encode(array('status' => 'success')));
+        } else
+        {
+            // Pre-existing plan. Return HTML for two options
+            echo(json_encode(array('status' => 'error')));
+        }
     }
 
     public function load_selected_plan_data()
