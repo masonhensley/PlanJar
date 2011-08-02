@@ -47,14 +47,14 @@ class Load_profile extends CI_Model
         }
                 ?>
                 </div>
-                <br/><br/>
+                <br/>
                 <?php
                 if ($format == 'profile_edit')
                 {
                     ?>
-                    <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80"onclick="document.myform.mytext.value=''; ">
-                        You have 80 characters to work with
-                    </textarea>
+                    <font style="color:darkgray;">
+                    <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80">You have 80 characters to work with</textarea>
+                    </font>
                     <div class="edit_box">
                         edit box
                     </div>

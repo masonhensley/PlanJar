@@ -69,6 +69,15 @@ function show_data_container(data_div) {
                 $('.my_box').hide();
                 $('.edit_box').hide();
                 $('#box_text_area').show();
+                
+                $('#box_text_area').click(function(){
+                    if(!$('#box_text_area').hasClass('box_text_area_selected'))
+                    {
+                        $('#box_text_area').addClass('box_text_area_selected');
+                        $('#box_text_area').val('');
+                    }
+                });
+                
                 $('.update_box').show();
                 
                 $('.update_box').click(function(){
