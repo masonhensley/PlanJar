@@ -200,7 +200,8 @@ class Plan_actions extends CI_Model
         $query_string = "SELECT events.id
             FROM plans JOIN events
             ON plans.event_id = events.id
-            WHERE plans.user_id = ? AND events.date = ? AND events.time = ? AND events.place_id = ?";
+            WHERE plans.user_id = ? AND events.date = ? AND events.time = ? AND events.place_id = ?
+            AND events.title <> ''";
         $query = $this->db->query($query_string, array(
                     $this->ion_auth->get_user()->id,
                     $event_row->date,
