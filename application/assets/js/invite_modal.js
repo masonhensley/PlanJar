@@ -89,7 +89,7 @@ function open_invite_modal(subject_type, subject_id, priv_type, plan_originator)
     
         // Determine whether to hide the groups
         var hide_groups = true;
-        if (subject_type == 'event' && (priv_type == 'open' || plan_originator != undefined)) {
+        if (subject_type == 'event' && (priv_type == 'open' || plan_originator == true)) {
             // Only show your joined groups for an open event
             hide_groups = false;
         }
