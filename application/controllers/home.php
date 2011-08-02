@@ -162,7 +162,7 @@ class Home extends CI_Controller
         {
             // Add the plan and echo success
             $this->plan_actions->add_plan($plan_data);
-            echo(json_encode(array('status' => 'success')));
+            echo(json_encode(array('status' => 'success', 'originator' => $new_event)));
         } else
         {
             // Pre-existing plan. Return HTML for two options
