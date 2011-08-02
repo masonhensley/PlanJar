@@ -187,12 +187,12 @@ function submit_plan_helper(from_just_go) {
                 }
             } else {
                 // Open the conflict modal
-                open_conflict_modal(data, function () {
+                open_conflict_modal(data, function (resulting_privacy, originator) {
                     // Refresh the plan panel
                     populate_plan_panel();
             
                     // Invite people
-                    open_invite_modal('event', data, privacy, data.originator);
+                    open_invite_modal('event', data, resulting_privacy, originator);
                 });
             }
         });
