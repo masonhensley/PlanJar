@@ -511,6 +511,13 @@ class Home extends CI_Controller
         echo('success');
     }
 
+    // Resolves the conflict between the given two events (user trying to go to two events
+    // at the same place at the same time)
+    public function resolve_plan_conflict()
+    {
+        
+    }
+
 }
 
 ?>

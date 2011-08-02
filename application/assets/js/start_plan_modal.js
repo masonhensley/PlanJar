@@ -163,7 +163,9 @@ function submit_plan(from_just_go) {
                 open_invite_modal('event', data, privacy, true);
             } else {
                 // Open the conflict modal
-                open_conflict_modal(data);
+                open_conflict_modal(data, function () {
+                    open_invite_modal('event', data, privacy, true);
+                });
             }
         });
                 

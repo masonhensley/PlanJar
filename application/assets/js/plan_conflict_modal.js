@@ -5,7 +5,7 @@ $(function () {
 // Initialize the modal
 function initialize_conflict_modal() {
     // Draggable
-    $('#plan_content_modal').draggable({
+    $('#plan_conflict_modal').draggable({
         handle: '.title_bar'
     });
 }
@@ -22,9 +22,20 @@ function open_conflict_modal(data, callback) {
     
     // Assign the click handler
     $('#plan_conflict_select .selectable_event').click(function() {
-        console.log('done');
-        
         // Remove the click handlers
         $('#plan_conflict_select .selectable_event').unbind('click');
+        
+        // Resolve the conflict
+        $.get('/home/resolve_plan_conflict', {
+            discard_event: $(this).attr('event_id'),
+            keep_event: $(this).siblings(':first').attr('event_id')
+        }, function (data) {
+            console.log(data);
+            
+            // Hide the modal
+            $('#plan_content_modal').hide('fast', function () {
+                callback();
+            });
+        });
     });
 }
