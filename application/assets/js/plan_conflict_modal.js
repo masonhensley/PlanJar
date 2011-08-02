@@ -32,7 +32,6 @@ function open_conflict_modal(data, callback) {
         // Resolve the conflict
         var keep_event = $(this).attr('event_id');
         $.get('/home/resolve_plan_conflict', {
-            'keep_event': keep_event,
             discard_event: $(this).siblings(':first').attr('event_id')
         }, function (data) {
             // Hide the modal

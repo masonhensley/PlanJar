@@ -165,14 +165,14 @@ class Home extends CI_Controller
             'event_id' => $event_id
         );
 
+        // Add the plan
+        $this->plan_actions->add_plan($plan_data);
+
         // Check if the user already has plans to that place at that time
         $this->load->model('plan_actions');
         $plan_check = $this->plan_actions->unique_plan($event_id);
-
         if ($plan_check === true)
         {
-            // Add the plan and echo success
-            $this->plan_actions->add_plan($plan_data);
             echo(json_encode(array('status' => 'success', 'originator' => $new_event, 'event_id' => $event_id)));
         } else
         {
@@ -543,23 +543,9 @@ class Home extends CI_Controller
                     $this->ion_auth->get_user()->id
                 ));
 
-        if ($query->num_rows() > 0)
-        {
-            // Discard the plan
-            $this->load->model('plan_actions');
-            $this->plan_actions->delete_plan($query->row()->id);
-        } else
-        {
-            // Delete the event (the function call does checks beforehand)
-            $this->load->model('event_ops');
-            $this->event_ops->delete_event($this->input->get('discard_event'));
-        }
-
-        // Add the other plan
-        $this->plan_actions->add_plan(array(
-            $this->ion_auth->get_user()->id,
-            $this->input->get('keep_event')
-        ));
+        // Discard the plan
+        $this->load->model('plan_actions');
+        $this->plan_actions->delete_plan($query->row()->id);
     }
 
     // Returns 'available' or an error message if the event name is already in use
