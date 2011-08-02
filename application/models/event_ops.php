@@ -143,9 +143,9 @@ class Event_ops extends CI_Model
                 $return_array['title_text'] .= 'late into the night';
             } else
             {
-                $return_array['title_text'] .= 'the ' + $time;
+                $return_array['title_text'] .= 'the ' . $time;
             }
-            $return_array['title_text'] .= ' of <b>' + $day + '</b>';
+            $return_array['title_text'] .= ' of <b>' . $day . '</b>';
         }
 
         $return_array['title_text'] .= '.<br/>Choose which one you want to go to.';

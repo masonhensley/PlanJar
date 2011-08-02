@@ -33,7 +33,7 @@ function open_conflict_modal(data, callback) {
             console.log(data);
             
             // Hide the modal
-            $('#plan_content_modal').hide('fast', function () {
+            $('#plan_conflict_modal').hide('fast', function () {
                 callback();
             });
         });
