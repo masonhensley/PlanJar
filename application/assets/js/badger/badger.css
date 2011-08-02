@@ -1,10 +1,9 @@
 .badger-outter
 	{
-            
 	background:#fff;
 	border:1px solid #ccc;
-	min-width: 18px;
-	height: 18px;
+	min-width: 36px;
+	height: 36px;
 	border-radius: 18px;
 	-moz-border-radius: 18px;
 	-webkit-border-radius: 18px;
@@ -16,15 +15,19 @@
 	top:-18px;
 	right:-18px;
 	z-index:9999;
-        
 	}
 .badger-inner
 	{
-	min-width: 15px;
-	height: 20px;
-	border-radius: 18px;
-	-moz-border-radius: 18px;
-	-webkit-border-radius: 18px;
+	min-width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	background: #f13c31;
+	background: -moz-linear-gradient(100% 100% 90deg, #f13c31, #f79690);
+  	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f79690), to(#f13c31));
+  	background: -webkit-linear-gradient(#f79690, #f13c31);
+    background: -o-linear-gradient(#f79690, #f13c31);
     margin:3px;
     z-index:99999;
 	}
@@ -40,4 +43,4 @@
 .badger-text
 	{ font-size:18px; }
 .badger-number
-	{ font-size:17px; }
+	{ font-size:22px; }
