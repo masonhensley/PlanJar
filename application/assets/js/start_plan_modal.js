@@ -191,8 +191,10 @@ function submit_plan_helper(from_just_go) {
                     // Refresh the plan panel
                     populate_plan_panel();
             
-                    // Invite people
-                    open_invite_modal('event', event_id, resulting_privacy, originator);
+                    if (resulting_privacy != 'strict' || originator) {
+                        // Invite people
+                        open_invite_modal('event', event_id, resulting_privacy, originator);
+                    }
                 });
             }
         });
