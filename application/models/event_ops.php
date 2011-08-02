@@ -153,5 +153,29 @@ class Event_ops extends CI_Model
         return $return_array;
     }
 
+    // Deletes an event
+    function delete_event($event_id)
+    {
+        // Get all people with plans to the event
+        $query_string = "SELECT id FROM plans WHERE event_id = ?";
+        $query = $this->db->query($query_string, array($event_id));
+
+        // Delete the event if there is only one attendee (the current user)
+        if ($query->num_rows() <= 1)
+        {
+            $query_string = "DELETE FROM events WHERE id = ?";
+            $query = $this->db->query($query_string, array($event_id));
+            var_dump($this->db->last_query());
+
+            // Delete all relevant invites
+            $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
+            $query = $this->db->query($query_string, array($event_id));
+
+            // Delete all relevant notifications
+            $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
+            $query = $this->db->query($query_string, array('event_invite', $event_id));
+        }
+    }
+
 }
 ?>

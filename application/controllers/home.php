@@ -528,9 +528,12 @@ class Home extends CI_Controller
                     $this->ion_auth->get_user()->id
                 ));
         var_dump($this->db->last_query());
+        
+        if ($query->num_rows() > 0) {
         // Discard the plan
         $this->load->model('plan_actions');
         $this->plan_actions->delete_plan($query->row()->id);
+        } 
 
         // Add the other plan
         $this->plan_actions->add_plan(array(
