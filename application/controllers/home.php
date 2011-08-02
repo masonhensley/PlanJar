@@ -521,7 +521,7 @@ class Home extends CI_Controller
                     $this->input->get('discard_event'),
                     $this->ion_auth->get_user()->id
                 ));
-
+        var_dump($this->db->last_query());
         // Discard the plan
         $this->load->model('plan_actions');
         $this->plan_actions->delete_plan($query->row()->id);
@@ -530,7 +530,7 @@ class Home extends CI_Controller
         $this->plan_actions->add_plan(array(
             $this->ion_auth->get_user()->id,
             $this->input->get('keep_event')
-       ));
+        ));
     }
 
 }
