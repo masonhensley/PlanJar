@@ -168,11 +168,8 @@ class Event_ops extends CI_Model
         $query_string = "SELECT id FROM plans WHERE event_id = ? AND user_id <> ?";
         $query = $this->db->query($query_string, array($event_id, $this->ion_auth->get_user()->id));
 
-        var_dump($this->db->last_query());
-        var_dump($query->num_rows());
-
         // Delete the event if there is less than one attendee (the current user)
-        if ($query->num_rows() <= 1)
+        if ($query->num_rows() == 0)
         {
             $query_string = "DELETE FROM events WHERE id = ?";
             $query = $this->db->query($query_string, array($event_id));
