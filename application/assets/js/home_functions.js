@@ -11,8 +11,11 @@ $(function() {
     initialize_map();
     
     // populate the notifications!
-    $.get('/home/get_notification_popup/', function(){
-        
+    $.get('/home/get_notification_popup/', function(data){
+        if(data>0)
+        {
+            $('#notifications').badger(data);
+        }
     });
 });
 
