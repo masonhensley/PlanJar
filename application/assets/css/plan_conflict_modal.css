@@ -10,9 +10,7 @@
 }
 
 #plan_conflict_select {
-    width: 150px;
-    height: auto;
-    padding: 5px;
+    margin-top: 10px;
 }
 
 .selectable_event {

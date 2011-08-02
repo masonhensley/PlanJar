@@ -118,7 +118,7 @@ class Event_ops extends CI_Model
         $day = new DateTime($query->row()->date);
         $now = new DateTime();
         $time = $query->row()->time;
-        $return_array['title_text'] = "You have plans to two events at <b>$place</b> ";
+        $return_array['title_text'] = "You have plans to two events at<br/><b>$place</b><br/>";
 
         if ($day->format('Y-m-d') == $now->format('Y-m-d'))
         {
@@ -148,7 +148,7 @@ class Event_ops extends CI_Model
             $return_array['title_text'] .= ' of <b>' + $day + '</b>';
         }
 
-        $return_array['title_text'] .= '. Choose which one you want to go to.';
+        $return_array['title_text'] .= '.<br/>Choose which one you want to go to.';
 
         return $return_array;
     }

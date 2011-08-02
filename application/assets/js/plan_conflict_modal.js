@@ -4,7 +4,10 @@ $(function () {
 
 // Initialize the modal
 function initialize_conflict_modal() {
-    
+    // Draggable
+    $('#plan_content_modal').draggable({
+        handle: '.title_bar'
+    });
 }
 
 // Open the modal
