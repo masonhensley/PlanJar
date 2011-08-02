@@ -66,13 +66,14 @@ class Load_locations extends CI_Model
             FROM (SELECT user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance FROM user_meta HAVING distance < 15)new_users
-                JOIN plans ON user_meta.user_id=plans.user_id
+                JOIN plans ON new_users.user_id=plans.user_id
                 JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                 JOIN places ON events.place_id=places.id";
         
+        
         var_dump($query, $user->user_id);
         $result = $this->db->query($query);
-        /*
+        
         $place_array = array();
         $place_id_array = array();
         foreach ($result->result() as $place)
@@ -84,8 +85,6 @@ class Load_locations extends CI_Model
             $place_id_array[] = $place->id;
         }
         $this->display_location_tabs($display_message, $place_id_array, $place_array);
-         * 
-         */
     }
 
     function on_friends_selected($display_day, $sql_date)
