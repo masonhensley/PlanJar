@@ -37,6 +37,7 @@
     width: 100%;
 }
 #groups_content > .middle {
+    position:relative;
     width: 340px;
     float: left;
     margin-left: 10px;
@@ -135,18 +136,22 @@
     padding: 3px;
     text-align: center;
     display:inline-block;
+    position:absolute;
+    bottom:0px;
+    right:0px;
 }
 
 .invite_people {
     width: 75px;
+    height:38px;
     background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
     text-align: center;
     display:inline-block;
     position:absolute;
-    top:-280px;
-    height:38px;
+    top:0px;
+    right:0px;
 }
 
 .middle .add_joined {
@@ -158,6 +163,21 @@
     text-align: center;
 }
 
+.user_profile_header{
+    width:100%;
+    text-align: center;
+}
+
+.group_profile_picture{
+    position:absolute;
+    left:10px;
+    top:50px;
+}
+
+.profile_name_display{
+    margin-left: auto;
+    margin-right:auto;
+}
 
 .group_entry .add_following {
     float: right;

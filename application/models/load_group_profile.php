@@ -59,32 +59,35 @@ class Load_group_profile extends CI_Model
         }
         ?>
         </div>
-        <div class="profile_top_bar">
-            <div class="profile_picture">
-                <?php echo $this->return_profile_picture(); ?>
-            </div>
-            <div class="profile_user_information">
 
+
+        <div class="group_profile_picture">
+            <?php echo $this->return_profile_picture(); ?>
+        </div>
+        <div class="user_profile_header">
+            <div class="profile_name_display">
                 <br/><font style="font-size:20px; font-weight:bold;"><?php echo $group_info['name']; ?></font><br/><?php
         if ($this->group_ops->user_is_following($group_info['id']))
         {
-                    ?> <font style="color:green; font-weight:bold;">following</font><?php
+                ?> <font style="color:green; font-weight:bold;">following</font><?php
         } else if ($this->group_ops->user_is_joined($group_info['id']))
         {
-                    ?><font style="color:purple; font-weight:bold;">joined</font><?php
+                ?><font style="color:purple; font-weight:bold;">joined</font><?php
         } else
         {
-                    ?><font style="color:gray">(not following)</font><?php
+                ?><font style="color:gray">(not following)</font><?php
         }
-                ?>
+            ?>
+                <br/>
             </div>
         </div>
+
         <div class="profile_body">
             <div class="profile_body_text">
 
                 <font style="color:gray;">
-                Members:&nbsp;<?php echo $group_info['number_joined']; ?>&nbsp;&nbsp;&nbsp;&nbsp;
-                Followers:&nbsp; <?php echo $group_info['number_following']; ?>
+                Members &nbsp;<font style="font-weight:bold; color:black;"><?php echo $group_info['number_joined']; ?></font>&nbsp;&nbsp;&nbsp;&nbsp;
+                Followers &nbsp;<font style="font-weight:bold; color:black;"><?php echo $group_info['number_following']; ?></font>
                 </font><br/><hr/>
                 <?php
                 if ($group_info['school_group']) // show that if it is a designated school group, or school affiliation
