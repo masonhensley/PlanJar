@@ -157,7 +157,9 @@ class Home extends CI_Controller
         } else
         {
             // Pre-existing plan. Return HTML for two options
-            echo(json_encode(array('status' => 'conflict')));
+            $this->load->model('event_ops');
+            $choice_data = $this->event_ops->get_events_for_choice($event_id, $plan_check);
+            echo(json_encode(array('status' => 'conflict', 'data' => $choice_data)));
         }
     }
 

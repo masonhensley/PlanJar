@@ -51,7 +51,7 @@ class Event_ops extends CI_Model
         }
     }
 
-    // Echos HTML for a select input containing all the event names at the specified location and time
+    // Echos HTML for a selection containing all the event names at the specified location and time
     public function get_events_for_plan($day_offset, $time, $place_id)
     {
         $date = new DateTime();
@@ -86,6 +86,61 @@ class Event_ops extends CI_Model
             </div>
             <?php
         }
+    }
+
+    // Returns HTML and data for a selection containing both events to which the user has a plan
+    public function get_events_for_choice($event0, $event1)
+    {
+        $query_string = "SELECT events.id, events.title, events.privacy, events.date, events.time, places.name
+            FROM events JOIN places ON events.place_id = event_invitees.event_id
+            WHERE events.id = ? OR events.id = ?";
+        $query = $this->db->query($query_string, array($event0, $event1));
+
+        // Create the selectable HTML
+        $return_array['html'] = '';
+        foreach ($query->result() as $row)
+        {
+            $id = $row->id;
+            $privacy = $row->privacy;
+            $title = $row->title;
+            $event_text = "$title ($privacy)";
+            $return_array['html'] .= ( "<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\" event_name=\"$title\">$event_text</div>");
+        }
+
+        // Create the title text
+        $place = $query->row()->name;
+        $day = new DateTime($query->row()->date);
+        $now = new DateTime();
+        $time = $query->row()->time;
+        $return_array['title_text'] = "You have plans to two events at <b>$place</b> ";
+
+        if ($day->format('Y-m-d') == $now->format('Y-m-d'))
+        {
+            // Today
+            if ($time == 'morning' || $time == 'afternoon')
+            {
+                $return_array['title_text'] .= 'this ' + $time;
+            } else if ($time == 'night')
+            {
+                $return_array['title_text'] .= 'tonight';
+            } else
+            {
+                $return_array['title_text'] .= 'late night tonight';
+            }
+        } else
+        {
+            // Any other day
+            if ($time == 'late_night')
+            {
+                $return_array['title_text'] .= 'late into the night';
+            } else
+            {
+                $return_array['title_text'] .= 'the ' + time;
+            }
+            $return_array['title_text'] .= ' of <b>' + $day + '</b>';
+        }
+
+        return $return_array;
     }
 
 }
