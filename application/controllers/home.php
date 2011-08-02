@@ -195,7 +195,7 @@ class Home extends CI_Controller
     public function get_notification_popup()
     {
         $user_id = $this->ion_auth->get_user()->id;
-        $query = "SELECT id FROM notifications WHERE user_id=$user_id";
+        $query = "SELECT id FROM notifications WHERE user_id=$user_id AND viewed=0";
         $result = $this->db->query($query);
         $number_notifications = $result->num_rows();
         echo $number_notifications;
