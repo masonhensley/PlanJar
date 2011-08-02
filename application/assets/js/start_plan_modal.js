@@ -151,6 +151,10 @@ function submit_plan(from_just_go) {
         'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
         'privacy': privacy
     } ,function (data) {
+        data = $.parseJSON(data);
+        console.log(data);
+        return;
+        
         // Hide and reset the modal and then open the invite modal
         $('#create_plan_content').hide('fast', function () {
             // Clear the plan modal

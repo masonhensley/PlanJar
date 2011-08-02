@@ -20,7 +20,7 @@ function outer_confirm_handler(main_event) {
     var orig_text = $(this).html();
         
     // Replacement text
-    $(this).html('Sure?');
+    $(this).html('You sure?');
         
     // Assign the secondary (final) click event
     $(main_event.target).click(function(inner_event){

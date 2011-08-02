@@ -57,8 +57,15 @@ class Event_ops extends CI_Model
         $date = new DateTime();
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
-        $query_string = "SELECT id, title, privacy FROM events WHERE date = ? AND time = ? AND place_id = ? AND title <> ''";
-        $query = $this->db->query($query_string, array($date->format('Y-m-d'), $time, $place_id));
+        $query_string = "SELECT events.id, events.title, events.privacy
+            FROM events RIGHT JOIN event_invitees ON events.id = event_invitees.event_id
+            WHERE events.date = ? AND events.time = ? AND events.place_id = ? AND events.title <> ''
+            AND event_invitees.user_id = ?";
+        $query = $this->db->query($query_string, array(
+                    $date->format('Y-m-d'),
+                    $time,
+                    $place_id,
+                    $this->ion_auth->get_user()->id));
 
         // Echo the event entries
         if ($query->num_rows() > 0)
@@ -75,7 +82,7 @@ class Event_ops extends CI_Model
         {
             ?>
             <div style="text-align: center; margin-top: 20px">
-                <i>There aren't any events yet<br/>Create one on the right.</i>
+                <i>There aren't any events here yet.<br/>Create one on the right.</i>
             </div>
             <?php
         }
