@@ -53,7 +53,7 @@ class Load_profile extends CI_Model
                 {
                     ?>
                     <font style="color:darkgray;">
-                    <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80" onclick="this.value='';">You have 80 characters to work with</textarea>
+                    <textarea id="box_text_area" name="comments" cols="30" rows="5" maxlength="80">You have 80 characters to work with</textarea>
                     </font>
                     <div class="edit_box">
                         edit box
