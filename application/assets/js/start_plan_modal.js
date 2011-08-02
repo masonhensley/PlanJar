@@ -152,16 +152,19 @@ function submit_plan(from_just_go) {
         'privacy': privacy
     } ,function (data) {
         data = $.parseJSON(data);
-        console.log(data);
-        return;
         
-        // Hide and reset the modal and then open the invite modal
+        // Hide and reset the modal
         $('#create_plan_content').hide('fast', function () {
             // Clear the plan modal
             reset_plan_modal();
                     
-            // Open the invite modal
-            open_invite_modal('event', data, privacy, true);
+            if (data.status == 'success') {
+                // Open the invite modal
+                open_invite_modal('event', data, privacy, true);
+            } else {
+        // Open the conflict modal
+        open_conflict_modal(data);
+        }
         });
                 
         // Refresh the plan list.

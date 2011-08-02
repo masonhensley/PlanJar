@@ -92,7 +92,7 @@ class Event_ops extends CI_Model
     public function get_events_for_choice($event0, $event1)
     {
         $query_string = "SELECT events.id, events.title, events.privacy, events.date, events.time, places.name
-            FROM events JOIN places ON events.place_id = event_invitees.event_id
+            FROM events JOIN places ON events.place_id = places.id
             WHERE events.id = ? OR events.id = ?";
         $query = $this->db->query($query_string, array($event0, $event1));
 
@@ -103,8 +103,14 @@ class Event_ops extends CI_Model
             $id = $row->id;
             $privacy = $row->privacy;
             $title = $row->title;
-            $event_text = "$title ($privacy)";
-            $return_array['html'] .= ( "<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\" event_name=\"$title\">$event_text</div>");
+            if ($title == '')
+            {
+                $event_text = 'Just going to ' . $row->name . " ($privacy)";
+            } else
+            {
+                $event_text = $title . ' at ' . $row->name . " ($privacy)";
+            }
+            $return_array['html'] .= ( "<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\">$event_text</div>");
         }
 
         // Create the title text
@@ -130,6 +136,8 @@ class Event_ops extends CI_Model
         } else
         {
             // Any other day
+            $day = $day->format('D - j');
+
             if ($time == 'late_night')
             {
                 $return_array['title_text'] .= 'late into the night';
@@ -139,6 +147,8 @@ class Event_ops extends CI_Model
             }
             $return_array['title_text'] .= ' of <b>' + $day + '</b>';
         }
+
+        $return_array['title_text'] .= '. Choose which one you want to go to.';
 
         return $return_array;
     }

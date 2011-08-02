@@ -1,0 +1,28 @@
+#plan_conflict_modal {
+    width: 300px;
+    margin-left: -150px;
+    margin-top: -125px;
+}
+
+#plan_conflict_modal .header {
+    width: 100%;
+    text-align: center;
+}
+
+#plan_conflict_select {
+    width: 150px;
+    height: auto;
+    padding: 5px;
+}
+
+.selectable_event {
+    border:1px solid lightgray;
+    height: 1.2em;
+    padding: 5px 0px 5px;
+    color: black;
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
+    text-align:left;
+    margin-bottom: 5px;
+    width:95%;
+    margin-left:2.5%;
+}
