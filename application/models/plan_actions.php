@@ -65,7 +65,8 @@ class Plan_actions extends CI_Model
         <div class="delete_plan" style="position:absolute; bottom:0px; left:0px; ">Delete Plan</div>
         <?php
         // Generate the invite people string
-        if ($row->privacy != 'strict' || $row->originator_id == $this->ion_auth->get_user()->id)
+        $user_originator = $row->originator_id == $this->ion_auth->get_user()->id;
+        if ($row->privacy != 'strict' || $user_originator)
         {
             ?><div class="invite_people" style="position:absolute; bottom:0px; right:0px;">Invite people</div><?php
         } else
@@ -75,7 +76,11 @@ class Plan_actions extends CI_Model
             <?php
         }
 
-        return array('privacy' => $row->privacy, 'html' => ob_get_clean(), 'event_id' => $row->id);
+        return array(
+            'privacy' => $row->privacy,
+            'html' => ob_get_clean(),
+            'event_id' => $row->id,
+            'originator' => $user_originator);
     }
 
     // function to delete plan from database
