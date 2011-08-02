@@ -33,8 +33,6 @@ class Home extends CI_Controller
             // get the upcoming events HTML
             //$this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
             //$upcoming_event_html = $this->load_coming_events->load_events();
-
-
             // Pass the necessary information to the view.
             $this->load->view('home_view', array(
                 'firstname' => $firstname,
@@ -172,9 +170,12 @@ class Home extends CI_Controller
             'event_id' => $event_id
         );
 
-        // Add the plan and store the id
+        // Check if the user already has plans to that place at that time
         $this->load->model('plan_actions');
-        $plan_id = $this->plan_actions->add_plan($plan_data);
+        $this->unique_plan($event_id);
+
+        // Add the plan
+        $this->plan_actions->add_plan($plan_data);
 
         echo($event_id);
     }
@@ -222,7 +223,7 @@ class Home extends CI_Controller
         $selected_groups = $this->input->get('selected_groups');
         $day = $this->input->get('selected_day');
         $filter = $this->input->get('filter');
-        
+
         $this->load->model('display_group_template');
         $school = $this->_get_user_school();
         $return_array = $this->display_group_template->_display_group_info($selected_groups, $day, $school, $filter);

@@ -118,7 +118,6 @@ class Plan_actions extends CI_Model
     }
 
     // Accepts an associative array containing plan data
-    // Returns the plan id
     function add_plan($data)
     {
         // Return the id if the plan already exists
@@ -188,6 +187,22 @@ class Plan_actions extends CI_Model
             <?php
         }
         return ob_get_clean();
+    }
+
+    // Returns true if the user has no plan to another event at the given place at the given time
+    // Returns the prior plan information otherwise
+    function unique_plan($event_id)
+    {
+        $query_string = "SELECT plans.id
+            FROM plans RIGHT JOIN events
+            ON plans.event_id = events.id
+            WHERE plans.user_id = ? AND events.day = ? AND events.time = ? AND events.place_id = ?";
+        $query = $this->db->query($query_string, array(
+                    $this->ion_auth->get_user()->id,
+                    $day,
+                    $time,
+                    $place_id
+                ));
     }
 
 }
