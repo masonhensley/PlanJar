@@ -131,7 +131,7 @@ class Event_ops extends CI_Model
             // Today
             if ($time == 'morning' || $time == 'afternoon')
             {
-                $return_array['title_text'] .= 'this ' + $time;
+                $return_array['title_text'] .= 'this ' . $time;
             } else if ($time == 'night')
             {
                 $return_array['title_text'] .= 'tonight';
