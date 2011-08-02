@@ -15,6 +15,7 @@
         <link rel=stylesheet href="/application/assets/css/modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/invite_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/selectable_event.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/plan_conflict_modal.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
@@ -30,6 +31,7 @@
         <script type="text/javascript" src="/application/assets/js/dashboard_notifications.js"></script>
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
         <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
+        <script type="text/javascript" src="/application/assets/js/plan_conflict_modal.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -109,5 +111,6 @@
         </div>
         <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
+        <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
     </body>
 </html>

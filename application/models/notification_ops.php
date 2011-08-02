@@ -177,10 +177,27 @@ class Notification_ops extends CI_Model
         {
             // Event invite
             case 'event_invite':
-                // Add a plan for the user to the specified event
+
                 $this->load->model('plan_actions');
-                $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
+
                 $this->update_notification_viewed($id, true);
+
+                // Check if the user already has plans to that place at that time
+                $plan_check = $this->plan_actions->unique_plan($row->subject_id);
+
+                if ($plan_check === true)
+                {
+                    // Add a plan for the user to the specified event
+                    $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
+
+                    echo(json_encode(array('status' => 'success')));
+                } else
+                {
+                    // Pre-existing plan. Return HTML for two options
+                    $this->load->model('event_ops');
+                    $choice_data = $this->event_ops->get_events_for_choice($event_id, $plan_check);
+                    echo(json_encode(array_merge(array('status' => 'conflict'), $choice_data)));
+                }
                 break;
 
             // Group invite
@@ -189,6 +206,8 @@ class Notification_ops extends CI_Model
                 $this->group_ops->follow_group($row->subject_id);
                 $this->group_ops->join_group($row->subject_id);
                 $this->update_notification_viewed($id, true);
+
+                echo(json_encode(array('status' => 'success')));
                 break;
 
             // Follow notification
@@ -196,6 +215,9 @@ class Notification_ops extends CI_Model
                 $this->load->model('follow_ops');
                 $this->follow_ops->add_user_following($row->subject_id);
                 $this->update_notification_viewed($id, true);
+
+                echo(json_encode(array('status' => 'success')));
+                break;
         }
     }
 
