@@ -69,9 +69,20 @@ function show_data_container(data_div) {
                 $('.edit_box').hide();
                 $('#box_text_area').show();
                 $('.update_box').show();
+                
+                $('.update_box').click(function(){
+                    
+                    $.get('/dashboard/update_box', {
+                        'box_text':$('.#box_text_area').val()
+                    }, function (data) {
+                        $('.my_box').html(data);
+                        $('.update_box').hide();
+                        $('#box_text_area').hide();
+                    });
+                    
+                });
+                
             });
         });
     }
-    
-    
 }
