@@ -97,7 +97,7 @@ class Event_ops extends CI_Model
     // Returns HTML and data for a selection containing both events to which the user has a plan
     public function get_events_for_choice($event0, $event1)
     {
-        $query_string = "SELECT events.id, events.title, events.privacy, events.date, events.time, events.originator_id places.name
+        $query_string = "SELECT events.id, events.title, events.privacy, events.date, events.time, events.originator_id, places.name
             FROM events JOIN places ON events.place_id = places.id
             WHERE events.id = ? OR events.id = ?";
         $query = $this->db->query($query_string, array($event0, $event1));
