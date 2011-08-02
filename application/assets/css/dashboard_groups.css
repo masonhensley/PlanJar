@@ -165,6 +165,13 @@
 
 .user_profile_header{
     width:100%;
+    text-align: center;
+}
+
+.group_profile_picture{
+    position:absolute;
+    left:10px;
+    top:100px;
 }
 
 .profile_name_display{
