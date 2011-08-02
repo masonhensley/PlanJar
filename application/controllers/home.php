@@ -109,8 +109,6 @@ class Home extends CI_Controller
         $new_event = false;
         if ($event_id == '')
         {
-            $new_event = true;
-
             // Event data
             $date = new DateTime();
             $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
@@ -142,11 +140,15 @@ class Home extends CI_Controller
             $this->load->model('event_ops');
             $existing_event = $this->event_ops->check_event($event_data);
 
-            $new_event = false; // Used to keep track of whether the user is the event's originator
             if ($existing_id === false)
             {
+                // Create an event
                 $new_event = true;
                 $event_id = $this->event_ops->create_event($event_data);
+            } else
+            {
+                // Use the existing event
+                $event_id = $existing_event;
             }
 
 
