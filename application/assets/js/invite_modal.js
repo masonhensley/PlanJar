@@ -130,6 +130,7 @@ function reset_invite_modal() {
 
 // Populates and initializes the followers list
 function populate_invite_followers_list() {
+    console.log('shit got called');
     $.get('/home/get_followers_divset', function (data) {
         $('#invite_followers_list').html(data);
         $('#invite_followers_list').divSet(true);
