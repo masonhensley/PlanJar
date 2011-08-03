@@ -46,7 +46,7 @@
     height: 100%;
 }
 
-.notification_entry > .middle {
+.notification_entry .middle {
     float: left;
     width: 210px;
     color:darkgray;
