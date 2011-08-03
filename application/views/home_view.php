@@ -81,9 +81,7 @@
         </div>
         <div class="tab_bar">
             <div class="data_tab tab_selected" assoc_div="#group_data">Group Data</div>
-            <div class="data_tab" assoc_div="#location_data">Location Data</div>
             <div class="data_tab" assoc_div="#map_data">Map</div>
-            <div class="data_tab" assoc_div="#plan_data">Plan Data</div>
         </div>
         <div class ="container">
             <div  id="create_plan">Make a plan</div>
@@ -98,8 +96,6 @@
             <div class ="center">
                 <div class="data_container_wrapper" style="display: block;">
                     <div id="group_data" class ="data_container" style="display: block;"></div>
-                    <div id="plan_data" class ="data_container"></div>
-                    <div id="location_data" class ="data_container"></div>
                     <div id="map_data" class ="data_container">
                         <?php include(APPPATH . 'assets/php/change_location_panel.php'); ?>
                         <div id="map"></div>

@@ -3,17 +3,15 @@ $(function() {
     initialize_selectable_groups();
 });
 
+// Initializes the groups/networks panel
 function initialize_selectable_groups() {
-    
-    //default tab used is the network_tab
+    // Default tab used is the network_tab
     set_network_tab();
     
     // Divset
     $('#group_select_type').divSet();
-    $('#select_one_group').click();
     
-    initialize_one_group_select();
-    
+    // One/multiple group select click handlers
     $('#select_one_group').click(function () {
         initialize_one_group_select(true);
     });
