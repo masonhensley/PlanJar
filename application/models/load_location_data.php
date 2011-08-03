@@ -170,6 +170,8 @@ class Load_location_data extends CI_Model
             <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
             <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font><br/>
         </div>
+        <div style="width:5px; height:5px; background-color:pink;"></div>
+        <div style="width:5px; height:5px; background-color:lightblue;"></div>
         <div class="two_percent_wrapper"></div>
         <div class="day_plan_graph"></div>
         <?php
