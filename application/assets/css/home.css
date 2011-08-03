@@ -145,7 +145,7 @@ a{
 
 .data_tab {
     -webkit-box-shadow:0 1px 3px rgba(0,0,0,0.5);
-    background-color: #F3F6FF;
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     position:relative;    
     float:left;
     margin-right:10px;

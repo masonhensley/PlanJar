@@ -160,14 +160,17 @@ class Load_location_data extends CI_Model
         ob_start();
         ?>
         <div class="data_box_top_bar">
-            <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Place: </font>
-                <font style="font-size:30px; font-weight:bold;"><?php echo $place_info['name']; ?></font>
+            <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
+                <font style="color:darkgray;">Selected:</font> <?php echo $place_info['name'] . "</font>"; ?>
             </div>
         </div>
-
+        <div class="place_display_info">
+            Attending
+            <font style="color:darkgray;">people</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['total_attending']; ?></font>
+            <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
+            <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font><br/>
+        </div>
         <div class="two_percent_wrapper"></div>
-
         <div class="day_plan_graph"></div>
         <?php
         return ob_get_clean();

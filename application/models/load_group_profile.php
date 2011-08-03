@@ -119,7 +119,7 @@ class Load_group_profile extends CI_Model
                 ?>
                 <div class="group_bottom_text">
                     Group is <font style="color:red;font-weight:bold;">closed</font>
-                    <font style="color:gray; font-style:italic;">cannot leave school group</font>
+                    <font style="color:gray; font-style:italic; margin-left:50px;">cannot leave school group</font>
                 </div>
                 <?php
             } else // if you are joined and it is a regular group
