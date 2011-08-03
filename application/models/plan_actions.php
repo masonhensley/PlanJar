@@ -137,7 +137,14 @@ class Plan_actions extends CI_Model
                 $place_name = $plan->name;
                 $title = $plan->title;
                 $time = $plan->time;
-                $date = date('l', strtotime($plan->date));
+                
+                if(date('N', strtotime($plan->date)) == date('N', strtotime(new DateTime())))
+                {
+                    $date = "today";
+                }else{
+                    
+                }$date = date('l', strtotime($plan->date));
+                
                 ?>
                 <div class="active_plans"> 
                     <?php
