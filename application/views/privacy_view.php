@@ -8,14 +8,12 @@
     <body>
 
 
+$(function() {
 
-var access_token = location.hash.split('=')[1];
+    var access_token = location.hash.split('=')[1];
 
-if (location.hash) {
+    if (location.hash) {
 
-
-
-     $(function() {
 
     $.ajax({
         type: "GET",
