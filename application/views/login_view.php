@@ -11,7 +11,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
 
-        <link type="text/css" rel=stylesheet href="/application/assets/css/login1.css"/>
+        <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
     </head>
     <body>
