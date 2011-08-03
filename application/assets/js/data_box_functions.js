@@ -9,10 +9,10 @@ function update_groups_and_locations()
     {
         load_data_box(selected_day, selected_groups); // update the data box to reflect selections
     }else{
-        $('#group_data').html('<img src="/application/assets/images/center_display.png">');
+        $('#info_tab').html('<img src="/application/assets/images/center_display.png">');
     }
     load_visible_locations(selected_day, selected_groups); // update the popular locations shown    
-    show_data_container('#group_data');
+    show_data_container('#info_tab');
 }
 
 // updates the data box based on the selected groups
@@ -33,7 +33,7 @@ function load_data_box(selected_day, selected_groups, filter)
         data = $.parseJSON(data);
         
         // Apply the layout HTML
-        $('#group_data').html(data.html);
+        $('#info_tab').html(data.html);
 
         // Capture the data
         data = data.data;
@@ -83,7 +83,7 @@ function show_selected_location() {
                 console.log(data);
                 
                 // Apply the layout HTML
-                $('#group_data').html(data.html);
+                $('#info_tab').html(data.html);
                 
                 // Capture the data
                 data = data.graph_data;
@@ -93,7 +93,7 @@ function show_selected_location() {
                 two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
                 
                 // Show the group data tab
-                show_data_container('#group_data');
+                show_data_container('#info_tab');
             });
         }
     });
