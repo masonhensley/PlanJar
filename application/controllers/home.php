@@ -250,7 +250,8 @@ class Home extends CI_Controller
         $place_id = $this->input->get('place_id');
         $date = $this->input->get('date');
         $selected_groups = $this->input->get('selected_groups');
-        $this->load_location_data->display_location_info($place_id, $date, $selected_groups);
+        $return_array = $this->load_location_data->_display_location_info($place_id, $date, $selected_groups);
+        echo json_encode($return_array);
     }
 
     public function show_event_data()

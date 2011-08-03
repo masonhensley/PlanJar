@@ -3,7 +3,7 @@
 class Load_location_data extends CI_Model
 {
 
-    function display_location_info($place_id, $day, $selected_groups)
+    function _display_location_info($place_id, $day, $selected_groups)
     {
         if (!$day)  // set the day correctly if null
         {
@@ -12,10 +12,21 @@ class Load_location_data extends CI_Model
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d');
+
         $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
-        $number_friends_attending = $this->get_friends_attending($place_id, $sql_date);
-        $place_info = $this->get_people_attending($place_id, $sql_date, $place_info);
-        $this->display_place_info($place_info);
+        $place_data_array = $this->get_place_data($place_id, $sql_date, $place_info); // this will be returned to populate graphs
+        $place_data_array['friends_attending'] = $this->get_number_friends_attending($place_id, $sql_date);
+        $surrounding_day_array = $this->get_surrounding_day_info($place_id, $sql_date); // this array has info for the bar graph that shows # people going out by day
+
+        $graph_return_data = array(
+            'percent_female' => $place_data_array['percent_female'],
+            'percent_male' => $place_data_array['percent_male'],
+            'plan_dates' => $surrounding_day_array
+            );
+        
+        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date);
+        
+        return array('html' => $return_html, 'graph_data' => $graph_return_data);
     }
 
     function get_place_info($place_id)
@@ -31,12 +42,12 @@ class Load_location_data extends CI_Model
         return $place_array;
     }
 
-    function get_friends_attending($place_id, $date)
+    function get_number_friends_attending($place_id, $date)
     {
         $this->load->model('load_locations');
         $friend_ids = $this->load_locations->get_friend_ids();
         // first find the number of friends attending
-        $number_friends_query = "SELECT * FROM plans 
+        $number_friends_query = "SELECT plans.user_id FROM plans 
             JOIN events ON plans.event_id=events.id AND events.date='$date' AND events.place_id=$place_id
             WHERE ";
         foreach ($friend_ids as $id)
@@ -50,7 +61,7 @@ class Load_location_data extends CI_Model
         return $number_of_friends;
     }
 
-    function get_people_attending($place_id, $sql_date, $place_info)
+    function get_place_data($place_id, $sql_date, $place_info)
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT school_data.id, user_meta.sex FROM events 
@@ -59,39 +70,86 @@ class Load_location_data extends CI_Model
             LEFT JOIN school_data ON school_data.id=user_meta.school_id AND school_data.id=$user->school_id
             WHERE events.place_id=$place_id AND events.date='$sql_date'";
         $result = $this->db->query($query); // pull school id, and gender from people attending
-
+        // data to be passed back
         $total_attending = $result->num_rows();
-        $place_info['total_attending'] = $total_attending;
+        $school_ids = array();
+        $number_males = 0;
+        $number_females = 0;
+        $schoolmates_attending = 0;
 
-        $school = array();
-        $males = 0;
-        $females = 0;
         foreach ($result->result() as $result)
         {
             if ($result->sex == 'male')
             {
-                $males++;
+                $number_males++;
             } else if ($result->sex == 'female')
             {
-                $females++;
+                $number_females++;
             }
-            $school[] = $result->id;
+            $school_ids[] = $result->id;
         }
-        $place_info['males'] = $males;
-        $place_info['females'] = $females;
+        $schoolmates_attending = count($school_ids);
+        $percent_male = $number_males / $total_attending;
+        $percent_female = $number_females / $total_attending;
 
-        $number_of_schoolmates_attending = count($school);
-        $place_info['school_attending'] = $number_of_schoolmates_attending;
-
-        return $place_info;
+        return array(
+            'total_attending' => $total_attending,
+            'schoolmates_attending' => $schoolmates_attending,
+            'number_males' => $number_males,
+            'number_females' => $number_females,
+            'percent_male' => $percent_male,
+            'percent_female' => $percent_female
+        );
     }
 
-    function display_place_info($place_info) // name, lat, lon, category, distance
+    function get_surrounding_day_info($place_id, $sql_date)
+    {
+        // select all the plans to the location for the surrounding week (based off day selected)
+        $query = "
+        SELECT plans.user_id, events.id
+        FROM events 
+        JOIN places ON places.id=$place_id
+        WHERE events.date>=DATE_ADD('$sql_date', INTERVAL -2 DAY) AND events.date<DATE_ADD('$sql_date', INTERVAL 4 DAY)
+        ";
+
+        $result = $this->db->query($query);
+
+        $date_tracker = new DateTime($sql_date);
+        $date_tracker->modify('-2 day');
+        $plan_dates = array();
+
+        for ($i = 0; $i < 7; $i++)
+        {
+            $plan_dates[$date_tracker->format('Y-m-d')] = 0;
+            $date_tracker->modify('+1 day');
+        }
+
+        foreach ($result->result() as $plan)
+        {
+            $date = new DateTime($plan->date);
+            $date = $date->format('Y-m-d');
+            $plan_dates[$date]++;
+        }
+
+        // Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
+        $keys = array_keys($plan_dates);
+        $conversion_array = array();
+        foreach ($keys as $key)
+        {
+            $conversion_array[] = array('date' => $key, 'count' => $plan_dates[$key]);
+        }
+        
+        return $conversion_array;
+    }
+
+    function get_place_html() // name, lat, lon, category, distance
     {
         if (strlen($place_info['distance']) > 3)
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
+        
+        ob_start();
         ?>
         <div class="data_box_top_bar">
             <div style="float:left;">
@@ -100,6 +158,9 @@ class Load_location_data extends CI_Model
             </div>
         </div>
         <?php
+        
+        return ob_get_clean();
     }
+
 }
 ?>
