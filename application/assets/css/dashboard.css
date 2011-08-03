@@ -371,3 +371,16 @@ a{
     right:0px; 
     bottom:0px;
 }
+
+.user_entry .remove_following{
+    float:right;
+    width: 75px;
+    background: -webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
+    color: white;
+    padding: 3px;
+    text-align: center;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
+}
