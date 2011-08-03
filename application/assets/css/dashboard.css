@@ -29,7 +29,7 @@ a{
 }
 
 .inside_top_panel{
-    width:930px;
+    width:1024px;
     height:100%;
     margin-left: auto;
     margin-right: auto;
@@ -48,7 +48,7 @@ a{
     height:100%;
     width:auto;
     display:inline-block;
-    position:relative;
+    float: right;
     top:-15px;
     text-align: center;
     margin-right:5px;
@@ -69,7 +69,7 @@ a{
 }
 
 #show_name{
-    display:inline-block;
+    float:left;
     color:white;
     margin-right:300px;
     margin-top:12px;
@@ -80,7 +80,7 @@ a{
 .container{
     position:relative;
     top:10px;
-    width:930px;
+    width:1024px;
     height:1000px;
     margin-left:auto;
     margin-right:auto;
