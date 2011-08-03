@@ -400,11 +400,11 @@ class Display_group_template extends CI_Model
         ob_start();
         ?>
         <div class="data_box_top_bar">
-            <div style="float:left; font-size:20px;">
+            <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
-        <div style="position:absolute; top:25px; right:50px;color:darkgray;">
+        <div style="position:absolute; top:40px; right:100px;color:darkgray;">
             # people going out by day
         </div>
         <div class="group_graph_top_left" >
