@@ -31,15 +31,19 @@ class Load_group_profile extends CI_Model
         }
         $query3 = "SELECT user_joined_id, user_following_id FROM group_relationships WHERE group_id=$group_id";
         $result3 = $this->db->query($query3);
-        $return_array['number_following'] = $result3->num_rows();
+        $number_following = 0;
         $number_joined = 0;
         foreach ($result3->result() as $group_relationship)
         {
             if ($group_relationship->user_joined_id)
             {
                 $number_joined++;
+            } else
+            {
+                $number_following++;
             }
         }
+        $return_array['number_following'] = $number_following;
         $return_array['number_joined'] = $number_joined;
 
         return $return_array;
@@ -62,22 +66,22 @@ class Load_group_profile extends CI_Model
 
 
         <div class="group_profile_picture">
-            <?php echo $this->return_profile_picture(); ?>
+        <?php echo $this->return_profile_picture(); ?>
         </div>
         <div class="user_profile_header">
             <div class="profile_name_display">
                 <br/><font style="font-size:20px; font-weight:bold;"><?php echo $group_info['name']; ?></font><br/><?php
         if ($this->group_ops->user_is_following($group_info['id']))
         {
-                ?> <font style="color:green; font-weight:bold;">following</font><?php
+            ?> <font style="color:green; font-weight:bold;">following</font><?php
         } else if ($this->group_ops->user_is_joined($group_info['id']))
         {
-                ?><font style="color:purple; font-weight:bold;">joined</font><?php
+            ?><font style="color:purple; font-weight:bold;">joined</font><?php
         } else
         {
-                ?><font style="color:gray">(not following)</font><?php
+            ?><font style="color:gray">(not following)</font><?php
         }
-            ?>
+        ?>
                 <br/><br/><br/><br/>
             </div>
         </div>
@@ -101,7 +105,7 @@ class Load_group_profile extends CI_Model
                         ?><font style="color:gray;">School:</font><font style="color:black; font-weight:bold;"><?php echo $group_info['school']; ?></font><br/><br/><?php
             }
         }
-                ?><font style="color:gray;">Description</font><br/>
+        ?><font style="color:gray;">Description</font><br/>
                 <font style=""><?php echo $group_info['description']; ?> </font><br/><hr/><br/>
 
             </div>
