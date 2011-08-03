@@ -197,7 +197,7 @@ a{
 }
 
 /* follower tab */
-#followers_content .left {
+#friends_content .left {
     width: 38%;
     float: left;
     height: auto;
@@ -205,7 +205,7 @@ a{
     border-top-left-radius:10px;
     background-color: white;
 }
-#followers_content .left_header {
+#friends_content .left_header {
     width: 100%;
     text-align:center;
     color:navy;
@@ -226,7 +226,7 @@ a{
 .selected_follower {
     background: -webkit-gradient(linear,left top,left bottom,from(#ddd),to(#eff));
 }
-#followers_content .right, #notifications_content .right {
+#friends_content .right, #notifications_content .right {
     width: 48%;
     float: right;
     height: auto;
