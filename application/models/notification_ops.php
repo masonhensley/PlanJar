@@ -99,14 +99,14 @@ class Notification_ops extends CI_Model
                 {
                     echo('<div class="accept">Accept</div>');
                 }
+            }else{
+                echo('<div style="color:black; float:right; margin-right:15px;"><b>Accepted</b></div><br/>');
             }
             if ($row->viewed)
             {
-                echo('<div class="mark_read">Accepted</div><br/>');
                 echo('<div class="mark_read">Mark unread</div>');
             } else
             {
-                echo('<div class="mark_read">Accepted</div><br/>');
                 echo('<div class="mark_read">Mark read</div>');
             }
             ?>
