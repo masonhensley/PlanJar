@@ -1,6 +1,7 @@
 .two_percent_wrapper {
     height: 25px;
     width: 200px;
+    position: relative;
 }
 
 .day_plan_graph {
