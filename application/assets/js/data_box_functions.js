@@ -37,7 +37,6 @@ function load_data_box(selected_day, selected_groups, filter)
 
         // Capture the data
         data = data.data;
-        console.log(data);
         
         // Select the correct value for the select box
         $('#filter').val(data['filter']);
@@ -80,6 +79,19 @@ function show_selected_location() {
                 'selected_groups':get_selected_groups()
             }, function (data) {
                 $('#location_data').html(data);
+                
+            //                // Parse the JSON
+            //                data = $.parseJSON(data);
+            //                
+            //                // Apply the layout HTML
+            //                $('#location_data').html(data.html);
+            //                
+            //                // Capture the data
+            //                data = data.data;
+            //                
+            //                // Populate the graphs
+            //                populate_day_graph(container, data.plan_dates, data.selected_date);
+            //                two_percentage_bar(container, data.male_percentage, 'two_bar_male', 'two_bar_female');
             });
         }
         show_data_container('#location_data');

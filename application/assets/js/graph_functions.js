@@ -103,4 +103,28 @@ function populate_day_graph(container, data, selected_date) {
             return given_date.toString('ddd');
         }
     });
+    
+    // Populates the container with a 
+    function two_percentage_bar(container, left_percentage, left_class, right_class) {
+        // Add the divs if they don't exist
+        if ($(container).children().length < 2) {
+            // Clear the container
+            $(container).html('');
+            
+            // Add the right (background) div
+            $(container).append('<div class="' + right_class + ' two_bar_right"></div>');
+            
+            // Add the left div
+            $(container).append('<div class="' + left_class + ' two_bar_left"></div>');
+        }
+    }
+    
+    // Select the left div
+    d3.select(container).selectAll('div.two_bar_left')
+    // Add data
+    .data([left_percentage])
+    // Set the width
+    .style('width', function (d) {
+        return d + '%';
+    });
 }
