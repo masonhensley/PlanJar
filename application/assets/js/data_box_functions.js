@@ -78,20 +78,18 @@ function show_selected_location() {
                 'date': $('.selected_location_tab').attr('date'),
                 'selected_groups':get_selected_groups()
             }, function (data) {
-                $('#location_data').html(data);
+                // Parse the JSON
+                data = $.parseJSON(data);
                 
-            //                // Parse the JSON
-            //                data = $.parseJSON(data);
-            //                
-            //                // Apply the layout HTML
-            //                $('#location_data').html(data.html);
-            //                
-            //                // Capture the data
-            //                data = data.data;
-            //                
-            //                // Populate the graphs
-            //                populate_day_graph(container, data.plan_dates, data.selected_date);
-            //                two_percentage_bar(container, data.male_percentage, 'two_bar_male', 'two_bar_female');
+                // Apply the layout HTML
+                $('#location_data').html(data.html);
+                
+                // Capture the data
+                data = data.graph_data;
+                
+            // Populate the graphs
+            //populate_day_graph(container, data.plan_dates, data.selected_date);
+            //two_percentage_bar(container, data.percent_male, 'two_bar_male', 'two_bar_female');
             });
         }
         show_data_container('#location_data');
