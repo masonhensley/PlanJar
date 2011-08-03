@@ -18,7 +18,7 @@ function initialize_plan_panel(){
             $('.selected_plan').removeClass('selected_plan');
             $(this).addClass('selected_plan');
             get_plan_data();
-            show_data_container('#info_tab');
+            show_data_container('#info_content');
         }else{
             $(this).removeClass('selected_plan');
         // put code in here for when a plan is de-selected
@@ -34,7 +34,7 @@ function get_plan_data() {
         data = $.parseJSON(data);
         
         // Replace the data and show the data tab.
-        $('#info_tab').html(data.html);
+        $('#info_content').html(data.html);
         
         // Handles clicking on the delete plan button
         $('.delete_plan').confirmDiv(function (clicked_elem) {
@@ -42,7 +42,7 @@ function get_plan_data() {
                 'plan_selected': $('.selected_plan').attr('plan_id')
             }, function (data) {
                 // Replace the data and show the data tab.
-                $('#info_tab').html(data);
+                $('#info_content').html(data);
                 populate_plan_panel();
             });
         });

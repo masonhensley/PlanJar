@@ -8,7 +8,7 @@ function initialize_change_location_panel() {
     $('#change_location').click(function () {
         if ($('.change_location_panel').css('display') == 'none') {
             // Switch to the map tab.
-            show_data_container('#map_tab', show_change_location_panel);
+            show_data_container('#map_content', show_change_location_panel);
         }
         return false;
     });
