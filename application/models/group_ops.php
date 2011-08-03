@@ -110,7 +110,7 @@ class Group_ops extends CI_Model
             <div class="group_entry_middle">
                 <div class="group_name">
                     <?php
-                    echo($row->name) . "<br/>";
+                    echo($row->name);
                     if ($option == 'suggested groups')
                     {
                         echo $suggested_groups[$row->id] . " connection";
