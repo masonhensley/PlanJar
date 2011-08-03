@@ -143,7 +143,7 @@ class Load_location_data extends CI_Model
         return $conversion_array;
     }
 
-    function get_place_html() // name, lat, lon, category, distance
+    function get_place_html($place_info, $place_data_array, $sql_date)
     {
         if (strlen($place_info['distance']) > 3)
         {
