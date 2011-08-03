@@ -4,6 +4,7 @@
     position: absolute;
     left:20px;
     top:120px;
+    border: 1px solid lightgrey;
 }
 
 .day_plan_graph {
