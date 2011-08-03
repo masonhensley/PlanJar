@@ -5,39 +5,22 @@
 function populate_percentage_box(container, percentage, active_class) {
     percentage = percentage/100;
     
-    // Create the marker boxes if they aren't there
-    if ($(container).children().length < 10) {
-        // Clear the container and add the boxes
-        $(container).html('');
-        
-        var marker_box;
-        // Loop through each marker box
-        for (i = 0; i < 10; ++i) {
-            // Create a marker box
-            marker_box = $('<div class="marker_box"></div>');
-        
-            // Append the half marker boxes
-            marker_box.append($('<div class="half_marker_box"></div>'));
-            marker_box.append($('<div class="half_marker_box"></div>'));
-        
-            // Append the marker box to its wrapper
-            marker_box.appendTo(container);
-        }
-    
-        // Create an array with an entry for each half box
-        var d3_data = [];
-        for (var i = 0; i < 20; ++i) {
-            d3_data.push(i < percentage * 20);
-        }
+    // Create the bar div if it's not there'
+    if ($(container).children().length < 1) {
+        $(container).append($('<div class="percent_bar ' + active_class + '"></div>'));
     }
-     
-    // Select all half boxes
-    d3.select(container).selectAll('.half_marker_box')
-    // Add the data to the selection
-    .data(d3_data)
-    // Set the background to the color specified by the given active class
-    .classed(active_class, function (d) {
-        return d;
+    
+    // Define the bar height scaling function
+    var bar_scale = d3.scale.linear()
+    .range(['0%', '100%']);
+    
+    // Select the bar
+    d3.select(container).selectAll('div.percent_bar')
+    // Add data to the bars
+    .data([percentage])
+    // Set the width according to the input data
+    .style('width', function (d) {
+        return bar_scale(d);
     });
 }
 
