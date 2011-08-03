@@ -102,6 +102,7 @@ class Notification_ops extends CI_Model
             }
             if ($row->viewed)
             {
+                echo('<div class="mark_read">Accepted</div><br/>');
                 echo('<div class="mark_read">Mark unread</div>');
             } else
             {
