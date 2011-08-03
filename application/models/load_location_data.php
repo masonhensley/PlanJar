@@ -160,9 +160,8 @@ class Load_location_data extends CI_Model
         ob_start();
         ?>
         <div class="data_box_top_bar">
-            <div style="float:left;">
-                <font style="font-size:30px;color:gray; font-weight:bold;">Place: </font>
-                <font style="font-size:30px; font-weight:bold;"><?php echo $place_info['name']; ?></font>
+            <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
+                <font style="color:darkgray;">Selected:</font> <?php echo $place_info['name'] ."</font>"; ?>
             </div>
         </div>
 
