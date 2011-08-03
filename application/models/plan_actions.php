@@ -137,14 +137,22 @@ class Plan_actions extends CI_Model
                 $place_name = $plan->name;
                 $title = $plan->title;
                 $time = $plan->time;
-                $date = date('l', strtotime($plan->date));
+                $todays_date = date('N');
+                
+                if(date('N', strtotime($plan->date)) == $todays_date)
+                {
+                    $date = "Today";
+                }else{
+                    $date = date('l', strtotime($plan->date));
+                }
+                
                 ?>
                 <div class="active_plans"> 
                     <?php
                     if ($date_organizer != $date)
                     {
                         ?>
-                        <font style="font-size:16px; color:gray;"><?php echo $date; ?><br/></font>
+                        <font style="font-size:11px; margin-left: -140px; color:gray;"><?php echo $date; ?><br/></font>
                         <?php
                     }
                     $date_organizer = $date;
