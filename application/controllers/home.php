@@ -191,7 +191,7 @@ class Home extends CI_Controller
         $return = $this->plan_actions->load_plan_data($plan);
         echo json_encode($return);
     }
-    
+
     public function get_notification_popup()
     {
         $user_id = $this->ion_auth->get_user()->id;
@@ -552,7 +552,7 @@ class Home extends CI_Controller
                     $this->ion_auth->get_user()->id
                 ));
 
-        
+
         // Discard the plan
         $this->load->model('plan_actions');
         $this->plan_actions->delete_plan($query->row()->id);

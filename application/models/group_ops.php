@@ -211,11 +211,12 @@ class Group_ops extends CI_Model
             $school_id = NULL;
 
             // Check for a pre-existing group within 20 miles
-            $query_string = "SELECT id, 
+            $query_string = "SELECT id
+            FROM groups
+            WHERE name = ? AND school_id = ? AND
             ((ACOS(SIN(? * PI() / 180) * SIN(latitude * PI() / 180) 
             + COS(? * PI() / 180) * COS(latitude * PI() / 180) * COS((? - longitude) 
-            * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
-            FROM groups WHERE name = ? AND distance <= 20 AND school_id = ?";
+            * PI() / 180)) * 180 / PI()) * 60 * 1.1515) <= 20";
             $query = $this->db->query($query_string, array(
                         $latitude,
                         $latitude,
