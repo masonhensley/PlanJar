@@ -91,8 +91,10 @@ function show_selected_location() {
                 // Populate the graphs
                 populate_day_graph('.day_plan_graph', data.plan_dates, 'today');
                 two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
+                
+                // Show the group data tab
+                show_data_container('#group_data');
             });
         }
-        show_data_container('#group_data');
     });
 }
