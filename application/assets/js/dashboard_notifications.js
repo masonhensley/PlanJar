@@ -8,7 +8,8 @@ function get_notifications() {
         
         // Read/unread toggle
         $('.notification_entry .mark_read').click(function () {
-            update_notification_viewed($(this).parent().attr('notif_id'), $(this).parent().hasClass('unviewed'));
+            var bool = $(this).parent().hasClass('unviewed') ? 1 : 0;
+            update_notification_viewed($(this).parent().attr('notif_id'), bool);
         });
         
         // User profile link click handler
