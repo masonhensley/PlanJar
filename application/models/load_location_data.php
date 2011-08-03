@@ -156,13 +156,13 @@ class Load_location_data extends CI_Model
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
-        
+
         // get the percentages ready for display
         $place_data_array['percent_male'] = $place_data_array['percent_male'] * 100;
         $place_data_array['percent_female'] = $place_data_array['percent_female'] * 100;
-        
+
         // trim the percentages
-         if (strlen($place_data_array['percent_male']) > 3)
+        if (strlen($place_data_array['percent_male']) > 3)
         {
             $place_data_array['percent_male'] = substr($place_data_array['percent_male'], 0, 3);
             if (substr($place_data_array['percent_male'], -1) == ".")
@@ -178,7 +178,7 @@ class Load_location_data extends CI_Model
                 $place_data_array['percent_female'] = substr($place_data_array['percent_female'], 0, -1);
             }
         }
-        
+
         // start output buffering
         ob_start();
         ?>
@@ -193,8 +193,12 @@ class Load_location_data extends CI_Model
             <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
             <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font><br/>
         </div>
-        <div style="width:12px; height:12px; background-color:pink; position:absolute; left:130px; top:100px"></div><?php echo $place_data_array['percent_male'];?>
-        <div style="width:12px; height:12px; background-color:lightblue; position:absolute; left: 100px; top:100px;"></div><?php echo $place_data_array['percent_female']; ?>
+        <div style="width:12px; height:12px; background-color:pink; position:absolute; left:130px; top:100px"></div>
+        <div style="width:12px; height:12px; background-color:lightblue; position:absolute; left: 100px; top:100px;"></div>
+        
+        <div style="position:absolute;"><?php echo $place_data_array['percent_female']; ?></div>
+        <div style="position:absolute;"><?php echo $place_data_array['percent_male']; ?></div>
+        
         <div class="two_percent_wrapper"></div>
         <div class="day_plan_graph"></div>
         <?php
