@@ -111,14 +111,6 @@ class Group_ops extends CI_Model
                 <div class="group_name">
                     <?php
                     echo($row->name);
-                    if ($option == 'suggested groups')
-                    {
-                        echo $suggested_groups[$row->id] . " connection";
-                        if ($suggested_groups[$row->id] > 1)
-                        {
-                            echo"s";
-                        }
-                    }
                     ?>
 
                 </div>
@@ -143,6 +135,19 @@ class Group_ops extends CI_Model
                 } else
                     ?>
             </div>
+            <div style="position:absolute; top:40px; right:10px; font-size:10px; color:green;">
+                <?php
+                if ($option == 'suggested groups')
+                {
+                    echo $suggested_groups[$row->id] . " connection";
+                    if ($suggested_groups[$row->id] > 1)
+                    {
+                        echo"s";
+                    }
+                }
+                ?>
+            </div>
+
         </div>
         <?php
     }
