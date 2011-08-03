@@ -141,7 +141,7 @@ class Plan_actions extends CI_Model
                 
                 if(date('N', strtotime($plan->date)) == $todays_date)
                 {
-                    $date = "today";
+                    $date = "Today";
                 }else{
                     $date = date('l', strtotime($plan->date));
                 }
