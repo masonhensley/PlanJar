@@ -100,7 +100,7 @@ class Notification_ops extends CI_Model
                     echo('<div class="accept">Accept</div>');
                 }
             }else{
-                echo('<div style="color:black; float:right; margin-right:15px;"><b>Accepted</b></div><br/>');
+                echo('<div style="color:black; float:right; margin-right:15px;"><b>Responded</b></div><br/>');
             }
             if ($row->viewed)
             {
