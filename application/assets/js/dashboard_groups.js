@@ -60,20 +60,16 @@ function group_select_click_handler()
     });
     
     // Click handler.
-    group_click_handler('#find_groups_list .add_following', 'add_group_following');
-    $('#find_groups_list .add_following').click(function () {
-        $(this).text('You sure?');
-        $(this).unbind('click');
-        $(this).click(function () {
-            $.get('/dashboard/add_group_following', {
-                //group_id: $(this).parent().attr('group_id')
-                group_id: $('.selected_group').attr('group_id')
-            }, function () {
-                $('#find_groups_list').html('');
-                $('#group_search').val('');
-                populate_edit_groups_list();
-                $('#group_search').blur();
-            });
+    $('#find_groups_list .add_following').confirmDiv(function(clicked_elem) {
+        $.get('/dashboard/add_group_following', {
+            group_id: clicked_elem.parent().parent().attr('group_id')
+        }, function (data) {
+            populate_edit_groups_list();
+                            
+            // Blur out the suggested groups (not always necessary, but easy)
+            $('#find_groups_list').html('');
+            $('#group_search').val('');
+            $('#group_search').blur();
         });
     });
 }
@@ -97,9 +93,32 @@ function populate_edit_groups_list() {
                     $('.middle').show("fast");
                     
                     // Button click handlers
-                    group_click_handler('#groups_content .remove_following', 'remove_group_following');
-                    group_click_handler('#groups_content .remove_joined', 'remove_group_joined');
-                    group_click_handler('#groups_content .add_joined', 'add_group_joined');
+                    $('#groups_content .remove_following').confirmDiv(function() {
+                        $.get('/dashboard/remove_group_following', {
+                            group_id: $('.group_profile_header').attr('group_id')
+                        }, function (data) {
+                            populate_edit_groups_list();
+                            $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+                            
+                            // Blur out the suggested groups (not always necessary, but easy)
+                            $('#find_groups_list').html('');
+                            $('#group_search').val('');
+                            $('#group_search').blur();
+                        });
+                    });
+                    
+                    $('#groups_content .add_joined').confirmDiv(function() {
+                        $.get('/dashboard/add_group_joined', {
+                            group_id: $('.group_profile_header').attr('group_id')
+                        }, function (data) {
+                            populate_edit_groups_list();
+                            
+                            // Blur out the suggested groups (not always necessary, but easy)
+                            $('#find_groups_list').html('');
+                            $('#group_search').val('');
+                            $('#group_search').blur();
+                        });
+                    });
                     
                     // Invite people
                     $('#groups_content .middle .invite_people').click(function() {
@@ -117,7 +136,7 @@ function group_click_handler(button_class, dashboard_function) {
             group_id: $('.group_profile_header').attr('group_id')
         }, function (data) {
             populate_edit_groups_list();
-            if(dashboard_function == 'remove_group_following' || dashboard_function == 'remove_group_joined')
+            if(dashboard_function == 'remove_group_following')
             {
                 $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
             }
