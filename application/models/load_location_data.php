@@ -106,7 +106,7 @@ class Load_location_data extends CI_Model
     {
         // select all the plans to the location for the surrounding week (based off day selected)
         $query = "
-        SELECT plans.user_id, events.id
+        SELECT plans.user_id, events.id, events.date
         FROM events
         JOIN plans ON plans.event_id=events.id
         JOIN places ON places.id=$place_id
