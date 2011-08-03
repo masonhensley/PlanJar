@@ -112,10 +112,10 @@ function populate_day_graph(container, data, selected_date) {
             $(container).html('');
             
             // Add the right (background) div
-            $(container).append('<div class="' + right_class + ' two_bar_right"></div>');
+            $(container).append($('<div class="' + right_class + ' two_bar_right"></div>'));
             
             // Add the left div
-            $(container).append('<div class="' + left_class + ' two_bar_left"></div>');
+            $(container).append($('<div class="' + left_class + ' two_bar_left"></div>'));
         }
     }
     
