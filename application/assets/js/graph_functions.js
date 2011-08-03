@@ -106,7 +106,7 @@ function populate_day_graph(container, data, selected_date) {
 }
 
 // Populates the container with a 
-function two_percentage_bar(container, left_percentage, left_class, right_class) {
+function two_percentage_bar(container, left_percentage, right_percentage, left_class, right_class) {
     // Add the divs if they don't exist
     if ($(container).children().length < 2) {
         // Clear the container
@@ -123,6 +123,15 @@ function two_percentage_bar(container, left_percentage, left_class, right_class)
     d3.select(container).selectAll('div.two_bar_left')
     // Add data
     .data([left_percentage * 100])
+    // Set the width
+    .style('width', function (d) {
+        return d + '%';
+    });
+    
+    // Select the right div
+    d3.select(container).selectAll('div.two_bar_right')
+    // Add data
+    .data([right_percentage * 100])
     // Set the width
     .style('width', function (d) {
         return d + '%';
