@@ -46,6 +46,7 @@
     margin-left:35px;
     position: relative;
     text-align: left;
+    border:1px solid lightgray;
 }
 
 .show_percent{
