@@ -90,7 +90,7 @@ function show_selected_location() {
                 
                 // Populate the graphs
                 populate_day_graph('.day_plan_graph', data.plan_dates, 'today');
-                two_percentage_bar('.two_percent_wrapper', data.percent_male, 'two_bar_male', 'two_bar_female');
+                two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
             });
         }
         show_data_container('#location_data');
