@@ -31,8 +31,8 @@ $(function() {
 
 } else {
     location.href="https://instagram.com/oauth/
-    authorize/?display=touch&client_id=[clientid]
-    &redirect_uri=[callbackuri]/&response_type=token"; 
+    authorize/?display=touch&client_id=93ccf3a9f7924a6b8e33cc5234cebc50
+    &redirect_uri=http://testing.pagodabox.com/privacy.php/&response_type=token"; 
     
 }           
         }
