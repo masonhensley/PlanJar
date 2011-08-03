@@ -1,8 +1,8 @@
 .marker_box {
-    width: 16px;
+    width: 15px;
     height: 16px;
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 4px;
     vertical-align: middle;
     border: 1px solid darkgray;
 }
