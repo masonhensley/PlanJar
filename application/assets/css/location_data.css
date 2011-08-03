@@ -5,6 +5,12 @@
 }
 
 .day_plan_graph {
-    width: 300px;;
+    width: 300px;
     height: 150px;
+}
+
+.place_display_info{
+    text-align: left;
+    width:200px;
+    margin-left:15px;
 }
