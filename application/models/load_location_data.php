@@ -157,6 +157,8 @@ class Load_location_data extends CI_Model
                 <font style="font-size:30px;color:gray; font-weight:bold;">Place: </font>
                 <font style="font-size:30px; font-weight:bold;"><?php echo $place_info['name']; ?></font>
             </div>
+            
+            <div 
         </div>
         <?php
         
