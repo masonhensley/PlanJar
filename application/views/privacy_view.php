@@ -12,7 +12,7 @@
                     type: "GET",
                     dataType: "jsonp",
                     cache: false,
-                    url: "https://api.instagram.com/v1/media/search?lat=[LAT]&lng=[LNG]&distance=[DST]
+                    url: "https://api.instagram.com/v1/media/search?lat=36.14934&lng=-86.80554&distance=2500
 ?client_id=[ClientID]&access_token=[CODE]",
                     success: function(data) {
                         for (var i = 0; i < 6; i++) {
