@@ -89,16 +89,22 @@ class Load_location_data extends CI_Model
             $school_ids[] = $result->id;
         }
         $schoolmates_attending = count($school_ids);
-        $percent_male = $number_males / $total_attending;
-        $percent_female = $number_females / $total_attending;
+        if ($total_attending != 0)
+        {
+            $percent_male = $number_males / $total_attending;
+            $percent_female = $number_females / $total_attending;
+        } else
+        {
+            $percent_male = 0;
+            $percent_female = 0;
+        }
 
         return array(
             'total_attending' => $total_attending,
             'schoolmates_attending' => $schoolmates_attending,
             'number_males' => $number_males,
             'number_females' => $number_females,
-            'percent_male' => $percent_male,
-            'percent_female' => $percent_female
+            'percent_male' => $percent_male
         );
     }
 
