@@ -329,10 +329,6 @@ class Group_ops extends CI_Model
         $query_string = "DELETE FROM group_relationships WHERE group_id = ?";
         $query = $this->db->query($query_string, array($group_id));
 
-        // Delete corresponding invites
-        $query_string = "DELETE FROM group_invitees WHERE group_id = ?";
-        $query = $this->db->query($query_string, array($group_id));
-
         // Delete corresponding notifications
         $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
         $query = $this->db->query($query_string, array('group_invite', $group_id));
