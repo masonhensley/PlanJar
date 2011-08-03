@@ -127,4 +127,13 @@ function two_percentage_bar(container, left_percentage, left_class, right_class)
     .style('width', function (d) {
         return d + '%';
     });
+    
+    // Select the right div
+    d3.select(container).selectAll('div.two_bar_right')
+    // Add data
+    .data([(1 - left_percentage) * 100])
+    // Set the width
+    .style('width', function (d) {
+        return d + '%';
+    });
 }
