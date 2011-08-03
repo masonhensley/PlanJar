@@ -36,6 +36,7 @@
 
     <body>
 
+curl https://api.instagram.com/v1/media/popular?client_id=93ccf3a9f7924a6b8e33cc5234cebc50
 
     </body>
 </html>
