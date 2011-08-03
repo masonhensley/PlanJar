@@ -80,6 +80,7 @@ function show_selected_location() {
             }, function (data) {
                 // Parse the JSON
                 data = $.parseJSON(data);
+                console.log(data);
                 
                 // Apply the layout HTML
                 $('#location_data').html(data.html);
