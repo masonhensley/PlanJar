@@ -40,7 +40,7 @@ class Load_suggested_groups extends CI_Model
     function get_users_following()
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT follow_id FROM friends WHERE user_id=$user->id";
+        $query = "SELECT follow_id FROM friend_relationships WHERE user_id=$user->id";
         $result = $this->db->query($query);
         $users_following = array();
         foreach ($result->result() as $user)

@@ -1,3 +1,4 @@
+/* ----------------------------------------- percent classes ----------------------------- */
 .percent_bar_total {
     background-color: #A13D97;
 }
@@ -15,6 +16,7 @@
     width: 0px;
 }
 
+/* ---------------------------------------------------- day bar graph classes ------------------------ */
 .graph_bar {
     width: 100%;
     background-color: #3FA9F5;
@@ -50,4 +52,27 @@
     position: absolute;
     bottom: 0px;
     color:darkgray;
+}
+
+/* ----------------------------------- two percentage bar classes ---------------------------------------- */
+.two_bar_right {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.two_bar_left {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+}
+
+.two_bar_male {
+    background-color: lightblue;
+}
+.two_bar_female {
+    background-color: pink;
 }

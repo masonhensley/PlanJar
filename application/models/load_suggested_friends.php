@@ -12,7 +12,7 @@ class Load_suggested_friends extends CI_Model
     {
         $number_of_results = 0; // this keeps track of the number of items displayed to it can be limited to 15 (or whatever)
         $display_limit = 15; // the max number of results that can be displayed for suggested friends
-        $friends_query = "SELECT follow_id FROM friends where user_id=$user_id"; // query pulls all people you are following
+        $friends_query = "SELECT follow_id FROM friend_relationships where user_id=$user_id"; // query pulls all people you are following
         $friends_following_result = $this->db->query($friends_query);
         $suggested_friends = array();
         $already_following = array(); // keep track of the people you are already following
@@ -20,7 +20,7 @@ class Load_suggested_friends extends CI_Model
         if ($friends_following_result->num_rows() > 0) // if you are following 1 or more people
         {
 
-            $friend_of_friend_query = "SELECT follow_id FROM friends WHERE "; // generate query to find all friends of friends
+            $friend_of_friend_query = "SELECT follow_id FROM friend_relationships WHERE "; // generate query to find all friends of friends
             foreach ($friends_following_result->result() as $friend_id)
             {
                 $already_following[] = $friend_id->follow_id; // update $already_following id array

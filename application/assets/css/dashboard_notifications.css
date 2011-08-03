@@ -2,9 +2,9 @@
     width: 425px;
     height: auto;
     float: left;
-    border-top:1px solid gray;
-    border-right:1px solid gray;
-    border-left:1px solid gray;
+    border-top:1px solid #CCC;
+    border-right:1px solid #CCC;
+    border-left:1px solid #CCC;
 }
 
 #notifications_content > .right {

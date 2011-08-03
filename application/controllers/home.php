@@ -344,8 +344,8 @@ class Home extends CI_Controller
             }
 
             $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name
-                    FROM friends LEFT JOIN user_meta ON friends.user_id = user_meta.user_id
-                    WHERE ($needle_where) AND friends.follow_id = ?";
+                    FROM friend_relationships LEFT JOIN user_meta ON friend_relationships.user_id = user_meta.user_id
+                    WHERE ($needle_where) AND friend_relationships.follow_id = ?";
 
             $query = $this->db->query($query_string, array($user->id));
 
