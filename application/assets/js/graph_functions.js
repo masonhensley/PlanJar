@@ -122,7 +122,7 @@ function two_percentage_bar(container, left_percentage, left_class, right_class)
     // Select the left div
     d3.select(container).selectAll('div.two_bar_left')
     // Add data
-    .data([left_percentage])
+    .data([left_percentage/100])
     // Set the width
     .style('width', function (d) {
         return d + '%';
