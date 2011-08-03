@@ -3,11 +3,8 @@
 <html>
     <head>
         <link rel=stylesheet href="/application/assets/css/privacy.css" type="text/css" />
-    </head>
 
-    <body>
-
-
+<script type="text/javascript">
 $(function() {
 
     var access_token = location.hash.split('=')[1];
@@ -38,6 +35,11 @@ $(function() {
         }
     });
 });
+</script>
+    </head>
+
+    <body>
+
 
     </body>
 </html>
