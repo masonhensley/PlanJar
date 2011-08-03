@@ -173,7 +173,7 @@ class Follow_ops extends CI_Model
 
         // Notify the given user
         $this->load->model('notification_ops');
-        $this->notification_ops->notify(array($follow_id), 'follow_notif', $this->ion_auth->get_user()->id);
+        $this->notification_ops->notify(array($following_id), 'follow_notif', $this->ion_auth->get_user()->id);
     }
 
 }
