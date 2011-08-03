@@ -84,6 +84,7 @@
     height: 60px;
     border-top:1px solid black;
     text-align :center;
+    position:relative;
 }
 .group_entry.selected_group {
     background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
