@@ -27,6 +27,8 @@
 .notification_entry.unviewed .middle{
     float: left;
     width: 210px;
+    color:black;
+    font-style:normal;
 }
 
 .notification_entry > .left {
