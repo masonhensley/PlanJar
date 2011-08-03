@@ -112,6 +112,7 @@ function populate_edit_groups_list() {
                             group_id: $('.group_profile_header').attr('group_id')
                         }, function (data) {
                             populate_edit_groups_list();
+                            $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
                             
                             // Blur out the suggested groups (not always necessary, but easy)
                             $('#find_groups_list').html('');

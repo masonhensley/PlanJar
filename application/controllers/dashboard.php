@@ -9,14 +9,14 @@ class Dashboard extends CI_Controller
         {
             $user_info = $this->ion_auth->get_user();
 
-            // retrieve other useful variables for view
+// retrieve other useful variables for view
             $firstname = $user_info->first_name;
             $lastname = $user_info->last_name;
 
-            // Lookup the groups by id.
+// Lookup the groups by id.
             $this->load->model('load_groups');
 
-            // Pass the necessary information to the view.
+// Pass the necessary information to the view.
             $this->load->view('dashboard_view', array(
                 'firstname' => $firstname,
                 'lastname' => $lastname,
@@ -30,29 +30,29 @@ class Dashboard extends CI_Controller
         }
     }
 
-    // Searches for people to follow by name and returns HTML
+// Searches for people to follow by name and returns HTML
     public function follow_search()
     {
         $this->load->model('follow_ops');
         $this->follow_ops->search_for_users($this->input->get('needle'));
     }
 
-    // Adds a following relationship if one doesn't already exist.
+// Adds a following relationship if one doesn't already exist.
     public function add_user_following()
     {
-        // Capture the parameter
+// Capture the parameter
         $following_id = $this->input->get('following_id');
 
-        // Add the relationship entry
+// Add the relationship entry
         $this->load->model('follow_ops');
         $this->follow_ops->add_user_following($following_id);
 
-        // Notify the given user
+// Notify the given user
         $this->load->model('notification_ops');
         $this->notification_ops->notify(array($following_id), 'follow_notif', $this->ion_auth->get_user()->id);
     }
 
-    // Removes a following relationship.
+// Removes a following relationship.
     public function remove_following()
     {
         $user = $this->ion_auth->get_user();
@@ -61,7 +61,7 @@ class Dashboard extends CI_Controller
         $query = $this->db->query($query_string, array($user->id, $this->input->get('following_id')));
     }
 
-    // Return HTML for the users the user is following.
+// Return HTML for the users the user is following.
     public function get_following()
     {
         $this->load->model('follow_ops');
@@ -90,7 +90,7 @@ class Dashboard extends CI_Controller
         }
     }
 
-    // Return HTML for the users following the user.
+// Return HTML for the users following the user.
     public function get_followers()
     {
         $this->load->model('follow_ops');
@@ -125,7 +125,7 @@ class Dashboard extends CI_Controller
         }
     }
 
-    // this function returns html for the suggested friends list
+// this function returns html for the suggested friends list
     public function get_suggested_friends()
     {
         $user_info = $this->ion_auth->get_user();
@@ -136,7 +136,7 @@ class Dashboard extends CI_Controller
         $this->load_suggested_friends->suggested_friends($user_id, $grad_year, $school_id);
     }
 
-    // Returns HTML for the list of groups the user is following.
+// Returns HTML for the list of groups the user is following.
     public function get_following_groups()
     {
         $this->load->model('group_ops');
@@ -178,7 +178,7 @@ class Dashboard extends CI_Controller
         echo "$returnHTML";
     }
 
-    // Returns the HTML for the group info as well as the associated group id
+// Returns the HTML for the group info as well as the associated group id
     public function get_group_details()
     {
         $this->load->model('load_group_profile');
@@ -192,12 +192,23 @@ class Dashboard extends CI_Controller
         $this->group_ops->follow_group($this->input->get('group_id'));
     }
 
+    // Removes the appropriate group relationship
+    // Removes the group if no members are left
     public function remove_group_following()
     {
         $user = $this->ion_auth->get_user();
+        $group_id = $this->input->get('group_id');
 
+        // Delete the relationship
         $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND (user_following_id = ? OR user_joined_id = ?)";
-        $query = $this->db->query($query_string, array($this->input->get('group_id'), $user->id, $user->id));
+        $query = $this->db->query($query_string, array($group_id, $user->id, $user->id));
+
+        // Delete the group if no users are joined
+        $this->load->model('group_ops');
+        if (count($this->group_ops->get_users(array($group_id))) == 0)
+        {
+            $this->group_ops->delete_group($group_id);
+        }
     }
 
     public function add_group_joined()
@@ -266,7 +277,7 @@ class Dashboard extends CI_Controller
 
     public function update_box()
     {
-        // update a user's box
+// update a user's box
         $box_text = $this->input->get('box_text');
         $id = $this->ion_auth->get_user()->id;
         $query = "UPDATE user_meta SET box='$box_text' WHERE user_meta.user_id=$id";
@@ -274,31 +285,31 @@ class Dashboard extends CI_Controller
         echo $box_text;
     }
 
-    // Creates a group as defined by the given data
-    // Returns the group id
+// Creates a group as defined by the given data
+// Returns the group id
     public function create_group()
     {
         $this->load->model('group_ops');
         $user = $this->ion_auth->get_user();
 
-        // This just looks nicer than a long function call.
+// This just looks nicer than a long function call.
         $name = $this->input->get('group_name');
         $description = $this->input->get('group_description');
         $privacy = $this->input->get('privacy');
         $location_source = $this->input->get('location_source');
 
-        // Create the group.
+// Create the group.
         $group_result = $this->group_ops->add_group($name, $description, $privacy, $location_source);
 
-        // Conflict
+// Conflict
         if ($group_result['status'] == 'success')
         {
-            // Join the user to the group
+// Join the user to the group
             $this->group_ops->follow_group($group_result['group_id']);
             $this->group_ops->join_group($group_result['group_id']);
         }
 
-        // Return
+// Return
         echo(json_encode($group_result));
     }
 
