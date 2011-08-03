@@ -43,18 +43,24 @@ function initialize_create_group_modal()
             $.get('/dashboard/create_group?' + $('#create_group_form').serialize(), {
                 'privacy': privacy
             }, function (data) {
+                data = $.parseJSON(data);
                 
-                // Hide and reset the modal and then open the invite modal
-                $('#create_group_content').hide('fast', function () {
-                    // Clear the group modal
-                    reset_group_modal();
+                if (data.status == 'success') {
+                    // Hide and reset the modal and then open the invite modal
+                    $('#create_group_content').hide('fast', function () {
+                        // Clear the group modal
+                        reset_group_modal();
                     
-                    // Open the invite modal
-                    open_invite_modal('group', data, '');
-                });
+                        // Open the invite modal
+                        open_invite_modal('group', data.group_id, '');
+                    });
                 
-                // Repopulate the following groups.
-                populate_edit_groups_list();
+                    // Repopulate the following groups.
+                    populate_edit_groups_list();
+                } else {
+                    // Alert the error
+                    alert(data.message)
+                }
             });
         } else {
             $('#group_name').focus();

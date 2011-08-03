@@ -172,12 +172,25 @@ class Group_ops extends CI_Model
     // Adds a gruop to the database.
     // If school_id isn't blank, use the latitude and longitude of the school.
     // Returns the newly created group id.
-    public function add_group($name, $description, $privacy, $location_source)
+    function add_group($name, $description, $privacy, $location_source)
     {
         $user = $this->ion_auth->get_user();
 
         if ($location_source == 'school')
         {
+            // Check for a pre-existing group
+            $query_string = "SELECT school_data.school,
+                FROM groups JOIN school_data ON groups.school_id = school_data.id
+                WHERE groups.name = ? AND groups.school_id = ?";
+            $query = $this->db->query($query_string, array($name, $user->school_id));
+
+            if ($query->num_rows() > 0)
+            {
+                return array(
+                    'status' => 'conflict',
+                    'message' => 'A group with that name already exists within the ' . $query->row()->school . ' network.');
+            }
+
             // Get the latitude and longitude from the school table.
             $query_string = "SELECT latitude, longitude FROM school_data WHERE id = ?";
             $query = $this->db->query($query_string, array($user->school_id));
@@ -191,11 +204,32 @@ class Group_ops extends CI_Model
             $latitude = $user->latitude;
             $longitude = $user->longitude;
             $school_id = NULL;
+
+            // Check for a pre-existing group within 20 miles
+            $query_string = "SELECT id, 
+            ((ACOS(SIN(? * PI() / 180) * SIN(latitude * PI() / 180) 
+            + COS(? * PI() / 180) * COS(latitude * PI() / 180) * COS((? - longitude) 
+            * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
+            FROM groups WHERE name = ? AND distance <= 20";
+            $query = $this->db->query($query_string, array(
+                        $latitude,
+                        $latitude,
+                        $longitude,
+                        $name
+                    ));
+            if ($query->num_rows() > 0)
+            {
+                return array(
+                    'status' => 'conflict',
+                    'message' => 'A group with that name already exists near you.');
+            }
         }
+
+        // No conflicts
         $query_string = "INSERT INTO groups VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, DEFAULT)";
         $query = $this->db->query($query_string, array($name, $latitude, $longitude, $description, $school_id, $privacy));
 
-        return $this->db->insert_id();
+        return array('status' => 'success', 'group_id' => $this->db->insert_id());
     }
 
     // Joins the user to the specified group (the user can optionally be specified)

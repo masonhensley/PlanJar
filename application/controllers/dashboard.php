@@ -250,7 +250,7 @@ class Dashboard extends CI_Controller
         $this->load->model('load_profile');
         $user = $this->input->get('user_id');
         $format = ""; // this keeps track of whether the profile is being viewed by the user or someone else
-        
+
         if ($user == 'user')
         {
             $user = $this->ion_auth->get_user();
@@ -260,10 +260,10 @@ class Dashboard extends CI_Controller
             $user = $this->ion_auth->get_user($user);
             $format = "profile_view";
         }
-        
+
         $this->load_profile->display_profile($user, $format);
     }
-    
+
     public function update_box()
     {
         // update a user's box
@@ -288,14 +288,18 @@ class Dashboard extends CI_Controller
         $location_source = $this->input->get('location_source');
 
         // Create the group.
-        $group_id = $this->group_ops->add_group($name, $description, $privacy, $location_source);
+        $group_result = $this->group_ops->add_group($name, $description, $privacy, $location_source);
 
-        // Join the user to the group
-        $this->group_ops->follow_group($group_id);
-        $this->group_ops->join_group($group_id);
+        // Conflict
+        if ($group_result['status'] == 'success')
+        {
+            // Join the user to the group
+            $this->group_ops->follow_group($group_result['group_id']);
+            $this->group_ops->join_group($group_result['group_id']);
+        }
 
-        // Success
-        echo($group_id);
+        // Return
+        echo(json_encode($group_result));
     }
 
     public function update_notification_viewed()
