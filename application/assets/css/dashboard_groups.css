@@ -11,7 +11,7 @@
     width: 280px;
     float: left;
     height: auto;
-    border: 1px solid black;
+    border: 1px solid #CCC;
     border-bottom:none;
     background-color:white;
     border-top-left-radius:10px;
@@ -28,7 +28,7 @@
     height:30px;
     width:100%;
     color:gray;
-    border-bottom:1px solid black;
+    border-bottom:1px solid #CCC;
     position:relative;
     top:3px;
 }
@@ -42,7 +42,7 @@
     float: left;
     margin-left: 10px;
     height: auto;
-    border: 1px solid black;
+    border: 1px solid #CCC;
     background-color:white;
     padding:10px;
     min-height:23px;
@@ -52,7 +52,7 @@
     width: 360px;
     float:right;
     height: auto;
-    border: 1px solid black;
+    border: 1px solid #CCC;
     border-top-right-radius:10px;
     background-color:white;
 }
@@ -68,7 +68,7 @@
     background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
     height:auto;
     width:auto;
-    border:1px solid black;
+    border:1px solid #CCC;
     padding:7px;
     margin-top:5px;
     margin-left:15px;
@@ -82,7 +82,7 @@
 .group_entry {
     width: 100%;
     height: 60px;
-    border-top:1px solid black;
+    border-top:1px solid #CCC;
     text-align :center;
     position:relative;
 }
@@ -90,7 +90,7 @@
     background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
 }
 #edit_groups_list{
-    border-bottom:1px solid black;
+    border-bottom:1px solid #CCC;
 }
 .group_entry .group_entry_left {
     float: left;
