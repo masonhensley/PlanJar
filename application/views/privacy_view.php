@@ -7,14 +7,39 @@
 
     <body>
 
-    curl -F 'client_id= 93ccf3a9f7924a6b8e33cc5234cebc50' \
-     -F 'client_secret= dadc4b69b623419d9162ca7f21016710' \
-     -F 'object=user' \
-     -F 'aspect=media' \
-     -F 'verify_token=myVerifyToken' \
-     -F 'callback_url=http://testing.pagodabox.com/privacy' \
-     https://api.instagram.com/v1/subscriptions/
 
+
+var access_token = location.hash.split('=')[1];
+
+if (location.hash) {
+
+
+
+     $(function() {
+
+    $.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        cache: false,
+        url: "https://api.instagram.com/v1/users/[userid]/media/recent/?access_token=[access_token]",
+        success: function(data) {
+
+            for (var i = 0; i < 6; i++) {
+        $(".instagram").append("<div class='instagram-placeholder'>
+        <a target='_blank' href='" + data.data[i].link +"'><img class='instagram-image' src='" + data.data[i].images.thumbnail.url +"' /></a></div>");   
+                }     
+                 
+
+
+} else {
+    location.href="https://instagram.com/oauth/
+    authorize/?display=touch&client_id=[clientid]
+    &redirect_uri=[callbackuri]/&response_type=token"; 
+    
+}           
+        }
+    });
+});
 
     </body>
 </html>
