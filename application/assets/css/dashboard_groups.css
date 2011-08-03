@@ -107,10 +107,10 @@
 .group_entry .group_entry_middle {
     float: left;
     text-align:center;
-    width: 130px;
+    width: 40%;
     height: auto;
-    margin-left:10px;
-    margin-top:15px;
+    margin-left:35px;
+    margin-top:20px;
 }
 
 .group_entry .following {

@@ -135,7 +135,7 @@ class Group_ops extends CI_Model
                 } else
                     ?>
             </div>
-            <div style="position:absolute; top:40px; right:10px; font-size:10px; color:green;">
+            <div style="position:absolute; top:44px; right:167px; font-size:10px; color:green;">
                 <?php
                 if ($option == 'suggested groups')
                 {
