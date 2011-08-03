@@ -179,7 +179,7 @@ class Group_ops extends CI_Model
         if ($location_source == 'school')
         {
             // Check for a pre-existing group
-            $query_string = "SELECT school_data.school,
+            $query_string = "SELECT school_data.school
                 FROM groups JOIN school_data ON groups.school_id = school_data.id
                 WHERE groups.name = ? AND groups.school_id = ?";
             $query = $this->db->query($query_string, array($name, $user->school_id));
