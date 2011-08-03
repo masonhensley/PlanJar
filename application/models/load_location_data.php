@@ -104,7 +104,8 @@ class Load_location_data extends CI_Model
             'schoolmates_attending' => $schoolmates_attending,
             'number_males' => $number_males,
             'number_females' => $number_females,
-            'percent_male' => $percent_male
+            'percent_male' => $percent_male,
+            'percent_female' => $percent_female
         );
     }
 
