@@ -69,7 +69,7 @@
             <div class="tab_container">
                 <div class="tab" assoc_div="#profile_content">Profile</div>
                 <div class="tab" assoc_div="#groups_content">Groups</div>
-                <div class="tab" assoc_div="#followers_content">Followers</div>
+                <div class="tab" assoc_div="#friends_content">Friends</div>
                 <!--<div class="tab" assoc_div="#plans_content">Plans</div>-->
                 <div class="tab" assoc_div="#following_content">Following</div>
                 <div class="tab" assoc_div="#notifications_content">Notifications</div>
@@ -82,7 +82,7 @@
                 <?php include(APPPATH . '/assets/php/dashboard_following.php'); ?>
             </div>
 
-            <div id="followers_content" class="page_content" setup_func="followers_setup">
+            <div id="friends_content" class="page_content" setup_func="followers_setup">
                 <?php include(APPPATH . '/assets/php/dashboard_followers.php'); ?>
             </div>
 
