@@ -306,7 +306,8 @@ class Group_ops extends CI_Model
     {
         $query_string = "SELECT groups.id, groups.name
             FROM group_relationships LEFT JOIN groups ON group_relationships.group_id = groups.id
-            WHERE group_relationships.user_joined_id = ? ORDER BY groups.name ASC";
+            WHERE group_relationships.user_joined_id = ? AND groups.school_group = 0
+            ORDER BY groups.name ASC";
         $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id));
 
         $return_array = array();
