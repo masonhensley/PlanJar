@@ -179,7 +179,7 @@ class Load_group_profile extends CI_Model
     function return_profile_picture()
     {
         $logo_text = "logo_" . rand(1, 25) . ".png";
-        return "<img src=\"/application/assets/images/logos/$logo_text\"/>";
+        return "<img src=\"/application/assets/images/logos/$logo_text\" style=\"width:50px; height:50px;\" />";
     }
 
 }
