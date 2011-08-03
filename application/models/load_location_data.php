@@ -157,6 +157,11 @@ class Load_location_data extends CI_Model
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
         
+        // get the percentages ready for display
+        $place_data_array['percent_male'] = $place_data_array['percent_male'] * 100;
+        $place_data_array['percent_female'] = $place_data_array['percent_female'] * 100;
+        
+        // trim the percentages
          if (strlen($place_data_array['percent_male']) > 3)
         {
             $place_data_array['percent_male'] = substr($place_data_array['percent_male'], 0, 3);
@@ -174,7 +179,7 @@ class Load_location_data extends CI_Model
             }
         }
         
-        
+        // start output buffering
         ob_start();
         ?>
         <div class="data_box_top_bar">
