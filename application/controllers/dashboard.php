@@ -46,10 +46,6 @@ class Dashboard extends CI_Controller
 // Add the relationship entry
         $this->load->model('follow_ops');
         $this->follow_ops->add_user_following($following_id);
-
-// Notify the given user
-        $this->load->model('notification_ops');
-        $this->notification_ops->notify(array($following_id), 'follow_notif', $this->ion_auth->get_user()->id);
     }
 
 // Removes a following relationship.
