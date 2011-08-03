@@ -529,5 +529,6 @@ a{
     position:absolute;
     top:-39px;
     right:75px;
+    background:-webkit-gradient(linear,left top,left bottom,from(lightYellow),to(lightgray));
 }
 
