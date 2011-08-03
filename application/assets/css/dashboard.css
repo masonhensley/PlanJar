@@ -29,7 +29,7 @@ a{
 }
 
 .inside_top_panel{
-    width:1024px;
+    width:930px;
     height:100%;
     margin-left: auto;
     margin-right: auto;
@@ -80,7 +80,7 @@ a{
 .container{
     position:relative;
     top:10px;
-    width:1024px;
+    width:930px;
     height:1000px;
     margin-left:auto;
     margin-right:auto;
