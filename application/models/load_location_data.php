@@ -196,8 +196,8 @@ class Load_location_data extends CI_Model
         <div style="width:12px; height:12px; background-color:pink; position:absolute; left:130px; top:100px"></div>
         <div style="width:12px; height:12px; background-color:lightblue; position:absolute; left:50px; top:100px;"></div>
         
-        <div style="font-weight:bold;font-size: 10px; position:absolute; top:96px; left:69px;"><?php echo $place_data_array['percent_male'] ."% "; ?>male</div>
-        <div style="font-weight:bold; font-size: 10px;position:absolute; left:150px; top:97px;"><?php echo $place_data_array['percent_female'] ."% "; ?>female</div>
+        <div style="font-weight:bold;font-size: 10px; position:absolute; top:96px; left:69px;"><font style="font-size:10px;"><?php echo $place_data_array['percent_male'] ."% "; ?></font>male</div>
+        <div style="font-weight:bold; font-size: 10px;position:absolute; left:150px; top:97px;"><font style="font-size:10px;"><?php echo $place_data_array['percent_female'] ."% "; ?></font>female</div>
         
         <div class="two_percent_wrapper"></div>
         <div class="day_plan_graph"></div>
