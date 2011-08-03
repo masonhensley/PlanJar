@@ -318,5 +318,21 @@ class Group_ops extends CI_Model
         return $return_array;
     }
 
+    // Removes all trace of a group
+    function delete_group($group_id)
+    {
+        // Delete the group
+        $query_string = "DELETE FROM groups WHERE id = ?";
+        $query = $this->db->query($query_string, array($group_id));
+
+        // Delete corresponding invites
+        $query_string = "DELETE FROM group_invitees WHERE group_id = ?";
+        $query = $this->db->query($query_string, array($group_id));
+
+        // Delete corresponding notification
+        $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
+        $query = $this->db->query($query_string, array('event_invite', $group_id));
+    }
+
 }
 ?>
