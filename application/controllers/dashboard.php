@@ -201,12 +201,12 @@ class Dashboard extends CI_Controller
 
         // Delete the relationship
         $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND (user_following_id = ? OR user_joined_id = ?)";
+        $query = $this->db->query($query_string, array($group_id, $user->id, $user->id));
 
+        // Delete the group if no users are joined
         $this->load->model('group_ops');
-        var_dump($this->group_ops->get_users(array($group_id)));
         if ($this->group_ops->get_users(array($group_id)) == 0)
         {
-            // Just the user was joined. Delete the group
             $this->group_ops->delete_group($group_id);
         }
     }
