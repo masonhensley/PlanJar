@@ -156,7 +156,25 @@ class Load_location_data extends CI_Model
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
-
+        
+         if (strlen($place_data_array['percent_male']) > 3)
+        {
+            $place_data_array['percent_male'] = substr($place_data_array['percent_male'], 0, 3);
+            if (substr($place_data_array['percent_male'], -1) == ".")
+            {
+                $place_data_array['percent_male'] = substr($place_data_array['percent_male'], 0, -1);
+            }
+        }
+        if (strlen($place_data_array['percent_female']) > 3)
+        {
+            $place_data_array['percent_female'] = substr($place_data_array['percent_female'], 0, 3);
+            if (substr($place_data_array['percent_female'], -1) == ".")
+            {
+                $place_data_array['percent_female'] = substr($place_data_array['percent_female'], 0, -1);
+            }
+        }
+        
+        
         ob_start();
         ?>
         <div class="data_box_top_bar">
