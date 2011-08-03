@@ -20,7 +20,13 @@
 }
 
 .notification_entry.unviewed {
-    background: -webkit-gradient(linear,left top,left bottom,from(#EED),to(#EEF));
+    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(white));
+}
+
+
+.notification_entry.unviewed > .middle{
+    float: left;
+    width: 210px;
 }
 
 .notification_entry > .left {
@@ -43,6 +49,8 @@
 .notification_entry > .middle {
     float: left;
     width: 210px;
+    color:darkgray;
+    font-style:italic;
 }
 
 .notification_entry > .accept {
@@ -66,5 +74,9 @@
 }
 
 .notification_entry a {
+    color:darkgray;
+}
+
+.notification_entry.unviewed a{
     color: blue;
 }

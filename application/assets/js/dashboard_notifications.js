@@ -10,7 +10,7 @@ function get_notifications() {
         $('.notification_entry .mark_read').click(function () {
             if ($(this).parent().hasClass('unviewed')) {
                 $(this).parent().removeClass('unviewed');
-                $(this).html('Mark as unread');
+                $(this).html('Mark unread');
                 update_notification_viewed($(this).parent().attr('notif_id'), 1);
             } else {
                 $(this).parent().addClass('unviewed');

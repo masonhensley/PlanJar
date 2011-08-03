@@ -102,10 +102,10 @@ class Notification_ops extends CI_Model
             }
             if ($row->viewed)
             {
-                echo('<div class="mark_read">Mark as unread</div>');
+                echo('<div class="mark_read">Mark unread</div>');
             } else
             {
-                echo('<div class="mark_read">Mark as read</div>');
+                echo('<div class="mark_read">Mark read</div>');
             }
             ?>
         </div>
