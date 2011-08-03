@@ -22,10 +22,10 @@ class Load_location_data extends CI_Model
             'percent_female' => $place_data_array['percent_female'],
             'percent_male' => $place_data_array['percent_male'],
             'plan_dates' => $surrounding_day_array
-            );
-        
+        );
+
         $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date);
-        
+
         return array('html' => $return_html, 'graph_data' => $graph_return_data);
     }
 
@@ -139,7 +139,7 @@ class Load_location_data extends CI_Model
         {
             $conversion_array[] = array('date' => $key, 'count' => $plan_dates[$key]);
         }
-        
+
         return $conversion_array;
     }
 
@@ -149,7 +149,7 @@ class Load_location_data extends CI_Model
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
-        
+
         ob_start();
         ?>
         <div class="data_box_top_bar">
@@ -157,11 +157,12 @@ class Load_location_data extends CI_Model
                 <font style="font-size:30px;color:gray; font-weight:bold;">Place: </font>
                 <font style="font-size:30px; font-weight:bold;"><?php echo $place_info['name']; ?></font>
             </div>
-            
-            <div 
         </div>
+
+        <div class="two_percent_wrapper"></div>
+
+        <div class="day_plan_graph"></div>
         <?php
-        
         return ob_get_clean();
     }
 
