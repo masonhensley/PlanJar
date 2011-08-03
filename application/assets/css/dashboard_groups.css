@@ -107,10 +107,9 @@
 .group_entry .group_entry_middle {
     float: left;
     text-align:center;
-    width: 40%;
+    width: 180px;
     height: auto;
-    margin-left:35px;
-    margin-top:20px;
+    margin-top:16px;
 }
 
 .group_entry .following {
@@ -171,7 +170,7 @@
 
 .group_profile_picture{
     position:absolute;
-    left:10px;
+    left:5px;
     top:50px;
 }
 
