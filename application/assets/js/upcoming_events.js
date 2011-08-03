@@ -13,9 +13,9 @@ function initialize_event_tabs()
             $.get('/home/show_event_data', {
                 'place_id': $('.event_tab_active').attr('place_id')
             }, function (data) {
-                $('#location_data').html(data);
+                $('#group_data').html(data);
             });
         }
-        show_data_container('#location_data');
+        show_data_container('#group_data');
     });
 }

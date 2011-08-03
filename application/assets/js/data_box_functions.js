@@ -83,7 +83,7 @@ function show_selected_location() {
                 console.log(data);
                 
                 // Apply the layout HTML
-                $('#location_data').html(data.html);
+                $('#group_data').html(data.html);
                 
                 // Capture the data
                 data = data.graph_data;
@@ -93,6 +93,6 @@ function show_selected_location() {
                 two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
             });
         }
-        show_data_container('#location_data');
+        show_data_container('#group_data');
     });
 }
