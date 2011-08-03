@@ -52,7 +52,7 @@ class Event_ops extends CI_Model
             $values_string = substr($values_string, 0, -2);
 
             // Add all the notifications.
-            $query_string = "INSERT IGNORE INTO event_invitees VALUES $values_string";
+            $query_string = "INSERT IGNORE INTO event_invites VALUES $values_string";
             $query = $this->db->query($query_string);
         }
     }
@@ -64,9 +64,9 @@ class Event_ops extends CI_Model
         $date->add(new DateInterval('P' . $day_offset . 'D'));
 
         $query_string = "SELECT DISTINCT events.id, events.title, events.privacy
-            FROM events LEFT JOIN event_invitees ON events.id = event_invitees.event_id
+            FROM events LEFT JOIN event_invites ON events.id = event_invites.event_id
             WHERE events.date = ? AND events.time = ? AND events.place_id = ? AND events.title <> ''
-            AND (event_invitees.user_id = ? OR events.privacy = 'open')";
+            AND (event_invites.user_id = ? OR events.privacy = 'open')";
         $query = $this->db->query($query_string, array(
                     $date->format('Y-m-d'),
                     $time,
@@ -175,7 +175,7 @@ class Event_ops extends CI_Model
             $query = $this->db->query($query_string, array($event_id));
 
             // Delete all relevant invites
-            $query_string = "DELETE FROM event_invitees WHERE event_id = ?";
+            $query_string = "DELETE FROM event_invites WHERE event_id = ?";
             $query = $this->db->query($query_string, array($event_id));
 
             // Delete all relevant notifications
