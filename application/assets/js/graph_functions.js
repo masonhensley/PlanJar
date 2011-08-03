@@ -112,19 +112,19 @@ function populate_day_graph(container, data, selected_date) {
             $(container).html('');
             
             // Add the right (background) div
-            $(container).append('<div class="' + right_class + ' two_bar_right"></div>');
+            $(container).append($('<div class="' + right_class + ' two_bar_right"></div>'));
             
             // Add the left div
-            $(container).append('<div class="' + left_class + ' two_bar_left"></div>');
+            $(container).append($('<div class="' + left_class + ' two_bar_left"></div>'));
         }
-    }
     
-    // Select the left div
-    d3.select(container).selectAll('div.two_bar_left')
-    // Add data
-    .data([left_percentage])
-    // Set the width
-    .style('width', function (d) {
-        return d + '%';
-    });
+        // Select the left div
+        d3.select(container).selectAll('div.two_bar_left')
+        // Add data
+        .data([left_percentage])
+        // Set the width
+        .style('width', function (d) {
+            return d + '%';
+        });
+    }
 }

@@ -80,6 +80,7 @@ function show_selected_location() {
             }, function (data) {
                 // Parse the JSON
                 data = $.parseJSON(data);
+                console.log(data);
                 
                 // Apply the layout HTML
                 $('#location_data').html(data.html);
@@ -87,9 +88,9 @@ function show_selected_location() {
                 // Capture the data
                 data = data.graph_data;
                 
-            // Populate the graphs
-            //populate_day_graph(container, data.plan_dates, data.selected_date);
-            //two_percentage_bar(container, data.percent_male, 'two_bar_male', 'two_bar_female');
+                // Populate the graphs
+                populate_day_graph('.day_plan_graph', data.plan_dates, Date.parse('today'));
+                two_percentage_bar('.two_percent_wrapper', data.percent_male, 'two_bar_male', 'two_bar_female');
             });
         }
         show_data_container('#location_data');
