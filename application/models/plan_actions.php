@@ -137,8 +137,9 @@ class Plan_actions extends CI_Model
                 $place_name = $plan->name;
                 $title = $plan->title;
                 $time = $plan->time;
+                $todays_date = date('N');
                 
-                if(date('N', strtotime($plan->date)) == date('N', strtotime(new DateTime())))
+                if(date('N', strtotime($plan->date)) == $todays_date)
                 {
                     $date = "today";
                 }else{
