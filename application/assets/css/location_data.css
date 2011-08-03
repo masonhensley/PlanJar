@@ -1,16 +1,21 @@
 .two_percent_wrapper {
     height: 25px;
     width: 200px;
-    position: relative;
+    position: absolute;
+    left:20px;
+    top:120px;
 }
 
 .day_plan_graph {
     width: 300px;
     height: 150px;
+    position:absolute;
+    top:0px;
+    right:0px;
 }
 
 .place_display_info{
     text-align: left;
     width:200px;
-    margin-left:15px;
+    margin-left:20px;
 }
