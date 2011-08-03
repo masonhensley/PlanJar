@@ -527,10 +527,10 @@ a{
 
 #create_plan{
     position:absolute;
-    top:-39px;
-    right:75px;
+    top:-46px;
+    right:70px;
     background:-webkit-gradient(linear,left top,left bottom,from(lightYellow),to(lightgray));
-    padding:5px;
+    padding:9px;
     color:gray;
 }
 
