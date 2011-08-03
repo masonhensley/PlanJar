@@ -89,7 +89,7 @@ function show_selected_location() {
                 data = data.graph_data;
                 
                 // Populate the graphs
-                populate_day_graph('.day_plan_graph', data.plan_dates, Date.parse('today'));
+                populate_day_graph('.day_plan_graph', data.plan_dates, 'today');
                 two_percentage_bar('.two_percent_wrapper', data.percent_male, 'two_bar_male', 'two_bar_female');
             });
         }
