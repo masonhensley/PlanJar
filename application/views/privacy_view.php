@@ -12,7 +12,7 @@
      -F 'object=user' \
      -F 'aspect=media' \
      -F 'verify_token=myVerifyToken' \
-     -F 'callback_url=http://YOUR-CALLBACK/URL' \
+     -F 'callback_url=http://testing.pagodabox.com/privacy' \
      https://api.instagram.com/v1/subscriptions/
 
 
