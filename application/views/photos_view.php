@@ -30,7 +30,7 @@
         </script>
 
 
-    <title>Privacy</title>  
+    <title>Photos</title>  
   
     <!--[if IE]>  
         <style>  
@@ -49,7 +49,7 @@
                  </div>  
      <div id="container"> 
 
-          <h2> Privacy Policy <span class="arrow"></span> </h2>
+          <h2> Photos Around You <span class="arrow"></span> </h2>
 
        <div id="main">  
            
