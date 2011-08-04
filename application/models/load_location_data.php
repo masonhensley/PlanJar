@@ -119,7 +119,7 @@ class Load_location_data extends CI_Model
         JOIN places ON places.id=$place_id
         WHERE events.date>=DATE_ADD('$sql_date', INTERVAL -2 DAY) 
         AND events.date<DATE_ADD('$sql_date', INTERVAL 4 DAY
-        ANDD events.place_id=$place_id)
+        AND events.place_id=$place_id)
         ";
 
         $result = $this->db->query($query);
