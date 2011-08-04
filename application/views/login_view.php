@@ -61,7 +61,7 @@
 
 
                 <div id="rightside">
-                    <fieldset>
+                    <div id="right_inner">
                         <h6>Not a member?  Sign up for free.<span class="arrow"></span></h6>
                         <font color="purple" >
                             <div id="su_error" class="error_message">
@@ -167,7 +167,7 @@
                                 <div id="padding" style="position:relative; width:260px; height:7px;"></div>
                             </form>
                         </center>
-                    </fieldset>
+                    </div>
                 </div>
                 <div class="clear"></div>
             </div>
