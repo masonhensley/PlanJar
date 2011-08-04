@@ -52,11 +52,17 @@ function initialize_one_group_select() {
      
         // Toggle this group
         if ($(this).hasClass('selected_group')) {
+            // Unselect this group
             $(this).removeClass('selected_group');
         } else {
+            // Clear all controlls
+            deselect_all_controlls();
+            
+            // Select this group
             $(this).addClass('selected_group');
         }
         
+        // Display the info box
         display_info();
     });
 }
@@ -72,11 +78,17 @@ function initialize_mult_groups_select() {
         
         // Make the list items togglable.
         if ($(this).hasClass('selected_group')) {
+            // Deselect this group
             $(this).removeClass('selected_group');
         } else {
+            // Clear all controlls except groups
+            deselect_all_controlls(true);
+            
+            // Select this group
             $(this).addClass('selected_group');
         }
         
+        // Display the info box
         display_info();
     });
 }
