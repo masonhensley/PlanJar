@@ -212,7 +212,7 @@ class Load_location_data extends CI_Model
 
         
         <div class="gender_breakdown">
-            <font style="color:darkgray;position:absolute;left:51px;">gender breakdown</font>
+            <font style="color:darkgray;position:absolute;left:51px; top:-10px;">gender breakdown</font>
             <!-- boxes that show the color for males/females--> 
             <div class="girl_pink_square"></div>
             <div class="female_percent_display"><font style="font-size:11px;">
