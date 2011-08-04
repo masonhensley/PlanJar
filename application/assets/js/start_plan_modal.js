@@ -13,9 +13,6 @@ function initialize_plan_modal() {
             $('#create_plan_content .title_bar .text').html('Make a plan');
         }
         
-        // Focus the location box.
-        $('#plan_location').focus();
-        
         // Select everything when focused
         $('#plan_location').click(function () {
             $(this).focus();
@@ -23,7 +20,10 @@ function initialize_plan_modal() {
         });
     
         // Show the modal
-        $('#create_plan_content').show('fast');
+        $('#create_plan_content').show('fast', function () {
+            // Focus the location box.
+            $('#plan_location').focus();
+        });
     });
     
     // Closing click handler
