@@ -98,8 +98,6 @@ class Plan_actions extends CI_Model
         // Delete the plan
         $query = "DELETE FROM plans WHERE plans.id = $plan";
         $this->db->query($query);
-
-        return "<div id=\"container\" class=\"plan_deleted\">Plan Deleted</div>";
     }
 
     // Accepts an associative array containing plan data
@@ -138,14 +136,14 @@ class Plan_actions extends CI_Model
                 $title = $plan->title;
                 $time = $plan->time;
                 $todays_date = date('N');
-                
-                if(date('N', strtotime($plan->date)) == $todays_date)
+
+                if (date('N', strtotime($plan->date)) == $todays_date)
                 {
                     $date = "Today";
-                }else{
+                } else
+                {
                     $date = date('l', strtotime($plan->date));
                 }
-                
                 ?>
                 <div class="active_plans"> 
                     <?php
@@ -200,11 +198,11 @@ class Plan_actions extends CI_Model
             WHERE plans.user_id = ? AND events.date = ? AND events.time = ? AND events.place_id = ?
             AND events.id <> ?";
         $query = $this->db->query($query_string, array(
-                    $this->ion_auth->get_user()->id,
-                    $event_row->date,
-                    $event_row->time,
-                    $event_row->place_id,
-                    $event_id
+            $this->ion_auth->get_user()->id,
+            $event_row->date,
+            $event_row->time,
+            $event_row->place_id,
+            $event_id
                 ));
 
         if ($query->num_rows() > 0)

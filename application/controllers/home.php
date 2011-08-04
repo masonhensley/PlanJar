@@ -206,8 +206,7 @@ class Home extends CI_Controller
     {
         $plan = $this->input->get('plan_selected');
         $this->load->model('plan_actions');
-        $return_str = $this->plan_actions->delete_plan($plan);
-        echo $return_str;
+        $this->plan_actions->delete_plan($plan);
     }
 
     // Return a list of location tabs based on the groups selected

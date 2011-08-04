@@ -92,8 +92,9 @@ function display_info(bypass, arg) {
             populate_percentage_box('.female_percent_container', data.percent_females_going_out, 'percent_bar_female');
             populate_day_graph('.group_graph_top_right', data.plan_dates, data.selected_date);
         
+            // Reload the display info when the filter select is changed
             $('#filter').change(function(){
-                display_info(false, $(this).val());
+                display_info(true, $(this).val());
             });
         });
         
@@ -116,6 +117,9 @@ function display_info(bypass, arg) {
                     // Replace the data and show the data tab.
                     $('#info_content').html(data);
                     populate_plan_panel();
+                    
+                    // Show the info box
+                    display_info();
                 });
             });
         
