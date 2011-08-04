@@ -275,6 +275,7 @@ class Dashboard extends CI_Controller
     {
 // update a user's box
         $box_text = $this->input->get('box_text');
+        $box_text = trim($box_text);
         $id = $this->ion_auth->get_user()->id;
         $query = "UPDATE user_meta SET box='$box_text' WHERE user_meta.user_id=$id";
         $this->db->query($query);
