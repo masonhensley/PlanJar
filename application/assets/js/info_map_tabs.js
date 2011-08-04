@@ -117,9 +117,6 @@ function display_info(bypass, arg) {
                     // Replace the data and show the data tab.
                     $('#info_content').html(data);
                     populate_plan_panel();
-                    
-                    // Show the info box
-                    display_info();
                 });
             });
         
