@@ -65,3 +65,10 @@
     right:0px;
     bottom:-20px;
 }
+
+.gender_breakdown{
+    position:relative;
+    top:10px;
+    height:80px;
+    width:245px;
+}
