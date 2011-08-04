@@ -86,8 +86,8 @@ function display_info(arg) {
         
         // Populates the popular locations panel
         $.get('/home/load_location_tabs', {
-            'selected_groups': selected_groups,
-            'selected_day': selected_day
+            'selected_groups': get_selected_groups(),
+            'selected_day': get_selected_day()
         }, function (data) {
             $('.suggested_locations').html(data); 
             
