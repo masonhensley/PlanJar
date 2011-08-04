@@ -48,6 +48,8 @@
     font-weight:bold;
     font-size: 12px; 
     position:absolute;
+    top:50px;
+    left:40px;
 }
 
 .female_percent_display{
@@ -56,4 +58,17 @@
     position:absolute;
     top:50px;
     left:150px;
+}
+
+.display_big_date{
+    position:absolute;
+    right:0px;
+    bottom:-20px;
+}
+
+.gender_breakdown{
+    position:relative;
+    top:10px;
+    height:80px;
+    width:245px;
 }
