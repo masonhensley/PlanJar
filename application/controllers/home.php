@@ -75,9 +75,10 @@ class Home extends CI_Controller
 
 // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT places.id, ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude * PI() / 180) 
-  + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
-  * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, places.name, places.category 
-  FROM places WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
+            + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
+            * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance, places.name, place_categories.category 
+            FROM places JOIN place_categories WHERE place_categories.category = places.category_id
+            WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
 
 // Return a JSON array.
@@ -307,8 +308,8 @@ class Home extends CI_Controller
     private function _get_distance_between($lat0, $long0, $lat1, $long1)
     {
         return ((acos(sin($lat0 * pi() / 180) * sin($lat1 * pi() / 180)
-                + cos($lat0 * pi() / 180) * cos($lat1 * pi() / 180) * cos(($long0 - $long1)
-                        * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
+                        + cos($lat0 * pi() / 180) * cos($lat1 * pi() / 180) * cos(($long0 - $long1)
+                                * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
     }
 
     // Returns a set of 7 weekday tabs based on the supplied parameter.
@@ -484,7 +485,7 @@ class Home extends CI_Controller
             $query_string = "SELECT user_id, first_name, last_name
                     FROM user_meta WHERE ($needle_where) AND school_id = ? AND user_id <> ?";
             $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id,
-                        $this->ion_auth->get_user()->id));
+                $this->ion_auth->get_user()->id));
 
             // Echo the results
             $return_array = array();
@@ -550,8 +551,8 @@ class Home extends CI_Controller
         // Get the plan to discard
         $query_string = "SELECT id FROM plans WHERE event_id = ? AND user_id = ?";
         $query = $this->db->query($query_string, array(
-                    $this->input->get('discard_event'),
-                    $this->ion_auth->get_user()->id
+            $this->input->get('discard_event'),
+            $this->ion_auth->get_user()->id
                 ));
 
 
@@ -581,9 +582,9 @@ class Home extends CI_Controller
 
         $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ?";
         $query = $this->db->query($query_string, array(
-                    $needle,
-                    $plan_date,
-                    $plan_time
+            $needle,
+            $plan_date,
+            $plan_time
                 ));
 
         if ($query->num_rows() > 0)
