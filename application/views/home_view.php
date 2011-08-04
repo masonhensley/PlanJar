@@ -19,8 +19,8 @@
         <link rel=stylesheet href="/application/assets/css/location_data.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/add_location_modal.css" type="text/css" />
 
-        <!-- Google Font-->
-        <link href='http://fonts.googleapis.com/css?family=Vollkorn|Ubuntu' rel='stylesheet' type='text/css'>
+        <!-- Google Font
+        <link href='http://fonts.googleapis.com/css?family=Vollkorn|Ubuntu' rel='stylesheet' type='text/css'>-->
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
