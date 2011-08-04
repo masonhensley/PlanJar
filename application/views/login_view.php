@@ -48,7 +48,7 @@
 
                 <div id="leftside">
 
-                     <h2> PlanJar shows you what groups of people around you are doing. Join them or do something on your own. <span class="arrow"></span></h2>
+                     <h5> PlanJar shows you what groups of people around you are doing. Join them or do something on your own. <span class="arrow"></span></h5>
                      <div id="left_title">
                      title
                      </div>
