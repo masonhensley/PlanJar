@@ -95,19 +95,19 @@ h1 {
     margin-top: 40px;
     float:left;
     
-    background-color: #c0d;
+    background-color: #eee;
 }
 
 #left_title{
     position:relative;
     height: 50px;
-    background-color: #0e4;
+    background-color: #ddd;
     margin-top: 0px;
 }
 
 #left_video{
     position:relative;
-    background-color: #0D3;
+    background-color: #ccc;
 }
 
 #rightside {
