@@ -21,13 +21,11 @@ function initialize_plan_panel(){
             
             // Select this plan
             $(this).addClass('selected_plan');
-            
-            get_plan_data();
-            show_data_container('#info_content');
-        }else{
+        } else {
             $(this).removeClass('selected_plan');
-            $('#info_content').html('<img src="/application/assets/images/center_display.png">');
         }
+        
+        display_info();
     });   
 }
 

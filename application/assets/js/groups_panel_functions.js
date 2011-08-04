@@ -12,8 +12,6 @@ function initialize_selectable_groups() {
         {
             // Deselect the tab
             $(this).removeClass('network_active');
-            
-            $('#info_content').html('<img src="/application/assets/images/center_display.png">');
         } else {
             // Deselect all controlls
             deselect_all_controlls();
@@ -23,9 +21,9 @@ function initialize_selectable_groups() {
             
             // Change to select one group
             $('#select_one_group').click();
-            
-            update_groups_and_locations();
         }
+        
+        display_info();
     });
     
     // Divset
@@ -33,26 +31,17 @@ function initialize_selectable_groups() {
     
     // One/multiple group select click handlers
     $('#select_one_group').click(function () {
-        initialize_one_group_select(true);
+        initialize_one_group_select();
     });
     $('#select_mult_groups').click(function () {
         initialize_mult_groups_select();
     });
 }
 
-// Callback function
-function on_groups_change() {
-    update_groups_and_locations(); // this should update the graphs so they match what is selected
-}
-
 // Initialize the groups such that up to one is selectable at a time
-function initialize_one_group_select(initial_update) {
+function initialize_one_group_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group.selected_group').removeClass('selected_group');
-    
-    if (initial_update == undefined) {
-        on_groups_change();
-    }
     
     $('.groups_wrapper .selectable_group').click(function() {
         $('.network_active').removeClass('network_active'); // unselect the city tab
@@ -65,9 +54,9 @@ function initialize_one_group_select(initial_update) {
             $(this).removeClass('selected_group');
         } else {
             $(this).addClass('selected_group');
-            on_groups_change();
         }
         
+        display_info();
     });
 }
 
@@ -86,6 +75,7 @@ function initialize_mult_groups_select() {
         } else {
             $(this).addClass('selected_group');
         }
-        on_groups_change();
+        
+        display_info();
     });
 }
