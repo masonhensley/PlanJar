@@ -16,7 +16,7 @@ function initialize_day_tabs() {
 //        $('.selected_location_tab').removeClass('selected_location_tab');
         
         // Display the info box
-        display_info();
+        display_info(true);
     });
     
     // Left and right arrow click functions
