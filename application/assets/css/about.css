@@ -41,9 +41,9 @@ body{
 #container {  
     background: #eee;  
     margin: auto;  
-    width: 800px;  
+    width: 960px;  
     height: 900px;  
-    padding-top: 30px;  
+    padding-top: 20px;  
     font-family: helvetica, arial, sans-serif;
 
     -webkit-border-top-left-radius: 10px;
@@ -60,7 +60,7 @@ body{
 
     }  
   
-h1 {  
+h2 {  
      background: #e3e3e3;  
      background: -moz-linear-gradient(top, #e3e3e3, #c8c8c8);  
      background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
@@ -83,7 +83,7 @@ h1 {
     text-shadow: 0 1px 0 white;  
 }  
 
-h3 {  
+h4 {  
      float: right;
      background: #e3e3e3;  
      background: -moz-linear-gradient(top, #e3e3e3, #c8c8c8);  
