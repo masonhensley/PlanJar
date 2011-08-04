@@ -74,7 +74,7 @@ class Home extends CI_Controller
         $like_clauses = substr($like_clauses, 0, -5);
 
 // Check the PlanJar database. (Query string courtesy of Wells.)
-        $query_string = "SELECT places.id, places.latitude, places.longitude, places.name, place_categories.alias AS category 
+        $query_string = "SELECT places.id, places.latitude, places.longitude, places.name, place_categories.alias AS category,
             ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude * PI() / 180) 
             + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
             * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
