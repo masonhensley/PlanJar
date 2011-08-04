@@ -407,7 +407,6 @@ class Display_group_template extends CI_Model
         <div style="position:absolute; top:40px; right:100px;color:darkgray;">
             # people going out by day
         </div>
-<font style="font-weight: bold; font-size:20px;">Groups</font>
         <br/>
         <div class="group_graph_top_left" >
             viewing&nbsp;
