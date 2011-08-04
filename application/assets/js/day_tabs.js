@@ -38,6 +38,6 @@ function get_new_days(offset) {
         starting_offset: offset
     }, function (data) {
         $('.seven_days').html(data);
-        initialize_day_tab_rules();
+        initialize_day_tabs();
     });
 }

@@ -18,6 +18,9 @@ function initialize_plan_panel(){
             $(this).removeClass('selected_plan');
         }
         
+        // Re-populate (clear) the popular locations panel
+        populate_popular_locations();
+        
         // DIsplay the info box
         display_info();
     });   
