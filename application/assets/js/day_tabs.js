@@ -1,25 +1,28 @@
 $(function () {
-    initialize_day_tab_rules();
+    initialize_day_tabs();
 });
 
-function initialize_day_tab_rules() {
-    // Set up the day of the week tabs.
-    //
-    // On Click Event
+// Set up the day of the week tabs.
+function initialize_day_tabs() {
+    // Click event
     $("div.days_panel .day").click(function() {
-
-        $('.selected_plan').removeClass('selected_plan'); // remove selected plan on right panel
-
-        $("div.days_panel .day_selected").removeClass("day_selected"); //Remove any "day_selected" class
-        $(this).addClass("day_selected"); //Add "day_selected" class to selected tab
+        // Remove any "day_selected" class
+        $("div.days_panel .day_selected").removeClass("day_selected");
         
-        // Call the callback function.
-        on_day_change();
+        // Add "day_selected" class to selected tab
+        $(this).addClass("day_selected");
         
-        return false;
+        // Remove any selected location
+        $('.selected_location_tab').removeClass('selected_location_tab');
+        
+        //        // Select the school network if no groups are selected
+        //        if (get_selected_groups().length == 0) {
+        //            $('.network_tab[group_id="school"]').click();
+        //        }
+        
+        // Display the info box
+        display_info();
     });
-    
-    $("div.days_panel .day:first").click(); //Activate first tab
     
     // Left and right arrow click functions
     $('.left_day_arrow').click(function () {
@@ -33,12 +36,9 @@ function initialize_day_tab_rules() {
         var current_offset = $('.day:first').attr('day_offset');
         get_new_days(parseInt(current_offset) + 7);
     });
-}
-
-// Callback function
-// reloads the data container with get_group_day_data()
-function on_day_change() {
-    update_groups_and_locations();
+    
+    // Select the first day
+    $('.seven_days :first').click();
 }
 
 // Gets and displays the set of days
@@ -47,6 +47,6 @@ function get_new_days(offset) {
         starting_offset: offset
     }, function (data) {
         $('.seven_days').html(data);
-        initialize_day_tab_rules();
+        initialize_day_tabs();
     });
 }

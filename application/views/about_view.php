@@ -24,9 +24,9 @@
                  </div>  
      <div id="container">  
   
-        <h1> Our Team <span class="arrow"></span> </h1> 
+        <h2> Our Team <span class="arrow"></span> </h2> 
 
-        <h3> Name <span class="arrow_right"></span> </h3>
+        <h4> Name <span class="arrow_right"></span> </h4>
                 <div class ="person">
                       <div class ="info">
                         </div>
@@ -34,7 +34,7 @@
                         </div>
         
         </div>
-        <h3> Name <span class="arrow_right"></span> </h3>
+        <h4> Name <span class="arrow_right"></span> </h4>
                 <div class ="person">
                    <div class ="info">
                      </div>
@@ -42,7 +42,7 @@
                      </div>
         </div>
 
-        <h3> Name <span class="arrow_right"></span> </h3>
+        <h4> Name <span class="arrow_right"></span> </h4>
                 <div class ="person">
                     <div class ="info">
                      </div>
