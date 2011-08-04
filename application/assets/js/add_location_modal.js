@@ -11,5 +11,5 @@ function initialize_add_location_modal() {
 
 // Opens the add location modal
 function show_add_location_modal() {
-    $('add_location_modal').show('fast');
+    $('#add_location_modal').show('fast');
 }
