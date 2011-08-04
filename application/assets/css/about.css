@@ -71,6 +71,7 @@ h2 {
      width: 70%;  
      background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(223,223,224)),color-stop(1, rgb(237,238,239)));
      background-image: -moz-linear-gradient(center bottom,rgb(223,223,224) 0%,rgb(237,238,239) 100%);
+     background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
   
  
         /* -------------- Font -----------------------*/
