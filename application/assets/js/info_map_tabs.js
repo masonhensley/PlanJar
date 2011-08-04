@@ -84,31 +84,7 @@ function display_info(arg) {
             });
         });
         
-        // Populates the popular locations panel
-        $.get('/home/load_location_tabs', {
-            'selected_groups': get_selected_groups(),
-            'selected_day': get_selected_day()
-        }, function (data) {
-            $('.suggested_locations').html(data); 
-            
-            // Location tab click handler
-            $('div.location_tab').click(function() {
-                if(!$(this).hasClass('selected_location_tab'))
-                {
-                    // Deselect selected location tabs
-                    $('.selected_location_tab').removeClass('selected_location_tab');
-            
-                    // Select this location tab
-                    $(this).addClass('selected_location_tab');
-                } else {
-                    // Deselect this location tab
-                    $(this).removeClass('selected_location_tab');
-                }
-        
-                // Update the info box
-                display_info();
-            });
-        });
+        populate_popular_locations();
     } else if ($('.selected_plan').length > 0) {
         // Plan selected
         $.get('/home/load_selected_plan_data', {
@@ -139,4 +115,32 @@ function display_info(arg) {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png">');
     }
+}
+
+// Populates the popular locations panel
+function populate_popular_locations() {
+    $.get('/home/load_location_tabs', {
+        'selected_groups': get_selected_groups(),
+        'selected_day': get_selected_day()
+    }, function (data) {
+        $('.suggested_locations').html(data); 
+            
+        // Location tab click handler
+        $('div.location_tab').click(function() {
+            if(!$(this).hasClass('selected_location_tab'))
+            {
+                // Deselect selected location tabs
+                $('.selected_location_tab').removeClass('selected_location_tab');
+            
+                // Select this location tab
+                $(this).addClass('selected_location_tab');
+            } else {
+                // Deselect this location tab
+                $(this).removeClass('selected_location_tab');
+            }
+        
+            // Update the info box
+            display_info();
+        });
+    });
 }
