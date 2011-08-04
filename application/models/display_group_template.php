@@ -424,7 +424,7 @@ class Display_group_template extends CI_Model
             $total = $data_array['total_males'] + $data_array['total_females'];
             ?>
 
-            <font style="color:darkgray;">gender breakdown of those going out based on selected group(s)</font>
+
             <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $data_array['total_males']; ?></font>
             <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $data_array['total_females']; ?></font><br/>
         </div>
@@ -435,7 +435,8 @@ class Display_group_template extends CI_Model
             <font style="font-size:100px; color:darkgray;"><?php echo $big_display_month; ?></font>
         </div>
         <div class="group_graph_bottom_left">
-            <div class="show_percent" style="top:20px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
+            <font style="color:darkgray;">gender breakdown of those going out based on selected group(s)</font>
+            <div class="show_percent" style="top:0px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
             <div class="show_percent"style="top:39px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
             <div class="show_percent" style="top:77px;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
 
