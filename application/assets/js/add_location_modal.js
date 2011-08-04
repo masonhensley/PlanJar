@@ -4,8 +4,14 @@ $(function () {
 
 // Initializes the add location modal
 function initialize_add_location_modal() {
+    // Close click handler
     $('#close_add_location').click(function () {
-        $('add_location_modal').hide('fast');
+        $('#add_location_modal').hide('fast');
+    });
+    
+    // Draggable
+    $('#close_add_location').draggable({
+        handle: '.title_bar'
     });
 }
 
