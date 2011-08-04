@@ -418,7 +418,7 @@ function initialize_plan_autocomplete() {
                                     response_json.push({
                                         label: "You've stumped us. Create a new place.", 
                                         value: '', 
-                                        id: ''
+                                        id: 'new place'
                                     });
                                 }
                                 
@@ -437,27 +437,31 @@ function initialize_plan_autocomplete() {
         select: function (event, ui) {
             item_selected = true;
             
-            $('#plan_location').val(ui.item.value);
-            $('#plan_location_id').val(ui.item.id);
-            $('#plan_location_name').val(ui.item.value);
+            if (ui.item.id == 'new place') {
+                console.log('new_place');
+            } else {
+                $('#plan_location').val(ui.item.value);
+                $('#plan_location_id').val(ui.item.id);
+                $('#plan_location_name').val(ui.item.value);
             
-            // Clear and set the additional hidden fields only if the selected place is from Factual.
-            $('#new_place_name').val('');
-            $('#new_place_category').val('');
-            $('#new_place_latitude').val('');
-            $('#new_place_longitude').val('');
-            $('#new_place_factual_id').val('');
+                // Clear and set the additional hidden fields only if the selected place is from Factual.
+                $('#new_place_name').val('');
+                $('#new_place_category').val('');
+                $('#new_place_latitude').val('');
+                $('#new_place_longitude').val('');
+                $('#new_place_factual_id').val('');
             
-            if (ui.item.name != undefined) {
-                $('#new_place_name').val(ui.item.name);
-                $('#new_place_category').val(ui.item.category);
-                $('#new_place_latitude').val(ui.item.latitude);
-                $('#new_place_longitude').val(ui.item.longitude);
-                $('#new_place_factual_id').val(ui.item.factual_id);
+                if (ui.item.name != undefined) {
+                    $('#new_place_name').val(ui.item.name);
+                    $('#new_place_category').val(ui.item.category);
+                    $('#new_place_latitude').val(ui.item.latitude);
+                    $('#new_place_longitude').val(ui.item.longitude);
+                    $('#new_place_factual_id').val(ui.item.factual_id);
+                }
+            
+                // Try to advance the panel
+                $('#plan_right').click();
             }
-            
-            // Try to advance the panel
-            $('#plan_right').click();
         }
     });
 }
