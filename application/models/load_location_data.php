@@ -212,23 +212,25 @@ class Load_location_data extends CI_Model
 
         <font style="color:darkgray;position:absolute;left:51px;">gender breakdown</font>
         <div style="position:relative; top:10px;">
-        <!-- boxes that show the color for males/females--> 
-        <div class="girl_pink_square"></div>
-        <div class="female_percent_display"><font style="font-size:11px;">
-            <?php echo $place_data_array['percent_female'] . "% "; ?></font>female</div>
+            <!-- boxes that show the color for males/females--> 
+            <div class="girl_pink_square"></div>
+            <div class="female_percent_display"><font style="font-size:11px;">
+                <?php echo $place_data_array['percent_female'] . "% "; ?></font>female</div>
 
-        <div class="boy_blue_square"></div>
-        <div class="male_percent_display"><font style="font-size:11px;">
-            <?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
+            <div class="boy_blue_square"></div>
+            <div class="male_percent_display"><font style="font-size:11px;">
+                <?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
         </div>
 
         <div class="two_percent_wrapper"></div>
         <div class="day_plan_graph"></div>
 
         <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
-        <font style="font-size:120px; color: #7BC848;"><?php echo $diplay_day['big_day'] ?></font>
-        <font style="font-size:120px; color:darkgray;"><?php echo $display_day['big_day_date'];?></font>
 
+        <div class="display_big_date">
+            <font style="font-size:120px; color: #7BC848;"><?php echo $diplay_day['big_day'] ?></font>
+            <font style="font-size:120px; color:darkgray;"><?php echo $display_day['big_day_date']; ?></font>
+        </div>
         <div class="make_plan">Make a plan here</div>
 
 
