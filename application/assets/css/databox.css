@@ -30,7 +30,7 @@
     height:auto;
     position:absolute;
     top:166px;
-    left:10px;
+    left:5px;
 }
 .group_graph_bottom_right{
     width:auto;
@@ -51,7 +51,7 @@
 
 .show_percent{
     position:absolute;
-    top:20px; 
-    left:-2px;
+    top:1px;
+    left:40px;
     font-weight: bold;
 }
