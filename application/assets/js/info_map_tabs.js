@@ -48,7 +48,9 @@ function display_info(arg) {
             show_data_container('#info_content');
         });
     } else if ($('.network_active, .selected_group').length > 0) {
-        // Network or group selected. Make 'all' the default filter setting
+        // Network or group selected.
+        
+        // Make 'all' the default filter setting
         if(arg == undefined)
         {
             arg = 'all';
@@ -79,6 +81,32 @@ function display_info(arg) {
         
             $('#filter').change(function(){
                 display_info($(this).val());
+            });
+        });
+        
+        // Populates the popular locations panel
+        $.get('/home/load_location_tabs', {
+            'selected_groups': selected_groups,
+            'selected_day': selected_day
+        }, function (data) {
+            $('.suggested_locations').html(data); 
+            
+            // Location tab click handler
+            $('div.location_tab').click(function() {
+                if(!$(this).hasClass('selected_location_tab'))
+                {
+                    // Deselect selected location tabs
+                    $('.selected_location_tab').removeClass('selected_location_tab');
+            
+                    // Select this location tab
+                    $(this).addClass('selected_location_tab');
+                } else {
+                    // Deselect this location tab
+                    $(this).removeClass('selected_location_tab');
+                }
+        
+                // Update the info box
+                display_info();
             });
         });
     } else if ($('.selected_plan').length > 0) {
