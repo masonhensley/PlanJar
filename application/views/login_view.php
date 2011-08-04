@@ -51,7 +51,7 @@
                      title
                      </div>
                      
-                     <div id="left_title">
+                     <div id="left_video">
                      video
                      </div>  
 
