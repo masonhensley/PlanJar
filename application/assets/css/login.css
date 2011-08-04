@@ -186,6 +186,23 @@ h6 {
     float: left;
 }
 
+#right_inner{
+    position:relative;
+    width:312px;
+    float:left;
+
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-top-right: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottom-right: 10px;
+    border-bottom-right-radius: 10px;
+
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 2px 8px #aaa;
+    -moz-box-shadow: 0px 2px 8px #aaa;
+    box-shadow: 0px 2px 8px #aaa; 
+
 .clear {
     clear:both;
 }
