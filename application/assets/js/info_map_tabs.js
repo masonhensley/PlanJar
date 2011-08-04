@@ -57,6 +57,16 @@ function display_info(bypass, arg) {
             populate_day_graph('.day_plan_graph', data.plan_dates, 'today');
             two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
                 
+            // Make plan click handler
+            $('.make_plan').click(function() {
+                var button = $(this);
+                open_plan_modal(function () {
+                    // Pre-populate the place name and id
+                    $('#plan_location').val(button.siblings('.data_box_top_bar').attr('place_name'));
+                    $('#plan_location_id').val(button.siblings('.data_box_top_bar').attr('place_id'));
+                });
+            });
+                
             // Show the group data tab
             show_data_container('#info_content');
         });
