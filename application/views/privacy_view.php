@@ -24,41 +24,17 @@
                  </div>  
      <div id="container">  
   
-        <h2> Our Team <span class="arrow"></span> </h2> 
-
-        <h4> Name <span class="arrow_right"></span> </h4>
-                <div class ="person">
-                      <div class ="info">
-                        </div>
-                      <div class ="pic">
-                        </div>
         
-        </div>
-        <h4> Name <span class="arrow_right"></span> </h4>
-                <div class ="person">
-                   <div class ="info">
-                     </div>
-                   <div class ="pic">
-                     </div>
-        </div>
-
-        <h4> Name <span class="arrow_right"></span> </h4>
-                <div class ="person">
-                    <div class ="info">
-                     </div>
-                    <div class ="pic">
-                      </div>
         
         </div> 
     </div>
 
     <div class="bottom_links">
-            Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
-
-            <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
-            <a href="/about" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
-            <a href="/privacy" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
-            <a href="http://blog.planjar.com/" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Blog</div></div></a>
+        <a href="/home" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Home</div></div></a>
+        <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
+        <a href="/about" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
+        <a href="/privacy" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
+        <a href="http://blog.planjar.com/" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Blog</div></div></a>
 
 
 
