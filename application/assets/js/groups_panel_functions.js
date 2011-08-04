@@ -37,6 +37,9 @@ function initialize_selectable_groups() {
     $('#select_mult_groups').click(function () {
         initialize_mult_groups_select();
     });
+    
+    // Initial select
+    $('#select_one_group').click();
 }
 
 // Initialize the groups such that up to one is selectable at a time
@@ -65,6 +68,8 @@ function initialize_one_group_select() {
         // Display the info box
         display_info();
     });
+    
+    display_info();
 }
 
 // Initializes the groups such that any number can be selected at a time
