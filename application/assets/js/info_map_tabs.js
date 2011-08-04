@@ -1,9 +1,9 @@
 $(function() {
-    initialize_data_tabs();
+    initialize_info_map_tabs();
 })
 
 // Initializes the map/data tabs.
-function initialize_data_tabs() {
+function initialize_info_map_tabs() {
     // Click handler.
     $('div.tab_bar .data_tab').click(function () {
         if ($(this).hasClass('tab_selected')) {
@@ -12,6 +12,9 @@ function initialize_data_tabs() {
             show_data_container($(this).attr('assoc_div'));
         }
     });
+    
+    // Pre-populate (clear) the popular locations
+    populate_popular_locations();
 }
 
 // Deselcts all controlls
