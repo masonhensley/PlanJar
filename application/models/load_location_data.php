@@ -199,16 +199,19 @@ class Load_location_data extends CI_Model
             </div>
         </div>
         <div class="place_display_info">
-            <font style="font-size:19px; font-weight:bold;">Attending</font><br/>
+            <font style="font-size:19px; font-weight:bold;">People attending</font><br/>
             <div class="attending_info">
                 <font style="color:darkgray;">people</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['total_attending']; ?></font>
                 <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
                 <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
+                <br/>
+                <font style="color:darkgray;">schoolmates</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['schoolmates_attending']; ?></font>
             </div>
             <br/>
         </div>
 
         <font style="color:darkgray;position:absolute;left:51px;">gender breakdown</font>
+        <div style="position:relative; top:10px;">
         <!-- boxes that show the color for males/females--> 
         <div style="width:12px; height:12px; background-color:pink; position:absolute; left:134px; top:151px"></div>
         <div style="font-weight:bold; font-size: 12px;position:absolute; top:150px;left:150px; "><font style="font-size:11px;">
@@ -217,7 +220,7 @@ class Load_location_data extends CI_Model
         <div style="width:12px; height:12px; background-color:lightblue; position:absolute; left:30px; top:151px;"></div>
         <div style="font-weight:bold;font-size: 12px; position:absolute; top:150px; left:45px;"><font style="font-size:11px;">
             <?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
-
+        </div>
 
         <div class="two_percent_wrapper"></div>
         <div class="day_plan_graph"></div>
