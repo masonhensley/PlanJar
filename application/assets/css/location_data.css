@@ -3,7 +3,7 @@
     width: 200px;
     position: absolute;
     left:20px;
-    top:120px;
+    top:140px;
     border: 1px solid lightgrey;
 }
 
@@ -24,4 +24,31 @@
 .attending_info{
     position:relative;
     top:5px;
+}
+
+.boy_blue_square{
+    width:12px; 
+    height:12px; 
+    background-color:lightblue; 
+    position:absolute;
+    top:50px;
+}
+
+.girl_pink_square{
+    width:12px; 
+    height:12px; 
+    background-color:pink; 
+    position:absolute;
+}
+
+.male_percent_display{
+    font-weight:bold;
+    font-size: 12px; 
+    position:absolute;
+}
+
+.female_percent_display{
+    font-weight:bold; 
+    font-size: 12px;
+    position:absolute;
 }
