@@ -13,6 +13,12 @@ class Load_location_data extends CI_Model
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d');
 
+        // setup display data
+        $new_date = new DateTime();
+        $month = $big_display_day = $new_date->add(new DateInterval('P' . $day . 'D'));
+        $big_display_day = $big_display_day->format('D');
+
+
         $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
         $place_data_array = $this->get_place_data($place_id, $sql_date, $place_info); // this will be returned to populate graphs
         $place_data_array['friends_attending'] = $this->get_number_friends_attending($place_id, $sql_date);
@@ -24,7 +30,7 @@ class Load_location_data extends CI_Model
             'plan_dates' => $surrounding_day_array
         );
 
-        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date);
+        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $big_display_day);
 
         return array('html' => $return_html, 'graph_data' => $graph_return_data);
     }
@@ -153,7 +159,7 @@ class Load_location_data extends CI_Model
         return $conversion_array;
     }
 
-    function get_place_html($place_info, $place_data_array, $sql_date)
+    function get_place_html($place_info, $place_data_array, $sql_date, $big_day_display)
     {
         if (strlen($place_info['distance']) > 3)
         {
@@ -163,6 +169,8 @@ class Load_location_data extends CI_Model
         // get the percentages ready for display
         $place_data_array['percent_male'] = $place_data_array['percent_male'] * 100;
         $place_data_array['percent_female'] = $place_data_array['percent_female'] * 100;
+
+
 
         // trim the percentages
         if (strlen($place_data_array['percent_male']) > 3)
@@ -198,16 +206,24 @@ class Load_location_data extends CI_Model
                 <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
             </div>
             <br/>
-
         </div>
+
+        <!-- boxes that show the color for males/females--> 
         <div style="width:12px; height:12px; background-color:pink; position:absolute; left:110px; top:100px"></div>
         <div style="width:12px; height:12px; background-color:lightblue; position:absolute; left:30px; top:100px;"></div>
-
         <div style="font-weight:bold;font-size: 12px; position:absolute; top:99px; left:47px;"><font style="font-size:11px;"><?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
         <div style="font-weight:bold; font-size: 12px;position:absolute; top:99px;left:127px; "><font style="font-size:11px;"><?php echo $place_data_array['percent_female'] . "% "; ?></font>female</div>
 
         <div class="two_percent_wrapper"></div>
         <div class="day_plan_graph"></div>
+
+        <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
+        <font style="font-size:120px; color: #7BC848; position:absolute; bottom: 0px; right:0px;"><?php echo $big_day_display ?></font>
+
+
+
+
+
         <?php
         return ob_get_clean();
     }
