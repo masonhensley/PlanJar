@@ -12,13 +12,13 @@ class Load_location_data extends CI_Model
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d');
-        
+
         // setup display data
         $new_date = new DateTime();
         $month = $big_display_day = $new_date->add(new DateInterval('P' . $day . 'D'));
         $big_display_day = $big_display_day->format('D');
-        
-        
+
+
         $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
         $place_data_array = $this->get_place_data($place_id, $sql_date, $place_info); // this will be returned to populate graphs
         $place_data_array['friends_attending'] = $this->get_number_friends_attending($place_id, $sql_date);
@@ -168,8 +168,8 @@ class Load_location_data extends CI_Model
         // get the percentages ready for display
         $place_data_array['percent_male'] = $place_data_array['percent_male'] * 100;
         $place_data_array['percent_female'] = $place_data_array['percent_female'] * 100;
-        
-        
+
+
 
         // trim the percentages
         if (strlen($place_data_array['percent_male']) > 3)
@@ -215,14 +215,14 @@ class Load_location_data extends CI_Model
 
         <div class="two_percent_wrapper"></div>
         <div class="day_plan_graph"></div>
-        
-        <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;">
-            <font style="font-size:120px; color: #7BC848"><?php echo $big_day_display ?></font>
-        </div>
-        
-        
-        
-        
+
+        <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
+        <font style="font-size:120px; color: #7BC848; position:absolute; bottom: 0px; right:0px;"><?php echo $big_day_display ?></font>
+
+
+
+
+
         <?php
         return ob_get_clean();
     }
