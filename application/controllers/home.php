@@ -249,9 +249,7 @@ class Home extends CI_Controller
         $this->load->model('load_location_data');
         $place_id = $this->input->get('place_id');
 
-        $date = new DateTime();
-        $date->add(new DateInterval('P' . $this->input->get('date') . 'D'));
-        $date = $date->format('Y-m-d');
+        $date = $this->input->get('date');
 
         $selected_groups = $this->input->get('selected_groups');
         $return_array = $this->load_location_data->_display_location_info($place_id, $date, $selected_groups);
