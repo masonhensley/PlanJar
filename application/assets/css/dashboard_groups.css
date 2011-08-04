@@ -113,7 +113,8 @@
 }
 
 .group_entry .following {
-    float: right;
+    position:absolute;
+    right:0px;
     width: auto;
     color: gray;
     padding: 3px;
@@ -121,7 +122,8 @@
 }
 
 .group_entry .joined {
-    float: right;
+    position:absolute;
+    right:0px;
     width: auto;
     color: gray;
     padding: 3px;
