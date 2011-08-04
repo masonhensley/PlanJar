@@ -12,16 +12,21 @@ function populate_plan_panel() {
 
 // Sets up the plan panel
 function initialize_plan_panel(){
+    // Click handler
     $('div.plan_content').click(function() {
         if(!$(this).hasClass('selected_plan'))
         {
-            $('.selected_plan').removeClass('selected_plan');
+            // No plan selected. Deselect all controlls
+            deselect_all_controlls();
+            
+            // Select this plan
             $(this).addClass('selected_plan');
+            
             get_plan_data();
             show_data_container('#info_content');
         }else{
             $(this).removeClass('selected_plan');
-        // put code in here for when a plan is de-selected
+            $('#info_content').html('<img src="/application/assets/images/center_display.png">');
         }
     });   
 }

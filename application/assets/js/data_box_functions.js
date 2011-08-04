@@ -67,12 +67,17 @@ function load_visible_locations(selected_day, selected_groups){
 
 
 function show_selected_location() {
+    // Location tab click handler
     $('div.location_tab').click(function() {
-        $('.event_tab_active').removeClass('event_tab_active');
         if(!$(this).hasClass('selected_location_tab'))
         {
-            $('.selected_location_tab').removeClass('selected_location_tab');
+            // Deselect all controlls
+            deselect_all_controlls();
+            
+            // Select this location tab
             $(this).addClass('selected_location_tab');
+            
+            
             $.get('/home/show_location_data', {
                 'place_id': $('.selected_location_tab').attr('place_id'),
                 'date': $('.selected_location_tab').attr('date'),
@@ -95,6 +100,9 @@ function show_selected_location() {
                 // Show the group data tab
                 show_data_container('#info_content');
             });
+        } else {
+            // No controlls selected
+            $('#info_content').html('<img src="/application/assets/images/center_display.png">');
         }
     });
 }

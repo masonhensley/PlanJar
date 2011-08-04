@@ -5,8 +5,28 @@ $(function() {
 
 // Initializes the groups/networks panel
 function initialize_selectable_groups() {
-    // Default tab used is the network_tab
-    set_network_tab();
+    // Network tab click handler
+    $('.network_tab').click(function(){
+        // Make the tabs selectable
+        if($(this).hasClass('network_active'))
+        {
+            // Deselect the tab
+            $(this).removeClass('network_active');
+            
+            $('#info_content').html('<img src="/application/assets/images/center_display.png">');
+        } else {
+            // Deselect all controlls
+            deselect_all_controlls();
+            
+            // Select this network
+            $(this).addClass('network_active');
+            
+            // Change to select one group
+            $('#select_one_group').click();
+            
+            update_groups_and_locations();
+        }
+    });
     
     // Divset
     $('#group_select_type').divSet();
@@ -18,8 +38,6 @@ function initialize_selectable_groups() {
     $('#select_mult_groups').click(function () {
         initialize_mult_groups_select();
     });
-    
-    update_groups_and_locations();
 }
 
 // Callback function
@@ -27,26 +45,7 @@ function on_groups_change() {
     update_groups_and_locations(); // this should update the graphs so they match what is selected
 }
 
-// this is the "use current location" tab. clicking it de-selects all other group tabs and uses the current location
-function set_network_tab()
-{
-    $('.network_tab').click(function(){
-        if($(this).hasClass('network_active'))
-        {
-            $(this).removeClass('network_active');
-        }else{
-            $('.selected_group').removeClass('selected_group');
-            $('.network_active').removeClass('network_active');
-            $(this).addClass('network_active');
-            
-            // Change to select one group
-            $('#select_one_group').click();
-        }
-        
-        update_groups_and_locations();
-    });
-}
-
+// Initialize the groups such that up to one is selectable at a time
 function initialize_one_group_select(initial_update) {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group.selected_group').removeClass('selected_group');
@@ -72,6 +71,7 @@ function initialize_one_group_select(initial_update) {
     });
 }
 
+// Initializes the groups such that any number can be selected at a time
 function initialize_mult_groups_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
     $('.groups_wrapper .selectable_group').click(function() {

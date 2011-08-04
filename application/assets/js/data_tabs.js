@@ -13,3 +13,11 @@ function initialize_data_tabs() {
         }
     });
 }
+
+// Deselcts all controlls
+function deselect_all_controlls() {
+    $('.selected_group').removeClass('selected_group');
+    $('.network_active').removeClass('network_active');
+    $('.selected_location_tab').removeClass('selected_location_tab');
+    $('.selected_plan').removeClass('selected_plan');
+}
