@@ -208,14 +208,15 @@ class Load_location_data extends CI_Model
             <br/>
         </div>
 
+        <font style="color:darkgray;">Gender breakdown</font>
         <!-- boxes that show the color for males/females--> 
         <div style="width:12px; height:12px; background-color:pink; position:absolute; left:134px; top:151px"></div>
         <div style="font-weight:bold; font-size: 12px;position:absolute; top:150px;left:150px; "><font style="font-size:11px;">
-                <?php echo $place_data_array['percent_female'] . "% "; ?></font>female</div>
-        
+            <?php echo $place_data_array['percent_female'] . "% "; ?></font>female</div>
+
         <div style="width:12px; height:12px; background-color:lightblue; position:absolute; left:30px; top:151px;"></div>
         <div style="font-weight:bold;font-size: 12px; position:absolute; top:150px; left:45px;"><font style="font-size:11px;">
-                <?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
+            <?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
 
 
         <div class="two_percent_wrapper"></div>
