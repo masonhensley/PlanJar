@@ -431,7 +431,7 @@ class Display_group_template extends CI_Model
         </div>
         <div class="group_graph_bottom_right">
             <font style="font-size:120px; color: #7BC848"><?php echo $big_display_day; ?></font>
-            <font style="font-size:120px: color:darkgray;"><?php echo $big_display_month; ?></font>
+            <font style="font-size:120px; color:darkgray;"><?php echo $big_display_month; ?></font>
         </div>
         <div class="group_graph_bottom_left">
             <div class="show_percent" style="top:20px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
