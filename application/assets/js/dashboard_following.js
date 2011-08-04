@@ -1,5 +1,6 @@
 $(function () {
     initialize_suggested_friends();
+    $('.following_profile_body').hide();
 });
 
 function following_setup() {
@@ -9,7 +10,6 @@ function following_setup() {
 
 // Populates the following list and assigns the click events.
 function populate_following_list() {
-    $('.following_profile_body').hide();
     
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
