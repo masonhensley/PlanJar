@@ -34,7 +34,7 @@
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
-        <script type="text/javascript" src="/application/assets/js/data_tabs.js"></script>
+        <script type="text/javascript" src="/application/assets/js/info_map_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/data_box_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/upcoming_events.js"></script>

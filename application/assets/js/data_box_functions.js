@@ -16,41 +16,9 @@ function update_groups_and_locations()
 }
 
 // updates the data box based on the selected groups
-function load_data_box(selected_day, selected_groups, filter)
+function load_data_box(filter)
 {
     
-    if(filter == undefined)
-    {
-        filter = 'all';
-    }
-    
-    $.get('/home/load_data_box', {
-        'selected_groups': selected_groups,
-        'selected_day': selected_day,
-        'filter': filter
-    }, function (data) {
-        // Parse the JSON
-        data = $.parseJSON(data);
-        
-        // Apply the layout HTML
-        $('#info_content').html(data.html);
-
-        // Capture the data
-        data = data.data;
-        
-        // Select the correct value for the select box
-        $('#filter').val(data['filter']);
-        
-        // Populate the graphs
-        populate_percentage_box('.total_percent_container', data.percent_total_going_out, 'percent_bar_total');
-        populate_percentage_box('.male_percent_container', data.percent_males_going_out, 'percent_bar_male');
-        populate_percentage_box('.female_percent_container', data.percent_females_going_out, 'percent_bar_female');
-        populate_day_graph('.group_graph_top_right', data.plan_dates, data.selected_date);
-        
-        $('#filter').change(function(){
-            load_data_box(selected_day, selected_groups, $(this).val());
-        });
-    });
 }
 
 // populates the popular location main panel
@@ -64,8 +32,6 @@ function load_visible_locations(selected_day, selected_groups){
     });
 }
 
-
-
 function show_selected_location() {
     // Location tab click handler
     $('div.location_tab').click(function() {
@@ -76,33 +42,12 @@ function show_selected_location() {
             
             // Select this location tab
             $(this).addClass('selected_location_tab');
-            
-            
-            $.get('/home/show_location_data', {
-                'place_id': $('.selected_location_tab').attr('place_id'),
-                'date': $('.selected_location_tab').attr('date'),
-                'selected_groups':get_selected_groups()
-            }, function (data) {
-                // Parse the JSON
-                data = $.parseJSON(data);
-                console.log(data);
-                
-                // Apply the layout HTML
-                $('#info_content').html(data.html);
-                
-                // Capture the data
-                data = data.graph_data;
-                
-                // Populate the graphs
-                populate_day_graph('.day_plan_graph', data.plan_dates, 'today');
-                two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
-                
-                // Show the group data tab
-                show_data_container('#info_content');
-            });
         } else {
-            // No controlls selected
-            $('#info_content').html('<img src="/application/assets/images/center_display.png">');
+            // Deselect this location tab
+            $(this).removeClass('selected_location_tab');
         }
+        
+        // Update the info box
+        display_info();
     });
 }
