@@ -61,7 +61,7 @@
 
                 <div id="rightside">
                     <fieldset>
-                        <legend>Not a member?  Sign up for free.</legend>
+                        <h6>Not a member yet?  Sign up for free.<span class="arrow"></span></h6>
                         <font color="purple" >
                             <div id="su_error" class="error_message">
                                 <!-- Errors will be displayed here -->
