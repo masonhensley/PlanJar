@@ -435,11 +435,12 @@ class Display_group_template extends CI_Model
             <font style="font-size:100px; color:darkgray;"><?php echo $big_display_month; ?></font>
         </div>
         <div class="group_graph_bottom_left">
-            <font style="color:darkgray; position:absolute;">% breakdown of males and females going out from selected group(s)</font>
-            <div class="show_percent" style="top:0px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
+            <font style="color:darkgray; position:absolute;">% breakdown of males, females, and everyone going out from the selected group(s)</font>
+            
             <div class="show_percent"style="top:39px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
             <div class="show_percent" style="top:77px;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
-
+            <div class="show_percent" style="top:0px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
+            
             <font style="color:darkgray;">going out</font>
             <div class="total_percent_container">
             </div>
@@ -448,6 +449,9 @@ class Display_group_template extends CI_Model
             </div>
             <font style="color:darkgray;">females going out</font>
             <div class="female_percent_container">
+            </div>
+            <font style="color:darkgray;">going out</font>
+            <div class="total_percent_container">
             </div>
         </div>
         <?php
