@@ -61,7 +61,7 @@ h1 {
 h5 {  
      padding: 10px 20px;  
      margin-left: -20px;  
-     margin-top: 0;  
+     margin-top: 10px;  
      position: relative;  
      width: 70%;
 
@@ -92,12 +92,6 @@ h5 {
      position: absolute;
      margin-top: -3px;
 }  
-
-
-
-
-
-
 
 
 #container {
@@ -134,13 +128,12 @@ h5 {
     width:600px;
     height:400px;
     float:left;
-    
-    background-color: #eee;
+    background-color: #ddd;
 }
 
 #left_title{
     position:relative;
-    height: 100px;
+    height: 0px;
     background-color: #ddd;
     margin-top: 0px;
 }
