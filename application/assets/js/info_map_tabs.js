@@ -114,11 +114,12 @@ function display_info(bypass, arg) {
                 $.get('/home/delete_plan', {
                     'plan_selected': $('.selected_plan').attr('plan_id')
                 }, function (data) {
-                    // Replace the data and show the data tab.
+                    // Replace the data and show the info tab.
                     $('#info_content').html(data);
-                    populate_plan_panel();
-                    
-                    // Show the info box
+                });
+                
+                // Display the info box after the plan tabs HTML has been replaced
+                populate_plan_panel(function () {
                     display_info();
                 });
             });

@@ -20,13 +20,17 @@ function initialize_plan_panel(){
         
         // DIsplay the info box
         display_info();
-    });   
+    });
 }
 
 // Populates the plan panel (panel is pre-populated in PHP)
-function populate_plan_panel() {
+function populate_plan_panel(callback) {
     $.get('/home/get_my_plans', function (data) {
         $('div.plans_wrapper').html(data);
         initialize_plan_panel();
+        
+        if (callback != undefined) {
+            callback();
+        }
     });
 }
