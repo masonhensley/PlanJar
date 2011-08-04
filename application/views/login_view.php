@@ -48,8 +48,9 @@
 
                 <div id="leftside">
                     <h5> PlanJar shows you what groups of people are doing around you. Join them or do something else to your liking. It's up to you! <span class="arrow"></span> </h5>
+
                      <div id="left_title">
-                     title
+       
                      </div>
                      
                      <div id="left_video">
