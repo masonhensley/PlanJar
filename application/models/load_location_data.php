@@ -218,7 +218,7 @@ class Load_location_data extends CI_Model
         <div class="day_plan_graph"></div>
 
         <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
-        <font style="font-size:120px; color: #7BC848; position:absolute; bottom: 0px; right:0px;"><?php echo $big_day_display ?></font>
+        <font style="font-size:120px; color: #7BC848; position:absolute; bottom: -20px; right:-10px;"><?php echo $big_day_display ?></font>
 
 
 
