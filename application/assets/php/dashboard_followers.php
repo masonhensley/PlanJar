@@ -1,7 +1,6 @@
 <div class="left">
     <div class="left_header">
-        Friends<br/>
-        
+        Friends
     </div>
     <div id="followers_list"></div>
 </div>
