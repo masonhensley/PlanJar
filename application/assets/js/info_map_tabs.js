@@ -24,6 +24,9 @@ function deselect_all_controlls() {
 
 // Displays information to the info box based on what's selected
 function display_info(arg) {
+    // Show the map tab
+    show_data_container('#map_contents')
+    
     if ($('.selected_location_tab').length > 0) {
         // Location selected
         $.get('/home/show_location_data', {
