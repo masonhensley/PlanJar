@@ -91,8 +91,6 @@ h1 {
     position:relative;
     width:600px;
     height:400px;
-    padding-top:30px;
-    margin-top: 40px;
     float:left;
     
     background-color: #eee;
@@ -108,14 +106,14 @@ h1 {
 #left_video{
     position:relative;
     background-color: #ccc;
-    height: 360;
+    height: 360px;
     width: 100%;
 }
 
 #rightside {
     position:relative;
     width:300px;
-    padding:30px;
+    padding-left:30px;
     float: left;
 }
 
