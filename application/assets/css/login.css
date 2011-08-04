@@ -98,14 +98,18 @@ h1 {
     height:1000px;
     padding-top:30px;
     float:left;
+    
+    background-color: #c0d;
 }
 
 #left_title{
     position:relative;
+    background-color: #0e4;
 }
 
 #left_video{
     position:relative;
+    background-color: #0D3;
 }
 
 .clear {
