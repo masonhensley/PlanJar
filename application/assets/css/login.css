@@ -89,7 +89,7 @@ h1 {
 
 #leftside{
     position:relative;
-    width:500px;
+    width:600px;
     height:400px;
     padding-top:30px;
     margin-top: 40px;
@@ -100,7 +100,7 @@ h1 {
 
 #left_title{
     position:relative;
-    height: 50px;
+    height: 100px;
     background-color: #ddd;
     margin-top: 0px;
 }
