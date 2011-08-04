@@ -20,3 +20,8 @@
     width:200px;
     margin-left:20px;
 }
+
+.attending_info{
+    position:relative;
+    top:5px;
+}

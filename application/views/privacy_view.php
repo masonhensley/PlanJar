@@ -12,7 +12,7 @@
                     type: "GET",
                     dataType: "jsonp",
                     cache: false,
-                    url: "https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&client_id=93ccf3a9f7924a6b8e33cc5234cebc50",
+                    url: "https://api.instagram.com/v1/media/popular?client_id=93ccf3a9f7924a6b8e33cc5234cebc50",
                     success: function(data) {
                         for (var i = 0; i < 6; i++) {
                             $(".instagram").append("<div class='instagram-placeholder'><a target='_blank' href='" +

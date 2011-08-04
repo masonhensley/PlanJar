@@ -184,21 +184,25 @@ class Load_location_data extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
-                <font style="color:darkgray;">Selected:</font> <?php echo $place_info['name'] . "</font>"; ?>
+                <font style="color:darkgray;">Selected:</font> <font style="color:navy;"><?php echo $place_info['name'] . "</font>"; ?></font>
             </div>
         </div>
         <div class="place_display_info">
-            <font style="font-size:15px; font-weight:bold;">Attending</font><br/>
-            <font style="color:darkgray;">people</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['total_attending']; ?></font>
-            <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
-            <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font><br/>
+            <font style="font-size:19px; font-weight:bold;">Attending</font><br/>
+            <div class="attending_info">
+                <font style="color:darkgray;">people</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['total_attending']; ?></font>
+                <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
+                <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
+            </div>
+            <br/>
+
         </div>
         <div style="width:12px; height:12px; background-color:pink; position:absolute; left:110px; top:100px"></div>
         <div style="width:12px; height:12px; background-color:lightblue; position:absolute; left:30px; top:100px;"></div>
-        
-        <div style="font-weight:bold;font-size: 12px; position:absolute; top:99px; left:47px;"><font style="font-size:11px;"><?php echo $place_data_array['percent_male'] ."% "; ?></font>male</div>
-        <div style="font-weight:bold; font-size: 12px;position:absolute; top:99px;left:127px; "><font style="font-size:11px;"><?php echo $place_data_array['percent_female'] ."% "; ?></font>female</div>
-        
+
+        <div style="font-weight:bold;font-size: 12px; position:absolute; top:99px; left:47px;"><font style="font-size:11px;"><?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
+        <div style="font-weight:bold; font-size: 12px;position:absolute; top:99px;left:127px; "><font style="font-size:11px;"><?php echo $place_data_array['percent_female'] . "% "; ?></font>female</div>
+
         <div class="two_percent_wrapper"></div>
         <div class="day_plan_graph"></div>
         <?php
