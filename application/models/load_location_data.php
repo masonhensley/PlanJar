@@ -15,9 +15,9 @@ class Load_location_data extends CI_Model
 
         // setup display data
         $new_date = new DateTime();
-        $month = $big_display_day = $new_date->add(new DateInterval('P' . $day . 'D'));
-        $big_display_day = $big_display_day->format('D');
-
+        $big_display_day = $new_date->add(new DateInterval('P' . $day . 'D'));
+        $day_display['big_day'] = $big_display_day->format('D');
+        $day_display['big_day_date'] = $big_display_day->format('j');
 
         $place_info = $this->get_place_info($place_id); // selects the name, lat, lon, category, and distance of the location
         $place_data_array = $this->get_place_data($place_id, $sql_date, $place_info); // this will be returned to populate graphs
@@ -30,7 +30,7 @@ class Load_location_data extends CI_Model
             'plan_dates' => $surrounding_day_array
         );
 
-        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $big_display_day);
+        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $display_day);
 
         return array('html' => $return_html, 'graph_data' => $graph_return_data);
     }
@@ -159,7 +159,7 @@ class Load_location_data extends CI_Model
         return $conversion_array;
     }
 
-    function get_place_html($place_info, $place_data_array, $sql_date, $big_day_display)
+    function get_place_html($place_info, $place_data_array, $sql_date, $display_day)
     {
         if (strlen($place_info['distance']) > 3)
         {
@@ -226,7 +226,8 @@ class Load_location_data extends CI_Model
         <div class="day_plan_graph"></div>
 
         <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
-        <font style="font-size:120px; color: #7BC848; position:absolute; bottom: -20px; right:-10px;"><?php echo $big_day_display ?></font>
+        <font style="font-size:120px; color: #7BC848;"><?php echo $diplay_day['big_day'] ?></font>
+        <font style="font-size:120px; color:darkgray;"><?php echo $display_day['big_day_date'];?></font>
 
         <div class="make_plan">Make a plan here</div>
 
