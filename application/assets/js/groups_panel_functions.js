@@ -12,9 +12,6 @@ function initialize_selectable_groups() {
         {
             // Deselect the tab
             $(this).removeClass('network_active');
-            
-            // Re-populate (clear) the popular locations panel
-            populate_popular_locations();
         } else {
             // Deselect all controlls
             deselect_all_controlls();
