@@ -1,7 +1,7 @@
 /* ---------- body ----------- */
 body{
     margin: 0px;
-    background: #F3F6FF
+    background: #F6f6F6
 }
 
 
@@ -39,7 +39,7 @@ body{
 
 /* -------------- Container-----------------------*/
 #container {  
-    background: #eee;  
+    background: #f6f6f6;  
     margin: auto;  
     width: 960px;  
     height: 900px;  
