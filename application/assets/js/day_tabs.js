@@ -15,16 +15,14 @@ function initialize_day_tabs() {
         // Remove any selected location
         $('.selected_location_tab').removeClass('selected_location_tab');
         
-        // Select the school network if no groups are selected
-        if (get_selected_groups().length == 0) {
-            $('.network_tab[group_id="school"]').click();
-        }
+//        // Select the school network if no groups are selected
+//        if (get_selected_groups().length == 0) {
+//            $('.network_tab[group_id="school"]').click();
+//        }
         
         // Display the info box
         display_info();
     });
-    
-    $("div.days_panel .day:first").click(); //Activate first tab
     
     // Left and right arrow click functions
     $('.left_day_arrow').click(function () {
