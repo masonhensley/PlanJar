@@ -49,7 +49,7 @@
             ?>
         <br/>
         <i>Not following any groups yet</i><br/>
-        <a href="/dashboard/groups/suggested" style="color:#black;font-weight:bold;" >Find groups</a><br/> 
+        <a href="/dashboard/groups/suggested" style="color:navy;font-weight:bold;" >Find groups</a><br/> 
         <?php
         }
             ?>
