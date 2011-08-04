@@ -69,6 +69,7 @@ h2 {
      margin-top: 0;  
      position: relative;  
      width: 70%;  
+     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(223,223,224)),color-stop(1, rgb(237,238,239)));
   
  
         /* -------------- Font -----------------------*/
