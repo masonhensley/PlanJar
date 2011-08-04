@@ -440,7 +440,7 @@ class Display_group_template extends CI_Model
             <div class="show_percent"style="top:39px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
             <div class="show_percent" style="top:77px;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
 
-            <font style="color:darkgray;">people going out</font>
+            <font style="color:darkgray;">going out</font>
             <div class="total_percent_container">
             </div>
             <font style="color:darkgray;">males going out</font>
