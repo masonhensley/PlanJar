@@ -210,8 +210,9 @@ class Load_location_data extends CI_Model
             <br/>
         </div>
 
-        <font style="color:darkgray;position:absolute;left:51px;">gender breakdown</font>
-        <div style="position:relative; top:10px;">
+        
+        <div class="gender_breakdown">
+            <font style="color:darkgray;position:absolute;left:51px;">gender breakdown</font>
             <!-- boxes that show the color for males/females--> 
             <div class="girl_pink_square"></div>
             <div class="female_percent_display"><font style="font-size:11px;">
@@ -232,8 +233,6 @@ class Load_location_data extends CI_Model
             <font style="font-size:120px; color:darkgray;"><?php echo $display_day['big_day_date']; ?></font>
         </div>
         <div class="make_plan">Make a plan here</div>
-
-
 
         <?php
         return ob_get_clean();
