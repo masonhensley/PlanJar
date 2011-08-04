@@ -18,7 +18,7 @@
         <link rel=stylesheet href="/application/assets/css/plan_conflict_modal.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
-        <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <!-- Encapsulated JS files -->

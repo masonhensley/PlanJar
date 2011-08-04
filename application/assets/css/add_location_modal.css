@@ -20,8 +20,8 @@
 }
 
 #new_location_map {
-    width: 80%;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     margin-top: 50px;
     border: 1px solid black;
 }
