@@ -37,8 +37,27 @@
                 </div>  
             </div>
         </div>
+
+          
+
+
+
+
         <div id="container">
             <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
+
+                <div id="leftside">
+                     <div id="left_title">
+                     title
+                     </div>
+                     
+                     <div id="left_title">
+                     video
+                     </div>  
+
+                </div>
+
+
                 <div id="rightside">
                     <fieldset>
                         <legend>Not a member?  Sign up for free.</legend>
