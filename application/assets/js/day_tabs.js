@@ -12,8 +12,8 @@ function initialize_day_tabs() {
         // Add "day_selected" class to selected tab
         $(this).addClass("day_selected");
         
-        // Remove any selected location
-        $('.selected_location_tab').removeClass('selected_location_tab');
+//        // Remove any selected location
+//        $('.selected_location_tab').removeClass('selected_location_tab');
         
         // Display the info box
         display_info();
