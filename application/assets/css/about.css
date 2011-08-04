@@ -99,8 +99,8 @@ h4 {
     color: #454545;  
     text-shadow: 0 1px 0 white;
 
-     -moz-border-radius: 0px 5px 5px 0px;
-     border-radius: 0px 5px 5px 0px;
+     -moz-border-radius: 5px 0px 0px 5px;
+     border-radius: 5px 0px 0px 5px;
   
      background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(223,223,224)),color-stop(1, rgb(237,238,239)));
      background-image: -moz-linear-gradient(center bottom,rgb(223,223,224) 0%,rgb(237,238,239) 100%);
