@@ -73,17 +73,14 @@ function initialize_mult_groups_select() {
     $('.groups_wrapper .selectable_group').click(function() {
         $('.network_active').removeClass('network_active'); // unselect the city tab
         
-        // unselect plan on right panel
-        $('.plan_content').removeClass('selected_plan');
+        // Clear all controlls except groups
+        deselect_all_controlls(true);
         
         // Make the list items togglable.
         if ($(this).hasClass('selected_group')) {
             // Deselect this group
             $(this).removeClass('selected_group');
         } else {
-            // Clear all controlls except groups
-            deselect_all_controlls(true);
-            
             // Select this group
             $(this).addClass('selected_group');
         }
