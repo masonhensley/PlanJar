@@ -193,7 +193,7 @@ class Load_location_data extends CI_Model
         // start output buffering
         ob_start();
         ?>
-        <div class="data_box_top_bar" place_id="<?php echo($place_data_array['id']); ?>">
+        <div class="data_box_top_bar" place_id="<?php echo($place_data_array['id']); ?>" place_name="<?php echo($place_info['name']); ?>">
             <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
                 <font style="color:darkgray;">Selected:</font> <font style="color:navy;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
             </div>
@@ -225,7 +225,7 @@ class Load_location_data extends CI_Model
         <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
         <font style="font-size:120px; color: #7BC848; position:absolute; bottom: -20px; right:-10px;"><?php echo $big_day_display ?></font>
 
-
+        <div class="make_plan">Make a plan to <?php echo($place_info['name']); ?></div>
 
 
 
