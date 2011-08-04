@@ -9,11 +9,13 @@ function initialize_day_tabs() {
         // Remove any "day_selected" class
         $("div.days_panel .day_selected").removeClass("day_selected");
         
+        // Select the current location if no other controlls are selected
+        if (!controlls_are_selected()) {
+            $('.network_tab[group_id="current_location"]');
+        }
+        
         // Add "day_selected" class to selected tab
         $(this).addClass("day_selected");
-        
-//        // Remove any selected location
-//        $('.selected_location_tab').removeClass('selected_location_tab');
         
         // Display the info box
         display_info(true);
@@ -31,9 +33,6 @@ function initialize_day_tabs() {
         var current_offset = $('.day:first').attr('day_offset');
         get_new_days(parseInt(current_offset) + 7);
     });
-    
-    // Select the first day
-    $('.seven_days :first').click();
 }
 
 // Gets and displays the set of days
