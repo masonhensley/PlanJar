@@ -89,9 +89,10 @@ h1 {
 
 #leftside{
     position:relative;
-    width:400px;
+    width:500px;
     height:400px;
     padding-top:30px;
+    margin-top: 40px;
     float:left;
     
     background-color: #c0d;
@@ -111,9 +112,9 @@ h1 {
 
 #rightside {
     position:relative;
-    width:260px;
-    padding-top:30px;
-    float:right;
+    width:300px;
+    padding:30px;
+    float: left;
 }
 
 .clear {
