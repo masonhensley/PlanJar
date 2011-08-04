@@ -28,6 +28,7 @@ function initialize_add_location_modal() {
 
 // Opens the add location modal
 function show_add_location_modal() {
+    console.log('in func');
     $('#add_location_modal').show('fast', function () {
         // Add the marker
         new_location_marker = new google.maps.Marker({
