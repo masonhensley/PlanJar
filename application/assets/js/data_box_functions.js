@@ -71,8 +71,8 @@ function show_selected_location() {
     $('div.location_tab').click(function() {
         if(!$(this).hasClass('selected_location_tab'))
         {
-            // Deselect all controlls
-            deselect_all_controlls();
+            // Deselect selected location tabs
+            $('.selected_location_tab').removeClass('selected_location_tab');
             
             // Select this location tab
             $(this).addClass('selected_location_tab');
