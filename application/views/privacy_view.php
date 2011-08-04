@@ -5,7 +5,7 @@
     <!-- CSS -->
     <link rel=stylesheet href="/application/assets/css/privacy.css" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-    <title>About us</title>  
+    <title>Privacy</title>  
   
     <!--[if IE]>  
         <style>  
