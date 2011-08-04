@@ -23,7 +23,9 @@ function show_plan_modal(callback) {
         // Focus the location box.
         $('#plan_location').focus();
         
-        callback();
+        if (callback != undefined) {
+            callback();
+        }
     });
 }
 
@@ -444,7 +446,7 @@ function initialize_plan_autocomplete() {
             item_selected = true;
             
             if (ui.item.id == 'new place') {
-                show_add_location_modal
+                show_add_location_modal();
             } else {
                 $('#plan_location').val(ui.item.value);
                 $('#plan_location_id').val(ui.item.id);
