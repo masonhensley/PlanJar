@@ -35,17 +35,6 @@ My shizz izzle fizzle izzle arcu interdizzle mofo. Dang posuere. For sure non an
         </div> 
     </div>
 
-<div class="bottom_links">
-            Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
-
-            <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
-            <a href="/about" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
-            <a href="/privacy" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
-            <a href="http://blog.planjar.com/" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Blog</div></div></a>
-
-
-
-        </div>
   
 </body>  
 </html>  
