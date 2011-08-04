@@ -11,7 +11,7 @@ function initialize_day_tabs() {
         
         // Select the current location if no other controlls are selected
         if (!controlls_are_selected()) {
-            $('.network_tab[group_id="current_location"]');
+            $('.network_tab[group_id="current_location"]').click();
         }
         
         // Add "day_selected" class to selected tab
