@@ -38,7 +38,7 @@ function show_add_location_modal() {
         });
         
         // Resize the map
-        google.maps.event.trigger(new_location_map, 'resize');
+        //google.maps.event.trigger(new_location_map, 'resize');
         
         // Center the map
         new_location_map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
