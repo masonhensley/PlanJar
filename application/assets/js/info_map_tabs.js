@@ -26,9 +26,11 @@ function deselect_all_controlls() {
 }
 
 // Displays information to the info box based on what's selected
-function display_info(arg) {
-    // Needed by fricking every incoming call (and by every I mean enough to put it here)
-    populate_popular_locations();
+function display_info(bypass, arg) {
+    if (bypass) {
+        // Needed by fricking every incoming call (and by every I mean enough to put it here)
+        populate_popular_locations();
+    }
     
     // Show the info tab
     show_data_container('#info_content')
@@ -149,7 +151,7 @@ function populate_popular_locations() {
             }
         
             // Update the info box
-            display_info();
+            display_info(true);
         });
     });
 }
