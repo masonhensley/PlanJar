@@ -51,7 +51,7 @@
                         <div id="just_going">just going</div>
                         <input type="button" id="close_new_event" value="Cancel" style="display: none"/>
                         <br/>
-                        Or
+                        
                         <input type="button" id="create_event" value="Start an event"/>
                     </div>
                     
