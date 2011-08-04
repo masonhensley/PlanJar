@@ -27,7 +27,8 @@ class Load_location_data extends CI_Model
         $graph_return_data = array(
             'percent_female' => $place_data_array['percent_female'],
             'percent_male' => $place_data_array['percent_male'],
-            'plan_dates' => $surrounding_day_array
+            'plan_dates' => $surrounding_day_array,
+            'selected_date' => $sql_date
         );
 
         $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $day_display);
@@ -212,7 +213,7 @@ class Load_location_data extends CI_Model
 
         
         <div class="gender_breakdown">
-            <font style="color:darkgray;position:absolute;left:51px; top:-10px;">gender breakdown</font>
+            <font style="color:darkgray;position:absolute;left:51px;">gender breakdown</font>
             <!-- boxes that show the color for males/females--> 
             <div class="girl_pink_square"></div>
             <div class="female_percent_display"><font style="font-size:11px;">
