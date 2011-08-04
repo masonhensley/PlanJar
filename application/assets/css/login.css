@@ -58,6 +58,48 @@ h1 {
     color:#333;
 }
 
+h2 {  
+     padding: 10px 20px;  
+     margin-left: -20px;  
+     margin-top: 0;  
+     position: relative;  
+     width: 70%;
+
+     -moz-border-radius: 5px 5px 5px 0px;
+     border-radius: 5px 5px 5px 0px;
+  
+     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(223,223,224)),color-stop(1, rgb(237,238,239)));
+     background-image: -moz-linear-gradient(center bottom,rgb(223,223,224) 0%,rgb(237,238,239) 100%);
+     background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+  
+ 
+        /* -------------- Font -----------------------*/
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	font-size: 50px;
+	line-height: 65px;
+
+    color: #454545;  
+    text-shadow: 0 1px 0 white;
+
+
+.arrow {  
+     width: 0; height: 0;  
+     line-height: 0;  
+     border-left: 20px solid transparent;  
+     border-top: 10px solid #bbb;  
+     top: 104%;  
+     left: 0;  
+     position: absolute;
+     margin-top: -3px;
+}  
+
+
+
+
+
+
+
+
 #container {
     width:1024px;
     height: 900px;
