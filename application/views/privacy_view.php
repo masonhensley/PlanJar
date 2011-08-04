@@ -24,6 +24,8 @@
                  </div>  
      <div id="container"> 
 
+          <h2> Privacy Policy <span class="arrow"></span> </h2>
+
        <div id="main">  
   
         Lorem ipsizzle dolizzle sit amizzle, ma nizzle adipiscing pizzle. Nullizzle sapien velizzle, aliquet volutpizzle, suscipit dope, gravida vizzle, arcu. Pellentesque dang tortor. Sizzle eros. Cool at brizzle da bomb the bizzle tempizzle uhuh ... yih!. Maurizzle pellentesque dawg et turpizzle. Vestibulum izzle tortor. Pellentesque mah nizzle rhoncizzle shizznit. In hac mofo platea dictumst. Yo dapibus. Curabitur tellus urna, you son of a bizzle eu, mattizzle doggy, eleifend sheezy, nunc. Shit yippiyo. Sizzle dang velit sizzle fizzle.
