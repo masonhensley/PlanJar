@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <link rel=stylesheet href="/application/assets/css/privacy.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/privacy_1.css" type="text/css" />
 
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.1.min.js"></script>
 
