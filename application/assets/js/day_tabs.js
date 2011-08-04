@@ -33,6 +33,8 @@ function initialize_day_tabs() {
         var current_offset = $('.day:first').attr('day_offset');
         get_new_days(parseInt(current_offset) + 7);
     });
+    
+    $('.days_panel .day:first').addClass('day_selected');
 }
 
 // Gets and displays the set of days
