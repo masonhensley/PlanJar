@@ -23,7 +23,9 @@ function show_plan_modal(callback) {
         // Focus the location box.
         $('#plan_location').focus();
         
-        callback();
+        if (callback != undefined) {
+            callback();
+        }
     });
 }
 
