@@ -539,5 +539,7 @@ a{
     left: 0px;
     bottom: 0px;
     border: 1px solid lightgray;
-    background: -webkit-gradient(linear,left top,left bottom,from(purple),to(#AF64DE));
+    background: -webkit-gradient(linear,left top,left bottom,from(#AF64DE),to(purple));
+    padding: 5px;
+    color: white;
 }

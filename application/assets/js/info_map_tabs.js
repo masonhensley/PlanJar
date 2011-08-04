@@ -60,7 +60,7 @@ function display_info(bypass, arg) {
             // Make plan click handler
             $('.make_plan').click(function() {
                 var button = $(this);
-                open_plan_modal(function () {
+                show_plan_modal(function () {
                     // Pre-populate the place name and id
                     $('#plan_location').val(button.siblings('.data_box_top_bar').attr('place_name'));
                     $('#plan_location_id').val(button.siblings('.data_box_top_bar').attr('place_id'));
