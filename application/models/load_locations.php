@@ -140,7 +140,7 @@ class Load_locations extends CI_Model
         $group_name_array = $this->get_group_names($group_list);
         $display_message = $this->setup_groups_header($group_name_array, $display_day);
 
-        $query = "SELECT places.name, places.id, events.title, places.category 
+        $query = "SELECT places.name, places.id, events.title
                   FROM group_relationships 
                   JOIN plans ON plans.user_id=group_relationships.user_joined_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
