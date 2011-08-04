@@ -115,7 +115,7 @@ class Load_locations extends CI_Model
         $display_message = "Places <font style=\"color:green; font-weight:bold;\">$school</font> ";
         $display_message .= "students are going $display_day";
 
-        $query = "SELECT events.title, places.name, places.id, places.category 
+        $query = "SELECT events.title, places.name, places.id
                   FROM user_meta
                   LEFT JOIN plans ON plans.user_id=user_meta.user_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
