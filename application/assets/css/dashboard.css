@@ -46,7 +46,7 @@ a{
 
 .top_right_link_outer{
     height:100%;
-    width:auto;
+    width:75px;
     display:inline-block;
     float: right;
     top:-15px;
