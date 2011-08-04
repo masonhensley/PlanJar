@@ -324,7 +324,7 @@ function initialize_plan_autocomplete() {
                 latitude: myLatitude,
                 longitude: myLongitude
             }, function (data) {
-                // Keep track of whether an item was selecetd or not (delayed autocomplete items fix).
+                // Keep track of whether an item was selected or not (delayed autocomplete items fix).
                 item_selected = false;
                 
                 // Parse the JSON text.
@@ -371,7 +371,6 @@ function initialize_plan_autocomplete() {
                             }
                         }
                     };
-
 
                     var options = {
                         api_key: 'SIKk9ulwxwodsqkZwpxfmbJr7EtuVHjwNyx2JO8pzGMCNBtsJPW3GcWZTJUhJ7ee',
