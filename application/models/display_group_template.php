@@ -401,7 +401,7 @@ class Display_group_template extends CI_Model
         ob_start();
         ?>
         <div class="data_box_top_bar">
-            <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
+            <div style="float:left; font-size:25px;border-bottom: 2px solid black;">
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
