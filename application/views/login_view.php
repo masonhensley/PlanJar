@@ -44,7 +44,7 @@
 
 
         <div id="container">
-            <div style="position:relative; width:650px; margin-left: auto; margin-right: auto; height:1000px;">
+            <div style="position:relative; width:1000px; margin-left: auto; margin-right: auto; height:700px;">
 
                 <div id="leftside">
                      <div id="left_title">
