@@ -1,7 +1,181 @@
-.instagram-placeholder{
-    width:155px;
-    height:155px;
+/* ---------- body ----------- */
+body{
+    margin: 0px;
+    background: #F6f6F6
+}
+
+
+
+
+/* ---------- TOP PANEL ----------- */
+.top_panel{
+    height: 40px;
+    width:100%;
+    background: #333;
+    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
+    background: -moz-linear-gradient(top,#333,#666);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333',endColorstr='#666');
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 0px 9px #000;
+    -moz-box-shadow: 0px 0px 9px #000;
+    box-shadow: 0px 0px 9px #000;
+}
+
+.inside_top_panel{
+    width:1024px;
+    height:100%;
     margin-left: auto;
     margin-right: auto;
-    display: inline-block;
+}
+
+.top_links{
+    width:1024px;
+    height:50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* -------------- Container-----------------------*/
+#container {  
+    background: #f6f6f6;  
+    margin: auto;  
+    width: 960px;  
+    height: 900px;  
+    padding-top: 20px;  
+    font-family: helvetica, arial, sans-serif;
+
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-top-left: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-top-right: 10px;
+    border-top-right-radius: 10px;
+
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 2px 8px #aaa;
+    -moz-box-shadow: 0px 2px 8px #aaa;
+    box-shadow: 0px 2px 8px #aaa;  
+
+    }  
+  
+h2 {  
+     padding: 10px 20px;  
+     margin-left: -20px;  
+     margin-top: 0;  
+     position: relative;  
+     width: 70%;
+
+     -moz-border-radius: 5px 5px 5px 0px;
+     border-radius: 5px 5px 5px 0px;
+  
+     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(223,223,224)),color-stop(1, rgb(237,238,239)));
+     background-image: -moz-linear-gradient(center bottom,rgb(223,223,224) 0%,rgb(237,238,239) 100%);
+     background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+  
+ 
+        /* -------------- Font -----------------------*/
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	font-size: 50px;
+	line-height: 65px;
+
+    color: #454545;  
+    text-shadow: 0 1px 0 white;  
+}  
+
+h4 {  
+     float: right;
+
+     padding: 10px 20px;  
+     margin-right: -20px;  
+     margin-top: 10;
+     margin-bottom: 0px;  
+     position: relative;  
+     width: 70%;
+     padding-top: 15px;
+     padding-bottom: 15px;   
+  
+    color: #454545;  
+    text-shadow: 0 1px 0 white;
+
+     -moz-border-radius: 5px 5px 0px 5px;
+     border-radius: 5px 5px 0px 5px;
+  
+     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(223,223,224)),color-stop(1, rgb(237,238,239)));
+     background-image: -moz-linear-gradient(center bottom,rgb(223,223,224) 0%,rgb(237,238,239) 100%);
+     background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));  
+}  
+  
+.arrow {  
+     width: 0; height: 0;  
+     line-height: 0;  
+     border-left: 20px solid transparent;  
+     border-top: 10px solid #bbb;  
+     top: 104%;  
+     left: 0;  
+     position: absolute;
+     margin-top: -3px;
+}  
+
+.arrow_right {  
+     width: 0; height: 0;  
+     line-height: 0;  
+     border-right: 20px solid transparent;  
+     border-top: 10px solid #c8c8c8;  
+     top: 104%;  
+     right: 0;  
+     position: absolute; 
+     margin-top: -2px; 
+}  
+
+
+.person{
+    width:100%;
+    height:160px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pic{
+    width: 200px;
+    height:100%;
+    margin: auto;
+    background: #d2d2d2;
+    float: right;
+}
+
+.info{
+    width: 450px;
+    height:100%;
+    margin: auto;
+    background: #c3c3e8;
+    float: right;
+}
+
+/* --------BOTTOM LINKS ---------*/
+
+.bottom_links{
+    width:1024px;
+    margin-left:auto;
+    margin-right:auto;
+    height:40px;
+    background-color: black;
+    opacity: .4;
+    text-align:left;
+    position:relative;      
+}
+
+.bottom_link_inner {
+    position: relative;
+    top: 20px;
+}
+
+.bottom_link_outer{
+    height:100%;
+    width:86px;
+    display:inline-block;
+    position:relative;
+    top:-12px;
+    text-align: center;
 }
