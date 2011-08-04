@@ -22,7 +22,13 @@ class Place_ops extends CI_Model
             return $row->id;
         } else
         {
+            // Get the category id
+            $query_string = "SELECT id FROM place_categories WHERE name = ?";
+            $query = $this->db->query($query_string, array($data['category']));
+
             // Add the new place.
+            unset($data['category']);
+            $data['category_id'] = $query->row()->id;
             $query = $this->db->insert('places', $data);
 
             return $this->db->insert_id();
