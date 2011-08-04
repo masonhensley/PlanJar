@@ -31,7 +31,8 @@
     height:12px; 
     background-color:lightblue; 
     position:absolute;
-    top:50px;
+    top:51px;
+    left:25px;
 }
 
 .girl_pink_square{
@@ -39,6 +40,8 @@
     height:12px; 
     background-color:pink; 
     position:absolute;
+    left:133px;
+    top:51px;
 }
 
 .male_percent_display{
@@ -51,4 +54,6 @@
     font-weight:bold; 
     font-size: 12px;
     position:absolute;
+    top:50px;
+    left:150px;
 }
