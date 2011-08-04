@@ -105,7 +105,8 @@ class Load_location_data extends CI_Model
             'number_males' => $number_males,
             'number_females' => $number_females,
             'percent_male' => $percent_male,
-            'percent_female' => $percent_female
+            'percent_female' => $percent_female,
+            'id' => $place_id
         );
     }
 
@@ -184,7 +185,7 @@ class Load_location_data extends CI_Model
         // start output buffering
         ob_start();
         ?>
-        <div class="data_box_top_bar">
+        <div class="data_box_top_bar" place_id="<?php echo($place_data_array['id']); ?>">
             <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
                 <font style="color:darkgray;">Selected:</font> <font style="color:navy;"><?php echo $place_info['name'] . "</font>"; ?></font>
             </div>
