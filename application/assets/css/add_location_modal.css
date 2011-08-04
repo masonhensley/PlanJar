@@ -4,7 +4,14 @@
     margin-top: -150px;
 }
 
-#add_location_modal .left, #add_location_modal .right {
+#add_location_modal .left {
+    float: left;
+    width: 50%;
+    position: relative;
+    border: 1px solid black;
+}
+
+#add_location_modal .right {
     float: left;
     width: 50%;
     position: relative;
