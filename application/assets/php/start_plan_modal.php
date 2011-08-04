@@ -51,9 +51,10 @@
                         <div id="just_going">just going</div>
                         <input type="button" id="close_new_event" value="Cancel" style="display: none"/>
                         <br/>
+                        Or
                         <input type="button" id="create_event" value="Start an event"/>
                     </div>
-                    Or
+                    
                     <div id="start_event_content" style="display: none;">
                         <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
                             <label for="event_title">Title</label>
