@@ -16,7 +16,7 @@
                     cache: false,
                     url: "https://api.instagram.com/v1/media/popular?client_id=93ccf3a9f7924a6b8e33cc5234cebc50",
                     success: function(data) {
-                        for (var i = 0; i < 36; i++) {
+                        for (var i = 0; i < 30; i++) {
                             $(".instagram").append("<div class='instagram-placeholder'><a target='_blank' href='" +
                                 data.data[i].link +"'><img class='instagram-image' src='" +
                                 data.data[i].images.thumbnail.url +
