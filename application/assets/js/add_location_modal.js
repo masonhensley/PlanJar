@@ -41,7 +41,7 @@ function show_add_location_modal() {
         google.maps.event.trigger(new_location_map, 'resize');
         
         // Center the map
-        //new_location_map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
+        new_location_map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
         //new_location_map.setZoom(14);
     });
 }
