@@ -61,7 +61,7 @@
 
 
                 <div id="rightside">
-                    <fieldset>
+                   
                     <div id="right_inner">
                         <h6>Not a member?  Sign up for free.<span class="arrow"></span></h6>
                         <font color="purple" >
@@ -170,7 +170,6 @@
                         </center>
                     </div>
                 </div>
-                </fieldset>
                 <div class="clear"></div>
             </div>
         </div>
