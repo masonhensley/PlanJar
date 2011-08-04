@@ -31,7 +31,7 @@ function display_info(arg) {
         // Location selected
         $.get('/home/show_location_data', {
             'place_id': $('.selected_location_tab').attr('place_id'),
-            'date': $('.selected_location_tab').attr('date'),
+            'date': get_selected_day(),
             'selected_groups':get_selected_groups()
         }, function (data) {
             // Parse the JSON
