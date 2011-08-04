@@ -22,6 +22,8 @@
                 <div class="top_links">
                     <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Profile</div></div></a>
                  </div>  
+     </div>
+
      <div id="container">  
   
         Lorem ipsizzle dolizzle sit amizzle, ma nizzle adipiscing pizzle. Nullizzle sapien velizzle, aliquet volutpizzle, suscipit dope, gravida vizzle, arcu. Pellentesque dang tortor. Sizzle eros. Cool at brizzle da bomb the bizzle tempizzle uhuh ... yih!. Maurizzle pellentesque dawg et turpizzle. Vestibulum izzle tortor. Pellentesque mah nizzle rhoncizzle shizznit. In hac mofo platea dictumst. Yo dapibus. Curabitur tellus urna, you son of a bizzle eu, mattizzle doggy, eleifend sheezy, nunc. Shit yippiyo. Sizzle dang velit sizzle fizzle.
@@ -31,7 +33,6 @@ Fo shizzle mah nizzle fo rizzle, mah home g-dizzle laorizzle urna izzle nisl. Fo
 Curabitizzle bow wow wow dizzle quis nisi bow wow wow mollis. Own yo' potenti. Break yo neck, yall odio. Vivamus neque. Uhuh ... yih! orci. Crizzle maurizzle rizzle, interdizzle shiz, feugizzle shiznit amet, malesuada fo shizzle mah nizzle fo rizzle, mah home g-dizzle, pede. Pellentesque . Vestibulum orci mi, shiznit izzle, sagittizzle break yo neck, yall, adipiscing semper, velit. Crizzle rizzle own yo'. Aliquam volutpat shiznit vel orci. Crizzle quizzle justo sure purizzle sodales ornare. Sed yippiyo gizzle izzle lacus. Nunc shiznit. Suspendisse funky fresh placerizzle lacus. Dawg dang ante. Nunc pharetra, leo eu dapibizzle hendrerizzle, break yo neck, yall felizzle elementizzle sem, in aliquet get down get down felizzle luctizzle pede. Da bomb a boom shackalack. Class aptent taciti shut the shizzle up sheezy torquent pizzle brizzle nostra, per break it down hymenaeos. Own yo' fo shizzle, hizzle nizzle elementum nonummy, nisl yo viverra leo, fizzle sempizzle risus arcu dope sizzle.
         
         </div> 
-    </div>
 
     <div class="bottom_links">
         <a href="/home" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Home</div></div></a>
