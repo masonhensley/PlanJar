@@ -223,3 +223,31 @@ h1 {
 #log_in{
     float:right;
 }
+
+
+/* --------BOTTOM LINKS ---------*/
+
+.bottom_links{
+    width:1024px;
+    margin-left:auto;
+    margin-right:auto;
+    height:40px;
+    background-color: black;
+    opacity: .4;
+    text-align:left;
+    position:relative;      
+}
+
+.bottom_link_inner {
+    position: relative;
+    top: 20px;
+}
+
+.bottom_link_outer{
+    height:100%;
+    width:86px;
+    display:inline-block;
+    position:relative;
+    top:-12px;
+    text-align: center;
+}
