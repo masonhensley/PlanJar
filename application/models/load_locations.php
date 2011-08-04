@@ -82,10 +82,9 @@ class Load_locations extends CI_Model
         $display_message .= "are going <br/><font style=\"font-weight:bold;color:navy;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
-        $query = "SELECT places.id, events.title, places.name, place_categories.category FROM plans 
+        $query = "SELECT places.id, events.title, places.name FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
-                  JOIN place_categories ON place_categories.id = places.category_id
                   WHERE (";
         foreach ($friend_ids as $id)
         {
