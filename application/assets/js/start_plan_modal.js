@@ -362,7 +362,7 @@ function initialize_plan_autocomplete() {
                 // Call the response function with the a copy of the response JSON.
                 var temp = response_json.slice(0);
                 temp.push({
-                    label: 'Expanding search results using factual.com...', 
+                    label: 'Expanding search results with factual.com...', 
                     value: '',
                     id: ''
                 });
