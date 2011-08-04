@@ -401,7 +401,7 @@ class Display_group_template extends CI_Model
         ob_start();
         ?>
         <div class="data_box_top_bar">
-            <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
+            <div style="float:left; font-size:25px;border-bottom: 2px solid black;">
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
@@ -424,9 +424,6 @@ class Display_group_template extends CI_Model
             $total = $data_array['total_males'] + $data_array['total_females'];
             ?>
 
-
-            <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $data_array['total_males']; ?></font>
-            <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $data_array['total_females']; ?></font><br/>
         </div>
         <div class="group_graph_top_right">
         </div>
@@ -435,7 +432,11 @@ class Display_group_template extends CI_Model
             <font style="font-size:100px; color:darkgray;"><?php echo $big_display_month; ?></font>
         </div>
         <div class="group_graph_bottom_left">
-            <font style="color:darkgray; position:absolute;top:-40px; text-align:left; left:20px;">% breakdown of males, females, and everyone going out</font>
+            <font style="color:darkgray; position:absolute;top:-40px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
+            <font style="color:darkgray;">males</font><font style="font-weight:bold;">
+            <?php echo " " . $data_array['total_males']; ?></font>
+            <font style="color:darkgray;">females</font><font style="font-weight:bold;">
+            <?php echo " " . $data_array['total_females']; ?></font><br/>
 
             <div class="show_percent"style="top:0px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
             <div class="show_percent" style="top:39px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
@@ -448,7 +449,7 @@ class Display_group_template extends CI_Model
             <font style="color:darkgray;">females going out</font>
             <div class="female_percent_container">
             </div>
-            <font style="color:darkgray;">going out</font>
+            <font style="color:darkgray;">people going out</font>
             <div class="total_percent_container">
             </div>
         </div>

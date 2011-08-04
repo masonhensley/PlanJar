@@ -23,7 +23,7 @@ function populate_followers_list() {
         
             if(!$(this).hasClass('selected_follower'))
             {
-                $('#friends_content .right').hide();
+                //$('#friends_content .right').hide();
                 $('.user_entry.selected_follower').removeClass('selected_follower');
                 $(this).addClass('selected_follower');
                 $.get('/dashboard/get_profile', {

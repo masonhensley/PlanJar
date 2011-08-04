@@ -5,6 +5,8 @@ body{
     /*-webkit-user-select: none;
     cursor:default; */
     font-family: helvetica;
+    font-family: 'Vollkorn', serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     margin:0px;
     border-color: #AAAAAA;
