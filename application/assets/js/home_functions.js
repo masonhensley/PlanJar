@@ -166,6 +166,8 @@ function hide_data_containers() {
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div, callback) {
+    console.log('showing ' + data_div);
+    
     // Make callback optional.
     if (callback == undefined) {
         callback = function() {};
