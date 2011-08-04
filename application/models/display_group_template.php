@@ -437,13 +437,10 @@ class Display_group_template extends CI_Model
         <div class="group_graph_bottom_left">
             <font style="color:darkgray; position:absolute;">% breakdown of males, females, and everyone going out from the selected group(s)</font>
             
-            <div class="show_percent"style="top:39px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
+            <div class="show_percent"style="top:0px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
             <div class="show_percent" style="top:77px;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
-            <div class="show_percent" style="top:0px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
+            <div class="show_percent" style="top:39px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
             
-            <font style="color:darkgray;">going out</font>
-            <div class="total_percent_container">
-            </div>
             <font style="color:darkgray;">males going out</font>
             <div class="male_percent_container">
             </div>
