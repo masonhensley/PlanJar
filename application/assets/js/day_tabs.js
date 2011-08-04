@@ -20,9 +20,6 @@ function initialize_day_tabs() {
         //            $('.network_tab[group_id="school"]').click();
         //        }
         
-        // Select the first day
-        $('.seven_days :first').click();
-        
         // Display the info box
         display_info();
     });
@@ -39,6 +36,9 @@ function initialize_day_tabs() {
         var current_offset = $('.day:first').attr('day_offset');
         get_new_days(parseInt(current_offset) + 7);
     });
+    
+    // Select the first day
+    $('.seven_days :first').click();
 }
 
 // Gets and displays the set of days
