@@ -48,6 +48,8 @@
     font-weight:bold;
     font-size: 12px; 
     position:absolute;
+    top:50px;
+    left:40px;
 }
 
 .female_percent_display{
