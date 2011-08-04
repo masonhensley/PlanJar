@@ -13,7 +13,7 @@ function initialize_add_location_modal() {
     });
     
     // Draggable
-    $('#close_add_location').draggable({
+    $('#add_location_modal').draggable({
         handle: '.title_bar'
     });
     
