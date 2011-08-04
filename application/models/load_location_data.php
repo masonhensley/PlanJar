@@ -39,11 +39,12 @@ class Load_location_data extends CI_Model
     function get_place_info($place_id)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT name, latitude, longitude, category, 
+        $query = "SELECT places.name, places.latitude, places.longitude, place_categories.category, 
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
-                        FROM places WHERE id=$place_id";
+                        FROM places JOIN place_categories ON places.category_id = place_categories.id
+                        WHERE id=$place_id";
         $result = $this->db->query($query);
         $place_array = $result->row_array();
         return $place_array;
@@ -211,7 +212,7 @@ class Load_location_data extends CI_Model
             <br/>
         </div>
 
-        
+
         <div class="gender_breakdown">
             <font style="color:darkgray;position:absolute;left:51px;">gender breakdown</font>
             <!-- boxes that show the color for males/females--> 
