@@ -47,6 +47,8 @@
             
 
                 <div id="leftside">
+
+                     <h2> PlanJar shows you what groups of people around you are doing. Join them or do something on your own. </h2>
                      <div id="left_title">
                      title
                      </div>
