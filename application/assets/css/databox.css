@@ -29,7 +29,7 @@
     width:49%;
     height:auto;
     position:absolute;
-    top:166px;
+    top:135px;
     left:-10px;
 }
 .group_graph_bottom_right{
@@ -58,5 +58,6 @@
 
 .demographics{
     position:absolute;
-    
+    top:-20px;
+    left:90px;
 }
