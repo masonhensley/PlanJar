@@ -100,6 +100,14 @@ h1 {
     float:left;
 }
 
+#left_title{
+    position:relative;
+}
+
+#left_video{
+    position:relative;
+}
+
 .clear {
     clear:both;
 }
