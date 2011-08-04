@@ -10,8 +10,8 @@ function initialize_selectable_groups() {
         // Make the tabs selectable
         if($(this).hasClass('network_active'))
         {
-            // Deselect the tab
-            $(this).removeClass('network_active');
+            // Deselect all controlls
+            deselect_all_controlls();
         } else {
             // Deselect all controlls
             deselect_all_controlls();
