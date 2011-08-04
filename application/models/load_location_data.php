@@ -30,7 +30,7 @@ class Load_location_data extends CI_Model
             'plan_dates' => $surrounding_day_array
         );
 
-        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $display_day);
+        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $day_display);
 
         return array('html' => $return_html, 'graph_data' => $graph_return_data);
     }
@@ -228,7 +228,7 @@ class Load_location_data extends CI_Model
         <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
 
         <div class="display_big_date">
-            <font style="font-size:120px; color: #7BC848;"><?php echo $diplay_day['big_day'] ?></font>
+            <font style="font-size:120px; color: #7BC848;"><?php echo $display_day['big_day'] ?></font>
             <font style="font-size:120px; color:darkgray;"><?php echo $display_day['big_day_date']; ?></font>
         </div>
         <div class="make_plan">Make a plan here</div>
