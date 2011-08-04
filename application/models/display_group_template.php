@@ -438,7 +438,8 @@ class Display_group_template extends CI_Model
                 <font style="color:darkgray;">females</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_females']; ?></font>
             </div>
-            <font style="color:darkgray; position:absolute;top:-40px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
+            
+            <font style="color:darkgray; position:absolute;top:-53px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
          
 
             <div class="show_percent"style="top:0px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
