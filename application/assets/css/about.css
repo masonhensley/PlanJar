@@ -61,9 +61,6 @@ body{
     }  
   
 h2 {  
-     background: #e3e3e3;  
-     background: -moz-linear-gradient(top, #e3e3e3, #c8c8c8);  
-     background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
      padding: 10px 20px;  
      margin-left: -20px;  
      margin-top: 0;  
@@ -89,9 +86,7 @@ h2 {
 
 h4 {  
      float: right;
-     background: #e3e3e3;  
-     background: -moz-linear-gradient(top, #e3e3e3, #c8c8c8);  
-     background: -webkit-gradient(linear, left top, left bottombottom, from(#e3e3e3), to(#c8c8c8));  
+
      padding: 10px 20px;  
      margin-right: -20px;  
      margin-top: 10;
@@ -102,7 +97,14 @@ h4 {
      padding-bottom: 15px;   
   
     color: #454545;  
-    text-shadow: 0 1px 0 white;  
+    text-shadow: 0 1px 0 white;
+
+     -moz-border-radius: 0px 5px 5px 0px;
+     border-radius: 0px 5px 5px 0px;
+  
+     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(223,223,224)),color-stop(1, rgb(237,238,239)));
+     background-image: -moz-linear-gradient(center bottom,rgb(223,223,224) 0%,rgb(237,238,239) 100%);
+     background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));  
 }  
   
 .arrow {  
