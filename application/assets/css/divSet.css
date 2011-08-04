@@ -9,7 +9,7 @@
 }
 
 .divset.divset_selected {
-    background:-webkit-gradient(linear,left top,left bottom,from(#AAA),to(#EEE));
+    background:-webkit-gradient(linear,left top,left bottom,from(#EEE),to(#AAA));
     color: #444;
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
