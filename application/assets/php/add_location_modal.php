@@ -22,7 +22,8 @@
 
     <div>
         <div class="left">
-
+            <input type="text" id="new_location_latitude" name="new_location_latitude"/>
+            <input type="text" id="new_location_longitude" name="new_location_longitude"/>
         </div>
 
         <div class="right">

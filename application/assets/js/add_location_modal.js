@@ -20,12 +20,9 @@ function initialize_add_location_modal() {
 
 // Opens the add location modal
 function show_add_location_modal() {
-    console.log('in func');
-    
-    
     $('#add_location_modal').show('fast', function () {
+        // Create the map if it doesn't exist'
         if (new_location_map == undefined) {
-            // Create the map
             var map_options = {
                 zoom: 14,
                 center: new google.maps.LatLng(myLatitude,myLongitude),
@@ -38,14 +35,23 @@ function show_add_location_modal() {
         new_location_marker = new google.maps.Marker({
             position: new google.maps.LatLng(myLatitude, myLongitude),
             map: new_location_map,
-            icon: 'http://www.google.com/mapfiles/arrow.png'
+            icon: 'http://www.google.com/mapfiles/arrow.png',
+            draggable: true,
+            title: 'Darg me'
         });
-        
-        // Resize the map
-        //        google.maps.event.trigger(new_location_map, 'resize');
         
         // Center the map
         new_location_map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
-    //new_location_map.setZoom(14);
+        
+        // Populate the boxes with the current location
+        $('#new_location_latitude').val(myLatitude);
+        $('#new_location_longitude').val(myLongitude);
+        
+        // Assign the click event.
+        google.maps.event.addListener(new_location_marker, 'drag', function (mouse_event) {
+            // Update the coordinate boxes
+            $('#new_location_latitude').val(mouse_event.latLng.lat());
+            $('#new_location_longitude').val(mouse_event.latLng.lng());
+        });
     });
 }
