@@ -11,11 +11,6 @@ class Load_friend_plans extends CI_Model
 
     function populate_plans($friend_id)
     {
-        $this->_get_friend_plans($friend_id);
-    }
-
-    function _get_friend_plans($friend_id)
-    {
         $user = $this->ion_auth->get_user();
 
         $query = "
