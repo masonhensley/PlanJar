@@ -47,7 +47,7 @@ function load_friend_plans(friend_id)
     function(data){
         // Hide the friend list
         $('#friend_modal_content').hide('slide', {
-            direction: 'up'
+            direction: 'left'
         }, 'fast', function () {
             // Replace the HTML for the plans div
             $('#friend_plan_list').html(data);
@@ -64,7 +64,7 @@ function load_friend_plans(friend_id)
                 }, 'fast', function(){
                     // Show the friends div
                     $('#friend_modal_content').show('slide', {
-                        direction: 'up'
+                        direction: 'right'
                     }, 'fast');
                 });
             });
