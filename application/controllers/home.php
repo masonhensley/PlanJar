@@ -86,18 +86,9 @@ class Home extends CI_Controller
     public function find_places()
     {
         $needle = $this->input->get('needle');
-        $search_terms = explode(' ', $needle);
 
         $latitude = $this->input->get('latitude');
         $longitude = $this->input->get('longitude');
-
-        $like_clauses = '';
-        foreach ($search_terms as $term)
-        {
-            $term = $this->db->escape_like_str($term);
-            $like_clauses .= "places.name LIKE '%%$term%%' AND ";
-        }
-        $like_clauses = substr($like_clauses, 0, -5);
 
 // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT places.id, places.latitude, places.longitude, places.name, place_categories.alias AS category,
@@ -105,8 +96,8 @@ class Home extends CI_Controller
             + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
             * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
             FROM places JOIN place_categories ON place_categories.id = places.category_id
-            WHERE ($like_clauses) ORDER BY distance ASC LIMIT ?";
-        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, 10));
+            WHERE MATCH (places.name) AGAINST (?) ORDER BY distance ASC LIMIT ?";
+        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, $needle, 10));
 
 // Return a JSON array.
         foreach ($query->result_array() as $row)
@@ -677,7 +668,7 @@ class Home extends CI_Controller
             'latitude' => $this->input->get('new_location_latitude'),
             'longitude' => $this->input->get('new_location_longitude'),
             'category_id' => $this->input->get('new_location_cateogry_id')
-    );
+        );
 
         $place_id = $this->place_ops->add_user_place($data);
 

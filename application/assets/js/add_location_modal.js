@@ -58,7 +58,9 @@ function initialize_add_location_modal() {
         } else {
             // Success
             $.get('/home/add_location?' + $('#new_location_form').serialize(), function (data) {
-                console.log(data);
+                data = $.parseJSON(data);
+                
+                // Populate the correct fields in the plan modal and hide this one
             });
         }
     });
