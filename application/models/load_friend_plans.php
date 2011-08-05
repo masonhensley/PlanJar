@@ -35,7 +35,9 @@ class Load_friend_plans extends CI_Model
 
     function _populate_friend_plans($plans_result)
     {
-        
+        return "hey";
+        /*
+        ob_start(); // start the output buffer 
      
         if ($plans_result->num_rows() > 0)
         {
@@ -90,7 +92,7 @@ class Load_friend_plans extends CI_Model
             <font style="font-style:italic;">No plans yet</font><br/><br/>
             <?php
         }
-        
+        */
     }
 
 }
