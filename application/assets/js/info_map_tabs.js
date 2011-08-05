@@ -116,7 +116,7 @@ function display_info(bypass, arg) {
         
         populate_popular_locations();
     } else if ($('.selected_plan').length > 0) {
-        // Plan selected (user's plan or friend's plan)'
+        // Plan selected (user's plan or friend's plan)
         $.get('/home/load_selected_plan_data', {
             'plan_selected': $('.selected_plan').attr('plan_id')
         }, function (data) {

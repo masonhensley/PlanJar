@@ -7,13 +7,17 @@ function initialize_view_friend_plan_modal()
 {
     // Opening click handler
     $('.view_friends_plans').click(function(){
-        // Show the modal
         $('#friends_plans_panel').show('fast');
     });
     
     // Closing click handler
     $('#cancel_friends_panel').click(function () {
-        $('#friends_plans_panel').hide('fast');
+        // Hide and reset the modal
+        $('#friends_plans_panel').hide('fast', function () {
+            // Reset
+            $('.friend_plan_content').css('display', 'none');
+            $('.friend_modal_content').css('display', '');
+        });
     });
     
     // Friend tab click handler
@@ -52,29 +56,14 @@ function load_friend_plans(friend_id)
         // Back button click handler      
         $('.friend_plan_back_button').click(function(){
             // Hide the plans div
-            $('.friend_plan_content').hide(
-                'slide', {
-                    direction: 'down'
-                }, 'fast', function(){
-                    // Show the friends div
-                    $('.friend_modal_content').show('slide', {
-                        direction: 'up'
-                    }, 'fast');
-                });
-        });
-        
-        // Plan click handler
-        $('.friend_plan_content').click(function () {
-            if (!$(this).hasClass('selected_friend_plan')) {
-                // Clear all controlls
-                deselect_all_controlls();
-                
-                // Select this plan
-                $(this).addClass('selected_friend_plan');
-                
-                // Display the info box
-                display_info();
-            }
+            $('.friend_plan_content').hide('slide', {
+                direction: 'down'
+            }, 'fast', function(){
+                // Show the friends div
+                $('.friend_modal_content').show('slide', {
+                    direction: 'up'
+                }, 'fast');
+            });
         });
     });
 }
