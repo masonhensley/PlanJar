@@ -45,6 +45,7 @@
         <script type="text/javascript" src="/application/assets/js/graph_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_conflict_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/add_location_modal.js"></script>
+        <script type="text/javascript" src="/application/assets/js/load_friends_modal.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
