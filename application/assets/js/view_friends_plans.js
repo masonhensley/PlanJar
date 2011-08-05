@@ -32,7 +32,7 @@ function load_friend_plans(friend_id)
     $.get('home/load_plans_from_id', {
         'friend_id' : friend_id
     },
-    function(data){
+    function(fun){
         
         alert('hey');
         
@@ -40,7 +40,7 @@ function load_friend_plans(friend_id)
             direction: 'right'
         }, 'fast');
         
-        console.log(data);
+        console.log(fun);
         
         //$('.friend_plan_content').html(data);
         
