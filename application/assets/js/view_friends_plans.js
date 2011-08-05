@@ -67,7 +67,7 @@ function load_friend_plans(friend_id)
             });
             
             // Click handler
-            $('#friend_plan_content').click(function () {
+            $('.friend_plan_content').click(function () {
                 if (!$(this).hasClass('selected_friend_plan')) {
                     // Deselect all controlls and show the info panel
                     deselect_all_controlls();
