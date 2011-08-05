@@ -32,9 +32,7 @@ function load_friend_plans(friend_id)
     $.get('/home/load_friend_plans', {
         'friend_id' : friend_id
     },
-    function(fun){
-        
-        alert('hey');
+    function(data){
         
         $('.friend_modal_content').hide('slide', {
             direction: 'right'
