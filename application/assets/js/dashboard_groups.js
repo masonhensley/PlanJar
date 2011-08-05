@@ -62,7 +62,7 @@ function group_select_click_handler()
     // Click handler.
     $('#find_groups_list .add_following').confirmDiv(function(clicked_elem) {
         $.get('/dashboard/add_group_following', {
-            group_id: clicked_elem.parent().parent().attr('group_id')
+            group_id: clicked_elem.parent().attr('group_id')
         }, function (data) {
             populate_edit_groups_list();
                             

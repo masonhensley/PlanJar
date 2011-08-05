@@ -19,8 +19,11 @@ function initialize_add_location_modal() {
 }
 
 // Opens the add location modal
-function show_add_location_modal() {
+function show_add_location_modal(pre_name) {
     $('#add_location_modal').show('fast', function () {
+        // Pre-populate the name
+        $('#new_location_name').val(pre_name);
+        
         // Create the map if it doesn't exist'
         if (new_location_map == undefined) {
             var map_options = {
