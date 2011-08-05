@@ -18,7 +18,7 @@ function initialize_add_location_modal() {
     });
     
     // In-field labels
-    $('#new_location_modal .in-field_block label').inFieldLabels();
+    $('#add_location_modal .in-field_block label').inFieldLabels();
     
     // Autocomplete
     $('#new_location_category').autocomplete({
