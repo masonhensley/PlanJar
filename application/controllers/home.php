@@ -237,7 +237,7 @@ class Home extends CI_Controller
         $this->plan_actions->delete_plan($plan);
     }
 
-    public function load_plans_from_id()
+    public function load_friend_plans()
     {
        $friend_id = $this->input->get('friend_id');
        //$this->load->model('load_friend_plans');
