@@ -667,6 +667,11 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
+    
+    // Adds a location to the database
+    public function add_location() {
+        
+    }
 
 }
 

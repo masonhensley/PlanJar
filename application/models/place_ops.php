@@ -35,6 +35,12 @@ class Place_ops extends CI_Model
         }
     }
 
+    // Adds a place created by the user
+    function add_user_place($data)
+    {
+        $query = $this->db->insert('places', $data);
+    }
+
 }
 
 ?>
