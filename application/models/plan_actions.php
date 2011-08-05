@@ -160,7 +160,7 @@ class Plan_actions extends CI_Model
                         if ($title != '')
                         {
                             ?>
-                            <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
+                            <font style="font-weight:bold;"><?php echo "@" .$title; ?></font><br/>
                             <font style="color:darkgray;"><?php echo "@" .$place_name; ?></font>
                             <?php
                         } else
