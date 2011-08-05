@@ -15,9 +15,8 @@ function initialize_view_friend_plan_modal()
         // Hide and reset the modal
         $('#friends_plans_panel').hide('fast', function () {
             // Reset
-            $('.friend_plan_content').css('display', 'none');
-            $('.friend_modal_content').css('display', '');
-            $('.friend_plan_content').html('');
+            $('#friend_plan_list').css('display', 'none');
+            $('#friend_modal_content').css('display', '');
             
             // Clear all controlls and display the info box if a friend's plan is selected
             if ($('#friends_plans_panel .selected_friend_plan').length > 0) {
@@ -47,20 +46,20 @@ function load_friend_plans(friend_id)
     },
     function(data){
         // Hide the friend list
-        $('.friend_modal_content').hide('slide', {
+        $('#friend_modal_content').hide('slide', {
             direction: 'up'
         }, 'fast', function () {
             // Replace the HTML for the plans div
-            $('.friend_plan_content').html(data);
+            $('#friend_plan_list').html(data);
         
             // Back button click handler      
             $('.friend_plan_back_button').one('click', function(){
                 // Hide the plans div
-                $('.friend_plan_content').hide('slide', {
+                $('#friend_plan_list').hide('slide', {
                     direction: 'down'
                 }, 'fast', function(){
                     // Show the friends div
-                    $('.friend_modal_content').show('slide', {
+                    $('#friend_modal_content').show('slide', {
                         direction: 'up'
                     }, 'fast');
                 });
@@ -77,7 +76,7 @@ function load_friend_plans(friend_id)
             });
             
             // Show the plans div
-            $('.friend_plan_content').show(
+            $('#friend_plan_content').show(
                 'slide', {
                     direction: 'up'
                 }, 'fast');
