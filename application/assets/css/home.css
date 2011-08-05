@@ -417,8 +417,8 @@ a{
 }   
 
 #friends_plans_panel{
-    width:300px;
-    min-height:200px;
+    width:auto;
+    height:auto;
 }
 
 .friend_list{
