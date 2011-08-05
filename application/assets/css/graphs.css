@@ -1,14 +1,14 @@
 /* ----------------------------------------- percent classes ----------------------------- */
 .percent_bar_total {
-    background-color: #A13D97;
+    background-color: #C17DCF;
 }
 
 .percent_bar_male {
-    background-color: #3FA9F5;
+    background-color: lightblue;
 }
 
 .percent_bar_female {
-    background-color: #E80C7A;
+    background-color: lightpink;
 }
 
 .percent_bar {
