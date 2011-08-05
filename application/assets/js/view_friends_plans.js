@@ -34,6 +34,8 @@ function load_friend_plans(friend_id)
     },
     function(data){
         
+        alert('hey');
+        
         $('.friend_modal_content').hide('slide', {
             direction: 'right'
         }, 'fast');
