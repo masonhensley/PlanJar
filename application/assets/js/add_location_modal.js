@@ -57,12 +57,7 @@ function initialize_add_location_modal() {
             alert('Your group coordinates seem to be off. Try dragging the marker.');
         } else {
             // Success
-            $.get('/home/add_location', {
-                latitude: $('#new_location_latitude').val(),
-                longitude: $('#new_location_longitude').val(),
-                name: $('#new_location_name').val(),
-                category_id: $('#new_location_id').val()
-            }, function (data) {
+            $.get('/home/add_location?' + $('#new_location_form').serialize(), function (data) {
                 console.log(data);
             });
         }
