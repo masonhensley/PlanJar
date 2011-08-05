@@ -9,10 +9,10 @@
     <hr/>
     <div class="friend_list">
         <?php
-        foreach ($friend_names as $name)
+        foreach ($friend_names as $id => $name)
         {
             ?>
-            <div class="friend_tab">
+            <div class="friend_tab" user_id="<?php echo $id; ?>">
                 <?php
                 echo $name;
                 ?>
