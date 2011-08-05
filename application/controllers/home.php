@@ -608,7 +608,7 @@ class Home extends CI_Controller
 
         $query_string = "SELECT id, category
             FROM place_categories
-            WHERE category LIKE ?";
+            WHERE category LIKE %?%";
         $query = $this->db->query($query_string, array($needle));
 
         // Create the return array
@@ -621,7 +621,7 @@ class Home extends CI_Controller
             );
         }
 
-        echo(json_encode($return_array));
+        //echo(json_encode($return_array));
     }
 
 }
