@@ -618,7 +618,7 @@ class Home extends CI_Controller
             $query_string = "SELECT id, category
             FROM place_categories
             WHERE $where_clause";
-            $query = $this->db->query($query_string, array($needle_array));
+            $query = $this->db->query($query_string, $needle_array);
             
             echo($this->db->last_query());
 
