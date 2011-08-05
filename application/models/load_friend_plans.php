@@ -59,7 +59,7 @@ class Load_friend_plans extends CI_Model
                     if ($date_organizer != $date)
                     {
                         ?>
-                        <font style="font-size:11px; margin-left: 7px; color:gray;"><?php echo $date; ?><br/></font>
+                        <font style="font-size:11px; margin-left: -146px; color:gray;"><?php echo $date; ?><br/></font>
                         <?php
                     }
                     $date_organizer = $date;
