@@ -5,6 +5,7 @@
     </div>
     <br/>
     Select a friend to view their upcoming plans
+    <br/>
     <hr/>
     <div class="friend_list">
         <?php
