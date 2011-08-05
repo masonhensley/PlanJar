@@ -39,7 +39,7 @@ class Load_friend_plans extends CI_Model
             Back 
         </div>
         <br/><br/>
-        <font style="font-size:15px; color:navy;text-align:center;"><?php echo " " . $friend_name . "'s Plans"; ?></font>
+        <font style="font-size:18px;font-weight:bold; color:navy;text-align:center;"><?php echo " " . $friend_name . "'s Plans"; ?></font>
 
         <?php
         if ($plans_result->num_rows() > 0)
