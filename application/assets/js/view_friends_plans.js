@@ -22,6 +22,9 @@ function initialize_view_friend_plan_modal()
         $('.friend_tab').click(function(){
             var friend_id = $(this).attr('user_id');
             load_friend_plans(friend_id);
+            
+            
+            
         });
         
     });
@@ -29,22 +32,37 @@ function initialize_view_friend_plan_modal()
 
 function load_friend_plans(friend_id)
 {
-    $.get('home/load_plans_from_id', {
+    $.get('/home/load_friend_plans', {
         'friend_id' : friend_id
     },
     function(data){
         
+        
         $('.friend_modal_content').hide('slide', {
-            direction: 'right'
+            direction: 'down'
         }, 'fast');
         
-        $('.friend_plan_content').html(data);
+       $('.friend_plan_content').html(data);
         
-        $('.friend_plan_content').show(
-            'slide', {
-                direction: 'left'
-            }, 'fast'
-            );
+            $('.friend_plan_content').show(
+                'slide', {
+                    direction: 'up'
+                }, 'fast'
+                );
+       
+                
+        $('.friend_plan_back_button').click(function(){
+                
+            $('.friend_plan_content').hide(
+                'slide', {
+                    direction: 'down'
+                }, 'fast', function(){
+                    $('.friend_modal_content').show('slide', {
+                        direction: 'up'
+                    }, 'fast');
+                });
+        }
+        );
         
     });
     

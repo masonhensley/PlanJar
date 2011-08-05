@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <!-- CSS -->
@@ -59,6 +60,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
+        
 
         <title>PlanJar | Home</title>
     </head>
@@ -119,15 +121,15 @@
                 </div>
             </div>
             <div class ="right">
-                <font style="font-weight:bold; color:navy;  font-size:20px;">Plans</font><br/><hr/>
-                <div class="plans_wrapper">
-                    <?php echo($plans_html); ?>
-                    <hr/>
-                    <br/>
+                <font style="font-weight:bold; color:navy;  font-size:20px;">Plans</font><br/>
+                <br/>
                     <div class="view_friends_plans">
                         View friends' plans
                     </div>
                     <br/>
+                <hr/>
+                <div class="plans_wrapper">
+                    <?php echo($plans_html); ?>
                 </div>
             </div>
         </div>
@@ -140,7 +142,6 @@
             <a href="/privacy" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
 
             <a href="http://blog.planjar.com/" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Blog</div></div></a>
-
 
 
         </div>
