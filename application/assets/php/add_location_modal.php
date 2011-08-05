@@ -24,7 +24,7 @@
         <div id="new_location_map"></div>
 
         <div class="left" style="text-align: center;">
-            Selected coordinates. Feel free to edit.
+            Selected coordinates. Feel free to edit them.<br/>
             <input type="text" id="new_location_latitude" name="new_location_latitude"/>
             <input type="text" id="new_location_longitude" name="new_location_longitude"/>
         </div>

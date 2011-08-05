@@ -78,12 +78,13 @@ function show_add_location_modal() {
 // Replaces the old marker with a new one at the given coordinates
 function new_marker(latitude, longitude) {
     // Add the marker
+    new_location_marker.setMap(null);
     new_location_marker = new google.maps.Marker({
         position: new google.maps.LatLng(latitude, longitude),
         map: new_location_map,
         icon: 'http://www.google.com/mapfiles/arrow.png',
         draggable: true,
-        title: 'Darg me'
+        title: 'Drag me'
     });
         
     // Assign the click event.
