@@ -56,11 +56,11 @@ function load_friend_plans(friend_id)
             $('.friend_plan_back_button').one('click', function(){
                 // Hide the plans div
                 $('#friend_plan_list').hide('slide', {
-                    direction: 'down'
+                    direction: 'up'
                 }, 'fast', function(){
                     // Show the friends div
                     $('#friend_modal_content').show('slide', {
-                        direction: 'up'
+                        direction: 'down'
                     }, 'fast');
                 });
             });
