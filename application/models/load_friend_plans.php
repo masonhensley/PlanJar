@@ -27,7 +27,7 @@ class Load_friend_plans extends CI_Model
             WHERE plans.user_id=$friend_id AND (events.privacy='open' OR event_invites.user_id=$user->user_id)
             ORDER BY date ASC
                 ";
-        $this->db->query($query);
+        $result = $this->db->query($query);
     }
 
 }
