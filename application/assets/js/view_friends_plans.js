@@ -37,21 +37,31 @@ function load_friend_plans(friend_id)
     },
     function(data){
         
-        $('.friend_modal_content').hide('slide', {
-            direction: 'down'
-        }, 'fast', function(){
-            
-            
-                
-        });
-        
-        $('.friend_plan_content').html(data);
+        if($('.friend_modal_content').css('display') == 'none')
+        {
+            $('.friend_plan_content').html(data);
         
             $('.friend_plan_content').show(
                 'slide', {
                     direction: 'up'
                 }, 'fast'
                 );
+        }
+        $('.friend_modal_content').hide('slide', {
+            direction: 'down'
+        }, 'fast', function(){
+            
+            $('.friend_plan_content').html(data);
+        
+            $('.friend_plan_content').show(
+                'slide', {
+                    direction: 'up'
+                }, 'fast'
+                );
+                
+        });
+        
+       
        
                 
         $('.friend_plan_back_button').click(function(){
