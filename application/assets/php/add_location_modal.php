@@ -15,7 +15,7 @@
         <div class="right">
             <div class="in-field_block">
                 <label for="new_location_category">Category</label>
-                <input type="text" id="new_location_category" name="new_location_category"/>
+                <input type="text" id="new_location_category"/>
             </div>
         </div>
 
