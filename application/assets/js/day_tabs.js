@@ -3,7 +3,12 @@ $(function () {
 });
 
 // Set up the day of the week tabs.
-function initialize_day_tabs() {
+function initialize_day_tabs(initial_offset) {
+    // initial_offset default of 0
+    if (initial_offset == undefined) {
+        initial_offset = 0;
+    }
+    
     // Click event
     $("div.days_panel .day").click(function() {
         // Remove any "day_selected" class
@@ -34,17 +39,18 @@ function initialize_day_tabs() {
         get_new_days(parseInt(current_offset) + 7);
     });
     
-    // Select the first day
-    $('.days_panel .day:first').addClass('day_selected');
+    // Select the corresponding (default first) day
+    $('.days_panel .day').eq(initial_offset).addClass('day_selected');
 }
 
 // Gets and displays the set of days
 function get_new_days(offset) {
+    var current_eq = $('.day_selected').index();
     $.get('/home/get_weekday_tab_set', {
         starting_offset: offset
     }, function (data) {
         $('.seven_days').html(data);
-        initialize_day_tabs();
+        initialize_day_tabs(current_eq);
         display_info();
     });
 }
