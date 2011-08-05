@@ -1,7 +1,7 @@
 $(function () {
     initialize_add_location_modal();
     
-    var number_exp = /-?[0-9]+(\.[0-9]+)?/;
+    var number_exp = /^-?[0-9]+(\.[0-9]+)?$/;
     console.log(number_exp.test('90.34'));
     console.log(number_exp.test('-90.34'));
     console.log(number_exp.test('90'));
