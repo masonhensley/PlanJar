@@ -406,6 +406,11 @@ a{
     text-align:center;
 }
 
+.view_friends_plans{
+    color:lightblue;
+    font-weight:bold;
+}
+
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper{
     text-align: center;

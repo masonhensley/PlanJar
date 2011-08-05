@@ -210,6 +210,12 @@ class Home extends CI_Controller
         $this->load->model('plan_actions');
         $this->plan_actions->delete_plan($plan);
     }
+    
+    public function show_friend_modal()
+    {
+        $this->load->modal('load_friends_modal');
+        $this->load_friends_modal->load_friends_panel();
+    }
 
     // Return a list of location tabs based on the groups selected
     // called from data_box_functions.js

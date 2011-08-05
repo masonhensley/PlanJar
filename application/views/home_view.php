@@ -119,7 +119,13 @@
             </div>
             <div class ="right">
                 <font style="font-weight:bold; color:navy;  font-size:20px;">Plans</font><br/><hr/>
-                <div class="plans_wrapper"><?php echo($plans_html); ?></div>
+                <div class="plans_wrapper">
+                    <?php echo($plans_html); ?>
+                    <hr/>
+                    <div class="view_friends_plans">
+                        View friends' plans
+                    </div>
+                </div>
             </div>
         </div>
 
