@@ -40,7 +40,9 @@ function load_friend_plans(friend_id)
             direction: 'right'
         }, 'fast');
         
-        $('.friend_plan_content').html(data);
+        console.log(data);
+        
+        //$('.friend_plan_content').html(data);
         
         $('.friend_plan_content').show(
             'slide', {
