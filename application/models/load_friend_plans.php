@@ -28,7 +28,7 @@ class Load_friend_plans extends CI_Model
             ORDER BY date ASC
                 ";
         $result = $this->db->query($query);
-        $plans_html = _populate_friend_plans($result);
+        $plans_html = $this->_populate_friend_plans($result);
         return $plans_html;
     }
 
