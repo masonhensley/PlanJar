@@ -124,7 +124,7 @@ function display_info(bypass, arg) {
     } else if ($('.selected_friend_plan').length > 0) {
         // Friend's plan selected
         $.get('/home/show_location_data', {
-            'place_id': $('.selected_location_tab').attr('place_id'),
+            'place_id': $('.selected_friend_plan').attr('place_id'),
             'date': get_selected_day(),
             'selected_groups':get_selected_groups()
         }, function (data) {
