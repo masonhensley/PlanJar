@@ -23,20 +23,21 @@ class Load_friend_plans extends CI_Model
             ORDER BY date ASC
                 ";
         $result = $this->db->query($query);
-        $plans_html = $this->_populate_friend_plans($result);
+        $plans_html = $this->_populate_friend_plans($result, $friend_id);
 
         echo $plans_html;
     }
 
-    function _populate_friend_plans($plans_result)
+    function _populate_friend_plans($plans_result, $friend_id)
     {
         
         
         ob_start(); // start the output buffer
+        $friend_name = $this->ion_auth->get_user($friend_id)->first_name;
         
         ?>
         <div class="friend_plan_back_button">
-            Back
+            Back <?php echo " " .$friend_name ."'s Plans"; ?>
         </div>
         <br/><br/>
      <?php
