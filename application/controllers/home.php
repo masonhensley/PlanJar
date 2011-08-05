@@ -58,7 +58,7 @@ class Home extends CI_Controller
         $this->load->model('load_locations');
         $friend_ids = $this->load_locations->get_friend_ids();
 
-        $query = "SELECT first_name, last_name FROM user_meta WHERE ";
+        $query = "SELECT user_id, first_name, last_name FROM user_meta WHERE ";
         foreach ($friend_ids as $id)
         {
             $query .= "user_id=$id OR ";
@@ -70,7 +70,7 @@ class Home extends CI_Controller
         
         foreach($result->result() as $name)
         {
-            $name_array[] = $name->first_name ." " .$name->last_name;
+            $name_array[$name->user_id] = $name->first_name ." " .$name->last_name;
         }
         return $name_array;
     }
