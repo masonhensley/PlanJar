@@ -35,11 +35,10 @@ class Load_friend_plans extends CI_Model
         ob_start(); // start the output buffer
         
         ?>
-<br/>
         <div class="friend_plan_back_button">
             Back
         </div>
-        <br/>
+        <br/><br/>
      <?php
      
         if ($plans_result->num_rows() > 0)
