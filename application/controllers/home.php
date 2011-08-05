@@ -68,7 +68,7 @@ class Home extends CI_Controller
         
         $name_array = array();
         
-        foreach($result as $name)
+        foreach($result->result() as $name)
         {
             $name_array[] = $name->first_name ." " .$name->last_name;
         }
