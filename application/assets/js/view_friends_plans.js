@@ -29,5 +29,11 @@ function initialize_view_friend_plan_modal()
 
 function load_friend_plans(friend_id)
 {
-    alert(friend_id);
+    $.get('home/load_friend_plans', {
+        'friend_id' : friend_id
+    },
+        function(){
+            
+        });
+    
 }
