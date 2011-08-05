@@ -44,5 +44,6 @@ function get_new_days(offset) {
     }, function (data) {
         $('.seven_days').html(data);
         initialize_day_tabs();
+        $('.days_panel .day:first').click();
     });
 }

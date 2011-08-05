@@ -64,7 +64,7 @@ function load_friend_plans(friend_id)
                 }, 'fast', function(){
                     // Show the friends div
                     $('#friend_modal_content').show('slide', {
-                        direction: 'right'
+                        direction: 'left'
                     }, 'fast');
                 });
             });
