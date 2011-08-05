@@ -81,7 +81,7 @@ function initialize_add_location_modal() {
         var number_exp = /-?[0-9]+(\.[0-9]+)?/;
         
         // Clear the box if bad in put is received
-        if (!number_exp.text($(this).val())) {
+        if (!number_exp.test($(this).val())) {
             $(this).val('');
         }
     });
