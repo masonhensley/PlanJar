@@ -4,7 +4,7 @@ $(function() {
 
 function initialize_view_friend_plan_modal()
 {
-
+    
     $('.view_friends_plans').click(function(){
                 
         $('#friends_plans_panel').show('fast');
@@ -29,11 +29,23 @@ function initialize_view_friend_plan_modal()
 
 function load_friend_plans(friend_id)
 {
-    $.get('home/load_friend_plans', {
+    $.get('home/load_plans_from_id', {
         'friend_id' : friend_id
     },
-        function(){
-            
-        });
+    function(data){
+        
+        $('.friend_modal_content').hide('slide', {
+            direction: 'right'
+        }, 'fast');
+        
+        $('.friend_plan_content').html(data);
+        
+        $('.friend_plan_content').show(
+            'slide', {
+                direction: 'left'
+            }, 'fast'
+            );
+        
+    });
     
 }

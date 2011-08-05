@@ -237,10 +237,11 @@ class Home extends CI_Controller
         $this->plan_actions->delete_plan($plan);
     }
 
-    public function load_friend_plans()
+    public function load_plans_from_id()
     {
        $friend_id = $this->input->get('friend_id');
-       
+       $this->load->model('load_friend_plans');
+       $this->load_friend_plans->populate_plans($friend_id);
     }
 
     // Return a list of location tabs based on the groups selected
