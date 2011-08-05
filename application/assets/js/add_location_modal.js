@@ -27,7 +27,16 @@ function initialize_add_location_modal() {
             $.get('/home/search_place_categories', {
                 needle: request.term
             }, function (data) {
-                console.log(data);
+                data = $.parseJSON(data);
+                
+                // Map and return the results
+                response($.map(data, function (item) {
+                    return {
+                        id: item.id,
+                        label: item.category,
+                        value: item.category
+                    }
+                }));
             });
         }
     });
