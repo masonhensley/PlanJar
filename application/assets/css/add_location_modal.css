@@ -8,14 +8,12 @@
     float: left;
     width: 49%;
     position: relative;
-    border: 1px solid black;
 }
 
 #add_location_modal .right {
     float: left;
     width: 49%;
     position: relative;
-    border: 1px solid black;
     margin-left: 5px;
 }
 

@@ -40,6 +40,11 @@ function initialize_add_location_modal() {
             });
         }
     });
+    
+    // Submit handler
+    $('#submit_location').click(function () {
+        
+        });
 }
 
 // Opens the add location modal
