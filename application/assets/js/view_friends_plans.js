@@ -17,6 +17,10 @@ function initialize_view_friend_plan_modal()
             // Reset
             $('.friend_plan_content').css('display', 'none');
             $('.friend_modal_content').css('display', '');
+            
+            // Clear all controlls and display the info box
+            deselect_all_controlls();
+            display_info();
         });
     });
     
