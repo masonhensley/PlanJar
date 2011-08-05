@@ -8,5 +8,11 @@ class Load_groups extends CI_Model
     {
         parent::__construct();
     }
+    
+    function populate_plans($friend_id)
+    {
+        echo $friend_id;
+    }
+    
 }
 ?>
