@@ -23,7 +23,7 @@
         </div>
     </div>
     
-    <div class="friend_plan_content" style="display:none;">
+    <div class="friend_plan_content" style="display:none; position:relative;">
         
     </div>
 </div> 
