@@ -36,7 +36,7 @@ class Load_friend_plans extends CI_Model
     function _populate_friend_plans($plans_result)
     {
         ob_start(); // start the output buffer 
-        var_dump($plans_result);
+     
         if ($plans_result->num_rows() > 0)
         {
             foreach ($plans_result->result() as $plan)
@@ -62,7 +62,7 @@ class Load_friend_plans extends CI_Model
                     if ($date_organizer != $date)
                     {
                         ?>
-                        <font style="font-size:11px; margin-left: -140px; color:gray;"><?php echo $date; ?><br/></font>
+                        <font style="font-size:11px; margin-left: 7px; color:gray;"><?php echo $date; ?><br/></font>
                         <?php
                     }
                     $date_organizer = $date;
