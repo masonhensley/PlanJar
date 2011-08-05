@@ -46,6 +46,12 @@ function initialize_add_location_modal() {
         
         });
         
+    // Select all when clicked
+    $('#new_location_latitude, #new_location_longitude').click(function () {
+        $(this).focus();
+        $(this).select();
+    });
+    
     // Manual location changes
     $('#new_location_latitude, #new_location_longitude').change(function () {
         // Replace the marker
@@ -77,8 +83,12 @@ function show_add_location_modal() {
 
 // Replaces the old marker with a new one at the given coordinates
 function new_marker(latitude, longitude) {
+    // Remove the old marker if it exists
+    if (new_location_marker != null) {
+        new_location_marker.setMap(null);
+    }
+    
     // Add the marker
-    new_location_marker.setMap(null);
     new_location_marker = new google.maps.Marker({
         position: new google.maps.LatLng(latitude, longitude),
         map: new_location_map,
