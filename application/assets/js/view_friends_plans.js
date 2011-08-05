@@ -10,6 +10,8 @@ function initialize_view_friend_plan_modal()
         $.get('/home/show_friend_modal/', 
             function(){
                 
+                $('#friends_plans_panel').show('fast');
+                
                 // Make it draggable (with a handle).
                 $('#friends_plans_panel').draggable({
                     handle: '.title_bar'
@@ -20,6 +22,7 @@ function initialize_view_friend_plan_modal()
                     $('#friends_plans_panel').hide('fast');
                 });
                 
+                alert('success');
             });
     });
 }

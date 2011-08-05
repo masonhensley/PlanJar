@@ -203,7 +203,7 @@ class Home extends CI_Controller
         echo $number_notifications;
     }
 
-    // permanently deletes plan
+    // permanently deletes plan 
     public function delete_plan()
     {
         $plan = $this->input->get('plan_selected');

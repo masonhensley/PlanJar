@@ -127,7 +127,6 @@
                         View friends' plans
                     </div>
                     <br/>
-                    <br/>
                 </div>
             </div>
         </div>
