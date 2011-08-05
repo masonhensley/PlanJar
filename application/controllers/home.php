@@ -620,8 +620,6 @@ class Home extends CI_Controller
             WHERE $where_clause";
             $query = $this->db->query($query_string);
             
-            echo($this->db->last_query());
-
             // Create the return array
             $return_array = array();
             foreach ($query->result() as $row)
