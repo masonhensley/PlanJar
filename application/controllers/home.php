@@ -239,9 +239,9 @@ class Home extends CI_Controller
 
     public function load_friend_plans()
     {
-       $friend_id = $this->input->get('friend_id');
-       $this->load->model('load_friend_plans');
-       $this->load_friend_plans->populate_plans($friend_id);
+        $friend_id = $this->input->get('friend_id');
+        $this->load->model('load_friend_plans');
+        $this->load_friend_plans->populate_plans($friend_id);
     }
 
     // Return a list of location tabs based on the groups selected
@@ -681,7 +681,7 @@ class Home extends CI_Controller
 
         $place_id = $this->place_ops->add_user_place($data);
 
-        echo(array('id' => $place_id, 'name' => $data['name']));
+        echo(json_encode(array('id' => $place_id, 'name' => $data['name'])));
     }
 
 }

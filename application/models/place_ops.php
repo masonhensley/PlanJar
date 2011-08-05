@@ -41,7 +41,7 @@ class Place_ops extends CI_Model
     {
         $query = $this->db->insert('places', $data);
         
-        return $this->db->last_query();
+        return $this->db->insert_id();
     }
 
 }
