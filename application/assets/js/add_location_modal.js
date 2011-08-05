@@ -1,13 +1,5 @@
 $(function () {
     initialize_add_location_modal();
-    
-    var number_exp = /^-?[0-9]+(\.[0-9]+)?$/;
-    console.log(number_exp.test('90.34'));
-    console.log(number_exp.test('-90.34'));
-    console.log(number_exp.test('90'));
-    console.log(number_exp.test('90.'));
-    console.log(number_exp.test('90.asas'));
-    console.log(number_exp.test('aadrfe'));
 });
 
 var new_location_map;
@@ -86,7 +78,7 @@ function initialize_add_location_modal() {
     // Coordinate location change handler
     $('#new_location_latitude, #new_location_longitude').keydown(function () {
         // Number regular expression
-        var number_exp = /-?[0-9]+(\.[0-9]+)?/;
+        var number_exp = /^-?[0-9]+(\.[0-9]+)?$/;
         
         // Clear the box if bad in put is received
         if (!number_exp.test($(this).val())) {
