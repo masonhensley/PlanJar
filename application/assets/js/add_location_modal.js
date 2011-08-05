@@ -38,6 +38,9 @@ function initialize_add_location_modal() {
                     }
                 }));
             });
+        },
+        select: function (event, ui) {
+            $('#new_location_category_id').val(ui.item.id);
         }
     });
     
@@ -60,7 +63,7 @@ function initialize_add_location_modal() {
             $.get('/home/add_location?' + $('#new_location_form').serialize(), function (data) {
                 data = $.parseJSON(data);
                 
-                // Populate the correct fields in the plan modal and hide this one
+            // Populate the correct fields in the plan modal and hide this one
             });
         }
     });
