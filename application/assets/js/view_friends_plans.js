@@ -17,6 +17,7 @@ function initialize_view_friend_plan_modal()
             // Reset
             $('.friend_plan_content').css('display', 'none');
             $('.friend_modal_content').css('display', '');
+            $('.friend_plan_content').html('');
             
             // Clear all controlls and display the info box if a friend's plan is selected
             if ($('#friends_plans_panel .selected_friend_plan').length > 0) {
@@ -53,7 +54,7 @@ function load_friend_plans(friend_id)
             $('.friend_plan_content').html(data);
         
             // Back button click handler      
-            $('.friend_plan_back_button').click(function(){
+            $('.friend_plan_back_button').one('click', function(){
                 // Hide the plans div
                 $('.friend_plan_content').hide('slide', {
                     direction: 'down'
