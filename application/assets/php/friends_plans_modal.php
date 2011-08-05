@@ -1,6 +1,6 @@
 <div id="friends_plans_panel" class="modal">
     <div class="title_bar">
-        Friend list
+        <div id="title_text">Friend list</div>
         <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
     </div>
     <div class="friend_modal_content">
