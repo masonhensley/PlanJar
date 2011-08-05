@@ -82,7 +82,6 @@ function initialize_add_location_modal() {
         }
     });
     
-    
     // Manual location changes
     $('#new_location_latitude, #new_location_longitude').change(function () {
         // Replace the marker
