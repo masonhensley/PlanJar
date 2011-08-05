@@ -65,12 +65,12 @@ class Home extends CI_Controller
         }
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
-        
+
         $name_array = array();
-        
-        foreach($result->result() as $name)
+
+        foreach ($result->result() as $name)
         {
-            $name_array[$name->user_id] = $name->first_name ." " .$name->last_name;
+            $name_array[$name->user_id] = $name->first_name . " " . $name->last_name;
         }
         return $name_array;
     }
@@ -239,11 +239,11 @@ class Home extends CI_Controller
 
     public function load_plans_from_id()
     {
-       $friend_id = $this->input->get('friend_id');
-       $this->load->model('load_friend_plans');
-       echo "hey";
-       //$this->load_friend_plans->populate_plans($friend_id);
-       //echo $plans;
+        $friend_id = $this->input->get('friend_id');
+        $this->load->model('load_friend_plans');
+        echo "hey";
+        //$this->load_friend_plans->populate_plans($friend_id);
+        //echo $plans;
     }
 
     // Return a list of location tabs based on the groups selected
@@ -344,8 +344,8 @@ class Home extends CI_Controller
     private function _get_distance_between($lat0, $long0, $lat1, $long1)
     {
         return ((acos(sin($lat0 * pi() / 180) * sin($lat1 * pi() / 180)
-                + cos($lat0 * pi() / 180) * cos($lat1 * pi() / 180) * cos(($long0 - $long1)
-                        * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
+                        + cos($lat0 * pi() / 180) * cos($lat1 * pi() / 180) * cos(($long0 - $long1)
+                                * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
     }
 
     // Returns a set of 7 weekday tabs based on the supplied parameter.
@@ -521,7 +521,7 @@ class Home extends CI_Controller
             $query_string = "SELECT user_id, first_name, last_name
                     FROM user_meta WHERE ($needle_where) AND school_id = ? AND user_id <> ?";
             $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id,
-                        $this->ion_auth->get_user()->id));
+                $this->ion_auth->get_user()->id));
 
             // Echo the results
             $return_array = array();
@@ -587,8 +587,8 @@ class Home extends CI_Controller
         // Get the plan to discard
         $query_string = "SELECT id FROM plans WHERE event_id = ? AND user_id = ?";
         $query = $this->db->query($query_string, array(
-                    $this->input->get('discard_event'),
-                    $this->ion_auth->get_user()->id
+            $this->input->get('discard_event'),
+            $this->ion_auth->get_user()->id
                 ));
 
 
@@ -618,9 +618,9 @@ class Home extends CI_Controller
 
         $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ?";
         $query = $this->db->query($query_string, array(
-                    $needle,
-                    $plan_date,
-                    $plan_time
+            $needle,
+            $plan_date,
+            $plan_time
                 ));
 
         if ($query->num_rows() > 0)
@@ -668,10 +668,22 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         }
     }
-    
+
     // Adds a location to the database
-    public function add_location() {
-        
+    // Returns the new place id and name for daisy chaining into the make plan modal
+    public function add_location()
+    {
+        $this->load->model('place_ops');
+        $data = array(
+            'name' => $this->input->get('new_location_name'),
+            'latitude' => $this->input->get('new_location_latitude'),
+            'longitude' => $this->input->get('new_location_longitude'),
+            'category_id' => $this->input->get('new_location_cateogry_id')
+        );
+
+        $place_id = $this->place_ops->add_user_place($data);
+
+        echo(array('id' => $place_id, 'name' => $data['name']));
     }
 
 }
