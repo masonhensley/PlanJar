@@ -26,6 +26,7 @@ class Load_friend_plans extends CI_Model
             JOIN places ON events.place_id=places.id
             WHERE plans.user_id=$friend_id AND (events.privacy='open' OR event_invitees.user_id=$user->user_id
                 ";
+        var_dump($query);
     }
 
 }
