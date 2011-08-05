@@ -406,6 +406,8 @@ a{
     text-align:center;
 }
 
+
+/*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans{
     color:lightblue;
     font-weight:bold;
@@ -424,7 +426,15 @@ a{
 }
 
 .friend_tab{
-    
+    background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
+    border:1px solid lightgray;
+    height:100%;
+    padding: 5px 0px 5px;
+    color: #727272;
+    text-align:center;
+    margin-bottom: 10px;
+    width:95%;
+    margin-left:5px;
 }
 
 /* ------------------- PLAN CONTENT -------------- */
