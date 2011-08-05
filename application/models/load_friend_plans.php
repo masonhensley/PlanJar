@@ -30,13 +30,13 @@ class Load_friend_plans extends CI_Model
         $result = $this->db->query($query);
         $plans_html = $this->_populate_friend_plans($result);
         echo "word";
-        return $plans_html;
+        echo $plans_html;
     }
 
     function _populate_friend_plans($plans_result)
     {
         ob_start(); // start the output buffer 
-        var_dump($plans_result);
+     
         if ($plans_result->num_rows() > 0)
         {
             foreach ($plans_result->result() as $plan)
@@ -47,6 +47,7 @@ class Load_friend_plans extends CI_Model
                 $title = $plan->title;
                 $time = $plan->time;
                 $todays_date = date('N');
+                $date_organizer = "";
 
                 if (date('N', strtotime($plan->date)) == $todays_date)
                 {
@@ -61,7 +62,7 @@ class Load_friend_plans extends CI_Model
                     if ($date_organizer != $date)
                     {
                         ?>
-                        <font style="font-size:11px; margin-left: -140px; color:gray;"><?php echo $date; ?><br/></font>
+                        <font style="font-size:11px; margin-left: 7px; color:gray;"><?php echo $date; ?><br/></font>
                         <?php
                     }
                     $date_organizer = $date;
