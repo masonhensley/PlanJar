@@ -29,6 +29,7 @@ class Load_friend_plans extends CI_Model
                 ";
         $result = $this->db->query($query);
         $plans_html = $this->_populate_friend_plans($result);
+        echo "word";
         return $plans_html;
     }
 
