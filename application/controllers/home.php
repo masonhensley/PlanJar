@@ -603,25 +603,35 @@ class Home extends CI_Controller
     public function search_place_categories()
     {
         $needle = trim($this->input->get('needle'));
-        $needle_array = explode(' ', $needle);
-        $needle = implode('%', $needle_array);
 
-        $query_string = "SELECT id, category
-            FROM place_categories
-            WHERE category LIKE %?%";
-        $query = $this->db->query($query_string, array($needle));
-
-        // Create the return array
-        $return_array = array();
-        foreach ($query->result() as $row)
+        if ($needle != '')
         {
-            $return_array[] = array(
-                'id' => $row->id,
-                'category' => $row->category
-            );
-        }
+            $needle_array = explode(' ', $needle);
 
-        //echo(json_encode($return_array));
+            $where_clause = '';
+            foreach ($needle_array as $cur_needle)
+            {
+                $where_clause .= "category LIKE %$cur_neelde% AND ";
+            }
+            $where_clause = substr($where_clause, 0, -5);
+
+            $query_string = "SELECT id, category
+            FROM place_categories
+            WHERE $where_clause";
+            $query = $this->db->query($query_string, array($needle));
+
+            // Create the return array
+            $return_array = array();
+            foreach ($query->result() as $row)
+            {
+                $return_array[] = array(
+                    'id' => $row->id,
+                    'category' => $row->category
+                );
+            }
+
+            echo(json_encode($return_array));
+        }
     }
 
 }
