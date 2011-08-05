@@ -76,7 +76,7 @@ function load_friend_plans(friend_id)
             });
             
             // Show the plans div
-            $('#friend_plan_content').show(
+            $('#friend_plan_list').show(
                 'slide', {
                     direction: 'up'
                 }, 'fast');
