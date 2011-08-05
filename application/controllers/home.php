@@ -213,7 +213,7 @@ class Home extends CI_Controller
     
     public function show_friend_modal()
     {
-        $this->load->modal('load_friends_modal');
+        $this->load->model('load_friends_modal');
         $this->load_friends_modal->load_friends_panel();
     }
 

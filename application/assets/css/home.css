@@ -409,7 +409,10 @@ a{
 .view_friends_plans{
     color:lightblue;
     font-weight:bold;
-}
+    width:133px;
+    margin-right:auto;
+    margin-left:auto;
+}   
 
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper{

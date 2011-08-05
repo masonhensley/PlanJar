@@ -5,8 +5,8 @@ $(function() {
 function initialize_view_friend_plan_modal()
 {
 
-    
     $('.view_friends_plans').click(function(){
+        
         $.get('/home/show_friend_modal/', 
             function(){
                 
