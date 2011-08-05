@@ -38,7 +38,7 @@ class Load_friend_plans extends CI_Model
         <div class="friend_plan_back_button">
             Back 
         </div>
-        <?php echo " " . $friend_name . "'s Plans"; ?>
+        <font style="font-size:15px; color:navy;"><?php echo " " . $friend_name . "'s Plans"; ?></font>
         <br/><br/>
         <?php
         if ($plans_result->num_rows() > 0)
