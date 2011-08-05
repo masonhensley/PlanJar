@@ -419,6 +419,7 @@ a{
 #friends_plans_panel{
     width:210px;
     height:auto;
+    text-align:center;
 }
 
 .friend_list{
