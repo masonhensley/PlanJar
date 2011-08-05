@@ -54,13 +54,13 @@ function load_friend_plans(friend_id)
             $('.friend_plan_content').hide(
                 'slide', {
                     direction: 'down'
-                }, 'fast'
-                );
-                        
-            $('.friend_modal_content').show('slide', {
-                direction: 'up'
-            }, 'fast');
-        });
+                }, 'fast', function(){
+                    $('.friend_modal_content').show('slide', {
+                        direction: 'up'
+                    }, 'fast');
+                });
+        }
+        );
         
     });
     
