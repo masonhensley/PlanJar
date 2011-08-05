@@ -22,7 +22,14 @@ function initialize_add_location_modal() {
     
     // Autocomplete
     $('#new_location_category').autocomplete({
-        
+        source: function (request, response) {
+            // Get categories from the server
+            $.get('/home/search_place_categories', {
+                needle: request.term
+            }, function (data) {
+                console.log(data);
+            });
+        }
     });
 }
 

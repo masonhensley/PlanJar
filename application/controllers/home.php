@@ -599,6 +599,29 @@ class Home extends CI_Controller
         }
     }
 
+    // Returns a JSON list as needed by the new place category search
+    public function search_place_categories()
+    {
+        $needle = trim($this->input->get('needle'));
+
+        $query_string = "SELECT id, category
+            FROM place_categories
+            WHERE MATCH (category) AGAINST (?)";
+        $query = $this->db->query($query_string, array($needle));
+
+        // Create the return array
+        $return_array = array();
+        foreach ($query->result() as $row)
+        {
+            $return_array[] = array(
+                'id' => $row->id,
+                'category' => $row->category
+            );
+        }
+
+        echo(json_encode($return_array));
+    }
+
 }
 
 ?>
