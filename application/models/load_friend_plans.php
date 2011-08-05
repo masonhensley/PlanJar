@@ -44,6 +44,7 @@ class Load_friend_plans extends CI_Model
         <?php
         if ($plans_result->num_rows() > 0)
         {
+            $date_organizer = "";
             foreach ($plans_result->result() as $plan)
             {
                 // make easy to read variables
@@ -52,7 +53,6 @@ class Load_friend_plans extends CI_Model
                 $title = $plan->title;
                 $time = $plan->time;
                 $todays_date = date('N');
-                $date_organizer = "";
 
                 if (date('N', strtotime($plan->date)) == $todays_date)
                 {
