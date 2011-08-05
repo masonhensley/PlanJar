@@ -30,18 +30,17 @@ class Load_friend_plans extends CI_Model
 
     function _populate_friend_plans($plans_result, $friend_id)
     {
-        
-        
+
+
         ob_start(); // start the output buffer
         $friend_name = $this->ion_auth->get_user($friend_id)->first_name;
-        
         ?>
         <div class="friend_plan_back_button">
-            Back <?php echo " " .$friend_name ."'s Plans"; ?>
+            Back 
         </div>
+        <?php echo " " . $friend_name . "'s Plans"; ?>
         <br/><br/>
-     <?php
-     
+        <?php
         if ($plans_result->num_rows() > 0)
         {
             foreach ($plans_result->result() as $plan)
@@ -63,28 +62,28 @@ class Load_friend_plans extends CI_Model
                 }
                 ?>
                 <div class="active_plans"> 
-                    <?php
-                    if ($date_organizer != $date)
-                    {
-                        ?>
+                <?php
+                if ($date_organizer != $date)
+                {
+                    ?>
                         <font style="font-size:11px; margin-left: -146px; color:gray;"><?php echo $date; ?><br/></font>
                         <?php
                     }
                     $date_organizer = $date;
                     ?>
                     <div class ="plan_content" plan_id="<?php echo $id; ?>">
-                        <?php
-                        if ($title != '')
-                        {
-                            ?>
+                    <?php
+                    if ($title != '')
+                    {
+                        ?>
                             <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
                             <font style="color:darkgray;"><?php echo "@" . $place_name; ?></font>
-                            <?php
-                        } else
-                        {
-                            echo "<b>@" . $place_name . "</b>";
-                        }
-                        ?>
+                    <?php
+                } else
+                {
+                    echo "<b>@" . $place_name . "</b>";
+                }
+                ?>
                     </div>
                 </div>
                 <?php
@@ -95,7 +94,7 @@ class Load_friend_plans extends CI_Model
             <font style="font-style:italic;">No plans yet</font><br/><br/>
             <?php
         }
-      return ob_get_clean();
+        return ob_get_clean();
     }
 
 }
