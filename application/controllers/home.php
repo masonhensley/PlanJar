@@ -611,14 +611,14 @@ class Home extends CI_Controller
             $where_clause = '';
             foreach ($needle_array as $cur_needle)
             {
-                $where_clause .= "category LIKE '%?%' AND ";
+                $where_clause .= "category LIKE '%$cur_needle%' AND ";
             }
             $where_clause = substr($where_clause, 0, -5);
 
             $query_string = "SELECT id, category
             FROM place_categories
             WHERE $where_clause";
-            $query = $this->db->query($query_string, $needle_array);
+            $query = $this->db->query($query_string);
             
             echo($this->db->last_query());
 
