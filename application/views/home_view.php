@@ -122,9 +122,12 @@
                 <div class="plans_wrapper">
                     <?php echo($plans_html); ?>
                     <hr/>
+                    <br/>
                     <div class="view_friends_plans">
                         View friends' plans
                     </div>
+                    <br/>
+                    <br/>
                 </div>
             </div>
         </div>
