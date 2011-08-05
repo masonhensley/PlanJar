@@ -240,7 +240,7 @@ class Home extends CI_Controller
     public function load_plans_from_id()
     {
        $friend_id = $this->input->get('friend_id');
-       $this->load->model('load_friend_plans');
+       //$this->load->model('load_friend_plans');
        echo "hey";
        //$this->load_friend_plans->populate_plans($friend_id);
        //echo $plans;
