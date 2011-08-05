@@ -667,7 +667,7 @@ class Home extends CI_Controller
             'name' => $this->input->get('new_location_name'),
             'latitude' => $this->input->get('new_location_latitude'),
             'longitude' => $this->input->get('new_location_longitude'),
-            'category_id' => $this->input->get('new_location_cateogry_id')
+            'category_id' => $this->input->get('new_location_category_id')
         );
 
         $place_id = $this->place_ops->add_user_place($data);
