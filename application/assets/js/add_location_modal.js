@@ -45,6 +45,12 @@ function initialize_add_location_modal() {
     $('#submit_location').click(function () {
         
         });
+        
+    // Manual location changes
+    $('#new_location_latitude, #new_location_longitude').change(function () {
+        // Replace the marker
+        new_marker($('#new_location_latitude').val(), $('#new_location_longitude').val());
+    });
 }
 
 // Opens the add location modal
@@ -61,26 +67,32 @@ function show_add_location_modal() {
         }
     
         // Add the marker
-        new_location_marker = new google.maps.Marker({
-            position: new google.maps.LatLng(myLatitude, myLongitude),
-            map: new_location_map,
-            icon: 'http://www.google.com/mapfiles/arrow.png',
-            draggable: true,
-            title: 'Darg me'
-        });
-        
-        // Center the map
-        new_location_map.setCenter(new google.maps.LatLng(myLatitude, myLongitude));
+        new_marker(myLatitude, myLongitude);
         
         // Populate the boxes with the current location
         $('#new_location_latitude').val(myLatitude);
         $('#new_location_longitude').val(myLongitude);
-        
-        // Assign the click event.
-        google.maps.event.addListener(new_location_marker, 'drag', function (mouse_event) {
-            // Update the coordinate boxes
-            $('#new_location_latitude').val(mouse_event.latLng.lat());
-            $('#new_location_longitude').val(mouse_event.latLng.lng());
-        });
     });
+}
+
+// Replaces the old marker with a new one at the given coordinates
+function new_marker(latitude, longitude) {
+    // Add the marker
+    new_location_marker = new google.maps.Marker({
+        position: new google.maps.LatLng(latitude, longitude),
+        map: new_location_map,
+        icon: 'http://www.google.com/mapfiles/arrow.png',
+        draggable: true,
+        title: 'Darg me'
+    });
+        
+    // Assign the click event.
+    google.maps.event.addListener(new_location_marker, 'drag', function (mouse_event) {
+        // Update the coordinate boxes
+        $('#new_location_latitude').val(mouse_event.latLng.lat());
+        $('#new_location_longitude').val(mouse_event.latLng.lng());
+    });
+    
+    // Center the map
+    new_location_map.setCenter(new google.maps.LatLng(latitude, longitude));
 }
