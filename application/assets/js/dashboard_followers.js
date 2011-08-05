@@ -29,6 +29,7 @@ function populate_followers_list() {
                 $.get('/dashboard/get_profile', {
                     user_id: $(this).attr('user_id')
                 }, function (data) {
+                    $('#friends_content .right').hide();
                     $('#friends_content .right').html(data);
                     $('#friends_content .right').show("slow");
                 });
