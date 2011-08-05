@@ -1,5 +1,6 @@
 <div id="friends_plans_panel" class="modal">
     <div class="title_bar">
+        Friend list
         <input  type="button" id="cancel_plan"  style="float:right;" value="X"/>
     </div>
     <hr/>
@@ -13,7 +14,6 @@
                 echo $name;
                 ?>
             </div>
-            <br/>
             <?php
         }
         ?>
