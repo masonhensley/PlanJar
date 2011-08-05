@@ -17,6 +17,19 @@ $(function() {
             $('#notifications .top_right_link_inner').badger(data);
         }
     });
+    
+    // feedback tab
+    var uvOptions = {};
+    (function() {
+        var uv = document.createElement('script');
+        uv.type = 'text/javascript';
+        uv.async = true;
+        uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/sNVz5fZWXQnRMujcc3z4Kg.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(uv, s);
+    })();
+        
+    
 });
 
 // Gets the user's current location
