@@ -425,11 +425,17 @@ a{
 .friend_list{
     
 }
-/*
+
 .friend_plan_content{
-    text-align: center;
+    
 }
-*/
+
+.friend_plan_back_button{
+    width:80px;
+    height:30px;
+    float:left;
+}
+
 
 .friend_tab{
     background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
