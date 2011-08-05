@@ -611,7 +611,7 @@ class Home extends CI_Controller
             $where_clause = '';
             foreach ($needle_array as $cur_needle)
             {
-                $where_clause .= "category LIKE %$cur_neelde% AND ";
+                $where_clause .= "category LIKE %$cur_needle% AND ";
             }
             $where_clause = substr($where_clause, 0, -5);
 
