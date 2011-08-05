@@ -72,7 +72,7 @@ class Load_friend_plans extends CI_Model
                     }
                     $date_organizer = $date;
                     ?>
-                    <div class ="plan_content undeselectable" plan_id="<?php echo $id; ?>">
+                    <div class ="friend_plan_content" plan_id="<?php echo $id; ?>">
                         <?php
                         if ($title != '')
                         {

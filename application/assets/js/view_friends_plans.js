@@ -19,7 +19,7 @@ function initialize_view_friend_plan_modal()
             $('.friend_modal_content').css('display', '');
             
             // Clear all controlls and display the info box if a friend's plan is selected
-            if ($('#friends_plans_panel .selected_plan').length > 0) {
+            if ($('#friends_plans_panel .selected_friend_plan').length > 0) {
                 deselect_all_controlls();
                 display_info();
             }
@@ -64,6 +64,9 @@ function load_friend_plans(friend_id)
                     }, 'fast');
                 });
             });
+            
+            // Click handler
+            
             
             // Show the plans div
             $('.friend_plan_content').show(

@@ -5,7 +5,7 @@ $(function() {
 // Sets up the plan panel
 function initialize_plan_panel(){
     // Click handler
-    $('body').delegate('.plan_content', 'click', function() {
+    $('.plan_content').click(function() {
         if(!$(this).hasClass('selected_plan'))
         {
             // No plan selected. Deselect all controlls
@@ -14,10 +14,8 @@ function initialize_plan_panel(){
             // Select this plan
             $(this).addClass('selected_plan');
         } else {
-            // Deselect this plan unless it isn't undeselectable
-            if (!$(this).hasClass('undeselectable')) {
-                $(this).removeClass('selected_plan');
-            }
+            // Deselect this plan
+            $(this).removeClass('selected_plan');
         }
         
         // DIsplay the info box
