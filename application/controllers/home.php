@@ -603,10 +603,12 @@ class Home extends CI_Controller
     public function search_place_categories()
     {
         $needle = trim($this->input->get('needle'));
+        $needle_array = explode(' ', $needle);
+        $needle = implode('%', $needle_array);
 
         $query_string = "SELECT id, category
             FROM place_categories
-            WHERE MATCH (category) AGAINST (?)";
+            WHERE category LIKE ?";
         $query = $this->db->query($query_string, array($needle));
 
         // Create the return array
