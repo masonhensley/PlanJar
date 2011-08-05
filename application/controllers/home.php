@@ -619,6 +619,8 @@ class Home extends CI_Controller
             FROM place_categories
             WHERE $where_clause";
             $query = $this->db->query($query_string, array($needle_array));
+            
+            echo($this->db->last_query());
 
             // Create the return array
             $return_array = array();
