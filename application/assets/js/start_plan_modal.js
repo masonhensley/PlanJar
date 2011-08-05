@@ -446,7 +446,7 @@ function initialize_plan_autocomplete() {
             item_selected = true;
             
             if (ui.item.id == 'new place') {
-                show_add_location_modal($('#plan_location').val());
+                show_add_location_modal();
             } else {
                 $('#plan_location').val(ui.item.value);
                 $('#plan_location_id').val(ui.item.id);

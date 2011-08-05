@@ -8,19 +8,23 @@
     float: left;
     width: 49%;
     position: relative;
-    border: 1px solid black;
 }
 
 #add_location_modal .right {
     float: left;
     width: 49%;
     position: relative;
-    border: 1px solid black;
     margin-left: 5px;
+}
+
+#add_location_modal .in-field_block {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #new_location_map {
     width: 100%;
     height: 300px;
-    margin-top: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
