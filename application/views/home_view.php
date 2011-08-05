@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+        <script type="text/javascript">
+            var uvOptions = {};
+            (function() {
+                var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+                uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/sNVz5fZWXQnRMujcc3z4Kg.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+            })();
+        </script>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <!-- CSS -->
