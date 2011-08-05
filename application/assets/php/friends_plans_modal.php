@@ -1,4 +1,4 @@
-<div id="friends_plans_panel" class="modal">
+<!--<div id="friends_plans_panel" class="modal">-->
     <div class="title_bar">
         Friend plans
         <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
