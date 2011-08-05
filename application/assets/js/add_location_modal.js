@@ -41,12 +41,11 @@ function initialize_add_location_modal() {
         }
     });
     
-    
+    // Number regular expression
+    var number_exp = /^-?[0-9]+(\.[0-9]+)?$/;
     
     // Submit handler
     $('#submit_location').click(function () {
-        
-        
         if ($('#new_location_name').val().length < 3) {
             // Minimum length not met
             alert('Group names must be at least 3 characters long.');
@@ -77,9 +76,6 @@ function initialize_add_location_modal() {
     
     // Coordinate location change handler
     $('#new_location_latitude, #new_location_longitude').keydown(function () {
-        // Number regular expression
-        var number_exp = /^-?[0-9]+(\.[0-9]+)?$/;
-        
         // Clear the box if bad in put is received
         if (!number_exp.test($(this).val())) {
             $(this).val('');
