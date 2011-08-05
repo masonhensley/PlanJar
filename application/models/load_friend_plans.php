@@ -38,6 +38,7 @@ class Load_friend_plans extends CI_Model
         <div class="friend_plan_back_button">
             Back 
         </div>
+        <br/>
         <font style="font-size:15px; color:navy;"><?php echo " " . $friend_name . "'s Plans"; ?></font>
         <br/><br/>
         <?php
@@ -62,28 +63,28 @@ class Load_friend_plans extends CI_Model
                 }
                 ?>
                 <div class="active_plans"> 
-                <?php
-                if ($date_organizer != $date)
-                {
-                    ?>
+                    <?php
+                    if ($date_organizer != $date)
+                    {
+                        ?>
                         <font style="font-size:11px; margin-left: -146px; color:gray;"><?php echo $date; ?><br/></font>
                         <?php
                     }
                     $date_organizer = $date;
                     ?>
                     <div class ="plan_content" plan_id="<?php echo $id; ?>">
-                    <?php
-                    if ($title != '')
-                    {
-                        ?>
+                        <?php
+                        if ($title != '')
+                        {
+                            ?>
                             <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
                             <font style="color:darkgray;"><?php echo "@" . $place_name; ?></font>
-                    <?php
-                } else
-                {
-                    echo "<b>@" . $place_name . "</b>";
-                }
-                ?>
+                            <?php
+                        } else
+                        {
+                            echo "<b>@" . $place_name . "</b>";
+                        }
+                        ?>
                     </div>
                 </div>
                 <?php
