@@ -54,6 +54,10 @@ function load_friend_plans(friend_id)
         
             // Back button click handler      
             $('.friend_plan_back_button').one('click', function(){
+                // Clear the tabs and display the info box
+                deselect_all_controlls();
+                display_info();
+                
                 // Hide the plans div
                 $('#friend_plan_list').hide('slide', {
                     direction: 'up'
