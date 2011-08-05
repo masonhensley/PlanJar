@@ -66,7 +66,7 @@ function initialize_add_location_modal() {
                 // Populate the correct fields in the plan modal and hide this one
                 $('#plan_location').val(data.name);
                 $('#plan_location_id').val(data.id);
-                ('#close_add_location').click();
+                $('#close_add_location').click();
             });
         }
     });
