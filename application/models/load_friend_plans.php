@@ -14,7 +14,7 @@ class Load_friend_plans extends CI_Model
         $user = $this->ion_auth->get_user();
 
         $query = "
-            SELECT plans.id, events.date, events.time, events.title, plans.event_id, places.name
+            SELECT events.date, events.time, events.title, plans.event_id, places.name, places.id
             FROM plans
             JOIN events ON events.id=plans.event_id AND events.date>=CURDATE()
             LEFT JOIN event_invites ON event_invites.event_id=events.id
@@ -72,7 +72,7 @@ class Load_friend_plans extends CI_Model
                     }
                     $date_organizer = $date;
                     ?>
-                    <div class ="friend_plan_content" plan_id="<?php echo $id; ?>">
+                    <div class ="friend_plan_content" place_id="<?php echo $id; ?>">
                         <?php
                         if ($title != '')
                         {
