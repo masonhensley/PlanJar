@@ -14,8 +14,10 @@ function initialize_plan_panel(){
             // Select this plan
             $(this).addClass('selected_plan');
         } else {
-            // Deselect this plan
-            $(this).removeClass('selected_plan');
+            // Deselect this plan unless it isn't undeselectable
+            if (!$(this).hasClass('undeselectable')) {
+                $(this).removeClass('selected_plan');
+            }
         }
         
         // DIsplay the info box

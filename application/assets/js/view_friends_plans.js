@@ -46,24 +46,24 @@ function load_friend_plans(friend_id)
             // Replace the HTML for the plans div
             $('.friend_plan_content').html(data);
         
+            // Back button click handler      
+            $('.friend_plan_back_button').click(function(){
+                // Hide the plans div
+                $('.friend_plan_content').hide('slide', {
+                    direction: 'down'
+                }, 'fast', function(){
+                    // Show the friends div
+                    $('.friend_modal_content').show('slide', {
+                        direction: 'up'
+                    }, 'fast');
+                });
+            });
+            
             // Show the plans div
             $('.friend_plan_content').show(
                 'slide', {
                     direction: 'up'
                 }, 'fast');
-        });
-        
-        // Back button click handler      
-        $('.friend_plan_back_button').click(function(){
-            // Hide the plans div
-            $('.friend_plan_content').hide('slide', {
-                direction: 'down'
-            }, 'fast', function(){
-                // Show the friends div
-                $('.friend_modal_content').show('slide', {
-                    direction: 'up'
-                }, 'fast');
-            });
         });
     });
 }
