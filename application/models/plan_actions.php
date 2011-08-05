@@ -165,7 +165,7 @@ class Plan_actions extends CI_Model
                             <?php
                         } else
                         {
-                            echo "<b>$place_name</b>";
+                            echo "<b>@" .$place_name ."</b>";
                         }
                         ?>
                     </div>

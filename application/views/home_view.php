@@ -45,6 +45,7 @@
         <script type="text/javascript" src="/application/assets/js/graph_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_conflict_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/add_location_modal.js"></script>
+        <script type="text/javascript" src="/application/assets/js/view_friends_plans.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
@@ -119,7 +120,15 @@
             </div>
             <div class ="right">
                 <font style="font-weight:bold; color:navy;  font-size:20px;">Plans</font><br/><hr/>
-                <div class="plans_wrapper"><?php echo($plans_html); ?></div>
+                <div class="plans_wrapper">
+                    <?php echo($plans_html); ?>
+                    <hr/>
+                    <br/>
+                    <div class="view_friends_plans">
+                        View friends' plans
+                    </div>
+                    <br/>
+                </div>
             </div>
         </div>
 
@@ -135,7 +144,7 @@
 
 
         </div>
-
+        <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>

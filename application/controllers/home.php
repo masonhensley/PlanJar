@@ -30,6 +30,9 @@ class Home extends CI_Controller
             $this->load->model('plan_actions');
             $plans_html = $this->plan_actions->display_plans();
 
+            // get friend names to populate the friend plan modal
+            $friend_names = $this->get_friend_names();
+
             // get the upcoming events HTML
             //$this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
             //$upcoming_event_html = $this->load_coming_events->load_events();
@@ -41,12 +44,35 @@ class Home extends CI_Controller
                 'followed_groups' => $followed_groups,
                 'day_html' => $day_html,
                 'school' => $school,
-                'plans_html' => $plans_html)
+                'plans_html' => $plans_html,
+                'friend_names' => $friend_names)
             );
         } else
         {
             $this->logout();
         }
+    }
+
+    public function get_friend_names()
+    {
+        $this->load->model('load_locations');
+        $friend_ids = $this->load_locations->get_friend_ids();
+
+        $query = "SELECT user_id, first_name, last_name FROM user_meta WHERE ";
+        foreach ($friend_ids as $id)
+        {
+            $query .= "user_id=$id OR ";
+        }
+        $query = substr($query, 0, -4);
+        $result = $this->db->query($query);
+        
+        $name_array = array();
+        
+        foreach($result->result() as $name)
+        {
+            $name_array[$name->user_id] = $name->first_name ." " .$name->last_name;
+        }
+        return $name_array;
     }
 
 // logs user out and redirects to login page
@@ -203,12 +229,19 @@ class Home extends CI_Controller
         echo $number_notifications;
     }
 
-    // permanently deletes plan
+    // permanently deletes plan 
     public function delete_plan()
     {
         $plan = $this->input->get('plan_selected');
         $this->load->model('plan_actions');
         $this->plan_actions->delete_plan($plan);
+    }
+
+    public function load_plans_from_id()
+    {
+       $friend_id = $this->input->get('friend_id');
+       $this->load->model('load_friend_plans');
+       $this->load_friend_plans->populate_plans($friend_id);
     }
 
     // Return a list of location tabs based on the groups selected
@@ -309,8 +342,8 @@ class Home extends CI_Controller
     private function _get_distance_between($lat0, $long0, $lat1, $long1)
     {
         return ((acos(sin($lat0 * pi() / 180) * sin($lat1 * pi() / 180)
-                        + cos($lat0 * pi() / 180) * cos($lat1 * pi() / 180) * cos(($long0 - $long1)
-                                * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
+                + cos($lat0 * pi() / 180) * cos($lat1 * pi() / 180) * cos(($long0 - $long1)
+                        * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
     }
 
     // Returns a set of 7 weekday tabs based on the supplied parameter.
@@ -486,7 +519,7 @@ class Home extends CI_Controller
             $query_string = "SELECT user_id, first_name, last_name
                     FROM user_meta WHERE ($needle_where) AND school_id = ? AND user_id <> ?";
             $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id,
-                $this->ion_auth->get_user()->id));
+                        $this->ion_auth->get_user()->id));
 
             // Echo the results
             $return_array = array();
@@ -552,8 +585,8 @@ class Home extends CI_Controller
         // Get the plan to discard
         $query_string = "SELECT id FROM plans WHERE event_id = ? AND user_id = ?";
         $query = $this->db->query($query_string, array(
-            $this->input->get('discard_event'),
-            $this->ion_auth->get_user()->id
+                    $this->input->get('discard_event'),
+                    $this->ion_auth->get_user()->id
                 ));
 
 
@@ -583,9 +616,9 @@ class Home extends CI_Controller
 
         $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ?";
         $query = $this->db->query($query_string, array(
-            $needle,
-            $plan_date,
-            $plan_time
+                    $needle,
+                    $plan_date,
+                    $plan_time
                 ));
 
         if ($query->num_rows() > 0)
@@ -619,7 +652,7 @@ class Home extends CI_Controller
             FROM place_categories
             WHERE $where_clause";
             $query = $this->db->query($query_string);
-            
+
             // Create the return array
             $return_array = array();
             foreach ($query->result() as $row)
