@@ -26,9 +26,10 @@
   
         <h2> Our Team <span class="arrow"></span> </h2> 
 
-        <h4> Name <span class="arrow_right"></span> </h4>
+        <h4>Mason Hensley, CEO & Co-Founder <span class="arrow_right"></span> </h4>
                 <div class ="person">
                       <div class ="info">
+                           Mason mischievously guides PlanJar’s vision and strategic planning. Before PlanJar, Mason dabbled in energy efficiency analysis at a large power company in Tennessee. Mason holds a Bachelor of Engineering in Biomedical Engineering from Vanderbilt University. 
                         </div>
                       <div class ="pic">
                         </div>
