@@ -414,6 +414,11 @@ a{
     margin-left:auto;
 }   
 
+#friends_plans_panel{
+    width:300px;
+    min-height:200px;
+}
+
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper{
     text-align: center;

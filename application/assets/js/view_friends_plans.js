@@ -22,7 +22,6 @@ function initialize_view_friend_plan_modal()
                     $('#friends_plans_panel').hide('fast');
                 });
                 
-                alert('success');
             });
     });
 }
