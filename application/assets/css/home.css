@@ -423,11 +423,11 @@ a{
 }
 
 .friend_list{
-    
+
 }
 
 .friend_plan_content{
-    
+
 }
 
 .friend_plan_back_button{
@@ -447,7 +447,7 @@ a{
     width:100%;
     padding-top:5px;
     padding-bottom:5px;
-    
+
     color: #727272;
     text-align:center;
     margin-bottom: 10px;
@@ -456,7 +456,7 @@ a{
 }
 
 .friend_modal_content{
-    
+
 }
 
 /* ------------------- PLAN CONTENT -------------- */
@@ -464,7 +464,7 @@ a{
     text-align: center;
 }
 
-.plan_content{
+.plan_content {
     width:95%;
     height:auto;
     margin:auto;
@@ -476,7 +476,7 @@ a{
     margin-bottom: 7px;
 }
 
-.selected_plan{
+.selected_plan {
     background:-webkit-gradient(linear,left top,left bottom,from(#805EBA),to(#390D86));
     color:white;
 }

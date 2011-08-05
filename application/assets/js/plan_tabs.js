@@ -5,7 +5,7 @@ $(function() {
 // Sets up the plan panel
 function initialize_plan_panel(){
     // Click handler
-    $('div.plan_content').click(function() {
+    $('.plan_content').delegate('click', function() {
         if(!$(this).hasClass('selected_plan'))
         {
             // No plan selected. Deselect all controlls

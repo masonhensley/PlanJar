@@ -62,5 +62,19 @@ function load_friend_plans(friend_id)
                     }, 'fast');
                 });
         });
+        
+        // Plan click handler
+        $('.friend_plan_content').click(function () {
+            if (!$(this).hasClass('selected_friend_plan')) {
+                // Clear all controlls
+                deselect_all_controlls();
+                
+                // Select this plan
+                $(this).addClass('selected_friend_plan');
+                
+                // Display the info box
+                display_info();
+            }
+        });
     });
 }

@@ -25,6 +25,7 @@ function deselect_all_controlls(bypass_groups) {
     $('.network_active').removeClass('network_active');
     $('.selected_location_tab').removeClass('selected_location_tab');
     $('.selected_plan').removeClass('selected_plan');
+    $('.selected_friend_plan').removeClass('selected_friend_plan');
 }
 
 // Returns true if at least one controll is selected
