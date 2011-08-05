@@ -39,7 +39,7 @@ function load_friend_plans(friend_id)
         
         
         $('.friend_modal_content').hide('slide', {
-            direction: 'down'
+            direction: 'up'
         }, 'fast');
         
        $('.friend_plan_content').html(data);
