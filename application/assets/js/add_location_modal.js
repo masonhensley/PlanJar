@@ -41,10 +41,11 @@ function initialize_add_location_modal() {
         }
     });
     
+    
+    
     // Submit handler
     $('#submit_location').click(function () {
-        // Number regular expression (for latitude/longitude)
-        var number_exp = /-?[0-9]+(\.[0-9]+)?/;
+        
         
         if ($('#new_location_name').val().length < 3) {
             // Minimum length not met
@@ -73,6 +74,18 @@ function initialize_add_location_modal() {
         $(this).focus();
         $(this).select();
     });
+    
+    // Coordinate location change handler
+    $('#new_location_latitude, #new_location_longitude').keydown(function () {
+        // Number regular expression
+        var number_exp = /-?[0-9]+(\.[0-9]+)?/;
+        
+        // Clear the box if bad in put is received
+        if (!number_exp.text($(this).val())) {
+            $(this).val('');
+        }
+    });
+    
     
     // Manual location changes
     $('#new_location_latitude, #new_location_longitude').change(function () {
