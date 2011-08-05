@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div style="text-align: center; width: 100%;">Drag the marker to the correct location.</div>
+        <div style="text-align: center; width: 100%; margin-top: 50px;">Drag the marker to the correct location.</div>
 
         <div id="new_location_map"></div>
 
@@ -29,7 +29,7 @@
             <input type="text" id="new_location_longitude" name="new_location_longitude"/>
         </div>
 
-        <div class="right">
+        <div class="right" style="text-align: center; line-height: 69px">
             <input type="button" id="submit_location" value="Go"/>
         </div>
 
