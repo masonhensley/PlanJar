@@ -606,7 +606,7 @@ class Home extends CI_Controller
 
         $query_string = "SELECT id, category
             FROM place_categories
-            WHERE MATCH (category) AGAINST (?)";
+            WHERE MATCH (category) AGAINST (? IN BOOLEAN MODE)";
         $query = $this->db->query($query_string, array($needle));
 
         // Create the return array
