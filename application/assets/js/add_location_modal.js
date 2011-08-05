@@ -1,5 +1,13 @@
 $(function () {
     initialize_add_location_modal();
+    
+    var number_exp = /-?[0-9]+(\.[0-9]+)?/;
+    console.log(number_exp.test('90.34'));
+    console.log(number_exp.test('-90.34'));
+    console.log(number_exp.test('90'));
+    console.log(number_exp.test('90.'));
+    console.log(number_exp.test('90.asas'));
+    console.log(number_exp.test('aadrfe'));
 });
 
 var new_location_map;
