@@ -15,7 +15,7 @@ function initialize_view_friend_plan_modal()
         });
     
         // Closing click handler
-        $('#canel_friends_panel').click(function () {
+        $('#cancel_friends_panel').click(function () {
             $('#friends_plans_panel').hide('fast');
         });
                 
