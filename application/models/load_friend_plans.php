@@ -1,8 +1,7 @@
 <?php
 
-class Load_groups extends CI_Model
+class Load_friend_plans extends CI_Model
 {
-
     // Constructor.
     function __construct()
     {
