@@ -168,9 +168,6 @@ function initialize_location_info(data) {
             });
         });
     });
-                
-    // Show the info box
-    display_info();
 }
 
 // Populates the popular locations panel
