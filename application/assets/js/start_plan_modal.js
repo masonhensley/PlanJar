@@ -219,7 +219,7 @@ function submit_plan_helper(from_just_go) {
         
     $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
         'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-        'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
+        'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
         'privacy': privacy
     } ,function (data) {
         data = $.parseJSON(data);
