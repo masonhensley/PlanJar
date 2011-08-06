@@ -201,6 +201,8 @@ function show_data_wrapper(data_div, callback) {
     if ($(data_div).css('display') == 'none') {
         if ($('.data_container:visible').length > 0) {
             // Hide any visible data containers.
+            console.log('hiding');
+            console.log($('.data_container:visible'));
             $('.data_container:visible').hide('slide', {}, 'fast', function() {
                 show_data_panel(data_div, callback);
             });

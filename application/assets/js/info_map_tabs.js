@@ -108,6 +108,8 @@ function display_info(bypass, arg) {
                 }, function (data) {
                     // Replace the data and show the info tab.
                     $('#info_content').html(data);
+                    
+                    populate_plan_panel();
                 });
                 
                 // Display the info box after the plan tabs HTML has been replaced
