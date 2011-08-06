@@ -410,12 +410,12 @@ a{
 /*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans{
     position: absolute;
-    left: 0px;
-    bottom: 0px;
+    right: 114px;
+    top: -46px;
     border: 1px solid lightgray;
-    background: -webkit-gradient(linear,left top,left bottom,from(#AF64DE),to(purple));
-    padding: 5px;
-    color: white;
+    background:white;
+    padding: 9px;
+    color: gray;
 }   
 
 #friends_plans_panel{
@@ -576,7 +576,7 @@ a{
 #create_plan{
     position:absolute;
     top:-46px;
-    right:70px;
+    right:12px;
     background:-webkit-gradient(linear,left top,left bottom,from(#AF64DE),to(purple));
     border:1px solid lightgray;
     padding:9px;
