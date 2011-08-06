@@ -455,7 +455,7 @@ function initialize_plan_autocomplete() {
                                     }); 
                                 } else {
                                     response_json.push({
-                                        label: "You've stumped us. Create a new place.", 
+                                        label: "Create new place (it's easy!)", 
                                         value: '', 
                                         id: 'new place'
                                     });
