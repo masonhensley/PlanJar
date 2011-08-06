@@ -74,7 +74,9 @@ class Load_friend_plans extends CI_Model
 
                     // Day offset
                     $cur_date = new DateTime();
+                    echo($cur_date->format('r'));
                     $new_date = new DateTime($plan->date);
+                    echo($new_date->format('r'));
                     $day_offset  = $cur_date->diff($new_date);
                     $day_offset = $day_offset->format('%a');
                     ?>
