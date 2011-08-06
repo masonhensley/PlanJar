@@ -9,23 +9,26 @@ class Day_sets extends CI_Model
         $date = new DateTime();
         $date->add(new DateInterval('P' . $offset . 'D'));
 
-        $return_string = '';
+        ob_start();
         for ($i = 0; $i < 7; ++$i)
         {
-            if ($offset == 0 && $i == 0)
+            if ($offset == 0)
             {
                 $display_date = 'Today';
             } else
             {
                 $display_date = $date->format('D - j');
             }
-
-            $return_string .= '<div class="day" day_offset="' . ($offset + $i) . '">' . $display_date . '</div>';
-
+            ?>
+            <div class="day" day_offset="<?php echo($offset + $i); ?>"><?php echo($display_date); ?></div>
+            <?php
             $date->add(new DateInterval('P1D'));
         }
-
-        return $return_string;
+        ?>
+        <div class="left_day_arrow"><</div>
+        <div class="right_day_arrow">></div>
+        <?php
+        return ob_get_clean();
     }
 
     // Returns a string containing the necessary HTML for the day tab set in the plan panel
@@ -50,6 +53,10 @@ class Day_sets extends CI_Model
             <?php
             $off_date->add(new DateInterval('P1D'));
         }
+        ?>
+        <div class="left_day_arrow"><</div>
+        <div class="right_day_arrow">></div>
+        <?php
         return ob_get_clean();
     }
 

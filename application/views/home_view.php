@@ -114,8 +114,6 @@
                     <div class="seven_days">
                         <?php echo($day_html); ?>
                     </div>
-                    <div class="left_day_arrow"><</div>
-                    <div class="right_day_arrow">></div>
                 </div>
 
                 <div class="suggested_locations">

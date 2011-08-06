@@ -4,17 +4,7 @@ $(function () {
 
 // Set up the day of the week tabs
 function initialize_day_tabs() {
-    // Left and right arrow click functions
-    $('.days_panel .left_day_arrow').click(function () {
-        // Get previous week
-        goto_day_offset(parseInt($('.day_selected').attr('day_offset')) - 7);
-    });
-    $('.days_panel .right_day_arrow').click(function () {
-        // Get next week
-        goto_day_offset(parseInt($('.day_selected').attr('day_offset')) + 7);
-    });
-    
-    day_click_handler();
+    day_click_handlers();
 
     // Highlight the first day
     $('.days_panel .day:first').addClass('day_selected');
@@ -49,7 +39,7 @@ function goto_day_offset(offset) {
 }
 
 // Encapsulates the day click handler
-function day_click_handler() {
+function day_click_handlers() {
     // Click event
     $("div.days_panel .day").click(function() {
         // Remove any "day_selected" class
@@ -65,5 +55,16 @@ function day_click_handler() {
         
         // Display the info box
         display_info(true);
+    });
+    
+    // Left and right arrow click functions
+    $('.days_panel .left_day_arrow').click(function () {
+        // Get previous week
+        goto_day_offset(parseInt($('.day_selected').attr('day_offset')) - 7);
+    });
+    
+    $('.days_panel .right_day_arrow').click(function () {
+        // Get next week
+        goto_day_offset(parseInt($('.day_selected').attr('day_offset')) + 7);
     });
 }
