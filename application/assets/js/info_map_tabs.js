@@ -25,11 +25,12 @@ function deselect_all_controlls(bypass_groups) {
     $('.network_active').removeClass('network_active');
     $('.selected_location_tab').removeClass('selected_location_tab');
     $('.selected_plan').removeClass('selected_plan');
+    $('.selected_friend_plan').removeClass('selected_friend_plan');
 }
 
 // Returns true if at least one controll is selected
 function controlls_are_selected() {
-    return $('.selected_group, .network_active, .selected_location_tab, .selected_plan').length > 0;
+    return $('.selected_group, .network_active, .selected_location_tab, .selected_plan, .selected_friend_plan').length > 0;
 }
 
 // Displays information to the info box based on what's selected
@@ -49,31 +50,7 @@ function display_info(bypass, arg) {
             'date': get_selected_day(),
             'selected_groups':get_selected_groups()
         }, function (data) {
-            // Parse the JSON
-            data = $.parseJSON(data);
-                
-            // Apply the layout HTML
-            $('#info_content').html(data.html);
-                
-            // Capture the data
-            data = data.graph_data;
-                
-            // Populate the graphs
-            populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date);
-            two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
-                
-            // Make plan click handler
-            $('.make_plan').click(function() {
-                var button = $(this);
-                show_plan_modal(function () {
-                    // Pre-populate the place name and id
-                    $('#plan_location').val(button.siblings('.data_box_top_bar').attr('place_name'));
-                    $('#plan_location_id').val(button.siblings('.data_box_top_bar').attr('place_id'));
-                });
-            });
-                
-            // Show the group data tab
-            show_data_container('#info_content');
+            initialize_location_info(data);
         });
     } else if ($('.network_active, .selected_group').length > 0) {
         // Network or group selected.
@@ -115,7 +92,7 @@ function display_info(bypass, arg) {
         
         populate_popular_locations();
     } else if ($('.selected_plan').length > 0) {
-        // Plan selected
+        // Plan selected (user's plan or friend's plan)
         $.get('/home/load_selected_plan_data', {
             'plan_selected': $('.selected_plan').attr('plan_id')
         }, function (data) {
@@ -144,10 +121,49 @@ function display_info(bypass, arg) {
                 open_invite_modal('event', data.event_id, data.privacy, data.originator);
             });
         });
+    } else if ($('.selected_friend_plan').length > 0) {
+        // Friend's plan selected
+        $.get('/home/show_location_data', {
+            'place_id': $('.selected_friend_plan').attr('place_id'),
+            'date': get_selected_day(),
+            'selected_groups':get_selected_groups()
+        }, function (data) {
+            initialize_location_info(data);
+        });
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png">');
     }
+}
+
+// Sets up the location view (graphs and whatnot)
+// Used for viewing locations and friends' plans
+function initialize_location_info(data) {
+    // Parse the JSON
+    data = $.parseJSON(data);
+                
+    // Apply the layout HTML
+    $('#info_content').html(data.html);
+                
+    // Capture the data
+    data = data.graph_data;
+                
+    // Populate the graphs
+    populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date);
+    two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
+                
+    // Make plan click handler
+    $('.make_plan').click(function() {
+        var button = $(this);
+        show_plan_modal(function () {
+            // Pre-populate the place name and id
+            $('#plan_location').val(button.siblings('.data_box_top_bar').attr('place_name'));
+            $('#plan_location_id').val(button.siblings('.data_box_top_bar').attr('place_id'));
+        });
+    });
+                
+    // Show the group data tab
+    show_data_container('#info_content');
 }
 
 // Populates the popular locations panel

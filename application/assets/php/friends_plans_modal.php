@@ -3,7 +3,7 @@
         Friend plans
         <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
     </div>
-    <div class="friend_modal_content">
+    <div id="friend_modal_content">
         <br/>
         Select a friend to view their upcoming plans
         <br/><hr/>
@@ -23,7 +23,7 @@
         </div>
     </div>
     
-    <div class="friend_plan_content" style="display:none; position:relative;">
+    <div id="friend_plan_list" style="display:none; position:relative;">
         
     </div>
 </div> 

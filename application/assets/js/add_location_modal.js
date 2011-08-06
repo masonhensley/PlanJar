@@ -9,6 +9,11 @@ var new_location_marker;
 function initialize_add_location_modal() {
     // Close click handler
     $('#close_add_location').click(function () {
+        // Clear and unfocus the text inputs
+        $('#new_location_name, #new_location_category, #new_location_category_id').val('');
+        $('#new_location_name, #new_location_category, #new_location_category_id').blur();
+        
+        // Hide the modal
         $('#add_location_modal').hide('fast');
     });
     
@@ -63,7 +68,10 @@ function initialize_add_location_modal() {
             $.get('/home/add_location?' + $('#new_location_form').serialize(), function (data) {
                 data = $.parseJSON(data);
                 
-            // Populate the correct fields in the plan modal and hide this one
+                // Populate the correct fields in the plan modal and hide this one
+                $('#plan_location').val(data.name);
+                $('#plan_location_id').val(data.id);
+                $('#close_add_location').click();
             });
         }
     });
