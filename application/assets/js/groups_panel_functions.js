@@ -20,7 +20,7 @@ function initialize_selectable_groups() {
             $(this).addClass('network_active');
             
             // Change to select one group
-            $('#select_one_group').click();
+            //$('#select_one_group').click();
         }
         
         // Display the info box
