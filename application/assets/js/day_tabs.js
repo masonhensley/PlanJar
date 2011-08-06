@@ -62,5 +62,8 @@ function goto_day_offset(offset) {
             // This week
             $('.day').eq(offset % 7).click();
         }
+    } else {
+        // Default to today
+        $('.day:first').click();
     }
 }
