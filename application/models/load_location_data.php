@@ -47,7 +47,7 @@ class Load_location_data extends CI_Model
                         WHERE id=$place_id";
         $result = $this->db->query($query);
         $place_array = $result->row_array();
-        var_dump($this->db->last_query());
+
         return $place_array;
     }
 
