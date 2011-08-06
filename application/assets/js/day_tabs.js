@@ -47,18 +47,20 @@ function initialize_day_tabs(day_index, callback) {
 
 // Seeks to the correct day tab and clicks the day
 function goto_day_offset(offset) {
-    if (offset < parseInt($('.day:first').attr('day_offset')) || offset > parseInt($('.day:last').attr('day_offset'))) {
-        // Not in current seven days
-        $.get('/home/get_weekday_tab_set', {
-            starting_offset: Math.floor(offset/7) * 7
-        }, function (data) {
-            $('.seven_days').html(data);
-            initialize_day_tabs();
-            $('.day[day_offset="' + offset + '"]').click();
-            display_info();
-        });
-    } else  {
-        // This week
-        $('.day').eq(offset % 7).click();
+    if (offset >= 0) {
+        if (offset < parseInt($('.day:first').attr('day_offset')) || offset > parseInt($('.day:last').attr('day_offset'))) {
+            // Not in current seven days
+            $.get('/home/get_weekday_tab_set', {
+                starting_offset: Math.floor(offset/7) * 7
+            }, function (data) {
+                $('.seven_days').html(data);
+                initialize_day_tabs();
+                $('.day[day_offset="' + offset + '"]').click();
+                display_info();
+            });
+        } else  {
+            // This week
+            $('.day').eq(offset % 7).click();
+        }
     }
 }
