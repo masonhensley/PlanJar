@@ -12,7 +12,7 @@ class Day_sets extends CI_Model
         ob_start();
         for ($i = 0; $i < 7; ++$i)
         {
-            if ($offset == 0)
+            if ($offset == 0 && $i == 0)
             {
                 $display_date = 'Today';
             } else
@@ -41,7 +41,7 @@ class Day_sets extends CI_Model
         ob_start();
         for ($i = 0; $i < 7; ++$i)
         {
-            if ($offset == 0)
+            if ($offset == 0 && $i == 0)
             {
                 $day_text = 'Today';
             } else
