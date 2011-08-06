@@ -121,10 +121,11 @@
                 </div>
             </div>
             <div class ="right">
-                <font style="font-weight:bold; color:navy;  font-size:20px;">Plans</font><br/>
                 <div class="view_friends_plans">
                     View friends' plans
                 </div>
+                <font style="font-weight:bold; color:navy;  font-size:20px;">Your Plans</font><br/>
+                
                 <hr/>
                 <div class="plans_wrapper">
                     <?php echo($plans_html); ?>
