@@ -72,7 +72,7 @@ function initialize_plan_modal() {
     $('#start_event_content .in-field_block label').inFieldLabels();
     
     // Try to advance the plan panel when a time or a day is selected
-    $('#plan_day, #plan_time').click(function () {
+    $('.plan_day, #plan_time .divset').click(function () {
         $('#plan_right').click();
     });
     
@@ -174,6 +174,8 @@ function goto_plan_day_offset(offset, callback) {
                     callback();
                 }
             });
+        } else if (callback != undefined) {
+            callback();
         }
     }
 }
@@ -270,7 +272,7 @@ function initialize_event_select_page() {
 
 // Returns a string with the plan description (place and day/time)
 function generate_plan_text() {
-    var day = $('#plan_day .divset_selected').html();
+    var day = $('.plan_day.divset_selected').html();
     var time = $('#plan_time .divset_selected').html().toLowerCase();
     var return_string = '<b>' + $('#plan_location_name').val() + '</b><br/>';
     
