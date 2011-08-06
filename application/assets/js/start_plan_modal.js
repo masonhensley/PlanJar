@@ -151,6 +151,7 @@ function plan_day_click_handlers() {
         goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) - 7)
     });
     $('#plan_day .right_day_arrow').click(function() {
+        $(this).removeClass('divset_selected');
         goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) + 7)
     });
 }
@@ -254,7 +255,7 @@ function initialize_event_select_page() {
                     
     // Populate the event select
     $.get('/home/get_events_for_plan', {
-        day: $('.plan_day.divset_selected').attr('plan_day'),
+        day: $('.plan_day.divset_selected').attr('day_offset'),
         time: $('#plan_time .divset_selected').attr('plan_time'),
         place_id: $('#plan_location_id').val()
     }, function (data) {
