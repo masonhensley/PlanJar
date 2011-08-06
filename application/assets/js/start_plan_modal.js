@@ -64,7 +64,7 @@ function initialize_plan_modal() {
     
     // Divsets
     $('#plan_time, #plan_privacy_wrapper').divSet();
-    $('#plan_day .seven_days').divSet();
+    $('#plan_day').divSet();
     
     // In-field labels
     $('#start_event_content .in-field_block label').inFieldLabels();
