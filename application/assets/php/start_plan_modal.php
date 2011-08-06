@@ -16,18 +16,7 @@
 
                 <h3 style="margin-top: 5px;">When do you want to go?</h3>
                 <div id="plan_day">
-                    <div plan_day="0">Today</div>
-
-                    <?php
-                    $date = new DateTime();
-                    for ($i = 1; $i < 7; ++$i)
-                    {
-                        $date->add(new DateInterval('P1D'));
-                        ?>
-                        <div plan_day="<?php echo($i); ?>"><?php echo($date->format('D - j')); ?></div>
-                        <?php
-                    }
-                    ?>
+                    <?php echo($plan_day_html); ?>
                 </div>
 
                 <div id="plan_time">
@@ -51,10 +40,10 @@
                         <div id="just_going">just going</div>
                         <input type="button" id="close_new_event" value="Cancel" style="display: none"/>
                         <br/>
-                        
+
                         <input type="button" id="create_event" value="Start an event"/>
                     </div>
-                    
+
                     <div id="start_event_content" style="display: none;">
                         <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
                             <label for="event_title">Title</label>

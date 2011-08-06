@@ -2,9 +2,44 @@ $(function () {
     initialize_day_tabs();
 });
 
-// Set up the day of the week tabs.
-// If day_index is set and in range [0, 6], then the day with that index is selected
-function initialize_day_tabs(day_index, callback) {
+// Set up the day of the week tabs
+function initialize_day_tabs() {
+    day_click_handlers();
+
+    // Highlight the first day
+    $('.days_panel .day:first').addClass('day_selected');
+}
+
+// Seeks to the correct day tab and clicks the day
+function goto_day_offset(offset) {
+    if (offset >= 0) {
+        if (offset < parseInt($('.day:first').attr('day_offset')) || offset > parseInt($('.day:last').attr('day_offset'))) {
+            // Not in current seven days
+            $.get('/home/get_weekday_tab_set', {
+                starting_offset: Math.floor(offset/7) * 7
+            }, function (data) {
+                // Replace the HTML
+                $('.seven_days').html(data);
+                
+                day_click_handlers();
+                
+                // Click the appropriate day
+                $('.day[day_offset="' + offset + '"]').click();
+                
+                display_info();
+            });
+        } else  {
+            // This week
+            $('.day').eq(offset % 7).click();
+        }
+    } else {
+        // Default to today
+        $('.day:first').click();
+    }
+}
+
+// Encapsulates the day click handler
+function day_click_handlers() {
     // Click event
     $("div.days_panel .day").click(function() {
         // Remove any "day_selected" class
@@ -23,49 +58,13 @@ function initialize_day_tabs(day_index, callback) {
     });
     
     // Left and right arrow click functions
-    $('.left_day_arrow').click(function () {
+    $('.days_panel .left_day_arrow').click(function () {
         // Get previous week
         goto_day_offset(parseInt($('.day_selected').attr('day_offset')) - 7);
     });
     
-    $('.right_day_arrow').click(function () {
+    $('.days_panel .right_day_arrow').click(function () {
         // Get next week
         goto_day_offset(parseInt($('.day_selected').attr('day_offset')) + 7);
     });
-    
-    // Select the corresponding (default first) day
-    if (day_index == undefined) {
-        day_index = 0;
-    }
-
-    // Highlight the first day
-    $('.days_panel .day').eq(day_index).addClass('day_selected');
-    
-    // Callback
-    if (callback != undefined) {
-        callback();
-    }
-}
-
-// Seeks to the correct day tab and clicks the day
-function goto_day_offset(offset) {
-    if (offset >= 0) {
-        if (offset < parseInt($('.day:first').attr('day_offset')) || offset > parseInt($('.day:last').attr('day_offset'))) {
-            // Not in current seven days
-            $.get('/home/get_weekday_tab_set', {
-                starting_offset: Math.floor(offset/7) * 7
-            }, function (data) {
-                $('.seven_days').html(data);
-                initialize_day_tabs();
-                $('.day[day_offset="' + offset + '"]').click();
-                display_info();
-            });
-        } else  {
-            // This week
-            $('.day').eq(offset % 7).click();
-        }
-    } else {
-        // Default to today
-        $('.day:first').click();
-    }
 }

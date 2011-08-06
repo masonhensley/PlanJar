@@ -40,6 +40,15 @@
     margin-bottom: 5px;
 }
 
+#plan_day .left_day_arrow {
+    margin-left: 15px;
+    float: none;
+}
+
+#plan_day .right_day_arrow {
+    float: none;
+}
+
 .plan_page_content .left {
     width: 50%;
     height: 100%;
