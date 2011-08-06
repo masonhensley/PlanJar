@@ -254,7 +254,7 @@ function initialize_event_select_page() {
                     
     // Populate the event select
     $.get('/home/get_events_for_plan', {
-        day: $('#plan_day .divset_selected').attr('plan_day'),
+        day: $('.plan_day.divset_selected').attr('plan_day'),
         time: $('#plan_time .divset_selected').attr('plan_time'),
         place_id: $('#plan_location_id').val()
     }, function (data) {
@@ -294,7 +294,7 @@ function generate_plan_text() {
 function next_plan_panel() {
     if ($('.plan_page_content:first:visible').length == 1) {
         // The first panel is visible. Don't continue unless a place was selected and a time is selected
-        if ($('#plan_location_id').val() != '' && $('#plan_day .divset_selected, #plan_time .divset_selected').length == 2) {
+        if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length == 2) {
             // Hide the first panel and show the second
             $('.plan_page_content:first').hide('slide', {}, 'fast', function () {
                 $('.plan_page_content:eq(1)').show('slide', {
