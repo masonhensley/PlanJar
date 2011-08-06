@@ -21,7 +21,7 @@ function goto_day_offset(offset) {
                 // Replace the HTML
                 $('.seven_days').html(data);
                 
-                day_click_handler();
+                day_click_handlers();
                 
                 // Click the appropriate day
                 $('.day[day_offset="' + offset + '"]').click();
