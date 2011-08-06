@@ -38,8 +38,10 @@ function initialize_day_tabs(day_index, callback) {
         day_index = 0;
     }
 
+    // Highlight the first day
     $('.days_panel .day').eq(day_index).addClass('day_selected');
     
+    // Callback
     if (callback != undefined) {
         callback();
     }
