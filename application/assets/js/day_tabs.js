@@ -30,13 +30,16 @@ function initialize_day_tabs(initial_offset) {
     $('.left_day_arrow').click(function () {
         var current_offset = $('.day:first').attr('day_offset');
         if (current_offset != 0) {
+            // Get previous week
             get_new_days(parseInt(current_offset) - 7);
         } else {
+            // This week is showing. Select Today
             $('.day:first').click();
         }
     });
     
     $('.right_day_arrow').click(function () {
+        // Get next week
         var current_offset = $('.day:first').attr('day_offset');
         get_new_days(parseInt(current_offset) + 7);
     });
@@ -46,6 +49,7 @@ function initialize_day_tabs(initial_offset) {
 }
 
 // Gets and displays the set of days
+// Note that the current day of the week selection is preserved
 function get_new_days(offset) {
     var current_eq = $('.day_selected').index();
     $.get('/home/get_weekday_tab_set', {

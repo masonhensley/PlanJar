@@ -422,8 +422,10 @@ a{
     text-align:center;
 }
 
-.friend_list{
-
+#friend_plan_list{
+    width: 100%;
+    overflow: auto;
+    max-height: 500px;
 }
 
 .friend_plan_back_button{
