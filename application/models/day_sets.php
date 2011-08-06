@@ -35,9 +35,9 @@ class Day_sets extends CI_Model
         $off_date->setTime(0, 0, 0);
         $off_date->add(new DateInterval('P' . $offset . 'D'));
 
+        ob_start();
         for ($i = 0; $i < 7; ++$i)
         {
-            ob_start();
             if ($offset == 0)
             {
                 $day_text = 'Today';
