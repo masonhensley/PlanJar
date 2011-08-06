@@ -24,12 +24,12 @@ function initialize_day_tabs(day_index) {
     // Left and right arrow click functions
     $('.left_day_arrow').click(function () {
         // Get previous week
-        goto_day_offset(current_offset - 7, $('.day_selected').index());
+        goto_day_offset($('.day:first').index() - 7, $('.day_selected').index());
     });
     
     $('.right_day_arrow').click(function () {
         // Get next week
-        get_new_days(parseInt(current_offset) + 7, $('.day_selected').index());
+        get_new_days($('.day:first').index() + 7, $('.day_selected').index());
     });
     
     // Select the corresponding (default first) day
