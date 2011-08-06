@@ -64,7 +64,6 @@ function initialize_plan_modal() {
     
     // Divsets
     $('#plan_time, #plan_privacy_wrapper').divSet();
-    $('#plan_day').divSet();
     
     // Day scroll click handlers
     plan_day_click_handlers();
@@ -143,6 +142,9 @@ function initialize_plan_modal() {
 
 // Handles the click events related the the day buttons
 function plan_day_click_handlers() {
+    // Divset
+    $('#plan_day').divSet();
+    
     // Left and right day click handlers
     $('#plan_day .left_day_arrow').click(function() {
         goto_plan_day_offset($('.plan_day:first').attr('day_offset') - 7)
