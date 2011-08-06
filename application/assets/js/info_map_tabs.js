@@ -165,14 +165,12 @@ function initialize_location_info(data) {
             // Select the correct day
             goto_plan_day_offset(parseInt($('.day_selected').attr('day_offset')), function () {
                 $('.plan_day[day_offset="' + $('.day_selected').attr('day_offset') + '"]').click();
-                console.log($('.plan_day[day_offset="' + $('.day_selected').attr('day_offset') + '"]'));
-                console.log('.plan_day[day_offset="' + $('.day_selected').attr('day_offset') + '"]');
             });
         });
     });
                 
-    // Show the group data tab
-    show_data_container('#info_content');
+    // Show the info box
+    display_info();
 }
 
 // Populates the popular locations panel
