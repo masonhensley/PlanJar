@@ -18,7 +18,7 @@ function initialize_plan_panel(){
             $(this).removeClass('selected_plan');
         }
         
-        // DIsplay the info box
+        // Display the info box
         display_info();
     });
 }

@@ -75,6 +75,7 @@ function load_friend_plans(friend_id)
                     // Deselect all controlls and show the info panel
                     deselect_all_controlls();
                     $(this).addClass('selected_friend_plan');
+                    goto_day_offset($(this).attr('day_offset'));
                     display_info();
                 }
             });
