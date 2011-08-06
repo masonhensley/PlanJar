@@ -13,8 +13,7 @@ function initialize_info_map_tabs() {
         }
     });
     
-    // Pre-populate (clear) the popular locations
-    populate_popular_locations();
+    display_info();
 }
 
 // Deselcts all controlls
