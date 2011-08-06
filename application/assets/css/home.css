@@ -425,7 +425,7 @@ a{
 #friend_plan_list{
     width: 100%;
     overflow: auto;
-    max-height: 500px;
+    max-height: 400px;
 }
 
 .friend_plan_back_button{
