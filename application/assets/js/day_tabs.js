@@ -57,9 +57,7 @@ function get_new_days(offset, day_index) {
 function goto_day_offset(offset) {
     if (offset < parseInt($('.day:first').attr('day_offset')) || offset > parseInt($('.day:last').attr('day_offset'))) {
         // Not in current seven days
-        get_new_days(Math.floor(offset/7) * 7, function () {
-            $('.day').eq(offset % 7).click();
-        });
+        get_new_days(Math.floor(offset/7) * 7, offset % 7);
     } else  {
         // This week
         $('.day').eq(offset % 7).click();
