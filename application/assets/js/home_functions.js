@@ -174,6 +174,8 @@ function hide_data_containers() {
 
 // Shows the data container specified in the argument (takes care of closing beforehand, too)
 function show_data_container(data_div, callback) {
+    console.log('showing ' + data_div);
+    
     // Make callback optional.
     if (callback == undefined) {
         callback = function() {};
@@ -201,8 +203,6 @@ function show_data_wrapper(data_div, callback) {
     if ($(data_div).css('display') == 'none') {
         if ($('.data_container:visible').length > 0) {
             // Hide any visible data containers.
-            console.log('hiding');
-            console.log($('.data_container:visible'));
             $('.data_container:visible').hide('slide', {}, 'fast', function() {
                 show_data_panel(data_div, callback);
             });
