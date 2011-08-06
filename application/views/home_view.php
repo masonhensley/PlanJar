@@ -91,7 +91,7 @@
             <div class="data_tab" assoc_div="#map_content">Map</div>
         </div>
         <div class ="container">
-            <div class="view_friends_plans">View friends' plans</div>
+            <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
             <div class ="left">
                 <div class="location_container">
