@@ -91,6 +91,7 @@
             <div class="data_tab" assoc_div="#map_content">Map</div>
         </div>
         <div class ="container">
+            <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
             <div class ="left">
                 <div class="location_container">
@@ -124,9 +125,6 @@
                 </div>
             </div>
             <div class ="right">
-                <div class="view_friends_plans">
-                    View friends' plans
-                </div>
                 <font style="font-weight:bold; color:navy;  font-size:20px;">Your Plans</font><br/>
 
                 <hr/>

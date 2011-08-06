@@ -409,11 +409,13 @@ a{
 
 /*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans{
-    color:navy;
-    font-weight:bold;
-    width:133px;
-    margin-right:auto;
-    margin-left:auto;
+    position: absolute;
+    right: 11px;
+    top: -48px;
+    border: 1px solid lightgray;
+    background:white;
+    padding: 9px;
+    color: gray;
 }   
 
 #friends_plans_panel{
@@ -573,8 +575,8 @@ a{
 
 #create_plan{
     position:absolute;
-    top:-46px;
-    right:70px;
+    top:-48px;
+    right:123px;
     background:-webkit-gradient(linear,left top,left bottom,from(#AF64DE),to(purple));
     border:1px solid lightgray;
     padding:9px;

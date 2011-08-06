@@ -34,9 +34,9 @@
 }
 .group_graph_bottom_right{
     width:auto;
-    height:auto;
+    height:94px;
     position:absolute;
-    bottom:-20px;
+    bottom:0px;
     right:0px;
 }
 
