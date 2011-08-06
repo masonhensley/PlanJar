@@ -66,6 +66,8 @@ function initialize_plan_modal() {
     $('#plan_time, #plan_privacy_wrapper').divSet();
     $('#plan_day').divSet();
     
+    
+    
     // In-field labels
     $('#start_event_content .in-field_block label').inFieldLabels();
     
@@ -138,6 +140,34 @@ function initialize_plan_modal() {
     });
 }
 
+// Handles the click events related the the day buttons
+function plan_day_click_handlers() {
+    // Left and right day click handlers
+    $('#plan_day .left_day_arrow').click(function() {
+        goto_plan_day_offset($('.plan_day:first').attr('day_offset') - 7)
+    });
+    $('#plan_day .right_day_arrow').click(function() {
+        goto_plan_day_offset($('.plan_day:first').attr('day_offset') + 7)
+    });
+}
+
+function goto_plan_day_offset(offset) {
+    if (offset >= 0) {
+        if (offset < parseInt($('.plan_day:first').attr('day_offset')) || offset > parseInt($('.plan_day:last').attr('day_offset'))) {
+            // Not in current seven days
+            $.get('/home/get_weekday_tab_set', {
+                starting_offset: Math.floor(offset/7) * 7,
+                plan_set: true
+            }, function (data) {
+                // Replace the HTML
+                $('#plan_day').html(data);
+                
+                plan_day_click_handlers();
+            });
+        }
+    }
+}
+
 // Submits the plan and closes the window (also opens the invite window)
 // from_just_go should be set if this function is called from the "just go" button
 function submit_plan(from_just_go) {
@@ -146,7 +176,7 @@ function submit_plan(from_just_go) {
         $.get('/home/check_preexisting_event', {
             needle: $('#event_title').val(),
             'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-            'plan_day': $('#plan_day .divset_selected').attr('plan_day'),
+            'plan_day': $('#day_offset .divset_selected').attr('plan_day'),
             'place_id': $('#plan_location_id').val()
         }, function (data) {
             if (data != 'available') {

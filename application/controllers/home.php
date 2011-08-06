@@ -24,8 +24,8 @@ class Home extends CI_Controller
 
             // Get the day tabs HTML
             $this->load->model('day_sets');
-            $day_html = $this->day_sets->home_set(0);
-            $plan_day_html = $this->day_sets->plan_set(0);
+            $day_html = $this->day_sets->day_set(0);
+            $plan_day_html = $this->day_sets->day_set(0, true);
 
             // Get the plan tabs HTML
             $this->load->model('plan_actions');
@@ -340,11 +340,10 @@ class Home extends CI_Controller
     }
 
     // Returns a set of 7 weekday tabs based on the supplied parameter.
-    // If $initial is true, the function bypasses the get argument and uses 0 as a base instead
     public function get_weekday_tab_set()
     {
         $this->load->model('day_sets');
-        echo($this->day_sets->home_set($this->input->get('starting_offset')));
+        echo($this->day_sets->day_set($this->input->get('starting_offset'), $this->input->get('plan_set')));
     }
 
     // Returns a list of people following the user (used for inviting people in a plan)

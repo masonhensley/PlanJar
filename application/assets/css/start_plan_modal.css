@@ -43,10 +43,12 @@
 #plan_day .left_day_arrow {
     margin-left: 15px;
     float: none;
+    width: auto;
 }
 
 #plan_day .right_day_arrow {
     float: none;
+    width: auto;
 }
 
 .plan_page_content .left {
