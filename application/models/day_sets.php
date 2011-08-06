@@ -34,9 +34,9 @@ class Day_sets extends CI_Model
     // Returns a string containing the necessary HTML for the day tab set in the plan panel
     function plan_set($offset)
     {
-        $off_date = new DateTime();
-        $off_date->setTime(0, 0, 0);
-        $off_date->add(new DateInterval('P' . $offset . 'D'));
+        $date = new DateTime();
+        $date->setTime(0, 0, 0);
+        $date->add(new DateInterval('P' . $offset . 'D'));
 
         ob_start();
         for ($i = 0; $i < 7; ++$i)
@@ -51,7 +51,7 @@ class Day_sets extends CI_Model
             ?>
             <div plan_day="<?php echo($i); ?>"><?php echo($day_text); ?></div>
             <?php
-            $off_date->add(new DateInterval('P1D'));
+            $date->add(new DateInterval('P1D'));
         }
         ?>
         <div class="left_day_arrow"><</div>
