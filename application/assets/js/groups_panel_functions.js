@@ -20,7 +20,7 @@ function initialize_selectable_groups() {
             $(this).addClass('network_active');
             
             // Change to select one group
-            //$('#select_one_group').click();
+            $('#select_one_group').click();
         }
         
         // Display the info box
@@ -45,7 +45,12 @@ function initialize_selectable_groups() {
 // Initialize the groups such that up to one is selectable at a time
 function initialize_one_group_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
-    $('.groups_wrapper .selectable_group.selected_group').removeClass('selected_group');
+    
+    // Clear groups and update the info box if necessary
+    if ($('.groups_wrapper .selectable_group.selected_group').length > 0) {
+        $('.groups_wrapper .selectable_group.selected_group').removeClass('selected_group');
+        display_info();
+    }
     
     $('.groups_wrapper .selectable_group').click(function() {
         $('.network_active').removeClass('network_active'); // unselect the city tab
@@ -68,8 +73,6 @@ function initialize_one_group_select() {
         // Display the info box
         display_info();
     });
-    
-    display_info();
 }
 
 // Initializes the groups such that any number can be selected at a time
