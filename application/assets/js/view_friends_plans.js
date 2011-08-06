@@ -23,8 +23,6 @@ function initialize_view_friend_plan_modal()
             var friend_id = $(this).attr('user_id');
             load_friend_plans(friend_id);
             
-            
-            
         });
         
     });
