@@ -25,6 +25,7 @@ class Home extends CI_Controller
             // Get the day tabs HTML
             $this->load->model('day_sets');
             $day_html = $this->day_sets->home_set(0);
+            $plan_day_html = $this->day_sets->plan_set(0);
 
             // Get the plan tabs HTML
             $this->load->model('plan_actions');
@@ -43,6 +44,7 @@ class Home extends CI_Controller
                 'joined_groups' => $joined_groups,
                 'followed_groups' => $followed_groups,
                 'day_html' => $day_html,
+                'plan_day_html' => $plan_day_html,
                 'school' => $school,
                 'plans_html' => $plans_html,
                 'friend_names' => $friend_names)

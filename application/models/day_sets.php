@@ -25,15 +25,32 @@ class Day_sets extends CI_Model
             $date->add(new DateInterval('P1D'));
         }
 
-        $return_string .= '<div class="left_day_arrow"><</div>' .
-                '<div class="right_day_arrow">></div>';
-
         return $return_string;
     }
 
+    // Returns a string containing the necessary HTML for the day tab set in the plan panel
     function plan_set($offset)
     {
-        
+        $off_date = new DateTime();
+        $off_date->setTime(0, 0, 0);
+        $off_date->add(new DateInterval('P' . $offset . 'D'));
+
+        for ($i = 0; $i < 7; ++$i)
+        {
+            ob_start();
+            if ($offset == 0)
+            {
+                $day_text = 'Today';
+            } else
+            {
+                $day_text = $date->format('D - j');
+            }
+            ?>
+            <div plan_day="<?php echo($i); ?>"><?php echo($day_text); ?></div>
+            <?php
+            $off_date->add(new DateInterval('P1D'));
+        }
+        return ob_get_clean();
     }
 
 }

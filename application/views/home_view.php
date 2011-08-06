@@ -108,12 +108,15 @@
                         <div id="map"></div>
                     </div>
                 </div>
-                <div class="days_panel">
 
+                <div class="days_panel">
                     <div class="seven_days">
                         <?php echo($day_html); ?>
                     </div>
+                    <div class="left_day_arrow"><</div>
+                    <div class="right_day_arrow">></div>
                 </div>
+
                 <div class="suggested_locations">
                 </div>
                 <div class="upcoming_events">
@@ -125,7 +128,7 @@
                     View friends' plans
                 </div>
                 <font style="font-weight:bold; color:navy;  font-size:20px;">Your Plans</font><br/>
-                
+
                 <hr/>
                 <div class="plans_wrapper">
                     <?php echo($plans_html); ?>
