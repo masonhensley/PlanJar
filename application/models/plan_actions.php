@@ -154,6 +154,13 @@ class Plan_actions extends CI_Model
                         <?php
                     }
                     $date_organizer = $date;
+
+                    // Day offset
+                    $cur_date = new DateTime();
+                    $cur_date->setTime(0, 0, 0);
+                    $new_date = new DateTime($plan->date);
+                    $day_offset = $cur_date->diff($new_date);
+                    $day_offset = $day_offset->format('%a');
                     ?>
                     <div class ="plan_content" plan_id="<?php echo $id; ?>">
                         <?php
@@ -161,11 +168,11 @@ class Plan_actions extends CI_Model
                         {
                             ?>
                             <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
-                            <font style="color:darkgray;"><?php echo "@" .$place_name; ?></font>
+                            <font style="color:darkgray;"><?php echo "@" . $place_name; ?></font>
                             <?php
                         } else
                         {
-                            echo "<b>@" .$place_name ."</b>";
+                            echo "<b>@" . $place_name . "</b>";
                         }
                         ?>
                     </div>
