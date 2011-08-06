@@ -66,7 +66,8 @@ function initialize_plan_modal() {
     $('#plan_time, #plan_privacy_wrapper').divSet();
     $('#plan_day').divSet();
     
-    
+    // Day scroll click handlers
+    plan_day_click_handlers();
     
     // In-field labels
     $('#start_event_content .in-field_block label').inFieldLabels();
