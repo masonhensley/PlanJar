@@ -63,7 +63,8 @@ function initialize_plan_modal() {
     initialize_plan_autocomplete();
     
     // Divsets
-    $('#plan_time, #plan_day .seven_days, #plan_privacy_wrapper').divSet();
+    $('#plan_time, #plan_privacy_wrapper').divSet();
+    $('#plan_day .seven_days').divSet();
     
     // In-field labels
     $('#start_event_content .in-field_block label').inFieldLabels();

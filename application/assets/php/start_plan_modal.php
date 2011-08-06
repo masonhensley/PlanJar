@@ -16,7 +16,9 @@
 
                 <h3 style="margin-top: 5px;">When do you want to go?</h3>
                 <div id="plan_day">
+                    <div class="left_day_arrow"><</div>
                     <div class="seven_days"><?php echo($plan_day_html); ?></div>
+                    <div class="right_day_arrow">></div>
                 </div>
 
                 <div id="plan_time">
