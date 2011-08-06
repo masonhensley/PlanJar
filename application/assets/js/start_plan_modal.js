@@ -156,7 +156,8 @@ function plan_day_click_handlers() {
     });
 }
 
-function goto_plan_day_offset(offset) {
+// Seeks to the corresponding week
+function goto_plan_day_offset(offset, callback) {
     if (offset >= 0) {
         if (offset < parseInt($('.plan_day:first').attr('day_offset')) || offset > parseInt($('.plan_day:last').attr('day_offset'))) {
             // Not in current seven days
@@ -168,6 +169,10 @@ function goto_plan_day_offset(offset) {
                 $('#plan_day').html(data);
                 
                 plan_day_click_handlers();
+                
+                if (callback != undefined) {
+                    callback();
+                }
             });
         }
     }

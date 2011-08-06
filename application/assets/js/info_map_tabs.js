@@ -159,6 +159,11 @@ function initialize_location_info(data) {
             // Pre-populate the place name and id
             $('#plan_location').val(button.siblings('.data_box_top_bar').attr('place_name'));
             $('#plan_location_id').val(button.siblings('.data_box_top_bar').attr('place_id'));
+            
+            // Select the correct day
+            goto_plan_day_offset(parseInt($('.day_selected').attr('day_offset')), function () {
+                $('.plan_day[day_offset="' + $('.day_selected').attr('day_offset') + '"]').click();
+            });
         });
     });
                 
