@@ -180,11 +180,13 @@ class Load_locations extends CI_Model
             $friend_query .= "user_id=$following_id->follow_id OR ";
         }
         $friend_query = substr($friend_query, 0, -4);
+        $friend_query .= ")";
+        
         if ($result->num_rows() == 0)
         {
-            $friend_query = substr($friend_query, 0, -2);
+            $friend_query = substr($friend_query, 0, -3);
         }
-        $friend_query .= ")";
+        
         $query_result = $this->db->query($friend_query);
         $friend_ids = array();
         foreach ($query_result->result() as $id)
