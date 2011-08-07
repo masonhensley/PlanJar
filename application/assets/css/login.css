@@ -355,6 +355,23 @@ h6 {
     text-align: center;
 }
 
+#footer_menu {
+ margin: 0;
+ padding: 0;
+ width:auto;
+}
+ 
+#footer_menu li {
+ list-style: none;
+ float: left;
+ font-size:12px;
+ padding: 12px 14px 14px 14px;
+ border-right:1px solid rgba(0, 0, 0, 0.4);
+ background: rgba(0, 0, 0, 0.1);
+}
+
+
+
 #footer { /* This will make your footer stay where it is */
        background: none repeat scroll 0 0 #1D1D1D;
        border: 1px solid rgba(0, 0, 0, 0.3);
