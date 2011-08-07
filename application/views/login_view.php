@@ -189,5 +189,11 @@
 
         </div>
 
+        <div id = "footer">
+           footer bitch!
+        </div>
+
+
+
     </body>
 </html>
