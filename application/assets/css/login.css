@@ -369,4 +369,8 @@ h6 {
        width: 960px;
 }
 
+/* hover effect */
+#footer:hover {
+ background: none repeat scroll 0 0 #2b2a2a;
+}
     
