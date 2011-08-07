@@ -352,45 +352,20 @@ h6 {
  box-shadow:0px 0px 11px #191919;
 }
  
-/* hover effect */
-#stickey_footer:hover {
- background: none repeat scroll 0 0 #2b2a2a;
-}
- 
+
 
  
 #footer_menu {
  margin: 0;
  padding: 0;
  width:auto;
-}
- 
-#footer_menu li {
  list-style: none;
  float: left;
  font-size:12px;
  padding: 12px 14px 14px 14px;
  border-right:1px solid rgba(0, 0, 0, 0.4);
  background: rgba(0, 0, 0, 0.1);
-}
- 
-
-#footer_menu li:hover {
- background:#202020; /* Fallback color for old browsers */
- background: rgba(0, 0, 0, 0.3);
-}
- 
- 
-#footer_menu li a {
  display: block;
  color: #cccccc;
  text-decoration: none;
-}
- 
-#footer_menu li a:hover {
- color: #ffffff;
-}
- 
-#footer_menu li span {
- display:none;
 }
