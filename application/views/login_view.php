@@ -178,7 +178,7 @@
         </div>
 <a href="http://mixpanel.com/f/partner"><img src="http://mixpanel.com/site_media/images/partner/badge_blue.png" alt="Web Analytics" /></a>
 
-<div id="stickey_footer">
+<div id="footer">
  <!-- Begin Footer Menu -->
 <ul id="footer_menu">
  <li><a href="#"><span>Home</span></a></li>
