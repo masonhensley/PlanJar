@@ -184,7 +184,7 @@ class Load_locations extends CI_Model
         
         if ($result->num_rows() == 0)
         {
-            $friend_query = substr($friend_query, 0, -3);
+            $friend_query = substr($friend_query, 0, -1);
         }
         
         $query_result = $this->db->query($friend_query);
