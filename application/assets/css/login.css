@@ -64,12 +64,20 @@ h5 {
      position: relative;  
      width: 80%;
 
+     -webkit-border-radius: 5px 5px 5px 0px;
      -moz-border-radius: 5px 5px 5px 0px;
+     -o-border-radius: 5px 5px 5px 0px;
+     -ms-border-radius: 5px 5px 5px 0px;
+     -khtml-border-radius: 5px 5px 5px 0px;
      border-radius: 5px 5px 5px 0px;
+
   
-     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(223,223,224)),color-stop(1, rgb(237,238,239)));
-     background-image: -moz-linear-gradient(center bottom,rgb(223,223,224) 0%,rgb(237,238,239) 100%);
-     background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237,238,239)), to(rgb(223,223,224)));
+      background-image: -webkit-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+      background-image: -moz-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+      background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+      background-image: -ms-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+      background-image: linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
 
 
         /* -------------- Font -----------------------*/
