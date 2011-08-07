@@ -296,6 +296,8 @@ a{
     border-bottom:1px solid lightgray;
     background-color:white;
     text-align:center;
+    padding-left:5px
+    padding-top: 10px;
 }
 
 .plan{
