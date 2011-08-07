@@ -177,7 +177,7 @@
             </div>
         </div>
 
-         <div class="bottom_links">
+         <div id="footer">
             
             <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
             <a href="/about" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
@@ -187,10 +187,6 @@
 <a href="http://mixpanel.com/f/partner"><img src="http://mixpanel.com/site_media/images/partner/badge_blue.png" alt="Web Analytics" /></a>
 
 
-        </div>
-
-        <div id = "footer">
-           footer bitch!
         </div>
 
 
