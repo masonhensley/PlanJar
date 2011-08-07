@@ -180,7 +180,7 @@ class Load_locations extends CI_Model
             $friend_query .= "user_id=$following_id->follow_id OR ";
         }
         $friend_query = substr($friend_query, 0, -4);
-        if ($result->num_rows())
+        if ($result->num_rows() == 0)
         {
             $friend_query = substr($friend_query, 0, 2);
         }
@@ -258,7 +258,7 @@ class Load_locations extends CI_Model
     {
         ?> 
         <div class="display_message">
-        <?php echo $display_message; ?>
+            <?php echo $display_message; ?>
         </div>
         <?php
         if (count($place_id_array) > 0)
@@ -272,7 +272,7 @@ class Load_locations extends CI_Model
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">
-                <?php echo $number_tracker; ?>
+                        <?php echo $number_tracker; ?>
                     </div>
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
                     <font style="font-weight:bold;color:lightgray; font-size:13px;"><?php echo $count; ?> people in selected tab(s) are attending</font><br/>
