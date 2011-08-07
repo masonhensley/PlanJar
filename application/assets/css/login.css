@@ -342,14 +342,14 @@ h6 {
  position: fixed;
  text-shadow: 1px 1px 1px #000000;
  width: 960px;
-}
-
-
-/* border curves */
-#stickey_footer {
  -moz-border-radius: 10px 10px 0px 0px;
  -webkit-border-radius: 10px 10px 0px 0px;
  border-radius: 10px 10px 0px 0px;
+
+/* shadow for the footer*/
+ -moz-box-shadow:0px 0px 11px #191919;
+ -webkit-box-shadow:0px 0px 11px #191919;
+ box-shadow:0px 0px 11px #191919;
 }
  
 /* hover effect */
@@ -357,12 +357,7 @@ h6 {
  background: none repeat scroll 0 0 #2b2a2a;
 }
  
-/* shadow for the footer*/
-#stickey_footer {
- -moz-box-shadow:0px 0px 11px #191919;
- -webkit-box-shadow:0px 0px 11px #191919;
- box-shadow:0px 0px 11px #191919;
-}
+
  
 #footer_menu {
  margin: 0;
@@ -379,25 +374,12 @@ h6 {
  background: rgba(0, 0, 0, 0.1);
 }
  
-#footer_menu .imgmenu {
- padding:5px 8px 3px 14px;
- float:left;
- background:url("images/home.png") 13px 5px no-repeat;
- width:36px;
- height:30px;
- border:none;
- border-right:1px solid rgba(0, 0, 0, 0.4);
- cursor:pointer;
-}
- 
+
 #footer_menu li:hover {
  background:#202020; /* Fallback color for old browsers */
  background: rgba(0, 0, 0, 0.3);
 }
  
-#footer_menu .imgmenu:hover {
- background:url("images/home_hover.png") 13px 5px no-repeat;
-}
  
 #footer_menu li a {
  display: block;
