@@ -13,6 +13,9 @@
 
         <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
+
+<!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
+
     </head>
     <body>
         <div class ="top_panel">
