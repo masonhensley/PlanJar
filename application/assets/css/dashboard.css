@@ -1,388 +1,348 @@
 /* ---------- GLOBAL ------------*/
-body{
-    background-color:#F3F3F3;
-    margin: 0px;
-    font-family: helvetica;
-    font-size: 15px;
-
-    /*-webkit-user-select: none; */
-    cursor:default; 
+body {
+	background-color: #F3F3F3;
+	margin: 0px;
+	font-family: helvetica;
+	font-size: 15px;
+	/*-webkit-user-select: none; */
+	cursor: default;
 }
-
-a{
-    color:white; text-decoration: none;
+a {
+	color: white;
+	text-decoration: none;
 }
-
 /* ---------- TOP PANEL ----------- */
-.top_panel{
-    height: 40px;
-    width:100%;
-    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
-    background: -moz-linear-gradient(top,#333,#666);
-    background: transparent	9;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333',endColorstr='#111');
-    /*--CSS3 Box Shadows--*/
-    -webkit-box-shadow: 0px 0px 9px #000;
-    -moz-box-shadow: 0px 0px 9px #000;
-    box-shadow: 0px 0px 9px #000;
-
+.top_panel {
+	height: 40px;
+	width: 100%;
+	background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
+	background: -webkit-linear-gradient(top, #333, #666);
+	background: -moz-linear-gradient(top, #333, #666);
+	background: -o-linear-gradient(top, #333, #666);
+	background: -ms-linear-gradient(top, #333, #666);
+	background: linear-gradient(top, #333, #666);
+	color: lightgray;
 }
-
-.inside_top_panel{
-    width:1024px;
-    height:100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+.top_right_link_inner {
+	position: relative;
+	top: 13px;
+	font-size: 12px;
 }
-
-.top_links{
-    width:100%;
-    text-align: right;
-    height:100%;
-    position:relative;
-    top:10px;
+#show_name {
+	float: left;
+	color: white;
+	margin-right: 300px;
+	margin-top: 12px;
 }
-
-.top_right_link_outer{
-    height:100%;
-    width:75px;
-    display:inline-block;
-    float: right;
-    top:-15px;
-    text-align: center;
-    margin-right:5px;
-    margin-left:5px;
-    padding-right:5px;
-    padding-left:5px;
-}
-
-.top_right_link_outer:hover{
-    background: -webkit-gradient(linear,left top,left bottom,from(darkGray),to(gray));
-    color:lightgray;
-}
-
-.top_right_link_inner{
-    position:relative;
-    top:13px;
-    font-size:12px;
-}
-
-#show_name{
-    float:left;
-    color:white;
-    margin-right:300px;
-    margin-top:12px;
-}
-
 /* ---------- CONTAINER ---------- */
-
-.container{
-    position:relative;
-    top:10px;
-    width:1024px;
-    height:1000px;
-    margin-left:auto;
-    margin-right:auto;
-    background-color:#F3F3F3;
+.container {
+	position: relative;
+	top: 10px;
+	width: 1024px;
+	height: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #F3F3F3;
 }
-
-.tab_container{
-    width:100%;
-    height:auto;
-    background-color:#F3F3F3;
+.tab_container {
+	width: 100%;
+	height: auto;
+	background-color: #F3F3F3;
 }
-
-.tab{
-    -webkit-box-shadow:0 1px 3px rgba(0,0,0,0.5);
-    background-color: lightgray;
-    width:100px;
-    height:auto;
-    margin-right: 10px;
-    display: inline-block;
-    background-color:#F3F3F3;
-    text-align: center;
-    padding-top:10px;
-    padding-bottom:10px;
-    color:black;
+.tab {
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	background-color: lightgray;
+	width: 100px;
+	height: auto;
+	margin-right: 10px;
+	display: inline-block;
+	background-color: #F3F3F3;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: black;
 }
-
 .tab_selected {
-    background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
-    color: white;
+	background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
+	background: -webkit-linear-gradient(top, #73B1EA, #02C);
+	background: -moz-linear-gradient(top, #73B1EA, #02C);
+	background: -o-linear-gradient(top, #73B1EA, #02C);
+	background: -ms-linear-gradient(top, #73B1EA, #02C);
+	background: linear-gradient(top, #73B1EA, #02C);
+	color: white;
 }
-
-.page_content{
-    position:relative;
-    top:10px;
-    width:100%;
-    height:100%;
-    background-color: #F3F3F3;
-    display: none;
+.page_content {
+	position: relative;
+	top: 10px;
+	width: 100%;
+	height: 100%;
+	background-color: #F3F3F3;
+	display: none;
 }
-
 /* following tab */
 #following_content .left {
-    width:37%;
-    float:left;
-    height:auto;
-    background-color:white;
-    border: 1px solid #CCC;
-    min-height: 50px;
-    border-top-left-radius:10px;
+	width: 37%;
+	float: left;
+	height: auto;
+	background-color: white;
+	border: 1px solid #CCC;
+	min-height: 50px;
+	border-top-left-radius: 10px;
 }
-
 #follow_search {
-    width: 100%;
-    height: 800px;
+	width: 100%;
+	height: 800px;
 }
 #following_content .right {
-    width:40%;
-    float:left;
-    height:auto;
-    background-color:white;
-    border: 1px solid #CCC;
-    border-top-right-radius: 10px;
-    margin-left:50px;
+	width: 40%;
+	float: left;
+	height: auto;
+	background-color: white;
+	border: 1px solid #CCC;
+	border-top-right-radius: 10px;
+	margin-left: 50px;
 }
 #following_content .right_header {
-    height: 30px;
-    margin-top:10px;
-    margin-left:10px;
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 10px;
 }
-#following_list{
-    width: 100%;
+#following_list {
+	width: 100%;
 }
 #follow_search {
-    width: 100%;
-    height: 80%;
+	width: 100%;
+	height: 80%;
 }
-
 /* follow entry */
 .user_entry {
-    width: 100%;
-    height: 55px;
-    border-top: 1px solid #CCC;
-    text-align: center;
-    position: relative;
+	width: 100%;
+	height: 55px;
+	border-top: 1px solid #CCC;
+	text-align: center;
+	position: relative;
 }
 .user_entry .user_entry_left {
-    float: left;
-    width: 90px;
-    margin-top:3px;
+	float: left;
+	width: 90px;
+	margin-top: 3px;
 }
 .user_entry .user_picture {
-    width: 50px;
-    height: 50px;
-    background-color: white;
+	width: 50px;
+	height: 50px;
+	background-color: white;
 }
 .user_entry .user_entry_middle {
-    float: left;
-    width: auto;
-    margin-top:10px;
+	float: left;
+	width: auto;
+	margin-top: 10px;
 }
-
 .user_entry .add_following {
-    float: right;
-    width: 80px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
-    color: white;
-    padding: 3px;
+	float: right;
+	width: 80px;
+	background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
+	background: -webkit-linear-gradient(top, #DF58E8, purple);
+	background: -moz-linear-gradient(top, #DF58E8, purple);
+	background: -o-linear-gradient(top, #DF58E8, purple);
+	background: -ms-linear-gradient(top, #DF58E8, purple);
+	background: linear-gradient(top, #DF58E8, purple);
+	color: white;
+	padding: 3px;
 }
 .user_entry .following {
-    float: right;
-    width: 80px;
-    color: gray;
-    padding: 3px;
+	float: right;
+	width: 80px;
+	color: gray;
+	padding: 3px;
 }
-
 /* follower tab */
 #friends_content .left {
-    width: 38%;
-    float: left;
-    height: auto;
-    border: 1px solid #CCC;
-    border-top-left-radius:10px;
-    background-color: white;
+	width: 38%;
+	float: left;
+	height: auto;
+	border: 1px solid #CCC;
+	border-top-left-radius: 10px;
+	background-color: white;
 }
 #friends_content .left_header {
-    width: 100%;
-    text-align:center;
-    color:navy;
-    height:37px;
-    padding-top:10px;
-    padding-bottom:10px;
-    margin-bottom:-7px;
-    font-size:16px;
+	width: 100%;
+	text-align: center;
+	color: navy;
+	height: 37px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: -7px;
+	font-size: 16px;
 }
-.left_header{
-    height: 50px; 
-    width: 100%; 
+.left_header {
+	height: 50px;
+	width: 100%;
 }
-
 #followers_list {
-    width: 100%;
-    height: auto;
+	width: 100%;
+	height: auto;
 }
 .selected_follower {
-    background: -webkit-gradient(linear,left top,left bottom,from(#ddd),to(#eff));
+	background: -webkit-gradient(linear,left top,left bottom,from(#ddd),to(#eff));
+	background: -webkit-linear-gradient(top, #ddd, #eff);
+	background: -moz-linear-gradient(top, #ddd, #eff);
+	background: -o-linear-gradient(top, #ddd, #eff);
+	background: -ms-linear-gradient(top, #ddd, #eff);
+	background: linear-gradient(top, #ddd, #eff);
 }
 #friends_content .right, #notifications_content .right {
-    width: 48%;
-    float: right;
-    height: auto;
-    border: 1px solid #CCC;
-    border-top-right-radius:10px;
-    background-color:white;
-    padding:10px;
-    margin-right:100px;
+	width: 48%;
+	float: right;
+	height: auto;
+	border: 1px solid #CCC;
+	border-top-right-radius: 10px;
+	background-color: white;
+	padding: 10px;
+	margin-right: 100px;
 }
-
-.suggested_friends{
-    margin-right:30px;
-    width:auto;
-    height:33px;
-    text-align:center;
-    float:right;
-    margin-top:8px;
-    border:1px solid #CCC;
-    padding-left:3px;
-    padding-right:3px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
-    padding-left:15px;
-    padding-right:15px;
+.suggested_friends {
+	margin-right: 30px;
+	width: auto;
+	height: 33px;
+	text-align: center;
+	float: right;
+	margin-top: 8px;
+	border: 1px solid #CCC;
+	padding-left: 3px;
+	padding-right: 3px;
+	background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
+	background: -webkit-linear-gradient(top, #EEE, white);
+	background: -moz-linear-gradient(top, #EEE, white);
+	background: -o-linear-gradient(top, #EEE, white);
+	background: -ms-linear-gradient(top, #EEE, white);
+	background: linear-gradient(top, #EEE, white);
+	padding-left: 15px;
+	padding-right: 15px;
 }
-
-.suggested_active{
-    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
-    color:black;
+.suggested_active {
+	background: -webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
+	background: -webkit-linear-gradient(top, #DDD, #EFF);
+	background: -moz-linear-gradient(top, #DDD, #EFF);
+	background: -o-linear-gradient(top, #DDD, #EFF);
+	background: -ms-linear-gradient(top, #DDD, #EFF);
+	background: linear-gradient(top, #DDD, #EFF);
+	color: black;
 }
-
 /* ----------------- PROFILE CSS ---------------*/
-.profile_container{
-    width:100%;
-    height:100%;
-    margin-left:auto;
-    margin-right:auto;
+.profile_container {
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
-
-.profile_box{
-    border-top-left-radius:10px;
-    float:left;
-    border: 1px solid #CCC;
-    margin-left:auto;
-    margin-right:auto;
-    height:auto;
-    width: 48%;
-    padding:10px;
-    background-color:white;
+.profile_box {
+	border-top-left-radius: 10px;
+	float: left;
+	border: 1px solid #CCC;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	width: 48%;
+	padding: 10px;
+	background-color: white;
 }
-
-.edit_box{
-    color:blue;
-    font-weight:bold;
+.edit_box {
+	color: blue;
+	font-weight: bold;
 }
-
-.my_box{
-    width:300px;
-    margin-left:35px;
+.my_box {
+	width: 300px;
+	margin-left: 35px;
 }
-
-.update_box{
-    color:blue;
-    font-weight:bold;
+.update_box {
+	color: blue;
+	font-weight: bold;
 }
-
-.profile_top_bar{
-    width:100%;
-    height:100px;
-    text-align: center;
+.profile_top_bar {
+	width: 100%;
+	height: 100px;
+	text-align: center;
 }
-
-.profile_picture{
-    width:80px;
-    height:80px;
-    float:left;
-    margin-top:10px;
-    background-color:white;
+.profile_picture {
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-top: 10px;
+	background-color: white;
 }
-
-.profile_user_information{
-    width:260px;
-    margin-left:auto;
-    margin-right:auto;
-    position:relative;
-    top:10px;
+.profile_user_information {
+	width: 260px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	top: 10px;
 }
-
-.profile_body{
-    position:relative;
-    height:auto;
-    width:100%;
-    text-align:left;
+.profile_body {
+	position: relative;
+	height: auto;
+	width: 100%;
+	text-align: left;
 }
-
-.following_profile_body{
-    position:absolute;
-    top:60px;
-    right:60px;
-    background-color:white;
-    height:auto;
-    width:50%;
-    border:1px solid #CCC;
-    padding:10px;
-    border-top-right-radius:10px;
+.following_profile_body {
+	position: absolute;
+	top: 60px;
+	right: 60px;
+	background-color: white;
+	height: auto;
+	width: 50%;
+	border: 1px solid #CCC;
+	padding: 10px;
+	border-top-right-radius: 10px;
 }
-
-.profile_body_text{
-    width:100%;
+.profile_body_text {
+	width: 100%;
 }
-
-.profile_edit{
-    float:right;
-    width:300px;
-    height:500px;
+.profile_edit {
+	float: right;
+	width: 300px;
+	height: 500px;
 }
-
-.profile_bottom_bar{
-    width:100%;
-    height:17px;
-    position:relative;
+.profile_bottom_bar {
+	width: 100%;
+	height: 17px;
+	position: relative;
 }
-
-.in-field_block_group{
-    margin-left:10px;
-    width:200px;
-    float:left;
-    margin-top:6px;
-    margin-bottom:6px;
+.in-field_block_group {
+	margin-left: 10px;
+	width: 200px;
+	float: left;
+	margin-top: 6px;
+	margin-bottom: 6px;
 }
-
-.number_of_connections{
-    color:green;
-    font-weight:bold;
+.number_of_connections {
+	color: green;
+	font-weight: bold;
 }
-
-.group_bottom_text{
-    float:left;
+.group_bottom_text {
+	float: left;
 }
-
-.group_bottom_button{
-    position:absolute; 
-    right:0px; 
-    bottom:0px;
+.group_bottom_button {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
 }
-
-.user_entry .remove_following{
-    float:right;
-    width: 75px;
-    height:20px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
-    color: white;
-    padding: 3px;
-    text-align: center;
-    display:inline-block;
-    position:absolute;
-    top:0px;
-    right:0px;
+.user_entry .remove_following {
+	float: right;
+	width: 75px;
+	height: 20px;
+	background: -webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
+	background: -webkit-linear-gradient(top, #FF7373, red);
+	background: -moz-linear-gradient(top, #FF7373, red);
+	background: -o-linear-gradient(top, #FF7373, red);
+	background: -ms-linear-gradient(top, #FF7373, red);
+	background: linear-gradient(top, #FF7373, red);
+	color: white;
+	padding: 3px;
+	text-align: center;
+	display: inline-block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }
