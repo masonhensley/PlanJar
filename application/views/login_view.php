@@ -178,17 +178,19 @@
         </div>
 <a href="http://mixpanel.com/f/partner"><img src="http://mixpanel.com/site_media/images/partner/badge_blue.png" alt="Web Analytics" /></a>
 
-         <div id="footer">
+<div id="stickey_footer">
+ <!-- Begin Footer Menu -->
+<ul id="footer_menu">
+ <li><a href="#"><span>Home</span></a></li>
+ <li><a href="#">Services</a>
+ <li><a href="#">Portfolio</a>
+ <li><a href="#">Friends</a>
+ <li><a href="#">Blog</a>
+ <li><a href="#">Testimonials</a>
+ <li><a href="#">Contact</a>
+ </ul>
+</div>
 
-           <ul id="footer_menu">
-            
-            <li><a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a></li>
-            <li><a href="/about" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a></li>
-            <li><a href="/privacy" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a></li>
-            <li><a href="http://blog.planjar.com/" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Blog</div></div></a></li>
-           </ul>
-
-        </div>
 
 
 
