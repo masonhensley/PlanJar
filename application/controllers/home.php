@@ -204,9 +204,9 @@ class Home extends CI_Controller
 
     public function load_selected_plan_data()
     {
-        $plan = $this->input->get('plan_selected');
-        $this->load->model('plan_actions');
-        $return = $this->plan_actions->load_plan_data($plan);
+        $plan_id = $this->input->get('plan_selected');
+        $this->load->model('load_plan_data');
+        $return = $this->load_plan_data->display_plan_data($plan_id);
         echo json_encode($return);
     }
 
