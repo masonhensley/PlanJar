@@ -166,7 +166,7 @@ function initialize_location_info(data) {
                 
     // Capture the data
     data = data.graph_data;
-                
+    console.log(data);
     // Populate the graphs
     populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date);
     two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
