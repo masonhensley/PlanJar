@@ -54,7 +54,7 @@ class Load_plan_data extends CI_Model
 
         // get #invited
         $query = "
-            SELECT event_invitees.user_id FROM plans 
+            SELECT event_invites.user_id FROM plans 
             JOIN events ON plans.event_id=events.id
             JOIN event_invitees ON events.id=event_invitees.event_id
             WHERE plans.id=$plan_id
