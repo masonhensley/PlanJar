@@ -161,7 +161,7 @@ function display_info(bypass, arg) {
 // Sets up the location view (graphs and whatnot)
 // Used for viewing locations and friends' plans
 function initialize_location_info(data) {
-console.log(data);
+    console.log(data);
 
     // Apply the layout HTML
     $('#info_content').html(data.html);
