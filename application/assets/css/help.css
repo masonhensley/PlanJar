@@ -87,19 +87,6 @@ a{
     display: none;
 }
 
-.delete_plan{
-    float:left;
-    text-align: center;    
-    padding:4px;
-    position:relative;
-    left:5px;
-    border:1px solid lightgray;
-    background-color:#DC2F2F;
-    color:white;
-}
-
-
-
 /*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
 .display_message{
     background:-webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(white));
@@ -112,11 +99,6 @@ a{
     font-style:italic; 
     color:gray;
 }
-
-
-
-
-
 
 
 .bottom_links{
