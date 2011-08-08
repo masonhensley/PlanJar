@@ -30,7 +30,7 @@
 
                 <div class="in-field_block" style="float: left; margin-left: 15px;">
                     <label for="plan_clock_time">Type a time</label>
-                    <input type="text" id="plan_clock_time" name="plan_clock_time"/>
+                    <input type="text" id="plan_clock_time"/>
                 </div>
             </div>
 
@@ -78,6 +78,7 @@
             <input id="new_place_longitude" name="new_place_longitude" type="hidden"/>
             <input id="new_place_factual_id" name="new_place_factual_id" type="hidden"/>
             <input id="plan_event_id" name="plan_event_id" type="hidden" />
+            <input id="plan_clock_time_raw" name="plan_lcock_time_raw" type="hidden" />
         </form>
     </div>
 
