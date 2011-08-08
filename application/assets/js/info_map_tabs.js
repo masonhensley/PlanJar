@@ -103,8 +103,6 @@ function display_info(bypass, arg) {
             data = data.data;
         
             // Initialize the graphs
-            console.log(data.percent_male);
-            console.log(data.percent_female);
             two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
             populate_percentage_box('.attending_graph', data.percent_attending, 'percent_bar_total');
         

@@ -74,9 +74,9 @@ class Load_plan_data extends CI_Model
             $percent_attending = 0;
         } else
         {
-            $percent_male = ($number_males / $number_attending) * 100;
-            $percent_female = ($number_females / $number_attending) * 100;
-            $percent_attending = $number_invited / $number_attending * 100;
+            $percent_male = $number_males / $number_attending;
+            $percent_female = $number_females / $number_attending;
+            $percent_attending = $number_invited / $number_attending;
         }
 
         // get originator name
@@ -88,7 +88,7 @@ class Load_plan_data extends CI_Model
         ";
 
         $result = $this->db->query($query);
-        $originator_name = $result->row()->first_name ." " .$result->row()->last_name;
+        $originator_name = $result->row()->first_name . " " . $result->row()->last_name;
 
         $this->load->helper('date');
         $data_array = array(
