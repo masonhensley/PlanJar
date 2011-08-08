@@ -49,6 +49,7 @@ function display_info(bypass, arg) {
             'date': get_selected_day(),
             'selected_groups':get_selected_groups()
         }, function (data) {
+            data = $.parseJSON(data);
             initialize_location_info(data);
         });
     } else if ($('.network_active, .selected_group').length > 0) {
@@ -125,6 +126,20 @@ function display_info(bypass, arg) {
             $('.invite_people').click(function () {
                 open_invite_modal('event', data.event_id, data.privacy, data.originator);
             });
+            
+            // Handles clicking on the see place button
+            $('.view_plan_location').click(function () {
+                $.get('/home/show_location_data', {
+                    'place_id': data.location_id,
+                    'date': get_selected_day(),
+                    'selected_groups': ['current_location']
+                }, function (data) {
+                    data = $.parseJSON(data);
+                    initialize_location_info(data);
+                });
+                
+                initialize_location_info(data);
+            });
         });
     } else if ($('.selected_friend_plan').length > 0) {
         // Friend's plan selected
@@ -144,9 +159,6 @@ function display_info(bypass, arg) {
 // Sets up the location view (graphs and whatnot)
 // Used for viewing locations and friends' plans
 function initialize_location_info(data) {
-    // Parse the JSON
-    data = $.parseJSON(data);
-                
     // Apply the layout HTML
     $('#info_content').html(data.html);
                 
