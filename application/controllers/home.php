@@ -92,14 +92,14 @@ class Home extends CI_Controller
         $latitude = $this->input->get('latitude');
         $longitude = $this->input->get('longitude');
 
-// Check the PlanJar database. (Query string courtesy of Wells.)
+        // Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT places.id, places.latitude, places.longitude, places.name, place_categories.alias AS category,
             ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude * PI() / 180) 
             + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
             * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
             FROM places JOIN place_categories ON place_categories.id = places.category_id
             WHERE MATCH (places.name) AGAINST (?) ORDER BY distance ASC LIMIT ?";
-        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, $needle . '*', 10));
+        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, str_replace(' ', '* ', $needle), 10));
 
 // Return a JSON array.
         foreach ($query->result_array() as $row)
