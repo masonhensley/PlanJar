@@ -224,17 +224,16 @@ a {
     background: -o-linear-gradient(top, #FF7373, red);
     background: -ms-linear-gradient(top, #FF7373, red);
     background: linear-gradient(top, #FF7373, red);
-
-    position:absolute;
-    top:0px;
-    right:0px;
+    color: white;
+    right: 0px;
+    top: 0px;
+    position: absolute;
 }
 .invite_people {
-    float: right;
+    float: left;
     text-align: center;
     padding: 4px;
-    position: relative;
-    right: 5px;
+    position: absolute;
     border: 1px solid lightgray;
     background: -webkit-gradient(linear,left top,left bottom,from(purple),to(#AF64DE));
     background: -webkit-linear-gradient(top, purple, #AF64DE);
@@ -243,6 +242,7 @@ a {
     background: -ms-linear-gradient(top, purple, #AF64DE);
     background: linear-gradient(top, purple, #AF64DE);
     color: white;
+    bottom: 0px;
 }
 .plan_deleted {
     width: auto;
