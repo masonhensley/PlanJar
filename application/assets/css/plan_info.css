@@ -1,35 +1,55 @@
 .plan_header{
     width: 100%;
     height: 40px;
-    text-align:center;
+    text-align:left;
+    margin-left:5px;
+    margin-top:3px;
 }
 
 .plan_info{
     position:absolute;
-    
+    top:45px;
+    left:15px;
+
     width:250px;
     height:200px;
-    left:15px;
-    
+
     border:1px solid black;
 }
 
 .plan_graphs{
     position:absolute;
     right:15px;
-    
+    top:45px;
+
     width:250px;
     height:200px;
-    
+
     border: 1px solid black;
 }
 
 .plan_gender_graph{
-    
+
 }
 
 .attending_graph{
-    
+
+}
+
+.view_plan_location {
+    text-align: center;
+    padding: 4px;
+    border: 1px solid lightgray;
+    background: -webkit-gradient(linear,left top,left bottom,from(purple),to(#AF64DE));
+    background: -webkit-linear-gradient(top, purple, #AF64DE);
+    background: -moz-linear-gradient(top, purple, #AF64DE);
+    background: -o-linear-gradient(top, purple, #AF64DE);
+    background: -ms-linear-gradient(top, purple, #AF64DE);
+    background: linear-gradient(top, purple, #AF64DE);
+    color: white;
+    position:absolute;
+    top:0px;
+    right:0px;
 }
 
 .delete_plan {
@@ -47,4 +67,15 @@
     right: 0px;
     bottom: 0px;
     position: absolute;
+}
+
+.plan_deleted {
+    width: auto;
+    height: 50px;
+    position: relative;
+    top: 70px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 40px;
 }
