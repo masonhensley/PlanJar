@@ -37,16 +37,16 @@ class Event_ops extends CI_Model
             $hour = $time->format('G');
             if ($hour >= 19)
             {
-                $data['clock_time'] = 'night';
+                $data['time'] = 'night';
             } else if ($hour >= 12)
             {
-                $data['clock_time'] = 'afternoon';
+                $data['time'] = 'afternoon';
             } else if ($hour >= 6)
             {
-                $data['clock_time'] = 'morning';
+                $data['time'] = 'morning';
             } else
             {
-                $data['clock_time'] = 'late_night';
+                $data['time'] = 'late_night';
             }
         } else
         {
