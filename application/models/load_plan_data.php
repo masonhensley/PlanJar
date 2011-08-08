@@ -130,13 +130,18 @@ class Load_plan_data extends CI_Model
         </div>
 
         <div class="plan_info">
-            <font style="color:gray">Location</font> <font style="font-weight:bold;font-size:15px;"><?php echo "@" . $plan_row->name; ?></font>
-            <font style="color:gray">Created By </font><font style="font-weight:bold;"><?php echo $data_array['originator_name']; ?></font><br/>
-            <font style="color:gray">Time </font> <font style="font-weight:bold;"><?php echo $data_array['time_string']; ?></font>
+            <font style="color:gray">Location</font> <font style="font-weight:bold;font-size:15px;">
+            <?php echo "@" . $plan_row->name; ?></font><br/>
+            <font style="color:gray">Created By </font><font style="font-weight:bold;">
+            <?php echo $data_array['originator_name']; ?></font><br/>
+            <font style="color:gray">Time </font> <font style="font-weight:bold;">
+            <?php echo $data_array['time_string']; ?></font>
             <br/><hr/><br/>
-            <font style="color:gray">Invited </font><font style="font-weight:bold;"><?php echo $data_array['number_invited']; ?></font>
+            <font style="color:gray">Invited </font><font style="font-weight:bold;">
+            <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
-            <font style="color:gray">Accepted </font><font style="font-weight:bold;"><?php echo $data_array['number_attending']; ?></font>
+            <font style="color:gray">Accepted </font><font style="font-weight:bold;">
+            <?php echo $data_array['number_attending']; ?></font>
         </div>
 
         <div class="plan_graphs">
