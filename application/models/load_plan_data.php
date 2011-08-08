@@ -94,19 +94,19 @@ class Load_plan_data extends CI_Model
         <div class="delete_plan">Delete Plan</div>
         <div class="plan_header">
             <font style="color:navy; font-size:15px;">Plan Information</font>
+        </div>
+
+        <div class="plan_info">
             <?php
-            
             if ($plan_row->title != '')
             {
                 ?><font style="color:gray; font-size:15px;">title:</font><font style="color:black; font-size:20px;"><?php echo $plan_row->title; ?></font> <?php
-                echo $plan_row->name;
-            }else{
-                echo $plan_row->name;
-            }
-            
+            echo $plan_row->name;
+        } else
+        {
+            echo $plan_row->name;
+        }
             ?>
-        </div>
-        <div class="plan_info">
         </div>
 
         <div class="plan_graphs">
