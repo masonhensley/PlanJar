@@ -36,7 +36,6 @@ class Load_plan_data extends CI_Model
     {
         // set the plan time
         $time_string = ""; // fix this later!
-        
         // get #attending, #male, #female
         $query = "SELECT user_meta.sex FROM plans JOIN user_meta ON plans.user_id=user_meta.user_id WHERE plans.id=$plan_id";
         $result = $this->db->query($query);
@@ -127,14 +126,16 @@ class Load_plan_data extends CI_Model
                 ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo "@" . $plan_row->name; ?></font><?php
         }
             ?>
+            <hr/>
         </div>
 
         <div class="plan_info">
-            <font style="color:gray">Created by </font><?php echo $data_array['originator_name']; ?><br/>
+            <font style="color:gray">Created By </font><font style="font-weight:bold;"><?php echo $data_array['originator_name']; ?></font><br/>
             <font style="color:gray">Time </font> <font style="font-weight:bold;"><?php echo $data_array['time_string']; ?></font>
-            <br/>
-            <font style="color:gray">invited </font><font style="font-weight:bold;"><?php echo $data_array['number_invited']; ?></font>
-            <font style="color:gray">attending</font><?php echo $data_array['number_attending']; ?>
+            <br/><hr/><br/>
+            <font style="color:gray">Invited </font><font style="font-weight:bold;"><?php echo $data_array['number_invited']; ?></font>
+            &nbsp;&nbsp;&nbsp;
+            <font style="color:gray">Accepted </font><font style="font-weight:bold;"><?php echo $data_array['number_attending']; ?></font>
         </div>
 
         <div class="plan_graphs">
