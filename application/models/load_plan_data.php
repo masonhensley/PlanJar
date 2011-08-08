@@ -97,11 +97,14 @@ class Load_plan_data extends CI_Model
             'number_invited' => $number_invited,
             'number_attending' => $number_attending,
             'originator_name' => $originator_name,
+            'originator_id' => $plan_row->originator_id == $this->ion_auth->get_user()->id,
             'date' => get_day_offset($plan_row->date),
             'location_id' => $plan_row->place_id,
             'percent_attending' => $percent_attending,
             'percent_male' => $percent_male,
-            'percent_female' => $percent_female);
+            'percent_female' => $percent_female,
+            'privacy' => $plan_row->privacy
+        );
 
         return $data_array;
     }
@@ -126,7 +129,7 @@ class Load_plan_data extends CI_Model
                 ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo $plan_row->name; ?></font><?php
         }
             ?>
-            
+
         </div>
 
         <div class="plan_info">
