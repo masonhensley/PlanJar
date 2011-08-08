@@ -95,6 +95,8 @@ class Load_plan_data extends CI_Model
         // html to replace the data div
         ?>
         <div class="delete_plan">Delete Plan</div>
+        <div class="view_plan_location">See Location Info</div>
+        
         <div class="plan_header">
             <?php
             if ($plan_row->title != '')
@@ -133,7 +135,7 @@ class Load_plan_data extends CI_Model
         {
             ?>
             <div class="invite_people">Invite people</div>
-            <div class="view_plan_location">See <?php echo($plan_row->name); ?></div>
+            
             <?php
         } else
         {
