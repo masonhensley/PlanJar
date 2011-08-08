@@ -97,6 +97,7 @@ class Load_plan_data extends CI_Model
             ?>
         </div><br/><br/>
         <div class="delete_plan">Delete Plan</div>
+        <div class="view_plan_location"><?php echo($plan_row->name); ?></div>
         <?php
         // Generate the invite people string
         $user_originator = $plan_row->originator_id == $this->ion_auth->get_user()->id;
