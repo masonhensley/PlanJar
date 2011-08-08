@@ -140,11 +140,6 @@ function display_info(bypass, arg) {
                 });
                 
                 initialize_location_info(data);
-                
-                // Back click handler
-                $('.back_to_plan').click(function () {
-                    display_info();
-                })
             });
         });
     } else if ($('.selected_friend_plan').length > 0) {
@@ -188,6 +183,11 @@ function initialize_location_info(data) {
                 $('.plan_day[day_offset="' + $('.day_selected').attr('day_offset') + '"]').click();
             });
         });
+    });
+    
+    // Back click handler (not always visible)
+    $('.back_to_plan').click(function () {
+        display_info();
     });
 }
 
