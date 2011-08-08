@@ -71,6 +71,11 @@ function initialize_plan_modal() {
     // In-field labels
     $('#create_plan_content .in-field_block label').inFieldLabels();
     
+    // Clock time textbox defocus event
+    $('#plan_clock_time').blur(function () {
+        console.log(Date.parse($(this).val()));
+    });
+    
     // Try to advance the plan panel when a time or a day is selected
     $('.plan_day, #plan_time .divset').click(function () {
         $('#plan_right').click();
