@@ -29,9 +29,33 @@ class Event_ops extends CI_Model
     // Returns the event id
     public function create_event($data)
     {
-        var_dump($data);
-        //$query = $this->db->insert('events', $data);
-        //return $this->db->insert_id();
+        // Rectify the time
+        if (!$data['time'])
+        {
+            // Select the apropriate time of day based on the given clock time
+            $time = new DateTime($data['clock_time']);
+            $hour = $time->format('G');
+            if ($hour >= 19)
+            {
+                $data['clock_time'] = 'night';
+            } else if ($hour >= 12)
+            {
+                $data['clock_time'] = 'afternoon';
+            } else if ($hour >= 6)
+            {
+                $data['clock_time'] = 'morning';
+            } else
+            {
+                $data['clock_time'] = 'late_night';
+            }
+        } else
+        {
+            // Unset the clock time
+            unset($data['clock_time']);
+        }
+
+        $query = $this->db->insert('events', $data);
+        return $this->db->insert_id();
     }
 
     // Adds the specified users to the invitation list of the specified event
