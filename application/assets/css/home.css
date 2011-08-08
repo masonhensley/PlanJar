@@ -229,31 +229,8 @@ a {
     color: white;
     bottom: 0px;
 }
-.view_plan_location {
-    text-align: center;
-    padding: 4px;
-    border: 1px solid lightgray;
-    background: -webkit-gradient(linear,left top,left bottom,from(purple),to(#AF64DE));
-    background: -webkit-linear-gradient(top, purple, #AF64DE);
-    background: -moz-linear-gradient(top, purple, #AF64DE);
-    background: -o-linear-gradient(top, purple, #AF64DE);
-    background: -ms-linear-gradient(top, purple, #AF64DE);
-    background: linear-gradient(top, purple, #AF64DE);
-    color: white;
-    position:absolute;
-    bottom:0px;
-    left:100px;
-}
-.plan_deleted {
-    width: auto;
-    height: 50px;
-    position: relative;
-    top: 70px;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 40px;
-}
+
+
 #map {
     width: 100%;
     height: 300px;
