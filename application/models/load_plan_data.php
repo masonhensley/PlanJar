@@ -93,7 +93,7 @@ class Load_plan_data extends CI_Model
         ?>
         <div class="delete_plan">Delete Plan</div>
         <div class="plan_header">
-            <font style="color:navy; font-size:15px;">Plan Information</font>
+            <font style="color:navy; font-size:20px;">Plan Information</font>
         </div>
 
         <div class="plan_info">
