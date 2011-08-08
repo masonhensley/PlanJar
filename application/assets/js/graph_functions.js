@@ -10,7 +10,7 @@ function populate_percentage_box(container, percentage, active_class) {
         $(container).append($('<div class="percent_bar ' + active_class + '"></div>'));
     }
     
-    // Define the bar height scaling function
+    // Define the bar width scaling function
     var bar_scale = d3.scale.linear()
     .range(['0%', '100%']);
     
