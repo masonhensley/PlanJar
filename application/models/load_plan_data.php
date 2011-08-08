@@ -126,10 +126,11 @@ class Load_plan_data extends CI_Model
                 ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo $plan_row->name; ?></font><?php
         }
             ?>
-            <hr/>
+            
         </div>
 
         <div class="plan_info">
+            <hr/>
             <font style="color:gray">Location</font> <font style="font-weight:bold;font-size:15px;">
             <?php echo "@" . $plan_row->name; ?></font><br/>
             <font style="color:gray">Created By </font><font style="font-weight:bold;">
