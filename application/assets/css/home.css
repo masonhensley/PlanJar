@@ -91,7 +91,7 @@ a {
     border: 1px solid lightgray;
     height: 100%;
     padding: 5px 0px 5px;
-    color: darkorange;
+    font-weight:bold;
     background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
@@ -113,7 +113,7 @@ a {
     border: 1px solid lightgray;
     height: 100%;
     padding: 5px 0px 5px;
-    color: darkgreen;
+    font-weight:bold;
     text-align: center;
     margin-bottom: 10px;
     width: 95%;
@@ -446,12 +446,12 @@ a {
 /*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans {
     position: absolute;
-    right: 11px;
+    right: 55px;
     top: -48px;
     border: 1px solid lightgray;
     background: white;
     padding: 9px;
-    color: navy;
+    color: gray;
     font-weight:bold;
 }
 #friends_plans_panel {
@@ -605,11 +605,12 @@ a {
 #create_plan {
     position: absolute;
     top: -48px;
-    right: 123px;
+    right: 230px;
     border: 1px solid lightgray;
     background: white;
     padding: 9px;
     color: navy;
+    font-weight:bold;
 }
 .make_plan {
     position: absolute;
