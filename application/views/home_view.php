@@ -13,7 +13,7 @@
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/invite_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/modal.css" type="text/css" />
-        <link rel=stylesheet href="/application/assets/css/databox.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/group_info.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/graphs.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_conflict_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/selectable_event.css" type="text/css" />
