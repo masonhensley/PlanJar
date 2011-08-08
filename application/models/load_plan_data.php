@@ -101,7 +101,7 @@ class Load_plan_data extends CI_Model
             <?php
             if ($plan_row->title != '')
             {
-                ?><font style="color:gray; font-size:15px;">title:</font><font style="color:black; font-size:20px;"><?php echo $plan_row->title; ?></font> <?php
+                ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo $plan_row->title; ?></font> <?php
             echo $plan_row->name;
         } else
         {
