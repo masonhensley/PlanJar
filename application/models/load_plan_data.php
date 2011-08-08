@@ -95,7 +95,7 @@ class Load_plan_data extends CI_Model
         // html to replace the data div
         ?>
         <div class="delete_plan">Delete Plan</div>
-        <div class="view_plan_location">See <?php echo($plan_row->name); ?></div>
+        <div class="view_plan_location">See Location Info</div>
         
         <div class="plan_header">
             <?php
