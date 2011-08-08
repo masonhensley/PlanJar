@@ -133,11 +133,14 @@ class Home extends CI_Controller
             // Event data
             $date = new DateTime();
             $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
+            $clock_time = new DateTime($this->input->get('plan_clock_time'));
+            $clock_time = $clock_time->format('H:i:00');
             $event_data = array(
                 'title' => $this->input->get('event_title'),
                 'place_id' => $this->input->get('plan_location_id'),
                 'date' => $date->format('Y-m-d'),
                 'time' => $this->input->get('plan_time'),
+                'clock_time' => $clock_time,
                 'privacy' => $privacy,
                 'originator_id' => $this->ion_auth->get_user()->id
             );
