@@ -55,7 +55,7 @@ a {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 1052px;
+    width: 1024px;
     height: 1000px;
     text-align: center;
     margin-top: 20px;
@@ -66,7 +66,7 @@ a {
 /* -------------- LEFT PANEL ---------------- */
 .container > .left {
     float: left;
-    width: 210px;
+    width: 200px;
     min-height: 100px;
     text-align: center;
     background-color: white;
@@ -91,7 +91,7 @@ a {
     border: 1px solid lightgray;
     height: 100%;
     padding: 5px 0px 5px;
-    color: darkorange;
+    font-weight:bold;
     background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
@@ -102,6 +102,7 @@ a {
     margin-bottom: 10px;
     width: 95%;
     margin-left: 5px;
+    font-size:12px;
 }
 .network_tab {
     background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
@@ -113,11 +114,12 @@ a {
     border: 1px solid lightgray;
     height: 100%;
     padding: 5px 0px 5px;
-    color: darkgreen;
+    font-weight:bold;
     text-align: center;
     margin-bottom: 10px;
     width: 95%;
     margin-left: 5px;
+    font-size: 12px;
 }
 .network_tab.network_active {
     background: -webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
@@ -420,7 +422,7 @@ a {
 /* ------------------ RIGHT PANEL -----------------------*/
 .container > .right {
     float: left;
-    width: 210px;
+    width: 200px;
     min-height: 30px;
     background-color: white;
     padding-top: 10px;
@@ -446,12 +448,12 @@ a {
 /*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans {
     position: absolute;
-    right: 11px;
+    right: 340px;
     top: -48px;
     border: 1px solid lightgray;
     background: white;
     padding: 9px;
-    color: navy;
+    color: gray;
     font-weight:bold;
 }
 #friends_plans_panel {
@@ -605,11 +607,12 @@ a {
 #create_plan {
     position: absolute;
     top: -48px;
-    right: 123px;
+    right: 230px;
     border: 1px solid lightgray;
     background: white;
     padding: 9px;
-    color: navy;
+    color: gray;
+    font-weight:bold;
 }
 .make_plan {
     position: absolute;
