@@ -45,6 +45,7 @@
     position:absolute;
     bottom:0px;
     height:100px;
+    text-align:right;
 }
 
 .total_percent_container, .male_percent_container, .female_percent_container{
