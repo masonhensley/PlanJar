@@ -69,7 +69,7 @@ function initialize_plan_modal() {
     plan_day_click_handlers();
     
     // In-field labels
-    $('#start_event_content .in-field_block label').inFieldLabels();
+    $('#create_plan_content .in-field_block label').inFieldLabels();
     
     // Try to advance the plan panel when a time or a day is selected
     $('.plan_day, #plan_time .divset').click(function () {
