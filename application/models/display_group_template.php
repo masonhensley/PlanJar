@@ -430,8 +430,8 @@ class Display_group_template extends CI_Model
         
         <!-- <div class="group_graph_bottom_right"></div> -->
         <div class="day_display">
-            <div style="font-size:100px; color:darkgray; line-height: 75px;overflow:hidden;"><?php echo $big_display_month; ?></div>
-            <div style="font-size:100px; color: #7BC848; line-height:75px;overflow:hidden;"><?php echo $big_display_day; ?></div>
+            <div style="font-size:100px; color: #7BC848; line-height:75px;overflow:hidden; display:inline-block;"><?php echo $big_display_day; ?></div>
+            <div style="font-size:100px; color:darkgray; line-height: 75px;overflow:hidden; display:inline-block;"><?php echo $big_display_month; ?></div>
         </div>
         
         <div class="group_graph_bottom_left">
