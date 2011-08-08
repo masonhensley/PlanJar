@@ -11,7 +11,7 @@ class Load_plan_data extends CI_Model
     // Returns an array containing privacy type and the HTML for the plan
     function display_plan_data($plan_id)
     {
-        // pull all user's current events
+        // pull info for the plan
         $query = "SELECT events.id, events.date, events.time, events.title, events.privacy, events.originator_id, places.name, places.id AS place_id
             FROM plans LEFT JOIN events ON plans.event_id = events.id
             LEFT JOIN places ON events.place_id = places.id
@@ -20,6 +20,9 @@ class Load_plan_data extends CI_Model
         // pull data
         $query_result = $this->db->query($query);
         $plan_row = $query_result->row();
+
+
+
 
         $data_array = $this->get_plan_data_array($plan_id, $plan_row);
         $plan_html = $this->get_plan_html($plan_row, $data_array);
@@ -76,7 +79,17 @@ class Load_plan_data extends CI_Model
             $percent_attending = $number_invited / $number_attending * 100;
         }
 
+        // get originator name
+        $query = "
+        SELECT user_meta.first_name, user_meta.last_name FROM 
+        (SELECT originator_id FROM plans 
+        JOIN events ON events.id=plans.event_id 
+        JOIN user_meta ON user_meta.user_id=events.originator_id
+        WHERE plans.id=$plan_id)
+        ";
 
+        $result = $this->db->query($query);
+        $originator_name = $result->row()->first_name ." " .$result->row()->last_name;
 
         $this->load->helper('date');
         $data_array = array(
@@ -96,7 +109,7 @@ class Load_plan_data extends CI_Model
         // html to replace the data div
         ?>
         <div class="delete_plan">Delete Plan</div>
-        <div class="view_plan_location">See Location Info</div>
+        <div class="view_plan_location">View Location Info</div>
 
         <div class="plan_header">
             <?php
