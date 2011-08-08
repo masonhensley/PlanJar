@@ -131,7 +131,7 @@ function display_info(bypass, arg) {
             $('.view_plan_location').click(function () {
                 $.get('/home/show_location_data', {
                     'place_id': data.data.location_id,
-                    'date': get_selected_day(),
+                    'date': data.data.day_offset,
                     'selected_groups': (['current_location'])
                 }, function (data) {
                     data = $.parseJSON(data);
