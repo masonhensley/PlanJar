@@ -165,7 +165,7 @@ function initialize_location_info(data) {
     $('#info_content').html(data.html);
                 
     // Capture the data
-    data = data.graph_data;
+    data = data.data;
     console.log(data);
     // Populate the graphs
     populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date);
