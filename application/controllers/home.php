@@ -99,7 +99,6 @@ class Home extends CI_Controller
             * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
             FROM places JOIN place_categories ON place_categories.id = places.category_id
             WHERE MATCH (places.name) AGAINST (? IN BOOLEAN MODE) ORDER BY distance ASC LIMIT ?";
-        var_dump($this->db->last_query());
 
 // Return a JSON array.
         foreach ($query->result_array() as $row)
