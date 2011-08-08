@@ -74,8 +74,9 @@ class Load_plan_data extends CI_Model
             $percent_female = ($number_females / $number_attending) * 100;
         }
 
+        $this->load->helper('date');
         $data_array = array(
-            'date' => $plan_row->date,
+            'date' => get_day_offset($plan_row->date),
             'location_id' => $plan_row->place_id,
             'number_attending' => $number_attending,
             'number_invited' => $number_invited,
