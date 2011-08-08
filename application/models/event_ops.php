@@ -29,9 +29,9 @@ class Event_ops extends CI_Model
     // Returns the event id
     public function create_event($data)
     {
-        $query = $this->db->insert('events', $data);
-
-        return $this->db->insert_id();
+        var_dump($data);
+        //$query = $this->db->insert('events', $data);
+        //return $this->db->insert_id();
     }
 
     // Adds the specified users to the invitation list of the specified event
