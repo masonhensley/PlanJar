@@ -165,6 +165,7 @@ function initialize_location_info(data) {
 
     // Apply the layout HTML
     $('#info_content').html(data.html);
+    data = data.graph_data;
     
     // Populate the graphs
     populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date);
