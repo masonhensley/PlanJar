@@ -20,7 +20,7 @@
         <link rel=stylesheet href="/application/assets/css/location_data.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/add_location_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_info.css" type="text/css" />
-        
+
         <!-- Google Font
         <link href='http://fonts.googleapis.com/css?family=Vollkorn|Ubuntu' rel='stylesheet' type='text/css'>-->
 
@@ -61,6 +61,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.timeentry.min.js"></script>
 
 
         <title>PlanJar | Home</title>
