@@ -1,6 +1,6 @@
 <?php
 
-class Load_plan_data  extends CI_Model
+class Load_plan_data extends CI_Model
 {
 
     function __construct()
@@ -44,7 +44,7 @@ class Load_plan_data  extends CI_Model
             echo $date;
             ?>
         </div><br/><br/>
-        <div class="delete_plan" style="position:absolute; bottom:0px; left:0px; ">Delete Plan</div>
+        <div class="delete_plan" style="position:absolute; top:0px; right:0px; ">Delete Plan</div>
         <?php
         // Generate the invite people string
         $user_originator = $row->originator_id == $this->ion_auth->get_user()->id;
@@ -66,5 +66,4 @@ class Load_plan_data  extends CI_Model
     }
 
 }
-
 ?>
