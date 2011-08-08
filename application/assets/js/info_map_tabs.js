@@ -132,7 +132,7 @@ function display_info(bypass, arg) {
                 $.get('/home/show_location_data', {
                     'place_id': data.location_id,
                     'date': get_selected_day(),
-                    'selected_groups': ['current_location']
+                    'selected_groups': (['current_location'])
                 }, function (data) {
                     data = $.parseJSON(data);
                     initialize_location_info(data);
