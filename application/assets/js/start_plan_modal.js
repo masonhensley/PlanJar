@@ -71,10 +71,14 @@ function initialize_plan_modal() {
     // In-field labels
     $('#create_plan_content .in-field_block label').inFieldLabels();
     
+    // Time entry
     $('#plan_clock_time').timeEntry({
         spinnerImage: '',
         ampmPrefix: ' ',
         ampmNames: ['am', 'pm']
+    });
+    $('#plan_clock_time').click(function () {
+        $(this).val(''); 
     });
     
     // Select the whole time box when clicked
