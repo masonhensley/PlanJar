@@ -28,6 +28,10 @@ function populate_percentage_box(container, percentage, active_class) {
 // x = day, y = plan count
 function populate_day_graph(container, data, selected_date) {
     // Create the bars and labels if they aren't there
+    console.log(container);
+    console.log($(container));
+    console.log($(container).chlildren());
+    console.log($(container).chlildren().length);
     if ($(container).children().length != data.length) {
         // Clear the container
         $(container).html('');
