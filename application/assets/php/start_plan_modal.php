@@ -29,7 +29,7 @@
                 <b style="float: left; line-height: 30px;">or</b>
 
                 <div class="in-field_block" style="float: left; margin-left: 15px;">
-                    <label for="plan_clock_time">Type a time</label>
+                    <label for="plan_clock_time">Type a time (e.g. 9:30 pm)</label>
                     <input type="text" id="plan_clock_time"/>
                 </div>
             </div>
