@@ -7,15 +7,19 @@
 .plan_info{
     position:absolute;
     
-    width:200px;
-    height:300px;
+    width:250px;
+    height:200px;
+    left:15px;
     
     border:1px solid black;
 }
 
 .plan_graphs{
-    width:200px;
-    height:300px;
+    position:absolute;
+    right:15px;
+    
+    width:250px;
+    height:200px;
     
     border: 1px solid black;
 }
