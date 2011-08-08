@@ -29,8 +29,7 @@ class Event_ops extends CI_Model
     // Returns the event id
     public function create_event($data)
     {
-        $query_string = "INSERT IGNORE INTO events VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)";
-        $query = $this->db->query($query_string, $data);
+        $query = $this->db->insert('events', $data);
 
         return $this->db->insert_id();
     }
@@ -68,10 +67,10 @@ class Event_ops extends CI_Model
             WHERE events.date = ? AND events.time = ? AND events.place_id = ? AND events.title <> ''
             AND (event_invites.user_id = ? OR events.privacy = 'open')";
         $query = $this->db->query($query_string, array(
-                    $date->format('Y-m-d'),
-                    $time,
-                    $place_id,
-                    $this->ion_auth->get_user()->id));
+            $date->format('Y-m-d'),
+            $time,
+            $place_id,
+            $this->ion_auth->get_user()->id));
 
         // Echo the event entries
         if ($query->num_rows() > 0)
