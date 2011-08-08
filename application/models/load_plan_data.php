@@ -27,53 +27,53 @@ class Load_plan_data extends CI_Model
         return array(
             'data' => $data_array,
             'html' => $plan_html,
-            'privacy' => $plan_row->privacy,
-            'event_id' => $plan_row->id,
-            'originator' => $user_originator);
+        );
     }
-    
+
     function get_plan_data_array($plan_id, $plan_row)
     {
         // get #attending, #male, #female
         $query = "SELECT user_meta.sex FROM plans JOIN user_meta ON plans.user_id=user_meta.user_id WHERE plans.id=$plan_id";
         $result = $this->db->query($query);
-        
+
         $number_females = 0;
         $number_males = 0;
-        
-        foreach($result->result() as $person_attending)
+
+        foreach ($result->result() as $person_attending)
         {
-            if($person_attending->sex == 'male')
+            if ($person_attending->sex == 'male')
             {
                 $number_males++;
-            }else{
+            } else
+            {
                 $number_females++;
             }
         }
-        
+
         $number_attending = $number_males + $number_females;
-        
+
         // get #invited
-        // event_invite = type
         $query = "
-            SELECT notifications.id FROM notifications
-            JOIN events ON events.id=notifications.subject_id
-            WHERE notifications.type='event_invite'
+            SELECT event_invitees.user_id FROM plans 
+            JOIN events ON plans.event_id=events.id
+            JOIN event_invitees ON events.id=event_invitees.event_id
+            WHERE plans.id=$plan_id
             ";
-        
+
         $result = $this->db->query($query);
-        
+
         $number_invited = $result->num_rows();
-        
-        if($number_attending == 0)
+
+        if ($number_attending == 0)
         {
             $percent_male = 0;
             $percent_female = 0;
-        }else{
-            $percent_male = ($number_males / $number_attending)*100;
-            $percent_female = ($number_females / $number_attending)*100;
+        } else
+        {
+            $percent_male = ($number_males / $number_attending) * 100;
+            $percent_female = ($number_females / $number_attending) * 100;
         }
-        
+
         $data_array = array(
             'number_attending' => $number_attending,
             'number_invited' => $number_invited,
@@ -81,7 +81,7 @@ class Load_plan_data extends CI_Model
             'number_females' => $number_females,
             'percent_male' => $percent_male,
             'percent_female' => $percent_female);
-        
+
         return $data_array;
     }
 
@@ -98,8 +98,6 @@ class Load_plan_data extends CI_Model
         </div><br/><br/>
         <div class="delete_plan" style="position:absolute; bottom:0px; left:0px; ">Delete Plan</div>
         <?php
-        
-        
         // Generate the invite people string
         $user_originator = $plan_row->originator_id == $this->ion_auth->get_user()->id;
         if ($plan_row->privacy != 'strict' || $user_originator)

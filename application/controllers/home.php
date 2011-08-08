@@ -209,8 +209,8 @@ class Home extends CI_Controller
     {
         $plan_id = $this->input->get('plan_selected');
         $this->load->model('load_plan_data');
-        $return = $this->load_plan_data->display_plan_data($plan_id);
-        echo json_encode($return);
+        $return_array = $this->load_plan_data->display_plan_data($plan_id);
+        echo json_encode($return_array);
     }
 
     public function get_notification_popup()
