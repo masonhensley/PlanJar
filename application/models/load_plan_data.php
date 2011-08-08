@@ -36,7 +36,6 @@ class Load_plan_data extends CI_Model
     {
         // set the plan time
         $time_string = ""; // fix this later!
-        
         // get #attending, #male, #female
         $query = "SELECT user_meta.sex FROM plans JOIN user_meta ON plans.user_id=user_meta.user_id WHERE plans.id=$plan_id";
         $result = $this->db->query($query);
@@ -127,6 +126,7 @@ class Load_plan_data extends CI_Model
                 ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo "@" . $plan_row->name; ?></font><?php
         }
             ?>
+            <hr/>
         </div>
 
         <div class="plan_info">
