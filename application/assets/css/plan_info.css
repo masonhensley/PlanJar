@@ -45,6 +45,6 @@
     background: linear-gradient(top, #FF7373, red);
     color: white;
     right: 0px;
-    top: 0px;
+    bottom: 0px;
     position: absolute;
 }
