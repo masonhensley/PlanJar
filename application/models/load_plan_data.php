@@ -75,6 +75,7 @@ class Load_plan_data extends CI_Model
         }
 
         $data_array = array(
+            'date' => $plan_row->date,
             'location_id' => $plan_row->place_id,
             'number_attending' => $number_attending,
             'number_invited' => $number_invited,
