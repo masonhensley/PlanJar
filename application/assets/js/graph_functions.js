@@ -4,6 +4,7 @@
 // Accepts 0 <= n <= 100
 function populate_percentage_box(container, percentage, active_class) {
     percentage = percentage/100;
+    console.log(percentage);
     
     // Create the bar div if it's not there'
     if ($(container).children().length < 1) {
