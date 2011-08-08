@@ -100,7 +100,6 @@ class Home extends CI_Controller
             FROM places JOIN place_categories ON place_categories.id = places.category_id
             WHERE MATCH (places.name) AGAINST (?) ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, str_replace(' ', '* ', $needle) . '*', 10));
-        var_dump($this->db->last_query());
 
 // Return a JSON array.
         foreach ($query->result_array() as $row)
