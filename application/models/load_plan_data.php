@@ -97,6 +97,20 @@ class Load_plan_data extends CI_Model
             var_dump($plan_row);
             ?>
         </div>
+        <div class="plan_info">
+        </div>
+        
+        <div class="plan_graphs">
+            
+            <div class="plan_gender_graph">
+                
+            </div>
+            
+            <div class="attending_graph">
+                
+            </div>
+            
+        </div>
         
         <br/><br/>
 
