@@ -82,7 +82,16 @@ function initialize_plan_modal() {
             
             // Store the to-server time
             $('#plan_clock_time_raw').val(parsed_date.toString('hh:mm:00'));
+        } else {
+            // Clear the time on an invalid input
+            $(this).val('');
         }
+    });
+    
+    // Select the whole time box when clicked
+    $('#plan_clock_time').click(function() {
+        $(this).focus();
+        $(this).select();
     });
     
     // Try to advance the plan panel when a time or a day is selected
