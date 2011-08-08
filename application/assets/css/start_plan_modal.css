@@ -96,3 +96,8 @@
     margin-left:auto;
     margin-right:auto;
 }
+
+#plan_time {
+    float: left;
+    width: 300px;
+}

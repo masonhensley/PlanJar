@@ -26,9 +26,9 @@
                     <div plan_time="late_night">Late night</div>
                 </div>
 
-                <b>or</b>
+                <b style="float: left; line-height: 30px;">or</b>
 
-                <div class="in-field_block">
+                <div class="in-field_block" style="float: left; margin-left: 15px;">
                     <label for="plan_clock_time">Type a time</label>
                     <input type="text" id="plan_clock_time" name="plan_clock_time"/>
                 </div>
