@@ -129,6 +129,7 @@ class Load_plan_data extends CI_Model
         {
             ?>
             <div class="invite_people">Invite people</div>
+            <div class="view_plan_location"><?php echo($plan_row->name); ?></div>
             <?php
         } else
         {
