@@ -200,6 +200,7 @@ a{
     width: 80px;
     color: gray;
     padding: 3px;
+    text-align:right;
 }
 
 /* follower tab */
