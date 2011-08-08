@@ -106,7 +106,7 @@ class Load_plan_data extends CI_Model
                 <font style="color:gray; font-size:15px;"><?php echo "@" . $plan_row->name; ?></font><?php
         } else
         {
-                ?><font style="color:black; font-size:20px; font-weight:bold;"<?php echo "@" . $plan_row->name; ?></font><?php
+                ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo "@" . $plan_row->name; ?></font><?php
         }
             ?>
         </div>
