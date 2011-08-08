@@ -98,9 +98,7 @@ class Home extends CI_Controller
             + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
             * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
             FROM places JOIN place_categories ON place_categories.id = places.category_id
-            WHERE MATCH (places.name) AGAINST (?) ORDER BY distance ASC LIMIT ?";
-        $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, str_replace(' ', '* ', $needle) . '*', 10));
-        var_dump($this->db->last_query());
+            WHERE MATCH (places.name) AGAINST (? IN BOOLEAN MODE) ORDER BY distance ASC LIMIT ?";
 
 // Return a JSON array.
         foreach ($query->result_array() as $row)
