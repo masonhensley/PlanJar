@@ -73,7 +73,9 @@ function initialize_plan_modal() {
     
     // Clock time textbox defocus event
     $('#plan_clock_time').blur(function () {
-        console.log(Date.parse($(this).val()));
+        var parsed_date = Date.parse($(this).val());
+        console.log(parsed_date.format('h:mm tt'));
+        $(this).val(parsed_date.format('h:mm tt'));
     });
     
     // Try to advance the plan panel when a time or a day is selected
