@@ -77,9 +77,6 @@ function initialize_plan_modal() {
         ampmPrefix: ' ',
         ampmNames: ['am', 'pm']
     });
-    $('#plan_clock_time').click(function () {
-        $(this).val(''); 
-    });
     
     // Select the whole time box when clicked
     $('#plan_clock_time').click(function() {
