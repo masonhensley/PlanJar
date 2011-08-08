@@ -117,8 +117,8 @@ class Load_plan_data extends CI_Model
             <?php
             if ($plan_row->title != '')
             {
-                ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo $plan_row->title; ?></font>
-                <font style="color:gray; font-size:15px;"><?php echo "@" . $plan_row->name; ?></font><?php
+                ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo $plan_row->title; ?></font><br/>
+                &nbsp;&nbsp;&nbsp;<font style="color:gray; font-size:15px;"><?php echo "@" . $plan_row->name; ?></font><?php
         } else
         {
                 ?><font style="color:black; font-size:20px; font-weight:bold;"><?php echo "@" . $plan_row->name; ?></font><?php
@@ -127,7 +127,7 @@ class Load_plan_data extends CI_Model
         </div>
 
         <div class="plan_info">
-            <font style="color:navy; font-size:20px;">Plan Information</font>
+            <font style="color:navy; font-size:20px;">Plan Information </font>
             <br/>
             Created by: <?php echo $data_array['originator_name']; ?><br/>
             Time:
