@@ -124,7 +124,7 @@ function display_info(bypass, arg) {
         
             // Handles clicking on invite people
             $('.invite_people').click(function () {
-                open_invite_modal('event', data.event_id, data.privacy, data.originator);
+                open_invite_modal('event', data.event_id, data.privacy, data.originator_id);
             });
             
             // Handles clicking on the see place button
