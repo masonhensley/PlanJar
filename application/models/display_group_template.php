@@ -428,8 +428,8 @@ class Display_group_template extends CI_Model
         <div class="group_graph_top_right">
         </div>
         <div class="group_graph_bottom_right">
-            <font style="font-size:100px; color: #7BC848"><?php echo $big_display_day; ?></font>
-            <font style="font-size:100px; color:darkgray;"><?php echo $big_display_month; ?></font>
+            <div style="font-size:100px; color: #7BC848"><?php echo $big_display_day; ?></div>
+            <div style="font-size:100px; color:darkgray;"><?php echo $big_display_month; ?></div>
         </div>
         <div class="group_graph_bottom_left">
             <div class="demographics">
