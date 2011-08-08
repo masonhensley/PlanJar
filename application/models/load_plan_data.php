@@ -1,6 +1,6 @@
 <?php
 
-class Load_plan_data  extends CI_Model
+class Load_plan_data extends CI_Model
 {
 
     function __construct()
@@ -19,36 +19,90 @@ class Load_plan_data  extends CI_Model
 
         // pull data
         $query_result = $this->db->query($query);
-        $row = $query_result->row();
+        $plan_row = $query_result->row();
 
-        // populate variables
-        $time = $row->time;
+        $data_array = $this->get_plan_data_array($plan_id, $plan_row);
+        $plan_html = $this->get_plan_html($plan_row);
 
-        // get rid of the "-"
-        $time = str_replace("_", " ", $time);
+        return array(
+            'data' => $data_array,
+            'html' => $plan_html,
+            'privacy' => $plan_row->privacy,
+            'event_id' => $plan_row->id,
+            'originator' => $user_originator);
+    }
+    
+    function get_plan_data_array($plan_id, $plan_row)
+    {
+        // get #attending, #male, #female
+        $query = "SELECT user_meta.sex FROM plans JOIN user_meta ON plans.user_id=user_meta.user_id WHERE plans.id=$plan_id";
+        $result = $this->db->query($query);
+        
+        $number_females = 0;
+        $number_males = 0;
+        
+        foreach($result->result() as $person_attending)
+        {
+            if($person_attending->sex == 'male')
+            {
+                $number_males++;
+            }else{
+                $number_females++;
+            }
+        }
+        
+        $number_attending = $number_males + $number_females;
+        
+        // get #invited
+        // event_invite = type
+        $query = "
+            SELECT notifications.id FROM notifications
+            JOIN events ON events.id=notifications.subject_id
+            WHERE notifications.type='event_invite'
+            ";
+        
+        $result = $this->db->query($query);
+        
+        $number_invited = $result->num_rows();
+        
+        if($number_attending == 0)
+        {
+            $percent_male = 0;
+            $percent_female = 0;
+        }else{
+            $percent_male = ($number_males / $number_attending)*100;
+            $percent_female = ($number_females / $number_attending)*100;
+        }
+        
+        $data_array = array(
+            'number_attending' => $number_attending,
+            'number_invited' => $number_invited,
+            'number_males' => $number_males,
+            'number_females' => $number_females,
+            'percent_male' => $percent_male,
+            'percent_female' => $percent_female);
+        
+        return $data_array;
+    }
 
-        $date = $row->date;
-        $date = date('m/d', strtotime($date));
-        $name = $row->name;
-        $title = $row->title;
-
+    // returns html for the selected plan
+    function get_plan_html($plan_row)
+    {
         ob_start();
         // html to replace the data div
         ?>
-
         <div class="plan_body">
             <?php
-            echo $title;
-            echo $name;
-            echo $time;
-            echo $date;
+            var_dump($plan_row);
             ?>
         </div><br/><br/>
         <div class="delete_plan" style="position:absolute; bottom:0px; left:0px; ">Delete Plan</div>
         <?php
+        
+        
         // Generate the invite people string
-        $user_originator = $row->originator_id == $this->ion_auth->get_user()->id;
-        if ($row->privacy != 'strict' || $user_originator)
+        $user_originator = $plan_row->originator_id == $this->ion_auth->get_user()->id;
+        if ($plan_row->privacy != 'strict' || $user_originator)
         {
             ?><div class="invite_people" style="position:absolute; bottom:0px; right:0px;">Invite people</div><?php
         } else
@@ -58,13 +112,8 @@ class Load_plan_data  extends CI_Model
             <?php
         }
 
-        return array(
-            'privacy' => $row->privacy,
-            'html' => ob_get_clean(),
-            'event_id' => $row->id,
-            'originator' => $user_originator);
+        return ob_get_clean();
     }
 
 }
-
 ?>
