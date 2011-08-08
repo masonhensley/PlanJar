@@ -133,7 +133,7 @@
                 </div>
             </div>
             <div class ="right">
-                <font style="font-weight:bold; color:navy;  font-size:20px;">Your Plans</font><br/>
+                <font style="font-weight:bold; color:gray;  font-size:20px;">Your Plans</font><br/>
 
                 <hr/>
                 <div class="plans_wrapper">
