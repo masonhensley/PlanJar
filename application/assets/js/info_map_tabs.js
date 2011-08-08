@@ -100,10 +100,11 @@ function display_info(bypass, arg) {
         
             // Replace the data and show the data tab.
             $('#info_content').html(data.html);
+            data = data.data;
         
             // Initialize the graphs
-            //two_percentage_bar();
-            //two_percentage_bar();
+            two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
+            populate_percentage_box('.attending_graph', data.parcent_attending, 'percent_bar_total');
         
             // Handles clicking on the delete plan button
             $('.delete_plan').confirmDiv(function (clicked_elem) {
@@ -130,8 +131,8 @@ function display_info(bypass, arg) {
             // Handles clicking on the see place button
             $('.view_plan_location').click(function () {
                 $.get('/home/show_location_data', {
-                    'place_id': data.data.location_id,
-                    'date': data.data.date,
+                    'place_id': data.location_id,
+                    'date': data.date,
                     'selected_groups': (['current_location']),
                     'back_button': true
                 }, function (data) {

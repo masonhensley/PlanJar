@@ -68,20 +68,21 @@ class Load_plan_data extends CI_Model
         {
             $percent_male = 0;
             $percent_female = 0;
+            $percent_attending = 0;
         } else
         {
             $percent_male = ($number_males / $number_attending) * 100;
             $percent_female = ($number_females / $number_attending) * 100;
+            $percent_attending = $number_invited / $number_attending * 100;
         }
+
+
 
         $this->load->helper('date');
         $data_array = array(
             'date' => get_day_offset($plan_row->date),
             'location_id' => $plan_row->place_id,
-            'number_attending' => $number_attending,
-            'number_invited' => $number_invited,
-            'number_males' => $number_males,
-            'number_females' => $number_females,
+            'percent_attending' => $percent_attending,
             'percent_male' => $percent_male,
             'percent_female' => $percent_female);
 
@@ -96,7 +97,7 @@ class Load_plan_data extends CI_Model
         ?>
         <div class="delete_plan">Delete Plan</div>
         <div class="view_plan_location">See Location Info</div>
-        
+
         <div class="plan_header">
             <?php
             if ($plan_row->title != '')
@@ -135,7 +136,7 @@ class Load_plan_data extends CI_Model
         {
             ?>
             <div class="invite_people">Invite people</div>
-            
+
             <?php
         } else
         {
