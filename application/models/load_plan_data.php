@@ -81,7 +81,7 @@ class Load_plan_data extends CI_Model
 
         // get originator name
         $query = "
-        SELECT user_meta.first_name, user_meta.last_name FROM 
+        SELECT user.first_name, user.last_name FROM 
         (SELECT originator_id FROM plans 
         JOIN events ON events.id=plans.event_id 
         JOIN user_meta ON user_meta.user_id=events.originator_id
