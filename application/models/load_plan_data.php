@@ -85,7 +85,7 @@ class Load_plan_data extends CI_Model
         (SELECT originator_id FROM plans 
         JOIN events ON events.id=plans.event_id 
         JOIN user_meta ON user_meta.user_id=events.originator_id
-        WHERE plans.id=$plan_id)
+        WHERE plans.id=$plan_id)user
         ";
 
         $result = $this->db->query($query);
