@@ -232,8 +232,8 @@ class Load_location_data extends CI_Model
         <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
 
         <div class="display_date">
-            <div style="font-size:100px; color: #7BC848; line-height:75px;overflow:hidden; display:inline-block;"><?php echo $big_display_day; ?></div>
-            <div style="font-size:100px; color:darkgray; line-height: 75px;overflow:hidden; display:inline-block;"><?php echo $big_display_month; ?></div>
+            <div style="font-size:100px; color: #7BC848; line-height:75px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day']; ?></div>
+            <div style="font-size:100px; color:darkgray; line-height: 75px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day_date']; ?></div>
         </div>
         <div class="make_plan">Make a plan here</div>
 
