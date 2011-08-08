@@ -92,6 +92,11 @@ function initialize_plan_modal() {
         $('#plan_right').click();
     });
     
+    // Clock time change handler
+    $('#plan_clock_time').change(function() {
+        $('#plan_time .divset_selected').removeClass('divset_selected');
+    });
+    
     // Event select click handler
     $('#plan_event_select_wrapper').delegate('div', 'click', function () {
         // Make only this selected
