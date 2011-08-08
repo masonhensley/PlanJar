@@ -3,7 +3,7 @@
 class Load_location_data extends CI_Model
 {
 
-    function _display_location_info($place_id, $day, $selected_groups)
+    function _display_location_info($place_id, $day, $selected_groups, $add_back_button)
     {
         if (!$day)  // set the day correctly if null
         {
@@ -13,7 +13,7 @@ class Load_location_data extends CI_Model
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d');
 
-        // setup display data
+// setup display data
         $new_date = new DateTime();
         $big_display_day = $new_date->add(new DateInterval('P' . $day . 'D'));
         $day_display['big_day'] = $big_display_day->format('D');
@@ -31,7 +31,7 @@ class Load_location_data extends CI_Model
             'selected_date' => $sql_date
         );
 
-        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $day_display);
+        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $day_display, $add_back_button);
 
         return array('html' => $return_html, 'graph_data' => $graph_return_data);
     }
@@ -55,7 +55,7 @@ class Load_location_data extends CI_Model
     {
         $this->load->model('load_locations');
         $friend_ids = $this->load_locations->get_friend_ids();
-        // first find the number of friends attending
+// first find the number of friends attending
         $number_friends_query = "SELECT plans.user_id FROM plans 
             JOIN events ON plans.event_id=events.id AND events.date='$date' AND events.place_id=$place_id
             WHERE ";
@@ -79,7 +79,7 @@ class Load_location_data extends CI_Model
             LEFT JOIN school_data ON school_data.id=user_meta.school_id AND school_data.id=$user->school_id
             WHERE events.place_id=$place_id AND events.date='$sql_date'";
         $result = $this->db->query($query); // pull school id, and gender from people attending
-        // data to be passed back
+// data to be passed back
         $total_attending = $result->num_rows();
         $school_ids = array();
         $number_males = 0;
@@ -121,7 +121,7 @@ class Load_location_data extends CI_Model
 
     function get_surrounding_day_info($place_id, $sql_date)
     {
-        // select all the plans to the location for the surrounding week (based off day selected)
+// select all the plans to the location for the surrounding week (based off day selected)
         $query = "
         SELECT plans.user_id, events.id, events.date
         FROM events
@@ -151,7 +151,7 @@ class Load_location_data extends CI_Model
             $plan_dates[$date]++;
         }
 
-        // Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
+// Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
         $keys = array_keys($plan_dates);
         $conversion_array = array();
         foreach ($keys as $key)
@@ -162,20 +162,20 @@ class Load_location_data extends CI_Model
         return $conversion_array;
     }
 
-    function get_place_html($place_info, $place_data_array, $sql_date, $display_day)
+    function get_place_html($place_info, $place_data_array, $sql_date, $display_day, $add_back_button)
     {
         if (strlen($place_info['distance']) > 3)
         {
             $place_info['distance'] = substr($place_info['distance'], 0, 3);
         }
 
-        // get the percentages ready for display
+// get the percentages ready for display
         $place_data_array['percent_male'] = $place_data_array['percent_male'] * 100;
         $place_data_array['percent_female'] = $place_data_array['percent_female'] * 100;
 
 
 
-        // trim the percentages
+// trim the percentages
         if (strlen($place_data_array['percent_male']) > 3)
         {
             $place_data_array['percent_male'] = substr($place_data_array['percent_male'], 0, 3);
@@ -193,7 +193,7 @@ class Load_location_data extends CI_Model
             }
         }
 
-        // start output buffering
+// start output buffering
         ob_start();
         ?>
         <div class="data_box_top_bar" place_id="<?php echo($place_data_array['id']); ?>" place_name="<?php echo($place_info['name']); ?>">
@@ -238,6 +238,12 @@ class Load_location_data extends CI_Model
         <div class="make_plan">Make a plan here</div>
 
         <?php
+        if ($add_back_button)
+        {
+            ?>
+            <div class="back_to_plan" style="position: absolute; top: 0px; right: 0px;">Back to plan</div>
+            <?php
+        }
         return ob_get_clean();
     }
 
