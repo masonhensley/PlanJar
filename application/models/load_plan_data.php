@@ -127,7 +127,6 @@ class Load_plan_data extends CI_Model
         </div>
 
         <div class="plan_info">
-            <br/>
             Created by: <?php echo $data_array['originator_name']; ?><br/>
             Time:
             <br/>
