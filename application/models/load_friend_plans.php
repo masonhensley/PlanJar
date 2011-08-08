@@ -72,12 +72,8 @@ class Load_friend_plans extends CI_Model
                     }
                     $date_organizer = $date;
 
-                    // Day offset
-                    $cur_date = new DateTime();
-                    $cur_date->setTime(0, 0, 0);
-                    $new_date = new DateTime($plan->date);
-                    $day_offset = $cur_date->diff($new_date);
-                    $day_offset = $day_offset->format('%a');
+                    $this->load->helper('date');
+                    $day_offset = get_day_offset($plan_date);
                     ?>
                     <div class ="friend_plan_content" place_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
                         <?php
