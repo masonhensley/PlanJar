@@ -173,11 +173,8 @@ class Home extends CI_Controller
             }
 
 
-            // Add the user to the invite list if necessary
-            if ($privacy != 'open')
-            {
-                $this->event_ops->add_invitees($event_id, array($this->ion_auth->get_user()->id));
-            }
+            // Add the user to the invite list
+            $this->event_ops->add_invitees($event_id, array($this->ion_auth->get_user()->id));
         }
 
         // Plan data
@@ -551,12 +548,8 @@ class Home extends CI_Controller
         // Handle the different subject types
         if ($subject_type == 'event')
         {
-            if ($this->input->get('privacy') != 'open')
-            {
-                $this->load->model('event_ops');
-                $this->event_ops->add_invitees($subject_id, $user_ids);
-            }
-
+            $this->load->model('event_ops');
+            $this->event_ops->add_invitees($subject_id, $user_ids);
             $notif_type = 'event_invite';
         } else if ($subject_type == 'group')
         {

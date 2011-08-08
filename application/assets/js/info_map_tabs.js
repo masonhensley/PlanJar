@@ -91,7 +91,7 @@ function display_info(bypass, arg) {
         
         populate_popular_locations();
     } else if ($('.selected_plan').length > 0) {
-        // Plan selected (user's plan or friend's plan)
+        // Plan selected
         $.get('/home/load_selected_plan_data', {
             'plan_selected': $('.selected_plan').attr('plan_id')
         }, function (data) {
@@ -99,6 +99,10 @@ function display_info(bypass, arg) {
         
             // Replace the data and show the data tab.
             $('#info_content').html(data.html);
+        
+            // Initialize the graphs
+            //two_percentage_bar();
+            //two_percentage_bar();
         
             // Handles clicking on the delete plan button
             $('.delete_plan').confirmDiv(function (clicked_elem) {
