@@ -49,7 +49,6 @@ function display_info(bypass, arg) {
             'date': get_selected_day(),
             'selected_groups':get_selected_groups()
         }, function (data) {
-            data = $.parseJSON(data);
             initialize_location_info(data);
         });
     } else if ($('.network_active, .selected_group').length > 0) {
@@ -136,7 +135,6 @@ function display_info(bypass, arg) {
                     'selected_groups': (['current_location']),
                     'back_button': true
                 }, function (data) {
-                    data = $.parseJSON(data);
                     initialize_location_info(data);
                 });
                 
@@ -161,7 +159,7 @@ function display_info(bypass, arg) {
 // Sets up the location view (graphs and whatnot)
 // Used for viewing locations and friends' plans
 function initialize_location_info(data) {
-    console.log(data);
+    data = $.parseJSON(data);
 
     // Apply the layout HTML
     $('#info_content').html(data.html);
