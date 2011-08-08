@@ -92,6 +92,7 @@ class Load_plan_data extends CI_Model
 
         $this->load->helper('date');
         $data_array = array(
+            'originator_name' => $originator_name,
             'date' => get_day_offset($plan_row->date),
             'location_id' => $plan_row->place_id,
             'percent_attending' => $percent_attending,
@@ -127,6 +128,8 @@ class Load_plan_data extends CI_Model
 
 
             <font style="color:navy; font-size:20px;">Plan Information</font>
+            <br/>
+            Created by: <?php echo $data_array['originator_name']; ?>
         </div>
 
         <div class="plan_graphs">
