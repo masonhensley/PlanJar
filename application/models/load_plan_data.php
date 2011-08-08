@@ -22,7 +22,7 @@ class Load_plan_data extends CI_Model
         $plan_row = $query_result->row();
 
         $data_array = $this->get_plan_data_array($plan_id, $plan_row);
-        $plan_html = $this->get_plan_html($plan_row);
+        $plan_html = $this->get_plan_html($plan_row, $data_array);
 
         return array(
             'data' => $data_array,
@@ -86,7 +86,7 @@ class Load_plan_data extends CI_Model
     }
 
     // returns html for the selected plan
-    function get_plan_html($plan_row)
+    function get_plan_html($plan_row, $data_array)
     {
         ob_start();
         // html to replace the data div
@@ -94,7 +94,15 @@ class Load_plan_data extends CI_Model
         <div class="delete_plan">Delete Plan</div>
         <div class="plan_header">
             <?php
-            var_dump($plan_row);
+            
+            if ($plan_row->title != '')
+            {
+                echo $plan_row->title ."<br/>";
+                echo $plan_row->name;
+            }else{
+                echo $plan_row->name;
+            }
+            
             ?>
         </div>
         <div class="plan_info">
