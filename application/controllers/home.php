@@ -10,7 +10,7 @@ class Home extends CI_Controller
     public function index()
     {
         $foo = new DateTime('9:35 am');
-        echo($foo);
+        echo($foo->format('H:i:s'));
         
         // if user is logged in, load home view, otherwise logout
         if ($this->ion_auth->logged_in())
