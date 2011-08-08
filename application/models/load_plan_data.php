@@ -22,7 +22,8 @@ class Load_plan_data extends CI_Model
         $plan_row = $query_result->row();
 
 
-
+        // set the plan time
+        $time_string = ""; // fix this later!
 
         $data_array = $this->get_plan_data_array($plan_id, $plan_row);
         $plan_html = $this->get_plan_html($plan_row, $data_array);
