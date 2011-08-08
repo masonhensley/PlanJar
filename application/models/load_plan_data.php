@@ -12,7 +12,7 @@ class Load_plan_data extends CI_Model
     function display_plan_data($plan_id)
     {
         // pull all user's current events
-        $query = "SELECT events.id, events.date, events.time, events.title, events.privacy, events.originator_id, places.name
+        $query = "SELECT events.id, events.date, events.time, events.title, events.privacy, events.originator_id, places.name, places.id AS place_id
             FROM plans LEFT JOIN events ON plans.event_id = events.id
             LEFT JOIN places ON events.place_id = places.id
             WHERE plans.id = $plan_id";
@@ -75,6 +75,7 @@ class Load_plan_data extends CI_Model
         }
 
         $data_array = array(
+            'location_id' => $plan_row->place_id,
             'number_attending' => $number_attending,
             'number_invited' => $number_invited,
             'number_males' => $number_males,
@@ -93,20 +94,20 @@ class Load_plan_data extends CI_Model
         ?>
         <div class="delete_plan">Delete Plan</div>
         <div class="plan_header">
-            <font style="color:navy; font-size:15px;">Plan Information</font>
+            <font style="color:navy; font-size:20px;">Plan Information</font>
+        </div>
+
+        <div class="plan_info">
             <?php
-            
             if ($plan_row->title != '')
             {
                 ?><font style="color:gray; font-size:15px;">title:</font><font style="color:black; font-size:20px;"><?php echo $plan_row->title; ?></font> <?php
-                echo $plan_row->name;
-            }else{
-                echo $plan_row->name;
-            }
-            
+            echo $plan_row->name;
+        } else
+        {
+            echo $plan_row->name;
+        }
             ?>
-        </div>
-        <div class="plan_info">
         </div>
 
         <div class="plan_graphs">

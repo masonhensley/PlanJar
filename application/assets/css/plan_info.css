@@ -1,0 +1,29 @@
+.plan_header{
+    width: 100%;
+    height: 40px;
+    text-align:center;
+}
+
+.plan_info{
+    position:absolute;
+    
+    width:200px;
+    height:300px;
+    
+    border:1px solid black;
+}
+
+.plan_graphs{
+    width:200px;
+    height:300px;
+    
+    border: 1px solid black;
+}
+
+.plan_gender_graph{
+    
+}
+
+.attending_graph{
+    
+}
