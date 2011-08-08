@@ -96,7 +96,7 @@ class Load_plan_data extends CI_Model
             var_dump($plan_row);
             ?>
         </div><br/><br/>
-        <div class="delete_plan" style="position:absolute; top:0px; right:0px; ">Delete Plan</div>
+        <div class="delete_plan">Delete Plan</div>
         <?php
         // Generate the invite people string
         $user_originator = $plan_row->originator_id == $this->ion_auth->get_user()->id;
