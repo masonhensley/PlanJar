@@ -21,6 +21,8 @@ function populate_percentage_box(container, percentage, active_class) {
     .data([percentage])
     // Set the width according to the input data
     .style('width', function (d) {
+        console.log(d);
+        console.log(bar_scale(d));
         return bar_scale(d);
     });
 }
