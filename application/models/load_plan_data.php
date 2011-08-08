@@ -90,7 +90,7 @@ class Load_plan_data extends CI_Model
         $result = $this->db->query($query);
         $originator_name = $result->row()->first_name . " " . $result->row()->last_name;
 
-        $this->load->helper('date');
+        $this->load->helper('day_offset');
         $data_array = array(
             'number_invited' => $number_invited,
             'number_attending' => $number_attending,
