@@ -453,6 +453,7 @@ a {
     padding: 9px;
     color: gray;
     font-weight:bold;
+    font-size:13px;
 }
 #friends_plans_panel {
     width: 210px;
@@ -611,6 +612,7 @@ a {
     padding: 9px;
     color: gray;
     font-weight:bold;
+    font-size:13px;
 }
 .make_plan {
     position: absolute;
