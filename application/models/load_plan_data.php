@@ -71,10 +71,12 @@ class Load_plan_data extends CI_Model
         {
             $percent_male = 0;
             $percent_female = 0;
+            $percent_attending = 0;
         } else
         {
             $percent_male = ($number_males / $number_attending) * 100;
             $percent_female = ($number_females / $number_attending) * 100;
+            $percent_attending = $number_invited / $number_attending * 100;
         }
 
         // get originator name
@@ -83,7 +85,7 @@ class Load_plan_data extends CI_Model
         (SELECT originator_id FROM plans 
         JOIN events ON events.id=plans.event_id 
         JOIN user_meta ON user_meta.user_id=events.originator_id
-        WHERE plans.id=$plan_id)user
+        WHERE plans.id=$plan_id)
         ";
 
         $result = $this->db->query($query);
@@ -93,10 +95,7 @@ class Load_plan_data extends CI_Model
         $data_array = array(
             'date' => get_day_offset($plan_row->date),
             'location_id' => $plan_row->place_id,
-            'number_attending' => $number_attending,
-            'number_invited' => $number_invited,
-            'number_males' => $number_males,
-            'number_females' => $number_females,
+            'percent_attending' => $percent_attending,
             'percent_male' => $percent_male,
             'percent_female' => $percent_female);
 
