@@ -245,10 +245,8 @@ a {
     bottom: 0px;
 }
 .view_plan_location {
-    float: left;
     text-align: center;
     padding: 4px;
-    position: relative;
     border: 1px solid lightgray;
     background: -webkit-gradient(linear,left top,left bottom,from(purple),to(#AF64DE));
     background: -webkit-linear-gradient(top, purple, #AF64DE);
@@ -257,7 +255,9 @@ a {
     background: -ms-linear-gradient(top, purple, #AF64DE);
     background: linear-gradient(top, purple, #AF64DE);
     color: white;
-    bottom: 0px;
+    position:absolute;
+    bottom:0px;
+    right:30px;
 }
 .plan_deleted {
     width: auto;
