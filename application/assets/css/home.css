@@ -257,7 +257,7 @@ a {
     color: white;
     position:absolute;
     bottom:0px;
-    right:30px;
+    left:100px;
 }
 .plan_deleted {
     width: auto;
