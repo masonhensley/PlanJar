@@ -71,21 +71,14 @@ function initialize_plan_modal() {
     // In-field labels
     $('#create_plan_content .in-field_block label').inFieldLabels();
     
-    // Clock time textbox defocus event
-    $('#plan_clock_time').blur(function () {
-        // Process the time
-        var parsed_date = Date.parse($(this).val());
-            
-        if (parsed_date != null) {
-            // Echo a user-friendly time for confirmation
-            $(this).val(parsed_date.toString('h:mm tt'));
-            
-            // Store the to-server time
-            $('#plan_clock_time_raw').val(parsed_date.toString('hh:mm:00'));
-        } else {
-            // Clear the time on an invalid input
-            $(this).val('');
-        }
+    // Time entry
+    $('#plan_clock_time').timeEntry({
+        spinnerImage: '',
+        ampmPrefix: ' ',
+        ampmNames: ['am', 'pm']
+    });
+    $('#plan_clock_time').click(function () {
+        $(this).val(''); 
     });
     
     // Select the whole time box when clicked
