@@ -104,7 +104,7 @@ function display_info(bypass, arg) {
         
             // Initialize the graphs
             two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
-            populate_percentage_box('.attending_graph', data.parcent_attending, 'percent_bar_total');
+            populate_percentage_box('.attending_graph', data.percent_attending, 'percent_bar_total');
         
             // Handles clicking on the delete plan button
             $('.delete_plan').confirmDiv(function (clicked_elem) {
