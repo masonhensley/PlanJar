@@ -127,7 +127,6 @@ class Load_plan_data extends CI_Model
         </div>
 
         <div class="plan_info">
-            <font style="color:navy; font-size:20px;">Plan Information </font>
             <br/>
             Created by: <?php echo $data_array['originator_name']; ?><br/>
             Time:
