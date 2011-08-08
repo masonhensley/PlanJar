@@ -102,7 +102,9 @@ class Load_plan_data extends CI_Model
         $user_originator = $plan_row->originator_id == $this->ion_auth->get_user()->id;
         if ($plan_row->privacy != 'strict' || $user_originator)
         {
-            ?><div class="invite_people" style="position:absolute; bottom:0px; right:0px;">Invite people</div><?php
+            ?>
+            <div class="invite_people">Invite people</div>
+            <?php
         } else
         {
             ?><div style="font-size: 14px; position:absolute; bottom:10px; right:10px;">
