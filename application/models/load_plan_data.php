@@ -97,7 +97,7 @@ class Load_plan_data extends CI_Model
             'number_invited' => $number_invited,
             'number_attending' => $number_attending,
             'originator_name' => $originator_name,
-            'originator_id' => $plan_row->originator_id,
+            'originator_id' => $plan_row->originator_id == $this->ion_auth->get_user()->id,
             'date' => get_day_offset($plan_row->date),
             'location_id' => $plan_row->place_id,
             'percent_attending' => $percent_attending,
