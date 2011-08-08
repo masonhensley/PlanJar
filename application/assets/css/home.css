@@ -55,7 +55,7 @@ a {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 1052px;
+    width: 1024px;
     height: 1000px;
     text-align: center;
     margin-top: 20px;
@@ -66,7 +66,7 @@ a {
 /* -------------- LEFT PANEL ---------------- */
 .container > .left {
     float: left;
-    width: 210px;
+    width: 200px;
     min-height: 100px;
     text-align: center;
     background-color: white;
@@ -420,7 +420,7 @@ a {
 /* ------------------ RIGHT PANEL -----------------------*/
 .container > .right {
     float: left;
-    width: 210px;
+    width: 200px;
     min-height: 30px;
     background-color: white;
     padding-top: 10px;
