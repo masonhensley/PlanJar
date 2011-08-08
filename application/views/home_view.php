@@ -19,7 +19,8 @@
         <link rel=stylesheet href="/application/assets/css/selectable_event.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/location_data.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/add_location_modal.css" type="text/css" />
-
+        <link rel=stylesheet href="/application/assets/css/plan_info.css" type="text/css" />
+        
         <!-- Google Font
         <link href='http://fonts.googleapis.com/css?family=Vollkorn|Ubuntu' rel='stylesheet' type='text/css'>-->
 
