@@ -73,9 +73,16 @@ function initialize_plan_modal() {
     
     // Clock time textbox defocus event
     $('#plan_clock_time').blur(function () {
+        // Process the time
         var parsed_date = Date.parse($(this).val());
-        //console.log(parsed_date);
-        $(this).val(parsed_date.toString('h:mm tt'));
+            
+        if (parsed_date != null) {
+            // Echo a user-friendly time for confirmation
+            $(this).val(parsed_date.toString('h:mm tt'));
+            
+            // Store the to-server time
+            $('#plan_clock_time_raw').val(parsed_date.toString('hh:mm:00'));
+        }
     });
     
     // Try to advance the plan panel when a time or a day is selected
