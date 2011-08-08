@@ -132,13 +132,19 @@ function display_info(bypass, arg) {
                 $.get('/home/show_location_data', {
                     'place_id': data.data.location_id,
                     'date': data.data.date,
-                    'selected_groups': (['current_location'])
+                    'selected_groups': (['current_location']),
+                    'back_button': true
                 }, function (data) {
                     data = $.parseJSON(data);
                     initialize_location_info(data);
                 });
                 
                 initialize_location_info(data);
+                
+                // Back click handler
+                $('.back_to_plan').click(function () {
+                    display_info();
+                })
             });
         });
     } else if ($('.selected_friend_plan').length > 0) {
