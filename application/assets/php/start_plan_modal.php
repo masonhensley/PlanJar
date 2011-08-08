@@ -26,6 +26,14 @@
                     <div plan_time="late_night">Late night</div>
                 </div>
 
+                <b>or</b>
+
+                <div class="in-field_block">
+                    <label for="plan_clock_time">Type a time</label>
+                    <input type="text" id="plan_clock_time" name="plan_clock_time"/>
+                </div>
+            </div>
+
             <div class="plan_page_content" style="display: none;">
                 <div class="left">
                     <div id="plan_events_title"></div>
