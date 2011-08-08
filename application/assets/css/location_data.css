@@ -60,10 +60,12 @@
     left:150px;
 }
 
-.display_big_date{
+.display_date{
+    width:100%;
     position:absolute;
-    right:0px;
-    bottom:-20px;
+    bottom:0px;
+    height:75px;
+    text-align:right;
 }
 
 .gender_breakdown{
