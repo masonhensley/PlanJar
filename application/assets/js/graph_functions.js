@@ -30,8 +30,8 @@ function populate_day_graph(container, data, selected_date) {
     // Create the bars and labels if they aren't there
     console.log(container);
     console.log($(container));
-    console.log($(container).chlildren());
-    console.log($(container).chlildren().length);
+    console.log($(container).children());
+    console.log($(container).children().length);
     if ($(container).children().length != data.length) {
         // Clear the container
         $(container).html('');
