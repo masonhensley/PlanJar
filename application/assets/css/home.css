@@ -541,8 +541,9 @@ a {
     color: white;
 }
 .plan_header{
-    width: 50%;
+    width: 100%;
     height: 40px;
+    text-align:center;
 }
 
 .plan_info{
