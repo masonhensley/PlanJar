@@ -94,6 +94,7 @@ class Load_plan_data extends CI_Model
         <div class="delete_plan">Delete Plan</div>
         <div class="plan_header">
             <?php
+            
             if ($plan_row->title != '')
             {
                 echo $plan_row->title ."<br/>";
@@ -101,7 +102,6 @@ class Load_plan_data extends CI_Model
             }else{
                 echo $plan_row->name;
             }
-            
             
             ?>
         </div>
