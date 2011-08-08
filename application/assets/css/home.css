@@ -540,10 +540,27 @@ a {
     background: linear-gradient(top, #805EBA, #390D86);
     color: white;
 }
-.plan_body {
-    width: 100%;
-    height: auto;
+.plan_header{
+    width: 50%;
+    height: 40px;
 }
+
+.plan_info{
+    
+}
+
+.plan_graphs{
+    
+}
+
+.plan_gender_graph{
+    
+}
+
+.attending_graph{
+    
+}
+
 /* --------BOTTOM LINKS ---------*/
 .bottom_links {
     width: 1024px;

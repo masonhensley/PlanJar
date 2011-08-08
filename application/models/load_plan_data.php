@@ -91,13 +91,29 @@ class Load_plan_data extends CI_Model
         ob_start();
         // html to replace the data div
         ?>
-        <div class="plan_body">
+        <div class="delete_plan">Delete Plan</div>
+        <div class="plan_header">
             <?php
             var_dump($plan_row);
             ?>
-        </div><br/><br/>
-        <div class="delete_plan">Delete Plan</div>
-        <div class="view_plan_location"><?php echo($plan_row->name); ?></div>
+        </div>
+        <div class="plan_info">
+        </div>
+        
+        <div class="plan_graphs">
+            
+            <div class="plan_gender_graph">
+                
+            </div>
+            
+            <div class="attending_graph">
+                
+            </div>
+            
+        </div>
+        
+        <br/><br/>
+
         <?php
         // Generate the invite people string
         $user_originator = $plan_row->originator_id == $this->ion_auth->get_user()->id;
