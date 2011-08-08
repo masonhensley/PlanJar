@@ -93,11 +93,12 @@ class Load_plan_data extends CI_Model
         ?>
         <div class="delete_plan">Delete Plan</div>
         <div class="plan_header">
+            <font style="color:navy; font-size:15px;">Plan Information</font>
             <?php
             
             if ($plan_row->title != '')
             {
-                echo $plan_row->title ."<br/>";
+                ?><font style="color:gray; font-size:15px;">title:</font><font style="color:black; font-size:20px;"><?php echo $plan_row->title; ?></font> <?php
                 echo $plan_row->name;
             }else{
                 echo $plan_row->name;
@@ -119,8 +120,6 @@ class Load_plan_data extends CI_Model
             </div>
 
         </div>
-
-        <br/><br/>
 
         <?php
         // Generate the invite people string
