@@ -92,7 +92,7 @@ function initialize_plan_modal() {
         // Show the event div
         $('#plan_events_wrapper').show('slide', {
             direction: 'down'
-        }, 'fast');
+        }, 'slow');
     });
     
     
