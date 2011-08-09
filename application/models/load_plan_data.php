@@ -229,6 +229,7 @@ class Load_plan_data extends CI_Model
                 $data_array['percent_female'] = substr($data_array['percent_female'], 0, -1);
             }
         }
+        return $data_array;
     }
 
 }
