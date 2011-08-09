@@ -84,10 +84,13 @@
                             </div>        
                         </div>
                     </a>
-                    <a href="/home/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
+                    <a href="/dashboard/settings" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Settings</div></div></a>
                 </div>
             </div>
         </div>
+        
+        <a href="/home/logout" style="position:absolute; color:gray; ">Log Out</a>
+        
         <div class="tab_bar">
             <div class="data_tab tab_selected" assoc_div="#info_content">Info</div>
             <div class="data_tab" assoc_div="#map_content">Map</div>
