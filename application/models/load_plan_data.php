@@ -77,7 +77,7 @@ class Load_plan_data extends CI_Model
         {
             $percent_male = $number_males / $number_attending;
             $percent_female = $number_females / $number_attending;
-            $percent_attending = $number_invited / $number_attending;
+            $percent_attending = $number_attending / $number_invited;
         }
 
         // get originator name
