@@ -35,6 +35,7 @@
 }
 
 .attending_graph{
+    position: relative;
     float: left;
     width: 30px;
     height: 200px;
