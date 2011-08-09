@@ -159,13 +159,13 @@ class Load_plan_data extends CI_Model
 
         <div class="plan_graphs">
            
-            <div style="position:absolute; width:12px; height:12px; background-color:lightpink;top:132px; left:155px;"></div>
+            <div style="position:absolute; width:12px; height:12px; background-color:lightpink;top:157px; left:133px;"></div>
             <div style="position:absolute; width:12px; height:12px; background-color:lightblue;top:157px;left:25px;"></div>
             <div style="position:absolute; width:12px; height:12px; background-color:blueviolet;top:47px;left:25px;"></div>
  
-            <div style="position:absolute;font-weight:bold;top:45px; left:40px;"><?php echo "%" .$data_array['percent_attending']; ?></div>
-            <div style="position:absolute;font-weight:bold;top:155px;left:40px;"><?php echo "%" .$data_array['percent_male']; ?></div>
-            <div style="position:absolute;font-weight:bold;top:155px;left:147px;"><?php echo "%" .$data_array['percent_female']; ?></div>
+            <div style="position:absolute;font-weight:bold;font-size:12px;top:47px; left:40px;"><?php echo $data_array['percent_attending' ] ."%"; ?></div>
+            <div style="position:absolute;font-weight:bold;font-size:12px;top:157px;left:40px;"><?php echo $data_array['percent_male'] ."%"; ?></div>
+            <div style="position:absolute;font-weight:bold;font-size:12px;top:157px;left:147px;"><?php echo $data_array['percent_female'] ."%"; ?></div>
             
             <div style="position:absolute;top:155px; left:76px;font-weight: bold;">male</div>
             <div style="position:absolute;top:155px;left:181px; font-weight: bold;">female</div>
