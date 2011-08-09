@@ -116,6 +116,9 @@ function initialize_plan_modal() {
     $('#create_event').click(function () {
         // Highlight errors
         if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
+            // Load the selectable events
+            populate_selectable_events();
+            
             // Show the event div
             $('#plan_events_wrapper').show('fast');
         }
