@@ -25,10 +25,11 @@ function populate_percentage_box(container, percentage, active_class, vertical) 
     
     // Select the bar
     d3.select(container).selectAll('div')
-    // Add data to the bars
+    // Add data to the bar
     .data([percentage])
     // Set the width according to the input data
     .style(width_height, function (d) {
+        console.log(d);
         return d + '%';
     });
 }
