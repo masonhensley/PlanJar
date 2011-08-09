@@ -16,13 +16,13 @@
     text-align: center;
 }
 
-#plan_time .divset {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
 #plan_events_wrapper {
 
+}
+
+#plan_day .divset {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #plan_day {
@@ -38,6 +38,12 @@
 #plan_day .right_day_arrow {
     float: none;
     width: auto;
+}
+
+#plan_time {
+    float: left;
+    width: 250px;
+    margin-top: 5px;
 }
 
 .plan_page_content .left {
@@ -84,10 +90,4 @@
     color:white;
     margin-left:auto;
     margin-right:auto;
-}
-
-#plan_time {
-    float: left;
-    width: 300px;
-    margin-top: 5px;
 }
