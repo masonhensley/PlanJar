@@ -1,8 +1,8 @@
 /* Create plan CSS */
 #create_plan_content {
     display: none;
-    width: 600px;
-    margin-left: -300px;
+    width: 575px;
+    margin-left: -283px;
     margin-top: -125px;
 }
 
@@ -13,11 +13,16 @@
 }
 
 #plan_place_time_wrapper {
-    
+    text-align: center;
+}
+
+#plan_time .divset {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #plan_events_wrapper {
-    
+
 }
 
 #plan_day {
