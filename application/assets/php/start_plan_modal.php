@@ -16,8 +16,8 @@
                 <?php echo($plan_day_html); ?>
             </div>
             
-            <div class="right_day_arrow">></div>
-            <div class="left_day_arrow"><</div>
+            <div class="right_day_arrow divset">></div>
+            <div class="left_day_arrow divset"><</div>
 
             <div style="margin-left: auto; margin-right: auto;">
                 <div id="plan_time">
