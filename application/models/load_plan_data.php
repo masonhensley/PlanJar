@@ -119,6 +119,7 @@ class Load_plan_data extends CI_Model
     // returns html for the selected plan
     function get_plan_html($plan_row, $data_array)
     {
+        $data_array = $this->make_date_readable($data_array);
         ob_start();
         // html to replace the data div
         ?>
@@ -199,6 +200,35 @@ class Load_plan_data extends CI_Model
         }
 
         return ob_get_clean();
+    }
+    
+    function make_date_readable($data_array)
+    {
+        // make the percentage readable
+        if (strlen($data_array['percent_attending']) > 3)
+        {
+            $data_array['percent_attending'] = substr($data_array['percent_attending'], 0, 3);
+            if (substr($data_array['percent_attending'], -1) == ".")
+            {
+                $data_array['percent_attending'] = substr($data_array['percent_attending'], 0, -1);
+            }
+        }
+        if (strlen($data_array['percent_male']) > 3)
+        {
+            $data_array['percent_male'] = substr($data_array['percent_male'], 0, 3);
+            if (substr($data_array['percent_male'], -1) == ".")
+            {
+                $data_array['percent_male'] = substr($data_array['percent_male'], 0, -1);
+            }
+        }
+        if (strlen($data_array['percent_female']) > 3)
+        {
+            $data_array['percent_female'] = substr($data_array['percent_female'], 0, 3);
+            if (substr($data_array['percent_female'], -1) == ".")
+            {
+                $data_array['percent_female'] = substr($data_array['percent_female'], 0, -1);
+            }
+        }
     }
 
 }
