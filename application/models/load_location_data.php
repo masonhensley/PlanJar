@@ -25,8 +25,8 @@ class Load_location_data extends CI_Model
         $surrounding_day_array = $this->get_surrounding_day_info($place_id, $sql_date); // this array has info for the bar graph that shows # people going out by day
 
         $graph_return_data = array(
-            'percent_female' => $place_data_array['percent_female'],
-            'percent_male' => $place_data_array['percent_male'],
+            'percent_female' => $place_data_array['percent_female'] * 100,
+            'percent_male' => $place_data_array['percent_male'] * 100,
             'plan_dates' => $surrounding_day_array,
             'selected_date' => $sql_date
         );

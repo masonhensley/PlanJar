@@ -88,8 +88,6 @@ function display_info(bypass, arg) {
                 display_info(true, $(this).val());
             });
         });
-        
-        populate_popular_locations();
     } else if ($('.selected_plan').length > 0) {
         // Plan selected
         $.get('/home/load_selected_plan_data', {

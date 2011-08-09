@@ -28,6 +28,7 @@
     </div>
 
     <input type="button" id="send_invites" value="Invite"/>
+    <input type="button" id="close_invite_modal_2" value="Close"/>
 
     <input type="hidden" id="invite_subject_type"/>
     <input type="hidden" id="invite_subject_id"/>

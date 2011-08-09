@@ -77,19 +77,24 @@ function initialize_plan_modal() {
         ampmPrefix: ' ',
         ampmNames: ['am', 'pm']
     });
-    $('#plan_clock_time').click(function () {
-        $(this).val(''); 
-    });
     
-    // Select the whole time box when clicked
-    $('#plan_clock_time').click(function() {
-        $(this).focus();
-        $(this).select();
-    });
-    
-    // Try to advance the plan panel when a time or a day is selected
-    $('.plan_day, #plan_time .divset').click(function () {
+    // Plan day click handler
+    $('.plan_day').click(function () {
         $('#plan_right').click();
+    });
+    
+    // Plan time click handler
+    $('#plan_time .divset').click(function () {
+        // Clear and blur the time box
+        $('#plan_clock_time').val('');
+        $('#plan_clock_time').blur();
+        
+        $('#plan_right').click();
+    });
+    
+    // Clock time change handler
+    $('#plan_clock_time').change(function() {
+        $('#plan_time .divset_selected').removeClass('divset_selected');
     });
     
     // Event select click handler
@@ -204,6 +209,7 @@ function submit_plan(from_just_go) {
         $.get('/home/check_preexisting_event', {
             needle: $('#event_title').val(),
             'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
+            'plan_clock_time': $('#plan_clock_time').val(),
             'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
             'place_id': $('#plan_location_id').val()
         }, function (data) {
@@ -318,7 +324,7 @@ function generate_plan_text() {
 function next_plan_panel() {
     if ($('.plan_page_content:first:visible').length == 1) {
         // The first panel is visible. Don't continue unless a place was selected and a time is selected
-        if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length == 2) {
+        if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected').length == 1 && ($('#plan_time .divset_selected').length == 1 || $('#plan_clock_time').val() != '')) {
             // Hide the first panel and show the second
             $('.plan_page_content:first').hide('slide', {}, 'fast', function () {
                 $('.plan_page_content:eq(1)').show('slide', {
