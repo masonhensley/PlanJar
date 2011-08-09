@@ -91,7 +91,8 @@ function initialize_plan_modal() {
     
     // Clock time change handler
     $('#plan_clock_time').change(function() {
-        console.log(Date.parse($(this).val()));
+        var foo = Date.parse($(this).val());
+        console.log(foo.getHours());
     //$('#plan_time .divset_selected').removeClass('divset_selected');
     });
     
