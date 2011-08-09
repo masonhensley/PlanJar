@@ -22,7 +22,11 @@
     padding-bottom:2px;
 }
 
-.blue_graph_bar {
+.network_graph_bar {
+    background-color: #596FD0;
+}
+
+.group_graph_bar {
     background-color: #596FD0;
 }
 
