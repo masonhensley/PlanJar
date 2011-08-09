@@ -90,9 +90,7 @@ function initialize_plan_modal() {
     // Create event click handler
     $('#create_event').click(function () {
         // Show the event div
-        $('#plan_events_wrapper').show('slide', {
-            direction: 'down'
-        }, 'slow');
+        $('#plan_events_wrapper').show('fast');
     });
     
     
