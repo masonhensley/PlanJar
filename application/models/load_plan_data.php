@@ -124,9 +124,12 @@ class Load_plan_data extends CI_Model
         // html to replace the data div
         ?>
         <div class="delete_plan">Delete Plan</div>
-        <div class="view_plan_location">View Location Info</div>
+        <div class="view_plan_location">
+            View Location Info
+        </div>
 
         <div class="plan_header">
+            <font style="color:gray;">Plan: </font>
             <?php
             if ($plan_row->title != '')
             {
