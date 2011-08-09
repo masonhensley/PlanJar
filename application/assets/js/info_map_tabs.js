@@ -93,60 +93,14 @@ function display_info(bypass, arg) {
         $.get('/home/load_selected_plan_data', {
             'plan_selected': $('.selected_plan').attr('plan_id')
         }, function (data) {
-            data = $.parseJSON(data);
-        
-            // Replace the data and show the data tab.
-            $('#info_content').html(data.html);
-            data = data.data;
-        
-            // Initialize the graphs
-            two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
-            populate_percentage_box('.attending_graph', data.percent_attending, 'percent_bar_total');
-        
-            // Handles clicking on the delete plan button
-            $('.delete_plan').confirmDiv(function (clicked_elem) {
-                $.get('/home/delete_plan', {
-                    'plan_selected': $('.selected_plan').attr('plan_id')
-                }, function (data) {
-                    // Replace the data and show the info tab.
-                    $('#info_content').html(data);
-                    
-                    populate_plan_panel();
-                });
-                
-                // Display the info box after the plan tabs HTML has been replaced
-                populate_plan_panel(function () {
-                    display_info();
-                });
-            });
-        
-            // Handles clicking on invite people
-            $('.invite_people').click(function () {
-                open_invite_modal('event', data.event_id, data.privacy, data.originator_id);
-            });
-            
-            // Handles clicking on the see place button
-            $('.view_plan_location').click(function () {
-                $.get('/home/show_location_data', {
-                    'place_id': data.location_id,
-                    'date': data.date,
-                    'selected_groups': (['current_location']),
-                    'back_button': true
-                }, function (data) {
-                    initialize_location_info(data);
-                });
-                
-                initialize_location_info(data);
-            });
+            initialize_plan_info(data);
         });
     } else if ($('.selected_friend_plan').length > 0) {
         // Friend's plan selected
-        $.get('/home/show_location_data', {
-            'place_id': $('.selected_friend_plan').attr('place_id'),
-            'date': get_selected_day(),
-            'selected_groups':get_selected_groups()
+        $.get('/home/load_selected_plan_data', {
+            'plan_selected': $('.selected_friend_plan').attr('plan_id')
         }, function (data) {
-            initialize_location_info(data);
+            initialize_plan_info(data);
         });
     } else {
         // No controlls selected
@@ -185,6 +139,54 @@ function initialize_location_info(data) {
     // Back click handler (not always visible)
     $('.back_to_plan').click(function () {
         display_info();
+    });
+}
+
+function initialize_plan_info(data) {
+    data = $.parseJSON(data);
+        
+    // Replace the data and show the data tab.
+    $('#info_content').html(data.html);
+    data = data.data;
+        
+    // Initialize the graphs
+    two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female', true);
+    populate_percentage_box('.attending_graph', data.percent_attending, 'percent_bar_total');
+        
+    // Handles clicking on the delete plan button
+    $('.delete_plan').confirmDiv(function (clicked_elem) {
+        $.get('/home/delete_plan', {
+            'plan_selected': $('.selected_plan').attr('plan_id')
+        }, function (data) {
+            // Replace the data and show the info tab.
+            $('#info_content').html(data);
+                    
+            populate_plan_panel();
+        });
+                
+        // Display the info box after the plan tabs HTML has been replaced
+        populate_plan_panel(function () {
+            display_info();
+        });
+    });
+        
+    // Handles clicking on invite people
+    $('.invite_people').click(function () {
+        open_invite_modal('event', data.event_id, data.privacy, data.originator_id);
+    });
+            
+    // Handles clicking on the see place button
+    $('.view_plan_location').click(function () {
+        $.get('/home/show_location_data', {
+            'place_id': data.location_id,
+            'date': data.date,
+            'selected_groups': (['current_location']),
+            'back_button': true
+        }, function (data) {
+            initialize_location_info(data);
+        });
+                
+        initialize_location_info(data);
     });
 }
 
