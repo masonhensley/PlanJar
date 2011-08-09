@@ -30,7 +30,7 @@
 .boy_blue_square{
     width:12px; 
     height:12px; 
-    background-color:lightblue; 
+    background-color:#3FA9F5; 
     position:absolute;
     top:51px;
     left:25px;
@@ -39,7 +39,7 @@
 .girl_pink_square{
     width:12px; 
     height:12px; 
-    background-color:pink; 
+    background-color:#E80C7A; 
     position:absolute;
     left:133px;
     top:51px;
