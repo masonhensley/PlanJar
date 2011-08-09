@@ -162,8 +162,8 @@ class Load_plan_data extends CI_Model
 
         <div class="plan_graphs">
            
-            <div style="position:absolute; width:12px; height:12px; background-color:lightpink;top:157px; left:133px;"></div>
-            <div style="position:absolute; width:12px; height:12px; background-color:lightblue;top:157px;left:25px;"></div>
+            <div style="position:absolute; width:12px; height:12px; background-color:#E80C7A;top:157px; left:133px;"></div>
+            <div style="position:absolute; width:12px; height:12px; background-color:#3FA9F5;top:157px;left:25px;"></div>
             <div style="position:absolute; width:12px; height:12px; background-color:blueviolet;top:47px;left:25px;"></div>
  
             <div style="position:absolute;font-weight:bold;font-size:12px;top:47px; left:40px;"><?php echo $data_array['percent_attending' ] ."%"; ?></div>
