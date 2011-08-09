@@ -36,8 +36,14 @@ class Load_plan_data extends CI_Model
     {
         // set the plan time
         $time_string = ""; // fix this later!
+
         // get #attending, #male, #female
-        $query = "SELECT user_meta.sex FROM plans JOIN user_meta ON plans.user_id=user_meta.user_id WHERE plans.id=$plan_id";
+        $query = "SELECT event_id FROM plans WHERE id=$plan_id";
+        $result = $this->db->query($query);
+        $event_id = $result->row()->event_id;
+        
+        // select all the people attending the event
+        $query = "SELECT user_meta.sex FROM plans JOIN user_meta ON user_meta.user_id=plans.user_id WHERE plans.event_id=$event_id";
         $result = $this->db->query($query);
 
         $number_females = 0;
@@ -152,14 +158,14 @@ class Load_plan_data extends CI_Model
 
         <div class="plan_graphs">
            
-            <div style="position:absolute; width:12px; height:12px; background-color:lightpink;top:138px; left:117px;"></div>
-            <div style="position:absolute; width:12px; height:12px; background-color:lightblue;top:24px;left:123px;"></div>
+            <div style="position:absolute; width:12px; height:12px; background-color:lightpink;top:148px; left:117px;"></div>
+            <div style="position:absolute; width:12px; height:12px; background-color:lightblue;top:148px;left:65px;"></div>
             <div style="position:absolute; width:12px; height:12px; background-color:blueviolet;top:47px;left:49px;"></div>
- <!--
-            <div style="position:absolute;font-weight:bold;top:174px; left:68px;"><?php echo "%" .$data_array['percent_attending']; ?></div>
+ 
+            <div style="position:absolute;font-weight:bold;top:184px; left:68px;"><?php echo "%" .$data_array['percent_attending']; ?></div>
             <div style="position:absolute;font-weight:bold;top:6px;left:120px;"><?php echo "%" .$data_array['percent_male']; ?></div>
-            <div style="position:absolute;font-weight:bold;top:118px;left:128px;"><?php echo "%" .$data_array['percent_female']; ?></div>
-            
+            <div style="position:absolute;font-weight:bold;top:128px;left:128px;"><?php echo "%" .$data_array['percent_female']; ?></div>
+            <!--
             <div style="position:absolute;top:20px; left:134px;font-weight: bold;">male</div>
             <div style="position:absolute;top:134px;left:130px; font-weight: bold;">female</div>
             <div style="position:absolute; top:188px;left:60px;font-weight: bold;">accepted</div>
