@@ -87,7 +87,7 @@
             <div class="data_tab" assoc_div="#map_content">Map</div>
         </div>
         <div class ="container">
-            <a href="/home/logout" style="position:absolute; color:gray; top:0px; right:0px;">Log Out</a>
+            <a href="/home/logout" style="position:absolute; color:darkgray; top:-37px; right:78px;">Log Out</a>
             <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
             <div class ="left">
