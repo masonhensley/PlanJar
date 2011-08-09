@@ -31,7 +31,7 @@
     width: 30px;
     height: 170px;
     float: left;
-    margin-left: 100px;
+    margin-left: 180px;
 }
 
 .attending_graph{
@@ -39,7 +39,7 @@
     float: left;
     width: 30px;
     height: 170px;
-    margin-left: 50px;
+    margin-left:70px;
 }
 
 .view_plan_location {
