@@ -30,7 +30,6 @@ function get_notifications() {
         });
     }
     
-    
 }
 
 function setup_notification_tabs(data){
