@@ -118,7 +118,7 @@ function initialize_location_info(data) {
     data = data.graph_data;
     
     // Populate the graphs
-    populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date, 'group_graph_bar');
+    populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date, 'location_graph_bar');
     two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
                 
     // Make plan click handler
