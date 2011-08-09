@@ -30,7 +30,7 @@
 
        <div id="main">  
   
-        At COMPANY JAROF, INC., parent company of PlanJar, we value your privacy a great deal. Almost as much as we value the ability to take the data you give us and slice, dice, julienne, mash, puree and serve it to our business partners, which may include third-party advertising networks, data brokers, networks of affiliate sites, parent companies, subsidiaries, and other entities, none of which we’ll bother to list here because they can change from week to week and, besides, we know you’re not really paying attention. You will notice on our site that we do our best to shield your identity to the masses by lumping you into your social groups, we do our best to apply that philosophy across the board. <br> <br> 
+        At Jarof, Inc., parent company of PlanJar, we value your privacy a great deal. Almost as much as we value the ability to take the data you give us and slice, dice, julienne, mash, puree and serve it to our business partners, which may include third-party advertising networks, data brokers, networks of affiliate sites, parent companies, subsidiaries, and other entities, none of which we’ll bother to list here because they can change from week to week and, besides, we know you’re not really paying attention. You will notice on our site that we do our best to shield your identity to the masses by lumping you into your social groups, we do our best to apply that philosophy across the board. <br> <br> 
 
 We’ll also share all of this information with the government as bound by applicable laws or in accordance proper court subpoenas.<br> <br> 
 
