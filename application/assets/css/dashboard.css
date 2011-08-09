@@ -94,28 +94,45 @@ a{
 }
 
 .tab {
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	background-color: lightgray;
-	width: 100px;
-	height: auto;
-	margin-right: 10px;
-	display: inline-block;
-	background-color: #F3F3F3;
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	color: black;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    background-color: lightgray;
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+    display: inline-block;
+    background-color: #F3F3F3;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
 }
+
+.notifications_tab{
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    background-color: lightgray;
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+    display: inline-block;
+    background-color: #F3F3F3;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+}
+
 .tab_selected {
-	background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
-	background: -webkit-linear-gradient(top, #73B1EA, #02C);
-	background: -moz-linear-gradient(top, #73B1EA, #02C);
-	background: -o-linear-gradient(top, #73B1EA, #02C);
-	background: -ms-linear-gradient(top, #73B1EA, #02C);
-	background: linear-gradient(top, #73B1EA, #02C);
-	color: white;
+    background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
+    background: -webkit-linear-gradient(top, #73B1EA, #02C);
+    background: -moz-linear-gradient(top, #73B1EA, #02C);
+    background: -o-linear-gradient(top, #73B1EA, #02C);
+    background: -ms-linear-gradient(top, #73B1EA, #02C);
+    background: linear-gradient(top, #73B1EA, #02C);
+    color: white;
 }
 
 .page_content{
@@ -200,6 +217,7 @@ a{
     width: 80px;
     color: gray;
     padding: 3px;
+    text-align:right;
 }
 
 /* follower tab */
