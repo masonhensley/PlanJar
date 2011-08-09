@@ -54,9 +54,8 @@ function load_friend_plans(friend_id)
         
             // Back button click handler      
             $('.friend_plan_back_button').one('click', function(){
-                // Clear the tabs and display the info box
+                // Clear the tabs
                 deselect_all_controlls();
-                display_info();
                 
                 // Hide the plans div
                 $('#friend_plan_list').hide('slide', {
@@ -76,7 +75,6 @@ function load_friend_plans(friend_id)
                     deselect_all_controlls();
                     $(this).addClass('selected_friend_plan');
                     goto_day_offset($(this).attr('day_offset'));
-                    display_info();
                 }
             });
             
