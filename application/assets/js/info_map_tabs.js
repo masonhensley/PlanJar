@@ -50,6 +50,9 @@ function display_info(bypass, arg) {
             place_id = $('.selected_location_tab').attr('place_id');
         } else {
             place_id = viewing_plan_location;
+            
+            // Seek to the correct day
+            goto_day_offset(viewing_plan_day_offset, true);
         }
         
         // Location selected
@@ -153,6 +156,7 @@ function initialize_location_info(data) {
 
 // Sets up the plan info view
 var viewing_plan_location = false;
+var viewing_plan_day_offset;
 function initialize_plan_info(data) {
     data = $.parseJSON(data);
         
@@ -190,6 +194,7 @@ function initialize_plan_info(data) {
     $('.view_plan_location').click(function () {
         // Save the place id to allow for day tab navigation
         viewing_plan_location = data.location_id;
+        viewing_plan_day_offset = data.location_id;
         
         $.get('/home/show_location_data', {
             'place_id': data.location_id,

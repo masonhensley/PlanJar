@@ -11,7 +11,7 @@ function initialize_day_tabs() {
 }
 
 // Seeks to the correct day tab and clicks the day
-function goto_day_offset(offset) {
+function goto_day_offset(offset, skip_click) {
     if (offset >= 0) {
         if (offset < parseInt($('.day:first').attr('day_offset')) || offset > parseInt($('.day:last').attr('day_offset'))) {
             // Not in current seven days
@@ -23,18 +23,32 @@ function goto_day_offset(offset) {
                 
                 day_click_handlers();
                 
-                // Click the appropriate day
-                $('.day[day_offset="' + offset + '"]').click();
+                // Select the appropriate day
+                if (skip_click) {
+                    $('.day[day_offset="' + offset + '"]').addClass('day_selected');
+                } else {
+                    $('.day[day_offset="' + offset + '"]').click();
+                }
                 
                 display_info();
             });
         } else  {
             // This week
-            $('.day').eq(offset % 7).click();
+            if (skip_click) {
+                $('.day_selected').removeClass('day_selected');
+                $('.day').eq(offset % 7).addClass('day_selected');
+            } else {
+                $('.day').eq(offset % 7).click();
+            }
         }
     } else {
         // Default to today
-        $('.day:first').click();
+        if (skip_click) {
+            $('.day_selected').removeClass('day_selected');
+            $('.day:first').addClass('day_selected');
+        } else {
+            $('.day:first').click();
+        }
     }
 }
 
