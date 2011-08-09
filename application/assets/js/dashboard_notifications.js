@@ -8,10 +8,9 @@ function setup_notifications(){
     $('#unread_notifications_tab').addClass('notifications_tab_selected');
     
     $('.notifications_tab').click(function(){
-        alert('hey');
         if(!$(this).hasClass('notifications_tab_selected'))
         {
-            $('.notifications_tab').removeClass('notifactions_tab_selected');
+            $('.notifications_tab_selected').removeClass('notifactions_tab_selected');
             $(this).addClass('notifications_tab_selected');
             get_notifications();
         }
