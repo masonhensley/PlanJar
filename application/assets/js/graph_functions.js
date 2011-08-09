@@ -23,18 +23,13 @@ function populate_percentage_box(container, percentage, active_class, vertical) 
         width_height = 'width';
     }
     
-    // Define the bar width scaling function
-    var bar_scale = d3.scale.linear()
-    .range(['0%', '100%'])
-    .domain([0, 100]);
-    
     // Select the bar
-    d3.select(container).selectAll('div.percent_bar')
+    d3.select(container).selectAll('div')
     // Add data to the bars
     .data([percentage])
     // Set the width according to the input data
     .style(width_height, function (d) {
-        return bar_scale(d) + '%';
+        return d + '%';
     });
 }
 
