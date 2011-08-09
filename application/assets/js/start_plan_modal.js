@@ -118,28 +118,28 @@ function initialize_plan_modal() {
         $('#create_event').show('fast');
     });
         
-    // New event click handler
-    $('#create_event').click(function () {
-        
-        // Hide the button
-        $(this).hide('fast');
-        
-        // Hide the just going button
-        $('#just_going').hide('fast');
-        
-        // Show the cancel button
-        $('#close_new_event').show('fast');
-        
-        // Clear the select
-        $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
-            
-        // Show the title and privacy settings
-        $('#plan_event_id').val('');
-        $('#start_event_content').show('fast', function () {
-            $('#event_title').focus();
-        });
-        $('#plan_privacy_wrapper > div').filter(':first').click();
-    });
+//    // New event click handler
+//    $('#create_event').click(function () {
+//        
+//        // Hide the button
+//        $(this).hide('fast');
+//        
+//        // Hide the just going button
+//        $('#just_going').hide('fast');
+//        
+//        // Show the cancel button
+//        $('#close_new_event').show('fast');
+//        
+//        // Clear the select
+//        $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
+//            
+//        // Show the title and privacy settings
+//        $('#plan_event_id').val('');
+//        $('#start_event_content').show('fast', function () {
+//            $('#event_title').focus();
+//        });
+//        $('#plan_privacy_wrapper > div').filter(':first').click();
+//    });
     
     // Just go click handler
     $('#just_going').click(function () {
