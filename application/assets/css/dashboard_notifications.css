@@ -1,7 +1,7 @@
 #notifications_list {
     width: 425px;
     height: auto;
-    margin-top:40px;
+    margin-top:45px;
     float: left;
     border-top:1px solid #CCC;
     border-right:1px solid #CCC;
@@ -82,4 +82,25 @@
 
 .notification_entry.unviewed a{
     color: blue;
+}
+
+.notifications_tab{
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    background-color: lightgray;
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+    display: inline-block;
+    background-color: #F3F3F3;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+}
+
+.notifications_tab_selected{
+    background-color:black;
+    color:white;
 }
