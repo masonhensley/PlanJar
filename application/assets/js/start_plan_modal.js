@@ -55,14 +55,19 @@ function initialize_plan_modal() {
     // Divsets
     $('#plan_time, #plan_privacy_wrapper, #plan_day').divSet();
     
+    // Additional day click handler
+    $('#plan_day div').click(function() {
+        populate_selectable_events();
+    });
+    
     // Left and right day click handlers
     $('#plan_place_time_wrapper .left_day_arrow').click(function() {
         $(this).removeClass('divset_selected');
-        goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) - 7)
+        goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) - 7);
     });
     $('#plan_place_time_wrapper .right_day_arrow').click(function() {
         $(this).removeClass('divset_selected');
-        goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) + 7)
+        goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) + 7);
     });
     
     // In-field labels
@@ -80,6 +85,8 @@ function initialize_plan_modal() {
         // Clear and blur the time box
         $('#plan_clock_time').val('');
         $('#plan_clock_time').blur();
+        
+        populate_selectable_events()
     });
     
     // Clock time change handler
@@ -89,25 +96,15 @@ function initialize_plan_modal() {
     
     // Create event click handler
     $('#create_event').click(function () {
-        // Show the event div
-        $('#plan_events_wrapper').show('fast');
-    });
-    
-    
-    
-    
-    
-    // Event select click handler
-    $('#plan_event_select_wrapper').delegate('div', 'click', function () {
-        // Make only this selected
-        $(this).siblings().removeClass('selected_event');
-        $(this).addClass('selected_event');
-        
-        // Store the selected event id
-        $('#plan_event_id').val($(this).attr('event_id'));
-        
-        // Reset and hide the title and privacy settings
-        $('#close_new_event').click();
+        // Highlight errors
+        if ($('#plan_location_id').val() == '') {
+            $('#plan_location').addClass('error_border');
+        } else if ($('#plan_day .divset_selected').length == 0) {
+            $('#plan_day').addClass('error_border')
+        } else {
+            // Show the event div
+            $('#plan_events_wrapper').show('fast');
+        }
     });
     
     // Cancel event click handler
@@ -121,28 +118,28 @@ function initialize_plan_modal() {
         $('#create_event').show('fast');
     });
         
-    // New event click handler
-    $('#create_event').click(function () {
-        
-        // Hide the button
-        $(this).hide('fast');
-        
-        // Hide the just going button
-        $('#just_going').hide('fast');
-        
-        // Show the cancel button
-        $('#close_new_event').show('fast');
-        
-        // Clear the select
-        $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
-            
-        // Show the title and privacy settings
-        $('#plan_event_id').val('');
-        $('#start_event_content').show('fast', function () {
-            $('#event_title').focus();
-        });
-        $('#plan_privacy_wrapper > div').filter(':first').click();
-    });
+//    // New event click handler
+//    $('#create_event').click(function () {
+//        
+//        // Hide the button
+//        $(this).hide('fast');
+//        
+//        // Hide the just going button
+//        $('#just_going').hide('fast');
+//        
+//        // Show the cancel button
+//        $('#close_new_event').show('fast');
+//        
+//        // Clear the select
+//        $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
+//            
+//        // Show the title and privacy settings
+//        $('#plan_event_id').val('');
+//        $('#start_event_content').show('fast', function () {
+//            $('#event_title').focus();
+//        });
+//        $('#plan_privacy_wrapper > div').filter(':first').click();
+//    });
     
     // Just go click handler
     $('#just_going').click(function () {
@@ -159,6 +156,33 @@ function initialize_plan_modal() {
             submit_plan();
         }
     });
+}
+
+// Populates the selectable events and initializes the click handlers
+function populate_selectable_events() {
+    if ($('#plan_events_wrapper').css('display') != 'none') {
+        // Populate the header
+        $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
+                    
+        // Populate the event select
+        $.get('/home/get_events_for_plan', {
+            day: $('#plan_day.divset_selected').attr('day_offset'),
+            time: $('#plan_time .divset_selected').attr('plan_time'),
+            place_id: $('#plan_location_id').val()
+        }, function (data) {
+            $('#plan_event_select_wrapper').html(data);
+        
+            // Event select click handler
+            $('.selectable_event').click('click', function () {
+                // Make only this selected
+                $(this).siblings().removeClass('selected_event');
+                $(this).addClass('selected_event');
+        
+                // Store the selected event id
+                $('#plan_event_id').val($(this).attr('event_id'));
+            });
+        });
+    }
 }
 
 // Seeks to the corresponding week
@@ -258,21 +282,6 @@ function submit_plan_helper(from_just_go) {
                 
         // Refresh the plan list.
         populate_plan_panel();
-    });
-}
-
-// Does what it's called
-function initialize_event_select_page() {
-    // Populate the header for the next page
-    $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
-                    
-    // Populate the event select
-    $.get('/home/get_events_for_plan', {
-        day: $('.plan_day.divset_selected').attr('day_offset'),
-        time: $('#plan_time .divset_selected').attr('plan_time'),
-        place_id: $('#plan_location_id').val()
-    }, function (data) {
-        $('#plan_event_select_wrapper').html(data);
     });
 }
 
@@ -516,8 +525,7 @@ function initialize_plan_autocomplete() {
                     $('#new_place_factual_id').val(ui.item.factual_id);
                 }
             
-                // Try to advance the panel
-                $('#plan_right').click();
+                populate_selectable_events();
             }
         }
     });

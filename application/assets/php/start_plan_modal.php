@@ -50,7 +50,6 @@
                 <div class="right">
                     <div id="create_event_title">
                         Don't find anything you want to go to?<br/><br/>
-                        <div id="just_going">just going</div>
                         <input type="button" id="close_new_event" value="Cancel" style="display: none"/>
                         <br/>
                     </div>
