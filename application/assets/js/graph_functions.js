@@ -105,8 +105,8 @@ function populate_day_graph(container, data, selected_date) {
     });
 }
 
-// Populates the container with a 
-function two_percentage_bar(container, left_percentage, right_percentage, left_class, right_class) {
+// Populates the container with a horizontal two percentage bar (one color floated left, the other floated right)
+function horiz_two_percentage_bar(container, left_percentage, right_percentage, left_class, right_class) {
     // Add the divs if they don't exist
     if ($(container).children().length < 2) {
         // Clear the container
@@ -134,6 +134,58 @@ function two_percentage_bar(container, left_percentage, right_percentage, left_c
     .data([right_percentage])
     // Set the width
     .style('width', function (d) {
+        return d + '%';
+    });
+}
+
+// Populates the container with a two percentage bar (one color floated left, the other floated right)
+function two_percentage_bar(container, percentage_a, percentage_b, class_a, class_b, vertical) {
+    // Add the divs if they don't exist
+    if ($(container).children().length < 2) {
+        // Clear the container
+        $(container).html('');
+            
+        // Compute the correct styles to add
+        var style_a = "position: absolute; ";
+        var style_b = style_a;
+        if (vertical) {
+            style_a += "width: 100%; top: 0px;";
+            style_b += "width: 100%; bottom: 0px;"
+        } else {
+            style_a += "height: 100%; left: 0px;";
+            style_b += "height: 100%; right: 0px;"
+        }
+            
+        // Add the a div
+        $(container).append($('<div class="' + class_a + ' bar_a" style="' + style_a + '"></div>'));
+            
+        // Add the b div
+        $(container).append($('<div class="' + class_b + ' bar_b" style="' + style_b + '"></div>'));
+    }
+    
+    // Change the width or the height, accordingly
+    var width_height;
+    if (vertical) {
+        width_height = 'height';
+    } else {
+        width_height = 'width';
+    }
+    
+    // Select the left div
+    d3.select(container).selectAll('.bar_a')
+    // Add data
+    .data([percentage_a])
+    // Set the width
+    .style(width_height, function (d) {
+        return d + '%';
+    });
+    
+    // Select the right div
+    d3.select(container).selectAll('div.bar_b')
+    // Add data
+    .data([percentage_a])
+    // Set the width
+    .style(width_height, function (d) {
         return d + '%';
     });
 }

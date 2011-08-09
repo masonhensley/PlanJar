@@ -55,20 +55,6 @@
 }
 
 /* ----------------------------------- two percentage bar classes ---------------------------------------- */
-.two_bar_right {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    height: 100%;
-}
-
-.two_bar_left {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-}
-
 .two_bar_male {
     background-color: lightblue;
 }
