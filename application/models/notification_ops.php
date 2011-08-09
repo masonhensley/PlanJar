@@ -70,6 +70,20 @@ class Notification_ops extends CI_Model
             notifications.viewed, user_meta.first_name, user_meta.last_name, user_meta.user_id
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
             WHERE notifications.user_id = $user_id AND notifications.viewed=0 ORDER BY notifications.viewed ASC, notifications.date DESC";
+        
+        $query = $this->db->query($query_string);
+        
+        if ($query->num_rows() == 0)
+        {
+            echo('No recent notifications');
+        } else
+        {
+            foreach ($query->result() as $row)
+            {
+                $accepted = $this->deduce_accepted($row);
+                $this->echo_notification($row, $accepted);
+            }
+        }
     }
 
     // Echos the HTML for one notification entry
