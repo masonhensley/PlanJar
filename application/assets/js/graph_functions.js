@@ -48,7 +48,7 @@ function populate_day_graph(container, data, selected_date, graph_bar_class) {
             vert_bar_wrapper = $('<div class="vert_bar_wrapper"></div');
             
             // Append a bar div
-            vert_bar_wrapper.append($('<div class="' + graph_bar_class + '"></div>'));
+            vert_bar_wrapper.append($('<div class="graph_bar ' + graph_bar_class + '"></div>'));
             
             // Append a label div
             vert_bar_wrapper.append($('<div class="graph_bar_label"></div>'));
