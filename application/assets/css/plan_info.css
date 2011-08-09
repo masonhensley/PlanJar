@@ -27,7 +27,7 @@
 }
 
 .plan_gender_graph{
-    position:absolute;
+    position: relative;
     width: 30px;
     height: 200px;
     float: left;
@@ -35,9 +35,10 @@
 }
 
 .attending_graph{
+    float: left;
     width: 30px;
     height: 200px;
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
 .view_plan_location {
