@@ -158,9 +158,9 @@ class Load_plan_data extends CI_Model
             <div style="position:absolute;font-weight:bold;"><?php echo "%" .$data_array['percent_male']; ?></div>
             <div style="position:absolute;font-weight:bold;"><?php echo "%" .$data_array['percent_female']; ?></div>
             
-            <div style="position:absolute;top:20px; left:134px;">male</div>
-            <div style="position:absolute;top:134px;left:130px;">female</div>
-            <div style="position:absolute; top:188px;left:60px;">accepted</div>
+            <div style="position:absolute;top:20px; left:134px;font-weight: bold;">male</div>
+            <div style="position:absolute;top:134px;left:130px; font-weight: bold;">female</div>
+            <div style="position:absolute; top:188px;left:60px;font-weight: bold;">accepted</div>
             
             <div class="plan_gender_graph">
 
