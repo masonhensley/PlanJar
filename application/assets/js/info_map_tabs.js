@@ -150,8 +150,8 @@ function initialize_plan_info(data) {
     data = data.data;
         
     // Initialize the graphs
-    two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female', true);
-    populate_percentage_box('.attending_graph', data.percent_attending, 'percent_bar_total', true);
+    two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
+    populate_percentage_box('.attending_graph', data.percent_attending, 'percent_bar_total');
         
     // Handles clicking on the delete plan button
     $('.delete_plan').confirmDiv(function (clicked_elem) {
