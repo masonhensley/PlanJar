@@ -184,7 +184,7 @@ function populate_selectable_events(call_during) {
                     
         // Populate the event select
         $.get('/home/get_events_for_plan', {
-            day: $('#plan_day.divset_selected').attr('day_offset'),
+            day: $('#plan_day .divset_selected').attr('day_offset'),
             time: $('#plan_time .divset_selected').attr('plan_time'),
             place_id: $('#plan_location_id').val()
         }, function (data) {
