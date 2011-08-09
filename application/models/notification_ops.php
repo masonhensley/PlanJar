@@ -53,7 +53,7 @@ class Notification_ops extends CI_Model
         {
             ?>
             <font style="font-size:17px; font-style:italic; color:gray;">No unread notifications</font>
-            <hr/>
+
             <?php
         } else
         {
@@ -80,7 +80,7 @@ class Notification_ops extends CI_Model
         {
             ?>
             <font style="font-size:17px; font-style:italic; color:gray;">No unread notifications</font>
-            <hr/>
+
             <?php
         } else
         {
