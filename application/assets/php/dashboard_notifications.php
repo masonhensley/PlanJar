@@ -1,8 +1,8 @@
-<div class="notifications_tab" style="position:absolute; top:0px; left:0px;" >
+<div class="notifications_tab notifications_tab_selected" id="unread_notifications_tab" style="position:absolute; top:0px; left:0px;" >
     Unread
 </div>
 
-<div class="notifications_tab" style="position:absolute; top:0px; left:110px;">
+<div class="notifications_tab" id="all_notifications_tab" style="position:absolute; top:0px; left:110px;">
     All
 </div>
 

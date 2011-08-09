@@ -249,7 +249,13 @@ class Dashboard extends CI_Controller
     public function get_all_notifications()
     {
         $this->load->model('notification_ops');
-        $this->notification_ops->get_notifications();
+        $this->notification_ops->display_all_notifications();
+    }
+
+    public function get_unread_notifications()
+    {
+        $this->load->model('notification_ops');
+        $this->notification_ops->display_unread_notifications();
     }
 
     public function get_profile()
@@ -277,7 +283,7 @@ class Dashboard extends CI_Controller
         $box_text = $this->input->get('box_text');
         $box_text = trim($box_text);
         $box_text = mysql_real_escape_string($box_text);
-        
+
         $id = $this->ion_auth->get_user()->id;
         $query = "UPDATE user_meta SET box='$box_text' WHERE user_meta.user_id=$id";
         $this->db->query($query);
