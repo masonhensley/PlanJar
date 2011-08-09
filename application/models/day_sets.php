@@ -27,10 +27,16 @@ class Day_sets extends CI_Model
             <?php
             $date->add(new DateInterval('P1D'));
         }
-        ?>
-        <div class="left_day_arrow"><</div>
-        <div class="right_day_arrow">></div>
-        <?php
+
+        // Don't add left/right arrows in a plan
+        if (!$plan)
+        {
+            ?>
+            <div class="left_day_arrow"><</div>
+            <div class="right_day_arrow">></div>
+            <?php
+        }
+
         return ob_get_clean();
     }
 
