@@ -34,10 +34,9 @@
                     <input type="text" id="plan_clock_time" name="plan_clock_time"/>
                 </div>
             </div>
-
-            <hr/>
         </div>
 
+        <hr/>
         <div style="width: 100%; text-align: center">
             <input type="button" id="plan_continue" name="plan_continue" value="Continue"/>
         </div>
