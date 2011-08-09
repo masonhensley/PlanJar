@@ -12,28 +12,12 @@
     width: auto;
 }
 
-#plan_left, #plan_right {
-    height: 200px;
-    width: 4%;
-    float: left;
-    background-color: #aaa;
+#plan_place_time_wrapper {
+    
 }
 
-#plan_page_wrapper {
-    width: 92%;
-    height: 200px;
-    float: left;
-}
-
-.plan_page_content {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-#plan_invite_header {
-    width: 100%;
-    height: auto;
+#plan_events_wrapper {
+    
 }
 
 #plan_day {

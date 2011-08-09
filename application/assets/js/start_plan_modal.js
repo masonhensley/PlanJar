@@ -49,16 +49,6 @@ function initialize_plan_modal() {
         handle: '.title_bar'
     });
     
-    // Left scroll
-    $('#plan_left').click(function () {
-        prev_plan_panel();
-    });
-    
-    // Right scroll
-    $('#plan_right').click(function() {
-        next_plan_panel();
-    });
-    
     // Initialize the plan location autocomplete instance.
     initialize_plan_autocomplete();
     
