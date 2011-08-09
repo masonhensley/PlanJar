@@ -172,7 +172,7 @@ class Load_plan_data extends CI_Model
             
             <div style="position:absolute;top:154px; left:69px;font-weight: bold;">male</div>
             <div style="position:absolute;top:154px;left:175px; font-weight: bold;">female</div>
-            <div style="position:absolute; top:44px;left:68px;font-weight: bold;">accepted</div>
+            <div style="position:absolute; top:44px;left:68px;font-weight: bold;">have accepted so far</div>
             
             
 
