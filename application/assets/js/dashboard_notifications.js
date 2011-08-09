@@ -1,6 +1,6 @@
 function notifications_setup() {
     setup_notification_tabs();
-    get_notifications();
+   // get_notifications();
 }
 
 function setup_notification_tabs(){
