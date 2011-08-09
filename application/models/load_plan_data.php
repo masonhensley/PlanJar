@@ -36,12 +36,11 @@ class Load_plan_data extends CI_Model
     {
         // set the plan time
         $time_string = ""; // fix this later!
-
         // get #attending, #male, #female
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
         $result = $this->db->query($query);
         $event_id = $result->row()->event_id;
-        
+
         // select all the people attending the event
         $query = "SELECT user_meta.sex FROM plans JOIN user_meta ON user_meta.user_id=plans.user_id WHERE plans.event_id=$event_id";
         $result = $this->db->query($query);
@@ -78,11 +77,16 @@ class Load_plan_data extends CI_Model
         {
             $percent_male = 0;
             $percent_female = 0;
-            $percent_attending = 0;
         } else
         {
             $percent_male = ($number_males / $number_attending) * 100;
             $percent_female = ($number_females / $number_attending) * 100;
+        }
+        if ($number_invited == 0)
+        {
+            $percent_attending = 0;
+        } else
+        {
             $percent_attending = ($number_attending / $number_invited) * 100;
         }
 
@@ -144,7 +148,7 @@ class Load_plan_data extends CI_Model
         </div>
 
         <div class="plan_info">
-            
+
             <font style="color:gray">Location</font> <font style="font-weight:bold;font-size:15px;">
             <?php echo "@" . $plan_row->name; ?></font><br/>
             <font style="color:gray">Created By </font><font style="font-weight:bold;">
@@ -161,20 +165,20 @@ class Load_plan_data extends CI_Model
         </div>
 
         <div class="plan_graphs">
-           
+
             <div style="position:absolute; width:12px; height:12px; background-color:#E80C7A;top:157px; left:133px;"></div>
             <div style="position:absolute; width:12px; height:12px; background-color:#3FA9F5;top:157px;left:25px;"></div>
             <div style="position:absolute; width:12px; height:12px; background-color:blueviolet;top:47px;left:25px;"></div>
- 
-            <div style="position:absolute;font-weight:bold;font-size:12px;top:47px; left:40px;"><?php echo $data_array['percent_attending' ] ."%"; ?></div>
-            <div style="position:absolute;font-weight:bold;font-size:12px;top:157px;left:40px;"><?php echo $data_array['percent_male'] ."%"; ?></div>
-            <div style="position:absolute;font-weight:bold;font-size:12px;top:157px;left:147px;"><?php echo $data_array['percent_female'] ."%"; ?></div>
-            
+
+            <div style="position:absolute;font-weight:bold;font-size:12px;top:47px; left:40px;"><?php echo $data_array['percent_attending'] . "%"; ?></div>
+            <div style="position:absolute;font-weight:bold;font-size:12px;top:157px;left:40px;"><?php echo $data_array['percent_male'] . "%"; ?></div>
+            <div style="position:absolute;font-weight:bold;font-size:12px;top:157px;left:147px;"><?php echo $data_array['percent_female'] . "%"; ?></div>
+
             <div style="position:absolute;top:154px; left:69px;font-weight: bold;">male</div>
             <div style="position:absolute;top:154px;left:175px; font-weight: bold;">female</div>
             <div style="position:absolute; top:44px;left:68px;font-weight: bold;">have accepted so far</div>
-            
-            
+
+
 
             <div class="plan_gender_graph">
 
@@ -204,7 +208,7 @@ class Load_plan_data extends CI_Model
 
         return ob_get_clean();
     }
-    
+
     function make_date_readable($data_array)
     {
         // make the percentage readable
