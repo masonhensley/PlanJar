@@ -30,16 +30,12 @@
     position: absolute;
     width: 170px;
     height: 30px;
-    float: left;
-    margin-left: 180px;
 }
 
 .attending_graph{
     position:absolute;
-    float: left;
     width: 170px;
     height: 30px;
-    margin-left:70px;
 }
 
 .view_plan_location {
