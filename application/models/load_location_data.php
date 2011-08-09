@@ -198,24 +198,24 @@ class Load_location_data extends CI_Model
         ?>
         <div class="data_box_top_bar" place_id="<?php echo($place_data_array['id']); ?>" place_name="<?php echo($place_info['name']); ?>">
             <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
-                <font style="color:darkgray;">Selected:</font> <font style="color:navy;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
+                <font style="color:gray;">Selected:</font> <font style="color:navy;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
             </div>
         </div>
         <div class="place_display_info">
             <font style="font-size:19px; font-weight:bold;">People attending</font><br/>
             <div class="attending_info">
-                <font style="color:darkgray;">people</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['total_attending']; ?></font>
-                <font style="color:darkgray;">males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
-                <font style="color:darkgray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
+                <font style="color:gray;">people</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['total_attending']; ?></font>
+                <font style="color:gray;">males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
+                <font style="color:gray;">females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
                 <br/>
-                <font style="color:darkgray;">schoolmates</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['schoolmates_attending']; ?></font>
+                <font style="color:gray;">schoolmates</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['schoolmates_attending']; ?></font>
             </div>
             <br/>
         </div>
 
 
         <div class="gender_breakdown">
-            <font style="color:darkgray;position:absolute;left:51px;top:-10px;">gender breakdown</font>
+            <font style="color:gray;position:absolute;left:51px;top:-10px;">gender breakdown</font>
             <!-- boxes that show the color for males/females--> 
             <div class="girl_pink_square"></div>
             <div class="female_percent_display"><font style="font-size:11px;">
@@ -235,7 +235,7 @@ class Load_location_data extends CI_Model
 
         <div class="display_date">
             <div style="font-size:100px; color: #7BC848; line-height:75px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day']; ?></div>
-            <div style="font-size:100px; color:darkgray; line-height: 75px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day_date']; ?></div>
+            <div style="font-size:100px; color:gray; line-height: 75px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day_date']; ?></div>
         </div>
         <div class="make_plan">Make a plan here</div>
 
