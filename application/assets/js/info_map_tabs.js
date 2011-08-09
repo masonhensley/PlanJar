@@ -206,9 +206,9 @@ function initialize_plan_info(data) {
     
     // Handles clicking on the make plan button
     $('.make_plan').click(function() {
-        $.get('', {
+        $.get('make_plan_by_event', {
             'event_id': data.id
-            }, function(data) {
+        }, function(data) {
             open_conflict_invite(data);
         });
     });
