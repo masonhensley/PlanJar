@@ -6,6 +6,7 @@
     border-top:1px solid #CCC;
     border-right:1px solid #CCC;
     border-left:1px solid #CCC;
+    text-align: center;
 }
 
 #notifications_content > .right {
