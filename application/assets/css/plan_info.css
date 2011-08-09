@@ -47,8 +47,8 @@
     text-align: center;
     padding: 4px;
     border: 1px solid lightgray;
-    background:-webkit-linear-gradient(top, #8AE28F, #22A228);
-    color: white;
+    background:white;
+    color: gray;
     position:absolute;
     top:0px;
     right:0px;
