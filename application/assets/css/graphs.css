@@ -4,11 +4,11 @@
 }
 
 .percent_bar_male {
-    background-color: lightblue;
+    background-color: #3FA9F5;
 }
 
 .percent_bar_female {
-    background-color: lightpink;
+    background-color: #E80C7A;
 }
 
 /* ---------------------------------------------------- day bar graph classes ------------------------ */
@@ -58,8 +58,8 @@
 
 /* ----------------------------------- two percentage bar classes ---------------------------------------- */
 .two_bar_male {
-    background-color: lightblue;
+    background-color: #3FA9F5;
 }
 .two_bar_female {
-    background-color: pink;
+    background-color: #E80C7A;
 }
