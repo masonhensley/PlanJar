@@ -165,6 +165,9 @@ function initialize_plan_info(data) {
     $('#info_content').html(data.html);
     data = data.data;
         
+    // Seek to the correct day
+        goto_day_offset(data.date, true);
+        
     // Initialize the graphs
     two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
     populate_percentage_box('.attending_graph', data.percent_attending, 'percent_bar_total');
@@ -198,15 +201,6 @@ function initialize_plan_info(data) {
         
         // Seek to the correct day
         goto_day_offset(data.date);
-        
-    //        $.get('/home/show_location_data', {
-    //            'place_id': data.location_id,
-    //            'date': data.date,
-    //            'selected_groups': (['current_location']),
-    //            'back_button': true
-    //        }, function (data) {
-    //            initialize_location_info(data);
-    //        });
     });
 }
 
