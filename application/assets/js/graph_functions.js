@@ -35,7 +35,7 @@ function populate_percentage_box(container, percentage, active_class, vertical) 
 
 // Populates the container with a vertical bar graph
 // x = day, y = plan count
-function populate_day_graph(container, data, selected_date) {
+function populate_day_graph(container, data, selected_date, graph_bar_class) {
     // Create the bars and labels if they aren't there
     if ($(container).children().length != data.length) {
         // Clear the container
@@ -48,7 +48,7 @@ function populate_day_graph(container, data, selected_date) {
             vert_bar_wrapper = $('<div class="vert_bar_wrapper"></div');
             
             // Append a bar div
-            vert_bar_wrapper.append($('<div class="graph_bar"></div>'));
+            vert_bar_wrapper.append($('<div class="graph_bar ' + graph_bar_class + '"></div>'));
             
             // Append a label div
             vert_bar_wrapper.append($('<div class="graph_bar_label"></div>'));
