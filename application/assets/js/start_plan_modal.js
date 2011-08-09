@@ -53,10 +53,17 @@ function initialize_plan_modal() {
     initialize_plan_autocomplete();
     
     // Divsets
-    $('#plan_time, #plan_privacy_wrapper').divSet();
+    $('#plan_time, #plan_privacy_wrapper, #plan_day').divSet();
     
-    // Day scroll click handlers
-    plan_day_click_handlers();
+    // Left and right day click handlers
+    $('#plan_place_time_wrapper .left_day_arrow').click(function() {
+        $(this).removeClass('divset_selected');
+        goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) - 7)
+    });
+    $('#plan_place_time_wrapper .right_day_arrow').click(function() {
+        $(this).removeClass('divset_selected');
+        goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) + 7)
+    });
     
     // In-field labels
     $('#create_plan_content .in-field_block label').inFieldLabels();
@@ -151,22 +158,6 @@ function initialize_plan_modal() {
     });
 }
 
-// Handles the click events related the the day buttons
-function plan_day_click_handlers() {
-    // Divset
-    $('#plan_day').divSet();
-    
-    // Left and right day click handlers
-    $('#plan_place_time_wrapper .left_day_arrow').click(function() {
-        $(this).removeClass('divset_selected');
-        goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) - 7)
-    });
-    $('#plan_place_time_wrapper .right_day_arrow').click(function() {
-        $(this).removeClass('divset_selected');
-        goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) + 7)
-    });
-}
-
 // Seeks to the corresponding week
 function goto_plan_day_offset(offset, callback) {
     if (offset >= 0) {
@@ -179,7 +170,7 @@ function goto_plan_day_offset(offset, callback) {
                 // Replace the HTML
                 $('#plan_day').html(data);
                 
-                plan_day_click_handlers();
+                $('#plan_day').divSet();
                 
                 if (callback != undefined) {
                     callback();
