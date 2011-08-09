@@ -151,6 +151,7 @@ function initialize_location_info(data) {
     
     // Back click handler (not always visible)
     $('.back_to_plan').click(function () {
+        viewing_plan_location = false;
         display_info();
     });
 }
@@ -198,14 +199,14 @@ function initialize_plan_info(data) {
         // Seek to the correct day
         goto_day_offset(data.date);
         
-//        $.get('/home/show_location_data', {
-//            'place_id': data.location_id,
-//            'date': data.date,
-//            'selected_groups': (['current_location']),
-//            'back_button': true
-//        }, function (data) {
-//            initialize_location_info(data);
-//        });
+    //        $.get('/home/show_location_data', {
+    //            'place_id': data.location_id,
+    //            'date': data.date,
+    //            'selected_groups': (['current_location']),
+    //            'back_button': true
+    //        }, function (data) {
+    //            initialize_location_info(data);
+    //        });
     });
 }
 
