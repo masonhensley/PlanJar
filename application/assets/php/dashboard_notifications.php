@@ -1,8 +1,8 @@
-<div class="tab">
+<div class="tab" style="position:absolute; top:0px; left:0px;" >
     Unread
 </div>
 
-<div class="tab">
+<div class="tab" style="position:absolute; top:0px; left:0px;">
     All
 </div>
 
