@@ -151,16 +151,16 @@ class Load_plan_data extends CI_Model
 
         <div class="plan_graphs">
             <div style="position:absolute; width:10px; height:10px; background-color:lightpink;top:138px; left:117px;"></div>
-            <div style="position:absolute; width:10px; height:10px; background-color:lightblue;top:24px;left:128px;"></div>
+            <div style="position:absolute; width:10px; height:10px; background-color:lightblue;top:24px;left:120px;"></div>
             <div style="position:absolute; width:10px; height:10px; background-color:blueviolet;top:24px;left:128px;"></div>
 
             <div style="position:absolute;font-weight:bold;top:174px; left:68px;"><?php echo "%" .$data_array['percent_attending']; ?></div>
-            <div style="position:absolute;"></div>
-            <div style="position:absolute;"></div>
+            <div style="position:absolute;font-weight:bold;"><?php echo "%" .$data_array['percent_male']; ?></div>
+            <div style="position:absolute;font-weight:bold;"><?php echo "%" .$data_array['percent_female']; ?></div>
             
-            <div style="position:absolute;top:20px; left:130px;">male</div>
+            <div style="position:absolute;top:20px; left:134px;">male</div>
             <div style="position:absolute;top:134px;left:130px;">female</div>
-            <div style="position:absolute; top:180px;left:60px;">accepted</div>
+            <div style="position:absolute; top:188px;left:60px;">accepted</div>
             
             <div class="plan_gender_graph">
 
