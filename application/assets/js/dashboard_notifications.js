@@ -1,7 +1,6 @@
 function notifications_setup() {
-    setup_notification_tabs(function(){
-         get_notifications();
-    });
+    setup_notification_tabs();
+    
 }
 
 function setup_notification_tabs(){
@@ -14,6 +13,8 @@ function setup_notification_tabs(){
             get_notifications();
         }
     });
+    
+    get_notifications(); // this is called to initially populate the list
 }
 
 function get_notifications() {
