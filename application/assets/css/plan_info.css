@@ -27,12 +27,13 @@
 }
 
 .plan_gender_graph{
-    height: 30px;
-    position: relative;
+    width: 30px;
+    height: 200px;
 }
 
 .attending_graph{
-    height: 30px;
+    width: 30px;
+    height: 200px;
 }
 
 .view_plan_location {
