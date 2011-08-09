@@ -227,6 +227,8 @@ class Load_location_data extends CI_Model
         </div>
 
         <div class="two_percent_wrapper"></div>
+        
+        <div style="position:absolute; color:gray;"># people attending by day</div>
         <div class="day_plan_graph"></div>
 
         <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
