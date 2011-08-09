@@ -7,10 +7,11 @@ function setup_notifications(){
     // select the unread messages tab
     $('#unread_notifications_tab').addClass('notifications_tab_selected');
     
+    // click handler for notification unread and all tabs, callback function populates notifications
     $('.notifications_tab').click(function(){
         if(!$(this).hasClass('notifications_tab_selected'))
         {
-            $('.notifications_tab_selected').removeClass('notifactions_tab_selected');
+            $('.notifications_tab_selected').removeClass('notifications_tab_selected');
             $(this).addClass('notifications_tab_selected');
             get_notifications();
         }
