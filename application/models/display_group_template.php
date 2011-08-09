@@ -451,13 +451,13 @@ class Display_group_template extends CI_Model
 
 
 
-            <font style="color:darkgray;">males going out</font>
+            <font style="color:darkgray;">of males are going out</font>
             <div class="male_percent_container">
             </div>
-            <font style="color:darkgray;">females going out</font>
+            <font style="color:darkgray;">of females are going out</font>
             <div class="female_percent_container">
             </div>
-            <font style="color:darkgray;">people going out</font>
+            <font style="color:darkgray;">of people are going out</font>
             <div class="total_percent_container">
             </div>
         </div>
