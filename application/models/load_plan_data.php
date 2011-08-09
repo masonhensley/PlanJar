@@ -155,7 +155,7 @@ class Load_plan_data extends CI_Model
 
             <div style="position:absolute;top:180px;">male</div>
             <div style="position:absolute;top:180px;left:210px;">female</div>
-            <div style="position:absolute; top:180px;">attending</div>
+            <div style="position:absolute; top:180px;">have accepted</div>
             
             <div class="plan_gender_graph">
 
