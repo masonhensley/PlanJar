@@ -91,9 +91,20 @@ function initialize_plan_modal() {
     
     // Clock time change handler
     $('#plan_clock_time').change(function() {
-        var foo = Date.parse($(this).val());
-        console.log(foo.getHours());
-    //$('#plan_time .divset_selected').removeClass('divset_selected');
+        // Select the appropriate time of day
+        var hours = Date.parse($(this).val()).getHours();
+        var time_to_select;
+        if (hours >= 19) {
+            time_to_select = 'night';
+        } else if (hours >= 12) {
+            time_to_select = 'afternoon';
+        } else if (hours >= 6) {
+            time_to_select = 'morning';
+        } else {
+            time_to_select = 'late_night';
+        }
+        $('#plan_time .divset_selected').removeClass('divset_selected');
+        $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
     });
     
     // Create event click handler
