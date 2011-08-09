@@ -1,7 +1,7 @@
 /* Create plan CSS */
 #create_plan_content {
     display: none;
-    width: 575px;
+    width: 550px;
     margin-left: -283px;
     margin-top: -125px;
 }
@@ -29,10 +29,15 @@
     margin-bottom: 10px;
     width: 500px;
     float: left;
+    margin-left: 40px;
 }
 
 #plan_place_time_wrapper .left_day_arrow, #plan_place_time_wrapper .right_day_arrow {
     float: right;
+}
+
+#plan_place_time_wrapper .right_day_arrow {
+    margin-right: 20px;
 }
 
 #plan_time {

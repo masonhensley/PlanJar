@@ -15,7 +15,7 @@
             <div id="plan_day">
                 <?php echo($plan_day_html); ?>
             </div>
-            
+
             <div class="right_day_arrow divset">></div>
             <div class="left_day_arrow divset"><</div>
 
@@ -33,6 +33,11 @@
                     <label for="plan_clock_time">Type a time (e.g. 9:30 pm)</label>
                     <input type="text" id="plan_clock_time" name="plan_clock_time"/>
                 </div>
+            </div>
+
+            <hr/>
+            <div style="width: 100%; text-align: center">
+                <input type="button" id="plan_continue" name="plan_continue" value="Continue"/>
             </div>
         </div>
 
