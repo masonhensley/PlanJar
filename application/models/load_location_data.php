@@ -197,8 +197,8 @@ class Load_location_data extends CI_Model
         ob_start();
         ?>
         <div class="data_box_top_bar" place_id="<?php echo($place_data_array['id']); ?>" place_name="<?php echo($place_info['name']); ?>">
-            <div style="float:left; font-size:20px;border-bottom: 2px solid black;">
-                <font style="color:gray;">Selected:</font> <font style="color:navy;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
+            <div style="float:left; font-size:20px;">
+                <font style="color:gray;">Location:</font> <font style="color:navy;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
             </div>
         </div>
         <div class="place_display_info">
