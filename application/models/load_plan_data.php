@@ -208,7 +208,7 @@ class Load_plan_data extends CI_Model
                 <?php
             }
             ?>
-            <div class="delete_plan"></div>
+            <div class="delete_plan">Delete plan</div>
             <?php
         } else
         {
