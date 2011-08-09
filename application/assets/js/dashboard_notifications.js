@@ -1,9 +1,9 @@
 function notifications_setup() {
-    setup_notification_tabs();
+    setup_notifications();
     
 }
 
-function setup_notification_tabs(){
+function setup_notifications(){
     // select the unread messages tab
     $('#unread_notifications_tab').addClass('notifications_tab_selected');
     
