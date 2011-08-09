@@ -27,6 +27,7 @@
 }
 
 .plan_gender_graph{
+    position:absolute;
     width: 30px;
     height: 200px;
     float: left;
