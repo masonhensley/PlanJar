@@ -47,13 +47,8 @@
     text-align: center;
     padding: 4px;
     border: 1px solid lightgray;
-    background: -webkit-gradient(linear,left top,left bottom,from(purple),to(#AF64DE));
-    background: -webkit-linear-gradient(top, purple, #AF64DE);
-    background: -moz-linear-gradient(top, purple, #AF64DE);
-    background: -o-linear-gradient(top, purple, #AF64DE);
-    background: -ms-linear-gradient(top, purple, #AF64DE);
-    background: linear-gradient(top, purple, #AF64DE);
-    color: white;
+    background:white;
+    color: gray;
     position:absolute;
     top:0px;
     right:0px;
