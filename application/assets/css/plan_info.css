@@ -27,17 +27,18 @@
 }
 
 .plan_gender_graph{
-    position: relative;
+    position: absolute;
     width: 30px;
-    height: 200px;
+    height: 170px;
     float: left;
     margin-left: 100px;
 }
 
 .attending_graph{
+    position:absolute;
     float: left;
     width: 30px;
-    height: 200px;
+    height: 170px;
     margin-left: 50px;
 }
 
