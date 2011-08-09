@@ -6,10 +6,6 @@
     margin-top: -125px;
 }
 
-.error_border {
-    border: 3px dashed green;
-}
-
 #create_plan_content .title_bar .text {
     float: left;
     height: 100%;

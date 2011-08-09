@@ -91,17 +91,14 @@ function initialize_plan_modal() {
     
     // Clock time change handler
     $('#plan_clock_time').change(function() {
-        $('#plan_time .divset_selected').removeClass('divset_selected');
+        console.log(Date.parse($(this).val()));
+    //$('#plan_time .divset_selected').removeClass('divset_selected');
     });
     
     // Create event click handler
     $('#create_event').click(function () {
         // Highlight errors
-        if ($('#plan_location_id').val() == '') {
-            $('#plan_location').parent().addClass('error_border');
-        } else if ($('#plan_day .divset_selected').length == 0) {
-            $('#plan_day').addClass('error_border')
-        } else {
+        if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
             // Show the event div
             $('#plan_events_wrapper').show('fast');
         }
