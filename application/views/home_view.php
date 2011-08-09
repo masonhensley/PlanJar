@@ -77,25 +77,17 @@
                     <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Groups</div></div></a>
                     <a href="/dashboard/friends" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Friends</div></div></a>
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Following</div></div></a>
-                    <a href="/dashboard/notifications" id="profile_link">
-                        <div class="top_right_link_outer" id="notifications">
-                            <div class="top_right_link_inner">
-                                Notifications
-                            </div>        
-                        </div>
-                    </a>
+                    <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer" id="notifications"><div class="top_right_link_inner">Notifications</div></div></a>
                     <a href="/dashboard/settings" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Settings</div></div></a>
                 </div>
             </div>
         </div>
-        
-        <a href="/home/logout" style="position:absolute; color:gray; ">Log Out</a>
-        
         <div class="tab_bar">
             <div class="data_tab tab_selected" assoc_div="#info_content">Info</div>
             <div class="data_tab" assoc_div="#map_content">Map</div>
         </div>
         <div class ="container">
+            <a href="/home/logout" style="position:absolute; color:gray; top:0px; right:0px;">Log Out</a>
             <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
             <div class ="left">
