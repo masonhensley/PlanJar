@@ -31,6 +31,7 @@
     width: 180px;
     height: 30px;
     left:48px;
+    top:105px;
 }
 
 .attending_graph{
@@ -38,6 +39,7 @@
     width: 180px;
     height: 30px;
     left:48px;
+    top:10px;
 }
 
 .view_plan_location {
