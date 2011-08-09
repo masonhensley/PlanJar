@@ -25,6 +25,7 @@ function deselect_all_controlls(bypass_groups) {
     $('.selected_location_tab').removeClass('selected_location_tab');
     $('.selected_plan').removeClass('selected_plan');
     $('.selected_friend_plan').removeClass('selected_friend_plan');
+    viewing_plan_location = false;
 }
 
 // Returns true if at least one controll is selected
@@ -42,10 +43,18 @@ function display_info(bypass, arg) {
     // Show the info tab
     show_data_container('#info_content');
     
-    if ($('.selected_location_tab').length > 0) {
+    if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
+        // Get the correct place id
+        var place_id;
+        if (viewing_plan_location === false) {
+            place_id = $('.selected_location_tab').attr('place_id');
+        } else {
+            place_id = viewing_plan_location;
+        }
+        
         // Location selected
         $.get('/home/show_location_data', {
-            'place_id': $('.selected_location_tab').attr('place_id'),
+            'place_id': place_id,
             'date': get_selected_day(),
             'selected_groups':get_selected_groups()
         }, function (data) {
@@ -142,6 +151,8 @@ function initialize_location_info(data) {
     });
 }
 
+// Sets up the plan info view
+var viewing_plan_location = false;
 function initialize_plan_info(data) {
     data = $.parseJSON(data);
         
@@ -177,6 +188,9 @@ function initialize_plan_info(data) {
             
     // Handles clicking on the see place button
     $('.view_plan_location').click(function () {
+        // Save the place id to allow for day tab navigation
+        viewing_plan_location = data.location_id;
+        
         $.get('/home/show_location_data', {
             'place_id': data.location_id,
             'date': data.date,
