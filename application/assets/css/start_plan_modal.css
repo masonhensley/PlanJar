@@ -6,7 +6,7 @@
     margin-top: -125px;
 }
 
-#error_border {
+.error_border {
     border: 3px dashed green;
 }
 
