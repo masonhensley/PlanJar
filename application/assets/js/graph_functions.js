@@ -25,7 +25,8 @@ function populate_percentage_box(container, percentage, active_class, vertical) 
     
     // Define the bar width scaling function
     var bar_scale = d3.scale.linear()
-    .range(['0%', '100%']);
+    .range(['0%', '100%'])
+    .domain([0, 100]);
     
     // Select the bar
     d3.select(container).selectAll('div.percent_bar')
