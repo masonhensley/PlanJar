@@ -44,19 +44,23 @@ function display_info(bypass, arg) {
     show_data_container('#info_content');
     
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
+        // Location selected
+        
         // Get the correct place id
         var place_id;
+        var back_button = false;
         if (viewing_plan_location === false) {
             place_id = $('.selected_location_tab').attr('place_id');
         } else {
             place_id = viewing_plan_location;
+            back_button = true;
         }
         
-        // Location selected
         $.get('/home/show_location_data', {
             'place_id': place_id,
             'date': get_selected_day(),
-            'selected_groups':get_selected_groups()
+            'selected_groups': get_selected_groups(),
+            'back_button': back_button
         }, function (data) {
             initialize_location_info(data);
         });
@@ -188,22 +192,20 @@ function initialize_plan_info(data) {
             
     // Handles clicking on the see place button
     $('.view_plan_location').click(function () {
-        console.log(data);
         // Save the place id to allow for day tab navigation
         viewing_plan_location = data.location_id;
         
         // Seek to the correct day
-        goto_day_offset(data.date, true);
+        goto_day_offset(data.date);
         
-        
-        $.get('/home/show_location_data', {
-            'place_id': data.location_id,
-            'date': data.date,
-            'selected_groups': (['current_location']),
-            'back_button': true
-        }, function (data) {
-            initialize_location_info(data);
-        });
+//        $.get('/home/show_location_data', {
+//            'place_id': data.location_id,
+//            'date': data.date,
+//            'selected_groups': (['current_location']),
+//            'back_button': true
+//        }, function (data) {
+//            initialize_location_info(data);
+//        });
     });
 }
 

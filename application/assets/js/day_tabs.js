@@ -68,7 +68,7 @@ function day_click_handlers() {
         }
         
         // Display the info box
-        display_info(true);
+        display_info();
     });
     
     // Left and right arrow click functions
