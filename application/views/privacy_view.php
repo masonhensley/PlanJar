@@ -30,7 +30,7 @@
 
        <div id="main">  
   
-        At COMPANY JAROF, INC., parent company of PlanJar, we value your privacy a great deal. Almost as much as we value the ability to take the data you give us and slice, dice, julienne, mash, puree and serve it to our business partners, which may include third-party advertising networks, data brokers, networks of affiliate sites, parent companies, subsidiaries, and other entities, none of which we’ll bother to list here because they can change from week to week and, besides, we know you’re not really paying attention. You will notice on our site that we do our best to shield your identity to the masses by lumping you into your social groups, we do our best to apply that philosophy across the board. <br> <br> 
+        At Jarof, Inc., parent company of PlanJar, we value your privacy a great deal. Almost as much as we value the ability to take the data you give us and slice, dice, julienne, mash, puree and serve it to our business partners, which may include third-party advertising networks, data brokers, networks of affiliate sites, parent companies, subsidiaries, and other entities, none of which we’ll bother to list here because they can change from week to week and, besides, we know you’re not really paying attention. You will notice on our site that we do our best to shield your identity to the masses by lumping you into your social groups, we do our best to apply that philosophy across the board. <br> <br> 
 
 We’ll also share all of this information with the government as bound by applicable laws or in accordance proper court subpoenas.<br> <br> 
 
@@ -52,7 +52,7 @@ Not to worry, though, because we use some cutting edge security measures to prot
 <br><br> 
 So just to recap: Your information is extremely valuable to us. Our business model would totally collapse without it. No IPO, no stock options; all those 83-hour weeks and nothing to show for it. So we’ll do our very best to use it in as many potentially profitable ways as we can conjure, over and over, while attempting to convince you there’s nothing to worry about. Sorry, we have to afford to eat and pound beer to the face too.
 <br><br> 
-Did somebody hold a gun to your head and force you to visit this site? No, they did not. Did you run into a pay wall on the home page demanding your Visa number? No, you did not. You think we just give all this stuff away because we’re nice guys?  We are going to have to explore every humanly decent way to keep the lights and servers running here at PlanJar, please be patient with us, the ride should be fun.)
+(Did somebody hold a gun to your head and force you to visit this site? No, they did not. Did you run into a pay wall on the home page demanding your Visa number? No, you did not. You think we just give all this stuff away because we’re nice guys?  We are going to have to explore every humanly decent way to keep the lights and servers running here at PlanJar, please be patient with us, the ride should be fun.)
 <br><br> 
 This privacy policy may change at any time. In fact, it’s changed multiple times since we first started typing. Good luck figuring out how, because we’re sure as hell not going to spam you every time we update it. But then, you probably stopped reading after paragraph three.
 <br><br> 
