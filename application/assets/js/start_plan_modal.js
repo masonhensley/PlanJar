@@ -75,24 +75,23 @@ function initialize_plan_modal() {
         ampmNames: ['am', 'pm']
     });
     
-    // Plan day click handler
-    $('.plan_day').click(function () {
-        $('#plan_right').click();
-    });
-    
     // Plan time click handler
     $('#plan_time .divset').click(function () {
         // Clear and blur the time box
         $('#plan_clock_time').val('');
         $('#plan_clock_time').blur();
-        
-        $('#plan_right').click();
     });
     
     // Clock time change handler
     $('#plan_clock_time').change(function() {
         $('#plan_time .divset_selected').removeClass('divset_selected');
     });
+    
+    
+    
+    
+    
+    
     
     // Event select click handler
     $('#plan_event_select_wrapper').delegate('div', 'click', function () {
