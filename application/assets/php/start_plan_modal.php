@@ -16,18 +16,20 @@
                 <?php echo($plan_day_html); ?>
             </div>
 
-            <div id="plan_time">
-                <div plan_time="morning">Morning</div>
-                <div plan_time="afternoon">Afternoon</div>
-                <div plan_time="night">Night</div>
-                <div plan_time="late_night">Late night</div>
-            </div>
+            <div style="margin-left: auto; margin-right: auto;">
+                <div id="plan_time">
+                    <div plan_time="morning">Morning</div>
+                    <div plan_time="afternoon">Afternoon</div>
+                    <div plan_time="night">Night</div>
+                    <div plan_time="late_night">Late night</div>
+                </div>
 
-            <b style="float: left; line-height: 30px;">or</b>
+                <b style="float: left; line-height: 30px;">or</b>
 
-            <div class="in-field_block" style="float: left; margin-left: 15px;">
-                <label for="plan_clock_time">Type a time (e.g. 9:30 pm)</label>
-                <input type="text" id="plan_clock_time" name="plan_clock_time"/>
+                <div class="in-field_block" style="float: left; margin-left: 10px;">
+                    <label for="plan_clock_time">Type a time (e.g. 9:30 pm)</label>
+                    <input type="text" id="plan_clock_time" name="plan_clock_time"/>
+                </div>
             </div>
         </div>
 
