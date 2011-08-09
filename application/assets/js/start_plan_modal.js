@@ -116,6 +116,9 @@ function initialize_plan_modal() {
     $('#create_event').click(function () {
         // Highlight errors
         if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
+            // Load the selectable events
+            populate_selectable_events();
+            
             // Show the event div
             $('#plan_events_wrapper').show('fast');
         }
@@ -174,27 +177,29 @@ function initialize_plan_modal() {
 
 // Populates the selectable events and initializes the click handlers
 function populate_selectable_events() {
-    // Populate the header
-    $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
+    if ($('#plan_events_wrapper').css('display') != 'none') {
+        // Populate the header
+        $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
                     
-    // Populate the event select
-    $.get('/home/get_events_for_plan', {
-        day: $('#plan_day.divset_selected').attr('day_offset'),
-        time: $('#plan_time .divset_selected').attr('plan_time'),
-        place_id: $('#plan_location_id').val()
-    }, function (data) {
-        $('#plan_event_select_wrapper').html(data);
+        // Populate the event select
+        $.get('/home/get_events_for_plan', {
+            day: $('#plan_day.divset_selected').attr('day_offset'),
+            time: $('#plan_time .divset_selected').attr('plan_time'),
+            place_id: $('#plan_location_id').val()
+        }, function (data) {
+            $('#plan_event_select_wrapper').html(data);
         
-        // Event select click handler
-        $('.selectable_event').click('click', function () {
-            // Make only this selected
-            $(this).siblings().removeClass('selected_event');
-            $(this).addClass('selected_event');
+            // Event select click handler
+            $('.selectable_event').click('click', function () {
+                // Make only this selected
+                $(this).siblings().removeClass('selected_event');
+                $(this).addClass('selected_event');
         
-            // Store the selected event id
-            $('#plan_event_id').val($(this).attr('event_id'));
+                // Store the selected event id
+                $('#plan_event_id').val($(this).attr('event_id'));
+            });
         });
-    });
+    }
 }
 
 // Seeks to the corresponding week
