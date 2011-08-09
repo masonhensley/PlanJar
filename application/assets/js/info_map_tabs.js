@@ -155,6 +155,7 @@ function initialize_location_info(data) {
 var viewing_plan_location = false;
 function initialize_plan_info(data) {
     data = $.parseJSON(data);
+    console.log(data);
         
     // Replace the data and show the data tab.
     $('#info_content').html(data.html);
