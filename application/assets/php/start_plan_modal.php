@@ -38,10 +38,11 @@
 
         <hr/>
         <div style="width: 100%; text-align: center">
-            <input type="button" id="plan_continue" name="plan_continue" value="Continue"/>
+            <input type="button" id="create_event" value="Create an event"/>
+            <input type="button" id="just_go" value="Just go"/>
         </div>
 
-        <div class="plan_events_wrapper" style="display: none;">
+        <div id="plan_events_wrapper">
             <div class="left">
                 <div id="plan_events_title"></div>
 
@@ -54,11 +55,9 @@
                     <div id="just_going">just going</div>
                     <input type="button" id="close_new_event" value="Cancel" style="display: none"/>
                     <br/>
-
-                    <input type="button" id="create_event" value="Start an event"/>
                 </div>
 
-                <div id="start_event_content" style="display: none;">
+                <div id="start_event_content">
                     <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
                         <label for="event_title">Title</label>
                         <input type="text" id="event_title" name="event_title"/>

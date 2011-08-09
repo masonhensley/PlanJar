@@ -18,7 +18,7 @@
 }
 
 #plan_events_wrapper {
-
+    display: none;
 }
 
 #plan_day .divset {

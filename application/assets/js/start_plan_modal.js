@@ -87,7 +87,13 @@ function initialize_plan_modal() {
         $('#plan_time .divset_selected').removeClass('divset_selected');
     });
     
-    
+    // Create event click handler
+    $('#create_event').click(function () {
+        // Show the event div
+        $('#plan_events_wrapper').show('slide', {
+            direction: 'down'
+        }, 'fast');
+    });
     
     
     
