@@ -92,19 +92,24 @@ function initialize_plan_modal() {
     // Clock time change handler
     $('#plan_clock_time').change(function() {
         // Select the appropriate time of day
-        var hours = Date.parse($(this).val()).getHours();
-        var time_to_select;
-        if (hours >= 19) {
-            time_to_select = 'night';
-        } else if (hours >= 12) {
-            time_to_select = 'afternoon';
-        } else if (hours >= 6) {
-            time_to_select = 'morning';
-        } else {
-            time_to_select = 'late_night';
+        var date = Date.parse($(this).val());
+        if (date != null) {
+            var hours = date.getHours();
+            var time_to_select;
+            if (hours >= 19) {
+                time_to_select = 'night';
+            } else if (hours >= 12) {
+                time_to_select = 'afternoon';
+            } else if (hours >= 6) {
+                time_to_select = 'morning';
+            } else {
+                time_to_select = 'late_night';
+            }
+            $('#plan_time .divset_selected').removeClass('divset_selected');
+            $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
+            
+            populate_selectable_events();
         }
-        $('#plan_time .divset_selected').removeClass('divset_selected');
-        $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
     });
     
     // Create event click handler
@@ -169,29 +174,27 @@ function initialize_plan_modal() {
 
 // Populates the selectable events and initializes the click handlers
 function populate_selectable_events() {
-    if ($('#plan_events_wrapper').css('display') != 'none') {
-        // Populate the header
-        $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
+    // Populate the header
+    $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
                     
-        // Populate the event select
-        $.get('/home/get_events_for_plan', {
-            day: $('#plan_day.divset_selected').attr('day_offset'),
-            time: $('#plan_time .divset_selected').attr('plan_time'),
-            place_id: $('#plan_location_id').val()
-        }, function (data) {
-            $('#plan_event_select_wrapper').html(data);
+    // Populate the event select
+    $.get('/home/get_events_for_plan', {
+        day: $('#plan_day.divset_selected').attr('day_offset'),
+        time: $('#plan_time .divset_selected').attr('plan_time'),
+        place_id: $('#plan_location_id').val()
+    }, function (data) {
+        $('#plan_event_select_wrapper').html(data);
         
-            // Event select click handler
-            $('.selectable_event').click('click', function () {
-                // Make only this selected
-                $(this).siblings().removeClass('selected_event');
-                $(this).addClass('selected_event');
+        // Event select click handler
+        $('.selectable_event').click('click', function () {
+            // Make only this selected
+            $(this).siblings().removeClass('selected_event');
+            $(this).addClass('selected_event');
         
-                // Store the selected event id
-                $('#plan_event_id').val($(this).attr('event_id'));
-            });
+            // Store the selected event id
+            $('#plan_event_id').val($(this).attr('event_id'));
         });
-    }
+    });
 }
 
 // Seeks to the corresponding week

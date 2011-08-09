@@ -39,7 +39,7 @@
         </div>
 
         <hr/>
-        <div style="width: 100%; text-align: center">
+        <div style="width: 100%;">
             <input type="button" id="create_event" value="Create an event"/>
 
             <div id="plan_events_wrapper">
@@ -73,11 +73,11 @@
 
                     <hr/>
                 </div>
-
-<!--            <input type="button" id="submit_plan" value="Go" style="position: absolute; right: 0px; bottom: 0px;"/>-->
             </div>
 
             <input type="button" id="just_go" value="Just go"/>
+            <input type="button" id="submit_plan" value="Go" style="position: absolute; right: 0px; bottom: 0px;"/>
+
         </div>
 
 
