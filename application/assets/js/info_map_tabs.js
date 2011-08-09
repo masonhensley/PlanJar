@@ -81,7 +81,7 @@ function display_info(bypass, arg) {
             populate_percentage_box('.total_percent_container', data.percent_total_going_out, 'percent_bar_total');
             populate_percentage_box('.male_percent_container', data.percent_males_going_out, 'percent_bar_male');
             populate_percentage_box('.female_percent_container', data.percent_females_going_out, 'percent_bar_female');
-            populate_day_graph('.group_graph_top_right', data.plan_dates, data.selected_date);
+            populate_day_graph('.group_graph_top_right', data.plan_dates, data.selected_date, 'blue_graph_bar');
         
             // Reload the display info when the filter select is changed
             $('#filter').change(function(){
@@ -118,7 +118,7 @@ function initialize_location_info(data) {
     data = data.graph_data;
     
     // Populate the graphs
-    populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date);
+    populate_day_graph('.day_plan_graph', data.plan_dates, data.selected_date, 'blue_graph_bar');
     two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
                 
     // Make plan click handler

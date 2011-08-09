@@ -14,13 +14,16 @@
 /* ---------------------------------------------------- day bar graph classes ------------------------ */
 .graph_bar {
     width: 100%;
-    background-color: #596FD0;
     color: white;
     border: none;
     position: absolute;
     bottom: 15px;
     padding-top:2px;
     padding-bottom:2px;
+}
+
+.blue_graph_bar {
+    background-color: #596FD0;
 }
 
 .bar_today {
