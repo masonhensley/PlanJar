@@ -11,11 +11,6 @@
     background-color: lightpink;
 }
 
-.percent_bar {
-    height: 100%;
-    width: 0px;
-}
-
 /* ---------------------------------------------------- day bar graph classes ------------------------ */
 .graph_bar {
     width: 100%;

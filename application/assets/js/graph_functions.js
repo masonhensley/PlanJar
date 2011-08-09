@@ -105,40 +105,7 @@ function populate_day_graph(container, data, selected_date) {
     });
 }
 
-// Populates the container with a horizontal two percentage bar (one color floated left, the other floated right)
-function horiz_two_percentage_bar(container, left_percentage, right_percentage, left_class, right_class) {
-    // Add the divs if they don't exist
-    if ($(container).children().length < 2) {
-        // Clear the container
-        $(container).html('');
-            
-        // Add the right (background) div
-        $(container).append($('<div class="' + right_class + ' two_bar_right"></div>'));
-            
-        // Add the left div
-        $(container).append($('<div class="' + left_class + ' two_bar_left"></div>'));
-    }
-    
-    // Select the left div
-    d3.select(container).selectAll('div.two_bar_left')
-    // Add data
-    .data([left_percentage])
-    // Set the width
-    .style('width', function (d) {
-        return d + '%';
-    });
-    
-    // Select the right div
-    d3.select(container).selectAll('div.two_bar_right')
-    // Add data
-    .data([right_percentage])
-    // Set the width
-    .style('width', function (d) {
-        return d + '%';
-    });
-}
-
-// Populates the container with a two percentage bar (one color floated left, the other floated right)
+// Populates the container with a two percentage bar
 function two_percentage_bar(container, percentage_a, percentage_b, class_a, class_b, vertical) {
     // Add the divs if they don't exist
     if ($(container).children().length < 2) {
@@ -181,9 +148,9 @@ function two_percentage_bar(container, percentage_a, percentage_b, class_a, clas
     });
     
     // Select the right div
-    d3.select(container).selectAll('div.bar_b')
+    d3.select(container).selectAll('.bar_b')
     // Add data
-    .data([percentage_a])
+    .data([percentage_b])
     // Set the width
     .style(width_height, function (d) {
         return d + '%';
