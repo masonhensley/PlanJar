@@ -9,7 +9,9 @@
     <form id="plan_form" style="height: 100%;">
         <div id="plan_place_time_wrapper">
             <h3>Where do you want to go?</h3>
-            <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
+            <div>
+                <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
+            </div>
 
             <h3 style="margin-top: 5px;">When do you want to go?</h3>
             <div id="plan_day">
