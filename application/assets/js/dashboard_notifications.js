@@ -7,7 +7,8 @@ function setup_notification_tabs(){
     $('.notifications_tab').click(function(){
         if(!$(this).hasClass('notifications_tab_selected'))
         {
-            $('.notifications_tab_selected').removeClass('notifactions_tab_selected');
+            $('.notifications_tab').removeClass('notifactions_tab_selected');
+            $(this).addClass('notifications_tab_selected');
             get_notifications();
         }
     });
