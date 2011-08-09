@@ -28,8 +28,8 @@
 
 .plan_gender_graph{
     position: absolute;
-    width: 30px;
-    height: 170px;
+    width: 170px;
+    height: 30px;
     float: left;
     margin-left: 180px;
 }
@@ -37,8 +37,8 @@
 .attending_graph{
     position:absolute;
     float: left;
-    width: 30px;
-    height: 170px;
+    width: 170px;
+    height: 30px;
     margin-left:70px;
 }
 
