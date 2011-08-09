@@ -2,12 +2,27 @@
 
 // Outputs ten boxes with the supplied percentage of them filled in
 // Accepts 0 <= n <= 100
-function populate_percentage_box(container, percentage, active_class) {
+function populate_percentage_box(container, percentage, active_class, vertical) {
     percentage = percentage/100;
     
-    // Create the bar div if it's not there'
+    // Create the bar div if it's not there
     if ($(container).children().length < 1) {
-        $(container).append($('<div class="percent_bar ' + active_class + '"></div>'));
+        // Compute the correct styles to add
+        var style = "position: absolute; ";
+        if (vertical) {
+            style += "bottom: 0px; left: 0px;"
+        } else {
+            style += "left: 0px; top: 0px;"
+        }
+        $(container).append($('<div class="' + active_class + '" style="' + style + '"></div>'));
+    }
+    
+    // Change the width or the height, accordingly
+    var width_height;
+    if (vertical) {
+        width_height = 'height';
+    } else {
+        width_height = 'width';
     }
     
     // Define the bar width scaling function
@@ -19,7 +34,7 @@ function populate_percentage_box(container, percentage, active_class) {
     // Add data to the bars
     .data([percentage])
     // Set the width according to the input data
-    .style('width', function (d) {
+    .style(width_height, function (d) {
         return bar_scale(d);
     });
 }
