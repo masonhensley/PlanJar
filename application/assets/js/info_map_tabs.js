@@ -111,7 +111,8 @@ function display_info(bypass, arg) {
     } else if ($('.selected_friend_plan').length > 0) {
         // Friend's plan selected
         $.get('/home/load_selected_plan_data', {
-            'plan_selected': $('.selected_friend_plan').attr('plan_id')
+            'plan_selected': $('.selected_friend_plan').attr('plan_id'),
+            'friend_plan': true
         }, function (data) {
             initialize_plan_info(data);
         });
@@ -166,7 +167,7 @@ function initialize_plan_info(data) {
     data = data.data;
         
     // Seek to the correct day
-        goto_day_offset(data.date, true);
+    goto_day_offset(data.date, true);
         
     // Initialize the graphs
     two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
@@ -201,6 +202,11 @@ function initialize_plan_info(data) {
         
         // Seek to the correct day
         goto_day_offset(data.date);
+    });
+    
+    // Handles clicking on the make plan button
+    $('.make_plan').click(function() {
+        alert('yo');
     });
 }
 

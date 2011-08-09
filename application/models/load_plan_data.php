@@ -9,7 +9,7 @@ class Load_plan_data extends CI_Model
     }
 
     // Returns an array containing privacy type and the HTML for the plan
-    function display_plan_data($plan_id)
+    function display_plan_data($plan_id, $friend_plan)
     {
         // pull info for the plan
         $query = "SELECT events.id, events.date, events.time, events.title, events.privacy, events.originator_id, places.name, places.id AS place_id
@@ -24,7 +24,7 @@ class Load_plan_data extends CI_Model
 
 
         $data_array = $this->get_plan_data_array($plan_id, $plan_row);
-        $plan_html = $this->get_plan_html($plan_row, $data_array);
+        $plan_html = $this->get_plan_html($plan_row, $data_array, $friend_plan);
 
         return array(
             'data' => $data_array,
@@ -121,13 +121,12 @@ class Load_plan_data extends CI_Model
     }
 
     // returns html for the selected plan
-    function get_plan_html($plan_row, $data_array)
+    function get_plan_html($plan_row, $data_array, $friend_plan)
     {
         $data_array = $this->make_date_readable($data_array);
         ob_start();
         // html to replace the data div
         ?>
-        <div class="delete_plan">Delete Plan</div>
         <div class="view_plan_location">
             View Location Info
         </div>
@@ -191,18 +190,31 @@ class Load_plan_data extends CI_Model
         </div>
 
         <?php
-        // Generate the invite people string
-        $user_originator = $plan_row->originator_id == $this->ion_auth->get_user()->id;
-        if ($plan_row->privacy != 'strict' || $user_originator)
+        if (!$friend_plan)
         {
-            ?>
-            <div class="invite_people">Invite people</div>
+            // User's plan
+            // Generate the invite people string
+            $user_originator = $plan_row->originator_id == $this->ion_auth->get_user()->id;
+            if ($plan_row->privacy != 'strict' || $user_originator)
+            {
+                ?>
+                <div class="invite_people">Invite people</div>
 
+                <?php
+            } else
+            {
+                ?><div style="font-size: 14px; position:absolute; bottom:10px; right:10px;">
+                    This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
+                <?php
+            }
+            ?>
+            <div class="delete_plan"></div>
             <?php
         } else
         {
-            ?><div style="font-size: 14px; position:absolute; bottom:10px; right:10px;">
-                This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
+            // Another user's plan
+            ?>
+            <div class="make_plan">Make a plan here</div>
             <?php
         }
 
