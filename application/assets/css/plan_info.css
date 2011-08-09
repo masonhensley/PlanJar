@@ -28,14 +28,16 @@
 
 .plan_gender_graph{
     position: absolute;
-    width: 170px;
+    width: 180px;
     height: 30px;
+    left:48px;
 }
 
 .attending_graph{
     position:absolute;
-    width: 170px;
+    width: 180px;
     height: 30px;
+    left:48px;
 }
 
 .view_plan_location {
