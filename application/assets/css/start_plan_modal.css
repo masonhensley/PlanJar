@@ -31,8 +31,8 @@
     float: left;
 }
 
-#plan_day .left_day_arrow, #plan_day .right_day_arrow {
-    float: right
+#plan_place_time_wrapper .left_day_arrow, #plan_place_time_wrapper .right_day_arrow {
+    float: right;
 }
 
 #plan_time {

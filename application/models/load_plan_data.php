@@ -75,9 +75,9 @@ class Load_plan_data extends CI_Model
             $percent_attending = 0;
         } else
         {
-            $percent_male = ($number_males / $number_attending)*100;
-            $percent_female = ($number_females / $number_attending)*100;
-            $percent_attending = ($number_attending / $number_invited)*100;
+            $percent_male = ($number_males / $number_attending) * 100;
+            $percent_female = ($number_females / $number_attending) * 100;
+            $percent_attending = ($number_attending / $number_invited) * 100;
         }
 
         // get originator name
@@ -103,7 +103,8 @@ class Load_plan_data extends CI_Model
             'percent_attending' => $percent_attending,
             'percent_male' => $percent_male,
             'percent_female' => $percent_female,
-            'privacy' => $plan_row->privacy
+            'privacy' => $plan_row->privacy,
+            'event_id' => $plan_row->id
         );
 
         return $data_array;
@@ -164,7 +165,7 @@ class Load_plan_data extends CI_Model
             <div style="position:absolute; top:188px;left:60px;font-weight: bold;">accepted</div>
             
             -->
-            
+
             <div class="plan_gender_graph">
 
             </div>

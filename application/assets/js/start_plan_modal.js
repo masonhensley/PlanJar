@@ -157,11 +157,11 @@ function plan_day_click_handlers() {
     $('#plan_day').divSet();
     
     // Left and right day click handlers
-    $('#plan_day .left_day_arrow').click(function() {
+    $('#plan_place_time_wrapper .left_day_arrow').click(function() {
         $(this).removeClass('divset_selected');
         goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) - 7)
     });
-    $('#plan_day .right_day_arrow').click(function() {
+    $('#plan_place_time_wrapper .right_day_arrow').click(function() {
         $(this).removeClass('divset_selected');
         goto_plan_day_offset(parseInt($('.plan_day:first').attr('day_offset')) + 7)
     });
