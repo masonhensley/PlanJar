@@ -155,7 +155,6 @@ function initialize_location_info(data) {
 var viewing_plan_location = false;
 function initialize_plan_info(data) {
     data = $.parseJSON(data);
-    console.log(data);
         
     // Replace the data and show the data tab.
     $('#info_content').html(data.html);
@@ -189,6 +188,7 @@ function initialize_plan_info(data) {
             
     // Handles clicking on the see place button
     $('.view_plan_location').click(function () {
+        console.log(data);
         // Save the place id to allow for day tab navigation
         viewing_plan_location = data.location_id;
         
