@@ -8,9 +8,9 @@ function populate_percentage_box(container, percentage, active_class, vertical) 
         // Compute the correct styles to add
         var style = "position: absolute; ";
         if (vertical) {
-            style += "bottom: 0px; height: 100%;"
+            style += "bottom: 0px; width: 100%;"
         } else {
-            style += "left: 0px; width: 100%;"
+            style += "left: 0px; height: 100%;"
         }
         $(container).append($('<div class="' + active_class + '" style="' + style + '"></div>'));
     }
