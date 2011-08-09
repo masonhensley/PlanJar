@@ -177,7 +177,7 @@ function initialize_plan_modal() {
 
 // Populates the selectable events and initializes the click handlers
 function populate_selectable_events() {
-    if ($('#plan_events_wrapper').css('display') != 'none') {
+    if ($('#plan_events_wrapper').is(':visible')) {
         // Populate the header
         $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
                     
