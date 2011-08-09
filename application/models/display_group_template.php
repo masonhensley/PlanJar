@@ -453,7 +453,7 @@ class Display_group_template extends CI_Model
             <font style="color:darkgray;margin-left:22px;">of males are going out</font>
             <div class="male_percent_container">
             </div>
-            <font style="color:darkgray;margin-left:22px;">of females are going out</font>
+            <font style="color:darkgray;margin-left:30px;">of females are going out</font>
             <div class="female_percent_container">
             </div>
             <font style="color:darkgray;margin-left:22px;">of people are going out</font>
