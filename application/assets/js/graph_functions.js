@@ -29,6 +29,7 @@ function populate_percentage_box(container, percentage, active_class, vertical) 
     .data([percentage])
     // Set the width according to the input data
     .style(width_height, function (d) {
+        console.log(d);
         return d + '%';
     });
 }
