@@ -43,23 +43,29 @@ class Plan_actions extends CI_Model
         $this->db->query($query);
     }
 
-    // Accepts an associative array containing plan data
-    // Returns the plan id
-    function add_plan($data)
+    // Accepts an array containing plan data
+    // Returns the plan details
+    function add_plan($data, $originator = false)
     {
-        // Return the id if the plan already exists
-        $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
-        $query = $this->db->query($query_string, $data);
-        if ($query->num_rows() > 0)
-        {
-            return $query->row()->id;
-        }
+        $event_id = $data[1];
 
         // Add the plan
-        $query_string = "INSERT INTO plans VALUES (DEFAULT, ?, ?)";
+        $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, $data);
 
-        return $this->db->insert_id();
+        // Check if the user already has plans to that place at that time
+        $plan_check = $this->unique_plan($event_id);
+        if ($plan_check === true)
+        {
+            return json_encode(array('status' => 'success', 'originator' => $originator, 'event_id' => $event_id));
+        } else
+        {
+            // Pre-existing plan. Return HTML for two options
+            $this->load->model('event_ops');
+            $choice_data = $this->event_ops->get_events_for_choice($event_id, $plan_check);
+            return json_encode(array_merge(
+                                    array('status' => 'conflict'), $choice_data, array('originator' => $originator)));
+        }
     }
 
     // Returns an HTML string for the plan panel on the right

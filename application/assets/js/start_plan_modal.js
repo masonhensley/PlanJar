@@ -272,35 +272,40 @@ function submit_plan_helper(from_just_go) {
         'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
         'privacy': privacy
     } ,function (data) {
-        data = $.parseJSON(data);
-        
         // Hide and reset the modal
         $('#create_plan_content').hide('fast', function () {
             // Clear the plan modal
             reset_plan_modal();
-                    
-            if (data.status == 'success') {
-                if (privacy != 'strict' || data.originator) {
-                    // Open the invite modal
-                    open_invite_modal('event', data.event_id, privacy, data.originator);
-                }
-            } else {
-                // Open the conflict modal
-                open_conflict_modal(data, function (resulting_privacy, originator, event_id) {
-                    // Refresh the plan panel
-                    populate_plan_panel();
             
-                    if (resulting_privacy != 'strict' || originator) {
-                        // Invite people
-                        open_invite_modal('event', event_id, resulting_privacy, originator);
-                    }
-                });
-            }
+            open_conflict_invite(data);
         });
                 
         // Refresh the plan list.
         populate_plan_panel();
     });
+}
+
+// Opens the invite and/or conflict panel based on the given data
+function open_conflict_invite(data) {
+    data = $.parseJSON(data);
+              
+    if (data.status == 'success') {
+        if (privacy != 'strict' || data.originator) {
+            // Open the invite modal
+            open_invite_modal('event', data.event_id, privacy, data.originator);
+        }
+    } else {
+        // Open the conflict modal
+        open_conflict_modal(data, function (resulting_privacy, originator, event_id) {
+            // Refresh the plan panel
+            populate_plan_panel();
+            
+            if (resulting_privacy != 'strict' || originator) {
+                // Invite people
+                open_invite_modal('event', event_id, resulting_privacy, originator);
+            }
+        });
+    }
 }
 
 // Returns a string with the plan description (place and day/time)

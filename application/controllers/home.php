@@ -186,23 +186,9 @@ class Home extends CI_Controller
             'event_id' => $event_id
         );
 
-        // Add the plan
+        // Add the plan and echo the results
         $this->load->model('plan_actions');
-        $this->plan_actions->add_plan($plan_data);
-
-        // Check if the user already has plans to that place at that time
-        $plan_check = $this->plan_actions->unique_plan($event_id);
-        if ($plan_check === true)
-        {
-            echo(json_encode(array('status' => 'success', 'originator' => $new_event, 'event_id' => $event_id)));
-        } else
-        {
-            // Pre-existing plan. Return HTML for two options
-            $this->load->model('event_ops');
-            $choice_data = $this->event_ops->get_events_for_choice($event_id, $plan_check);
-            echo(json_encode(array_merge(
-                            array('status' => 'conflict'), $choice_data, array('originator' => $new_event))));
-        }
+        echo($this->plan_actions->add_plan($plan_data, $new_event));
     }
 
     public function load_selected_plan_data()
@@ -672,6 +658,14 @@ class Home extends CI_Controller
         $place_id = $this->place_ops->add_user_place($data);
 
         echo(json_encode(array('id' => $place_id, 'name' => $data['name'])));
+    }
+
+    public function make_plan_by_event()
+    {
+        $event_id = $this->input->get('event_id');
+
+        $this->load->model('plan_actions');
+        echo($this->plan_actions->add_plan($this->ion_auth->get_user()->id, $event_id));
     }
 
 }
