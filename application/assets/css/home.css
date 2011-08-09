@@ -387,12 +387,7 @@ a {
     border-bottom: 1px solid gray;
 }
 .selected_location_tab {
-    background: -webkit-gradient(linear,left top,left bottom,from(lightYellow),to(#F1FCD5));
-    background: -webkit-linear-gradient(top, lightYellow, #F1FCD5);
-    background: -moz-linear-gradient(top, lightYellow, #F1FCD5);
-    background: -o-linear-gradient(top, lightYellow, #F1FCD5);
-    background: -ms-linear-gradient(top, lightYellow, #F1FCD5);
-    background: linear-gradient(top, lightYellow, #F1FCD5);
+    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
     color: navy;
 }
 #number_rank {

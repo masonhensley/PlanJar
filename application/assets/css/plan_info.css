@@ -1,9 +1,12 @@
 .plan_header{
-    width: 100%;
+    width: auto;
     height: 35px;
+    margin-left: 5px;
+    margin-right:5px;
     text-align:left;
     font-size:25px;
     font-weight:bold;
+    border-bottom:1px solid black;
 }
 
 .plan_info{

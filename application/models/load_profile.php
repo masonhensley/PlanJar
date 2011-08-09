@@ -40,7 +40,7 @@ class Load_profile extends CI_Model
                 ?><div class="my_box"><?php
         if (isset($user->box) && trim($user->box) != "")
         {
-                    ?><font style="font-weight: bold;"><?php echo $user->box; ?></font><?php
+                    ?><font style="color:gray;"><?php echo $user->box; ?></font><?php
         } else
         {
                     ?><font style="font-style: italic;">Nothing to show</font><?php
