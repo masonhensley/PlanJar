@@ -36,9 +36,10 @@
             </div>
 
             <hr/>
-            <div style="width: 100%; text-align: center">
-                <input type="button" id="plan_continue" name="plan_continue" value="Continue"/>
-            </div>
+        </div>
+
+        <div style="width: 100%; text-align: center">
+            <input type="button" id="plan_continue" name="plan_continue" value="Continue"/>
         </div>
 
         <div class="plan_events_wrapper" style="display: none;">
