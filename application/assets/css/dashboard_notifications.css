@@ -1,6 +1,7 @@
 #notifications_list {
     width: 425px;
     height: auto;
+    margin-top:40px;
     float: left;
     border-top:1px solid #CCC;
     border-right:1px solid #CCC;
