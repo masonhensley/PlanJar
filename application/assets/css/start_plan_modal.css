@@ -28,6 +28,7 @@
 #plan_day {
     margin-bottom: 10px;
     width: 500px;
+    float: left;
 }
 
 #plan_day .left_day_arrow, #plan_day .right_day_arrow {

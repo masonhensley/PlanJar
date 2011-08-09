@@ -284,7 +284,7 @@ a {
     background: linear-gradient(top, #EEE, #AAA);
     color: gray;
 }
-.left_day_arrow {
+.days_panel .left_day_arrow {
     float: left;
     width: 35px;
     height: 100%;
@@ -297,7 +297,7 @@ a {
     background: -ms-linear-gradient(top, lightyellow, lightgray);
     background: linear-gradient(top, lightyellow, lightgray);
 }
-.right_day_arrow {
+.days_panel .right_day_arrow {
     display: inline-block;
     float: right;
     border-left: 1px solid lightgray;
