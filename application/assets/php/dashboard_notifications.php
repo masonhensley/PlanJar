@@ -2,7 +2,7 @@
     Unread
 </div>
 
-<div class="notifications_tab" id="all_notifications_tab" style="position:absolute; top:0px; left:92px;">
+<div class="notifications_tab" id="all_notifications_tab" style="position:absolute; top:0px; left:102px;">
     All
 </div>
 
