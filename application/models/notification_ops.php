@@ -51,7 +51,9 @@ class Notification_ops extends CI_Model
 
         if ($query->num_rows() == 0)
         {
-            echo('No recent notifications');
+            ?>
+            No unread notifications
+            <?php
         } else
         {
             foreach ($query->result() as $row)
@@ -61,21 +63,23 @@ class Notification_ops extends CI_Model
             }
         }
     }
-    
+
     function display_unread_notifications()
     {
         $user_id = $this->ion_auth->get_user()->id;
-        
+
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id,
             notifications.viewed, user_meta.first_name, user_meta.last_name, user_meta.user_id
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
             WHERE notifications.user_id = $user_id AND notifications.viewed=0 ORDER BY notifications.viewed ASC, notifications.date DESC";
-        
+
         $query = $this->db->query($query_string);
-        
+
         if ($query->num_rows() == 0)
         {
-            echo('No recent notifications');
+            ?>
+            No unread notifications
+            <?php
         } else
         {
             foreach ($query->result() as $row)
@@ -121,7 +125,8 @@ class Notification_ops extends CI_Model
                 {
                     echo('<div class="accept">Accept</div>');
                 }
-            }else{
+            } else
+            {
                 echo('<div style="color:black; float:right; margin-right:15px;"><b>Responded</b></div><br/>');
             }
             if ($row->viewed)
@@ -160,9 +165,9 @@ class Notification_ops extends CI_Model
                 }
 
                 return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
-                $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
-                '</b> has invited you to ' . $event_text . '<b>' . $row->name . '</b> ' .
-                'on ' . $date->format('l') . ' the ' . $date->format('jS');
+                        $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
+                        '</b> has invited you to ' . $event_text . '<b>' . $row->name . '</b> ' .
+                        'on ' . $date->format('l') . ' the ' . $date->format('jS');
 
             // Group invite
             case 'group_invite':
@@ -171,14 +176,14 @@ class Notification_ops extends CI_Model
                 $row = $query->row();
 
                 return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
-                $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
-                '</b> has invited you to join the group <b>' . $row->name . '</b>';
+                        $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
+                        '</b> has invited you to join the group <b>' . $row->name . '</b>';
 
             // Follow notification
             case 'follow_notif':
                 return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->subject_id . '">' .
-                $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
-                '</b> has followed you';
+                        $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
+                        '</b> has followed you';
         }
     }
 
@@ -254,8 +259,8 @@ class Notification_ops extends CI_Model
             case 'event_invite':
                 $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
                 $query = $this->db->query($query_string, array(
-                            $user_id,
-                            $notif_row->subject_id));
+                    $user_id,
+                    $notif_row->subject_id));
                 return $query->num_rows() > 0;
 
             // Group invite
