@@ -114,14 +114,11 @@ function initialize_plan_modal() {
     
     // Create event click handler
     $('#create_event').click(function () {
-        // Highlight errors
-        if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
-            // Load the selectable events
-            populate_selectable_events();
-            
-            // Show the event div
+        // Load the selectable events
+        populate_selectable_events(function() {
+            // Show the event div if the events are populate-able (the place/time is legit)
             $('#plan_events_wrapper').show('fast');
-        }
+        });
     });
     
     // Cancel event click handler
@@ -176,14 +173,18 @@ function initialize_plan_modal() {
 }
 
 // Populates the selectable events and initializes the click handlers
-function populate_selectable_events() {
-    if ($('#plan_events_wrapper').is(':visible')) {
+function populate_selectable_events(call_during) {
+    if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
+        if (call_during != undefined) {
+            call_during();
+        }
+        
         // Populate the header
         $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
                     
         // Populate the event select
         $.get('/home/get_events_for_plan', {
-            day: $('#plan_day.divset_selected').attr('day_offset'),
+            day: $('#plan_day .divset_selected').attr('day_offset'),
             time: $('#plan_time .divset_selected').attr('plan_time'),
             place_id: $('#plan_location_id').val()
         }, function (data) {
