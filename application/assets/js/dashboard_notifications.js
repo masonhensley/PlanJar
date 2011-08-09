@@ -1,10 +1,11 @@
 function notifications_setup() {
     setup_notification_tabs();
-    get_notifications();
+   // get_notifications();
 }
 
 function setup_notification_tabs(){
     $('.notifications_tab').click(function(){
+        alert('hey');
         if(!$(this).hasClass('notifications_tab_selected'))
         {
             $('.notifications_tab').removeClass('notifactions_tab_selected');
