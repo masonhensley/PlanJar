@@ -30,8 +30,6 @@ function goto_day_offset(offset, skip_click) {
                 } else {
                     $('.day[day_offset="' + offset + '"]').click();
                 }
-                
-                display_info();
             });
         } else  {
             // This week
