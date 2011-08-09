@@ -4,8 +4,7 @@ $(function () {
 
 function initialize_invite_modal() {
     // Close click handler
-    $('#close_invite_modal').click(function () {
-      
+    $('#close_invite_modal, #close_invite_modal_2').click(function () {
         $('#invite_modal').hide('fast', function () {
             reset_invite_modal();
         });
