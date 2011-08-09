@@ -1,11 +1,12 @@
 .data_box_top_bar{
     width:auto;
-    height:40px;
+    height:30px;
     padding-top:3px;
     margin-left:10px;
     margin-right:10px;
     white-space: nowrap;
     overflow:hidden;
+    border-bottom:1px solid black;
 }
 
 .group_graph_top_left{
@@ -20,7 +21,7 @@
     width:310px;
     height:130px;
     position:absolute;
-    top:55px;
+    top:70px;
     right:3px;
 
 }

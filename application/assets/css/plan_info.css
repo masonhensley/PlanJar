@@ -36,6 +36,7 @@
 
 .attending_graph{
     position:absolute;
+    border:1px solid gray;
     width:200px;
     height: 30px;
     left:24px;

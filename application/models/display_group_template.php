@@ -401,11 +401,11 @@ class Display_group_template extends CI_Model
         ob_start();
         ?>
         <div class="data_box_top_bar">
-            <div style="float:left; font-size:25px;border-bottom: 2px solid black;">
+            <div style="float:left; font-size:25px;">
                 <font style="color:darkgray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
-        <div style="position:absolute; top:40px; right:100px;color:darkgray;">
+        <div style="position:absolute; top:52px; right:100px;color:darkgray;">
             # people going out by day
         </div>
         <br/>
@@ -444,20 +444,19 @@ class Display_group_template extends CI_Model
 
             <font style="color:darkgray; position:absolute;top:-53px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
 
-
             <div class="show_percent"style="top:0px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
             <div class="show_percent" style="top:39px;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
             <div class="show_percent" style="top:77px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
 
 
 
-            <font style="color:darkgray;">males going out</font>
+            <font style="color:darkgray;">of males are going out</font>
             <div class="male_percent_container">
             </div>
-            <font style="color:darkgray;">females going out</font>
+            <font style="color:darkgray;">of females are going out</font>
             <div class="female_percent_container">
             </div>
-            <font style="color:darkgray;">people going out</font>
+            <font style="color:darkgray;">of people are going out</font>
             <div class="total_percent_container">
             </div>
         </div>
