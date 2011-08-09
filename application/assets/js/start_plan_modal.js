@@ -98,12 +98,13 @@ function initialize_plan_modal() {
     $('#create_event').click(function () {
         // Highlight errors
         if ($('#plan_location_id').val() == '') {
-            $('#plan_location_id').addClass('error_border');
+            $('#plan_location').addClass('error_border');
         } else if ($('#plan_day .divset_selected').length == 0) {
             $('#plan_day').addClass('error_border')
+        } else {
+            // Show the event div
+            $('#plan_events_wrapper').show('fast');
         }
-        // Show the event div
-        $('#plan_events_wrapper').show('fast');
     });
     
     // Cancel event click handler
