@@ -246,7 +246,7 @@ class Dashboard extends CI_Controller
         $this->group_ops->search_for_groups($this->input->get('needle'));
     }
 
-    public function get_notifications()
+    public function get_all_notifications()
     {
         $this->load->model('notification_ops');
         $this->notification_ops->get_notifications();
