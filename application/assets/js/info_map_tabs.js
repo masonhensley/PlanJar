@@ -185,8 +185,6 @@ function initialize_plan_info(data) {
         }, function (data) {
             initialize_location_info(data);
         });
-                
-        initialize_location_info(data);
     });
 }
 
