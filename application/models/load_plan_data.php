@@ -173,7 +173,7 @@ class Load_plan_data extends CI_Model
             <font style="color:gray">Created By: </font><font style="font-weight:bold;">
             <?php echo $data_array['originator_name']; ?></font><br/>
             <font style="color:gray">Time: </font> <font style="font-weight:bold;">
-            <?php echo $data_array['time_string']; ?></font>
+            <?php echo str_replace('_', ' ', $data_array['time_string']); ?></font>
             <br/><br/><hr/>
             <font style="color:gray">Invited: </font><font style="font-weight:bold;">
             <?php echo $data_array['number_invited']; ?></font>
