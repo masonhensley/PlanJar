@@ -49,7 +49,7 @@
 
             <div style="width: 100%; text-align: center">Create an event...</div>
 
-            <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
+            <div class="in-field_block" style="margin: 0px auto auto 20px;">
                 <label for="event_title">Title</label>
                 <input type="text" id="event_title" name="event_title"/>
             </div>
