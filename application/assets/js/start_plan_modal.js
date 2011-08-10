@@ -133,7 +133,7 @@ function initialize_plan_modal() {
                 $('#plan_privacy_wrapper').hide('fast');
             }
         });
-        $('#event_title').keydown(function() {
+        $('#event_title').keyup(function() {
             $(this).change();
         });
     });
