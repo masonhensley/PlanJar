@@ -51,12 +51,26 @@ class Display_group_template extends CI_Model
         $females_going_out = 0;
         $total_people = count($user_ids);
 
-        $query = "SELECT sex FROM user_meta WHERE ";
+        $filter_grad_year = $this->get_correct_grad_year($filter);
+        if ($filter == 'alumni')
+        {
+            $query_filter = " AND user_meta.grad_year<$filter_grad_year";
+        } else if ($filter_grad_year != 0)
+        {
+            $query_filter = " AND user_meta.grad_year='$filter_grad_year'
+            ";
+        } else
+        {
+            $query_filter = "";
+        }
+
+        $query = "SELECT sex FROM user_meta WHERE (";
         foreach ($user_ids as $friend_id)
         {
             $query .= "user_id=$friend_id OR ";
         }
         $query = substr($query, 0, -4);
+        $query .= ")$query_filter";
         $result = $this->db->query($query);
 
         foreach ($result->result() as $person)
@@ -522,7 +536,7 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
-        <?php echo " " . $data_array['total_females']; ?></font>
+                <?php echo " " . $data_array['total_females']; ?></font>
             </div>
 
             <font style="color:gray; position:absolute;top:-53px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
