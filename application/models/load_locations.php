@@ -39,7 +39,7 @@ class Load_locations extends CI_Model
         ?> 
         <div class="display_message">
             <font style="color:gray;">Select a group or network on the left<br/>
-            to see where they are going</font><?php echo $display_day; ?>
+            to see where they are going </font><?php echo $display_day; ?>
         </div>
         <?php
     }
