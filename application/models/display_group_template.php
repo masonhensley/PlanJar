@@ -346,7 +346,7 @@ class Display_group_template extends CI_Model
         $currentYear = date("Y", time());
         $graduationYear = 0;
 
-        if (7 > $currentMonth && $currentMonth < 12)
+        if (7 < $currentMonth && $currentMonth < 12)
         {
             if ($filter == 'freshmen')
             {
