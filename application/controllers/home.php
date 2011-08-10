@@ -153,6 +153,13 @@ class Home extends CI_Controller
                 'originator_id' => $this->ion_auth->get_user()->id
             );
 
+            // Eliminate meaningless fields for a "just going" event
+            if ($event_data['title'] == '')
+            {
+                unset($event_data['clock_time']);
+                unset($event_data['originator_id']);
+            }
+
             // Add the place to the PlanJar database if a Factual place was selected.
             if ($this->input->get('new_place_factual_id') != '')
             {
