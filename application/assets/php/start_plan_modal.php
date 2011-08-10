@@ -48,7 +48,7 @@
             <div id="plan_event_select_wrapper"></div>
 
             <div id="start_event_content">
-                <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
+                <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
                     <label for="event_title">Title</label>
                     <input type="text" id="event_title" name="event_title"/>
                 </div>

@@ -124,8 +124,8 @@ function initialize_plan_modal() {
         
         if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
             // Show the event div and hide the first set of buttons
-            $('#start_event_content').show('fast');
             $('#plan_place_location_buttons').hide('fast');
+            $('#plan_events_wrapper').show('fast');
         }
     });
     
