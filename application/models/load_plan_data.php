@@ -227,7 +227,7 @@ class Load_plan_data extends CI_Model
                 <?php
             } else
             {
-                ?><div style="font-size: 14px; position:absolute; bottom:10px; right:10px;">
+                ?><div style="font-size: 14px; position:absolute; bottom:10px; left:10px;">
                     This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
                 <?php
             }
