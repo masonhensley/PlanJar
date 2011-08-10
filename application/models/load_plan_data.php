@@ -111,6 +111,8 @@ class Load_plan_data extends CI_Model
         ";
 
         $result = $this->db->query($query);
+        var_dump($this->db->last_query());
+        
         $originator_name = $result->row()->first_name . " " . $result->row()->last_name;
 
         $this->load->helper('day_offset');
