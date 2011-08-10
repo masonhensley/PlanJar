@@ -133,8 +133,16 @@ class Home extends CI_Controller
             // Event data
             $date = new DateTime();
             $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
-            $clock_time = new DateTime($this->input->get('plan_clock_time'));
-            $clock_time = $clock_time->format('H:i:00');
+            $clock_time = $this->input->get('plan_clock_time');
+            if ($clock_time != '')
+            {
+                $clock_time = new DateTime($clock_time);
+                $clock_time = $clock_time->format('H:i:00');
+            } else
+            {
+                $clock_time = NULL;
+            }
+
             $event_data = array(
                 'title' => $this->input->get('event_title'),
                 'place_id' => $this->input->get('plan_location_id'),
