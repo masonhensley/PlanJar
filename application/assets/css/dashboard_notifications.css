@@ -98,6 +98,6 @@
 }
 
 .notifications_tab_selected{
-    background-color:lightgreen;
+    background:-webkit-linear-gradient(top, #F8BA78, #F5952E);
     color:gray;
 }
