@@ -64,7 +64,7 @@
 }
 
 #plan_event_select_wrapper {
-    width: 100%;
+    width: 350px;
     max-height: 135px;
     overflow: auto;
     margin-left: auto;
