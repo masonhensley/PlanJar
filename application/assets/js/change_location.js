@@ -44,7 +44,7 @@ function initialize_change_location_panel() {
                 });
                 map_marker_array.push(temp_marker);
     
-                // Assign the click events
+                // Assign the click event
                 google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
                                         
                 // Step through the results.
@@ -101,6 +101,22 @@ function show_change_location_panel() {
     
     // Auto-select the search box.
     $('#change_location_search').focus();
+    
+    // Clear all markers
+    clear_map_markers();
+                
+    // Push the current location onto the marker list.
+    var temp_marker = new google.maps.Marker({
+        position: new google.maps.LatLng(myLatitude, myLongitude), 
+        map: map,
+        title:"Your location!",
+        icon: 'http://www.google.com/mapfiles/arrow.png',
+        draggable: true
+    });
+    map_marker_array.push(temp_marker);
+    
+    // Assign the click event
+    google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
 }
 
 // Hides the panel.
