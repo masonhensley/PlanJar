@@ -90,7 +90,7 @@ class Display_group_template extends CI_Model
         WHERE user_meta.school_id=$user->school_id";
         
         // if a filter is selected (such as freshmen), add relevent code to the query 
-        if($filer != 'everyone')
+        if($filter != 'everyone')
         {
             $query_filter = $this->filter_by_age_group_selected($filter);
         }else{
