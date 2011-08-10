@@ -20,6 +20,7 @@ class Event_ops extends CI_Model
         }
 
         // Get pre-existing events
+        var_dump($data);
         $broad_data = clone $data;
         unset($broad_data['clock_time']);
         unset($broad_data['privacy']);
