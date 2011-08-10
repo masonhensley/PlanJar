@@ -107,15 +107,6 @@ function initialize_suggested_friends()
             get_suggested_friends();
             $('#follow_search').show();
         } 
-        $('.user_entry').click(function(){ // click handler for getting the profile
-            $.get('/dashboard/get_profile', {
-                user_id: $(this).attr('user_id')
-            }, function (data) {
-                $('#follow_search').hide();
-                $('.following_profile_body').html(data);
-                $('.following_profile_body').show("slow");
-            });
-        });
     });
     show_suggested_init('#following_content', '.suggested_friends');    
 }
@@ -130,6 +121,17 @@ function get_suggested_friends()
                     following_id: clicked_elem.parent().attr('user_id')
                 }, function (data) {
                     populate_following_list();
+                    
+                    $('.user_entry').click(function(){ // click handler for getting the profile
+                        $.get('/dashboard/get_profile', {
+                            user_id: $(this).attr('user_id')
+                        }, function (data) {
+                            $('#follow_search').hide();
+                            $('.following_profile_body').html(data);
+                            $('.following_profile_body').show("slow");
+                        });
+                    });
+                    
                     get_suggested_friends();
                 });
             });
