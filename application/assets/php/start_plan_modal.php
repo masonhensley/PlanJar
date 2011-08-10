@@ -47,6 +47,8 @@
         <div id="plan_events_wrapper">
             <div id="plan_event_select_wrapper"></div>
 
+            <div style="width: 100%; text-align: center">Create an event...</div>
+
             <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
                 <label for="event_title">Title</label>
                 <input type="text" id="event_title" name="event_title"/>
