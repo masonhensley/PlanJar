@@ -39,12 +39,14 @@ function initialize_change_location_panel() {
                     position: new google.maps.LatLng(myLatitude, myLongitude), 
                     map: map,
                     title:"Your location!",
-                    icon: 'http://www.google.com/mapfiles/arrow.png'
+                    icon: 'http://www.google.com/mapfiles/arrow.png',
+                    draggable: true
                 });
                 map_marker_array.push(temp_marker);
     
-                // Assign the click event.
+                // Assign the click events
                 google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
+                google.maps.event.addListener(temp_marker, 'dragend', change_location_marker_click);
                                         
                 // Step through the results.
                 $.map(results, function (entry) {
