@@ -97,7 +97,7 @@ function initialize_plan_modal() {
         if (date != null) {
             var hours = date.getHours();
             var time_to_select;
-            if (hours >= 18) {
+            if (hours >= 18 && hours < 23) {
                 time_to_select = 'night';
             } else if (hours >= 12) {
                 time_to_select = 'afternoon';
@@ -106,9 +106,6 @@ function initialize_plan_modal() {
             } else {
                 time_to_select = 'late_night';
             }
-            
-            // morning = 5 to noon
-            // 
             
             $('#plan_time .divset_selected').removeClass('divset_selected');
             $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
@@ -136,9 +133,13 @@ function initialize_plan_modal() {
         }
     });
     
-    // Cancel event click handler
-    $('#close_new_event').click(function () {
-        });
+    // Initial privacy select
+    $('#plan_privacy_wrapper div:first').click();
+    
+    // Add description click handler
+    $('#app_plan_description').click(function() {
+        $('#plan_description_wrapper').show('fast'); 
+    });
     
     // Submit
     $('#submit_plan').click(function () {
