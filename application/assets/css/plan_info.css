@@ -2,7 +2,6 @@
     width: auto;
     height: 30px;
     margin-left: 10px;
-    margin-right:10px;
     text-align:left;
     font-size:25px;
     font-weight:bold;
@@ -49,7 +48,7 @@
 
 .view_plan_location {
     text-align: center;
-    padding: 4px;
+    padding: 8px;
     border: 1px solid lightgray;
     background:white;
     color: gray;
