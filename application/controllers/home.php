@@ -188,7 +188,7 @@ class Home extends CI_Controller
 
         // Add the plan and echo the results
         $this->load->model('plan_actions');
-        echo($this->plan_actions->add_plan($plan_data, $new_event));
+        echo($this->plan_actions->add_plan($plan_data, $new_event, $privacy));
     }
 
     public function load_selected_plan_data()

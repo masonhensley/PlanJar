@@ -49,17 +49,20 @@ class Plan_actions extends CI_Model
     {
         $event_id = $data[1];
 
-        // Add the plan
-        $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
-        $query = $this->db->query($query_string, $data);
-
         // Get the privacy setting if it wasn't supplied
         if ($privacy == '')
         {
+            $query_string = "SELECT event_d FROM plans WHERE "
+            
             $query_string = "SELECT privacy FROM events WHERE id = ?";
             $query = $this->db->query($query_string, array($this->db->insert_id()));
 
             $privacy = $query->row()->privacy;
+        } else
+        {
+            // Add the plan
+            $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
+            $query = $this->db->query($query_string, $data);
         }
 
         // Check if the user already has plans to that place at that time
