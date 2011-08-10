@@ -130,7 +130,7 @@ function initialize_plan_modal() {
     });
     
     // Just go click handler
-    $('#just_going').click(function () {
+    $('#just_go').click(function () {
         if (plan_time_place_valid()) {
             submit_plan(true);
         }
