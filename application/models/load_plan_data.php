@@ -179,18 +179,20 @@ class Load_plan_data extends CI_Model
             <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
-            <?php echo $data_array['number_attending']; ?></font><hr/>
+            <?php echo $data_array['number_attending']; ?></font>
+            <div id="view_attendees" style="color:gray">See Everyone</div>
+            <hr/>
             <font style="font-weight:bold;">Description</font><br/>
-            <font style="color:gray;"><?php 
-            if($plan_row->description)
-            {
-                echo($plan_row->description); 
-            }else{
-                ?>
-            <i>No description</i>
-            <?php
+            <font style="color:gray;"><?php
+        if ($plan_row->description)
+        {
+            echo($plan_row->description);
+        } else
+        {
+            ?>
+                <i>No description</i>
+                <?php
             }
-            
             ?></font>
         </div>
 
