@@ -47,19 +47,17 @@
         <div id="plan_events_wrapper">
             <div id="plan_event_select_wrapper"></div>
 
-            <div id="start_event_content">
-                <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
-                    <label for="event_title">Title</label>
-                    <input type="text" id="event_title" name="event_title"/>
-                </div>
+            <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
+                <label for="event_title">Title</label>
+                <input type="text" id="event_title" name="event_title"/>
+            </div>
 
-                <div id="plan_privacy_wrapper">
-                    Privacy options<br/>
+            <div id="plan_privacy_wrapper">
+                Privacy options<br/>
 
-                    <div priv_val="open">None</div>
-                    <div priv_val="strict">Fixed invitation list</div>
-                    <div priv_val="loose">Invitees can invite others</div>
-                </div>
+                <div priv_val="open">None</div>
+                <div priv_val="strict">Fixed invitation list</div>
+                <div priv_val="loose">Invitees can invite others</div>
             </div>
         </div>
 

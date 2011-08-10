@@ -183,9 +183,6 @@ function initialize_plan_modal() {
 // Populates the selectable events and initializes the click handlers
 function populate_selectable_events() {
     if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
-        // Populate the header
-        $('#plan_events_title').html("Here's what other people are doing at<br/>" + generate_plan_text() + '.');
-                    
         // Populate the event select
         $.get('/home/get_events_for_plan', {
             day: $('#plan_day .divset_selected').attr('day_offset'),
