@@ -16,34 +16,33 @@ class Display_group_template extends CI_Model
         // determine format type and retrieve data for selected group(s) and store it in $data_array
         if ($selected_groups[0] == 'current_location')
         {
-            $data_array = $this->get_current_location_data($sql_date); // get information for current location
+            $data_array = $this->get_current_location_data($sql_date, $filter); // get information for current location
             $format_type .= "current_location";
         } else if ($selected_groups[0] == 'friends')
         {
-            $data_array = $this->get_friend_data($sql_date); // get information for friends
+            $data_array = $this->get_friend_data($sql_date, $filter); // get information for friends
             $format_type .= "friends";
         } else if ($selected_groups[0] == 'school')
         {
-            $data_array = $this->get_school_data($school, $sql_date);  // get information for school
+            $data_array = $this->get_school_data($school, $sql_date, $filter);  // get information for school
             $format_type .= "school";
         } else // when groups are selected
         {
-            $data_array = $this->get_selected_group_data($selected_groups, $sql_date);  // get information for groups
+            $data_array = $this->get_selected_group_data($selected_groups, $sql_date, $filter);  // get information for groups
             $format_type .= "groups";
         }
         // return an array(2) that will be json encoded and sent to the browser for graph animation
 
-        $data_array['filter'] = $filter;
         return array('html' => $this->get_group_template($format_type, $selected_groups, $day, $data_array),
             'data' => $data_array);
     }
 
-    function get_friend_data($sql_date)
+    function get_friend_data($sql_date, $filter)
     {
         $this->load->model('load_locations');
         $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
 
-        $this->filter_by_age_group_selected();
+        $this->filter_by_age_group_selected($filter);
 
         $return_array = array(); // data to be returned
         $number_males = 0;
@@ -82,15 +81,24 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_school_data($school, $sql_date)
+    function get_school_data($school, $sql_date, $filter)
     {
         $user = $this->ion_auth->get_user();
+        
         $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
+        
+        // if a filter is selected (such as freshmen), add relevent code to the query 
+        if($filer != 'everyone')
+        {
+            $query_filter = $this->filter_by_age_group_selected($filter);
+        }else{
+            $query_filter = "";
+        }
+        
+        $query .= $query_filter;
         $result = $this->db->query($query);
-
-        $this->filter_by_age_group_selected();
 
         // Data to be returned
         $return_array = array();
@@ -124,7 +132,7 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_selected_group_data($selected_groups, $sql_date)
+    function get_selected_group_data($selected_groups, $sql_date,$filter)
     {
         // first get all the ids of people in the groups
         $query = "SELECT user_meta.user_id, user_meta.sex FROM group_relationships
@@ -137,7 +145,7 @@ class Display_group_template extends CI_Model
         $query = substr($query, 0, -4); // contains information for all the users in the selected groups
         $result = $this->db->query($query);
 
-        $this->filter_by_age_group_selected();
+        $this->filter_by_age_group_selected($filter);
 
         // Data to be returned
         $return_array = array();
@@ -171,7 +179,7 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_current_location_data($sql_date)
+    function get_current_location_data($sql_date, $filter)
     {
         $user = $this->ion_auth->get_user();
         $query = "SELECT user_meta.user_id, user_meta.sex,
@@ -182,7 +190,7 @@ class Display_group_template extends CI_Model
                         HAVING distance<15";
         $result = $this->db->query($query);
 
-        $this->filter_by_age_group_selected();
+        $this->filter_by_age_group_selected($filter);
 
         // data to be returned
         $return_array = array();
@@ -321,9 +329,12 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function filter_by_age_group_selected()
+    function filter_by_age_group_selected($filter)
     {
-        
+        if($filter == 'seniors')
+        {
+            
+        }
     }
 
     function get_group_template($format_type, $selected_groups, $day, $data_array)
