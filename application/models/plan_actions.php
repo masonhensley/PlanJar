@@ -58,8 +58,8 @@ class Plan_actions extends CI_Model
 
         // Check if the user already has plans to that place at that time
         $event_id = $data[1];
-        var_dump($data);
         $plan_check = $this->unique_plan($event_id);
+        var_dump($plan_check);
         if ($plan_check === true)
         {
             return json_encode(array(
