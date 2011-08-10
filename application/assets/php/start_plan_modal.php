@@ -59,18 +59,18 @@
                 <div priv_val="strict">Fixed invitation list</div>
                 <div priv_val="loose">Invitees can invite others</div>
             </div>
-        </div>
 
-        <hr/>
-        <div id="plan_create_event_buttons" style="width: 100%; text-align: right;">
-            <input type="button" id="add_plan_description" value="Add a description"/>
+            <hr/>
+            <div id="plan_create_event_buttons" style="width: 100%; text-align: right;">
+                <input type="button" id="add_plan_description" value="Add a description"/>
 
-            <div id="plan_description_wrapper">
-                <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
-                <hr/>
+                <div id="plan_description_wrapper">
+                    <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
+                    <hr/>
+                </div>
+
+                <input type="button" id="submit_plan" value="Go"/>
             </div>
-
-            <input type="button" id="submit_plan" value="Go"/>
         </div>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
