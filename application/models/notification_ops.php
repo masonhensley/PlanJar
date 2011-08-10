@@ -24,7 +24,7 @@ class Notification_ops extends CI_Model
             // Only add the notification if the originating user is not the current user
             if ($user_id != $this->ion_auth->get_user()->id)
             {
-                $values_string .= "(DEFAULT, $user_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT), ";
+                $values_string .= "(DEFAULT, $user_id, " . $this->ion_auth->get_user()->id . ", DEFAULT, $date, $type, $subject_id, DEFAULT), ";
             }
         }
 
@@ -37,7 +37,7 @@ class Notification_ops extends CI_Model
             // Create notifications for each joined user
             foreach ($joined_users as $joined_user)
             {
-                $values_string .= "(DEFAULT, $joined_user, $group_id, $date, $type, $subject_id, DEFAULT), ";
+                $values_string .= "(DEFAULT, $joined_user, DEFAULT, $group_id, $date, $type, $subject_id, DEFAULT), ";
             }
         }
 
