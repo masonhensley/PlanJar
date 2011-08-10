@@ -1,7 +1,7 @@
 <div class="change_location_panel">
     <div style="float: left; width: 50%;height:100%; margin-left:15px;">
         <p>
-            Your approximate location is shown. Search for places or drag the green marker.
+            We think you're at the green marker. Search for places or drag the green marker.
             Click a marker to select its location.
         </p>
     </div>
