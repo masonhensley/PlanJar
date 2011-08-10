@@ -91,7 +91,7 @@ class Display_group_template extends CI_Model
         $return_array['total_females'] = $number_females;
 
         // query for number of girls and boys going out on the date selected
-        $return_array = $this->get_percentages($return_array, $sql_date, $user_ids, $total_people, $number_males, $number_females);
+        $return_array = $this->get_percentages($return_array, $sql_date, $friend_user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
         $return_array = $this->get_surrounding_day_info($return_array, $user_ids, $sql_date);
 
