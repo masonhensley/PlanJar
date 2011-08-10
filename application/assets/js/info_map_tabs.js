@@ -162,6 +162,7 @@ var viewing_plan_location = false;
 var viewing_plan_privacy;
 function initialize_plan_info(data) {
     data = $.parseJSON(data);
+    console.log(data);
         
     // Replace the data and show the data tab.
     $('#info_content').html(data.html);
@@ -200,7 +201,6 @@ function initialize_plan_info(data) {
     $('.view_plan_location').click(function () {
         // Save the place id to allow for day tab navigation
         viewing_plan_location = data.location_id;
-        console.log(data);
         viewing_plan_privacy = data.privacy;
         
         // Seek to the correct day
