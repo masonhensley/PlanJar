@@ -85,24 +85,25 @@ class Display_group_template extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $filter_grad_year = $this->get_correct_grad_year($filter);
-        
-        if ($filter_grad_year != 0 && $filter_grad_year != 'alumni')
+
+
+        if ($filter == 'everyone')
+        {
+            $query_filter = "";
+        } else if ($filter == 'alumni')
+        {
+            $query_filter = " AND user_meta.grad_year>$filter_grad_year";
+        } else if ($filter_grad_year != 0 && $filter_grad_year != 'alumni')
         {
             $query_filter = " AND user_meta.grad_year='$filter_grad_year'
             ";
-        } else if($filter == 'alumni')
-        {
-            $query_filter = " AND user_meta.grad_year>$filter_grad_year";
-        }else
-        {
-            $query_filter = "";
         }
 
         $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id$query_filter";
         //var_dump($query);
-        
+
         $result = $this->db->query($query);
 
         // Data to be returned
@@ -446,7 +447,6 @@ class Display_group_template extends CI_Model
             }
         }
 
-
         if ($font_style == 'groups')
         {
             $font_style = "<font style=\"font-weight:bold; color:orange;\">";
@@ -477,9 +477,9 @@ class Display_group_template extends CI_Model
                 <option value="alumni">Alumni</option>
             </select>
             <br/>
-        <?php
-        $total = $data_array['total_males'] + $data_array['total_females'];
-        ?>
+            <?php
+            $total = $data_array['total_males'] + $data_array['total_females'];
+            ?>
 
         </div>
         <div class="group_graph_top_right">
@@ -494,7 +494,7 @@ class Display_group_template extends CI_Model
         <div class="group_graph_bottom_left">
             <div class="demographics">
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
-        <?php echo " " . $data_array['total_males']; ?></font>
+                <?php echo " " . $data_array['total_males']; ?></font>
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_females']; ?></font>
             </div>
