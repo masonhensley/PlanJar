@@ -65,7 +65,7 @@
                 <input type="button" id="add_plan_description" value="Add a description"/>
 
                 <div id="plan_description_wrapper">
-                    <div class="in-field_block">
+                    <div class="in-field_block" style="margin-left: auto; margin-right: auto; width: 423px; height: auto">
                         <label for="plan_description">Enter a description</label>
                         <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
                     </div>

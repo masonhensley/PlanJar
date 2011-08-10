@@ -146,7 +146,7 @@ function initialize_plan_modal() {
     // Submit
     $('#submit_plan').click(function () {
         //Make sure an event is selected or an event has been created
-        if ($('.selected_event').length > 0 || $('#event_title').val().length > 1) {
+        if ($('.selected_event').length > 0 || $('#event_title').val().length > 0) {
             submit_plan();
         }
     });
