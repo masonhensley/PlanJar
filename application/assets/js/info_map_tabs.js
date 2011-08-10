@@ -46,7 +46,7 @@ function display_info(bypass, arg) {
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
         
-        // Get the correct place id
+        // Get the correct place id and back button value
         var place_id;
         var back_button = false;
         if (viewing_plan_location === false) {

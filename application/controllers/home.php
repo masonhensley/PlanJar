@@ -264,6 +264,9 @@ class Home extends CI_Controller
         $this->load->model('load_location_data');
         $place_id = $this->input->get('place_id');
         $add_back_button = $this->input->get('back_button');
+        
+        var_dump($add_back_button);
+        var_dump($add_back_button == 'true');
 
         $date = $this->input->get('date');
 
