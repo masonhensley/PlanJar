@@ -129,6 +129,9 @@ class Load_profile extends CI_Model
     {
         $user_id = $this->ion_auth->get_user()->id;
         $query = "SELECT user_id FROM friends WHERE follow_id=$user_id";
+        $result = $this->db->query($query);
+        $number_followers = $result->num_rows();
+        return $number_followers;
     }
 
     function get_groups_joined($user)
