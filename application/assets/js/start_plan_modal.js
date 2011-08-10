@@ -130,7 +130,7 @@ function initialize_plan_modal() {
             if ($(this).val().length != '') {
                 $('#plan_privacy_wrapper').show('fast');
                 
-                $('#selected_event').removeClass('selected_event');
+                $('.selected_event').removeClass('selected_event');
             } else {
                 // Hide and reset the privacy wrapper
                 $('#plan_privacy_wrapper').hide('fast', function () {
