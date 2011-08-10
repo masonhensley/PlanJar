@@ -137,14 +137,14 @@ function initialize_plan_modal() {
     $('#plan_privacy_wrapper div:first').click();
     
     // Add description click handler
-    $('#app_plan_description').click(function() {
+    $('#add_plan_description').click(function() {
         $('#plan_description_wrapper').show('fast'); 
     });
     
     // Submit
     $('#submit_plan').click(function () {
         //Make sure an event is selected or an event has been created
-        if (plan_time_place_valid()) {
+        if ($('.selected_event').length > 0 || $('#event_title').val().length > 1) {
             submit_plan();
         }
     });
