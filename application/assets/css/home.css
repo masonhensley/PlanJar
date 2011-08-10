@@ -602,10 +602,11 @@ a {
 }
 .make_plan {
     position: absolute;
-    left: 0px;
-    bottom: 0px;
+    left: 49px;
+    bottom: 23px;
     border: 1px solid lightgray;
-    background:-webkit-linear-gradient(top, #8AE28F, #22A228);
-    padding: 5px;
-    color: white;
+    background:white;
+    padding: 8px;
+    color: gray;
+    font-weight:bold;
 }
