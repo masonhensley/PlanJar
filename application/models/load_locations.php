@@ -155,7 +155,7 @@ class Load_locations extends CI_Model
                 ON group_relationships.user_joined_id=user_meta.user_id
                 WHERE $query_helper)new_user
             JOIN plans ON plans.user_id=new_user.user_id
-            JOIN events ON plans.event_id=events.id
+            JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
             JOIN places ON places.id=events.place_id
             ";
 /*
