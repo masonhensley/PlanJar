@@ -390,6 +390,9 @@ function reset_plan_modal() {
     // Clear the divsets
     $('#create_plan_content .divset_selected').removeClass('divset_selected');
     
+    // Select the privacy divset
+    $('#plan_privacy_wrapper div:first').addClass('divset_selected');
+    
     // Clear the event select
     $('#plan_event_select_wrapper').html('');
     
