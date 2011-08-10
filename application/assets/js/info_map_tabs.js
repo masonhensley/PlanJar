@@ -202,8 +202,6 @@ function initialize_plan_info(data) {
         
         // Seek to the correct day
         goto_day_offset(data.date);
-        
-        display_info();
     });
     
     // Handles clicking on the make plan button
