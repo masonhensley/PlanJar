@@ -289,20 +289,27 @@ class Display_group_template extends CI_Model
 
     function get_surrounding_day_info($return_array, $user_ids, $sql_date)
     {
-        // query for all the plans that people in the groups have made for the surrounding week
-        $recent_plans_query = "SELECT events.date FROM plans 
+
+
+        if (count($user_ids) > 0)
+        {
+            // query for all the plans that people in the groups have made for the surrounding week
+            $recent_plans_query = "SELECT events.date FROM plans 
                             JOIN user_meta ON plans.user_id=user_meta.user_id
                             JOIN events ON events.id=plans.event_id 
                             AND events.date>=DATE_ADD('$sql_date', INTERVAL -2 DAY) AND events.date<DATE_ADD('$sql_date', INTERVAL 4 DAY)
                             JOIN places ON places.id=events.place_id
                             WHERE ";
-        foreach ($user_ids as $id)
-        {
-            $recent_plans_query .= "plans.user_id=$id OR ";
+            foreach ($user_ids as $id)
+            {
+                $recent_plans_query .= "plans.user_id=$id OR ";
+            }
+            $recent_plans_query = substr($recent_plans_query, 0, -4);
+            $recent_plans_query .= " ORDER BY date ASC";
+            $result = $this->db->query($recent_plans_query);
         }
-        $recent_plans_query = substr($recent_plans_query, 0, -4);
-        $recent_plans_query .= " ORDER BY date ASC";
-        $result = $this->db->query($recent_plans_query);
+
+
         $plan_dates = array();
 
         $date_tracker = new DateTime($sql_date);
