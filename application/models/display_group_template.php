@@ -42,22 +42,38 @@ class Display_group_template extends CI_Model
         $this->load->model('load_locations');
         $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
 
-        $this->filter_by_age_group_selected($filter);
+        $this->get_correct_grad_year($filter);
 
         $return_array = array(); // data to be returned
         $number_males = 0;
         $number_females = 0;
         $males_going_out = 0;
         $females_going_out = 0;
-        $total_people = count($user_ids);
+        
 
-        $query = "SELECT sex FROM user_meta WHERE ";
+        $filter_grad_year = $this->get_correct_grad_year($filter);
+        if ($filter == 'alumni')
+        {
+            $query_filter = " AND user_meta.grad_year<$filter_grad_year";
+        } else if ($filter_grad_year != 0)
+        {
+            $query_filter = " AND user_meta.grad_year='$filter_grad_year'
+            ";
+        } else
+        {
+            $query_filter = "";
+        }
+
+        $query = "SELECT sex FROM user_meta WHERE (";
         foreach ($user_ids as $friend_id)
         {
             $query .= "user_id=$friend_id OR ";
         }
         $query = substr($query, 0, -4);
+        $query .= ")$query_filter";
         $result = $this->db->query($query);
+        
+        $total_people = $result->num_rows();
 
         foreach ($result->result() as $person)
         {
@@ -84,20 +100,24 @@ class Display_group_template extends CI_Model
     function get_school_data($school, $sql_date, $filter)
     {
         $user = $this->ion_auth->get_user();
-        
-        $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
-        JOIN school_data ON school_data.id=user_meta.school_id 
-        WHERE user_meta.school_id=$user->school_id";
-        
-        // if a filter is selected (such as freshmen), add relevent code to the query 
-        if($filter != 'everyone')
+
+        $filter_grad_year = $this->get_correct_grad_year($filter);
+        if ($filter == 'alumni')
         {
-            $query_filter = $this->filter_by_age_group_selected($filter);
-        }else{
+            $query_filter = " AND user_meta.grad_year<$filter_grad_year";
+        } else if ($filter_grad_year != 0)
+        {
+            $query_filter = " AND user_meta.grad_year='$filter_grad_year'
+            ";
+        } else
+        {
             $query_filter = "";
         }
-        
-        $query .= $query_filter;
+
+        $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
+        JOIN school_data ON school_data.id=user_meta.school_id 
+        WHERE user_meta.school_id=$user->school_id$query_filter";
+
         $result = $this->db->query($query);
 
         // Data to be returned
@@ -132,11 +152,25 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_selected_group_data($selected_groups, $sql_date,$filter)
+    function get_selected_group_data($selected_groups, $sql_date, $filter)
     {
+        // generate the appropriate query filter for class 
+        $filter_grad_year = $this->get_correct_grad_year($filter);
+        if ($filter == 'alumni')
+        {
+            $query_filter = " AND user_meta.grad_year<$filter_grad_year";
+        } else if ($filter_grad_year != 0)
+        {
+            $query_filter = " AND user_meta.grad_year='$filter_grad_year'
+            ";
+        } else
+        {
+            $query_filter = "";
+        }
+
         // first get all the ids of people in the groups
         $query = "SELECT user_meta.user_id, user_meta.sex FROM group_relationships
-                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
+                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id$query_filter
                     WHERE ";
         foreach ($selected_groups as $group_id)
         {
@@ -145,7 +179,7 @@ class Display_group_template extends CI_Model
         $query = substr($query, 0, -4); // contains information for all the users in the selected groups
         $result = $this->db->query($query);
 
-        $this->filter_by_age_group_selected($filter);
+        $this->get_correct_grad_year($filter);
 
         // Data to be returned
         $return_array = array();
@@ -182,15 +216,29 @@ class Display_group_template extends CI_Model
     function get_current_location_data($sql_date, $filter)
     {
         $user = $this->ion_auth->get_user();
+
+        $filter_grad_year = $this->get_correct_grad_year($filter);
+        if ($filter == 'alumni')
+        {
+            $query_filter = " WHERE user_meta.grad_year<$filter_grad_year";
+        } else if ($filter_grad_year != 0)
+        {
+            $query_filter = " WHERE user_meta.grad_year='$filter_grad_year'
+            ";
+        } else
+        {
+            $query_filter = "";
+        }
+
         $query = "SELECT user_meta.user_id, user_meta.sex,
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
-                        FROM user_meta
+                        FROM user_meta$query_filter
                         HAVING distance<15";
         $result = $this->db->query($query);
 
-        $this->filter_by_age_group_selected($filter);
+        $this->get_correct_grad_year($filter);
 
         // data to be returned
         $return_array = array();
@@ -224,33 +272,36 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected
         $result = "";
 
-        $girl_boy_query = "SELECT user_meta.sex, user_meta.user_id FROM plans 
-                            JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date='$sql_date'
-                            WHERE ";
-        foreach ($user_ids as $id)
-        {
-            $girl_boy_query .= "plans.user_id=$id OR ";
-        }
-        $girl_boy_query = substr($girl_boy_query, 0, -4);
-        $result = $this->db->query($girl_boy_query);
-
         $males_going_out = 0;
         $females_going_out = 0;
         $id_tracker_array = array();
 
-        foreach ($result->result() as $person)
+        if (count($user_ids) > 0)
         {
-            if (!in_array($person->user_id, $id_tracker_array))
+            $girl_boy_query = "SELECT user_meta.sex, user_meta.user_id FROM plans 
+                            JOIN user_meta ON plans.user_id=user_meta.user_id
+                            JOIN events ON events.id=plans.event_id AND events.date='$sql_date'
+                            WHERE ";
+            foreach ($user_ids as $id)
             {
-                if ($person->sex == 'male')
+                $girl_boy_query .= "plans.user_id=$id OR ";
+            }
+            $girl_boy_query = substr($girl_boy_query, 0, -4);
+            $result = $this->db->query($girl_boy_query);
+
+            foreach ($result->result() as $person)
+            {
+                if (!in_array($person->user_id, $id_tracker_array))
                 {
-                    $males_going_out++;
-                } else
-                {
-                    $females_going_out++;
+                    if ($person->sex == 'male')
+                    {
+                        $males_going_out++;
+                    } else
+                    {
+                        $females_going_out++;
+                    }
+                    $id_tracker_array[] = $person->user_id;
                 }
-                $id_tracker_array[] = $person->user_id;
             }
         }
 
@@ -284,20 +335,8 @@ class Display_group_template extends CI_Model
 
     function get_surrounding_day_info($return_array, $user_ids, $sql_date)
     {
-        // query for all the plans that people in the groups have made for the surrounding week
-        $recent_plans_query = "SELECT events.date FROM plans 
-                            JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id 
-                            AND events.date>=DATE_ADD('$sql_date', INTERVAL -2 DAY) AND events.date<DATE_ADD('$sql_date', INTERVAL 4 DAY)
-                            JOIN places ON places.id=events.place_id
-                            WHERE ";
-        foreach ($user_ids as $id)
-        {
-            $recent_plans_query .= "plans.user_id=$id OR ";
-        }
-        $recent_plans_query = substr($recent_plans_query, 0, -4);
-        $recent_plans_query .= " ORDER BY date ASC";
-        $result = $this->db->query($recent_plans_query);
+
+        // initialize the bar graph array to 0
         $plan_dates = array();
 
         $date_tracker = new DateTime($sql_date);
@@ -309,11 +348,30 @@ class Display_group_template extends CI_Model
             $date_tracker->modify('+1 day');
         }
 
-        foreach ($result->result() as $plan)
+        if (count($user_ids) > 0)
         {
-            $date = new DateTime($plan->date);
-            $date = $date->format('Y-m-d');
-            $plan_dates[$date]++;
+            // query for all the plans that people in the groups have made for the surrounding week
+            $recent_plans_query = "SELECT events.date FROM plans 
+                            JOIN user_meta ON plans.user_id=user_meta.user_id
+                            JOIN events ON events.id=plans.event_id 
+                            AND events.date>=DATE_ADD('$sql_date', INTERVAL -2 DAY) AND events.date<DATE_ADD('$sql_date', INTERVAL 4 DAY)
+                            JOIN places ON places.id=events.place_id
+                            WHERE ";
+            foreach ($user_ids as $id)
+            {
+                $recent_plans_query .= "plans.user_id=$id OR ";
+            }
+            $recent_plans_query = substr($recent_plans_query, 0, -4);
+            $recent_plans_query .= " ORDER BY date ASC";
+            $result = $this->db->query($recent_plans_query);
+
+            // construct the array for the bar graph
+            foreach ($result->result() as $plan)
+            {
+                $date = new DateTime($plan->date);
+                $date = $date->format('Y-m-d');
+                $plan_dates[$date]++;
+            }
         }
 
         // Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
@@ -324,17 +382,48 @@ class Display_group_template extends CI_Model
             $conversion_array[] = array('date' => $key, 'count' => $plan_dates[$key]);
         }
 
-        // Return
         $return_array['plan_dates'] = $conversion_array;
         return $return_array;
     }
 
-    function filter_by_age_group_selected($filter)
+    function get_correct_grad_year($filter)
     {
-        if($filter == 'seniors')
+        $currentMonth = date("m", time());
+        $currentYear = date("Y", time());
+        $graduationYear = 0;
+
+        if (7 < $currentMonth && $currentMonth < 12)
         {
-            
+            if ($filter == 'freshmen')
+            {
+                $graduationYear = $currentYear + 4;
+            } else if ($filter == 'sophomores')
+            {
+                $graduationYear = $currentYear + 3;
+            } else if ($filter == 'juniors')
+            {
+                $graduationYear = $currentYear + 2;
+            } else if ($filter == 'seniors' || $filter == 'alumni') // use alumni here so you can check for dates after it
+            {
+                $graduationYear = $currentYear + 1;
+            }
+        } else
+        {
+            if ($filter == 'freshmen')
+            {
+                $graduationYear = $currentYear + 3;
+            } else if ($filter == 'sophomores')
+            {
+                $graduationYear = $currentYear + 2;
+            } else if ($filter == 'juniors')
+            {
+                $graduationYear = $currentYear + 1;
+            } else if ($filter == 'seniors' || $filter == 'alumni') // use alumni here so you can check for dates after it
+            {
+                $graduationYear = $currentYear + 0;
+            }
         }
+        return $graduationYear;
     }
 
     function get_group_template($format_type, $selected_groups, $day, $data_array)
@@ -400,7 +489,6 @@ class Display_group_template extends CI_Model
             }
         }
 
-
         if ($font_style == 'groups')
         {
             $font_style = "<font style=\"font-weight:bold; color:orange;\">";
@@ -423,7 +511,7 @@ class Display_group_template extends CI_Model
         <div class="group_graph_top_left" >
             <font style="color:gray;">Viewing</font>&nbsp;
             <select id="filter">
-                <option value="all">Everyone</option>
+                <option value="everyone">Everyone</option>
                 <option value="freshmen">Freshmen</option>
                 <option value="sophomores">Sophomores</option>
                 <option value="juniors">Juniors</option>
@@ -438,13 +526,13 @@ class Display_group_template extends CI_Model
         </div>
         <div class="group_graph_top_right">
         </div>
-        
+
         <!-- <div class="group_graph_bottom_right"></div> -->
         <div class="day_display">
             <div style="font-size:100px; color: #7BC848; line-height:80px;overflow:hidden; display:inline-block;"><?php echo $big_display_day; ?></div>
             <div style="font-size:100px; color:gray; line-height: 80px;overflow:hidden; display:inline-block;"><?php echo $big_display_month; ?></div>
         </div>
-        
+
         <div class="group_graph_bottom_left">
             <div class="demographics">
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
