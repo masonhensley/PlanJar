@@ -87,16 +87,15 @@ class Display_group_template extends CI_Model
         $filter_grad_year = $this->get_correct_grad_year($filter);
 
 
-        if ($filter == 'everyone')
-        {
-            $query_filter = "";
-        } else if ($filter == 'alumni')
+        if ($filter == 'alumni')
         {
             $query_filter = " AND user_meta.grad_year>$filter_grad_year";
         } else if ($filter_grad_year != 0 && $filter_grad_year != 'alumni')
         {
             $query_filter = " AND user_meta.grad_year='$filter_grad_year'
             ";
+        }else{
+            $query_filter = "";
         }
 
         $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
