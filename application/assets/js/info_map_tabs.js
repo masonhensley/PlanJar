@@ -210,8 +210,8 @@ function initialize_plan_info(data) {
         $.get('/home/make_plan_by_event', {
             'event_id': data.event_id,
             'privacy': data.privacy
-        }, function(data) {
-            open_conflict_invite(data, data.privacy);
+        }, function(inner_data) {
+            open_conflict_invite(inner_data, data.privacy);
         });
     });
 }
