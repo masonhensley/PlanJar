@@ -86,7 +86,7 @@ class Display_group_template extends CI_Model
         $user = $this->ion_auth->get_user();
         $filter_grad_year = $this->get_correct_grad_year($filter);
         
-        if ($filter_grad_year != 0)
+        if ($filter_grad_year != 0 && $filter_grad_year != 'alumni')
         {
             $query_filter = " AND user_meta.grad_year='$filter_grad_year'
             ";
