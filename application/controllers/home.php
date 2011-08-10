@@ -530,9 +530,6 @@ class Home extends CI_Controller
             $group_ids = array();
         }
 
-        $this->load->model('group_ops');
-        $user_ids = array_merge($user_ids, $this->group_ops->get_users($group_ids));
-
         $subject_id = $this->input->get('subject_id');
         $subject_type = $this->input->get('subject_type');
 
@@ -549,7 +546,7 @@ class Home extends CI_Controller
 
         // Send notifications
         $this->load->model('notification_ops');
-        $this->notification_ops->notify($user_ids, $notif_type, $subject_id);
+        $this->notification_ops->notify($user_ids, $group_ids, $notif_type, $subject_id);
 
         echo('success');
     }

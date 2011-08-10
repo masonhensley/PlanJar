@@ -9,20 +9,36 @@ class Notification_ops extends CI_Model
         parent::__construct();
     }
 
-    // Notifies the given users of the given subject id
-    function notify($user_list, $type, $subject_id)
+    // Notifies the given users and groups of the given subject id
+    function notify($user_list, $group_list, $type, $subject_id)
     {
         // Build the string containing the multiple entries to insert.
         $values_string = '';
         $type = $this->db->escape($type);
         $date = new DateTime();
         $date = $this->db->escape($date->format('Y-m-d'));
+
+        // Add individuals
         foreach ($user_list as $user_id)
         {
             // Only add the notification if the originating user is not the current user
             if ($user_id != $this->ion_auth->get_user()->id)
             {
                 $values_string .= "(DEFAULT, $user_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT), ";
+            }
+        }
+
+        // Add groups
+        $this->load->model('group_ops');
+        var_dump($group_list);
+        foreach ($group_list as $group_id)
+        {
+            $joined_users = $this->group_ops->get_users($group_id);
+
+            // Create notifications for each joined user
+            foreach ($joined_users as $joined_user)
+            {
+                $values_string .= "(DEFAULT, $joined_user, $group_id, $date, $type, $subject_id, DEFAULT), ";
             }
         }
 
@@ -46,8 +62,11 @@ class Notification_ops extends CI_Model
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id,
             notifications.viewed, user_meta.first_name, user_meta.last_name, user_meta.user_id
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
+            LEFT JOIN groups ON notifications.originator_group_id = groups.id
             WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC, notifications.date DESC";
         $query = $this->db->query($query_string, array($user_id));
+
+        var_dump($this->db->last_query());
 
         if ($query->num_rows() == 0)
         {
