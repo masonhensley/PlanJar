@@ -88,7 +88,7 @@ class Display_group_template extends CI_Model
         
         if ($filter_grad_year != 0)
         {
-            $query_filter = "AND user_meta.grad_year='$filter_grad_year'
+            $query_filter = " AND user_meta.grad_year='$filter_grad_year'
             ";
         } else
         {
@@ -97,7 +97,7 @@ class Display_group_template extends CI_Model
 
         $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
-        WHERE user_meta.school_id=$user->school_id $query_filter";
+        WHERE user_meta.school_id=$user->school_id$query_filter";
 
         var_dump($query);
         $result = $this->db->query($query);
