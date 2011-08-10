@@ -211,6 +211,7 @@ function initialize_plan_info(data) {
             'event_id': data.event_id,
             'privacy': data.privacy
         }, function(inner_data) {
+            populate_plan_panel();
             open_conflict_invite(inner_data, data.privacy);
         });
     });
