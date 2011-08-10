@@ -85,20 +85,20 @@ class Display_group_template extends CI_Model
     {
         $user = $this->ion_auth->get_user();
 
-        $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
-        JOIN school_data ON school_data.id=user_meta.school_id 
-        WHERE user_meta.school_id=$user->school_id";
-
-        // if a filter is selected (such as freshmen), add relevent code to the query 
-        if ($filter != 'everyone')
+        $filter_grad_year = $this->get_correct_grad_year($filter);
+        if($filter_grad_year != 0)
         {
-            $query_filter = $this->get_correct_grad_year($filter);
-        } else
-        {
+            $query_filter = "AND user_meta.grad_year='$filter_grad_year'
+            ";
+        }else{
             $query_filter = "";
         }
+        
+        $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
+        JOIN school_data ON school_data.id=user_meta.school_id 
+        WHERE user_meta.school_id=$user->school_id $query_filter";
 
-        $query .= $query_filter;
+
         $result = $this->db->query($query);
 
         // Data to be returned
@@ -334,8 +334,10 @@ class Display_group_template extends CI_Model
     {
         $currentMonth = date("m", time());
         $currentYear = date("Y", time());
-
-        if (7 > $currentMonth && $currentMonth < 12)
+        if ($filter == 'everyone')
+        {
+            $graduationYear = 0;
+        } else if (7 > $currentMonth && $currentMonth < 12)
         {
             if ($filter == 'freshmen')
             {
