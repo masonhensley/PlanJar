@@ -7,11 +7,11 @@
     </div>
     <form id="plan_form" style="height: 100%;">
         <div id="plan_place_time_wrapper">
-            <font>Where are you going?</font>
+            <div style="font-size:19px;margin-top:5px;margin-bottom:5px;">Where are you going?</div>
             <div>
                 <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
             </div>
-            <font>When are you going?</font>
+            <div style="font-size:19px;margin-top:5px;margin-bottom:5px;">When are you going?</div>
             <div id="plan_day">
                 <?php echo($plan_day_html); ?>
             </div>
