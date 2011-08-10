@@ -124,6 +124,26 @@ function initialize_plan_modal() {
             $('#plan_place_location_buttons').hide('fast');
             $('#plan_events_wrapper').show('fast');
         }
+        
+        // Show/hide the privacy settings
+        $('#event_title').keyup(function() {
+            if ($(this).val().length != '') {
+                $('#plan_privacy_wrapper').show('fast');
+                
+                $('.selected_event').removeClass('selected_event');
+            } else {
+                // Hide and reset the privacy wrapper
+                $('#plan_privacy_wrapper').hide('fast', function () {
+                    $('#plan_privacy_wrapper div:first').click();
+                });
+                
+                // Hide the description and show the description button
+                $('#plan_description_wrapper').hide('fast', function() {
+                    $('#plan_description').val('');
+                });
+                $('#add_plan_description').show('fast');
+            }
+        });
     });
     
     // Just go click handler
@@ -138,13 +158,17 @@ function initialize_plan_modal() {
     
     // Add description click handler
     $('#add_plan_description').click(function() {
-        $('#plan_description_wrapper').show('fast'); 
+        if ($('#event_title').val() != '') {
+            // Show the description div and hide the description button
+            $('#add_plan_description').hide('fast');
+            $('#plan_description_wrapper').show('fast');
+        }
     });
     
     // Submit
     $('#submit_plan').click(function () {
         //Make sure an event is selected or an event has been created
-        if ($('.selected_event').length > 0 || $('#event_title').val().length > 1) {
+        if ($('.selected_event').length > 0 || $('#event_title').val().length > 0) {
             submit_plan();
         }
     });
@@ -174,6 +198,11 @@ function populate_selectable_events() {
         
                 // Store the selected event id
                 $('#plan_event_id').val($(this).attr('event_id'));
+                
+                // Clear the event
+                $('#event_title').val('');
+                $('#event_title').blur();
+                $('#event_title').keyup();
             });
         });
     }
@@ -217,6 +246,10 @@ function submit_plan(from_just_go) {
             if (data != 'available') {
                 // Alert the error message from the server
                 alert(data);
+                
+                // Focus and select the event title
+                $('#event_title').focus();
+                $('#event_title').select();
             } else {
                 submit_plan_helper(from_just_go);
             }
@@ -350,30 +383,27 @@ function get_distance_between(lat0, long0, lat1, long1) {
 
 // Resets and clears the modal
 function reset_plan_modal() {
-    // Go the the first panel
-    $('.plan_page_content').css('display', 'none');
-    $('.plan_page_content:first').css('display', '');
-    
-    // Clear the place box
-    $('#plan_location').val('');
-    $('#plan_location').blur();
-    
-    // Reset divSets
-    $('.plan_page_content .divset_selected').removeClass('divset_selected');
-    
-    // Clear the inputs
+    // Clear all inputs
     $('#create_plan_content input').not('[type="button"]').val('');
+    $('#plan_description').val('');
     
-    // Reset and hide the title and privacy settings
-    $('#close_new_event').css('display', 'none');
-    $('#just_going').css('display', '');
-    $('#event_title').val('');
-    $('#event_title').blur();
-    $('#start_event_content').css('display', 'none');
-    $('#create_event').css('display', '');
+    // Clear the divsets
+    $('#create_plan_content .divset_selected').removeClass('divset_selected');
     
-    // Clear the select
+    // Select the privacy divset
+    $('#plan_privacy_wrapper div:first').addClass('divset_selected');
+    
+    // Clear the event select
     $('#plan_event_select_wrapper').html('');
+    
+    // Blur necessary inputs
+    $('#event_title, #event_description').blur();
+    
+    // Hide everything
+    $('#plan_events_wrapper, #plan_privacy_wrapper, #plan_description_wrapper').css('display', 'none');
+    
+    // Show the hidden buttons
+    $('#plan_place_location_buttons, #add_plan_description').css('display', '');
 }
 
 // Encapsulates the autocomplete setup

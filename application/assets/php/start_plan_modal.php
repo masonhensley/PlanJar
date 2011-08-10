@@ -47,7 +47,9 @@
         <div id="plan_events_wrapper">
             <div id="plan_event_select_wrapper"></div>
 
-            <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
+            <div style="width: 100%; text-align: center">Create an event...</div>
+
+            <div class="in-field_block" style="margin: 0px auto 20px auto;">
                 <label for="event_title">Title</label>
                 <input type="text" id="event_title" name="event_title"/>
             </div>
@@ -65,7 +67,10 @@
                 <input type="button" id="add_plan_description" value="Add a description"/>
 
                 <div id="plan_description_wrapper">
-                    <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
+                    <div class="in-field_block" style="margin-left: auto; margin-right: auto; width: 423px; height: auto">
+                        <label for="plan_description">Enter a description</label>
+                        <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
+                    </div>
                     <hr/>
                 </div>
 

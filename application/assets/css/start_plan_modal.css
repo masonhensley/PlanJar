@@ -22,8 +22,9 @@
 }
 
 #plan_privacy_wrapper {
+    display: none;
     text-align: center;
-    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 #plan_day .divset {
@@ -64,10 +65,11 @@
 }
 
 #plan_event_select_wrapper {
-    width: 100%;
+    width: 350px;
     max-height: 135px;
-    float: left;
     overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #create_plan_content h3 {

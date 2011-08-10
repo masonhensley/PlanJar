@@ -12,7 +12,7 @@ class Load_plan_data extends CI_Model
     function display_plan_data($plan_id, $friend_plan)
     {
         // pull info for the plan
-        $query = "SELECT events.id, events.date, events.time, events.clock_time, events.title, events.privacy, events.originator_id, places.name, places.id AS place_id
+        $query = "SELECT events.id, events.date, events.time, events.clock_time, events.title, events.privacy, events.originator_id, events.description, places.name, places.id AS place_id
             FROM plans LEFT JOIN events ON plans.event_id = events.id
             LEFT JOIN places ON events.place_id = places.id
             WHERE plans.id = $plan_id";
@@ -180,7 +180,8 @@ class Load_plan_data extends CI_Model
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
             <?php echo $data_array['number_attending']; ?></font><br/>
-            <font style="color:gray">Description</font><br/>
+            <font style="color:gray">Description</font><font style="font-weight:bold;">
+            <?php echo($plan_row->description); ?></font>
         </div>
 
         <div class="plan_graphs">

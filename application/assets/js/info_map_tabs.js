@@ -35,18 +35,14 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
-    if (bypass != true) {
-        // Needed by fricking every incoming call (and by every I mean enough to put it here)
-        populate_popular_locations();
-    }
-    
     // Show the info tab
     show_data_container('#info_content');
     
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
+        bypass = true;
         
-        // Get the correct place id
+        // Get the correct place id and back button value
         var place_id;
         var back_button = false;
         if (viewing_plan_location === false) {
@@ -120,6 +116,12 @@ function display_info(bypass, arg) {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png">');
     }
+    
+    // Put at the end to allow it to be disabled within this function
+    if (bypass != true) {
+        // Needed by fricking every incoming call (and by every I mean enough to put it here)
+        populate_popular_locations();
+    }
 }
 
 // Sets up the location view (graphs and whatnot)
@@ -140,8 +142,8 @@ function initialize_location_info(data) {
         var button = $(this);
         show_plan_modal(function () {
             // Pre-populate the place name and id
-            $('#plan_location').val(button.siblings('.data_box_top_bar').attr('place_name'));
-            $('#plan_location_id').val(button.siblings('.data_box_top_bar').attr('place_id'));
+            $('#plan_location').val(data.place_name);
+            $('#plan_location_id').val(data.place_id);
             
             // Select the correct day
             goto_plan_day_offset(parseInt($('.day_selected').attr('day_offset')), function () {
@@ -240,7 +242,7 @@ function populate_popular_locations() {
             }
         
             // Update the info box
-            display_info(true);
+            display_info();
         });
     });
 }

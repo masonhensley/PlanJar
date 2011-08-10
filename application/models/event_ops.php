@@ -82,7 +82,7 @@ class Event_ops extends CI_Model
         if ($query->num_rows() > 0)
         {
             ?>
-            <div id="plan_events_title">Here's what's already going on...</div>
+            <div id="plan_events_title">Choose something already happening...</div>
             <?php
             foreach ($query->result() as $row)
             {
@@ -92,6 +92,9 @@ class Event_ops extends CI_Model
                 $event_text = "$title ($privacy)";
                 echo("<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\" event_name=\"$title\">$event_text</div>");
             }
+            ?>
+            <div style="width: 100%; font-weight: bold; margin: 15px 0px 15px; text-align: center;"><b>or</b></div>
+            <?php
         }
     }
 

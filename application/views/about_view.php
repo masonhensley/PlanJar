@@ -32,7 +32,9 @@
                     <h4>Mason Hensley, CEO & Co-Founder <span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
-                            Mason mischievously guides PlanJar’s vision and strategic planning. Before PlanJar, Mason dabbled in energy efficiency analysis at a large power company in Tennessee. Mason holds a Bachelor of Engineering in Biomedical Engineering from Vanderbilt University. 
+                            Mason Hensley is Co-Founder and CEO of PlanJar.  Prior to founding PlanJar, he briefly worked at the energy efficiency team at the Tennessee Valley Authority. <br> <br>
+Mason holds a bachelor’s degree in Biomedical Engineering from Vanderbilt University; while there, he dabbled a little in Financial Economics. He’s also an Eagle Scout.
+
                         </div>
                         <div class ="pic">
                         </div>
@@ -50,7 +52,7 @@
                     <h4> Wells Johnston, Munchkin, Developer & Co-Founder <span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
-                             Wells tactfully runs PlanJar’s engineering team with Parker, and directs the site design and back-end architecture.  Before PlanJar, Wells worked as a programmer at another web startup, as well as a freelance web developer. Outside the PlanJar, Wells is currently pursuing a Bachelor of Science in both Computer Science and Mathematics from Vanderbilt University.
+                             Wells tactfully runs PlanJar’s engineering team with Parker, and directs the site design and back-end architecture.  Before PlanJar, Wells worked as a programmer at another web startup, as well as a freelance web developer. <br><br> Outside the PlanJar, Wells is currently pursuing a Bachelor of Science in both Computer Science and Mathematics from Vanderbilt University.
                         </div>
                         <div class ="pic">
                         </div>
