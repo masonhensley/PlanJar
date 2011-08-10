@@ -84,8 +84,8 @@ class Display_group_template extends CI_Model
     function get_school_data($school, $sql_date, $filter)
     {
         $user = $this->ion_auth->get_user();
-
         $filter_grad_year = $this->get_correct_grad_year($filter);
+        
         if ($filter_grad_year != 0)
         {
             $query_filter = "AND user_meta.grad_year='$filter_grad_year'
@@ -99,7 +99,7 @@ class Display_group_template extends CI_Model
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id $query_filter";
 
-
+        var_dump($query);
         $result = $this->db->query($query);
 
         // Data to be returned
