@@ -99,7 +99,7 @@ class Display_group_template extends CI_Model
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id$query_filter";
 
-        var_dump($query);
+        
         $result = $this->db->query($query);
 
         // Data to be returned
