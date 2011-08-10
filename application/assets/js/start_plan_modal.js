@@ -77,7 +77,8 @@ function initialize_plan_modal() {
     $('#plan_clock_time').timeEntry({
         spinnerImage: '',
         ampmPrefix: ' ',
-        ampmNames: ['am', 'pm']
+        ampmNames: ['am', 'pm'],
+        defaultTime: '12:00 am'
     });
     
     // Plan time click handler
@@ -96,15 +97,19 @@ function initialize_plan_modal() {
         if (date != null) {
             var hours = date.getHours();
             var time_to_select;
-            if (hours >= 19) {
+            if (hours >= 18) {
                 time_to_select = 'night';
             } else if (hours >= 12) {
                 time_to_select = 'afternoon';
-            } else if (hours >= 6) {
+            } else if (hours >= 5) {
                 time_to_select = 'morning';
             } else {
                 time_to_select = 'late_night';
             }
+            
+            // morning = 5 to noon
+            // 
+            
             $('#plan_time .divset_selected').removeClass('divset_selected');
             $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
             
