@@ -28,7 +28,9 @@ class Load_location_data extends CI_Model
             'percent_female' => $place_data_array['percent_female'] * 100,
             'percent_male' => $place_data_array['percent_male'] * 100,
             'plan_dates' => $surrounding_day_array,
-            'selected_date' => $sql_date
+            'selected_date' => $sql_date,
+            'place_id' => $place_id,
+            'place_name' => $place_data_array['place_name']
         );
 
         $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $day_display, $add_back_button);
@@ -115,7 +117,8 @@ class Load_location_data extends CI_Model
             'number_females' => $number_females,
             'percent_male' => $percent_male,
             'percent_female' => $percent_female,
-            'id' => $place_id
+            'id' => $place_id,
+            'place_name' => $place_info['name']
         );
     }
 
@@ -227,7 +230,7 @@ class Load_location_data extends CI_Model
         </div>
 
         <div class="two_percent_wrapper"></div>
-        
+
         <div style="position:absolute; color:gray;top:42px;right:124px;"># plans made here by day</div>
         <div class="day_plan_graph"></div>
 
