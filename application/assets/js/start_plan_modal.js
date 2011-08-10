@@ -132,7 +132,10 @@ function initialize_plan_modal() {
             } else {
                 $('#plan_privacy_wrapper').hide('fast');
             }
-        })
+        });
+        $('#event_title').keydown(function() {
+            $(this).change();
+        });
     });
     
     // Just go click handler
