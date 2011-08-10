@@ -38,7 +38,7 @@ class Load_plan_data extends CI_Model
 
         $show_day = date("l", strtotime($plan_row->date));
         $show_date = date("F jS", strtotime($plan_row->date));
-        $show_time = date("g:i", strtotime($plan_row->clock_time));
+        $show_time = date("g:i a", strtotime($plan_row->clock_time));
 
         $time_string = '';
         if (!$plan_row->clock_time)
