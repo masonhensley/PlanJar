@@ -18,8 +18,8 @@ class Load_profile extends CI_Model
         $locations_data = $this->get_location_stats($user); // string containing the location statistics
         $birthday = $user->birthday;
         $user_age = $this->calculate_age($birthday);
-        $number_following  = $this->get_number_following();
-        $number_followers = $this->get_number_followers();
+        $number_following  = $this->get_number_following($user->id);
+        $number_followers = $this->get_number_followers($user->id);
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -116,18 +116,16 @@ class Load_profile extends CI_Model
         <?php
     }
     
-    function get_number_following()
+    function get_number_following($user_id)
     {
-        $user_id = $this->ion_auth->get_user()->id;
         $query = "SELECT follow_id FROM friend_relationships WHERE user_id=$user_id";
         $result = $this->db->query($query);
         $number_following = $result->num_rows();
         return $number_following;
     }
     
-    function get_number_followers()
+    function get_number_followers($user_id)
     {
-        $user_id = $this->ion_auth->get_user()->id;
         $query = "SELECT user_id FROM friend_relationships WHERE follow_id=$user_id";
         $result = $this->db->query($query);
         $number_followers = $result->num_rows();
