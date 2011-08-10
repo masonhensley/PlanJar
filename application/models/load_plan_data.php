@@ -179,9 +179,20 @@ class Load_plan_data extends CI_Model
             <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
+            <hr/>
             <?php echo $data_array['number_attending']; ?></font><br/>
             <font style="color:gray">Description</font><br/>
-            <font style="color:gray;"><?php echo($plan_row->description); ?></font>
+            <font style="color:gray;"><?php 
+            if($plan_row->description)
+            {
+                echo($plan_row->description); 
+            }else{
+                ?>
+            <i>No description</i>
+            <?php
+            }
+            
+            ?></font>
         </div>
 
         <div class="plan_graphs">
@@ -198,15 +209,8 @@ class Load_plan_data extends CI_Model
             <div style="position:absolute;top:154px;left:175px; font-weight: bold;">female</div>
             <div style="position:absolute; top:44px;left:74px;font-weight: bold;">have accepted so far</div>
 
-
-
-            <div class="plan_gender_graph">
-
-            </div>
-
-            <div class="attending_graph">
-
-            </div>
+            <div class="plan_gender_graph"></div>
+            <div class="attending_graph"></div>
 
         </div>
 
