@@ -201,7 +201,9 @@ function initialize_plan_info(data) {
         viewing_plan_location = data.location_id;
         
         // Seek to the correct day
-        goto_day_offset(data.date);
+        goto_day_offset(data.date, true, function () {
+            display_info();
+        });
     });
     
     // Handles clicking on the make plan button

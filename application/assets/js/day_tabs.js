@@ -11,7 +11,7 @@ function initialize_day_tabs() {
 }
 
 // Seeks to the correct day tab and clicks the day
-function goto_day_offset(offset, skip_click) {
+function goto_day_offset(offset, skip_click, callback) {
     if (offset >= 0) {
         if (offset < parseInt($('.day:first').attr('day_offset')) || offset > parseInt($('.day:last').attr('day_offset'))) {
             // Not in current seven days
@@ -29,6 +29,10 @@ function goto_day_offset(offset, skip_click) {
                 } else {
                     $('.day[day_offset="' + offset + '"]').click();
                 }
+                
+                if (callback != undefined) {
+                    callback();
+                }
             });
         } else  {
             // This week
@@ -39,6 +43,10 @@ function goto_day_offset(offset, skip_click) {
                 console.log('click event');
                 $('.day').eq(offset % 7).click();
             }
+            
+            if (callback != undefined) {
+                callback();
+            }
         }
     } else {
         // Default to today
@@ -47,6 +55,10 @@ function goto_day_offset(offset, skip_click) {
             $('.day:first').addClass('day_selected');
         } else {
             $('.day:first').click();
+        }
+        
+        if (callback != undefined) {
+            callback();
         }
     }
 }
