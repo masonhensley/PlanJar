@@ -108,7 +108,7 @@ function setup_edit_box()
             $.get('/dashboard/update_box', {
                 'box_text':$('#box_text_area').val()
             }, function (data) {
-                show_data_container('#groups_content');
+                setup_profile();
             });
         });
     });
