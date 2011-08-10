@@ -55,19 +55,21 @@ function goto_day_offset(offset, skip_click) {
 function day_click_handlers() {
     // Click event
     $("div.days_panel .day").click(function() {
-        // Remove any "day_selected" class
-        $("div.days_panel .day_selected").removeClass("day_selected");
+        if ($('.selected_plan').length > 0 && viewing_plan_location === false) {
+            // Remove any "day_selected" class
+            $("div.days_panel .day_selected").removeClass("day_selected");
         
-        // Add "day_selected" class to selected tab
-        $(this).addClass("day_selected");
+            // Add "day_selected" class to selected tab
+            $(this).addClass("day_selected");
         
-        // Select the current location if no other controlls are selected
-        if (!controlls_are_selected()) {
-            $('.network_tab[group_id="current_location"]').addClass('network_active');
+            // Select the current location if no other controlls are selected
+            if (!controlls_are_selected()) {
+                $('.network_tab[group_id="current_location"]').addClass('network_active');
+            }
+        
+            // Display the info box
+            display_info();
         }
-        
-        // Display the info box
-        display_info();
     });
     
     // Left and right arrow click functions
