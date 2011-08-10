@@ -226,33 +226,36 @@ class Display_group_template extends CI_Model
         // query for number of girls and boys going out on the date selected
         $result = "";
 
-        $girl_boy_query = "SELECT user_meta.sex, user_meta.user_id FROM plans 
-                            JOIN user_meta ON plans.user_id=user_meta.user_id
-                            JOIN events ON events.id=plans.event_id AND events.date='$sql_date'
-                            WHERE ";
-        foreach ($user_ids as $id)
-        {
-            $girl_boy_query .= "plans.user_id=$id OR ";
-        }
-        $girl_boy_query = substr($girl_boy_query, 0, -4);
-        $result = $this->db->query($girl_boy_query);
-
         $males_going_out = 0;
         $females_going_out = 0;
         $id_tracker_array = array();
 
-        foreach ($result->result() as $person)
+        if (count($user_ids) > 0)
         {
-            if (!in_array($person->user_id, $id_tracker_array))
+            $girl_boy_query = "SELECT user_meta.sex, user_meta.user_id FROM plans 
+                            JOIN user_meta ON plans.user_id=user_meta.user_id
+                            JOIN events ON events.id=plans.event_id AND events.date='$sql_date'
+                            WHERE ";
+            foreach ($user_ids as $id)
             {
-                if ($person->sex == 'male')
+                $girl_boy_query .= "plans.user_id=$id OR ";
+            }
+            $girl_boy_query = substr($girl_boy_query, 0, -4);
+            $result = $this->db->query($girl_boy_query);
+
+            foreach ($result->result() as $person)
+            {
+                if (!in_array($person->user_id, $id_tracker_array))
                 {
-                    $males_going_out++;
-                } else
-                {
-                    $females_going_out++;
+                    if ($person->sex == 'male')
+                    {
+                        $males_going_out++;
+                    } else
+                    {
+                        $females_going_out++;
+                    }
+                    $id_tracker_array[] = $person->user_id;
                 }
-                $id_tracker_array[] = $person->user_id;
             }
         }
 
@@ -484,7 +487,7 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
-        <?php echo " " . $data_array['total_females']; ?></font>
+                <?php echo " " . $data_array['total_females']; ?></font>
             </div>
 
             <font style="color:gray; position:absolute;top:-53px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
