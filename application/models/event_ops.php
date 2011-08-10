@@ -20,15 +20,13 @@ class Event_ops extends CI_Model
         }
 
         // Get pre-existing events
-        var_dump($data);
-        $broad_data = $data;
-        unset($broad_data['clock_time']);
-        unset($broad_data['privacy']);
-        unset($broad_data['originator_id']);
-
-        $query_string = "SELECT id FROM events ";
-        $query_string .= $this->db->or_where($query_string, $data);
-        $query = $this->db->query($query_string);
+        $query_string = "SELECT id FROM events WHERE title = ? AND place_id = ? AND date = ? AND time = ?";
+        $query = $this->db->query($query_string, array(
+            $data['title'],
+            $data['place_id'],
+            $data['date'],
+            $data['time'],
+                ));
 
         if ($query->num_rows() > 0)
         {
