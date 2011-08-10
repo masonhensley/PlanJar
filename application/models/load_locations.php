@@ -166,7 +166,7 @@ class Load_locations extends CI_Model
                   JOIN places ON places.id=events.place_id
                   WHERE ";
 */
-        var_dump($query);
+        //var_dump($query);
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
 
