@@ -37,7 +37,10 @@ class Notification_ops extends CI_Model
             // Create notifications for each joined user
             foreach ($joined_users as $joined_user)
             {
-                $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT), ";
+                if ($joined_user != $this->ion_auth->get_user()->id)
+                {
+                    $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT), ";
+                }
             }
         }
 
