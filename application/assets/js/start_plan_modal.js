@@ -138,7 +138,9 @@ function initialize_plan_modal() {
     
     // Add description click handler
     $('#add_plan_description').click(function() {
-        $('#plan_description_wrapper').show('fast'); 
+        // Show the description div and hide the description button
+        $('#add_plan_description').hide('fast');
+        $('#plan_description_wrapper').show('fast');
     });
     
     // Submit

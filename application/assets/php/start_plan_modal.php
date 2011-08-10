@@ -65,7 +65,10 @@
                 <input type="button" id="add_plan_description" value="Add a description"/>
 
                 <div id="plan_description_wrapper">
-                    <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
+                    <div class="in-field_block">
+                        <label for="plan_description">Enter a description</label>
+                        <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
+                    </div>
                     <hr/>
                 </div>
 
