@@ -22,8 +22,9 @@
 }
 
 #plan_privacy_wrapper {
+    display: none;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 #plan_day .divset {

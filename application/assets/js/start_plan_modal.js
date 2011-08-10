@@ -124,6 +124,15 @@ function initialize_plan_modal() {
             $('#plan_place_location_buttons').hide('fast');
             $('#plan_events_wrapper').show('fast');
         }
+        
+        // Show/hide the privacy settings
+        $('#event_title').change(function() {
+            if ($(this).val().length != '') {
+                $('#plan_privacy_wrapper').show('fast');
+            } else {
+                $('#plan_privacy_wrapper').hide('fast');
+            }
+        })
     });
     
     // Just go click handler
@@ -176,6 +185,10 @@ function populate_selectable_events() {
         
                 // Store the selected event id
                 $('#plan_event_id').val($(this).attr('event_id'));
+                
+                // Clear the event
+                $('#event_title').val('');
+                $('#event_title').blur();
             });
         });
     }
