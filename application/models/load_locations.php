@@ -158,15 +158,7 @@ class Load_locations extends CI_Model
             JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
             JOIN places ON places.id=events.place_id
             ";
-/*
-        $query = "SELECT places.name, places.id, events.title
-                  FROM group_relationships 
-                  JOIN plans ON plans.user_id=group_relationships.user_joined_id
-                  JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
-                  JOIN places ON places.id=events.place_id
-                  WHERE ";
-*/
-        //var_dump($query);
+
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
 
