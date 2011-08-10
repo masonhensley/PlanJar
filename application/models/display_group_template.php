@@ -290,6 +290,17 @@ class Display_group_template extends CI_Model
     function get_surrounding_day_info($return_array, $user_ids, $sql_date)
     {
 
+        // initialize the bar graph array to 0
+        $plan_dates = array();
+
+        $date_tracker = new DateTime($sql_date);
+        $date_tracker->modify('-2 day');
+
+        for ($i = 0; $i < 7; $i++)
+        {
+            $plan_dates[$date_tracker->format('Y-m-d')] = 0;
+            $date_tracker->modify('+1 day');
+        }
 
         if (count($user_ids) > 0)
         {
@@ -307,34 +318,28 @@ class Display_group_template extends CI_Model
             $recent_plans_query = substr($recent_plans_query, 0, -4);
             $recent_plans_query .= " ORDER BY date ASC";
             $result = $this->db->query($recent_plans_query);
+
+            // construct the array for the bar graph
+            foreach ($result->result() as $plan)
+            {
+                $date = new DateTime($plan->date);
+                $date = $date->format('Y-m-d');
+                $plan_dates[$date]++;
+            }
+
+            // Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
+            $keys = array_keys($plan_dates);
+            $conversion_array = array();
+            foreach ($keys as $key)
+            {
+                $conversion_array[] = array('date' => $key, 'count' => $plan_dates[$key]);
+            }
         }
 
 
-        $plan_dates = array();
 
-        $date_tracker = new DateTime($sql_date);
-        $date_tracker->modify('-2 day');
 
-        for ($i = 0; $i < 7; $i++)
-        {
-            $plan_dates[$date_tracker->format('Y-m-d')] = 0;
-            $date_tracker->modify('+1 day');
-        }
 
-        foreach ($result->result() as $plan)
-        {
-            $date = new DateTime($plan->date);
-            $date = $date->format('Y-m-d');
-            $plan_dates[$date]++;
-        }
-
-        // Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
-        $keys = array_keys($plan_dates);
-        $conversion_array = array();
-        foreach ($keys as $key)
-        {
-            $conversion_array[] = array('date' => $key, 'count' => $plan_dates[$key]);
-        }
 
         // Return
         $return_array['plan_dates'] = $conversion_array;
