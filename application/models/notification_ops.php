@@ -220,8 +220,20 @@ class Notification_ops extends CI_Model
     }
 
     // Updates the viewed status of the supplied notification id to the supplied value
-    function update_notification_viewed($id, $value)
+    // If find_all is set, all related notification are also changed
+    function update_notification_viewed($id, $value, $find_all = false)
     {
+        if ($find_all)
+        {
+            // Get the notification type
+            $query_string = "SELECT type FROM notifications WHERE id = ?";
+            $query = $this->db->query($query_string, array($id));
+
+            // Update all similar notifications
+            $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ?";
+            $query = $this->db->query($query_string, array(1, $query->row()->type, $this->ion_auth->get_user()->id));
+        }
+
         $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
         $query = $this->db->query($query_string, array($value, $id));
     }
@@ -238,7 +250,7 @@ class Notification_ops extends CI_Model
         {
             // Event invite
             case 'event_invite':
-                $this->update_notification_viewed($id, true);
+                $this->update_notification_viewed($id, true, true);
 
                 // Add a plan for the user to the specified event
                 $this->load->model('plan_actions');
@@ -293,14 +305,8 @@ class Notification_ops extends CI_Model
                 $query = $this->db->query($query_string, array(
                     $user_id,
                     $notif_row->subject_id));
-                if ($query->num_rows() > 0)
-                {
-                    $this->update_notification_viewed($notif_row->id, true);
-                    return true;
-                } else
-                {
-                    return false;
-                }
+
+                return $query->num_rows() > 0;
 
             // Group invite
             case 'group_invite':
