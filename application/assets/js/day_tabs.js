@@ -12,7 +12,6 @@ function initialize_day_tabs() {
 
 // Seeks to the correct day tab and clicks the day
 function goto_day_offset(offset, skip_click) {
-    console.log(offset + ' ' + skip_click);
     if (offset >= 0) {
         if (offset < parseInt($('.day:first').attr('day_offset')) || offset > parseInt($('.day:last').attr('day_offset'))) {
             // Not in current seven days
@@ -55,8 +54,6 @@ function goto_day_offset(offset, skip_click) {
 function day_click_handlers() {
     // Click event
     $("div.days_panel .day").click(function() {
-        console.log($('.selected_plan').length);
-        console.log(viewing_plan_location);
         if ($('.selected_plan').length > 0 && viewing_plan_location !== false) {
             // Remove any "day_selected" class
             $("div.days_panel .day_selected").removeClass("day_selected");
