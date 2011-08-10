@@ -295,7 +295,7 @@ class Notification_ops extends CI_Model
                     $notif_row->subject_id));
                 if ($query->num_rows() > 0)
                 {
-                    $this->update_notification_viewed($notif_row->subject_id, true);
+                    $this->update_notification_viewed($notif_row->id, true);
                     return true;
                 } else
                 {
