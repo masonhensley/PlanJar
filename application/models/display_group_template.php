@@ -84,9 +84,8 @@ class Display_group_template extends CI_Model
     function get_school_data($school, $sql_date, $filter)
     {
         $user = $this->ion_auth->get_user();
+
         $filter_grad_year = $this->get_correct_grad_year($filter);
-
-
         if ($filter == 'alumni')
         {
             $query_filter = " AND user_meta.grad_year<$filter_grad_year";
@@ -94,7 +93,8 @@ class Display_group_template extends CI_Model
         {
             $query_filter = " AND user_meta.grad_year='$filter_grad_year'
             ";
-        }else{
+        } else
+        {
             $query_filter = "";
         }
 
@@ -138,9 +138,23 @@ class Display_group_template extends CI_Model
 
     function get_selected_group_data($selected_groups, $sql_date, $filter)
     {
+        // generate the appropriate query filter for class 
+        $filter_grad_year = $this->get_correct_grad_year($filter);
+        if ($filter == 'alumni')
+        {
+            $query_filter = " AND user_meta.grad_year<$filter_grad_year";
+        } else if ($filter_grad_year != 0)
+        {
+            $query_filter = " AND user_meta.grad_year='$filter_grad_year'
+            ";
+        } else
+        {
+            $query_filter = "";
+        }
+
         // first get all the ids of people in the groups
         $query = "SELECT user_meta.user_id, user_meta.sex FROM group_relationships
-                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
+                    JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id$query_filter
                     WHERE ";
         foreach ($selected_groups as $group_id)
         {
@@ -186,11 +200,25 @@ class Display_group_template extends CI_Model
     function get_current_location_data($sql_date, $filter)
     {
         $user = $this->ion_auth->get_user();
+
+        $filter_grad_year = $this->get_correct_grad_year($filter);
+        if ($filter == 'alumni')
+        {
+            $query_filter = " WHERE user_meta.grad_year<$filter_grad_year";
+        } else if ($filter_grad_year != 0)
+        {
+            $query_filter = " WHERE user_meta.grad_year='$filter_grad_year'
+            ";
+        } else
+        {
+            $query_filter = "";
+        }
+
         $query = "SELECT user_meta.user_id, user_meta.sex,
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
-                        FROM user_meta
+                        FROM user_meta$query_filter
                         HAVING distance<15";
         $result = $this->db->query($query);
 
@@ -494,7 +522,7 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_females']; ?></font>
+        <?php echo " " . $data_array['total_females']; ?></font>
             </div>
 
             <font style="color:gray; position:absolute;top:-53px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
