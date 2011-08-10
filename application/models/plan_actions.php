@@ -45,7 +45,7 @@ class Plan_actions extends CI_Model
 
     // Accepts an array containing plan data
     // Returns the plan details
-    function add_plan($data, $privacy, $originator = false)
+    function add_plan($data, $originator = false)
     {
         // Add the plan
         $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
