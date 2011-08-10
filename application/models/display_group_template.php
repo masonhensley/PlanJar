@@ -86,14 +86,15 @@ class Display_group_template extends CI_Model
         $user = $this->ion_auth->get_user();
 
         $filter_grad_year = $this->get_correct_grad_year($filter);
-        if($filter_grad_year != 0)
+        if ($filter_grad_year != 0)
         {
             $query_filter = "AND user_meta.grad_year='$filter_grad_year'
             ";
-        }else{
+        } else
+        {
             $query_filter = "";
         }
-        
+
         $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id $query_filter";
@@ -334,10 +335,9 @@ class Display_group_template extends CI_Model
     {
         $currentMonth = date("m", time());
         $currentYear = date("Y", time());
-        if ($filter == 'everyone')
-        {
-            $graduationYear = 0;
-        } else if (7 > $currentMonth && $currentMonth < 12)
+        $graduationYear = 0;
+
+        if (7 > $currentMonth && $currentMonth < 12)
         {
             if ($filter == 'freshmen')
             {
@@ -484,7 +484,7 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_females']; ?></font>
+        <?php echo " " . $data_array['total_females']; ?></font>
             </div>
 
             <font style="color:gray; position:absolute;top:-53px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
