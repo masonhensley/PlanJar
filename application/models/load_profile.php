@@ -119,7 +119,7 @@ class Load_profile extends CI_Model
     function get_number_following()
     {
         $user_id = $this->ion_auth->get_user()->id;
-        $query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
+        $query = "SELECT follow_id FROM friend_relationships WHERE user_id=$user_id";
         $result = $this->db->query($query);
         $number_following = $result->num_rows();
         return $number_following;
@@ -128,7 +128,7 @@ class Load_profile extends CI_Model
     function get_number_followers()
     {
         $user_id = $this->ion_auth->get_user()->id;
-        $query = "SELECT user_id FROM friends WHERE follow_id=$user_id";
+        $query = "SELECT user_id FROM friend_relationships WHERE follow_id=$user_id";
         $result = $this->db->query($query);
         $number_followers = $result->num_rows();
         return $number_followers;
