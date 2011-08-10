@@ -174,13 +174,13 @@ class Load_plan_data extends CI_Model
             <?php echo $data_array['originator_name']; ?></font><br/>
             <font style="color:gray">Time: </font> <font style="font-weight:bold;">
             <?php echo $data_array['time_string']; ?></font>
-            <br/><hr/>
+            <br/><br/><hr/>
             <font style="color:gray">Invited: </font><font style="font-weight:bold;">
             <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
             <?php echo $data_array['number_attending']; ?></font>
-            <div id="view_attendees" style="color:navy; position:absolute; top:67px;right:42px;">View List</div>
+            <div id="view_attendees" style="color:navy; position:absolute; top:101px;right:42px;">View List</div>
             <hr/>
             <font style="font-weight:bold;">Description</font><br/>
             <font style="color:gray;"><?php
