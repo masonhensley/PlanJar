@@ -38,13 +38,14 @@ class Load_plan_data extends CI_Model
 
         $show_day = date("l", strtotime($plan_row->date));
         $show_date = date("F jS", strtotime($plan_row->date));
+        $show_time = date("g:i", strtotime($plan_row->clock_time));
 
         $time_string = '';
         if (!$plan_row->clock_time)
         {
             $time_string = "$show_day $plan_row->time, $show_date";
         }else{
-            $time_string ="$show_day $plan_row->clock_time, $show_date";
+            $time_string ="$show_day at $show_time, $show_date";
         }
 
         // get #attending, #male, #female
