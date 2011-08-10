@@ -575,11 +575,12 @@ class Home extends CI_Controller
             return;
         }
 
-        $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ?";
+        $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ? AND place_id = ?";
         $query = $this->db->query($query_string, array(
             $needle,
             $plan_date,
-            $plan_time
+            $plan_time,
+            $place_id
                 ));
 
         if ($query->num_rows() > 0)
