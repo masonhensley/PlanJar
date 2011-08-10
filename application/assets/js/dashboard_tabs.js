@@ -98,8 +98,7 @@ function setup_edit_box()
         $('#box_text_area').click(function(){
             if(!$('#box_text_area').hasClass('box_text_area_selected'))
             {
-                $('#box_text_area').addClass('box_text_area_selected');
-                $('#box_text_area').val('');
+                $('#box_text_area').addClass('box_text_area_selected'); // right now this does nothing, but could be useful later
             }
         });
                 
