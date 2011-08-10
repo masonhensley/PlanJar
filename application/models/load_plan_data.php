@@ -180,7 +180,7 @@ class Load_plan_data extends CI_Model
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
             <?php echo $data_array['number_attending']; ?></font>
-            <div id="view_attendees" style="color:navy; position:absolute; right:26px;">See Everyone</div>
+            <div id="view_attendees" style="color:navy; position:absolute; top:67px;right:26px;">See Everyone</div>
             <hr/>
             <font style="font-weight:bold;">Description</font><br/>
             <font style="color:gray;"><?php
