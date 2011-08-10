@@ -35,16 +35,12 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
-    if (bypass != true) {
-        // Needed by fricking every incoming call (and by every I mean enough to put it here)
-        populate_popular_locations();
-    }
-    
     // Show the info tab
     show_data_container('#info_content');
     
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
+        bypass = undefined;
         
         // Get the correct place id and back button value
         var place_id;
@@ -119,6 +115,12 @@ function display_info(bypass, arg) {
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png">');
+    }
+    
+    // Put at the end to allow it to be disabled within this function
+    if (bypass != true) {
+        // Needed by fricking every incoming call (and by every I mean enough to put it here)
+        populate_popular_locations();
     }
 }
 
