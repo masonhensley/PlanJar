@@ -283,6 +283,7 @@ class Group_ops extends CI_Model
         $query_string = "SELECT user_joined_id FROM group_relationships WHERE
             group_id = ? AND user_joined_id <> ?";
         $query = $this->db->query($query_string, array($group_id, NULL));
+        var_dump($this->db->last_query());
 
         foreach ($query->result() as $row)
         {
