@@ -668,8 +668,7 @@ class Home extends CI_Controller
         $this->load->model('plan_actions');
         echo($this->plan_actions->add_plan(array(
             $this->ion_auth->get_user()->id,
-            $privacy,
-            $event_id)));
+            $event_id), $privacy));
     }
 
 }
