@@ -35,7 +35,10 @@ class Event_ops extends CI_Model
             unset($data['clock_time']);
         }
 
-        $query = $this->db->insert('events', $data);
+        $query_string = $this->db->insert_string('events', $data);
+        $query_string = str_replace('INSERT', 'INSERT IGNORE', $query_string);
+        $query = $this->db->query($query_string);
+
         return $this->db->insert_id();
     }
 

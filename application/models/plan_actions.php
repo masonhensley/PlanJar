@@ -53,6 +53,7 @@ class Plan_actions extends CI_Model
 
         // Add the user to the invite list
         $this->load->model('event_ops');
+        $event_id = $data[1];
         $this->event_ops->add_invitees($event_id, array($this->ion_auth->get_user()->id));
 
         // Check if the user already has plans to that place at that time

@@ -146,7 +146,7 @@ class Home extends CI_Controller
             );
 
             // Add the place to the PlanJar database if a Factual place was selected.
-            if ($this->input->get('new_place_name') != '')
+            if ($this->input->get('new_place_factual_id') != '')
             {
                 $place_data = array(
                     'factual_id' => $this->input->get('new_place_factual_id'),
@@ -178,8 +178,8 @@ class Home extends CI_Controller
 
         // Plan data
         $plan_data = array(
-            'user_id' => $this->ion_auth->get_user()->id,
-            'event_id' => $event_id
+            $event_id,
+            $this->ion_auth->get_user()->id
         );
 
         // Add the plan and echo the results
