@@ -49,7 +49,6 @@ class Display_group_template extends CI_Model
         $number_females = 0;
         $males_going_out = 0;
         $females_going_out = 0;
-        
 
         $filter_grad_year = $this->get_correct_grad_year($filter);
         if ($filter == 'alumni')
@@ -64,19 +63,21 @@ class Display_group_template extends CI_Model
             $query_filter = "";
         }
 
-        $query = "SELECT sex FROM user_meta WHERE (";
+        $query = "SELECT sex, user_id FROM user_meta WHERE (";
         foreach ($user_ids as $friend_id)
         {
             $query .= "user_id=$friend_id OR ";
         }
         $query = substr($query, 0, -4);
-        $query .= ")$query_filter";
+        $query .= ")$query_filter"; // apply the filter
         $result = $this->db->query($query);
         
         $total_people = $result->num_rows();
-
+        $friend_user_ids = array(); // this is needed to get the correct user ids for the filter
+        
         foreach ($result->result() as $person)
         {
+            $friend_user_ids[] = $person->id;
             if ($person->sex == 'male')
             {
                 $number_males++;
