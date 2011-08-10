@@ -167,8 +167,8 @@ class Home extends CI_Controller
 
         // Plan data
         $plan_data = array(
-            $event_id,
-            $this->ion_auth->get_user()->id
+            $this->ion_auth->get_user()->id,
+            $event_id
         );
 
         // Add the plan and echo the results
