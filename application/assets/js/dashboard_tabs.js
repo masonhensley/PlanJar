@@ -76,6 +76,7 @@ function show_data_container(data_div) {
             $('.my_box').hide();
             $('.edit_box').hide();
             $('#box_text_area').show();
+            $('.update_box').show();
                 
             // make sure the text clears when you click the first time, but not subsequent times
             $('#box_text_area').click(function(){
@@ -86,19 +87,15 @@ function show_data_container(data_div) {
                 }
             });
                 
-            $('.update_box').show();
-                
             // click handler for updating box
             $('.update_box').click(function(){
                 $.get('/dashboard/update_box', {
                     'box_text':$('#box_text_area').val()
                 }, function (data) {
-                    $('.my_box').html(data);
-                    $('.my_box').show("slow");
-                    $('.update_box').hide();
-                    $('#box_text_area').hide();
+                    show_data_container('#groups_content');
                 });
             });
+            
         });
     }
 }
