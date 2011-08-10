@@ -40,8 +40,8 @@
 
         <hr/>
         <div id="plan_place_location_buttons" style="width: 100%; text-align: right;">
-            <input type="button" id="create_event" value="Create an event"/>
-            <input type="button" id="just_go" value="Just go"/>
+            <input type="button" id="create_event" value="Add a title"/>
+            <input type="button" id="just_go" value="Make a plan"/>
         </div>
 
         <div id="plan_events_wrapper">
@@ -74,7 +74,7 @@
                     <hr/>
                 </div>
 
-                <input type="button" id="submit_plan" value="Go"/>
+                <input type="button" id="submit_plan" value="Make a plan"/>
             </div>
         </div>
 
