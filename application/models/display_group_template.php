@@ -42,7 +42,7 @@ class Display_group_template extends CI_Model
         $this->load->model('load_locations');
         $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
 
-        $this->filter_by_age_group_selected($filter);
+        $this->get_correct_grad_year($filter);
 
         $return_array = array(); // data to be returned
         $number_males = 0;
@@ -84,19 +84,20 @@ class Display_group_template extends CI_Model
     function get_school_data($school, $sql_date, $filter)
     {
         $user = $this->ion_auth->get_user();
-        
+
         $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id";
-        
+
         // if a filter is selected (such as freshmen), add relevent code to the query 
-        if($filter != 'everyone')
+        if ($filter != 'everyone')
         {
-            $query_filter = $this->filter_by_age_group_selected($filter);
-        }else{
+            $query_filter = $this->get_correct_grad_year($filter);
+        } else
+        {
             $query_filter = "";
         }
-        
+
         $query .= $query_filter;
         $result = $this->db->query($query);
 
@@ -132,7 +133,7 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function get_selected_group_data($selected_groups, $sql_date,$filter)
+    function get_selected_group_data($selected_groups, $sql_date, $filter)
     {
         // first get all the ids of people in the groups
         $query = "SELECT user_meta.user_id, user_meta.sex FROM group_relationships
@@ -145,7 +146,7 @@ class Display_group_template extends CI_Model
         $query = substr($query, 0, -4); // contains information for all the users in the selected groups
         $result = $this->db->query($query);
 
-        $this->filter_by_age_group_selected($filter);
+        $this->get_correct_grad_year($filter);
 
         // Data to be returned
         $return_array = array();
@@ -190,7 +191,7 @@ class Display_group_template extends CI_Model
                         HAVING distance<15";
         $result = $this->db->query($query);
 
-        $this->filter_by_age_group_selected($filter);
+        $this->get_correct_grad_year($filter);
 
         // data to be returned
         $return_array = array();
@@ -329,12 +330,43 @@ class Display_group_template extends CI_Model
         return $return_array;
     }
 
-    function filter_by_age_group_selected($filter)
+    function get_correct_grad_year($filter)
     {
-        if($filter == 'seniors')
+        $currentMonth = date("m", time());
+        $currentYear = date("Y", time());
+
+        if (7 > $currentMonth && $currentMonth < 12)
         {
-            
+            if ($filter == 'freshmen')
+            {
+                $graduationYear = $currentYear + 4;
+            } else if ($filter == 'sophomores')
+            {
+                $graduationYear = $currentYear + 3;
+            } else if ($filter == 'juniors')
+            {
+                $graduationYear = $currentYear + 2;
+            } else if ($filter == 'seniors')
+            {
+                $graduationYear = $currentYear + 1;
+            }
+        } else
+        {
+            if ($filter == 'freshmen')
+            {
+                $graduationYear = $currentYear + 3;
+            } else if ($filter == 'sophomores')
+            {
+                $graduationYear = $currentYear + 2;
+            } else if ($filter == 'juniors')
+            {
+                $graduationYear = $currentYear + 1;
+            } else if ($filter == 'seniors')
+            {
+                $graduationYear = $currentYear + 0;
+            }
         }
+        return $graduationYear;
     }
 
     function get_group_template($format_type, $selected_groups, $day, $data_array)
@@ -438,13 +470,13 @@ class Display_group_template extends CI_Model
         </div>
         <div class="group_graph_top_right">
         </div>
-        
+
         <!-- <div class="group_graph_bottom_right"></div> -->
         <div class="day_display">
             <div style="font-size:100px; color: #7BC848; line-height:80px;overflow:hidden; display:inline-block;"><?php echo $big_display_day; ?></div>
             <div style="font-size:100px; color:gray; line-height: 80px;overflow:hidden; display:inline-block;"><?php echo $big_display_month; ?></div>
         </div>
-        
+
         <div class="group_graph_bottom_left">
             <div class="demographics">
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
