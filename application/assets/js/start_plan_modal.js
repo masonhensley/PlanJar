@@ -129,10 +129,17 @@ function initialize_plan_modal() {
         $('#event_title').keyup(function() {
             if ($(this).val().length != '') {
                 $('#plan_privacy_wrapper').show('fast');
+                
+                $('#selected_event').removeClass('selected_event');
             } else {
+                // Hide and reset the privacy wrapper
                 $('#plan_privacy_wrapper').hide('fast', function () {
                     $('#plan_privacy_wrapper div:first').click();
                 });
+                
+                // Hide the description and show the description button
+                $('#plan_description_wrapper').hide('fast');
+                $('#add_plan_description').show('fast');
             }
         });
     });
@@ -149,9 +156,11 @@ function initialize_plan_modal() {
     
     // Add description click handler
     $('#add_plan_description').click(function() {
-        // Show the description div and hide the description button
-        $('#add_plan_description').hide('fast');
-        $('#plan_description_wrapper').show('fast');
+        if ($('#event_title').val() != '') {
+            // Show the description div and hide the description button
+            $('#add_plan_description').hide('fast');
+            $('#plan_description_wrapper').show('fast');
+        }
     });
     
     // Submit
@@ -191,6 +200,7 @@ function populate_selectable_events() {
                 // Clear the event
                 $('#event_title').val('');
                 $('#event_title').blur();
+                $('#event_title').keyup();
             });
         });
     }
@@ -234,6 +244,10 @@ function submit_plan(from_just_go) {
             if (data != 'available') {
                 // Alert the error message from the server
                 alert(data);
+                
+                // Focus and select the event title
+                $('#event_title').focus();
+                $('#event_title').select();
             } else {
                 submit_plan_helper(from_just_go);
             }
