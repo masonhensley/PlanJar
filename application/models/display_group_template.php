@@ -510,8 +510,8 @@ class Display_group_template extends CI_Model
         </div>
         <br/>
         <div class="group_graph_top_left" >
-            <font style="color:gray;">Viewing</font>&nbsp;
-            <select id="filter" style="margin-right:-34px;">
+            <font style="color:gray;position:absolute;top:12px;left:40px;">Viewing</font>&nbsp;
+            <select id="filter" style="float:right;">
                 <option value="everyone">Everyone</option>
                 <option value="freshmen">Freshmen</option>
                 <option value="sophomores">Sophomores</option>
