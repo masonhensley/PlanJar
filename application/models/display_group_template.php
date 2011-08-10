@@ -49,7 +49,7 @@ class Display_group_template extends CI_Model
         $number_females = 0;
         $males_going_out = 0;
         $females_going_out = 0;
-        $total_people = count($user_ids);
+        
 
         $filter_grad_year = $this->get_correct_grad_year($filter);
         if ($filter == 'alumni')
@@ -72,6 +72,8 @@ class Display_group_template extends CI_Model
         $query = substr($query, 0, -4);
         $query .= ")$query_filter";
         $result = $this->db->query($query);
+        
+        $total_people = $result->num_rows();
 
         foreach ($result->result() as $person)
         {
