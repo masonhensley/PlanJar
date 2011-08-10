@@ -37,7 +37,7 @@ class Notification_ops extends CI_Model
             // Create notifications for each joined user
             foreach ($joined_users as $joined_user)
             {
-                $values_string .= "(DEFAULT, DEFAULT, $joined_user, $group_id, $date, $type, $subject_id, DEFAULT), ";
+                $values_string .= "(DEFAULT, $joined_user, DEFAULT, $group_id, $date, $type, $subject_id, DEFAULT), ";
             }
         }
 
