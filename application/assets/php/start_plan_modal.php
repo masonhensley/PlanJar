@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <input type="button" id="submit_plan" value="Go" style="position: absolute; right: 0px; bottom: 0px;"/>
+<!--        <input type="button" id="submit_plan" value="Go" style="position: absolute; right: 0px; bottom: 0px;"/>-->
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
         <input id="plan_location_name" type="hidden"/>
