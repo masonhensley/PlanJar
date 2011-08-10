@@ -5,15 +5,13 @@
 
         <input  type="button" id="cancel_plan"  style="float:right;" value="X"/>
     </div>
-
     <form id="plan_form" style="height: 100%;">
         <div id="plan_place_time_wrapper">
-            <h3>Where do you want to go?</h3>
+            <div style="font-size:19px;margin-top:5px;margin-bottom:5px;">Where are you going?</div>
             <div>
                 <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
             </div>
-
-            <h3 style="margin-top: 5px;">When do you want to go?</h3>
+            <div style="font-size:19px;margin-top:20px;margin-bottom:5px;">When are you going?</div>
             <div id="plan_day">
                 <?php echo($plan_day_html); ?>
             </div>
@@ -47,7 +45,7 @@
         <div id="plan_events_wrapper">
             <div id="plan_event_select_wrapper"></div>
 
-            <div style="width: 100%; text-align: center">Create an event...</div>
+            <!--<div style="width: 100%; text-align: center">Create an event...</div> this may look better not there--> 
 
             <div class="in-field_block" style="margin: 0px auto 20px auto;">
                 <label for="event_title">Title</label>

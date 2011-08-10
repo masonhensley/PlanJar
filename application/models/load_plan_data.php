@@ -179,9 +179,21 @@ class Load_plan_data extends CI_Model
             <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
-            <?php echo $data_array['number_attending']; ?></font><br/>
-            <font style="color:gray">Description</font><font style="font-weight:bold;">
-            <?php echo($plan_row->description); ?></font>
+            <?php echo $data_array['number_attending']; ?></font>
+            <div id="view_attendees" style="color:navy; position:absolute; top:67px;right:42px;">View List</div>
+            <hr/>
+            <font style="font-weight:bold;">Description</font><br/>
+            <font style="color:gray;"><?php
+        if ($plan_row->description)
+        {
+            echo($plan_row->description);
+        } else
+        {
+            ?>
+                <i>No description</i>
+                <?php
+            }
+            ?></font>
         </div>
 
         <div class="plan_graphs">
@@ -198,15 +210,8 @@ class Load_plan_data extends CI_Model
             <div style="position:absolute;top:154px;left:175px; font-weight: bold;">female</div>
             <div style="position:absolute; top:44px;left:74px;font-weight: bold;">have accepted so far</div>
 
-
-
-            <div class="plan_gender_graph">
-
-            </div>
-
-            <div class="attending_graph">
-
-            </div>
+            <div class="plan_gender_graph"></div>
+            <div class="attending_graph"></div>
 
         </div>
 
@@ -224,7 +229,7 @@ class Load_plan_data extends CI_Model
                 <?php
             } else
             {
-                ?><div style="font-size: 14px; position:absolute; bottom:10px; right:10px;">
+                ?><div style="font-size: 14px; position:absolute; bottom:10px; left:10px;">
                     This event has <b>strict</b> privacy settings. You can't invite anyone.</div>
                 <?php
             }
