@@ -148,7 +148,7 @@ class Load_locations extends CI_Model
         $query_helper = substr($query_helper, 0, -4);
 
         $query = "
-            SELECT DISTINCT places.name, places.id, events.title, plans.id 
+            SELECT DISTINCT places.name, places.id AS place_id, events.title, plans.id 
             FROM 
                 (SELECT user_meta.user_id FROM group_relationships 
                 JOIN user_meta 
@@ -174,11 +174,11 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->id]))
+            if (!isset($place_array[$place->place_id]))
             {
-                $place_array[$place->id] = $place->name;
+                $place_array[$place->place_id] = $place->name;
             }
-            $place_id_array[] = $place->id;
+            $place_id_array[] = $place->place_id;
         }
         $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
