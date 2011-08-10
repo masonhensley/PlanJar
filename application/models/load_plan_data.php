@@ -112,7 +112,6 @@ class Load_plan_data extends CI_Model
         ";
 
         $result = $this->db->query($query);
-        var_dump($this->db->last_query());
 
         if ($result->row()->first_name == NULL)
         {
@@ -163,7 +162,7 @@ class Load_plan_data extends CI_Model
             {
                 ?><font style="color:black; font-size:25px; font-weight:bold;"><?php echo $plan_row->name; ?></font><?php
         }
-        ?>
+            ?>
 
         </div>
 
@@ -180,7 +179,7 @@ class Load_plan_data extends CI_Model
             <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
-        <?php echo $data_array['number_attending']; ?></font><br/>
+            <?php echo $data_array['number_attending']; ?></font><br/>
             <font style="color:gray">Description</font>
         </div>
 
