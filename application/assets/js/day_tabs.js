@@ -40,7 +40,6 @@ function goto_day_offset(offset, skip_click, callback) {
                 $('.day_selected').removeClass('day_selected');
                 $('.day').eq(offset % 7).addClass('day_selected');
             } else {
-                console.log('click event');
                 $('.day').eq(offset % 7).click();
             }
             
