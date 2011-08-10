@@ -277,7 +277,7 @@ function submit_plan_helper(from_just_go) {
             // Clear the plan modal
             reset_plan_modal();
             
-            open_conflict_invite(data);
+            open_conflict_invite(data, privacy);
         });
                 
         // Refresh the plan list.
@@ -286,11 +286,11 @@ function submit_plan_helper(from_just_go) {
 }
 
 // Opens the invite and/or conflict panel based on the given data
-function open_conflict_invite(data) {
+function open_conflict_invite(data, privacy) {
     data = $.parseJSON(data);
               
     if (data.status == 'success') {
-        if (data.privacy != 'strict' || data.originator) {
+        if (privacy != 'strict' || data.originator) {
             // Open the invite modal
             open_invite_modal('event', data.event_id, privacy, data.originator);
         }

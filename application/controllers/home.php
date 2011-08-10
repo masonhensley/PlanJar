@@ -188,7 +188,7 @@ class Home extends CI_Controller
 
         // Add the plan and echo the results
         $this->load->model('plan_actions');
-        echo($this->plan_actions->add_plan($plan_data, $new_event));
+        echo($this->plan_actions->add_plan($plan_data, $privacy, $new_event));
     }
 
     public function load_selected_plan_data()
@@ -663,10 +663,12 @@ class Home extends CI_Controller
     public function make_plan_by_event()
     {
         $event_id = $this->input->get('event_id');
+        $privacy = $this->input->get('privacy');
 
         $this->load->model('plan_actions');
         echo($this->plan_actions->add_plan(array(
             $this->ion_auth->get_user()->id,
+            $privacy,
             $event_id)));
     }
 

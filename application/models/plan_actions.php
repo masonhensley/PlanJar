@@ -45,19 +45,21 @@ class Plan_actions extends CI_Model
 
     // Accepts an array containing plan data
     // Returns the plan details
-    function add_plan($data, $originator = false)
+    function add_plan($data, $privacy, $originator = false)
     {
-        $event_id = $data[1];
-
         // Add the plan
         $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, $data);
 
         // Check if the user already has plans to that place at that time
+        $event_id = $data[1];
         $plan_check = $this->unique_plan($event_id);
         if ($plan_check === true)
         {
-            return json_encode(array('status' => 'success', 'originator' => $originator, 'event_id' => $event_id));
+            return json_encode(array(
+                        'status' => 'success',
+                        'originator' => $originator,
+                        'event_id' => $event_id));
         } else
         {
             // Pre-existing plan. Return HTML for two options
