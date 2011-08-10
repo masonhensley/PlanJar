@@ -290,7 +290,14 @@ class Notification_ops extends CI_Model
                 $query = $this->db->query($query_string, array(
                     $user_id,
                     $notif_row->subject_id));
-                return $query->num_rows() > 0;
+                if ($query->num_rows() > 0)
+                {
+                    $this->update_notification_viewed($notif_row->subject_id, true);
+                    return true;
+                } else
+                {
+                    return false;
+                }
 
             // Group invite
             case 'group_invite':
