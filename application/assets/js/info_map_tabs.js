@@ -140,8 +140,8 @@ function initialize_location_info(data) {
         var button = $(this);
         show_plan_modal(function () {
             // Pre-populate the place name and id
-            $('#plan_location').val(button.siblings('.data_box_top_bar').attr('place_name'));
-            $('#plan_location_id').val(button.siblings('.data_box_top_bar').attr('place_id'));
+            $('#plan_location').val(data.place_name);
+            $('#plan_location_id').val(data.place_id);
             
             // Select the correct day
             goto_plan_day_offset(parseInt($('.day_selected').attr('day_offset')), function () {
