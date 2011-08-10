@@ -43,7 +43,7 @@
 .day_display{
     width:100%;
     position:absolute;
-    bottom:0px;
+    bottom:3px;
     height:75px;
     text-align:right;
 }
