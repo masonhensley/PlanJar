@@ -59,13 +59,11 @@ class Notification_ops extends CI_Model
         $user_id = $this->ion_auth->get_user()->id;
 
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id,
-            notifications.viewed, user_meta.first_name, user_meta.last_name, user_meta.user_id
-            FROM (notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id),
-            (notifications LEFT JOIN groups ON notifications.group_id = groups.id)
+            notifications.viewed, user_meta.first_name, user_meta.last_name, user_meta.user_id, groups.name AS group_name
+            FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
+            LEFT JOIN groups ON notifications.group_id = groups.id
             WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC, notifications.date DESC";
         $query = $this->db->query($query_string, array($user_id));
-
-        var_dump($this->db->last_query());
 
         if ($query->num_rows() == 0)
         {
@@ -169,7 +167,8 @@ class Notification_ops extends CI_Model
         {
             // Event invite
             case 'event_invite':
-                $query_string = "SELECT places.name, events.date, events.title, events.id FROM plans
+                $query_string = "SELECT places.name, events.date, events.title, events.id
+                FROM plans
                 LEFT JOIN events ON events.id = plans.event_id
                 LEFT JOIN places ON events.place_id = places.id
                 WHERE events.id = ?";
@@ -184,9 +183,18 @@ class Notification_ops extends CI_Model
                     $event_text = '<b>' . $row->title . '</b> at ';
                 }
 
+                // Figure out whether to use you or the group name
+                if ($notification_row->group_name == NULL)
+                {
+                    $you = 'you';
+                } else
+                {
+                    $you = $notification_row->group_name;
+                }
+
                 return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
                         $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
-                        '</b> has invited you to ' . $event_text . '<b>' . $row->name . '</b> ' .
+                        "</b> has invited $you to " . $event_text . '<b>' . $row->name . '</b> ' .
                         'on ' . $date->format('l') . ' the ' . $date->format('jS');
 
             // Group invite
