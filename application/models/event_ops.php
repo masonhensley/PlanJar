@@ -9,24 +9,8 @@ class Event_ops extends CI_Model
         parent::__construct();
     }
 
-    // Return an event id if an event is found based on the given data
-    // Returns false otherwise (remember to use ===)
-    public function check_event($data)
-    {
-        $query_string = "SELECT * FROM events WHERE 
-            title = ? AND place_id = ? AND date = ? AND time = ? AND privacy = ?";
-        $query = $this->db->query($query_string, $data);
-        if ($query->num_rows() > 0)
-        {
-            return $query->row()->id;
-        } else
-        {
-            return false;
-        }
-    }
-
     // Accepts an associative array of data to create an event
-    // Returns the event id
+    // Returns the event id of the event or a pre-existing event with the same values
     public function create_event($data)
     {
         // Rectify the time
@@ -35,11 +19,29 @@ class Event_ops extends CI_Model
             unset($data['clock_time']);
         }
 
-        $query_string = $this->db->insert_string('events', $data);
-        $query_string = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $query_string);
+        // Get pre-existing events
+        $broad_data = clone $data;
+        unset($broad_data['clock_time']);
+        unset($broad_data['privacy']);
+        unset($broad_data['originator_id']);
+
+        $query_string = "SELECT id FROM events ";
+        $query_string .= $this->db->or_where($query_string, $data);
         $query = $this->db->query($query_string);
 
-        return $this->db->insert_id();
+        if ($query->num_rows() > 0)
+        {
+            // Return the existing id
+            return $query->row()->id;
+        } else
+        {
+            // Add the event and return the id
+            $query_string = $this->db->insert_string('events', $data);
+            $query_string = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $query_string);
+            $query = $this->db->query($query_string);
+
+            return $this->db->insert_id();
+        }
     }
 
     // Adds the specified users to the invitation list of the specified event
