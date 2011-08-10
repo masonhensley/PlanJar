@@ -38,6 +38,7 @@ class Load_group_profile extends CI_Model
             if ($group_relationship->user_joined_id)
             {
                 $number_joined++;
+                $number_following++;
             } else
             {
                 $number_following++;
