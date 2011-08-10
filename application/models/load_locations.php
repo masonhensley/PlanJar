@@ -79,7 +79,7 @@ class Load_locations extends CI_Model
     function on_friends_selected($display_day, $sql_date)
     {
         $display_message = "Places your <font style=\"font-weight:bold;color:green;\">Friends</font> ";
-        $display_message .= "are going <br/><font style=\"font-weight:bold;color:navy;\">$display_day</font>";
+        $display_message .= "are going <br/><font style=\"font-weight:bold;color:black;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $query = "SELECT places.id, events.title, places.name FROM plans 
