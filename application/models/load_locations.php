@@ -47,7 +47,7 @@ class Load_locations extends CI_Model
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "Places near your <font style=\"color:green; font-weight:bold;\">Current Location</font> ";
+        $display_message = "<font style=\"color:gray;\">Places near your</font> <font style=\"color:green; font-weight:bold;\">Current Location</font> ";
         $display_message .= "for <font style=\"font-weight:bold;color:black;\">$display_day</font>";
 
 
