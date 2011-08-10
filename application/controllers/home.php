@@ -162,24 +162,13 @@ class Home extends CI_Controller
 
             // Update event id with the new event
             $this->load->model('event_ops');
-            $existing_event = $this->event_ops->check_event($event_data);
-
-            if ($existing_event === false)
-            {
-                // Create an event
-                $new_event = true;
-                $event_id = $this->event_ops->create_event($event_data);
-            } else
-            {
-                // Use the existing event
-                $event_id = $existing_event;
-            }
+            $event_id = $this->event_ops->create_event($event_data);
         }
 
         // Plan data
         $plan_data = array(
-            $event_id,
-            $this->ion_auth->get_user()->id
+            $this->ion_auth->get_user()->id,
+            $event_id
         );
 
         // Add the plan and echo the results
@@ -586,11 +575,12 @@ class Home extends CI_Controller
             return;
         }
 
-        $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ?";
+        $query_string = "SELECT * FROM events WHERE title = ? AND date = ? AND time = ? AND place_id = ?";
         $query = $this->db->query($query_string, array(
             $needle,
             $plan_date,
-            $plan_time
+            $plan_time,
+            $place_id
                 ));
 
         if ($query->num_rows() > 0)

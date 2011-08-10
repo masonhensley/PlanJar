@@ -210,7 +210,6 @@ function submit_plan(from_just_go) {
         $.get('/home/check_preexisting_event', {
             needle: $('#event_title').val(),
             'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-            'plan_clock_time': $('#plan_clock_time').val(),
             'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
             'place_id': $('#plan_location_id').val()
         }, function (data) {

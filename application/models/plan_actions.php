@@ -57,7 +57,6 @@ class Plan_actions extends CI_Model
         $this->event_ops->add_invitees($event_id, array($this->ion_auth->get_user()->id));
 
         // Check if the user already has plans to that place at that time
-        $event_id = $data[1];
         $plan_check = $this->unique_plan($event_id);
         if ($plan_check === true)
         {
