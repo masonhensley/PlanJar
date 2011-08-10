@@ -340,6 +340,7 @@ a {
     background: -ms-linear-gradient(top, #F3F6FF, white);
     background: linear-gradient(top, #F3F6FF, white);
     border-bottom: 1px solid lightgray;
+    color:black;
     padding: 10px;
 }
 .no_places_to_show {
