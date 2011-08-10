@@ -5,7 +5,9 @@
         <a href="/dashboard/groups"><font style="font-weight:bold;color:gray;font-size:20px;">Networks</font></a><br/>
         <font style="color:gray;">(select one)</font>
         <br/><hr/>
-        <font>
+        <div class="network_tab" group_id="current_location">
+            Current Location
+        </div>
         <div class="
              network_tab" group_id="friends">
             Friends
@@ -15,10 +17,8 @@
             echo $school;
             ?>
         </div>
-        <div class="network_tab" group_id="current_location">
-            Current Location
-        </div>
-        </font>
+        
+        
         <a href="/dashboard/groups"><font style="font-weight:bold;color:gray;font-size:20px;">Groups</font></a><br/>
         <font style="color:gray;">(select one or multiple)</font>
         <br/><hr/>
