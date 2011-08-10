@@ -13,12 +13,6 @@ class Event_ops extends CI_Model
     // Returns the event id of the event or a pre-existing event with the same values
     public function create_event($data)
     {
-        // Rectify the time
-        if ($data['clock_time'] == '')
-        {
-            unset($data['clock_time']);
-        }
-
         // Get pre-existing events
         $query_string = "SELECT id FROM events WHERE title = ? AND place_id = ? AND date = ? AND time = ?";
         $query = $this->db->query($query_string, array(
