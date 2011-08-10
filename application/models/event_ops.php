@@ -11,7 +11,8 @@ class Event_ops extends CI_Model
 
     // Accepts an associative array of data to create an event
     // Returns the event id of the event or a pre-existing event with the same values
-    public function create_event($data)
+    // new_event is true if the event is new. False otherwise
+    public function create_event($data, &$new_event)
     {
         // Get pre-existing events
         $query_string = "SELECT id FROM events WHERE title = ? AND place_id = ? AND date = ? AND time = ?";
@@ -25,6 +26,7 @@ class Event_ops extends CI_Model
         if ($query->num_rows() > 0)
         {
             // Return the existing id
+            $new_event = false;
             return $query->row()->id;
         } else
         {
@@ -33,6 +35,7 @@ class Event_ops extends CI_Model
             $query_string = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $query_string);
             $query = $this->db->query($query_string);
 
+            $new_event = true;
             return $this->db->insert_id();
         }
     }

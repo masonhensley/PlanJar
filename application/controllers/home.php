@@ -177,7 +177,7 @@ class Home extends CI_Controller
 
             // Update event id with the new event
             $this->load->model('event_ops');
-            $event_id = $this->event_ops->create_event($event_data);
+            $event_id = $this->event_ops->create_event($event_data, $new_event);
         }
 
         // Plan data
