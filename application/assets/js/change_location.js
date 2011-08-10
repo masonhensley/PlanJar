@@ -46,7 +46,6 @@ function initialize_change_location_panel() {
     
                 // Assign the click events
                 google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
-                google.maps.event.addListener(temp_marker, 'dragend', change_location_marker_click);
                                         
                 // Step through the results.
                 $.map(results, function (entry) {
