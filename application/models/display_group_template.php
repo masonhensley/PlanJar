@@ -90,7 +90,10 @@ class Display_group_template extends CI_Model
         {
             $query_filter = " AND user_meta.grad_year='$filter_grad_year'
             ";
-        } else
+        } else if($filter == 'alumni')
+        {
+            $query_filter = " AND user_meta.grad_year>$filter_grad_year";
+        }else
         {
             $query_filter = "";
         }
@@ -357,7 +360,7 @@ class Display_group_template extends CI_Model
             } else if ($filter == 'juniors')
             {
                 $graduationYear = $currentYear + 2;
-            } else if ($filter == 'seniors')
+            } else if ($filter == 'seniors' || $filter == 'alumni') // use alumni here so you can check for dates after it
             {
                 $graduationYear = $currentYear + 1;
             }
@@ -372,7 +375,7 @@ class Display_group_template extends CI_Model
             } else if ($filter == 'juniors')
             {
                 $graduationYear = $currentYear + 1;
-            } else if ($filter == 'seniors')
+            } else if ($filter == 'seniors' || $filter == 'alumni') // use alumni here so you can check for dates after it
             {
                 $graduationYear = $currentYear + 0;
             }
