@@ -45,7 +45,7 @@ class Plan_actions extends CI_Model
 
     // Accepts an array containing plan data
     // Returns the plan details
-    function add_plan($data, $originator = false)
+    function add_plan($data, $originator = false, $privacy = '')
     {
         $event_id = $data[1];
 
@@ -53,11 +53,24 @@ class Plan_actions extends CI_Model
         $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, $data);
 
+        // Get the privacy setting if it wasn't supplied
+        if ($privacy == '')
+        {
+            $query_string = "SELECT privacy FROM events WHERE id = ?";
+            $query = $this->db->query($query_string, array($this->db->insert_id()));
+
+            $privacy = $query->row()->privacy;
+        }
+
         // Check if the user already has plans to that place at that time
         $plan_check = $this->unique_plan($event_id);
         if ($plan_check === true)
         {
-            return json_encode(array('status' => 'success', 'originator' => $originator, 'event_id' => $event_id));
+            return json_encode(array(
+                        'status' => 'success',
+                        'originator' => $originator,
+                        'event_id' => $event_id,
+                        'privacy' => $privacy));
         } else
         {
             // Pre-existing plan. Return HTML for two options

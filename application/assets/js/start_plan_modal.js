@@ -292,7 +292,7 @@ function open_conflict_invite(data) {
     if (data.status == 'success') {
         if (data.privacy != 'strict' || data.originator) {
             // Open the invite modal
-            open_invite_modal('event', data.event_id, privacy, data.originator);
+            open_invite_modal('event', data.event_id, data.privacy, data.originator);
         }
     } else {
         // Open the conflict modal
