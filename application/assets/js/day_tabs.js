@@ -57,7 +57,7 @@ function day_click_handlers() {
     $("div.days_panel .day").click(function() {
         console.log($('.selected_plan').length);
         console.log(viewing_plan_location);
-        if ($('.selected_plan').length > 0 && viewing_plan_location === false) {
+        if ($('.selected_plan').length > 0 && viewing_plan_location !== false) {
             // Remove any "day_selected" class
             $("div.days_panel .day_selected").removeClass("day_selected");
         
