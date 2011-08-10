@@ -43,44 +43,29 @@
             <input type="button" id="create_event" value="Create an event"/>
 
             <div id="plan_events_wrapper">
-                <div class="left">
-                    <div id="plan_events_title"></div>
+                <div id="plan_event_select_wrapper"></div>
 
-                    <div id="plan_event_select_wrapper"></div>
-                </div>
-
-                <div class="right">
-                    <div id="create_event_title">
-                        Don't find anything you want to go to?<br/><br/>
-                        <input type="button" id="close_new_event" value="Cancel" style="display: none"/>
-                        <br/>
+                <div id="start_event_content">
+                    <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
+                        <label for="event_title">Title</label>
+                        <input type="text" id="event_title" name="event_title"/>
                     </div>
 
-                    <div id="start_event_content">
-                        <div class="in-field_block" style="margin-left: auto; margin-right: auto; margin-bottom: 15px;">
-                            <label for="event_title">Title</label>
-                            <input type="text" id="event_title" name="event_title"/>
-                        </div>
+                    <div id="plan_privacy_wrapper">
+                        Privacy options<br/>
 
-                        <div id="plan_privacy_wrapper">
-                            Privacy options<br/>
-
-                            <div priv_val="open">None</div>
-                            <div priv_val="strict">Fixed invitation list</div>
-                            <div priv_val="loose">Invitees can invite others</div>
-                        </div>
+                        <div priv_val="open">None</div>
+                        <div priv_val="strict">Fixed invitation list</div>
+                        <div priv_val="loose">Invitees can invite others</div>
                     </div>
-
-                    <hr/>
                 </div>
+
+                <hr/>
             </div>
-
-            <input type="button" id="just_go" value="Just go"/>
-            <input type="button" id="submit_plan" value="Go" style="position: absolute; right: 0px; bottom: 0px;"/>
-
         </div>
 
-
+        <input type="button" id="just_go" value="Just go"/>
+        <input type="button" id="submit_plan" value="Go" style="position: absolute; right: 0px; bottom: 0px;"/>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
         <input id="plan_location_name" type="hidden"/>

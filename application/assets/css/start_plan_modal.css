@@ -47,20 +47,6 @@
     margin-top: 5px;
 }
 
-plan_events_wrapper .left {
-    width: 50%;
-    height: 100%;
-    float: left;
-}
-
-plan_events_wrapper .right {
-    width: 50%;
-    height: 100%;
-    float: left;
-    text-align: center;
-    position: relative;
-}
-
 #plan_events_title {
     width: 100%;
     text-align: center;

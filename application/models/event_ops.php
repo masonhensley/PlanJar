@@ -80,6 +80,9 @@ class Event_ops extends CI_Model
         // Echo the event entries
         if ($query->num_rows() > 0)
         {
+            ?>
+            <div id="plan_events_title">Here's what's already going on...</div>
+            <?php
             foreach ($query->result() as $row)
             {
                 $id = $row->id;
