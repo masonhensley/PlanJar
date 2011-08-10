@@ -35,15 +35,16 @@ class Load_plan_data extends CI_Model
     function get_plan_data_array($plan_id, $plan_row)
     {
         // set the plan time
-        
-        $show_day = date("l", strtotime($plan_row->date) );
+
+        $show_day = date("l", strtotime($plan_row->date));
         $show_date = date("F jS", strtotime($plan_row->date));
-        
-        if(!$plan_row->clock_time)
+
+        $time_string = '';
+        if (!$plan_row->clock_time)
         {
-            $time_string = "$show_day $plan_row->time, $show_date"; 
+            $time_string = "$show_day $plan_row->time, $show_date";
         }
-        
+
         // get #attending, #male, #female
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
         $result = $this->db->query($query);
@@ -222,7 +223,7 @@ class Load_plan_data extends CI_Model
         {
             // Another user's plan
             ?>
-            <div class="make_plan">Make a plan here</div>
+            <div class="make_plan">Add to plans</div>
             <?php
         }
 

@@ -159,7 +159,6 @@ function initialize_location_info(data) {
 
 // Sets up the plan info view
 var viewing_plan_location = false;
-var viewing_plan_privacy;
 function initialize_plan_info(data) {
     data = $.parseJSON(data);
         
@@ -200,19 +199,20 @@ function initialize_plan_info(data) {
     $('.view_plan_location').click(function () {
         // Save the place id to allow for day tab navigation
         viewing_plan_location = data.location_id;
-        viewing_plan_privacy = data.privacy;
         
         // Seek to the correct day
-        goto_day_offset(data.date);
+        goto_day_offset(data.date, true, function () {
+            display_info();
+        });
     });
     
     // Handles clicking on the make plan button
     $('.make_plan').click(function() {
         $.get('/home/make_plan_by_event', {
             'event_id': data.event_id,
-            'privacy': viewing_plan_privacy
-        }, function(data) {
-            open_conflict_invite(data, viewing_plan_privacy);
+            'privacy': data.privacy
+        }, function() {
+            populate_plan_panel();
         });
     });
 }

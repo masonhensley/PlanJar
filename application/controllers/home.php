@@ -174,10 +174,6 @@ class Home extends CI_Controller
                 // Use the existing event
                 $event_id = $existing_event;
             }
-
-
-            // Add the user to the invite list
-            $this->event_ops->add_invitees($event_id, array($this->ion_auth->get_user()->id));
         }
 
         // Plan data
@@ -188,7 +184,7 @@ class Home extends CI_Controller
 
         // Add the plan and echo the results
         $this->load->model('plan_actions');
-        echo($this->plan_actions->add_plan($plan_data, $privacy, $new_event));
+        echo($this->plan_actions->add_plan($plan_data, $new_event));
     }
 
     public function load_selected_plan_data()
@@ -666,10 +662,9 @@ class Home extends CI_Controller
         $privacy = $this->input->get('privacy');
 
         $this->load->model('plan_actions');
-        echo($this->plan_actions->add_plan(array(
+        $this->plan_actions->add_plan(array(
             $this->ion_auth->get_user()->id,
-            $privacy,
-            $event_id)));
+            $event_id));
     }
 
 }
