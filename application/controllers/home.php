@@ -163,13 +163,13 @@ class Home extends CI_Controller
             // Update event id with the new event
             $this->load->model('event_ops');
             $existing_event = $this->event_ops->check_event($event_data);
-            var_dump($existing_event);
 
             if ($existing_event === false)
             {
                 // Create an event
                 $new_event = true;
                 $event_id = $this->event_ops->create_event($event_data);
+                var_dump($event_id);
             } else
             {
                 // Use the existing event
