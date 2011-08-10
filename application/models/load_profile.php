@@ -18,6 +18,8 @@ class Load_profile extends CI_Model
         $locations_data = $this->get_location_stats($user); // string containing the location statistics
         $birthday = $user->birthday;
         $user_age = $this->calculate_age($birthday);
+        $number_following  = $this->get_number_following();
+        $number_followers = $this->get_number_followers();
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
@@ -32,7 +34,9 @@ class Load_profile extends CI_Model
         <div class="profile_body">
             <div class="profile_body_text"><?php
                 ?><font style="color:darkgray;">sex</font><font style="font-weight:bold;"><?php echo " " . $user->sex; ?></font>&nbsp;&nbsp;&nbsp;
-                <font style="color:darkgray;">age</font><font style="font-weight:bold;"><?php echo " " . $user_age; ?></font>
+                <font style="color:darkgray;">age</font><font style="font-weight:bold;"><?php echo " " . $user_age; ?></font>&nbsp;&nbsp;&nbsp;
+                <font style="color:darkgray;">followers</font><font style="font-weight:bold;"><?php echo " " . $number_followers; ?></font>&nbsp;&nbsp;&nbsp;
+                <font style="color:darkgray;">following</font><font style="font-weight:bold;"><?php echo " " . $number_following; ?></font>&nbsp;&nbsp;&nbsp;
                 <br/>
                 <br/>
                 <font style="color:darkgray; float:left;">box</font><?php
@@ -110,6 +114,21 @@ class Load_profile extends CI_Model
             </div>
         </div>
         <?php
+    }
+    
+    function get_number_following()
+    {
+        $user_id = $this->ion_auth->get_user()->id;
+        $query = "SELECT follow_id FROM friends WHERE user_id=$user_id";
+        $result = $this->db->query($query);
+        $number_following = $result->num_rows();
+        return $number_following;
+    }
+    
+    function get_number_followers()
+    {
+        $user_id = $this->ion_auth->get_user()->id;
+        $query = "SELECT user_id FROM friends WHERE follow_id=$user_id";
     }
 
     function get_groups_joined($user)
