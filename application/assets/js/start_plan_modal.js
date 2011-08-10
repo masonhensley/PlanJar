@@ -78,7 +78,7 @@ function initialize_plan_modal() {
         spinnerImage: '',
         ampmPrefix: ' ',
         ampmNames: ['am', 'pm'],
-        defaultTime: '12:00 am'
+        defaultTime: '12:00 pm'
     });
     
     // Plan time click handler
