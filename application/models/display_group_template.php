@@ -406,7 +406,7 @@ class Display_group_template extends CI_Model
             </div>
         </div>
         <div style="position:absolute; top:52px; right:100px;color:gray;">
-            # people going out by day
+            # plans made by day
         </div>
         <br/>
         <div class="group_graph_top_left" >
