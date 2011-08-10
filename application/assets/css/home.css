@@ -604,12 +604,7 @@ a {
     left: 0px;
     bottom: 0px;
     border: 1px solid lightgray;
-    background: -webkit-gradient(linear,left top,left bottom,from(#AF64DE),to(purple));
-    background: -webkit-linear-gradient(top, #AF64DE, purple);
-    background: -moz-linear-gradient(top, #AF64DE, purple);
-    background: -o-linear-gradient(top, #AF64DE, purple);
-    background: -ms-linear-gradient(top, #AF64DE, purple);
-    background: linear-gradient(top, #AF64DE, purple);
+    background:-webkit-linear-gradient(top, #8AE28F, #22A228);
     padding: 5px;
     color: white;
 }
