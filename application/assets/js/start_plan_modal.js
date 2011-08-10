@@ -290,7 +290,7 @@ function open_conflict_invite(data) {
     data = $.parseJSON(data);
               
     if (data.status == 'success') {
-        if (privacy != 'strict' || data.originator) {
+        if (data.privacy != 'strict' || data.originator) {
             // Open the invite modal
             open_invite_modal('event', data.event_id, privacy, data.originator);
         }
