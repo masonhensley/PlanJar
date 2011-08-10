@@ -122,67 +122,41 @@ function initialize_plan_modal() {
         // Load the selectable events
         populate_selectable_events();
         
-        if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
+        if (plan_time_place_valid()) {
             // Show the event div and hide the first set of buttons
             $('#plan_place_location_buttons').hide('fast');
             $('#plan_events_wrapper').show('fast');
         }
     });
     
-    // Cancel event click handler
-    $('#close_new_event').click(function () {
-        // Reset and hide the title and privacy settings
-        $('#close_new_event').hide('fast');
-        $('#just_going').show('fast');
-        $('#event_title').val('');
-        $('#event_title').blur();
-        $('#start_event_content').hide('fast');
-        $('#create_event').show('fast');
-    });
-        
-    //    // New event click handler
-    //    $('#create_event').click(function () {
-    //        
-    //        // Hide the button
-    //        $(this).hide('fast');
-    //        
-    //        // Hide the just going button
-    //        $('#just_going').hide('fast');
-    //        
-    //        // Show the cancel button
-    //        $('#close_new_event').show('fast');
-    //        
-    //        // Clear the select
-    //        $('#plan_event_select_wrapper .selected_event').removeClass('selected_event');
-    //            
-    //        // Show the title and privacy settings
-    //        $('#plan_event_id').val('');
-    //        $('#start_event_content').show('fast', function () {
-    //            $('#event_title').focus();
-    //        });
-    //        $('#plan_privacy_wrapper > div').filter(':first').click();
-    //    });
-    
     // Just go click handler
     $('#just_going').click(function () {
-        // Clear the event id box
-        $('#plan_event_id').val('');
-        
-        submit_plan(true);
+        if (plan_time_place_valid()) {
+            submit_plan(true);
+        }
     });
+    
+    // Cancel event click handler
+    $('#close_new_event').click(function () {
+        });
     
     // Submit
     $('#submit_plan').click(function () {
         //Make sure an event is selected or an event has been created
-        if ($('#plan_event_select_wrapper .selected_event').length == 1 || $('#event_title').val() != '') {
+        if (plan_time_place_valid()) {
             submit_plan();
         }
     });
 }
 
+// Returns true if the plan location and time are valid
+function plan_time_place_valid() {
+    return $('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1
+}
+
 // Populates the selectable events and initializes the click handlers
 function populate_selectable_events() {
-    if ($('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1) {
+    if (plan_time_place_valid()) {
         // Populate the event select
         $.get('/home/get_events_for_plan', {
             day: $('#plan_day .divset_selected').attr('day_offset'),
@@ -256,7 +230,7 @@ function submit_plan(from_just_go) {
 function submit_plan_helper(from_just_go) {
     // Get the privacy setting from either the divSet or the <select>
     var privacy;
-    if (from_just_go != undefined) {
+    if (from_just_go) {
         // Plan submitted by clicking on just go. Use open privacy
         privacy = 'open';
     } else {
