@@ -276,20 +276,13 @@ class Group_ops extends CI_Model
     }
 
     // Returns a list of users who joined the supplied group
-    function get_users($group_list)
+    function get_users($group_id)
     {
         $return_array = array();
 
-        $query_string = "SELECT user_joined_id FROM group_relationships WHERE (";
-
-        foreach ($group_list as $group)
-        {
-            $query_string .= "group_id = $group OR ";
-        }
-        $query_string = substr($query_string, 0, -4);
-        $query_string .= ") AND user_joined_id <> 'NULL'";
-
-        $query = $this->db->query($query_string);
+        $query_string = "SELECT user_joined_id FROM group_relationships WHERE
+            group_id = ? AND user_joined_id <> ?";
+        $query = $this->db->query($query_string, array($group_id, NULL));
 
         foreach ($query->result() as $row)
         {
