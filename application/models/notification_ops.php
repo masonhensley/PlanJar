@@ -30,11 +30,9 @@ class Notification_ops extends CI_Model
 
         // Add groups
         $this->load->model('group_ops');
-        var_dump($group_list);
         foreach ($group_list as $group_id)
         {
             $joined_users = $this->group_ops->get_users($group_id);
-            var_dump($joined_users);
 
             // Create notifications for each joined user
             foreach ($joined_users as $joined_user)
@@ -42,7 +40,6 @@ class Notification_ops extends CI_Model
                 $values_string .= "(DEFAULT, $joined_user, DEFAULT, $group_id, $date, $type, $subject_id, DEFAULT), ";
             }
         }
-        var_dump($values_string);
 
         // Only continue if there were results
         if ($values_string != '')
