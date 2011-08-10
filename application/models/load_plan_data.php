@@ -223,7 +223,7 @@ class Load_plan_data extends CI_Model
         {
             // Another user's plan
             ?>
-            <div class="make_plan">Make this plan</div>
+            <div class="make_plan">Add to plans</div>
             <?php
         }
 
