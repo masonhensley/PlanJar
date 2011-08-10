@@ -89,7 +89,7 @@ class Display_group_template extends CI_Model
 
         if ($filter == 'alumni')
         {
-            $query_filter = " AND user_meta.grad_year>$filter_grad_year";
+            $query_filter = " AND user_meta.grad_year<$filter_grad_year";
         } else if ($filter_grad_year != 0)
         {
             $query_filter = " AND user_meta.grad_year='$filter_grad_year'
