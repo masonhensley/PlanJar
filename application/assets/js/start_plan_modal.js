@@ -126,15 +126,14 @@ function initialize_plan_modal() {
         }
         
         // Show/hide the privacy settings
-        $('#event_title').change(function() {
+        $('#event_title').keyup(function() {
             if ($(this).val().length != '') {
                 $('#plan_privacy_wrapper').show('fast');
             } else {
-                $('#plan_privacy_wrapper').hide('fast');
+                $('#plan_privacy_wrapper').hide('fast', function () {
+                    $('#plan_privacy_wrapper div:first').click();
+                });
             }
-        });
-        $('#event_title').keyup(function() {
-            $(this).change();
         });
     });
     

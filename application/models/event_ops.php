@@ -93,7 +93,7 @@ class Event_ops extends CI_Model
                 echo("<div class=\"selectable_event\" event_id=\"$id\" priv_type=\"$privacy\" event_name=\"$title\">$event_text</div>");
             }
             ?>
-            <div style="width: 100%; font-weight: bold; margin: 15px 0px 15px;"><b>or</b></div>
+            <div style="width: 100%; font-weight: bold; margin: 15px 0px 15px; text-align: center;"><b>or</b></div>
             <?php
         }
     }
