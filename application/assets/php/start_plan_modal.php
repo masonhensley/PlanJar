@@ -11,7 +11,7 @@
             <div>
                 <input type="text" id="plan_location" style="width: 200px; height: 30px;"/>
             </div>
-            <div style="font-size:19px;margin-top:5px;margin-bottom:5px;">When are you going?</div>
+            <div style="font-size:19px;margin-top:20px;margin-bottom:5px;">When are you going?</div>
             <div id="plan_day">
                 <?php echo($plan_day_html); ?>
             </div>
