@@ -1,9 +1,8 @@
 .data_box_top_bar{
     width:auto;
-    height:30px;
+    height:32px;
     padding-top:3px;
     margin-left:10px;
-    margin-right:10px;
     white-space: nowrap;
     overflow:hidden;
     border-bottom:1px solid black;
