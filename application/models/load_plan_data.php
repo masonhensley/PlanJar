@@ -44,7 +44,6 @@ class Load_plan_data extends CI_Model
             $time_string = "$show_day $plan_row->time, $show_date"; 
         }
         
-        
         // get #attending, #male, #female
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
         $result = $this->db->query($query);
