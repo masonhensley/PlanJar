@@ -95,7 +95,7 @@ class Load_friend_plans extends CI_Model
         } else
         {
             ?>
-            <font style="font-style:italic;">No plans yet</font><br/><br/>
+            <br/><hr/><font style="font-style:italic;">No plans yet</font><br/><br/>
             <?php
         }
         return ob_get_clean();
