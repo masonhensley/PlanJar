@@ -44,8 +44,9 @@ class Load_plan_data extends CI_Model
         if (!$plan_row->clock_time)
         {
             $time_string = "$show_day $plan_row->time, $show_date";
-        }else{
-            $time_string ="$show_day at $show_time, $show_date";
+        } else
+        {
+            $time_string = "$show_day at $show_time, $show_date";
         }
 
         // get #attending, #male, #female
@@ -106,12 +107,20 @@ class Load_plan_data extends CI_Model
         $query = "
         SELECT user_meta.first_name, user_meta.last_name FROM plans 
         JOIN events ON events.id=plans.event_id 
-        JOIN user_meta ON user_meta.user_id=events.originator_id
+        LEFT JOIN user_meta ON user_meta.user_id=events.originator_id
         WHERE plans.id=$plan_id
         ";
 
         $result = $this->db->query($query);
-        $originator_name = $result->row()->first_name . " " . $result->row()->last_name;
+        var_dump($this->db->last_query());
+
+        if ($result->row()->first_name == NULL)
+        {
+            $originator_name = 'n/a';
+        } else
+        {
+            $originator_name = $result->row()->first_name . " " . $result->row()->last_name;
+        }
 
         $this->load->helper('day_offset');
         $data_array = array(
@@ -154,7 +163,7 @@ class Load_plan_data extends CI_Model
             {
                 ?><font style="color:black; font-size:25px; font-weight:bold;"><?php echo $plan_row->name; ?></font><?php
         }
-            ?>
+        ?>
 
         </div>
 
@@ -171,7 +180,7 @@ class Load_plan_data extends CI_Model
             <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
-            <?php echo $data_array['number_attending']; ?></font><br/>
+        <?php echo $data_array['number_attending']; ?></font><br/>
             <font style="color:gray">Description</font>
         </div>
 
