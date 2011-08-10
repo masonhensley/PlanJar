@@ -55,6 +55,8 @@ function goto_day_offset(offset, skip_click) {
 function day_click_handlers() {
     // Click event
     $("div.days_panel .day").click(function() {
+        console.log($('.selected_plan').length);
+        console.log(viewing_plan_location);
         if ($('.selected_plan').length > 0 && viewing_plan_location === false) {
             // Remove any "day_selected" class
             $("div.days_panel .day_selected").removeClass("day_selected");
