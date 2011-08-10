@@ -326,22 +326,16 @@ class Display_group_template extends CI_Model
                 $date = $date->format('Y-m-d');
                 $plan_dates[$date]++;
             }
-
-            // Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
-            $keys = array_keys($plan_dates);
-            $conversion_array = array();
-            foreach ($keys as $key)
-            {
-                $conversion_array[] = array('date' => $key, 'count' => $plan_dates[$key]);
-            }
         }
 
+        // Convert the plan dates array entries from <'Y-m-D': count> to <'date': 'Y-m-D', 'count': count>
+        $keys = array_keys($plan_dates);
+        $conversion_array = array();
+        foreach ($keys as $key)
+        {
+            $conversion_array[] = array('date' => $key, 'count' => $plan_dates[$key]);
+        }
 
-
-
-
-
-        // Return
         $return_array['plan_dates'] = $conversion_array;
         return $return_array;
     }
@@ -480,9 +474,9 @@ class Display_group_template extends CI_Model
                 <option value="alumni">Alumni</option>
             </select>
             <br/>
-            <?php
-            $total = $data_array['total_males'] + $data_array['total_females'];
-            ?>
+        <?php
+        $total = $data_array['total_males'] + $data_array['total_females'];
+        ?>
 
         </div>
         <div class="group_graph_top_right">
@@ -497,7 +491,7 @@ class Display_group_template extends CI_Model
         <div class="group_graph_bottom_left">
             <div class="demographics">
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_males']; ?></font>
+        <?php echo " " . $data_array['total_males']; ?></font>
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_females']; ?></font>
             </div>
