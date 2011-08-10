@@ -242,7 +242,7 @@ function populate_popular_locations() {
             }
         
             // Update the info box
-            display_info(true);
+            display_info();
         });
     });
 }
