@@ -174,10 +174,6 @@ class Home extends CI_Controller
                 // Use the existing event
                 $event_id = $existing_event;
             }
-
-
-            // Add the user to the invite list
-            $this->event_ops->add_invitees($event_id, array($this->ion_auth->get_user()->id));
         }
 
         // Plan data

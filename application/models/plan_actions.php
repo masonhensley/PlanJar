@@ -51,6 +51,10 @@ class Plan_actions extends CI_Model
         $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, $data);
 
+        // Add the user to the invite list
+        $this->load->model('event_ops');
+        $this->event_ops->add_invitees($event_id, array($this->ion_auth->get_user()->id));
+
         // Check if the user already has plans to that place at that time
         $event_id = $data[1];
         $plan_check = $this->unique_plan($event_id);
