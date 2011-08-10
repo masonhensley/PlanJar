@@ -201,7 +201,7 @@ class Dashboard extends CI_Controller
 
         // Delete the group if no users are joined
         $this->load->model('group_ops');
-        if (count($this->group_ops->get_users(array($group_id))) == 0)
+        if (count($this->group_ops->get_users($group_id)) == 0)
         {
             $this->group_ops->delete_group($group_id);
         }
