@@ -138,7 +138,9 @@ function initialize_plan_modal() {
                 });
                 
                 // Hide the description and show the description button
-                $('#plan_description_wrapper').hide('fast');
+                $('#plan_description_wrapper').hide('fast', function() {
+                    $('#plan_description').val('');
+                });
                 $('#add_plan_description').show('fast');
             }
         });
@@ -381,30 +383,24 @@ function get_distance_between(lat0, long0, lat1, long1) {
 
 // Resets and clears the modal
 function reset_plan_modal() {
-    // Go the the first panel
-    $('.plan_page_content').css('display', 'none');
-    $('.plan_page_content:first').css('display', '');
-    
-    // Clear the place box
-    $('#plan_location').val('');
-    $('#plan_location').blur();
-    
-    // Reset divSets
-    $('.plan_page_content .divset_selected').removeClass('divset_selected');
-    
-    // Clear the inputs
+    // Clear all inputs
     $('#create_plan_content input').not('[type="button"]').val('');
+    $('#plan_description').val('');
     
-    // Reset and hide the title and privacy settings
-    $('#close_new_event').css('display', 'none');
-    $('#just_going').css('display', '');
-    $('#event_title').val('');
-    $('#event_title').blur();
-    $('#start_event_content').css('display', 'none');
-    $('#create_event').css('display', '');
+    // Clear the divsets
+    $('#create_plan_content .divset_selected').removeClass('divset_selected');
     
-    // Clear the select
+    // Clear the event select
     $('#plan_event_select_wrapper').html('');
+    
+    // Blur necessary inputs
+    $('#event_title, #event_description').blur();
+    
+    // Hide everything
+    $('#plan_events_wrapper, #plan_privacy_wrapper, #plan_description_wrapper').css('display', 'none');
+    
+    // Show the hidden buttons
+    $('#plan_place_location_buttons, #add_plan_description').css('display', '');
 }
 
 // Encapsulates the autocomplete setup

@@ -82,7 +82,7 @@ class Event_ops extends CI_Model
         if ($query->num_rows() > 0)
         {
             ?>
-            <div id="plan_events_title">Choose something already going on...</div>
+            <div id="plan_events_title">Choose something already happening...</div>
             <?php
             foreach ($query->result() as $row)
             {
