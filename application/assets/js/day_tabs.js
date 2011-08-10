@@ -68,7 +68,7 @@ function day_click_handlers() {
     // Click event
     $("div.days_panel .day").click(function() {
         // Only process the click if you're not at viewing a plan
-        if ($('.delete_plan').length == 0) {
+        if ($('.view_plan_location').length == 0) {
             // Remove any "day_selected" class
             $("div.days_panel .day_selected").removeClass("day_selected");
         
