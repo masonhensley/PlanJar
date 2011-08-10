@@ -115,25 +115,26 @@ class Group_ops extends CI_Model
 
                 </div>
             </div>
-            
+
+            <?php
+            if ($option == 'suggested groups' || $option == 'add following')
+            {
+                ?>
+                <div class="add_following">follow</div>
                 <?php
-                if ($option == 'suggested groups' || $option == 'add following')
-                {
-                    ?>
-                    <div class="add_following">follow</div>
-                    <?php
-                } else if ($option == 'following')
-                {
-                    ?>
-                    <div class="following">following</div>
-                    <?php
-                } else if ($option == 'joined')
-                {
-                    ?>
-                    <div class="joined">joined</div>
-                    <?php
-                } else
-                    ?>
+            } else if ($option == 'following')
+            {
+                ?>
+                <div class="following">following</div>
+                <?php
+            } else if ($option == 'joined')
+            {
+                ?>
+                <div class="joined">joined</div>
+                <?php
+            } else
+                
+                ?>
 
             <div style="position:absolute; top:40px; right:180px; font-size:10px; color:green;">
                 <?php
@@ -218,11 +219,11 @@ class Group_ops extends CI_Model
             + COS(? * PI() / 180) * COS(latitude * PI() / 180) * COS((? - longitude) 
             * PI() / 180)) * 180 / PI()) * 60 * 1.1515) <= 20";
             $query = $this->db->query($query_string, array(
-                        $latitude,
-                        $latitude,
-                        $longitude,
-                        $name,
-                        NULL
+                $latitude,
+                $latitude,
+                $longitude,
+                $name,
+                NULL
                     ));
             if ($query->num_rows() > 0)
             {
@@ -252,9 +253,9 @@ class Group_ops extends CI_Model
                 "SET user_following_id = DEFAULT, user_joined_id = ? " .
                 "WHERE group_id = ? AND user_following_id = ?";
         $query = $this->db->query($query_string, array(
-                    $user_id,
-                    $group_id,
-                    $user_id,
+            $user_id,
+            $group_id,
+            $user_id,
                 ));
     }
 
@@ -269,33 +270,23 @@ class Group_ops extends CI_Model
 
         $query_string = "INSERT IGNORE INTO group_relationships VALUES (DEFAULT, ?, ?, DEFAULT)";
         $query = $this->db->query($query_string, array(
-                    $group_id,
-                    $user_id,
+            $group_id,
+            $user_id,
                 ));
     }
 
-    // Returns a list of users who joined the supplied groups
-    function get_users($group_list)
+    // Returns a list of users who joined the supplied group
+    function get_users($group_id)
     {
         $return_array = array();
 
-        if (count($group_list) > 0)
+        $query_string = "SELECT user_joined_id FROM group_relationships WHERE
+            group_id = ? AND user_joined_id <> ?";
+        $query = $this->db->query($query_string, array($group_id, NULL));
+
+        foreach ($query->result() as $row)
         {
-            $query_string = "SELECT user_joined_id FROM group_relationships WHERE (";
-
-            foreach ($group_list as $group)
-            {
-                $query_string .= "group_id = $group OR ";
-            }
-            $query_string = substr($query_string, 0, -4);
-            $query_string .= ") AND user_joined_id <> 'NULL'";
-
-            $query = $this->db->query($query_string);
-
-            foreach ($query->result() as $row)
-            {
-                $return_array[] = $row->user_joined_id;
-            }
+            $return_array[] = $row->user_joined_id;
         }
 
         return $return_array;
