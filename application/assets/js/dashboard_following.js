@@ -1,6 +1,5 @@
 $(function () {
     initialize_suggested_friends();
-    initialize_follow_search();
 });
 
 // Run when the tab is selected
