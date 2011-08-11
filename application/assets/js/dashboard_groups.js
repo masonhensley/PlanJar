@@ -17,23 +17,29 @@ function initialize_group_search() {
     $('.suggest_groups').click(function(){
         if($(this).hasClass('suggest_groups_active'))
         {
-            $('.suggest_groups_active').removeClass('suggest_groups_active');
-            $('#find_groups_list').hide("slow");
-            $('#find_groups_list').html('');
-        }else{
+            $('#group_search').focus();
+        } else {
             $('.suggest_groups').addClass('suggest_groups_active');
             $.get('/dashboard/suggest_groups', function(data){
                 $('#find_groups_list').html(data);
-                $('#find_groups_list').show("slow");
+                $('#find_groups_list').show("fast");
                 group_select_click_handler();
             });
         }
     });
+    
+    // Refer to the definition in dashboard_view.
+    // Essentially selects the suggested button if necessary at load
     show_suggested_init('#groups_content', '.suggest_groups');
     
     // Search for groups on keyup
     $('#group_search').keyup(function () {
-        $('.suggest_groups_active').removeClass('suggest_groups_active');
+        // Deactivate the suggest button and hide the suggested list
+        $('suggest_groups ').removeClass('suggest_groups_active');
+        $('#find_groups_list').hide("fast", function() {
+            $('#find_groups_list').html(''); 
+        });
+        
         $.get('/dashboard/group_search', {
             needle: $(this).val()
         }, function (data) {
