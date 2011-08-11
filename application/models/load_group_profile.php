@@ -67,22 +67,22 @@ class Load_group_profile extends CI_Model
 
 
         <div class="group_profile_picture">
-        <?php echo $this->return_profile_picture(); ?>
+            <?php echo $this->return_profile_picture(); ?>
         </div>
         <div class="user_profile_header">
             <div class="profile_name_display">
                 <br/><font style="font-size:20px; font-weight:bold;"><?php echo $group_info['name']; ?></font><br/><?php
         if ($this->group_ops->user_is_following($group_info['id']))
         {
-            ?> <font style="color:green; font-weight:bold;">following</font><?php
+                ?> <font style="color:green; font-weight:bold;">following</font><?php
         } else if ($this->group_ops->user_is_joined($group_info['id']))
         {
-            ?><font style="color:purple; font-weight:bold;">joined</font><?php
+                ?><font style="color:purple; font-weight:bold;">joined</font><?php
         } else
         {
-            ?><font style="color:gray">(not following)</font><?php
+                ?><font style="color:gray">(not following)</font><?php
         }
-        ?>
+            ?>
                 <br/><br/><br/><br/>
             </div>
         </div>
@@ -106,7 +106,7 @@ class Load_group_profile extends CI_Model
                         ?><font style="color:gray;">School:</font><font style="color:black; font-weight:bold;"><?php echo $group_info['school']; ?></font><br/><br/><?php
             }
         }
-        ?><font style="color:gray;">Description</font><br/>
+                ?><font style="color:gray;">Description</font><br/>
                 <font style=""><?php echo $group_info['description']; ?> </font><br/><hr/><br/>
 
             </div>
@@ -131,7 +131,7 @@ class Load_group_profile extends CI_Model
                     <div class="invite_people" style="margin-right:3px;">Invite people</div>
                 </div>
                 <div class="group_bottom_button">
-                    <div class="remove_following">unjoin</div> 
+                    <div class="remove_joined">unjoin</div> 
                 </div>
                 <?php
             }
