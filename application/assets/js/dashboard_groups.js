@@ -86,10 +86,14 @@ function group_select_click_handler()
         $.get('/dashboard/add_group_following', {
             'group_id': group_id
         }, function (data) {
-            // Repopualte the groups list and select the recently followed group
+            // Repopulate the groups list and select the recently followed group
             populate_edit_groups_list(function() {
                 $('#edit_groups_list .group_entry[group_id = "' + group_id + '"]').click();
             });
+            
+            // Clear and hide search boxes
+            $('#group_search').val('');
+            $('#group_search').keyup();
         });
     });
 }
