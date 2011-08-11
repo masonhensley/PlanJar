@@ -23,8 +23,7 @@ class Notification_ops extends CI_Model
             // Only add the notification if the originating user is not the current user
             if ($user_id != $this->ion_auth->get_user()->id)
             {
-                $accepted = $this->deduce_accepted($type, $subject_id);
-                var_dump($accepted);
+                $accepted = (integer) $this->deduce_accepted($type, $subject_id);
                 $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, $accepted, $accepted), ";
             }
         }
@@ -40,7 +39,7 @@ class Notification_ops extends CI_Model
             {
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
-                    $accepted = $this->deduce_accepted($type, $subject_id);
+                    $accepted = (integer) $this->deduce_accepted($type, $subject_id);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, $accepted, $accepted), ";
                 }
             }
@@ -348,6 +347,8 @@ class Notification_ops extends CI_Model
             // Follow notification
             case 'follow_notif':
                 $this->load->model('follow_ops');
+                var_dump($user_id);
+                var_dump($subject_id);
                 var_dump($this->follow_ops->is_following($user_id, $subject_id));
                 return $this->follow_ops->is_following($user_id, $subject_id);
         }
