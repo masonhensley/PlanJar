@@ -24,7 +24,12 @@ function initialize_group_search() {
             $('#find_groups_list').hide('blind', {}, 'fast', function() {
                 $('#find_groups_list').html(''); 
             });
+            $('$group_search').focus();
         } else {
+            // Clear and blur the search box
+            $('#group_search').val('');
+            $('#group_search').blur();
+            
             // Suggest groups
             $('.suggest_groups').addClass('suggest_groups_active');
             $.get('/dashboard/suggest_groups', function(data) {

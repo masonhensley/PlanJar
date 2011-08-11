@@ -1,12 +1,38 @@
 $(function () {
     initialize_suggested_friends();
-    $('.following_profile_body').hide();
 });
 
 // Run when the tab is selected
 function following_setup() {
     populate_following_list();
     initialize_follow_search();
+}
+
+// This sets up the suggested friends list
+function initialize_suggested_friends()
+{
+    $('.suggested_friends').click(function() {
+        if($(this).hasClass('suggested_active'))
+        {
+            // Already selected. Clear 
+            $(this).removeClass('suggested_active');
+            $('#follow_search').hide('blind', {}, 'fast');
+            $('#friend_search').val('');
+            $('#follow_search').html('');
+            $('#friend_search').blur();
+            $('#friend_search').focus();
+            initialize_follow_search();
+        }else{
+            $(this).addClass('suggested_active');
+            $('.following_profile_body').hide();
+            // Clear the search box
+            $('#friend_search').val('');
+            $('#friend_search').blur();
+            get_suggested_friends();
+            $('#follow_search').show();
+        } 
+    });
+    show_suggested_init('#following_content', '.suggested_friends');    
 }
 
 // Populates the following list and assigns the click events.
@@ -83,33 +109,6 @@ function initialize_follow_search() {
             });
         });
     });
-}
-
-// This sets up the suggested friends list
-function initialize_suggested_friends()
-{
-    $('.suggested_friends').click(function(){
-        
-        if($(this).hasClass('suggested_active'))
-        {
-            $('#follow_search').hide("slow");
-            $(this).removeClass('suggested_active');
-            $('#friend_search').val('');
-            $('#follow_search').html('');
-            $('#friend_search').blur();
-            $('#friend_search').focus();
-            initialize_follow_search();
-        }else{
-            $(this).addClass('suggested_active');
-            $('.following_profile_body').hide();
-            // Clear the search box
-            $('#friend_search').val('');
-            $('#friend_search').blur();
-            get_suggested_friends();
-            $('#follow_search').show();
-        } 
-    });
-    show_suggested_init('#following_content', '.suggested_friends');    
 }
 
 function get_suggested_friends()
