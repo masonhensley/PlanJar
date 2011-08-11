@@ -24,7 +24,7 @@ function initialize_group_search() {
             $('#find_groups_list').hide('blind', {}, 'fast', function() {
                 $('#find_groups_list').html(''); 
             });
-            $('$group_search').focus();
+            $('#group_search').focus();
         } else {
             // Clear and blur the search box
             $('#group_search').val('');
