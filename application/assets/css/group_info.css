@@ -56,6 +56,7 @@
     position: relative;
     text-align: left;
     border:1px solid lightgray;
+    top:15px;
 }
 
 .show_percent{
@@ -73,6 +74,9 @@
 
 .percent_male_container{
     position:absolute;
+    top:-7px;
+    left:24px;
+    width:300px;
 }
 
 .percent_female_container{
