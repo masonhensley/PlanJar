@@ -2,6 +2,7 @@ $(function() {
     initialize_group_search();
 });
 
+// Called when the tab is selected
 function groups_setup() {
     populate_edit_groups_list();
     
@@ -94,6 +95,7 @@ function group_select_click_handler()
             // Clear and hide search boxes
             $('#group_search').val('');
             $('#group_search').keyup();
+            $('#group_search').focus();
         });
     });
 }
@@ -105,7 +107,7 @@ function populate_edit_groups_list(callback) {
         // Make groups selectable
         $('#edit_groups_list .group_entry').click(function() {
             // Unselect other groups
-            $('.middle').hide();
+            $('#edit_groups_list .middle').hide();
             if(!$(this).hasClass('selected_group'))
             {
                 $('.selected_group').removeClass('selected_group'); 
@@ -116,46 +118,33 @@ function populate_edit_groups_list(callback) {
                     $('#groups_content .middle').html(data);
                     $('.middle').show("fast");
                     
-                    // Button click handlers
+                    // Remove following handler
                     $('#groups_content .remove_following').confirmDiv(function() {
                         $.get('/dashboard/remove_group_following', {
                             group_id: $('.group_profile_header').attr('group_id')
                         }, function (data) {
                             populate_edit_groups_list();
                             $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
-                            
-                            // Blur out the suggested groups (not always necessary, but easy)
-                            $('#find_groups_list').html('');
-                            $('#group_search').val('');
-                            $('#group_search').blur();
                         });
                     });
                     
+                    // Remove joined handler
                     $('#groups_content .remove_joined').confirmDiv(function() {
                         $.get('/dashboard/remove_group_joined', {
                             group_id: $('.group_profile_header').attr('group_id')
                         }, function (data) {
                             populate_edit_groups_list();
                             $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
-                            
-                            // Blur out the suggested groups (not always necessary, but easy)
-                            $('#find_groups_list').html('');
-                            $('#group_search').val('');
-                            $('#group_search').blur();
                         });
                     });
                     
+                    // Add joined handler
                     $('#groups_content .add_joined').confirmDiv(function() {
                         $.get('/dashboard/add_group_joined', {
                             group_id: $('.group_profile_header').attr('group_id')
                         }, function (data) {
                             populate_edit_groups_list();
                             $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
-                            
-                            // Blur out the suggested groups (not always necessary, but easy)
-                            $('#find_groups_list').html('');
-                            $('#group_search').val('');
-                            $('#group_search').blur();
                         });
                     });
                     
@@ -166,26 +155,9 @@ function populate_edit_groups_list(callback) {
                 });
             }
         });
+        
         if (callback != undefined) {
             callback();
         }
-    });
-}
-
-function group_click_handler(button_class, dashboard_function) {
-    $(button_class).confirmDiv(function () {
-        $.get('/dashboard/' + dashboard_function, {
-            group_id: $('.group_profile_header').attr('group_id')
-        }, function (data) {
-            populate_edit_groups_list();
-            if(dashboard_function == 'remove_group_following')
-            {
-                $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
-            }
-            // Blur out the suggested groups (not always necessary, but easy)
-            $('#find_groups_list').html('');
-            $('#group_search').val('');
-            $('#group_search').blur();
-        });
     });
 }

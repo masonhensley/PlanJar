@@ -1,3 +1,4 @@
+// Called when the tab is selected
 // Setp us the profile view
 function setup_profile()
 {
