@@ -117,13 +117,17 @@ function populate_edit_groups_list(callback) {
             $('#edit_groups_list .middle').hide();
             if(!$(this).hasClass('selected_group'))
             {
+                // Select this
                 $('.selected_group').removeClass('selected_group'); 
                 $(this).addClass('selected_group');
+                
+                // Load the view
                 $.get('/dashboard/get_group_details', {
                     group_id: $(this).attr('group_id')
                 }, function (data) {
+                    $('#groups_content .middle').hide();
                     $('#groups_content .middle').html(data);
-                    $('.middle').show("fast");
+                    $('#groups_content .middle').show("fast");
                     
                     // Remove following handler
                     $('#groups_content .remove_following').confirmDiv(function() {
