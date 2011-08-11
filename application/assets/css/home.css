@@ -321,9 +321,9 @@ a {
     float: right;
     width: 49%;
     min-height: 55px;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
     border-top:1px solid darkgray;
     margin-top:7px;
     background-color: white;
