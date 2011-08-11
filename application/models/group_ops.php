@@ -165,9 +165,12 @@ class Group_ops extends CI_Model
     }
 
     // Returns true if the user has joined the specified group
-    public function user_is_joined($group_id)
+    public function user_is_joined($group_id, $user_id = 'foo')
     {
-        $user_id = $this->ion_auth->get_user()->id;
+        if ($user_id == 'foo')
+        {
+            $user_id = $this->ion_auth->get_user()->id;
+        }
 
         $query_string = "SELECT * FROM group_relationships WHERE group_id = ? AND user_joined_id = ?";
         $query = $this->db->query($query_string, array($group_id, $user_id));
@@ -175,9 +178,9 @@ class Group_ops extends CI_Model
         return $query->num_rows() > 0;
     }
 
-    // Adds a gruop to the database.
-    // If school_id isn't blank, use the latitude and longitude of the school.
-    // Returns the newly created group id.
+// Adds a gruop to the database.
+// If school_id isn't blank, use the latitude and longitude of the school.
+// Returns the newly created group id.
     function add_group($name, $description, $privacy, $location_source)
     {
         $user = $this->ion_auth->get_user();
@@ -240,7 +243,7 @@ class Group_ops extends CI_Model
         return array('status' => 'success', 'group_id' => $this->db->insert_id());
     }
 
-    // Joins the user to the specified group (the user can optionally be specified)
+// Joins the user to the specified group (the user can optionally be specified)
     public function join_group($group_id, $user_id = 'foobar')
     {
         // Make $user_id useful
@@ -259,7 +262,7 @@ class Group_ops extends CI_Model
                 ));
     }
 
-    // Follows the user to the specified group (the user can optionally be specified)
+// Follows the user to the specified group (the user can optionally be specified)
     function follow_group($group_id, $user_id = 'foobar')
     {
         // Make $user_id useful
@@ -275,7 +278,7 @@ class Group_ops extends CI_Model
                 ));
     }
 
-    // Returns a list of users who joined the supplied group
+// Returns a list of users who joined the supplied group
     function get_users($group_id)
     {
         $return_array = array();
@@ -292,7 +295,7 @@ class Group_ops extends CI_Model
         return $return_array;
     }
 
-    // Returns (id, name) pairs of the user's joined groups
+// Returns (id, name) pairs of the user's joined groups
     function get_joined_groups_tuples()
     {
         $query_string = "SELECT groups.id, groups.name
@@ -310,7 +313,7 @@ class Group_ops extends CI_Model
         return $return_array;
     }
 
-    // Removes all trace of a group
+// Removes all trace of a group
     function delete_group($group_id)
     {
         // Delete the group
