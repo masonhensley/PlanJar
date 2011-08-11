@@ -29,7 +29,7 @@
 
                     <h2> Our Team <span class="arrow"></span> </h2> 
 
-                    <h4>Mason Hensley, Munchkin, CEO & Co-Founder <span class="arrow_right"></span> </h4>
+                    <h4>Mason Hensley, Director of Black Operations, CEO & Co-Founder <span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
                             Mason Hensley is Co-Founder and CEO of PlanJar.  Prior to founding PlanJar, he briefly worked at the energy efficiency team at the Tennessee Valley Authority. <br> <br>
