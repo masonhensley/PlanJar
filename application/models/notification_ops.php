@@ -328,6 +328,8 @@ class Notification_ops extends CI_Model
     public function deduce_accepted($type, $subject_id)
     {
         $user_id = $this->ion_auth->get_user()->id;
+        var_dump('here');
+        var_dump($type);
 
         switch ($type)
         {
@@ -348,7 +350,6 @@ class Notification_ops extends CI_Model
             // Follow notification
             case 'follow_notif':
                 $this->load->model('follow_ops');
-                var_dump('here');
                 return $this->follow_ops->is_following($user_id, $subject_id);
         }
     }
