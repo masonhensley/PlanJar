@@ -62,7 +62,9 @@
 /* ----------------------------------- two percentage bar classes ---------------------------------------- */
 .two_bar_male {
     background-color: #3FA9F5;
+    border-radius: 3px 0px 0px 3px;
 }
 .two_bar_female {
     background-color: #E80C7A;
+    border-radius: 0px 3px 3px 0px;
 }
