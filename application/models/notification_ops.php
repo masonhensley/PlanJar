@@ -24,6 +24,7 @@ class Notification_ops extends CI_Model
             if ($user_id != $this->ion_auth->get_user()->id)
             {
                 $accepted = $this->deduce_accepted($type, $subject_id);
+                var_dump($accepted);
                 $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, $accepted, $accepted), ";
             }
         }
@@ -40,7 +41,6 @@ class Notification_ops extends CI_Model
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
                     $accepted = $this->deduce_accepted($type, $subject_id);
-                    var_dump($accepted);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, $accepted, $accepted), ";
                 }
             }
@@ -325,7 +325,7 @@ class Notification_ops extends CI_Model
     }
 
     // Returns true if the user has accepted the notification (using data in $notif_row).
-    public function deduce_accepted($type, $subject_id)
+    function deduce_accepted($type, $subject_id)
     {
         $user_id = $this->ion_auth->get_user()->id;
 
