@@ -258,7 +258,7 @@ class Notification_ops extends CI_Model
                 $query->row()->type,
                 $this->ion_auth->get_user()->id,
                 $query->row()->subject_id));
-            
+
             var_dump($this->db->last_query());
         } else
         {
