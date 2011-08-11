@@ -17,8 +17,13 @@ function initialize_group_search() {
     $('.suggest_groups').click(function(){
         if($(this).hasClass('suggest_groups_active'))
         {
-            $('#group_search').focus();
+            // Deactivate the suggest button and hide the suggested list
+            $('suggest_groups ').removeClass('suggest_groups_active');
+            $('#find_groups_list').hide("fast", function() {
+                $('#find_groups_list').html(''); 
+            });
         } else {
+            // Suggest groups
             $('.suggest_groups').addClass('suggest_groups_active');
             $.get('/dashboard/suggest_groups', function(data){
                 $('#find_groups_list').html(data);
@@ -50,25 +55,40 @@ function initialize_group_search() {
     });
 }
 
+// Handles clicking on your groups
 function group_select_click_handler()
 {
     $('#find_groups_list .group_entry').click(function() {
         // Unselect other groups and select selected (if it isn't already)
         if(!$(this).hasClass('selected_group'))
         {
-            $('.middle').hide();
-            $('.selected_group').removeClass('selected_group'); 
-            $(this).addClass('selected_group');
             $.get('/dashboard/get_group_details', {
                 group_id: $(this).attr('group_id')
             }, function (data) {
-                $('#groups_content .middle').html(data);
-                $('.middle').show("slow");
+                // Hide visible middle panel (if applicable) and show the new middle panel
+                if ($('#groups_content .middle:visible').length > 0) {
+                    $('#groups_content .middle').hide('blind', {
+                        direction: 'up'
+                    }, 'fast', function() {
+                        $('#groups_content .middle').html(data);
+                        $('#groups_content .middle').show('blind', {
+                            direction: 'down'
+                        });
+                    });
+                } else {
+                    $('#groups_content .middle').html(data);
+                    $('#groups_content .middle').show('blind', {
+                        direction: 'down'
+                    });
+                }
             });
+            
+            $('.selected_group').removeClass('selected_group'); 
+            $(this).addClass('selected_group');
         }
     });
     
-    // Click handler.
+    // Add following click handler.
     $('#find_groups_list .add_following').confirmDiv(function(clicked_elem) {
         $.get('/dashboard/add_group_following', {
             group_id: clicked_elem.parent().attr('group_id')
