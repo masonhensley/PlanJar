@@ -48,7 +48,7 @@ class Plan_actions extends CI_Model
         if ($query->num_rows() > 0)
         {
             $this->load->model('notification_ops');
-            $this->notification_ops->update_notification_accepted($query->row()->id, false);
+            $this->notification_ops->update_notification_accepted($query->row()->id, false, true);
         }
     }
 
