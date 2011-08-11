@@ -334,15 +334,10 @@ a{
 
 .following_profile_body{
     display: none;
-    position:absolute;
-    top:60px;
-    right:60px;
     background-color:white;
     height:auto;
     width:50%;
-    border:1px solid #CCC;
-    padding:10px;
-    border-top-right-radius:10px;
+    border-top:1px solid #CCC;
 }
 
 .profile_body_text{
