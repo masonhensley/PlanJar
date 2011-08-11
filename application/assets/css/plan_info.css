@@ -94,3 +94,17 @@
     display:inline-block;
     margin-left:24px;
 }
+
+.attending_data_container{
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+
+.female_data_container{
+    
+}
+
+.male_data_container{
+    
+}
