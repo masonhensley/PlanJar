@@ -169,53 +169,57 @@ class Load_plan_data extends CI_Model
         <div class="plan_info_wrapper">
 
             <div class="plan_info">
-            <font style="color:gray">Location:</font> <font style="font-weight:bold;font-size:15px;">
-            <?php echo "@" . $plan_row->name; ?></font><br/>
-            <font style="color:gray">Created By: </font><font style="font-weight:bold;">
-            <?php echo $data_array['originator_name']; ?></font>
-            <br/>
-            <font style="color:gray">Time: </font> <font style="font-weight:bold;">
-            <?php echo str_replace('_', ' ', $data_array['time_string']); ?></font>
-            <br/><br/>
-            <font style="color:gray">Invited: </font><font style="font-weight:bold;">
-            <?php echo $data_array['number_invited']; ?></font>
-            &nbsp;&nbsp;&nbsp;
-            <font style="color:gray">Accepted </font><font style="font-weight:bold;">
-            <?php echo $data_array['number_attending']; ?></font><div id="view_attendees">View List</div>
-            <br/><br/>
-            <font style="font-weight:bold;">Description</font>
-            <br/>
-            <font style="color:gray;"><?php
+                <font style="color:gray">Location:</font> <font style="font-weight:bold;font-size:15px;">
+                <?php echo "@" . $plan_row->name; ?></font><br/>
+                <font style="color:gray">Created By: </font><font style="font-weight:bold;">
+                <?php echo $data_array['originator_name']; ?></font>
+                <br/>
+                <font style="color:gray">Time: </font> <font style="font-weight:bold;">
+                <?php echo str_replace('_', ' ', $data_array['time_string']); ?></font>
+                <br/><br/>
+                <font style="color:gray">Invited: </font><font style="font-weight:bold;">
+                <?php echo $data_array['number_invited']; ?></font>
+                &nbsp;&nbsp;&nbsp;
+                <font style="color:gray">Accepted </font><font style="font-weight:bold;">
+                <?php echo $data_array['number_attending']; ?></font><div id="view_attendees">View List</div>
+                <br/><br/>
+                <font style="font-weight:bold;">Description</font>
+                <br/>
+                <font style="color:gray;"><?php
         if ($plan_row->description)
         {
             echo($plan_row->description);
         } else
         {
-            ?>
-                <i>No description</i>
-                <?php
-            }
-            ?></font>
+                    ?>
+                    <i>No description</i>
+                    <?php
+                }
+                ?></font>
             </div>
         </div>
 
         <div class="plan_graphs">
-
-            <div style="position:absolute; width:12px; height:12px; background-color:#E80C7A;top:157px; left:133px;"></div>
-            <div style="position:absolute; width:12px; height:12px; background-color:#3FA9F5;top:157px;left:25px;"></div>
-            <div style="position:absolute; width:12px; height:12px; background-color:blueviolet;top:47px;left:25px;"></div>
-
-            <div style="position:absolute;font-weight:bold;font-size:12px;top:47px; left:40px;"><?php echo $data_array['percent_attending'] . "%"; ?></div>
-            <div style="position:absolute;font-weight:bold;font-size:12px;top:157px;left:40px;"><?php echo $data_array['percent_male'] . "%"; ?></div>
-            <div style="position:absolute;font-weight:bold;font-size:12px;top:157px;left:147px;"><?php echo $data_array['percent_female'] . "%"; ?></div>
-
-            <div style="position:absolute;top:154px; left:69px;font-weight: bold;">male</div>
-            <div style="position:absolute;top:154px;left:175px; font-weight: bold;">female</div>
-            <div style="position:absolute; top:44px;left:74px;font-weight: bold;">have accepted so far</div>
+            <div class="attending_graph"></div>
+            <div class="attending_data_container">
+                <div style="display:inline-block; width:12px; height:12px; background-color:blueviolet;"></div>
+                <div style="display:inline-block; font-weight:bold; font-size:12px;"><?php echo $data_array['percent_attending'] . "%"; ?></div>
+                <div style="display:inline-block; font-weight: bold; font-size:12px;">have accepted so far</div>
+            </div>
 
             <div class="plan_gender_graph"></div>
-            <div class="attending_graph"></div>
-
+            <!--
+            <div class="female_data_container">
+                <div style=" width:12px; height:12px; background-color:#E80C7A;"></div>
+                <div style="font-weight:bold;font-size:12px;"><?php echo $data_array['percent_female'] . "%"; ?></div>
+                <div style="font-weight: bold;">female</div>
+            </div>
+            <div class="male_data_container">
+                <div style="width:12px; height:12px; background-color:#3FA9F5;"></div>
+                <div style="font-weight:bold;font-size:12px;"><?php echo $data_array['percent_male'] . "%"; ?></div>
+                <div style="font-weight: bold;">male</div>
+            </div>
+            -->
         </div>
 
         <?php
