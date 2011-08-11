@@ -200,7 +200,7 @@ class Load_plan_data extends CI_Model
         </div>
 
         <div class="plan_graphs">
-            <font style="position:absolute;top:20px;left:20px; color:gray;">% of invitations accepted so far</font>
+            <font style="position:absolute;top:23px;left:53px; color:gray; font-size:12px;">% of invitations accepted so far</font>
             <div class="attending_graph"></div>
             <div class="attending_data_container">
                 <div style="display:inline-block; width:12px; height:12px; background-color:blueviolet;"></div>
@@ -208,7 +208,7 @@ class Load_plan_data extends CI_Model
                 <div style="display:inline-block; font-weight: bold; font-size:12px;">have accepted</div>
             </div>
 
-            <font style="position:absolute;top:20px;left:20px; color:gray;">gender breakdown</font>
+            <font style="position:absolute;top:119px;left:85px; font-size:12px; color:gray;">gender breakdown</font>
             <div class="plan_gender_graph"></div>
             <div class="female_data_container">
                 <div style="display:inline-block; width:12px; height:12px; background-color:#E80C7A;"></div>
