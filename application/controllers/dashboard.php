@@ -189,15 +189,36 @@ class Dashboard extends CI_Controller
     }
 
     // Removes the appropriate group relationship
-    // Removes the group if no members are left
     public function remove_group_following()
     {
         $user = $this->ion_auth->get_user();
         $group_id = $this->input->get('group_id');
 
         // Delete the relationship
-        $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND (user_following_id = ? OR user_joined_id = ?)";
-        $query = $this->db->query($query_string, array($group_id, $user->id, $user->id));
+        $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND user_following_id = ?";
+        $query = $this->db->query($query_string, array($group_id, $user->id));
+    }
+
+    // Removes the appropriate group relationship
+    // Removes the group if no members are left
+    public function remove_group_joined()
+    {
+        $user = $this->ion_auth->get_user();
+        $group_id = $this->input->get('group_id');
+
+        // Delete the relationship
+        $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND user_joined_id = ?";
+        $query = $this->db->query($query_string, array($group_id, $user->id));
+
+        // Update the notification status
+        $this->load->model('notification_ops');
+        $query_string = "SELECT id FROM notifications WHERE type = ? AND user_id = ? AND  subject_id = ?";
+        $query = $this->db->query($query_string, array('group_invite', $user->id, $group_id));
+
+        if ($query->num_rows() > 0)
+        {
+            $this->notification_ops->update_notification_accepted($query->row()->id, false, true);
+        }
 
         // Delete the group if no users are joined
         $this->load->model('group_ops');
