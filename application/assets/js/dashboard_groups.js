@@ -18,7 +18,7 @@ function initialize_group_search() {
         if($(this).hasClass('suggest_groups_active'))
         {
             // Deactivate the suggest button and hide the suggested list
-            $('suggest_groups ').removeClass('suggest_groups_active');
+            $('.suggest_groups').removeClass('suggest_groups_active');
             $('#find_groups_list').hide("fast", function() {
                 $('#find_groups_list').html(''); 
             });
