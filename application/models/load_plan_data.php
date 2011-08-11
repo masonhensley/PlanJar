@@ -208,18 +208,18 @@ class Load_plan_data extends CI_Model
             </div>
 
             <div class="plan_gender_graph"></div>
-            <!--
+            
             <div class="female_data_container">
-                <div style=" width:12px; height:12px; background-color:#E80C7A;"></div>
-                <div style="font-weight:bold;font-size:12px;"><?php echo $data_array['percent_female'] . "%"; ?></div>
-                <div style="font-weight: bold;">female</div>
+                <div style="display:inline-block; width:12px; height:12px; background-color:#E80C7A;"></div>
+                <div style="display:inline-block; font-weight:bold;font-size:12px;"><?php echo $data_array['percent_female'] . "%"; ?></div>
+                <div style="display:inline-block; font-size:12px; font-weight: bold;">female</div>
             </div>
             <div class="male_data_container">
-                <div style="width:12px; height:12px; background-color:#3FA9F5;"></div>
-                <div style="font-weight:bold;font-size:12px;"><?php echo $data_array['percent_male'] . "%"; ?></div>
-                <div style="font-weight: bold;">male</div>
+                <div style="display:inline-block; width:12px; height:12px; background-color:#3FA9F5;"></div>
+                <div style="display:inline-block; font-size:12px; font-weight:bold;font-size:12px;"><?php echo $data_array['percent_male'] . "%"; ?></div>
+                <div style="display:inline-block; font-size:12px; font-weight: bold;">male</div>
             </div>
-            -->
+            
         </div>
 
         <?php
