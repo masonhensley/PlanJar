@@ -212,8 +212,8 @@ class Dashboard extends CI_Controller
 
         // Update the notification status
         $this->load->model('notification_ops');
-        $query_string = "SELECT id FROM notifications WHERE type = ? AND user_id = ?";
-        $query = $this->db->query($query_string, array('group_invite', $user->id));
+        $query_string = "SELECT id FROM notifications WHERE type = ? AND user_id = ? AND  subject_id = ?";
+        $query = $this->db->query($query_string, array('group_invite', $user->id, $group_id));
 
         if ($query->num_rows() > 0)
         {
