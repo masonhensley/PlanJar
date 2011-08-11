@@ -49,6 +49,7 @@ function initialize_group_search() {
             needle: $(this).val()
         }, function (data) {
             $('#find_groups_list').html(data);
+            $('#find_groups_list').show('fast');
             
             group_select_click_handler();
         });
@@ -62,6 +63,9 @@ function group_select_click_handler()
         // Unselect other groups and select selected (if it isn't already)
         if(!$(this).hasClass('selected_group'))
         {
+            $('.selected_group').removeClass('selected_group'); 
+            $(this).addClass('selected_group');
+            
             $.get('/dashboard/get_group_details', {
                 group_id: $(this).attr('group_id')
             }, function (data) {
@@ -82,9 +86,6 @@ function group_select_click_handler()
                     });
                 }
             });
-            
-            $('.selected_group').removeClass('selected_group'); 
-            $(this).addClass('selected_group');
         }
     });
     
