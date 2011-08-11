@@ -224,12 +224,16 @@ class Notification_ops extends CI_Model
         if ($find_all)
         {
             // Get the notification type
-            $query_string = "SELECT type FROM notifications WHERE id = ?";
+            $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
             $query = $this->db->query($query_string, array($id));
 
             // Update all similar notifications
-            $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ?";
-            $query = $this->db->query($query_string, array($value, $query->row()->type, $this->ion_auth->get_user()->id));
+            $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ? AND subject_id = ?";
+            $query = $this->db->query($query_string, array(
+                $value,
+                $query->row()->type,
+                $this->ion_auth->get_user()->id,
+                $query->row()->subject_id));
         } else
         {
             $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
@@ -244,12 +248,16 @@ class Notification_ops extends CI_Model
         if ($find_all)
         {
             // Get the notification type
-            $query_string = "SELECT type FROM notifications WHERE id = ?";
+            $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
             $query = $this->db->query($query_string, array($id));
 
             // Update all similar notifications
-            $query_string = "UPDATE notifications SET accepted = ? WHERE type = ? AND user_id = ?";
-            $query = $this->db->query($query_string, array($value, $query->row()->type, $this->ion_auth->get_user()->id));
+            $query_string = "UPDATE notifications SET accepted = ? WHERE type = ? AND user_id = ? AND subject_id = ?";
+            $query = $this->db->query($query_string, array(
+                $value,
+                $query->row()->type,
+                $this->ion_auth->get_user()->id,
+                $query->row()->subject_id));
         } else
         {
             $query_string = "UPDATE notifications SET accepted = ? WHERE id = ?";
