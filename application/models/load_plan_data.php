@@ -152,7 +152,7 @@ class Load_plan_data extends CI_Model
         </div>
 
         <div class="plan_header">
-            <font style="color:gray;">&nbsp;&nbsp;&nbsp;Plan: </font>
+            <font style="color:gray;">&nbsp;&nbsp;Plan: </font>
             <?php
             if ($plan_row->title != '')
             {
