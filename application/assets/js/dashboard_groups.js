@@ -42,9 +42,6 @@ function initialize_group_search() {
     $('#group_search').keyup(function () {
         // Deactivate the suggest button and hide the suggested list
         $('suggest_groups ').removeClass('suggest_groups_active');
-        $('#find_groups_list').hide('blind', {}, 'fast', function() {
-            $('#find_groups_list').html(''); 
-        });
         
         $.get('/dashboard/group_search', {
             needle: $(this).val()
