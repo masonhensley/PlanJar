@@ -247,8 +247,8 @@ a {
     width: 100%;
     height: 30px;
     text-align: center;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
     background-color: white;
 }
 .day {
@@ -278,14 +278,9 @@ a {
     float: left;
     width: 35px;
     height: 100%;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
     background: -webkit-gradient(linear,left top,left bottom,from(lightyellow),to(lightgray));
-    background: -webkit-linear-gradient(top, lightyellow, lightgray);
-    background: -moz-linear-gradient(top, lightyellow, lightgray);
-    background: -o-linear-gradient(top, lightyellow, lightgray);
-    background: -ms-linear-gradient(top, lightyellow, lightgray);
-    background: linear-gradient(top, lightyellow, lightgray);
 }
 .days_panel .right_day_arrow {
     display: inline-block;
@@ -305,6 +300,8 @@ a {
     height: 100%;
     width: 100%;
     background-color: white;
+    border-top:1px solid darkgray;
+    border-bottom:1px solid darkgray;
 }
 .suggested_locations {
     float: left;
