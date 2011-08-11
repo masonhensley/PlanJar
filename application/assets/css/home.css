@@ -441,7 +441,7 @@ a {
     right: 321px;
     top: -48px;
     border: 1px solid lightgray;
-    background: #FEFFE8;
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 9px;
     color: gray;
 }
@@ -598,7 +598,7 @@ a {
     top: -48px;
     right: 212px;
     border: 1px solid lightgray;
-    background: #FEFFE8;
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 9px;
     color: gray;
 }
