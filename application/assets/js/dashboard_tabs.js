@@ -36,14 +36,5 @@ function show_data_container(data_div) {
     
     // Call the setup function.
     eval($(data_div).attr('setup_func') + "()");
-    
-    // --------- HANDLER FOR GROUP TAB -------------
-    if(data_div == '#groups_content')
-    {
-        
-    }else if(data_div == '#profile_content') // --------------- HANDLER FOR PROFILE TAB --------------
-    {
-        setup_profile(); 
-    }
 }
 
