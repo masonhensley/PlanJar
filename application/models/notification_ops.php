@@ -335,8 +335,6 @@ class Notification_ops extends CI_Model
                     $user_id,
                     $subject_id));
 
-                var_dump($this->db->last_query());
-
                 return $query->num_rows() > 0;
 
             // Group invite
