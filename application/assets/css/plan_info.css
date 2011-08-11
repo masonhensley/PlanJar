@@ -21,16 +21,16 @@
 }
 
 .plan_info{
-    margin-left:5px;
+    margin-left:10px;
 }
 
 .plan_graphs{
     position:absolute;
-    right:15px;
-    top:55px;
-    width:250px;
-    height:200px;
-
+    right:0px;
+    top:37px;
+    width:269px;
+    height:225px;
+    border-bottom: 1px solid black;
 }
 
 .plan_gender_graph{
@@ -92,5 +92,5 @@
 #view_attendees{
     color:navy;
     display:inline-block;
-    margin-left:10px;
+    margin-left:24px;
 }
