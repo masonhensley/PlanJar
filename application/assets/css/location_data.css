@@ -5,6 +5,7 @@
     left:20px;
     top:147px;
     border: 1px solid lightgrey;
+    border-radius: 5px;
 }
 
 .day_plan_graph {
