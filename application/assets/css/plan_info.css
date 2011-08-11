@@ -13,8 +13,6 @@
     top:38px;
     text-align: left;
     border-bottom:1px solid black;
-    border-right:   1px solid black;
-    
     width:327px;
     height:206px;
     padding-top:18px;
@@ -98,13 +96,17 @@
 .attending_data_container{
     position:absolute;
     top:78px;
-    right:61px;
+    right:73px;
 }
 
 .female_data_container{
-    
+    position:absolute;
+    top:172px;
+    left:145px;
 }
 
 .male_data_container{
-    
+    position:absolute;
+    top:172px;
+    left:50px;
 }
