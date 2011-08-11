@@ -4,8 +4,6 @@
     margin-top:35px;
     float: left;
     border-top:1px solid #CCC;
-    border-right:1px solid #CCC;
-    border-left:1px solid #CCC;
     text-align: center;
 }
 
@@ -17,7 +15,9 @@
 .notification_entry {
     width: 100%;
     height: 70px;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
     position: relative;
     padding-top:10px;
 }

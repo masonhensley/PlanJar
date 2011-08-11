@@ -1,7 +1,6 @@
 .plan_header{
     width: auto;
     height: 30px;
-    margin-left: 10px;
     text-align:left;
     font-size:25px;
     font-weight:bold;
@@ -9,16 +8,20 @@
     padding-top:5px;
 }
 
-.plan_info{
+.plan_info_wrapper{
     position:absolute;
     top:38px;
-    left:15px;
     text-align: left;
     border-bottom:1px solid black;
-
-    width:305px;
+    border-right:   1px solid black;
+    
+    width:327px;
     height:206px;
     padding-top:18px;
+}
+
+.plan_info{
+    margin-left:5px;
 }
 
 .plan_graphs{
@@ -84,4 +87,10 @@
     margin-right: auto;
     margin-left: auto;
     font-size: 40px;
+}
+
+#view_attendees{
+    color:navy;
+    display:inline-block;
+    margin-left:10px;
 }

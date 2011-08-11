@@ -114,7 +114,7 @@ function display_info(bypass, arg) {
         });
     } else {
         // No controlls selected
-        $('#info_content').html('<img src="/application/assets/images/center_display.png">');
+        $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
     }
     
     // Put at the end to allow it to be disabled within this function
