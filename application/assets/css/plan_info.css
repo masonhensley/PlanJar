@@ -28,8 +28,8 @@
     position:absolute;
     right:0px;
     top:37px;
-    width:269px;
-    height:225px;
+    width:271px;
+    height:224px;
     border-bottom: 1px solid black;
 }
 
@@ -38,7 +38,7 @@
     width: 200px;
     height: 30px;
     left:35px;
-    top:152px;
+    top:139px;
 }
 
 .attending_graph{
@@ -46,8 +46,8 @@
     border:1px solid gray;
     width:200px;
     height: 30px;
-    left:24px;
-    top:10px;
+    left:35px;
+    top:43px;
 }
 
 .view_plan_location {
@@ -97,8 +97,8 @@
 
 .attending_data_container{
     position:absolute;
-    top:47px;
-    right:68px;
+    top:78px;
+    right:61px;
 }
 
 .female_data_container{
