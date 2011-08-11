@@ -84,3 +84,8 @@
     margin-left: auto;
     font-size: 40px;
 }
+
+#view_attendees{
+    color:navy;
+    display:inline-block;
+}
