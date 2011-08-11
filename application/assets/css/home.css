@@ -280,7 +280,12 @@ a {
     height: 100%;
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
-    background: -webkit-gradient(linear,left top,left bottom,from(lightyellow),to(lightgray));
+    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
+    background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
+    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
+    background: -o-linear-gradient(top, #F3F6FF, #EEE);
+    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
+    background: linear-gradient(top, #F3F6FF, #EEE);
 }
 .days_panel .right_day_arrow {
     display: inline-block;
@@ -289,12 +294,12 @@ a {
     border-right: 1px solid darkgray;
     width: 35px;
     height: 100%;
-    background: -webkit-gradient(linear,left top,left bottom,from(lightyellow),to(lightgray));
-    background: -webkit-linear-gradient(top, lightyellow, lightgray);
-    background: -moz-linear-gradient(top, lightyellow, lightgray);
-    background: -o-linear-gradient(top, lightyellow, lightgray);
-    background: -ms-linear-gradient(top, lightyellow, lightgray);
-    background: linear-gradient(top, lightyellow, lightgray);
+    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
+    background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
+    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
+    background: -o-linear-gradient(top, #F3F6FF, #EEE);
+    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
+    background: linear-gradient(top, #F3F6FF, #EEE);
 }
 .days_panel .seven_days {
     height: 100%;
