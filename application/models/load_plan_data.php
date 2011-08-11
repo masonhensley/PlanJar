@@ -171,17 +171,17 @@ class Load_plan_data extends CI_Model
             <font style="color:gray">Location:</font> <font style="font-weight:bold;font-size:15px;">
             <?php echo "@" . $plan_row->name; ?></font><br/>
             <font style="color:gray">Created By: </font><font style="font-weight:bold;">
-            <?php echo $data_array['originator_name']; ?></font><br/>
+            <?php echo $data_array['originator_name']; ?></font>
+            <br/>
             <font style="color:gray">Time: </font> <font style="font-weight:bold;">
             <?php echo str_replace('_', ' ', $data_array['time_string']); ?></font>
-            <br/><br/><hr/>
+            <br/><br/>
             <font style="color:gray">Invited: </font><font style="font-weight:bold;">
             <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
             <?php echo $data_array['number_attending']; ?></font>
             <div id="view_attendees" style="color:navy; position:absolute; top:101px;right:42px;">View List</div>
-            <hr/>
             <font style="font-weight:bold;">Description</font><br/>
             <font style="color:gray;"><?php
         if ($plan_row->description)
