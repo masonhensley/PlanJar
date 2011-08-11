@@ -19,15 +19,16 @@ function initialize_group_search() {
         {
             // Deactivate the suggest button and hide the suggested list
             $('.suggest_groups').removeClass('suggest_groups_active');
-            $('#find_groups_list').hide("fast", function() {
+            $('#find_groups_list').hide('blind', {}, 'fast', function() {
                 $('#find_groups_list').html(''); 
             });
         } else {
             // Suggest groups
             $('.suggest_groups').addClass('suggest_groups_active');
-            $.get('/dashboard/suggest_groups', function(data){
+            $.get('/dashboard/suggest_groups', function(data) {
                 $('#find_groups_list').html(data);
-                $('#find_groups_list').show("fast");
+                $('#find_groups_list').show('blind', {}, 'fast');
+                
                 group_select_click_handler();
             });
         }
@@ -41,7 +42,7 @@ function initialize_group_search() {
     $('#group_search').keyup(function () {
         // Deactivate the suggest button and hide the suggested list
         $('suggest_groups ').removeClass('suggest_groups_active');
-        $('#find_groups_list').hide("fast", function() {
+        $('#find_groups_list').hide('blind', {}, 'fast', function() {
             $('#find_groups_list').html(''); 
         });
         
@@ -49,7 +50,7 @@ function initialize_group_search() {
             needle: $(this).val()
         }, function (data) {
             $('#find_groups_list').html(data);
-            $('#find_groups_list').show('fast');
+            $('#find_groups_list').show('blind', {}, 'fast');
             
             group_select_click_handler();
         });
@@ -71,19 +72,13 @@ function group_select_click_handler()
             }, function (data) {
                 // Hide visible middle panel (if applicable) and show the new middle panel
                 if ($('#groups_content .middle:visible').length > 0) {
-                    $('#groups_content .middle').hide('blind', {
-                        direction: 'up'
-                    }, 'fast', function() {
+                    $('#groups_content .middle').hide('blind', {}, 'fast', function() {
                         $('#groups_content .middle').html(data);
-                        $('#groups_content .middle').show('blind', {
-                            direction: 'down'
-                        });
+                        $('#groups_content .middle').show('blind', {}, 'fast');
                     });
                 } else {
                     $('#groups_content .middle').html(data);
-                    $('#groups_content .middle').show('blind', {
-                        direction: 'down'
-                    });
+                    $('#groups_content .middle').show('blind', {}, 'fast');
                 }
             });
         }
@@ -91,20 +86,19 @@ function group_select_click_handler()
     
     // Add following click handler.
     $('#find_groups_list .add_following').confirmDiv(function(clicked_elem) {
+        var group_id = clicked_elem.parent().attr('group_id');
         $.get('/dashboard/add_group_following', {
-            group_id: clicked_elem.parent().attr('group_id')
+            'group_id': group_id
         }, function (data) {
-            populate_edit_groups_list();
-                            
-            // Blur out the suggested groups (not always necessary, but easy)
-            $('#find_groups_list').html('');
-            $('#group_search').val('');
-            $('#group_search').blur();
+            // Repopualte the groups list and select the recently followed group
+            populate_edit_groups_list(function() {
+                $('#find_groups_list .add_following[group_id = "' + group_id + '"]').click();
+            });
         });
     });
 }
 
-function populate_edit_groups_list() {
+function populate_edit_groups_list(callback) {
     $.get('/dashboard/get_following_groups', function (data) {
         $('#edit_groups_list').html(data);
         
@@ -172,6 +166,9 @@ function populate_edit_groups_list() {
                 });
             }
         });
+        if (callback != undefined) {
+            callback();
+        }
     });
 }
 
