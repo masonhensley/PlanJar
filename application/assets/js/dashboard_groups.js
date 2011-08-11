@@ -88,7 +88,7 @@ function group_select_click_handler()
         }, function (data) {
             // Repopualte the groups list and select the recently followed group
             populate_edit_groups_list(function() {
-                $('#find_groups_list .add_following[group_id = "' + group_id + '"]').click();
+                $('#edit_groups_list .group_entry[group_id = "' + group_id + '"]').click();
             });
         });
     });
