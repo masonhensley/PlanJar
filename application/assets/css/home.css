@@ -145,7 +145,7 @@ a {
     float: left;
     width: 600px;
     height: auto;
-    border-top: 1px solid lightgray;
+    border-top: 1px solid darkgray;
     margin-right: 10px;
     margin-left: 10px;
 }
@@ -201,8 +201,8 @@ a {
     position: relative;
     width: 598px;
     height: 300px;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
 }
 .data_container {
     width: 100%;
@@ -256,7 +256,7 @@ a {
     display: inline-block;
     width: 74px;
     height: 100%;
-    border-left: 1px solid lightgray;
+    border-left: 1px solid darkgray;
     background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
@@ -343,7 +343,7 @@ a {
     background: -o-linear-gradient(top, #F3F6FF, white);
     background: -ms-linear-gradient(top, #F3F6FF, white);
     background: linear-gradient(top, #F3F6FF, white);
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid darkgray;
     color:black;
     padding: 10px;
 }
