@@ -4,6 +4,9 @@ $(function() {
 
 function groups_setup() {
     populate_edit_groups_list();
+    
+    // show the + Create Group button
+    $('#create_group').show("fast");
 }
 
 function initialize_group_search() {
