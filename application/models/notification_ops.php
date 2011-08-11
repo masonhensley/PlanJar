@@ -258,6 +258,8 @@ class Notification_ops extends CI_Model
                 $query->row()->type,
                 $this->ion_auth->get_user()->id,
                 $query->row()->subject_id));
+            
+            var_dump($this->db->last_query());
         } else
         {
             $query_string = "UPDATE notifications SET accepted = ? WHERE id = ?";
@@ -304,8 +306,8 @@ class Notification_ops extends CI_Model
                 $this->load->model('group_ops');
                 $this->group_ops->follow_group($row->subject_id);
                 $this->group_ops->join_group($row->subject_id);
-                $this->update_notification_viewed($id, true);
-                $this->update_notification_accepted($id, true);
+                $this->update_notification_viewed($id, true, true);
+                $this->update_notification_accepted($id, true, true);
 
                 echo(json_encode(array('status' => 'success')));
                 break;
@@ -314,6 +316,7 @@ class Notification_ops extends CI_Model
             case 'follow_notif':
                 $this->load->model('follow_ops');
                 $this->follow_ops->add_user_following($row->subject_id);
+                $this->update_notification_viewed($id, true);
                 $this->update_notification_viewed($id, true);
 
                 echo(json_encode(array('status' => 'success')));
