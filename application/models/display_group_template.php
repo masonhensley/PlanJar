@@ -555,13 +555,13 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;display:inline-block;">of females are going out</font>
             </div>
             <div class="female_percent_container"></div>
-<!--
+
             <div class="show_percent_container">
                 <div class="show_percent" style="display:inline-block;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
                 <font style="color:gray;display:inline-block;">of people are going out</font>
             </div>
             <div class="total_percent_container"></div>
--->
+
         </div>
         <?php
         return ob_get_clean();
