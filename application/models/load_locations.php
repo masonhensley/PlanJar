@@ -139,17 +139,26 @@ class Load_locations extends CI_Model
     {
         $group_name_array = $this->get_group_names($group_list);
         $display_message = $this->setup_groups_header($group_name_array, $display_day);
-
-        $query = "SELECT places.name, places.id, events.title
-                  FROM group_relationships 
-                  JOIN plans ON plans.user_id=group_relationships.user_joined_id
-                  JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
-                  JOIN places ON places.id=events.place_id
-                  WHERE ";
+        $query_helper = "";
+        
         foreach ($group_list as $group_id)
         {
-            $query .= "group_relationships.group_id=$group_id OR ";
+            $query_helper .= "group_relationships.group_id=$group_id OR ";
         }
+        $query_helper = substr($query_helper, 0, -4);
+
+        $query = "
+            SELECT DISTINCT places.name, places.id AS place_id, events.title, plans.id 
+            FROM 
+                (SELECT user_meta.user_id FROM group_relationships 
+                JOIN user_meta 
+                ON group_relationships.user_joined_id=user_meta.user_id
+                WHERE $query_helper)new_user
+            JOIN plans ON plans.user_id=new_user.user_id
+            JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
+            JOIN places ON places.id=events.place_id
+            ";
+
         $query = substr($query, 0, -4);
         $result = $this->db->query($query);
 
@@ -157,11 +166,11 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->id]))
+            if (!isset($place_array[$place->place_id]))
             {
-                $place_array[$place->id] = $place->name;
+                $place_array[$place->place_id] = $place->name;
             }
-            $place_id_array[] = $place->id;
+            $place_id_array[] = $place->place_id;
         }
         $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
@@ -181,12 +190,12 @@ class Load_locations extends CI_Model
         }
         $friend_query = substr($friend_query, 0, -4);
         $friend_query .= ")";
-        
+
         if ($result->num_rows() == 0)
         {
             $friend_query = substr($friend_query, 0, -3);
         }
-        
+
         $query_result = $this->db->query($friend_query);
         $friend_ids = array();
         foreach ($query_result->result() as $id)
