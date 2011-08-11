@@ -340,7 +340,7 @@ class Notification_ops extends CI_Model
             // Group invite
             case 'group_invite':
                 $this->load->model('group_ops');
-                return $this->group_ops->user_is_joined($subject_id);
+                return $this->group_ops->user_is_joined($subject_id, $user_id);
 
             // Follow notification
             case 'follow_notif':
