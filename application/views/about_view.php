@@ -29,7 +29,7 @@
 
                     <h2> Our Team <span class="arrow"></span> </h2> 
 
-                    <h4>Mason Hensley, CEO & Co-Founder <span class="arrow_right"></span> </h4>
+                    <h4>Mason Hensley, Munchkin, CEO & Co-Founder <span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
                             Mason Hensley is Co-Founder and CEO of PlanJar.  Prior to founding PlanJar, he briefly worked at the energy efficiency team at the Tennessee Valley Authority. <br> <br>
@@ -40,7 +40,7 @@ Mason holds a bachelor’s degree in Biomedical Engineering from Vanderbilt Univ
                         </div>
 
                     </div>
-                    <h4>Parker Bossier, Resident Bad-ass, Developer & Co-Founder<span class="arrow_right"></span> </h4>
+                    <h4>Parker Bossier, Director of Tactical Operations, Software Architect & Co-Founder<span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
                             Coming soon...
@@ -49,7 +49,7 @@ Mason holds a bachelor’s degree in Biomedical Engineering from Vanderbilt Univ
                         </div>
                     </div>
 
-                    <h4> Wells Johnston, Munchkin, Developer & Co-Founder <span class="arrow_right"></span> </h4>
+                    <h4> Wells Johnston, Director of Field Operations, Software Architect & Co-Founder <span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
                              Wells tactfully runs PlanJar’s engineering team with Parker, and directs the site design and back-end architecture.  Before PlanJar, Wells worked as a programmer at another web startup, as well as a freelance web developer. <br><br> Outside the PlanJar, Wells is currently pursuing a Bachelor of Science in both Computer Science and Mathematics from Vanderbilt University.
