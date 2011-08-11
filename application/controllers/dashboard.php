@@ -52,9 +52,20 @@ class Dashboard extends CI_Controller
     public function remove_following()
     {
         $user = $this->ion_auth->get_user();
+        $following_id = $this->input->get('following_id');
 
         $query_string = "DELETE FROM friend_relationships WHERE user_id = ? AND follow_id = ?";
-        $query = $this->db->query($query_string, array($user->id, $this->input->get('following_id')));
+        $query = $this->db->query($query_string, array($user->id, $following_id));
+
+        // Update the notification status
+        $this->load->model('notification_ops');
+        $query_string = "SELECT id FROM notifications WHERE type = ? AND user_id = ? AND  subject_id = ?";
+        $query = $this->db->query($query_string, array('follow_notif', $user->id, $following_id));
+
+        if ($query->num_rows() > 0)
+        {
+            $this->notification_ops->update_notification_accepted($query->row()->id, false, true);
+        }
     }
 
 // Return HTML for the users the user is following.
