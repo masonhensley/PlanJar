@@ -71,10 +71,10 @@ class Display_group_template extends CI_Model
         $query = substr($query, 0, -4);
         $query .= ")$query_filter"; // apply the filter
         $result = $this->db->query($query);
-        
+
         $total_people = $result->num_rows();
         $friend_user_ids = array(); // this is needed to get the correct user ids for the filter
-        
+
         foreach ($result->result() as $person)
         {
             $friend_user_ids[] = $person->user_id;
@@ -542,23 +542,26 @@ class Display_group_template extends CI_Model
                 <?php echo " " . $data_array['total_females']; ?></font>
             </div>
 
-            <font style="color:gray; position:absolute;top:-53px; text-align:left; left:35px;">Selected group(s) gender breakdown</font>
+            <font style="font-weight:bold; position:absolute;top:-53px; text-align:left; left:35px;">People information</font>
 
-            <div class="show_percent"style="top:0px;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
-            <div class="show_percent" style="top:39px;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
-            <div class="show_percent" style="top:77px;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
-
-
-
-            <font style="color:gray;margin-left:22px;">of males are going out</font>
-            <div class="male_percent_container">
+            <div class="percent_male_container">
+                <div class="show_percent"style="display:inline-block;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
+                <font style="display:inline-block; color:gray;">of males are going out</font>
             </div>
-            <font style="color:gray;margin-left:30px;">of females are going out</font>
-            <div class="female_percent_container">
+            <div class="male_percent_container"></div>
+
+            <div class="percent_female_container">
+                <div class="show_percent" style="display:inline-block;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
+                <font style="color:gray;display:inline-block;">of females are going out</font>
             </div>
-            <font style="color:gray;margin-left:22px;">of people are going out</font>
-            <div class="total_percent_container">
+            <div class="female_percent_container"></div>
+
+            <div class="show_percent_container">
+                <div class="show_percent" style="display:inline-block;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
+                <font style="color:gray;display:inline-block;">of people are going out</font>
             </div>
+            <div class="total_percent_container"></div>
+
         </div>
         <?php
         return ob_get_clean();

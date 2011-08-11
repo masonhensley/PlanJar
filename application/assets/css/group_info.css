@@ -49,19 +49,36 @@
     text-align:right;
 }
 
-.total_percent_container, .male_percent_container, .female_percent_container{
+.total_percent_container{
+    position:absolute;
     width:235px;
     height:20px;
-    margin-left:35px;
-    position: relative;
     text-align: left;
     border:1px solid lightgray;
+    top:124px;
+    left:34px;
+}
+.male_percent_container{
+    position:absolute;
+    width:235px;
+    height:20px;
+    text-align: left;
+    border:1px solid lightgray;
+    top:21px;
+    left:34px;
+}
+
+.female_percent_container{
+    position:absolute;
+    width:235px;
+    height:20px;
+    text-align: left;
+    border:1px solid lightgray;
+    left:34px;
+    top:71px;
 }
 
 .show_percent{
-    position:absolute;
-    top:1px;
-    left:40px;
     font-weight: bold;
 }
 
@@ -69,4 +86,22 @@
     position:absolute;
     top:-34px;
     left:37px;
+}
+
+.percent_male_container{
+    position:absolute;
+    top:2px;
+    left:56px;
+}
+
+.percent_female_container{
+    position:absolute;
+    left:52px;
+    top:53px;
+}
+
+.show_percent_container{
+    position:absolute;
+    top:105px;
+    left:57px;
 }

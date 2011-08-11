@@ -441,10 +441,9 @@ a {
     right: 321px;
     top: -48px;
     border: 1px solid lightgray;
-    background: white;
+    background: #FEFFE8;
     padding: 9px;
     color: gray;
-    font-weight:bold;
 }
 #friends_plans_panel {
     width: 210px;
@@ -599,10 +598,9 @@ a {
     top: -48px;
     right: 212px;
     border: 1px solid lightgray;
-    background: white;
+    background: #FEFFE8;
     padding: 9px;
     color: gray;
-    font-weight:bold;
 }
 .make_plan {
     position: absolute;
