@@ -49,14 +49,27 @@
     text-align:right;
 }
 
-.total_percent_container, .male_percent_container, .female_percent_container{
+.total_percent_container{
+    position:absolute;
     width:235px;
     height:20px;
-    margin-left:35px;
-    position: relative;
     text-align: left;
     border:1px solid lightgray;
-    margin-top:30px;
+}
+.male_percent_container{
+    position:absolute;
+    width:235px;
+    height:20px;
+    text-align: left;
+    border:1px solid lightgray;
+}
+
+.female_percent_container{
+    position:absolute;
+    width:235px;
+    height:20px;
+    text-align: left;
+    border:1px solid lightgray;
 }
 
 .show_percent{
