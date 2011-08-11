@@ -55,6 +55,8 @@
     height:20px;
     text-align: left;
     border:1px solid lightgray;
+    top:124px;
+    left:34px;
 }
 .male_percent_container{
     position:absolute;
@@ -62,6 +64,8 @@
     height:20px;
     text-align: left;
     border:1px solid lightgray;
+    top:21px;
+    left:34px;
 }
 
 .female_percent_container{
@@ -70,6 +74,8 @@
     height:20px;
     text-align: left;
     border:1px solid lightgray;
+    left:34px;
+    top:71px;
 }
 
 .show_percent{
@@ -84,15 +90,18 @@
 
 .percent_male_container{
     position:absolute;
-    top:-7px;
-    left:24px;
+    top:2px;
+    left:56px;
 }
 
 .percent_female_container{
     position:absolute;
-    left:49px;
+    left:52px;
+    top:53px;
 }
 
-.total_percent_container{
+.show_percent_container{
     position:absolute;
+    top:105px;
+    left:57px;
 }
