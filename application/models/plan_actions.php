@@ -41,6 +41,15 @@ class Plan_actions extends CI_Model
         // Delete the plan
         $query = "DELETE FROM plans WHERE plans.id = $plan";
         $this->db->query($query);
+
+        // Update the notification accepted status if necessary
+        $query_string = "SELECT id FROM notifications WHERE type = ? AND subject_id = ?";
+        $query = $this->db->query($query_string, array('event_invite', $event_id));
+        if ($query->num_rows() > 0)
+        {
+            $this->load->model('notification_ops');
+            $this->notification_ops->update_notification_accepted($query->row()->id, false);
+        }
     }
 
     // Accepts an array containing plan data

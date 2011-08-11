@@ -24,7 +24,7 @@ class Notification_ops extends CI_Model
             // Only add the notification if the originating user is not the current user
             if ($user_id != $this->ion_auth->get_user()->id)
             {
-                $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT), ";
+                $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT, DEFAULT), ";
             }
         }
 
@@ -39,7 +39,7 @@ class Notification_ops extends CI_Model
             {
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
-                    $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT), ";
+                    $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, $type, $subject_id, DEFAULT, DEFAULT), ";
                 }
             }
         }
@@ -62,7 +62,7 @@ class Notification_ops extends CI_Model
         $user_id = $this->ion_auth->get_user()->id;
 
         $query_string = "SELECT notifications.id, notifications.date, notifications.type, notifications.subject_id,
-            notifications.viewed, user_meta.first_name, user_meta.last_name, user_meta.user_id, groups.name AS group_name
+            notifications.viewed, notification.accepted, user_meta.first_name, user_meta.last_name, user_meta.user_id, groups.name AS group_name
             FROM notifications LEFT JOIN user_meta ON notifications.originator_id = user_meta.user_id
             LEFT JOIN groups ON notifications.group_id = groups.id
             WHERE notifications.user_id = ? ORDER BY notifications.viewed ASC, notifications.date DESC";
@@ -78,8 +78,7 @@ class Notification_ops extends CI_Model
         {
             foreach ($query->result() as $row)
             {
-                $accepted = $this->deduce_accepted($row);
-                $this->echo_notification($row, $accepted);
+                $this->echo_notification($row);
             }
         }
     }
@@ -106,14 +105,13 @@ class Notification_ops extends CI_Model
         {
             foreach ($query->result() as $row)
             {
-                $accepted = $this->deduce_accepted($row);
-                $this->echo_notification($row, $accepted);
+                $this->echo_notification($row);
             }
         }
     }
 
     // Echos the HTML for one notification entry
-    function echo_notification($row, $accepted)
+    function echo_notification($row)
     {
         $this->load->model('load_profile');
 
@@ -137,7 +135,7 @@ class Notification_ops extends CI_Model
             </div>
 
             <?php
-            if (!$accepted)
+            if (!$row->accepted)
             {
                 // Echo "follow back" instead of "accept" if necessary
                 if ($row->type == 'follow_notif')
@@ -220,7 +218,7 @@ class Notification_ops extends CI_Model
     }
 
     // Updates the viewed status of the supplied notification id to the supplied value
-    // If find_all is set, all related notification are also changed
+    // If find_all is set, all related notifications are also changed
     function update_notification_viewed($id, $value, $find_all = false)
     {
         if ($find_all)
@@ -231,11 +229,32 @@ class Notification_ops extends CI_Model
 
             // Update all similar notifications
             $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ?";
-            $query = $this->db->query($query_string, array(1, $query->row()->type, $this->ion_auth->get_user()->id));
+            $query = $this->db->query($query_string, array($value, $query->row()->type, $this->ion_auth->get_user()->id));
+        } else
+        {
+            $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
+            $query = $this->db->query($query_string, array($value, $id));
         }
+    }
 
-        $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
-        $query = $this->db->query($query_string, array($value, $id));
+    // Updates the accepted status of the supplied notification id to the supplied value
+    // If find_all is set, all related notifications are also changed
+    function update_notification_accepted($id, $value, $find_all = false)
+    {
+        if ($find_all)
+        {
+            // Get the notification type
+            $query_string = "SELECT type FROM notifications WHERE id = ?";
+            $query = $this->db->query($query_string, array($id));
+
+            // Update all similar notifications
+            $query_string = "UPDATE notifications SET accepted = ? WHERE type = ? AND user_id = ?";
+            $query = $this->db->query($query_string, array($value, $query->row()->type, $this->ion_auth->get_user()->id));
+        } else
+        {
+            $query_string = "UPDATE notifications SET accepted = ? WHERE id = ?";
+            $query = $this->db->query($query_string, array($value, $id));
+        }
     }
 
     // Accepts the notification given by id
@@ -251,6 +270,7 @@ class Notification_ops extends CI_Model
             // Event invite
             case 'event_invite':
                 $this->update_notification_viewed($id, true, true);
+                $this->update_notification_accepted($id, true, true);
 
                 // Add a plan for the user to the specified event
                 $this->load->model('plan_actions');
