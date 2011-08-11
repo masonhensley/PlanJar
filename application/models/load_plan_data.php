@@ -166,8 +166,9 @@ class Load_plan_data extends CI_Model
 
         </div>
 
-        <div class="plan_info">
+        <div class="plan_info_wrapper">
 
+            <div class="plan_info">
             <font style="color:gray">Location:</font> <font style="font-weight:bold;font-size:15px;">
             <?php echo "@" . $plan_row->name; ?></font><br/>
             <font style="color:gray">Created By: </font><font style="font-weight:bold;">
@@ -180,7 +181,7 @@ class Load_plan_data extends CI_Model
             <?php echo $data_array['number_invited']; ?></font>
             &nbsp;&nbsp;&nbsp;
             <font style="color:gray">Accepted </font><font style="font-weight:bold;">
-            <?php echo $data_array['number_attending']; ?>&nbsp;&nbsp;&nbsp;</font><div id="view_attendees" style="color:navy;">View List</div>
+            <?php echo $data_array['number_attending']; ?></font><div id="view_attendees">View List</div>
             <br/>
             <font style="font-weight:bold;">Description</font>
             <br/>
@@ -195,6 +196,7 @@ class Load_plan_data extends CI_Model
                 <?php
             }
             ?></font>
+            </div>
         </div>
 
         <div class="plan_graphs">
