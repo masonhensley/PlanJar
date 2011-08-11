@@ -305,6 +305,7 @@ class Notification_ops extends CI_Model
                 $this->group_ops->follow_group($row->subject_id);
                 $this->group_ops->join_group($row->subject_id);
                 $this->update_notification_viewed($id, true);
+                $this->update_notification_accepted($id, true);
 
                 echo(json_encode(array('status' => 'success')));
                 break;

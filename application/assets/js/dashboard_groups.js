@@ -106,6 +106,7 @@ function populate_edit_groups_list() {
                             $('#group_search').blur();
                         });
                     });
+                    
                     $('#groups_content .remove_joined').confirmDiv(function() {
                         $.get('/dashboard/remove_group_joined', {
                             group_id: $('.group_profile_header').attr('group_id')
