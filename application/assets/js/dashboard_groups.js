@@ -41,7 +41,7 @@ function initialize_group_search() {
     // Search for groups on keyup
     $('#group_search').keyup(function () {
         // Deactivate the suggest button and hide the suggested list
-        $('.suggest_groups ').removeClass('suggest_groups_active');
+        $('.suggest_groups').removeClass('suggest_groups_active');
         
         $.get('/dashboard/group_search', {
             needle: $(this).val()
@@ -69,13 +69,12 @@ function group_select_click_handler()
             }, function (data) {
                 // Hide visible middle panel (if applicable) and show the new middle panel
                 if ($('#groups_content .middle:visible').length > 0) {
-                    $('#groups_content .middle').hide('blind', {}, 'fast', function() {
-                        $('#groups_content .middle').html(data);
-                        $('#groups_content .middle').show('blind', {}, 'fast');
-                    });
+                    $('#groups_content .middle').hide();
+                    $('#groups_content .middle').html(data);
+                    $('#groups_content .middle').show('fast');
                 } else {
                     $('#groups_content .middle').html(data);
-                    $('#groups_content .middle').show('blind', {}, 'fast');
+                    $('#groups_content .middle').show('fast');
                 }
             });
         }
