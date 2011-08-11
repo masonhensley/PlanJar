@@ -315,7 +315,7 @@ class Notification_ops extends CI_Model
                 $this->load->model('follow_ops');
                 $this->follow_ops->add_user_following($row->subject_id);
                 $this->update_notification_viewed($id, true);
-                $this->update_notification_viewed($id, true);
+                $this->update_notification_accepted($id, true);
 
                 echo(json_encode(array('status' => 'success')));
                 break;
