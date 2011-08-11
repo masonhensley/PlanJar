@@ -10,6 +10,7 @@ function groups_setup() {
     $('#create_group').show("fast");
 }
 
+// Sets up the suggest people toggle and search box
 function initialize_group_search() {
     // In-field labels
     $('#groups_content .right_header .in-field_block label').inFieldLabels();
@@ -55,7 +56,7 @@ function initialize_group_search() {
     });
 }
 
-// Handles clicking on your groups
+// Handles clicking found groups
 function group_select_click_handler()
 {
     $('#find_groups_list .group_entry').click(function() {
@@ -100,6 +101,7 @@ function group_select_click_handler()
     });
 }
 
+// Populates the list of the user's groups and assigns the click events
 function populate_edit_groups_list(callback) {
     $.get('/dashboard/get_following_groups', function (data) {
         $('#edit_groups_list').html(data);

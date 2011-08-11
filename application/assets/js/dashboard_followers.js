@@ -1,7 +1,9 @@
+// Run when the tab is selected
 function followers_setup() {
     populate_followers_list();
 }
 
+// Populates the list of followers (friends) and assigns the click events
 function populate_followers_list() {
     $.get('/dashboard/get_followers', function (data) {
         $('#followers_list').html(data);

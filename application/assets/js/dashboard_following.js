@@ -3,6 +3,7 @@ $(function () {
     $('.following_profile_body').hide();
 });
 
+// Run when the tab is selected
 function following_setup() {
     populate_following_list();
     initialize_follow_search();
