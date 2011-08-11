@@ -441,7 +441,7 @@ a {
     right: 321px;
     top: -48px;
     border: 1px solid lightgray;
-    background: white;
+    background: lightGoldenrodYellow;
     padding: 9px;
     color: gray;
     font-weight:bold;
@@ -599,7 +599,7 @@ a {
     top: -48px;
     right: 212px;
     border: 1px solid lightgray;
-    background: white;
+    background: lightGoldenrodYellow;
     padding: 9px;
     color: gray;
     font-weight:bold;
