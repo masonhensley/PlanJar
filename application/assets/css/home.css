@@ -285,8 +285,8 @@ a {
 .days_panel .right_day_arrow {
     display: inline-block;
     float: right;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
     width: 35px;
     height: 100%;
     background: -webkit-gradient(linear,left top,left bottom,from(lightyellow),to(lightgray));
@@ -300,8 +300,6 @@ a {
     height: 100%;
     width: 100%;
     background-color: white;
-    border-top:1px solid darkgray;
-    border-bottom:1px solid darkgray;
 }
 .suggested_locations {
     float: left;
