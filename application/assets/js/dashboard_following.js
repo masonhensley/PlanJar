@@ -99,6 +99,7 @@ function populate_suggested_friends() {
             $.get('/dashboard/add_user_following', {
                 following_id: clicked_elem.parent().attr('user_id')
             }, function (data) {
+                populate_suggested_friends();
                 populate_following_list();
             });
         });
