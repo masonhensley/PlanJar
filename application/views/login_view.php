@@ -26,16 +26,17 @@
                     <form id="log_in">
                         <div class="in-field_block log_in_bar">
                             <label for="li_email">Email</label>
-                            <input id="li_email" name="li_email" type="email" class="textbox"/>
+                            <input id="li_email" name="li_email" type="email" class="textbox" style="display:inline-block;"/>
                         </div>
                         <div class="in-field_block log_in_bar">
                             <label for="li_password">Password</label>
-                            <input id="li_password" name="li_password" type="password" class="textbox"/>
+                            <input id="li_password" name="li_password" type="password" class="textbox" style="display:inline-block; margin-left:10px;"/>
                         </div>
-                        <input type="submit" class="buttons" value="Log In" />
+                        
                         <br/>
                         <font style="font-family:Arial, Helvetica, sans-serif; color:white;">Stay logged in</font>
                         <input type="checkbox" name="li_remember" value="1" style="margin-top:13px" />
+                        <input type="submit" class="buttons" value="Log In" />ß
                     </form>
                 </div>  
             </div>
