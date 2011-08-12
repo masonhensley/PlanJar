@@ -24,13 +24,13 @@
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:50%; position:relative; top:5px;"/>
                 <div class="top_links">
                     <form id="log_in">
-                        <div class="in-field_block log_in_bar">
+                        <div class="in-field_block log_in_bar" style="display:inline-block;">
                             <label for="li_email">Email</label>
-                            <input id="li_email" name="li_email" type="email" class="textbox" style="display:inline-block;"/>
+                            <input id="li_email" name="li_email" type="email" class="textbox" />
                         </div>
-                        <div class="in-field_block log_in_bar">
+                        <div class="in-field_block log_in_bar" style="display:inline-block; margin-left:10px;">
                             <label for="li_password">Password</label>
-                            <input id="li_password" name="li_password" type="password" class="textbox" style="display:inline-block; margin-left:10px;"/>
+                            <input id="li_password" name="li_password" type="password" class="textbox" />
                         </div>
                         <input type="submit" class="buttons" value="Log In" />
                         <br/>
