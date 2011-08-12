@@ -30,12 +30,13 @@
                         </div>
                         <div class="in-field_block log_in_bar">
                             <label for="li_password">Password</label>
+                            <input type="submit" class="buttons" value="Log In" />
                             <input id="li_password" name="li_password" type="password" class="textbox" style="display:inline-block; margin-left:10px;"/>
                         </div>
                         <br/>
                         <font style="font-family:Arial, Helvetica, sans-serif; color:white;">Stay logged in</font>
                         <input type="checkbox" name="li_remember" value="1" style="margin-top:13px" />
-                        <input type="submit" class="buttons" value="Log In" />
+                        
                     </form>
                 </div>  
             </div>
