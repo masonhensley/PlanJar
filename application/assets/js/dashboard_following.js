@@ -94,6 +94,7 @@ function initialize_suggested_friends()
                     
                 // Hide the profile body if necessary and show the result list
                 if ($('.following_profile_body:visible').length > 0) {
+                    console.log('was visible');
                     $('.following_profile_body').hide('fast', function() {
                         $('#follow_search').show('fast');
                     });
