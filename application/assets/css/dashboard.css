@@ -338,8 +338,9 @@ a{
     display: none;
     background-color:white;
     height:auto;
-    width:100%;
+    width:50%;
     border-top:1px solid #CCC;
+    padding: 5px;
 }
 
 .profile_body_text{
