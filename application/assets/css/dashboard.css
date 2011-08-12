@@ -107,6 +107,7 @@ a{
     padding-top: 10px;
     padding-bottom: 10px;
     color: black;
+    border-radius: 5px;
 }
 
 
@@ -261,6 +262,7 @@ a{
     background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
     padding-left:15px;
     padding-right:15px;
+    border-radius: 5px;
 }
 
 .suggested_active{
