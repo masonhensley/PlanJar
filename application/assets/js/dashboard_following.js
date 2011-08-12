@@ -35,7 +35,8 @@ function initialize_suggested_friends()
             // Friend search user click handler
             $('#follow_search .user_entry').click(function(){
                 // Deselect any of the selected user's followers
-                $('#follow_search .selected_follower').removeClass('selected_follower');
+                conosole.log($('#following_list .selected_follower'));
+                $('#following_list .selected_follower').removeClass('selected_follower');
                 
                 $.get('/dashboard/get_profile', {
                     user_id: $(this).attr('user_id')
