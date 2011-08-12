@@ -128,6 +128,16 @@ function suggested_search_click() {
         $('#follow_search').hide('blind', {}, 'fast', function() {
             $('.following_profile_body').show("fast");
         });
+        
+        // Add following click handler
+        $('.following_profile_body .add_following').confirmDiv(function (clicked_elem) {
+            $.get('/dashboard/add_user_following', {
+                following_id: clicked_elem.parent().attr('user_id')
+            }, function (data) {
+                populate_suggested_friends();
+                populate_following_list();
+            });
+        });       
     });
 }
 
@@ -173,17 +183,7 @@ function populate_following_list(callback) {
                     });
                 } else {
                     $('.following_profile_body').show("fast");
-                }
-                
-                // Add following click handler
-                $('.add_following').confirmDiv(function (clicked_elem) {
-                    $.get('/dashboard/add_user_following', {
-                        following_id: clicked_elem.parent().attr('user_id')
-                    }, function (data) {
-                        populate_suggested_friends();
-                        populate_following_list();
-                    });
-                });          
+                }   
             });
         });
     });
