@@ -33,25 +33,7 @@ function initialize_suggested_friends()
             }
             
             // Friend search user click handler
-            $('#follow_search .user_entry').click(function(){
-                // Deselect any of the selected user's followers
-                $('#following_list .selected_follower').removeClass('selected_follower');
-                
-                $.get('/dashboard/get_profile', {
-                    user_id: $(this).attr('user_id')
-                }, function (data) {
-                    $('.following_profile_body').html(data);
-                    
-                    // Hide the search body if necessary and show the profile
-                    if ($('#follow_search:visible').length > 0) {
-                        $('#follow_search').hide('fast', function() {
-                            $('.following_profile_body').show('fast');
-                        });
-                    } else {
-                        $('.following_profile_body').show('fast');
-                    }
-                });
-            });
+            $('#follow_search .user_entry').click(suggested_search_click);
             
             // Follow click handler
             $('#follow_search .add_following').confirmDiv(function (clicked_elem) {
@@ -112,21 +94,7 @@ function initialize_suggested_friends()
                 });
             
                 // click handler for getting the profile
-                $('#follow_search .user_entry').click(function(){
-                    // Deselect any of the selected user's followers
-                    $('#following_list .selected_follower').removeClass('selected_follower');
-                    
-                    $.get('/dashboard/get_profile', {
-                        user_id: $(this).attr('user_id')
-                    }, function (data) {
-                        $('.following_profile_body').html(data);
-                        $('.suggested_friends').removeClass('suggested_active');
-                        
-                        $('#follow_search').hide('blind', {}, 'fast', function() {
-                            $('.following_profile_body').show("fast");
-                        });
-                    });
-                });
+                $('#follow_search .user_entry').click(suggested_search_click);
             });
         } 
     });
@@ -134,6 +102,24 @@ function initialize_suggested_friends()
     // Refer to the definition in dashboard_view.
     // Essentially selects the suggested button if necessary at load
     show_suggested_init('#following_content', '.suggested_friends');    
+}
+
+// Modularized click handler for suggested/searched friends
+function suggested_search_click() {
+    // Deselect any of the selected user's followers
+    $('#following_list .selected_follower').removeClass('selected_follower');
+                    
+    // Show the profile
+    $.get('/dashboard/get_profile', {
+        user_id: $(this).attr('user_id')
+    }, function (data) {
+        $('.following_profile_body').html(data);
+        $('.suggested_friends').removeClass('suggested_active');
+                        
+        $('#follow_search').hide('blind', {}, 'fast', function() {
+            $('.following_profile_body').show("fast");
+        });
+    });
 }
 
 // Populates the following list and assigns the click events.
