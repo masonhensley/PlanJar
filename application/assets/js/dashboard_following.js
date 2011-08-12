@@ -188,11 +188,11 @@ function populate_following_list(callback) {
                 } else {
                     $('.following_profile_body').show("fast");
                 }   
+                
+                if (callback != undefined) {
+                    callback();
+                }
             });
         });
     });
-    
-    if (callback != undefined) {
-        callback();
-    }
 }
