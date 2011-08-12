@@ -108,9 +108,12 @@ function initialize_suggested_friends()
                     $.get('/dashboard/get_profile', {
                         user_id: $(this).attr('user_id')
                     }, function (data) {
-                        $('#follow_search').hide('blind', {}, 'fast');
                         $('.following_profile_body').html(data);
-                        $('.following_profile_body').show("fast");
+                        $('.suggested_friends').removeClass('suggested_friends');
+                        
+                        $('#follow_search').hide('blind', {}, 'fast', function() {
+                            $('.following_profile_body').show("fast");
+                        });
                     });
                 });
             });
@@ -132,6 +135,9 @@ function populate_following_list(callback) {
             $.get('/dashboard/remove_following', {
                 following_id: clicked_elem.parent().attr('user_id')
             }, function (data) {
+                // Hide the profile body
+                $('#following_profile_body').hide();
+                
                 populate_following_list();         
             });
         });
