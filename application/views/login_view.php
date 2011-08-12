@@ -57,7 +57,7 @@
                 </div>
 
                 <div id="left_video">
-                    video
+                    
                 </div>  
 
             </div>
