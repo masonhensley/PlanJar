@@ -335,13 +335,15 @@ a{
 }
 
 .following_profile_body{
-    display: none;
+    position:absolute;
+    top:60px;
+    right:60px;
     background-color:white;
     height:auto;
     width:50%;
-    border-top:1px solid #CCC;
-    padding: 5px;
-    border: 1px solid lightgrey;
+    border:1px solid #CCC;
+    padding:10px;
+    border-top-right-radius:10px;
 }
 
 .profile_body_text{
