@@ -103,6 +103,7 @@ a {
     width: 95%;
     margin-left: 5px;
     font-size:12px;
+    border-radius: 5px;
 }
 .network_tab {
     background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
@@ -120,6 +121,7 @@ a {
     width: 95%;
     margin-left: 5px;
     font-size: 12px;
+    border-radius: 5px;
 }
 .network_tab.network_active {
     background: -webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
