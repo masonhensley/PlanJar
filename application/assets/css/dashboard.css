@@ -335,6 +335,7 @@ a{
 }
 
 .following_profile_body{
+    display: none;
     position:absolute;
     top:60px;
     right:60px;

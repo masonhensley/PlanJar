@@ -8,7 +8,7 @@ class Load_profile extends CI_Model
         parent::__construct();
     }
 
-    function display_profile($user, $format)
+    function display_profile($user, $format, $force_accept_button)
     {
         $school_query = "SELECT school FROM school_data WHERE id=$user->school_id";
         $result = $this->db->query($school_query);
@@ -18,12 +18,21 @@ class Load_profile extends CI_Model
         $locations_data = $this->get_location_stats($user); // string containing the location statistics
         $birthday = $user->birthday;
         $user_age = $this->calculate_age($birthday);
-        $number_following  = $this->get_number_following($user->id);
+        $number_following = $this->get_number_following($user->id);
         $number_followers = $this->get_number_followers($user->id);
         ?>
         <div class="profile_top_bar">
+            <?php
+            if ($force_accept_button)
+            {
+                ?>
+                <div class="add_following">follow</div>
+                <?php
+            }
+            ?>
             <div class="profile_picture">
-                <?php $this->insert_profile_picture(); ?>
+                <?php $this->insert_profile_picture();
+                ?>
             </div>
             <div class="profile_user_information">
                 <br/><font style="font-size:20px;"><font style="font-weight:bold;"><?php echo $user->first_name . " " . $user->last_name; ?></font><br/>
@@ -32,8 +41,7 @@ class Load_profile extends CI_Model
         </div>
         <hr/>
         <div class="profile_body">
-            <div class="profile_body_text"><?php
-                ?><font style="color:darkgray;">sex</font><font style="font-weight:bold;"><?php echo " " . $user->sex; ?></font>&nbsp;&nbsp;&nbsp;
+            <div class="profile_body_text"><?php ?><font style="color:darkgray;">sex</font><font style="font-weight:bold;"><?php echo " " . $user->sex; ?></font>&nbsp;&nbsp;&nbsp;
                 <font style="color:darkgray;">age</font><font style="font-weight:bold;"><?php echo " " . $user_age; ?></font>&nbsp;&nbsp;&nbsp;
                 <font style="color:darkgray;">followers</font><font style="font-weight:bold;"><?php echo " " . $number_followers; ?></font>&nbsp;&nbsp;&nbsp;
                 <font style="color:darkgray;">following</font><font style="font-weight:bold;"><?php echo " " . $number_following; ?></font>&nbsp;&nbsp;&nbsp;
@@ -115,7 +123,7 @@ class Load_profile extends CI_Model
         </div>
         <?php
     }
-    
+
     function get_number_following($user_id)
     {
         $query = "SELECT follow_id FROM friend_relationships WHERE user_id=$user_id";
@@ -123,7 +131,7 @@ class Load_profile extends CI_Model
         $number_following = $result->num_rows();
         return $number_following;
     }
-    
+
     function get_number_followers($user_id)
     {
         $query = "SELECT user_id FROM friend_relationships WHERE follow_id=$user_id";

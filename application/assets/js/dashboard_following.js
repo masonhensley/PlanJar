@@ -146,6 +146,9 @@ function populate_following_list(callback) {
         
         // User entry click handler
         $('#following_list .user_entry').click(function(){
+            // Capture the user id
+            var user_id = $(this).parent().attr('user_id');
+            
             $('.suggested_active').removeClass('suggested_active');
             $('#follow_search').hide();
             if(!$(this).hasClass('selected_follower'))
@@ -156,9 +159,12 @@ function populate_following_list(callback) {
                 
             // Not in if statement to allow re-clicking
             $.get('/dashboard/get_profile', {
-                user_id: $(this).attr('user_id')
+                'user_id': user_id,
+                force_accept_button: true
             }, function (data) {
                 $('.following_profile_body').html(data);
+                
+                // Hide if necessary and show
                 if ($('#follow_search').is(':visible')) {
                     $('#follow_search').hide('blind', {}, 'fast', function() {
                         $('.following_profile_body').show("fast");
@@ -166,9 +172,16 @@ function populate_following_list(callback) {
                 } else {
                     $('.following_profile_body').show("fast");
                 }
-                    
-                $('.following_profile_body').hide()
-                $('.following_profile_body').show('fast');
+                
+                // Add following click handler
+                $('.add_following').confirmDiv(function (clicked_elem) {
+                    $.get('/dashboard/add_user_following', {
+                        following_id: clicked_elem.parent().attr('user_id')
+                    }, function (data) {
+                        populate_suggested_friends();
+                        populate_following_list();
+                    });
+                });          
             });
         });
     });
