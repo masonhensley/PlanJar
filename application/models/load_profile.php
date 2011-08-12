@@ -20,16 +20,15 @@ class Load_profile extends CI_Model
         $user_age = $this->calculate_age($birthday);
         $number_following = $this->get_number_following($user->id);
         $number_followers = $this->get_number_followers($user->id);
+
+        if ($force_accept_button)
+        {
+            ?>
+            <div class="add_following">follow</div>
+            <?php
+        }
         ?>
         <div class="profile_top_bar">
-            <?php
-            if ($force_accept_button)
-            {
-                ?>
-                <div class="add_following">follow</div>
-                <?php
-            }
-            ?>
             <div class="profile_picture">
                 <?php $this->insert_profile_picture();
                 ?>

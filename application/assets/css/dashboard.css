@@ -192,7 +192,7 @@ a{
     margin-top:10px;
 }
 
-.user_entry .add_following, .profile_top_bar .add_following {
+.user_entry .add_following, .following_profile_body .add_following {
     float: right;
     width: 80px;
     background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
