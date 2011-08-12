@@ -156,7 +156,7 @@ function populate_following_list(callback) {
             $('#follow_search').hide();
             if(!$(this).hasClass('selected_follower'))
             {
-                $('.user_entry.selected_follower').removeClass('selected_follower');
+                $('.selected_follower').removeClass('selected_follower');
                 $(this).addClass('selected_follower');
                 
                 $.get('/dashboard/get_profile', {
@@ -170,6 +170,9 @@ function populate_following_list(callback) {
                     } else {
                         $('.following_profile_body').show("fast");
                     }
+                    
+                    $('.following_profile_body').hide()
+                    $('.following_profile_body').show('fast');
                 });
             }
         });
