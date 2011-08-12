@@ -152,23 +152,24 @@ function populate_following_list(callback) {
             {
                 $('.selected_follower').removeClass('selected_follower');
                 $(this).addClass('selected_follower');
-                
-                $.get('/dashboard/get_profile', {
-                    user_id: $(this).attr('user_id')
-                }, function (data) {
-                    $('.following_profile_body').html(data);
-                    if ($('#follow_search').is(':visible')) {
-                        $('#follow_search').hide('blind', {}, 'fast', function() {
-                            $('.following_profile_body').show("fast");
-                        });
-                    } else {
-                        $('.following_profile_body').show("fast");
-                    }
-                    
-                    $('.following_profile_body').hide()
-                    $('.following_profile_body').show('fast');
-                });
             }
+                
+            // Not in if statement to allow re-clicking
+            $.get('/dashboard/get_profile', {
+                user_id: $(this).attr('user_id')
+            }, function (data) {
+                $('.following_profile_body').html(data);
+                if ($('#follow_search').is(':visible')) {
+                    $('#follow_search').hide('blind', {}, 'fast', function() {
+                        $('.following_profile_body').show("fast");
+                    });
+                } else {
+                    $('.following_profile_body').show("fast");
+                }
+                    
+                $('.following_profile_body').hide()
+                $('.following_profile_body').show('fast');
+            });
         });
     });
     
