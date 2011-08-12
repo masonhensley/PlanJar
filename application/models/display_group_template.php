@@ -2,12 +2,17 @@
 
 class Display_group_template extends CI_Model
 {
+    // Constructor.
+    function __construct()
+    {
+        parent::__construct();
+    }
 
     function _display_group_info($selected_groups, $day, $school, $filter)  // being in this function ensures that $selected_groups is not NULL
     {
         if (!$day)
         {
-            $day = 0; // reformat the day if it is null
+            $day = 0; // reformat the day if it is null from the "today" tab being selected
         }
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
@@ -50,6 +55,8 @@ class Display_group_template extends CI_Model
         $males_going_out = 0;
         $females_going_out = 0;
 
+        // handle any filter that is put on the search results
+        // right now this handles freshmen, sophomores, juniors, seniors, and alumni
         $filter_grad_year = $this->get_correct_grad_year($filter);
         if ($filter == 'alumni')
         {
@@ -102,6 +109,8 @@ class Display_group_template extends CI_Model
     {
         $user = $this->ion_auth->get_user();
 
+        // handle any filter that is put on the search results
+        // right now this handles freshmen, sophomores, juniors, seniors, and alumni
         $filter_grad_year = $this->get_correct_grad_year($filter);
         if ($filter == 'alumni')
         {

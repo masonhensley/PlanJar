@@ -1,5 +1,3 @@
-
-<!-- This file is included in home_view.php and not called from the controller -->
 <div style="position:relative; top:-20px;">
     <div class="groups_wrapper">
         <a href="/dashboard/groups"><font style="font-weight:bold;color:gray;font-size:20px;">Networks</font></a><br/>
@@ -17,8 +15,6 @@
             echo $school;
             ?>
         </div>
-        
-        
         <a href="/dashboard/groups"><font style="font-weight:bold;color:gray;font-size:20px;">Groups</font></a><br/>
         <font style="color:gray;">(select one or multiple)</font>
         <br/><hr/>

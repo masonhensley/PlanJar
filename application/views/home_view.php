@@ -97,7 +97,7 @@
                     <a href="#" id="change_location" >Change location</a>
                 </div>
 
-                <?php include(APPPATH . 'models/load_group_panel.php'); ?>
+                <?php include(APPPATH . 'assets/php/load_group_panel.php'); ?>
             </div>
             <div class ="center">
                 <div class="data_container_wrapper" style="display: block;">

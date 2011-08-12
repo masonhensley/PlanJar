@@ -10,9 +10,59 @@ class Load_suggested_friends extends CI_Model
 
     function suggested_friends($user_id, $grad_year, $school_id)
     {
+        $user = $this->ion_auth->get_user();
+
+        // new query that selects all the followers of your followers
+        $connection_query = "
+            SELECT friend_relationships.follow_id FROM
+                (SELECT friend_relationships.follow_id AS friend_id FROM friend_relationships 
+                WHERE friend_relationships.user_id=$user->id)new_user
+            JOIN friend_relationships ON friend_relationships.user_id=new_user.friend_id 
+                AND friend_relationships.follow_id <> $user->user_id  
+";
+        $result = $this->db->query($connection_query);
+        $result_array = $result->row_array();
+
+        // query to pull all your classmates
+        $schoolmate_query = "
+            SELECT user_meta.user_id FROM user_meta
+            WHERE user_meta.school_id=$user->school_id 
+                AND user_meta.grad_year=$user->grad_year
+                AND user_meta.user_id <> $user->user_id
+            ";
+        $result = $this->db->query($schoolmate_query);
+        $result_array_2 = $reuslt->row_array();
+
+        // query to pull all your groupmates
+        $groupmate_query = "
+            SELECT group_relationships.user_joined_id FROM
+                (SELECT group_relationships.group_id AS id FROM group_relationships
+                WHERE group_relationships.user_joined_id=$user->id)group_joined_id
+            JOIN group_relationships ON group_relationships.group_id=group_joined_id.id
+            ";
+        $result = $this->db->query($groupmate_query);
+        $groupmate_result = $result->row_array();
+
+        // combine the 3 arrays here into one array called "connection array"
+
+        $connection_array = array();
+        $connection_array = array_count_values($connection_array);
+        $number_results = count($connection_array);
+        asort($connection_array);
+        $suggested_friends = array_reverse($connection_array, TRUE);
+        if ($number_results > 0)
+        {
+            // generate suggested friends and show results
+        }
+
+
+
+
+        // old code starts here
+        
         $number_of_results = 0; // this keeps track of the number of items displayed to it can be limited to 15 (or whatever)
         $display_limit = 15; // the max number of results that can be displayed for suggested friends
-        $friends_query = "SELECT follow_id FROM friend_relationships where user_id=$user_id"; // query pulls all people you are following
+        $friends_query = "SELECT follow_id FROM friend_relationships WHERE user_id=$user_id"; // query pulls all people you are following
         $friends_following_result = $this->db->query($friends_query);
         $suggested_friends = array();
         $already_following = array(); // keep track of the people you are already following
@@ -118,7 +168,7 @@ class Load_suggested_friends extends CI_Model
         }
 
         $date1 = date("Y");
-        $date2 = $date1+4;
+        $date2 = $date1 + 4;
         $query .= " AND (user_meta.grad_year BETWEEN $date1 AND $date2) ";
         $query .= "ORDER BY (user_meta.grad_year=$grad_year) DESC LIMIT 0, 30";
 
@@ -131,6 +181,7 @@ class Load_suggested_friends extends CI_Model
         }
         $this->display_suggested_friends($result, null, $options, 15);
     }
+
 }
 
 ?>

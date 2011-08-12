@@ -2,6 +2,11 @@
 
 class Load_coming_events extends CI_Model
 {
+    // Constructor.
+    function __construct()
+    {
+        parent::__construct();
+    }
 
     function load_events()
     {

@@ -271,13 +271,6 @@ class Home extends CI_Controller
         echo json_encode($return_array);
     }
 
-    public function show_event_data()
-    {
-        $this->load->model('load_event_data');
-        $place_id = $this->input->get('place_id');
-        $this->load_event_data->display($place_id);
-    }
-
     // Returns HTML for the list of the user's plans (right panel)
     public function get_my_plans()
     {
