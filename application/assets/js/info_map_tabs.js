@@ -38,9 +38,13 @@ function display_info(bypass, arg) {
     // Show the info tab
     show_data_container('#info_content');
     
+    if (bypass != true) {
+        // Needed by fricking every incoming call (and by every I mean enough to put it here)
+        populate_popular_locations();
+    }
+    
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
-        //bypass = true;
         
         // Get the correct place id and back button value
         var place_id;
@@ -115,12 +119,6 @@ function display_info(bypass, arg) {
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
-    }
-    
-    // Put at the end to allow it to be disabled within this function
-    if (bypass != true) {
-        // Needed by fricking every incoming call (and by every I mean enough to put it here)
-        populate_popular_locations();
     }
 }
 

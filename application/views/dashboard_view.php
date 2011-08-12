@@ -24,6 +24,7 @@
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/confirmDiv.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_profile.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_following.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_followers.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_groups.js"></script>
@@ -58,8 +59,8 @@
         <title>PlanJar | Dashboard</title>
 
 
-    <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
-     
+        <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
+
     </head>
     <body>
         <div class ="top_panel">
@@ -74,7 +75,6 @@
                 <div class="tab" assoc_div="#profile_content">Profile</div>
                 <div class="tab" assoc_div="#groups_content">Groups</div>
                 <div class="tab" assoc_div="#friends_content">Friends</div>
-                <!--<div class="tab" assoc_div="#plans_content">Plans</div>-->
                 <div class="tab" assoc_div="#following_content">Following</div>
                 <div class="tab" assoc_div="#notifications_content">Notifications</div>
                 <div class="tab" assoc_div="#settings_content">Settings</div>
@@ -98,15 +98,9 @@
                 <?php include(APPPATH . '/assets/php/dashboard_notifications.php'); ?>
             </div>
 
-            <div id="plans_content" class="page_content">
-
-            </div>
-
-            <div id="profile_content" setup_func="$.noop" class="page_content">
+            <div id="profile_content" setup_func="setup_profile" class="page_content">
                 <div class="profile_container">
                     <div class="profile_box">
-                    </div>
-                    <div class="profile_edit">
                     </div>
                 </div>
             </div>

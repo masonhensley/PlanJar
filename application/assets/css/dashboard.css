@@ -107,6 +107,7 @@ a{
     padding-top: 10px;
     padding-bottom: 10px;
     color: black;
+    border-radius: 5px;
 }
 
 
@@ -191,7 +192,7 @@ a{
     margin-top:10px;
 }
 
-.user_entry .add_following {
+.user_entry .add_following, .following_profile_body .add_following {
     float: right;
     width: 80px;
     background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
@@ -261,6 +262,7 @@ a{
     background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
     padding-left:15px;
     padding-right:15px;
+    border-radius: 5px;
 }
 
 .suggested_active{
@@ -333,6 +335,7 @@ a{
 }
 
 .following_profile_body{
+    display: none;
     position:absolute;
     top:60px;
     right:60px;

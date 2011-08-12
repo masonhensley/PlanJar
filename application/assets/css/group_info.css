@@ -57,6 +57,7 @@
     border:1px solid lightgray;
     top:124px;
     left:34px;
+    border-radius: 5px;
 }
 .male_percent_container{
     position:absolute;
@@ -66,6 +67,7 @@
     border:1px solid lightgray;
     top:21px;
     left:34px;
+    border-radius: 5px;
 }
 
 .female_percent_container{
@@ -76,6 +78,7 @@
     border:1px solid lightgray;
     left:34px;
     top:71px;
+    border-radius: 5px;
 }
 
 .show_percent{

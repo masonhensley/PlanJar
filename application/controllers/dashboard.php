@@ -306,7 +306,7 @@ class Dashboard extends CI_Controller
             $format = "profile_view";
         }
 
-        $this->load_profile->display_profile($user, $format);
+        $this->load_profile->display_profile($user, $format, $this->input->get('force_accept_button'));
     }
 
     public function update_box()

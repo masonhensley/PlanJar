@@ -103,6 +103,7 @@ a {
     width: 95%;
     margin-left: 5px;
     font-size:12px;
+    border-radius: 5px;
 }
 .network_tab {
     background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
@@ -120,6 +121,7 @@ a {
     width: 95%;
     margin-left: 5px;
     font-size: 12px;
+    border-radius: 5px;
 }
 .network_tab.network_active {
     background: -webkit-gradient(linear,left top,left bottom,from(#8AE28F),to(#22A228));
@@ -175,6 +177,7 @@ a {
     color: black;
     text-align: center;
     padding: 10px;
+    border-radius: 5px;
 }
 .tab_selected {
     background: -webkit-gradient(linear,left top,left bottom,from(#73B1EA),to(#02C));
@@ -444,6 +447,7 @@ a {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 9px;
     color: gray;
+    border-radius: 5px;
 }
 #friends_plans_panel {
     width: 210px;
@@ -490,6 +494,7 @@ a {
     height: auto;
     margin: auto;
     border: 1px solid lightgray;
+    border-radius: 5px;
     color: #4E4E4E;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -601,6 +606,7 @@ a {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 9px;
     color: gray;
+    border-radius: 5px;
 }
 .make_plan {
     position: absolute;
