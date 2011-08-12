@@ -109,7 +109,7 @@ function initialize_suggested_friends()
                         user_id: $(this).attr('user_id')
                     }, function (data) {
                         $('.following_profile_body').html(data);
-                        $('.suggested_friends').removeClass('suggested_friends');
+                        $('.suggested_friends').removeClass('suggested_active');
                         
                         $('#follow_search').hide('blind', {}, 'fast', function() {
                             $('.following_profile_body').show("fast");
