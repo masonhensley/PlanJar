@@ -112,7 +112,7 @@ function populate_suggested_friends() {
 // Modularized click handler for suggested/searched friends
 function suggested_search_click() {
     // Capture the user id
-    var user_id = $(this).parent().attr('user_id');
+    var user_id = $(this).attr('user_id');
 
     // Deselect any of the selected user's followers
     $('#following_list .selected_follower').removeClass('selected_follower');
@@ -162,7 +162,10 @@ function populate_following_list(callback) {
             $.get('/dashboard/get_profile', {
                 user_id: $(this).attr('user_id')
             }, function (data) {
-                $('.following_profile_body').html(data);
+                // Hide and reload the data
+                $('.following_profile_body').hide('fast', function() {
+                    $('.following_profile_body').html(data);
+                });
                 
                 // Hide if necessary and show
                 if ($('#follow_search').is(':visible')) {
