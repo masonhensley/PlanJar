@@ -111,12 +111,16 @@ function populate_suggested_friends() {
 
 // Modularized click handler for suggested/searched friends
 function suggested_search_click() {
+    // Capture the user id
+    var user_id = $(this).parent().attr('user_id');
+
     // Deselect any of the selected user's followers
     $('#following_list .selected_follower').removeClass('selected_follower');
                     
     // Show the profile
     $.get('/dashboard/get_profile', {
-        user_id: $(this).attr('user_id')
+        'user_id': user_id,
+        'force_accept_button': true
     }, function (data) {
         $('.following_profile_body').html(data);
         $('.suggested_friends').removeClass('suggested_active');
@@ -146,9 +150,6 @@ function populate_following_list(callback) {
         
         // User entry click handler
         $('#following_list .user_entry').click(function(){
-            // Capture the user id
-            var user_id = $(this).parent().attr('user_id');
-            
             $('.suggested_active').removeClass('suggested_active');
             $('#follow_search').hide();
             if(!$(this).hasClass('selected_follower'))
@@ -159,8 +160,7 @@ function populate_following_list(callback) {
                 
             // Not in if statement to allow re-clicking
             $.get('/dashboard/get_profile', {
-                'user_id': user_id,
-                force_accept_button: true
+                user_id: $(this).attr('user_id')
             }, function (data) {
                 $('.following_profile_body').html(data);
                 
