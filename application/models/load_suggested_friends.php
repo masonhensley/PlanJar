@@ -10,6 +10,7 @@ class Load_suggested_friends extends CI_Model
 
     function suggested_friends($user_id, $grad_year, $school_id)
     {
+        /*
         $user = $this->ion_auth->get_user();
 
         // new query that selects all the followers of your followers
@@ -55,7 +56,7 @@ class Load_suggested_friends extends CI_Model
             // generate suggested friends and show results
         }
 
-
+*/
 
 
         // old code starts here
