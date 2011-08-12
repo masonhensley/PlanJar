@@ -156,7 +156,7 @@ function populate_following_list(callback) {
                 following_id: clicked_elem.parent().attr('user_id')
             }, function (data) {
                 // Hide the profile body
-                $('#following_profile_body').hide();
+                $('.following_profile_body').hide();
                 
                 populate_following_list();
             });
