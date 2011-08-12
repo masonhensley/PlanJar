@@ -3,6 +3,12 @@
 class Day_sets extends CI_Model
 {
 
+    // Constructor.
+    function __construct()
+    {
+        parent::__construct();
+    }
+
     // Returns a string containing the necessary HTML for the day tab set in the home view
     // If $plan is true, the returned divs have class plan_day
     function day_set($offset, $plan = false)

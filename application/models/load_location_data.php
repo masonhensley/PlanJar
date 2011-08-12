@@ -3,6 +3,12 @@
 class Load_location_data extends CI_Model
 {
 
+    // Constructor.
+    function __construct()
+    {
+        parent::__construct();
+    }
+
     function _display_location_info($place_id, $day, $selected_groups, $add_back_button)
     {
         if (!$day)  // set the day correctly if null

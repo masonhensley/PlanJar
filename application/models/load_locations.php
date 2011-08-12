@@ -3,6 +3,12 @@
 class Load_locations extends CI_Model
 {
 
+    // Constructor.
+    function __construct()
+    {
+        parent::__construct();
+    }
+
     function load_relevant_locations($selected_groups, $day, $user_id, $school)
     {
         // when the page first loads, the javascript can't get the attribute in time, so it is set to 0
@@ -140,7 +146,7 @@ class Load_locations extends CI_Model
         $group_name_array = $this->get_group_names($group_list);
         $display_message = $this->setup_groups_header($group_name_array, $display_day);
         $query_helper = "";
-        
+
         foreach ($group_list as $group_id)
         {
             $query_helper .= "group_relationships.group_id=$group_id OR ";
@@ -269,7 +275,7 @@ class Load_locations extends CI_Model
     {
         ?> 
         <div class="display_message">
-            <?php echo $display_message; ?>
+        <?php echo $display_message; ?>
         </div>
         <?php
         if (count($place_id_array) > 0)
@@ -283,7 +289,7 @@ class Load_locations extends CI_Model
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">
-                        <?php echo $number_tracker; ?>
+                <?php echo $number_tracker; ?>
                     </div>
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
                     <font style="font-weight:bold;color:gray; font-size:13px;"><?php echo $count; ?> plans made here</font><br/>
