@@ -132,7 +132,7 @@ function suggested_search_click() {
         // Add following click handler
         $('.following_profile_body .add_following').confirmDiv(function (clicked_elem) {
             $.get('/dashboard/add_user_following', {
-                following_id: clicked_elem.parent().attr('user_id')
+                following_id: user_id
             }, function (data) {
                 populate_suggested_friends();
                 populate_following_list();
