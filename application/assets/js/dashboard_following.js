@@ -136,6 +136,8 @@ function suggested_search_click() {
             }, function (data) {
                 populate_following_list(function() {
                     // Click on the newly added following entry
+                    console.log($('#following_list .user_entry[user_id="' + user_id + '"]'));
+                    console.log('#following_list .user_entry[user_id="' + user_id + '"]');
                     $('#following_list .user_entry[user_id="' + user_id + '"]').click();
                 });
             });
