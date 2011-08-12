@@ -94,12 +94,11 @@ function initialize_suggested_friends()
                     
                 // Hide the profile body if necessary and show the result list
                 if ($('.following_profile_body').is(':visible')) {
-                    console.log('was visible');
                     $('.following_profile_body').hide('fast', function() {
-                        $('#follow_search').show('fast');
+                        $('#follow_search').show('blind', {}, 'fast');
                     });
                 } else {
-                    $('#follow_search').show('fast');
+                    $('#follow_search').show('blind', {}, 'fast');
                 }
                     
                 // Add following click handler
