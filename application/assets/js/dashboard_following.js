@@ -163,9 +163,8 @@ function populate_following_list(callback) {
                 user_id: $(this).attr('user_id')
             }, function (data) {
                 // Hide and reload the data
-                $('.following_profile_body').hide('fast', function() {
-                    $('.following_profile_body').html(data);
-                });
+                $('.following_profile_body').hide();
+                $('.following_profile_body').html(data);
                 
                 // Hide if necessary and show
                 if ($('#follow_search').is(':visible')) {
