@@ -15,14 +15,22 @@ function initialize_suggested_friends()
     
     // Search for friends
     $('#friend_search').keyup(function () {
-        $('.following_profile_body').hide('fast');
+        
         $('.suggested_active').removeClass('suggested_active'); // this unselects the "suggested friends" tab
         
         $.get('/dashboard/follow_search', {
             needle: $(this).val()
         }, function (data) {
             $('#follow_search').html(data);
-            $('#follow_search').show('blind', {}, 'fast');
+            
+            // Hide the profile body if necessary and show the search results
+            if ($('.following_profile_body').is(':visible')) {
+                $('.following_profile_body').hide('fast', function() {
+                    $('#follow_search').show('blind', {}, 'fast');
+                });
+            } else {
+                $('#follow_search').show('blind', {}, 'fast');
+            }
             
             // Friend search user click handler
             $('#follow_search .user_entry').click(function(){
