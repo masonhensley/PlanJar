@@ -71,37 +71,41 @@ function initialize_suggested_friends()
             $(this).addClass('suggested_active');
             
             // Get the suggested friends
-            $.get('/dashboard/get_suggested_friends', function (data) {
-                $('#follow_search').html(data);
-                    
-                // Hide the profile body if necessary and show the result list
-                if ($('.following_profile_body').is(':visible')) {
-                    $('.following_profile_body').hide('fast', function() {
-                        $('#follow_search').show('blind', {}, 'fast');
-                    });
-                } else {
-                    $('#follow_search').show('blind', {}, 'fast');
-                }
-                    
-                // Add following click handler
-                $('.add_following').confirmDiv(function (clicked_elem) {
-                    $.get('/dashboard/add_user_following', {
-                        following_id: clicked_elem.parent().attr('user_id')
-                    }, function (data) {
-                        populate_following_list();
-                        get_suggested_friends();
-                    });
-                });
-            
-                // click handler for getting the profile
-                $('#follow_search .user_entry').click(suggested_search_click);
-            });
+            populate_suggested_friends();
         } 
     });
     
     // Refer to the definition in dashboard_view.
     // Essentially selects the suggested button if necessary at load
     show_suggested_init('#following_content', '.suggested_friends');    
+}
+
+// Populates the suggested friends and assigns the click handlers
+function populate_suggested_friends() {
+    $.get('/dashboard/get_suggested_friends', function (data) {
+        $('#follow_search').html(data);
+                    
+        // Hide the profile body if necessary and show the result list
+        if ($('.following_profile_body').is(':visible')) {
+            $('.following_profile_body').hide('fast', function() {
+                $('#follow_search').show('blind', {}, 'fast');
+            });
+        } else {
+            $('#follow_search').show('blind', {}, 'fast');
+        }
+                    
+        // Add following click handler
+        $('.add_following').confirmDiv(function (clicked_elem) {
+            $.get('/dashboard/add_user_following', {
+                following_id: clicked_elem.parent().attr('user_id')
+            }, function (data) {
+                populate_following_list();
+            });
+        });
+            
+        // click handler for getting the profile
+        $('#follow_search .user_entry').click(suggested_search_click);
+    });
 }
 
 // Modularized click handler for suggested/searched friends
