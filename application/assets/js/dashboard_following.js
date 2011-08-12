@@ -134,10 +134,10 @@ function suggested_search_click() {
             $.get('/dashboard/add_user_following', {
                 following_id: user_id
             }, function (data) {
-                populate_following_list();
-                
-                // Hide the profile
-                $('.following_profile_body').hide();
+                populate_following_list(function() {
+                    // Click on the newly added following entry
+                    $('#following_list .user_entry[user_id="' + user_id + '"]').click();
+                });
             });
         });       
     });
