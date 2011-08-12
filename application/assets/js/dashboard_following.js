@@ -158,7 +158,7 @@ function populate_following_list(callback) {
                 // Hide the profile body
                 $('#following_profile_body').hide();
                 
-                populate_following_list();         
+                populate_following_list();
             });
         });
         
@@ -187,12 +187,12 @@ function populate_following_list(callback) {
                     });
                 } else {
                     $('.following_profile_body').show("fast");
-                }   
-                
-                if (callback != undefined) {
-                    callback();
                 }
             });
         });
+        
+        if (callback != undefined) {
+            callback();
+        }
     });
 }
