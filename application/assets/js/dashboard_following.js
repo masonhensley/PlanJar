@@ -35,7 +35,6 @@ function initialize_suggested_friends()
             // Friend search user click handler
             $('#follow_search .user_entry').click(function(){
                 // Deselect any of the selected user's followers
-                console.log($('#following_list .selected_follower'));
                 $('#following_list .selected_follower').removeClass('selected_follower');
                 
                 $.get('/dashboard/get_profile', {
@@ -114,6 +113,9 @@ function initialize_suggested_friends()
             
                 // click handler for getting the profile
                 $('#follow_search .user_entry').click(function(){
+                    // Deselect any of the selected user's followers
+                    $('#following_list .selected_follower').removeClass('selected_follower');
+                    
                     $.get('/dashboard/get_profile', {
                         user_id: $(this).attr('user_id')
                     }, function (data) {
