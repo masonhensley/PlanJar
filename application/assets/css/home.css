@@ -230,7 +230,7 @@ a {
     bottom: 0px;
 }
 
-.back_to_plan {
+.back_to_plan, .back_to_groups {
     text-align: center;
     padding: 8px;
     position: absolute;
@@ -395,8 +395,7 @@ a {
     border-bottom: 1px solid gray;
 }
 .selected_location_tab {
-    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
-    color: navy;
+    background: -webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
 }
 #number_rank {
     border: 1px solid lightgray;

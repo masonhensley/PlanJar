@@ -38,32 +38,31 @@ function display_info(bypass, arg) {
     // Show the info tab
     show_data_container('#info_content');
     
-    if (bypass != true) {
-        // Needed by fricking every incoming call (and by every I mean enough to put it here)
-        populate_popular_locations();
-    }
-    
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
         
         // Get the correct place id and back button value
         var place_id;
-        var back_button = false;
+        var back_to_plan = false;
         if (viewing_plan_location === false) {
             place_id = $('.selected_location_tab').attr('place_id');
         } else {
             place_id = viewing_plan_location;
-            back_button = true;
+            back_to_plan = true;
         }
         
         $.get('/home/show_location_data', {
             'place_id': place_id,
             'date': get_selected_day(),
             'selected_groups': get_selected_groups(),
-            'back_button': back_button
+            'back_to_plan': back_to_plan,
+            'back_to_groups': $('.selected_location_tab').length > 0
         }, function (data) {
             initialize_location_info(data);
         });
+        
+        // Bypass updating the location list
+        bypass = true;
     } else if ($('.network_active, .selected_group').length > 0) {
         // Network or group selected.
         
@@ -120,6 +119,12 @@ function display_info(bypass, arg) {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
     }
+    
+    // This is down here to allow the above code to procedurally change the value of bypass
+    if (bypass != true) {
+        // Needed by fricking every incoming call (and by every I mean enough to put it here)
+        populate_popular_locations();
+    }
 }
 
 // Sets up the location view (graphs and whatnot)
@@ -150,9 +155,16 @@ function initialize_location_info(data) {
         });
     });
     
-    // Back click handler (not always visible)
+    // Back to plan click handler (not always visible)
     $('.back_to_plan').click(function () {
         viewing_plan_location = false;
+        display_info();
+    });
+    
+    // Back to groups click handler (not always visible)
+    $('.back_to_groups').click(function () {
+        // Deselect the group and update the display
+        $('.selected_location_tab').removeClass('selected_location_tab');
         display_info();
     });
 }
