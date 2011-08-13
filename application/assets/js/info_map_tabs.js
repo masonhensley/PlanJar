@@ -55,7 +55,8 @@ function display_info(bypass, arg) {
             'place_id': place_id,
             'date': get_selected_day(),
             'selected_groups': get_selected_groups(),
-            'back_button': back_button
+            'back_button': back_button,
+            'back_to_groups': back_to_groups
         }, function (data) {
             initialize_location_info(data);
         });
