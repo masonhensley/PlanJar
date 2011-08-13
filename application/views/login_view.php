@@ -137,7 +137,7 @@
                                 </select>
                             </div>
 
-                            <div class="div_texbox">
+                            <div class="div_texbox" style="margin-top:10px;">
                                 <select name="su_sex">
                                     <option value="" selected="selected">Gender</option>
                                     <option value="male">Male</option>
@@ -145,11 +145,10 @@
                                 </select>
                             </div>                            
                             <div class="button_div">
-                                <div style="position:relative; top:5px;">
+                                <div style="margin-top:10px; margin-bottom:10px;">
                                     <input class="buttons" type="submit" value="Sign up">
                                 </div>
                             </div>
-
                         </form>
                     </center>
                 </div>
