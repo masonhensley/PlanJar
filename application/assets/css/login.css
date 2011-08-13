@@ -331,6 +331,7 @@ h3 {
 .in-field_block {
     position:relative;
     width: 275px;
+    margin-top:12px;
 }
 
 .log_in_bar{
