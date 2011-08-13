@@ -329,23 +329,8 @@ h3 {
 
 /*  in-field_bloc_signup is used exclusively for the signup divs. they require different styling than everything else*/
 /* wtf */
-.in-field_block_signup{
-    position:relative;
-    height: 30px;
-    width: 200px;
+.signup{
     margin-top:12px;
-}
-
-.in-field_block_signup  label{
-    position:absolute;
-    top: 0.6em;
-    left: 0.35em;
-    color: #999999;
-}
-
-.in-field_block_signup input {
-    width: 100%;
-    height: 100%;
 }
 
 .log_in_bar{
