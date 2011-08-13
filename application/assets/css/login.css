@@ -61,78 +61,78 @@ h1 {
 }
 
 h5 {  
-     padding: 5px 10px;  
-     margin-left: -20px;  
-     margin-top: 10px;  
-     position: relative;  
-     width: 80%;
+    padding: 5px 10px;  
+    margin-left: -20px;  
+    margin-top: 10px;  
+    position: relative;  
+    width: 80%;
 
-     -webkit-border-radius: 5px 5px 5px 0px;
-     -moz-border-radius: 5px 5px 5px 0px;
-     -o-border-radius: 5px 5px 5px 0px;
-     -ms-border-radius: 5px 5px 5px 0px;
-     -khtml-border-radius: 5px 5px 5px 0px;
-     border-radius: 5px 5px 5px 0px;
+    -webkit-border-radius: 5px 5px 5px 0px;
+    -moz-border-radius: 5px 5px 5px 0px;
+    -o-border-radius: 5px 5px 5px 0px;
+    -ms-border-radius: 5px 5px 5px 0px;
+    -khtml-border-radius: 5px 5px 5px 0px;
+    border-radius: 5px 5px 5px 0px;
 
-      background-color: #d5d5d5;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237,238,239)), to(rgb(223,223,224)));
-      background-image: -webkit-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
-      background-image: -moz-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
-      background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
-      background-image: -ms-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
-      background-image: linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-color: #d5d5d5;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237,238,239)), to(rgb(223,223,224)));
+    background-image: -webkit-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-image: -moz-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-image: -ms-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-image: linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
 
 
-        /* -------------- Font -----------------------*/
-        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-	font-size: 15px;
-	line-height: 30px;
+    /* -------------- Font -----------------------*/
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 30px;
 
     color: #454545;  
     text-shadow: 0 1px 0 white;
 }
 
-h6 {  
-     padding: 5px 10px;  
-     margin-left: -20px;  
-     margin-top: 5px;  
-     position: relative;  
-     width: 80%;
+h3 {  
+    padding: 5px 25px;  
+    margin-left: -20px;  
+    margin-top: 5px;  
+    position: relative;  
+    width: 80%;
 
-     -webkit-border-radius: 5px 5px 5px 0px;
-     -moz-border-radius: 5px 5px 5px 0px;
-     -o-border-radius: 5px 5px 5px 0px;
-     -ms-border-radius: 5px 5px 5px 0px;
-     -khtml-border-radius: 5px 5px 5px 0px;
-     border-radius: 5px 5px 5px 0px;
+    -webkit-border-radius: 5px 5px 5px 0px;
+    -moz-border-radius: 5px 5px 5px 0px;
+    -o-border-radius: 5px 5px 5px 0px;
+    -ms-border-radius: 5px 5px 5px 0px;
+    -khtml-border-radius: 5px 5px 5px 0px;
+    border-radius: 5px 5px 5px 0px;
 
-      background-color: #d5d5d5;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237,238,239)), to(rgb(223,223,224)));
-      background-image: -webkit-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
-      background-image: -moz-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
-      background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
-      background-image: -ms-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
-      background-image: linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-color: #d5d5d5;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237,238,239)), to(rgb(223,223,224)));
+    background-image: -webkit-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-image: -moz-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-image: -o-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-image: -ms-linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
+    background-image: linear-gradient(top,rgb(237,238,239),rgb(223,223,224));
 
 
-        /* -------------- Font -----------------------*/
-        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-	font-size: 15px;
-	line-height: 30px;
+    /* -------------- Font -----------------------*/
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 30px;
 
     color: #454545;  
     text-shadow: 0 1px 0 white;
 }
 
 .arrow {  
-     width: 0; height: 0;  
-     line-height: 0;  
-     border-left: 20px solid transparent;  
-     border-top: 10px solid #bbb;  
-     top: 104%;  
-     left: 0;  
-     position: absolute;
-     margin-top: -3px;
+    width: 0; height: 0;  
+    line-height: 0;  
+    border-left: 20px solid transparent;  
+    border-top: 10px solid #bbb;  
+    top: 104%;  
+    left: 0;  
+    position: absolute;
+    margin-top: -3px;
 }  
 
 
@@ -145,7 +145,7 @@ h6 {
 
     padding:10px;
     padding-top: 30px;  
-    
+
     font-family: helvetica, arial, sans-serif;
 
     /*
@@ -167,8 +167,8 @@ h6 {
 
 #leftside{
     position:relative;
-    width:600px;
-    height:500px;
+    width:560px;
+    height:412px;
     float:left;
 
     -webkit-border-top-left-radius: 10px;
@@ -194,7 +194,7 @@ h6 {
 #left_video{
     position:relative;
     background-color: #ccc;
-    height: 360px;
+    height: 310px;
     width: 100%;
 }
 
@@ -202,7 +202,7 @@ h6 {
     position:relative;
     width:300px;
     padding-left:30px;
-    float: left;
+    float: right;
 }
 
 #right_inner{
@@ -222,7 +222,7 @@ h6 {
     -moz-box-shadow: 0px 2px 8px #aaa;
     box-shadow: 0px 2px 8px #aaa; 
 
-.clear {
+    .clear {
     clear:both;
 }
 .holder {
@@ -327,10 +327,10 @@ h6 {
     border-width: 5px;
 }
 
-/* The following two classes are used for the in-field labels. */
-.in-field_block {
-    position:relative;
-    width: 275px;
+/*  in-field_bloc_signup is used exclusively for the signup divs. they require different styling than everything else*/
+/* wtf */
+.signup{
+    margin-top:12px;
 }
 
 .log_in_bar{
@@ -350,50 +350,50 @@ h6 {
 /* --------BOTTOM LINKS ---------*/
 
 #stickey_footer { /* This will make your footer stay where it is */
- background: none repeat scroll 0 0 #1D1D1D;
- border: 1px solid rgba(0, 0, 0, 0.3);
- bottom: 0;
- font-family: Arial, Helvetica, sans-serif;
- height: 40px;
- left: 50%;
- margin: 0 auto 0 -490px;
- padding: 0 10px;
- position: fixed;
- text-shadow: 1px 1px 1px #000000;
- width: 960px;
- -moz-border-radius: 10px 10px 0px 0px;
- -webkit-border-radius: 10px 10px 0px 0px;
- border-radius: 10px 10px 0px 0px;
+    background: none repeat scroll 0 0 #1D1D1D;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 40px;
+    left: 50%;
+    margin: 0 auto 0 -490px;
+    padding: 0 10px;
+    position: fixed;
+    text-shadow: 1px 1px 1px #000000;
+    width: 960px;
+    -moz-border-radius: 10px 10px 0px 0px;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
 
-/* shadow for the footer*/
- -moz-box-shadow:0px 0px 11px #191919;
- -webkit-box-shadow:0px 0px 11px #191919;
- box-shadow:0px 0px 11px #191919;
+    /* shadow for the footer*/
+    -moz-box-shadow:0px 0px 11px #191919;
+    -webkit-box-shadow:0px 0px 11px #191919;
+    box-shadow:0px 0px 11px #191919;
 }
- 
 
 
- 
+
+
 #footer_menu {
- margin: 0;
- padding: 0;
- width:auto;
- list-style: none;
- float: left;
- font-size:12px;
- padding: 12px 14px 14px 14px;
- border-right:1px solid rgba(0, 0, 0, 0.4);
- background: rgba(0, 0, 0, 0.1);
- display: block;
- color: #cccccc;
- text-decoration: none;
+    margin: 0;
+    padding: 0;
+    width:auto;
+    list-style: none;
+    float: left;
+    font-size:12px;
+    padding: 12px 14px 14px 14px;
+    border-right:1px solid rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.1);
+    display: block;
+    color: #cccccc;
+    text-decoration: none;
 }
 
 
 #footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:60px;   /* Height of the footer */
-   background:#6cf;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background:#6cf;
 }
