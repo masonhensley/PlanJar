@@ -99,8 +99,10 @@
                                 </div>
                             </div>
 
-                            <div class="div_texbox"><font style="opacity:1; font: normal 18px Arial;
-                                                          color: #999;">&nbsp;Birthday</font>
+                            <div class="div_texbox" style="margin-top:12px;">
+                                <font style="opacity:1; font: normal 18px Arial;
+                                      color: #999;">&nbsp;Birthday
+                                </font>
                                 <select name="su_month">
                                     <option value=""selected="selected">Month</option>
                                     <option value="1">Jan</option>
