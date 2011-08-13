@@ -494,7 +494,7 @@ function initialize_plan_autocomplete() {
                                         var last_index = category.lastIndexOf('>');
                                         var category_name = category;
                                         if (last_index != -1) {
-                                            category_name =  category.substr(last_index + 1);
+                                            category_name =  category.substr(last_index + 2);
                                         }
                                         
                                         response_json.push({
