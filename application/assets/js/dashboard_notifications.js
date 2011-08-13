@@ -1,44 +1,39 @@
+$(function() {
+    
+    });
+
 // Called when the notifications tab is clicked
 function notifications_setup() {
-    setup_notifications();
-}
-
-function setup_notifications(){
-    // select the unread messages tab
-//    $('.notifications_tab').removeClass('notifications_tab_selected'); // this accounts for when both are selected from changing tabs
-//    $('#unread_notifications_tab').addClass('notifications_tab_selected');
-    
     // click handler for notification unread and all tabs, callback function populates notifications
     $('.notifications_tab').click(function(){
-        if(!$(this).hasClass('notifications_tab_selected'))
-        {
-            $('.notifications_tab_selected').removeClass('notifications_tab_selected');
-            $(this).addClass('notifications_tab_selected');
-            get_notifications();
-        }
+        $('.notifications_tab_selected').removeClass('notifications_tab_selected');
+        $(this).addClass('notifications_tab_selected');
+        get_notifications();
     });
     
     get_notifications(); // this is called to initially populate the list
 }
 
+// Populates the notifications
 function get_notifications() {
-    
     if($('#unread_notifications_tab').hasClass('notifications_tab_selected'))
     {
+        // Unread
         $.get('/dashboard/get_unread_notifications', function (data) {
             $('#notifications_list').html(data);
-            setup_notification_tabs(data);
+            notification_click_handlers();
         });    
-    }else{
+    } else {
+        // All
         $.get('/dashboard/get_all_notifications', function (data) {
             $('#notifications_list').html(data);
-            setup_notification_tabs(data);
+            notification_click_handlers();
         });
     }
-    
 }
 
-function setup_notification_tabs(data){
+// Click handlers for notifications (view profile link, mark unread, etc.
+function notification_click_handlers(){
     // Read/unread toggle
     $('.notification_entry .mark_read').click(function () {
         var bool = $(this).parent().hasClass('unviewed') ? 1 : 0;
@@ -80,6 +75,7 @@ function setup_notification_tabs(data){
     });
 }
 
+// Does what it says
 function update_notification_viewed(id, value) {
     $.get('/dashboard/update_notification_viewed', {
         notif_id: id,
