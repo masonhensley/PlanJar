@@ -33,6 +33,7 @@
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
         <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_conflict_modal.js"></script>
+        <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
