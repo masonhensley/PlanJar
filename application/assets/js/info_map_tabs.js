@@ -38,11 +38,6 @@ function display_info(bypass, arg) {
     // Show the info tab
     show_data_container('#info_content');
     
-    if (bypass != true) {
-        // Needed by fricking every incoming call (and by every I mean enough to put it here)
-        populate_popular_locations();
-    }
-    
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
         
@@ -64,6 +59,9 @@ function display_info(bypass, arg) {
         }, function (data) {
             initialize_location_info(data);
         });
+        
+        // Bypass updating the location list
+        bypass = true;
     } else if ($('.network_active, .selected_group').length > 0) {
         // Network or group selected.
         
@@ -119,6 +117,12 @@ function display_info(bypass, arg) {
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
+    }
+    
+    // This is down here to allow the above code to procedurally change the value of bypass
+    if (bypass != true) {
+        // Needed by fricking every incoming call (and by every I mean enough to put it here)
+        populate_popular_locations();
     }
 }
 
