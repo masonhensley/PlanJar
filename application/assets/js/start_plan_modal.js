@@ -508,13 +508,12 @@ function initialize_plan_autocomplete() {
                                             factual_id: item[1]
                                         });
                                     }); 
-                                } else {
-                                    response_json.push({
-                                        label: "Create place (it's easy!)", 
-                                        value: '', 
-                                        id: 'new place'
-                                    });
                                 }
+                                response_json.push({
+                                    label: "Create place (it's easy!)", 
+                                    value: '', 
+                                    id: 'new place'
+                                });
                                 
                                 // Call the response function with the response JSON.
                                 if (!item_selected) {
