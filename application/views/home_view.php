@@ -134,15 +134,10 @@
         </div>
 
         <div class="bottom_links">
-            Bottom link content will go in here; links, names, contact info, etc. it will be epic sauce
-
-            <a href="/help" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">Help & FAQ</div></div></a>
-            <a href="/about" id="profile_link"><div class ="bottom_link_outer"><div class="top_right_link_inner">About</div></div></a>
-            <a href="/privacy" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Privacy</div></div></a>
-
-            <a href="http://blog.planjar.com/" id="profile_link"><div class="bottom_link_outer"><div class="top_right_link_inner">Blog</div></div></a>
-
-
+            <a href="/help" id="profile_link">Help & FAQ</a>
+            <a href="/about" id="profile_link">About</a>
+            <a href="/privacy" id="profile_link">Privacy</a>
+            <a href="http://blog.planjar.com/" id="profile_link">Blog</a>
         </div>
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
