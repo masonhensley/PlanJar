@@ -327,13 +327,10 @@ h3 {
     border-width: 5px;
 }
 
-/* The following two classes are used for the in-field labels. */
-.in-field_block {
+.in-field_block_signup {
     position:relative;
-    width: 275px;
-}
-
-.in-field_block label{
+    height: 30px;
+    width: 200px;
     margin-top:12px;
 }
 
