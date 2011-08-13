@@ -40,15 +40,13 @@
                         </div>
 
                     </div>
-                    <h4>Parker Bossier, Director of Tactical Operations, Software Architect & Co-Founder<span class="arrow_right"></span> </h4>
+                    <h4>Parker Bossier, Director of Tactical Operations, Software Architect & Co-Founder &#3232;_&#3232;<span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
                             Parker leads the architecture and development teams with Wells (currently the only other member of said teams).
                             Prior to this venture, Parker worked in IT for the legal sector and designed the VSVS online application as VSVS IT Chair.
                             <br/><br/>
                             Academically, Parker expects to graduate from Vanderbilt University in 2012 with a bachelor's degree in Computer Science and Math.
-                            <br/><br/>
-                            &#3232;_&#3232;
                         </div>
                         <div class ="pic">
                         </div>
