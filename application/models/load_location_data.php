@@ -257,7 +257,7 @@ class Load_location_data extends CI_Model
         } else if ($back_to_groups)
         {
             ?>
-            <div class="back_to_groups" style="position: absolute; top: 0px; right: 0px;">Back to group</div>
+            <div class="back_to_groups" style="position: absolute; top: 0px; right: 0px;">Back to groups/networks</div>
             <?php
         }
         return ob_get_clean();
