@@ -1,16 +1,15 @@
 $(function() {
-    
-    });
-
-// Called when the notifications tab is clicked
-function notifications_setup() {
     // click handler for notification unread and all tabs, callback function populates notifications
     $('.notifications_tab').click(function(){
         $('.notifications_tab_selected').removeClass('notifications_tab_selected');
         $(this).addClass('notifications_tab_selected');
         get_notifications();
     });
-    
+});
+
+// Called when the notifications tab is clicked
+function notifications_setup() {
+    // Click the unread tab when the tab is loaded
     $('#unread_notifications_tab').click();
 }
 
