@@ -40,7 +40,6 @@
                 </div>  
             </div>
         </div>
-
         <div id="container">
             <div id="leftside">
                 <h5> PlanJar shows what groups of people are doing around you<span class="arrow"></span> </h5>
@@ -48,14 +47,10 @@
                 </div>
                 <div id="left_video">
                 </div>  
-
             </div>
-
-
             <div id="rightside">
-
                 <div id="right_inner">
-                    <h6>Not a member?  Sign up for free.<span class="arrow"></span></h6>
+                    <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>
                     <font color="purple" >
                         <div id="su_error" class="error_message">
                             <!-- Errors will be displayed here -->
