@@ -498,7 +498,7 @@ function initialize_plan_autocomplete() {
                                         }
                                         
                                         response_json.push({
-                                            label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
+                                            label: '*' + item[2] + '(' + category_name + ')' + ' - ' + distance.toFixed(2) + "mi", 
                                             value: item[2],
                                             id: 'factual',
                                             name: item[2],
