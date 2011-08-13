@@ -41,23 +41,12 @@
             </div>
         </div>
 
-
-
-
-
-
         <div id="container">
-
-
             <div id="leftside">
-                <h5> PlanJar shows you what groups of people are doing around you<span class="arrow"></span> </h5>
-
+                <h5> PlanJar shows what groups of people are doing around you<span class="arrow"></span> </h5>
                 <div id="left_title">
-
                 </div>
-
                 <div id="left_video">
-                    
                 </div>  
 
             </div>
