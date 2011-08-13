@@ -230,7 +230,7 @@ a {
     bottom: 0px;
 }
 
-.back_to_plan {
+.back_to_plan, .back_to_groups {
     text-align: center;
     padding: 8px;
     position: absolute;

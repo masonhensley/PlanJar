@@ -43,20 +43,20 @@ function display_info(bypass, arg) {
         
         // Get the correct place id and back button value
         var place_id;
-        var back_button = false;
+        var back_to_plan = false;
         if (viewing_plan_location === false) {
             place_id = $('.selected_location_tab').attr('place_id');
         } else {
             place_id = viewing_plan_location;
-            back_button = true;
+            back_to_plan = true;
         }
         
         $.get('/home/show_location_data', {
             'place_id': place_id,
             'date': get_selected_day(),
             'selected_groups': get_selected_groups(),
-            'back_button': back_button
-        //'back_to_groups': back_to_groups
+            'back_to_plan': back_to_plan,
+            'back_to_groups': $('.selected_location_tab').length > 0
         }, function (data) {
             initialize_location_info(data);
         });
@@ -155,9 +155,16 @@ function initialize_location_info(data) {
         });
     });
     
-    // Back click handler (not always visible)
+    // Back to plan click handler (not always visible)
     $('.back_to_plan').click(function () {
         viewing_plan_location = false;
+        display_info();
+    });
+    
+    // Back to groups click handler (not always visible)
+    $('.back_to_groups').click(function () {
+        // Deselect the group and update the display
+        $('.selected_location_tab').removeClass('selected_location_tab');
         display_info();
     });
 }
