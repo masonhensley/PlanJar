@@ -58,49 +58,47 @@
                     </font>
                     <center>
                         <form id="sign_up">
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                             <div class="div_texbox">
                                 <div class="in-field_block">
                                     <label for="su_email_1">University email</label>
                                     <input id="su_email_1" name="su_email_1" type="email" class="textbox">
                                 </div>
                             </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
                             <div class="div_texbox">
                                 <div class="in-field_block">
                                     <label for="su_email_2">Confirm email</label>
                                     <input id="su_email_2" name="su_email_2" type="email" class="textbox">
                                 </div>
                             </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+
                             <div class="div_texbox">
                                 <div class="in-field_block">
                                     <label for="su_password">Password</label>
                                     <input id="su_password" name="su_password" type="password" class="textbox">
                                 </div>
                             </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+
                             <div class="div_texbox">
                                 <div class="in-field_block">
                                     <label for="su_first_name">First name</label>
                                     <input id="su_first_name" name="su_first_name" type="text" class="textbox">
                                 </div>
                             </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+
                             <div class="div_texbox">
                                 <div class="in-field_block">
                                     <label for="su_last_name">Last name</label>
                                     <input id="su_last_name" name="su_last_name" type="text" class="textbox">
                                 </div>
                             </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+
                             <div class="div_texbox">
                                 <div class="in-field_block">
                                     <label for="su_grad_year">Graduation year (yyyy)</label>
                                     <input id="su_grad_year" name="su_grad_year" type="text" class="textbox">
                                 </div>
                             </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+
                             <div class="div_texbox"><font style="opacity:1; font: normal 18px Arial;
                                                           color: #999;">&nbsp;Birthday</font>
                                 <select name="su_month">
@@ -138,21 +136,20 @@
                                     ?>
                                 </select>
                             </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+
                             <div class="div_texbox">
                                 <select name="su_sex">
                                     <option value="" selected="selected">Gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
-                            </div>
-                            <div id="padding" style="position:relative; width:260px; height:10px;"></div>
+                            </div>                            
                             <div class="button_div">
                                 <div style="position:relative; top:5px;">
                                     <input class="buttons" type="submit" value="Sign up">
                                 </div>
                             </div>
-                            <div id="padding" style="position:relative; width:260px; height:7px;"></div>
+
                         </form>
                     </center>
                 </div>
