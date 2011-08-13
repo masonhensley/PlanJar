@@ -11,7 +11,7 @@ function notifications_setup() {
         get_notifications();
     });
     
-    get_notifications(); // this is called to initially populate the list
+    $('#unread_notifications_tab').click();
 }
 
 // Populates the notifications
