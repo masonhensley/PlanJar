@@ -51,6 +51,7 @@ function display_info(bypass, arg) {
             back_to_plan = true;
         }
         
+        console.log($('.selected_location_tab').length > 0);
         $.get('/home/show_location_data', {
             'place_id': place_id,
             'date': get_selected_day(),
