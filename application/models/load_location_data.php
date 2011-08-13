@@ -9,7 +9,7 @@ class Load_location_data extends CI_Model
         parent::__construct();
     }
 
-    function _display_location_info($place_id, $day, $selected_groups, $back_to_plan, $back_to_plans)
+    function _display_location_info($place_id, $day, $selected_groups, $back_to_plan, $back_to_groups)
     {
         if (!$day)  // set the day correctly if null
         {
