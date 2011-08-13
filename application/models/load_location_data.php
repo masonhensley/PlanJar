@@ -254,7 +254,7 @@ class Load_location_data extends CI_Model
             ?>
             <div class="back_to_plan" style="position: absolute; top: 0px; right: 0px;">Back to plan</div>
             <?php
-        } else if ($add_back_group_button)
+        } else if ($back_to_groups)
         {
             ?>
             <div class="back_to_groups" style="position: absolute; top: 0px; right: 0px;">Back to groups</div>
