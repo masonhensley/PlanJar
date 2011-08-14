@@ -287,7 +287,7 @@ a{
     height:auto;
     width: 48%;
     padding:10px;
-    background-color:white;
+    background:-webkit-linear-gradient(top, white, #F3F6FF);
 }
 
 .edit_box{
