@@ -494,11 +494,11 @@ function initialize_plan_autocomplete() {
                                         var last_index = category.lastIndexOf('>');
                                         var category_name = category;
                                         if (last_index != -1) {
-                                            category_name =  category.substr(last_index + 1);
+                                            category_name =  category.substr(last_index + 2);
                                         }
                                         
                                         response_json.push({
-                                            label: '*' + item[2] + category_name + ' - ' + distance.toFixed(2) + "mi", 
+                                            label: '*' + item[2] + ' (' + category_name + ') - ' + distance.toFixed(2) + "mi", 
                                             value: item[2],
                                             id: 'factual',
                                             name: item[2],
@@ -508,13 +508,12 @@ function initialize_plan_autocomplete() {
                                             factual_id: item[1]
                                         });
                                     }); 
-                                } else {
-                                    response_json.push({
-                                        label: "Create place (it's easy!)", 
-                                        value: '', 
-                                        id: 'new place'
-                                    });
                                 }
+                                response_json.push({
+                                    label: "Create place (it's easy!)", 
+                                    value: '', 
+                                    id: 'new place'
+                                });
                                 
                                 // Call the response function with the response JSON.
                                 if (!item_selected) {
