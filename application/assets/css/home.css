@@ -612,8 +612,8 @@ a {
     left: 49px;
     bottom: 23px;
     border: 1px solid lightgray;
-    background:white;
+    background:-webkit-linear-gradient(top, #8AE28F, #22A228);
     padding: 8px;
-    color: gray;
+    color: white;
     font-weight:bold;
 }
