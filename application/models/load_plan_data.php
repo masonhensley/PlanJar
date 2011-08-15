@@ -150,6 +150,7 @@ class Load_plan_data extends CI_Model
         $result = $this->db->query($query);
         $already_attending = $result->row();
 
+        // if you are already attending an event, you wont have the options to "add to plans"
         if (count($already_attending) < 1)
         {
             $already_attending = 0;
