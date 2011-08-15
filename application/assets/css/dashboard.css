@@ -339,7 +339,7 @@ a{
     position:absolute;
     top:60px;
     right:60px;
-    background-color:white;
+    background:-webkit-linear-gradient(top, white, #F3F6FF);
     height:auto;
     width:50%;
     border:1px solid #CCC;
