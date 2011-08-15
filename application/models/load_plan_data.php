@@ -149,6 +149,7 @@ class Load_plan_data extends CI_Model
         
         $result = $this->db->query($query);
         $already_attending = $result->row();
+        var_dump($already_attending);
         if($already_attending->id == null)
         {
             $already_attending = 0;
