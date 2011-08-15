@@ -617,3 +617,14 @@ a {
     color: white;
     font-weight:bold;
 }
+
+.already_attending{
+    position: absolute;
+    left: 49px;
+    bottom: 23px;
+    border: 1px solid lightgray;
+    background:-webkit-linear-gradient(top, #8AE28F, #22A228);
+    padding: 8px;
+    color: white;
+    font-weight:bold;
+}

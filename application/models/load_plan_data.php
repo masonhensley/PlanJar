@@ -270,6 +270,10 @@ class Load_plan_data extends CI_Model
                 ?>
                 <div class="make_plan">Add to plans</div>
                 <?php
+            }else{
+                ?>
+                <div class="already_attending">Already attending!</div>
+                <?php
             }
         }
 
