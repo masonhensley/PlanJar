@@ -143,20 +143,20 @@ class Load_plan_data extends CI_Model
     {
         $user = $this->ion_auth->get_user();
 
-        // if friend plan, figure out if you already have it
-        $query = "SELECT events.id FROM events JOIN plans ON plans.user_id=$user->user_id
-                WHERE events.id=$plan_row->id";
-        
+        // if friend plan, figure out if you already have it        
+        $query = "SELECT events.id FROM plans JOIN events ON events.id=plans.event_id AND plans.event_id=$plan_row->id
+                WHERE plans.user_id=$user->id";
+
         $result = $this->db->query($query);
         $already_attending = $result->row();
-        var_dump($query, $already_attending);
-        if(!$already_attending->id)
+        if (!$already_attending->id)
         {
             $already_attending = 0;
-        }else{
+        } else
+        {
             $already_attending = 1;
         }
-        
+
         $data_array = $this->make_date_readable($data_array);
         ob_start();
         // html to replace the data div
@@ -176,7 +176,7 @@ class Load_plan_data extends CI_Model
             {
                 ?><font style="color:black; font-size:25px; font-weight:bold;"><?php echo $plan_row->name; ?></font><?php
         }
-            ?>
+        ?>
 
         </div>
         <div class="info_and_graph_wrapper">
@@ -186,26 +186,26 @@ class Load_plan_data extends CI_Model
                     <font style="color:gray">Location:</font> <font style="font-weight:bold;font-size:15px;">
                     <?php echo "@" . $plan_row->name; ?></font><br/>
                     <font style="color:gray">Created By: </font><font style="font-weight:bold;">
-                    <?php echo $data_array['originator_name']; ?></font>
+        <?php echo $data_array['originator_name']; ?></font>
                     <br/>
                     <font style="color:gray">Time: </font> <font style="font-weight:bold;">
-                    <?php echo str_replace('_', ' ', $data_array['time_string']); ?></font>
+        <?php echo str_replace('_', ' ', $data_array['time_string']); ?></font>
                     <br/><br/>
                     <font style="color:gray">Invited: </font><font style="font-weight:bold;">
-                    <?php echo $data_array['number_invited']; ?></font>
+        <?php echo $data_array['number_invited']; ?></font>
                     &nbsp;&nbsp;&nbsp;
                     <font style="color:gray">Accepted </font><font style="font-weight:bold;">
-                    <?php echo $data_array['number_attending']; ?></font><div id="view_attendees">View List</div>
+        <?php echo $data_array['number_attending']; ?></font><div id="view_attendees">View List</div>
                     <br/><br/>
                     <font style="font-weight:bold;">Description</font>
                     <br/>
                     <font style="color:gray;"><?php
-            if ($plan_row->description)
-            {
-                echo($plan_row->description);
-            } else
-            {
-                        ?>
+        if ($plan_row->description)
+        {
+            echo($plan_row->description);
+        } else
+        {
+            ?>
                         <i>No description</i>
                         <?php
                     }
