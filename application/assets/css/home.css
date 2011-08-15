@@ -623,8 +623,8 @@ a {
     left: 49px;
     bottom: 23px;
     border: 1px solid lightgray;
-    background:-webkit-linear-gradient(top, #8AE28F, #22A228);
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 8px;
-    color: white;
+    color: gray;
     font-weight:bold;
 }
