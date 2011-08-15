@@ -141,6 +141,13 @@ class Load_plan_data extends CI_Model
     // returns html for the selected plan
     function get_plan_html($plan_row, $data_array, $friend_plan)
     {
+
+        // if friend plan, figure out if you already have it
+        $query = "SELECT events.id FROM events WHERE events.id=$plan_row->id";
+        $result = $this->db->query($query);
+        $already_attending = $result->row();
+        $already_attending = $already_attending->id;
+
         $data_array = $this->make_date_readable($data_array);
         ob_start();
         // html to replace the data div
@@ -246,9 +253,12 @@ class Load_plan_data extends CI_Model
         } else
         {
             // Another user's plan
-            ?>
-            <div class="make_plan">Add to plans</div>
-            <?php
+            if (!$already_attending)
+            {
+                ?>
+                <div class="make_plan">Add to plans</div>
+                <?php
+            }
         }
 
         return ob_get_clean();
