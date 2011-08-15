@@ -146,7 +146,12 @@ class Load_plan_data extends CI_Model
         $query = "SELECT events.id FROM events WHERE events.id=$plan_row->id";
         $result = $this->db->query($query);
         $already_attending = $result->row();
-        $already_attending = $already_attending->id;
+        if($already_arrending->id == null)
+        {
+            $already_arrending == 0;
+        }else{
+            $already_arrending == 1;
+        }
 
         $data_array = $this->make_date_readable($data_array);
         ob_start();
