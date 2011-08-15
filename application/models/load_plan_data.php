@@ -141,9 +141,12 @@ class Load_plan_data extends CI_Model
     // returns html for the selected plan
     function get_plan_html($plan_row, $data_array, $friend_plan)
     {
+        $user = $this->ion_auth->get_user();
 
         // if friend plan, figure out if you already have it
-        $query = "SELECT events.id FROM events WHERE events.id=$plan_row->id";
+        $query = "SELECT events.id FROM plans JOIN events ON events.id=$plan_row->id
+                WHERE plans.user_id=$user->id";
+        
         $result = $this->db->query($query);
         $already_attending = $result->row();
         if($already_attending->id == null)
