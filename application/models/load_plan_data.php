@@ -149,17 +149,15 @@ class Load_plan_data extends CI_Model
 
         $result = $this->db->query($query);
         $already_attending = $result->row();
-        var_dump($already_attending);
-        /*
-        if (!$already_attending->id)
+
+        if (count($already_attending) < 1)
         {
             $already_attending = 0;
         } else
         {
             $already_attending = 1;
         }
-         * 
-         */
+         
 
         $data_array = $this->make_date_readable($data_array);
         ob_start();
