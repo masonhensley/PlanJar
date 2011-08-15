@@ -148,9 +148,9 @@ class Load_plan_data extends CI_Model
         $already_attending = $result->row();
         if($already_attending->id == null)
         {
-            $already_attending == 0;
+            $already_attending = 0;
         }else{
-            $already_attending == 1;
+            $already_attending = 1;
         }
 
         $data_array = $this->make_date_readable($data_array);
