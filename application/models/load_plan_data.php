@@ -272,7 +272,7 @@ class Load_plan_data extends CI_Model
                 <?php
             }else{
                 ?>
-                <div class="already_attending">You are attending!</div>
+                <div class="already_attending">You are attending</div>
                 <?php
             }
         }
