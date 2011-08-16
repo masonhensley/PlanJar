@@ -22,6 +22,7 @@ function populate_map(data) {
             icon: '/application/assets/images/map_markers/marker' + (i + 1) + '.png'
         });
         
+        console.log(i);
         // Assign the click event
         google.maps.event.addListener(temp_marker, 'click', function() {
             // Select the corresponding location and display info
