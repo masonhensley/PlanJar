@@ -11,7 +11,7 @@ function populate_map(data) {
         position: new google.maps.LatLng(myLatitude, myLongitude),
         map: map,
         title: 'Your location',
-        icon: '/assets/images/map_markers/arrow.png'
+        icon: '/application/assets/images/map_markers/arrow.png'
     }));
     
     for (var i = 0; i < data.length; ++i) {
@@ -19,7 +19,7 @@ function populate_map(data) {
             position: new google.maps.LatLng(myLatitude, myLongitude),
             map: map,
             title: 'Your location',
-            icon: '/assets/images/map_markers/marker' + i + '.png'
+            icon: '/application/assets/images/map_markers/marker' + i + '.png'
         }));
     }
     
@@ -43,7 +43,7 @@ function map_user_position() {
         position: new google.maps.LatLng(myLatitude, myLongitude),
         map: map,
         title: 'Your location',
-        icon: 'http://www.google.com/mapfiles/arrow.png'
+        icon: '/application/assets/images/map_markers/arrow.png'
     }));
     
     calculate_map_bounds();
