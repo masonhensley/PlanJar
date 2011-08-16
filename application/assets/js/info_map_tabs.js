@@ -40,7 +40,7 @@ function controlls_are_selected() {
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
     // Show the info tab
-    show_data_container('#info_content');
+    //show_data_container('#info_content');
     
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
