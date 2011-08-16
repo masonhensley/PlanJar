@@ -34,6 +34,7 @@
         <script type="text/javascript" src="/application/assets/js/date.js"></script>
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
         <script type="text/javascript" src="/application/assets/js/confirmDiv.js"></script>
+        <script type="text/javascript" src="/application/assets/js/map_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>

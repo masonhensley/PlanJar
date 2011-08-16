@@ -7,7 +7,11 @@ function initialize_info_map_tabs() {
     // Click handler.
     $('div.tab_bar .data_tab').click(function () {
         if ($(this).hasClass('tab_selected')) {
-            hide_data_containers();
+            // Hide data container
+            $('.tab_bar .data_tab').removeClass('tab_selected');
+            $('.data_container:visible').hide('slide', {}, 'fast', function () {
+                $('.data_container_wrapper').hide('blind', {}, 'fast');
+            });
         } else {
             show_data_container($(this).attr('assoc_div'));
         }
@@ -235,7 +239,11 @@ function populate_popular_locations() {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
     }, function (data) {
-        $('.suggested_locations').html(data); 
+        data = $.parseJSON(data);
+        
+        $('.suggested_locations').html(data.html);
+        
+        console.log(data.coords_array);
             
         // Location tab click handler
         $('div.location_tab').click(function() {
