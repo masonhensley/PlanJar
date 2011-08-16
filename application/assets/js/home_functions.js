@@ -188,11 +188,15 @@ function show_data_panel(data_div, callback) {
     $(data_div).show('slide', {}, 'fast', function () {
         callback();
         
-        // Resize the map after the animation finishes to eliminate the missing tile errors.
-        if (!map_tab_opened && data_div == '#map_content') {
-            google.maps.event.trigger(map, 'resize');
+        if (data_div == '#map_content') {
             calculate_map_bounds();
-            map_tab_opened = true;
         }
+        
+    //        // Resize the map after the animation finishes to eliminate the missing tile errors.
+    //        if (!map_tab_opened && data_div == '#map_content') {
+    //            google.maps.event.trigger(map, 'resize');
+    //            calculate_map_bounds();
+    //            map_tab_opened = true;
+    //        }
     });
 }
