@@ -50,7 +50,7 @@
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
 
         <!-- D3 plugin -->
-        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
+        <script type="text/javascript" src="/application/assets/js/D3/d3/js"></script>
 
         <!-- notifications plugin -->
         <script type="text/javascript" src="/application/assets/js/badger/badger.js"></script>
