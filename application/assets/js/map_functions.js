@@ -23,20 +23,22 @@ function populate_map(data) {
         });
         
         // Assign the click event
-        google.maps.event.addListener(temp_marker, 'click', (function(mouse_event, index) {
-            console.log(index);
-            
-            // Select the corresponding location and display info
-            $('.location_tab').eq(index).click();
-            display_info();
-        }).bind({
-            'index': i
-        }));
+        google.maps.event.addListener(temp_marker, 'click', location_marker_closure(i));
         
         map_marker_array.push(temp_marker);
     }
     
     calculate_map_bounds();
+}
+
+function location_marker_closure(index) {
+    return function() {
+        console.log(index);
+            
+        // Select the corresponding location and display info
+        $('.location_tab').eq(index).click();
+        display_info();
+    }
 }
 
 // Remove all markers and updates the map accordingly.
