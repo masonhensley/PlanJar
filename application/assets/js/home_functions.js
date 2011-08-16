@@ -188,11 +188,18 @@ function show_data_panel(data_div, callback) {
     $(data_div).show('slide', {}, 'fast', function () {
         callback();
         
+        // If the map tab is opened, refresh the bounds
         if (data_div == '#map_content') {
+            // Resize the map after the animation finishes to eliminate the missing tile errors.
+            if (!map_tab_opened) {
+                google.maps.event.trigger(map, 'resize');
+                map_tab_opened = true;
+            }
+            
             calculate_map_bounds();
         }
         
-    //        // Resize the map after the animation finishes to eliminate the missing tile errors.
+    //        
     //        if (!map_tab_opened && data_div == '#map_content') {
     //            google.maps.event.trigger(map, 'resize');
     //            calculate_map_bounds();
