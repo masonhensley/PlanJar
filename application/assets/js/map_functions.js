@@ -22,14 +22,12 @@ function populate_map(data) {
             icon: '/application/assets/images/map_markers/marker' + (i + 1) + '.png'
         });
         
-        console.log(i);
         // Assign the click event
         google.maps.event.addListener(temp_marker, 'click', function() {
+            var index = i;
+            
             // Select the corresponding location and display info
-            console.log($('.location_tab'));
-            console.log($('.location_tab').eq(i));
-            console.log(i);
-            $('.location_tab').eq(i).click();
+            $('.location_tab').eq(index).click();
             display_info();
         });
         
