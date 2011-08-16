@@ -33,6 +33,16 @@ function populate_map(data) {
             display_info();
         });
         
+        console.log(function() {
+            var index = i;
+            
+            console.log(index);
+            
+            // Select the corresponding location and display info
+            $('.location_tab').eq(index).click();
+            display_info();
+        });
+        
         map_marker_array.push(temp_marker);
     }
     
