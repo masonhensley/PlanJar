@@ -30,6 +30,9 @@
         <!-- Google Maps API -->
         <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
 
+        <!-- D3 plugin -->
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
+
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/date.js"></script>
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
@@ -48,9 +51,6 @@
         <script type="text/javascript" src="/application/assets/js/add_location_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/view_friends_plans.js"></script>
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
-
-        <!-- D3 plugin -->
-        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
 
         <!-- notifications plugin -->
         <script type="text/javascript" src="/application/assets/js/badger/badger.js"></script>
