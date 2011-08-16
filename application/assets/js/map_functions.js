@@ -16,9 +16,9 @@ function populate_map(data) {
     
     for (var i = 0; i < data.length; ++i) {
         map_marker_array.push(new google.maps.Marker({
-            position: new google.maps.LatLng(myLatitude, myLongitude),
+            position: new google.maps.LatLng(data[1], data[2]),
             map: map,
-            title: 'Your location',
+            title: data[0],
             icon: '/application/assets/images/map_markers/marker' + i + '.png'
         }));
     }
