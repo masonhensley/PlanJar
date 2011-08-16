@@ -21,6 +21,7 @@ function populate_map(data) {
             title: data[i][0],
             icon: '/application/assets/images/map_markers/marker' + (i + 1) + '.png'
         });
+        console.log('/application/assets/images/map_markers/marker' + (i + 1) + '.png');
         
         // Assign the click event
         google.maps.event.addListener(temp_marker, 'click', function() {
