@@ -27,6 +27,7 @@ function populate_map(data) {
             // Select the corresponding location and display info
             console.log($('.location_tab'));
             console.log($('.location_tab').eq(i));
+            console.log(i);
             $('.location_tab').eq(i).click();
             display_info();
         });
