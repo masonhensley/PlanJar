@@ -23,25 +23,13 @@ function populate_map(data) {
         });
         
         // Assign the click event
-        google.maps.event.addListener(temp_marker, 'click', function() {
-            var index = i;
-            
+        google.maps.event.addListener(temp_marker, 'click', function(index) {
             console.log(index);
             
             // Select the corresponding location and display info
             $('.location_tab').eq(index).click();
             display_info();
-        });
-        
-        console.log(function() {
-            var index = i;
-            
-            console.log(index);
-            
-            // Select the corresponding location and display info
-            $('.location_tab').eq(index).click();
-            display_info();
-        });
+        }.call(i));
         
         map_marker_array.push(temp_marker);
     }
