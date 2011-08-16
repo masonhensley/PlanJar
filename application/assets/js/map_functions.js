@@ -24,8 +24,9 @@ function populate_map(data) {
         
         // Assign the click event
         google.maps.event.addListener(temp_marker, 'click', function() {
-            console.log(this);
-            console.log($(this));
+            // Select the corresponding location and display info
+            $('.location_tab').eq(i).click();
+            display_info();
         });
         
         map_marker_array.push(temp_marker);
