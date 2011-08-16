@@ -1,4 +1,4 @@
-(function(){d3 = {version: "1.28.0"}; // semver
+(function(){d3 = {version: "1.29.3"}; // semver
 if (!Date.now) Date.now = function() {
   return +new Date;
 };
@@ -35,10 +35,10 @@ d3.rebind = function(object, method) {
   };
 };
 d3.ascending = function(a, b) {
-  return a < b ? -1 : a > b ? 1 : 0;
+  return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
 };
 d3.descending = function(a, b) {
-  return b < a ? -1 : b > a ? 1 : 0;
+  return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
 };
 d3.min = function(array, f) {
   var i = -1,
@@ -836,7 +836,7 @@ d3.interpolators = [
   d3.interpolateObject,
   function(a, b) { return (b instanceof Array) && d3.interpolateArray(a, b); },
   function(a, b) { return (typeof b === "string") && d3.interpolateString(String(a), b); },
-  function(a, b) { return (b in d3_rgb_names || /^(#|rgb\(|hsl\()/.test(b)) && d3.interpolateRgb(String(a), b); },
+  function(a, b) { return (typeof b === "string" ? b in d3_rgb_names || /^(#|rgb\(|hsl\()/.test(b) : b instanceof d3_Rgb || b instanceof d3_Hsl) && d3.interpolateRgb(String(a), b); },
   function(a, b) { return (typeof b === "number") && d3.interpolateNumber(+a, b); }
 ];
 function d3_uninterpolateNumber(a, b) {
@@ -2178,6 +2178,7 @@ var d3_timer_frame = window.requestAnimationFrame
     || window.oRequestAnimationFrame
     || window.msRequestAnimationFrame
     || function(callback) { setTimeout(callback, 17); };
+function d3_noop() {}
 d3.scale = {};
 
 function d3_scaleExtent(domain) {
@@ -2429,9 +2430,8 @@ d3.scale.pow = function() {
 
   scale.domain = function(x) {
     if (!arguments.length) return linear.domain().map(powb);
-    var pow = (x[0] || x[x.length - 1]) < 0 ? d3_scale_pown : d3_scale_pow;
-    powp = pow(exponent);
-    powb = pow(1 / exponent);
+    powp = d3_scale_powPow(exponent);
+    powb = d3_scale_powPow(1 / exponent);
     linear.domain(x.map(powp));
     return scale;
   };
@@ -2458,15 +2458,9 @@ d3.scale.pow = function() {
   return d3_scale_linearRebind(scale, linear);
 };
 
-function d3_scale_pow(e) {
+function d3_scale_powPow(e) {
   return function(x) {
-    return Math.pow(x, e);
-  };
-}
-
-function d3_scale_pown(e) {
-  return function(x) {
-    return -Math.pow(-x, e);
+    return x < 0 ? -Math.pow(-x, e) : Math.pow(x, e);
   };
 }
 d3.scale.sqrt = function() {
@@ -2476,7 +2470,8 @@ d3.scale.ordinal = function() {
   var domain = [],
       index = {},
       range = [],
-      rangeBand = 0;
+      rangeBand = 0,
+      rerange = d3_noop;
 
   function scale(x) {
     var i = x in index ? index[x] : (index[x] = domain.push(x) - 1);
@@ -2491,46 +2486,54 @@ d3.scale.ordinal = function() {
       x = domain[i];
       if (!(x in index)) index[x] = ++j;
     }
+    rerange();
     return scale;
   };
 
   scale.range = function(x) {
     if (!arguments.length) return range;
     range = x;
+    rerange = d3_noop;
     return scale;
   };
 
   scale.rangePoints = function(x, padding) {
     if (arguments.length < 2) padding = 0;
-    var start = x[0],
-        stop = x[1],
-        step = (stop - start) / (domain.length - 1 + padding);
-    range = domain.length == 1
-        ? [(start + stop) / 2]
-        : d3.range(start + step * padding / 2, stop + step / 2, step);
-    rangeBand = 0;
+    (rerange = function() {
+      var start = x[0],
+          stop = x[1],
+          step = (stop - start) / (domain.length - 1 + padding);
+      range = domain.length == 1
+          ? [(start + stop) / 2]
+          : d3.range(start + step * padding / 2, stop + step / 2, step);
+      rangeBand = 0;
+    })();
     return scale;
   };
 
   scale.rangeBands = function(x, padding) {
     if (arguments.length < 2) padding = 0;
-    var start = x[0],
-        stop = x[1],
-        step = (stop - start) / (domain.length + padding);
-    range = d3.range(start + step * padding, stop, step);
-    rangeBand = step * (1 - padding);
+    (rerange = function() {
+      var start = x[0],
+          stop = x[1],
+          step = (stop - start) / (domain.length + padding);
+      range = d3.range(start + step * padding, stop, step);
+      rangeBand = step * (1 - padding);
+    })();
     return scale;
   };
 
   scale.rangeRoundBands = function(x, padding) {
     if (arguments.length < 2) padding = 0;
-    var start = x[0],
-        stop = x[1],
-        diff = stop - start,
-        step = Math.floor(diff / (domain.length + padding)),
-        err = diff - (domain.length - padding) * step;
-    range = d3.range(start + Math.round(err / 2), stop, step);
-    rangeBand = Math.round(step * (1 - padding));
+    (rerange = function() {
+      var start = x[0],
+          stop = x[1],
+          diff = stop - start,
+          step = Math.floor(diff / (domain.length + padding)),
+          err = diff - (domain.length - padding) * step;
+      range = d3.range(start + Math.round(err / 2), stop, step);
+      rangeBand = Math.round(step * (1 - padding));
+    })();
     return scale;
   };
 

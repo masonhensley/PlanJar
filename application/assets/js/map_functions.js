@@ -15,12 +15,20 @@ function populate_map(data) {
     }));
     
     for (var i = 0; i < data.length; ++i) {
-        map_marker_array.push(new google.maps.Marker({
+        var temp_marker = new google.maps.Marker({
             position: new google.maps.LatLng(data[i][1], data[i][2]),
             map: map,
             title: data[i][0],
-            icon: '/application/assets/images/map_markers/marker' + i + '.png'
-        }));
+            icon: '/application/assets/images/map_markers/marker' + (i + 1) + '.png'
+        });
+        
+        // Assign the click event
+        google.maps.event.addListener(temp_marker, 'click', function() {
+            console.log(this);
+            console.log($(this));
+        });
+        
+        map_marker_array.push(temp_marker);
     }
     
     calculate_map_bounds();
