@@ -1,6 +1,31 @@
 // Keep track of all markers.
 var map_marker_array = [];
 
+// Populates the map with the given data
+// If the given data is empty, only the user's location is shown
+function populate_map(data) {
+    clear_map_markers();
+    
+    // User's location'
+    map_marker_array.push(new google.maps.Marker({
+        position: new google.maps.LatLng(myLatitude, myLongitude),
+        map: map,
+        title: 'Your location',
+        icon: '/assets/images/map_markers/arrow.png'
+    }));
+    
+    for (var i = 0; i < data.length; ++i) {
+        map_marker_array.push(new google.maps.Marker({
+            position: new google.maps.LatLng(myLatitude, myLongitude),
+            map: map,
+            title: 'Your location',
+            icon: '/assets/images/map_markers/marker' + i + '.png'
+        }));
+    }
+    
+    calculate_map_bounds();
+}
+
 // Remove all markers and updates the map accordingly.
 function clear_map_markers () {
     $.map(map_marker_array, function (entry) {

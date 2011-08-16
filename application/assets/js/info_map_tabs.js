@@ -241,9 +241,8 @@ function populate_popular_locations() {
     }, function (data) {
         data = $.parseJSON(data);
         
+        // Populate the list
         $('.suggested_locations').html(data.html);
-        
-        console.log(data.coords_array);
             
         // Location tab click handler
         $('div.location_tab').click(function() {
@@ -262,5 +261,8 @@ function populate_popular_locations() {
             // Update the info box
             display_info();
         });
+        
+        // Populate the map
+        populate_map(data.coords_array);
     });
 }
