@@ -29,7 +29,9 @@ function populate_map(data) {
             // Select the corresponding location and display info
             $('.location_tab').eq(index).click();
             display_info();
-        }).bind(i));
+        }).bind({
+            'index': i
+        }));
         
         map_marker_array.push(temp_marker);
     }
