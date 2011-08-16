@@ -33,11 +33,9 @@ function populate_map(data) {
 
 function location_marker_closure(index) {
     return function() {
-        console.log(index);
-            
         // Select the corresponding location and display info
         $('.location_tab').eq(index).click();
-        display_info();
+        show_data_container('#info_content');
     }
 }
 
