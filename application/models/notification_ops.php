@@ -34,12 +34,6 @@ class Notification_ops extends CI_Model
         {
             $joined_users = $this->group_ops->get_users($group_id);
 
-            // Make sure joined_users is an array
-            if (!$joined_users)
-            {
-                $joined_users = array();
-            }
-
             // Create notifications for each joined user
             foreach ($joined_users as $joined_user)
             {
