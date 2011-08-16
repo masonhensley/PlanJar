@@ -23,7 +23,7 @@ function populate_map(data) {
         });
         
         // Assign the click event
-        google.maps.event.addListener(temp_marker, 'click', (function(index) {
+        google.maps.event.addListener(temp_marker, 'click', (function(mouse_event, index) {
             console.log(index);
             
             // Select the corresponding location and display info
