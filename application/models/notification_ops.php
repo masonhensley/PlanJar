@@ -39,7 +39,7 @@ class Notification_ops extends CI_Model
             {
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
-                    $accepted = $this->deduce_accepted($type, $subject_id, $joined_used);
+                    $accepted = $this->deduce_accepted($type, $subject_id, $joined_user);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
                 }
             }
