@@ -42,12 +42,17 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        ?> 
+        ob_start();
+        ?>
         <div class="display_message">
             <font style="color:gray;">Select a group or network on the left<br/>
             to see where they are going </font><?php echo $display_day; ?>
         </div>
         <?php
+        echo(json_encode(array(
+            'html' => ob_get_clean(),
+            'coords_array' => array()
+        )));
     }
 
     function on_current_location_selected($display_day, $sql_date)
@@ -296,7 +301,7 @@ class Load_locations extends CI_Model
                     <div class="number">
                         <?php echo $number_tracker; ?>
                     </div>
-                    <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
+                    <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
                     <font style="font-weight:bold;color:gray; font-size:13px;"><?php echo $count; ?> plans made here</font><br/>
                 </div>
                 <?php
