@@ -48,6 +48,7 @@
         <script type="text/javascript" src="/application/assets/js/add_location_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/view_friends_plans.js"></script>
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
+        <script type="text/javascript" src="/application/assets/js/view_plan_list.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
