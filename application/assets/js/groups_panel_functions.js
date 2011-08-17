@@ -13,6 +13,11 @@ function initialize_selectable_groups() {
             // Deselect all controlls
             deselect_all_controlls();
         } else {
+            if ($('.selected_plan, .selected_friend_plan').length > 0) {
+                // Plan selected previously. Go to today
+                goto_day_offset(0, true);
+            }
+            
             // Deselect all controlls
             deselect_all_controlls();
             
@@ -53,6 +58,11 @@ function initialize_one_group_select() {
     }
     
     $('.groups_wrapper .selectable_group').click(function() {
+        if ($('.selected_plan, .selected_friend_plan').length > 0) {
+            // Plan selected previously. Go to today
+            goto_day_offset(0, true);
+        }
+        
         $('.network_active').removeClass('network_active'); // unselect the city tab
      
         // Deselect all other selected groups
@@ -78,7 +88,13 @@ function initialize_one_group_select() {
 // Initializes the groups such that any number can be selected at a time
 function initialize_mult_groups_select() {
     $('.groups_wrapper .selectable_group').unbind('click');
+    
     $('.groups_wrapper .selectable_group').click(function() {
+        if ($('.selected_plan, .selected_friend_plan').length > 0) {
+            // Plan selected previously. Go to today
+            goto_day_offset(0, true);
+        }
+        
         $('.network_active').removeClass('network_active'); // unselect the city tab
         
         // Clear all controlls except groups

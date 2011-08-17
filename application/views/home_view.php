@@ -34,6 +34,7 @@
         <script type="text/javascript" src="/application/assets/js/date.js"></script>
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
         <script type="text/javascript" src="/application/assets/js/confirmDiv.js"></script>
+        <script type="text/javascript" src="/application/assets/js/map_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/home_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/groups_panel_functions.js"></script>
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
@@ -49,7 +50,7 @@
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
 
         <!-- D3 plugin -->
-        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
+        <script type="text/javascript" src="/application/assets/js/d3.js"></script>
 
         <!-- notifications plugin -->
         <script type="text/javascript" src="/application/assets/js/badger/badger.js"></script>

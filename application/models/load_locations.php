@@ -42,12 +42,17 @@ class Load_locations extends CI_Model
 
     function on_nothing_selected($display_day)
     {
-        ?> 
+        ob_start();
+        ?>
         <div class="display_message">
             <font style="color:gray;">Select a group or network on the left<br/>
             to see where they are going </font><?php echo $display_day; ?>
         </div>
         <?php
+        echo(json_encode(array(
+            'html' => ob_get_clean(),
+            'coords_array' => array()
+        )));
     }
 
     function on_current_location_selected($display_day, $sql_date)
@@ -58,7 +63,7 @@ class Load_locations extends CI_Model
 
 
         // query to pull all plans from people within 15 miles from your current location
-        $query = "SELECT places.id, places.name, events.title
+        $query = "SELECT places.id, places.name, events.title, places.latitude, places.longitude
             FROM (SELECT user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance FROM user_meta HAVING distance < 15)new_users
@@ -75,7 +80,7 @@ class Load_locations extends CI_Model
         {
             if (!isset($place_array[$place->id]))
             {
-                $place_array[$place->id] = $place->name;
+                $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             }
             $place_id_array[] = $place->id;
         }
@@ -88,7 +93,7 @@ class Load_locations extends CI_Model
         $display_message .= "are going <br/><font style=\"font-weight:bold;color:black;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
-        $query = "SELECT places.id, events.title, places.name FROM plans 
+        $query = "SELECT places.id, events.title, places.name, places.latitude, places.longitude FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
                   WHERE (";
@@ -106,7 +111,7 @@ class Load_locations extends CI_Model
         {
             if (!isset($place_array[$place->id]))
             {
-                $place_array[$place->id] = $place->name;
+                $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             }
             $place_id_array[] = $place->id;
         }
@@ -120,7 +125,7 @@ class Load_locations extends CI_Model
         $display_message = "Places <font style=\"color:green; font-weight:bold;\">$school</font> ";
         $display_message .= "students are going $display_day";
 
-        $query = "SELECT events.title, places.name, places.id
+        $query = "SELECT events.title, places.name, places.id, places.latitude, places.longitude
                   FROM user_meta
                   LEFT JOIN plans ON plans.user_id=user_meta.user_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
@@ -134,7 +139,7 @@ class Load_locations extends CI_Model
         {
             if (!isset($place_array[$place->id]))
             {
-                $place_array[$place->id] = $place->name;
+                $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             }
             $place_id_array[] = $place->id;
         }
@@ -154,7 +159,7 @@ class Load_locations extends CI_Model
         $query_helper = substr($query_helper, 0, -4);
 
         $query = "
-            SELECT DISTINCT places.name, places.id AS place_id, events.title, plans.id 
+            SELECT DISTINCT places.name, places.id AS place_id, events.title, plans.id, places.latitude, places.longitude
             FROM 
                 (SELECT user_meta.user_id FROM group_relationships 
                 JOIN user_meta 
@@ -174,7 +179,7 @@ class Load_locations extends CI_Model
         {
             if (!isset($place_array[$place->place_id]))
             {
-                $place_array[$place->place_id] = $place->name;
+                $place_array[$place->place_id] = array($place->name, $place->latitude, $place->longitude);
             }
             $place_id_array[] = $place->place_id;
         }
@@ -271,11 +276,16 @@ class Load_locations extends CI_Model
         return $group_name_list;
     }
 
+    // Returns html for the locations as well as associated coordinates
     function display_location_tabs($display_message, $place_id_array, $place_array)
     {
+        // Establish the list of coordinates
+        $coords_array = array();
+
+        ob_start();
         ?> 
         <div class="display_message">
-        <?php echo $display_message; ?>
+            <?php echo $display_message; ?>
         </div>
         <?php
         if (count($place_id_array) > 0)
@@ -286,12 +296,13 @@ class Load_locations extends CI_Model
             $number_tracker = 1;
             foreach ($place_id_array as $place_id => $count)
             {
+                $coords_array[] = $place_array[$place_id];
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">
-                <?php echo $number_tracker; ?>
+                        <?php echo $number_tracker; ?>
                     </div>
-                    <font style="font-weight:bold;"> <?php echo $place_array[$place_id]; ?></font><br/>
+                    <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
                     <font style="font-weight:bold;color:gray; font-size:13px;"><?php echo $count; ?> plans made here</font><br/>
                 </div>
                 <?php
@@ -305,6 +316,11 @@ class Load_locations extends CI_Model
             </div>
             <?php
         }
+
+        echo(json_encode(array(
+            'html' => ob_get_clean(),
+            'coords_array' => $coords_array
+        )));
     }
 
 }
