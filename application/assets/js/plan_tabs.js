@@ -27,6 +27,7 @@ function initialize_plan_panel(){
         
         // Display the info box
         display_info(function(){
+            alert('hey');
             // setup the view attendees button
             $('#view_attendees').click(function(){
                 alert('hey');
