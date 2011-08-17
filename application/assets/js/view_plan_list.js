@@ -5,15 +5,10 @@ $(function(){
 function view_plan_list()
 {
     
-    $('.view_attending').click(function(){
-        
+    $('#view_attendees').click(function(){
+        $.get('/home/attending_list', {
+            plan_id : $('.selected_plan').attr('plan_id')
+        });    
     });
-       
-    $.get('/home/attending_list', {
-        plan_id : $('.selected_plan').attr('plan_id')
-    },
-    function(data){
-    
-        });
        
 }
