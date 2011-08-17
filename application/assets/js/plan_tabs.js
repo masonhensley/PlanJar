@@ -13,6 +13,13 @@ function initialize_plan_panel(){
             
             // Select this plan
             $(this).addClass('selected_plan');
+            
+            // Populate the map
+            $.get('/home/get_plans_coords', {
+                plan_id: $(this).attr('plan_id')
+            }, function(data) {
+                console.log(data);
+            });
         } else {
             // Deselect this plan
             $(this).removeClass('selected_plan');
@@ -27,6 +34,7 @@ function initialize_plan_panel(){
 function populate_plan_panel(callback) {
     $.get('/home/get_my_plans', function (data) {
         $('div.plans_wrapper').html(data);
+        
         initialize_plan_panel();
         
         if (callback != undefined) {

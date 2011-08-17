@@ -285,7 +285,7 @@ class Home extends CI_Controller
     public function get_my_plans()
     {
         $this->load->model('plan_actions');
-        echo ($this->plan_actions->display_plans());
+        echo jaon_encode($this->plan_actions->display_plans());
     }
 
     // Update the user's location
@@ -670,6 +670,15 @@ class Home extends CI_Controller
         $this->plan_actions->add_plan(array(
             $this->ion_auth->get_user()->id,
             $event_id));
+    }
+
+    // Returns the place name and location of each plan on the same day
+    public function get_plans_coords()
+    {
+        $plan_id = $this->input->get('plan_id');
+
+        $this->load->model('plan_actions');
+        echo($this->plan_actions->get_plan_coords($plan_id));
     }
 
 }

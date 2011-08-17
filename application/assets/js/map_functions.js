@@ -3,7 +3,7 @@ var map_marker_array = [];
 
 // Populates the map with the given data
 // If the given data is empty, only the user's location is shown
-function populate_map(data) {
+function populate_map(data, closure_function) {
     // Only populate the map if it's been initialized'
     if (map != undefined) {
         clear_map_markers();
@@ -25,7 +25,7 @@ function populate_map(data) {
             });
         
             // Assign the click event
-            google.maps.event.addListener(temp_marker, 'click', location_marker_closure(i));
+            google.maps.event.addListener(temp_marker, 'click', closure_function(i));
         
             map_marker_array.push(temp_marker);
         }
@@ -34,6 +34,7 @@ function populate_map(data) {
     }
 }
 
+// Used to set up the click event for markers created for top locations
 function location_marker_closure(index) {
     return function() {
         // Select the corresponding location and display info

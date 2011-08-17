@@ -14,7 +14,7 @@ class Plan_actions extends CI_Model
         $user_id = $this->ion_auth->get_user()->id;
 
         $query =
-                "SELECT plans.id, events.date, events.time, events.title, plans.event_id, places.name
+                "SELECT plans.id, events.date, events.time, events.title, plans.event_id, places.name, places.latitude, places.longitude
          FROM plans
          LEFT JOIN events ON plans.event_id=events.id
          LEFT JOIN places ON places.id=events.place_id
@@ -88,6 +88,10 @@ class Plan_actions extends CI_Model
     {
         $date_organizer = "";
         $plans_result = $this->get_plans();
+
+        // Initialize te coordinates array
+        $coords_array = array();
+
         ob_start(); // start the output buffer 
 
         if ($plans_result->num_rows() > 0)
@@ -185,6 +189,40 @@ class Plan_actions extends CI_Model
             // No prior plans
             return true;
         }
+    }
+
+    // Returns a list of location names and locations on the same day as the specified plan and by the same user
+    function get_plan_coords($plan_id)
+    {
+        // Get the plan info
+        $query_string = "SELECT events.date, plans.user_id
+            FROM plans JOIN events ON plans.event_id = events.id
+            WHERE plans.id = ?";
+        $query = $this->db->query($query_string, array($plan_id));
+        $query = $query->row();
+
+        // Get all the plans and info from that user on that day
+        $query_string = "SELECT places.name, places.latitude, places.longitude
+            FROM plans JOIN events ON plans.event_id = events.id
+            JOIN places ON events.place_id = places.id
+            WHERE plans.user_id = ? AND events.date = ?";
+        $query = $this->db->query($query_string, array(
+            $query->user_id,
+            $query->date
+                ));
+
+        // Collate (right word?) the results
+        $return_array = array();
+        foreach ($query->result() as $row)
+        {
+            $return_array[] = array(
+                $row->name,
+                $row->latitude,
+                $row->longitude
+            );
+        }
+
+        return json_encode($return_array);
     }
 
 }

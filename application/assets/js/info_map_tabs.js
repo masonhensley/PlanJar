@@ -263,6 +263,6 @@ function populate_popular_locations() {
         });
         
         // Populate the map
-        populate_map(data.coords_array);
+        populate_map(data.coords_array, location_marker_closure);
     });
 }
