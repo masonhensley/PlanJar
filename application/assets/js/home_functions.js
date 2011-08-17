@@ -5,19 +5,27 @@ var myCity;
 var current_day_offset = 0;
 var map_tab_opened = false; // Used to resize the map the first time it's shown (Google fuck up)
 var map;
+var notification_timer;
 
 // Run when the DOM is loaded.
 $(function() {
     initialize_map();
     
-    // populate the notifications!
+    // Notifications badge (runs every 30 seconds)
+    notification_timer = setTimeout(fetch_notifications, 30000);
+});
+
+// Gets the notifications and set the timer again
+function fetch_notifications() {
     $.get('/home/get_notification_popup/', function(data){
         if(data > 0)
         {
             $('#notifications .top_right_link_inner').badger(data);
         }
+            
+        notification_timer = setTimeout(fetch_notifications, 30000);
     });
-});
+}
 
 // Gets the user's current location
 // Calls the callback function on success with parameters of latitude and longitude
@@ -198,12 +206,5 @@ function show_data_panel(data_div, callback) {
             
             calculate_map_bounds();
         }
-        
-    //        
-    //        if (!map_tab_opened && data_div == '#map_content') {
-    //            google.maps.event.trigger(map, 'resize');
-    //            calculate_map_bounds();
-    //            map_tab_opened = true;
-    //        }
     });
 }
