@@ -191,6 +191,7 @@ class Plan_actions extends CI_Model
         }
     }
 
+    // Returns a list of location names and locations on the same day as the specified plan and by the same user
     function get_plan_coords($plan_id)
     {
         // Get the plan info
