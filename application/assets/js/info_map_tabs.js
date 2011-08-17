@@ -113,7 +113,7 @@ function display_info(bypass, arg) {
             data = $.parseJSON(data);
             
             // Seek to the correct day
-            goto_day_offset(data.date, true, function() {
+            goto_day_offset(data.data.date, true, function() {
                 // Load popular locations
                 populate_popular_locations(true, function() {
                     // Populate the map
