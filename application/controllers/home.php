@@ -677,7 +677,7 @@ class Home extends CI_Controller
         $user_id = $this->input->get('user_id');
 
         $this->load->model('plan_actions');
-        echo($this->plan_ops->get_plan_coords($user_id));
+        echo($this->plan_actions->get_plan_coords($user_id));
     }
 
 }
