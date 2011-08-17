@@ -12,7 +12,7 @@ $(function() {
     initialize_map();
     
     // Notifications badge (runs every 30 seconds)
-    notification_timer = setTimeout(fetch_notifications, 30000);
+    fetch_notifications();
 });
 
 // Gets the notifications and set the timer again
