@@ -25,7 +25,7 @@ function populate_map(data, closure_function) {
             });
         
             // Assign the click event
-            google.maps.event.addListener(temp_marker, 'click', closure_function(i));
+            google.maps.event.addListener(temp_marker, 'click', closure_function(data[i][3]));
         
             map_marker_array.push(temp_marker);
         }
@@ -39,6 +39,15 @@ function location_marker_closure(index) {
     return function() {
         // Select the corresponding location and display info
         $('.location_tab').eq(index).click();
+        show_data_container('#info_content');
+    }
+}
+
+// Used to set up the click event for markers created for plans
+function plan_marker_closure(plan_id) {
+    return function() {
+        // Select the corresponding plan and display info
+        $('.plan_content, .friend_plan_content').filter('[plan_id="' + plan_id + '"]').click();
         show_data_container('#info_content');
     }
 }

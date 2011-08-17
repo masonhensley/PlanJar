@@ -18,7 +18,9 @@ function initialize_plan_panel(){
             $.get('/home/get_plans_coords', {
                 plan_id: $(this).attr('plan_id')
             }, function(data) {
-                console.log(data);
+                data = $.parseJSON(data);
+                
+                populate_map(data, plan_marker_closure);
             });
         } else {
             // Deselect this plan
