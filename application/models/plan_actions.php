@@ -201,8 +201,8 @@ class Plan_actions extends CI_Model
         $query = $this->db->query($query_string, array($plan_id));
         $query = $query->row();
 
-        // Get all the plans from that user on that day
-        $query_string = "SELECT places.name, events.latitude, events.longitude
+        // Get all the plans and info from that user on that day
+        $query_string = "SELECT places.name, places.latitude, places.longitude
             FROM plans JOIN events ON plans.event_id = events.id
             JOIN places ON events.place_id = places.id
             WHERE plans.user_id = ? AND events.date = ?";
