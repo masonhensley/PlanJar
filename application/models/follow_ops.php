@@ -102,10 +102,7 @@ class Follow_ops extends CI_Model
                     </div>
                 </center>
             </div>
-
             <div class="user_entry_middle">
-
-
 
                 <div class="user_name">
                     <?php
@@ -147,6 +144,11 @@ class Follow_ops extends CI_Model
             {
                 ?>
                 <div class="add_following">follow</div>
+                <?php
+            }else if($option == 'already_following')
+            {
+                ?>
+                <div class="add_following">following</div>
                 <?php
             }
             ?>
