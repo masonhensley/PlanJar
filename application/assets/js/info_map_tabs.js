@@ -103,39 +103,12 @@ function display_info(bypass, arg) {
         if (bypass != true) {
             populate_popular_locations();
         }
-    } else if ($('.selected_plan').length > 0) {
-        // Plan selected
+    } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
+        // Plan or friend's plan selected
         
         // Load the selected plan
         $.get('/home/load_selected_plan_data', {
-            'plan_selected': $('.selected_plan').attr('plan_id')
-        }, function (data) {
-            data = $.parseJSON(data);
-            
-            // Seek to the correct day
-            goto_day_offset(data.data.date, true, function() {
-                // Load popular locations
-                populate_popular_locations(true, function() {
-                    // Populate the map
-                    $.get('/home/get_plans_coords', {
-                        plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
-                    }, function(data) {
-                        data = $.parseJSON(data);
-                
-                        populate_map(data, plan_marker_closure);
-                    });
-                    
-                    // Setup the plan info
-                    initialize_plan_info(data);
-                });
-            });
-        });
-    } else if ($('.selected_friend_plan').length > 0) {
-        // Friend's plan selected
-        
-        // Load the selected plan
-        $.get('/home/load_selected_plan_data', {
-            'plan_selected': $('.selected_plan').attr('plan_id')
+            'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id')
         }, function (data) {
             data = $.parseJSON(data);
             
@@ -146,7 +119,7 @@ function display_info(bypass, arg) {
                     // Populate the map
                     $.get('/home/get_plans_coords', {
                         plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id'),
-                        friend_plan: true
+                        friend_plan: $('.selected_friend_plan').length > 0
                     }, function(data) {
                         data = $.parseJSON(data);
                 
