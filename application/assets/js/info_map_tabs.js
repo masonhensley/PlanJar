@@ -118,7 +118,7 @@ function display_info(bypass, arg) {
                 populate_popular_locations(true, function() {
                     // Populate the map
                     $.get('/home/get_plans_coords', {
-                        plan_id: $(this).attr('plan_id')
+                        plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
                     }, function(data) {
                         data = $.parseJSON(data);
                 
