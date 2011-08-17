@@ -249,6 +249,7 @@ function populate_popular_locations(skip_update_map, callback) {
         'selected_day': get_selected_day()
     }, function (data) {
         data = $.parseJSON(data);
+        console.log(data);
         
         // Populate the list
         $('.suggested_locations').html(data.html);
