@@ -54,9 +54,12 @@ function location_marker_closure(index) {
 function plan_marker_closure(plan_id) {
     return function() {
         // Select the corresponding plan and display info
+        console.log($('.plan_content, .friend_plan_content').filter('[plan_id="' + plan_id + '"]'));
+        console.log($('.plan_content, .friend_plan_content'));
+        console.log(plan_id);
         $('.plan_content, .friend_plan_content').filter('[plan_id="' + plan_id + '"]').click();
         show_data_container('#info_content', function() {
-            //$('.view_plan_location').click();
+            $('.view_plan_location').click();
         });
     }
 }
