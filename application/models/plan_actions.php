@@ -161,10 +161,10 @@ class Plan_actions extends CI_Model
             <font style="font-style:italic;">No plans yet</font><br/><br/>
             <?php
         }
-        return json_encode(array(
-                    'html' => ob_get_clean(),
-                    'coords_array' => $coords_array
-                ));
+        return array(
+            'html' => ob_get_clean(),
+            'coords_array' => $coords_array
+        );
     }
 
     // Returns true if the user has no plan to another event at the given place at the given time

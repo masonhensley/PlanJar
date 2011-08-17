@@ -30,6 +30,7 @@ class Home extends CI_Controller
             // Get the plan tabs HTML
             $this->load->model('plan_actions');
             $plans_html = $this->plan_actions->display_plans();
+            $plans_html = $plans_html['html'];
 
             // get friend names to populate the friend plan modal
             $friend_names = $this->get_friend_names();
@@ -202,7 +203,7 @@ class Home extends CI_Controller
         $return_array = $this->load_plan_data->display_plan_data($plan_id, $friend_plan);
         echo json_encode($return_array);
     }
-    
+
     public function load_attending_list()
     {
         $plan_id = $this->input->get('plan_id');
@@ -284,7 +285,7 @@ class Home extends CI_Controller
     public function get_my_plans()
     {
         $this->load->model('plan_actions');
-        echo ($this->plan_actions->display_plans());
+        echo jaon_encode($this->plan_actions->display_plans());
     }
 
     // Update the user's location
