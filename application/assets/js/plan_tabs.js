@@ -28,8 +28,6 @@ function initialize_plan_panel(){
         // Display the info box
         display_info();
         
-
-        
     // not sure how to make this be called after display_info() is done
     // setup the view attendees button
     }, function(){
