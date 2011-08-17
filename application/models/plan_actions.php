@@ -14,7 +14,7 @@ class Plan_actions extends CI_Model
         $user_id = $this->ion_auth->get_user()->id;
 
         $query =
-                "SELECT plans.id, events.date, events.time, events.title, plans.event_id, places.name
+                "SELECT plans.id, events.date, events.time, events.title, plans.event_id, places.name, places.latitude, places.longitude
          FROM plans
          LEFT JOIN events ON plans.event_id=events.id
          LEFT JOIN places ON places.id=events.place_id
@@ -88,6 +88,10 @@ class Plan_actions extends CI_Model
     {
         $date_organizer = "";
         $plans_result = $this->get_plans();
+
+        // Initialize te coordinates array
+        $coords_array = array();
+
         ob_start(); // start the output buffer 
 
         if ($plans_result->num_rows() > 0)
@@ -108,6 +112,14 @@ class Plan_actions extends CI_Model
                 {
                     $date = date('l', strtotime($plan->date));
                 }
+
+                // Add the date and coordinates to the coordinates array
+                $coords_array[] = array(
+                    $date,
+                    $place_name,
+                    $plan->latitude,
+                    $plan->longitude
+                );
                 ?>
                 <div class="active_plans"> 
                     <?php
@@ -149,7 +161,10 @@ class Plan_actions extends CI_Model
             <font style="font-style:italic;">No plans yet</font><br/><br/>
             <?php
         }
-        return ob_get_clean();
+        return json_encode(array(
+                    'html' => ob_get_clean(),
+                    'coords_array' => $coords_array
+                ));
     }
 
     // Returns true if the user has no plan to another event at the given place at the given time
