@@ -671,6 +671,15 @@ class Home extends CI_Controller
             $event_id));
     }
 
+    // Returns the place name and location of each plan on the same day
+    public function get_plans_coords()
+    {
+        $user_id = $this->input->get('user_id');
+
+        $this->load->model('plan_actions');
+        echo($this->plan_ops->get_plan_coords($user_id));
+    }
+
 }
 
 ?>
