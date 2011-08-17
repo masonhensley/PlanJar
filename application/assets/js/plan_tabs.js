@@ -26,7 +26,16 @@ function initialize_plan_panel(){
         }
         
         // Display the info box
-        display_info();
+        display_info(function(){
+            // setup the view attendees button
+            $('#view_attendees').click(function(){
+                alert('hey');
+                $.get('/home/attending_list', {
+                    plan_id : $('.selected_plan').attr('plan_id')
+                });    
+            });
+       
+        });
     });
 }
 
