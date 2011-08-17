@@ -198,15 +198,16 @@ class Plan_actions extends CI_Model
         $query_string = "SELECT events.date, plans.user_id
             FROM plans JOIN events ON plans.event_id = events.id
             WHERE plans.id = ?";
-        $gen_query = $this->db->query($query_string, array($plan_id));
+        $query = $this->db->query($query_string, array($plan_id));
+        $query = $query->row();
 
         // Get all the plans from that user on that day
         $query_string = "SELECT events.name, events.latitude, events.longitude
             FROM plans JOIN events ON plans.event_id = events.id
             WHERE plans.user_id = ? AND events.date = ?";
         $query = $this->db->query($query_string, array(
-            $gen_query->user_id,
-            $gen_query->date
+            $query->user_id,
+            $query->date
                 ));
 
         // Collate (right word?) the results
