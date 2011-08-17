@@ -116,6 +116,16 @@ function display_info(bypass, arg) {
             goto_day_offset(data.date, true, function() {
                 // Load popular locations
                 populate_popular_locations(true, function() {
+                    // Populate the map
+                    $.get('/home/get_plans_coords', {
+                        plan_id: $(this).attr('plan_id')
+                    }, function(data) {
+                        data = $.parseJSON(data);
+                
+                        populate_map(data, plan_marker_closure);
+                    });
+                    
+                    // Setup the plan info
                     initialize_plan_info(data);
                 });
             });
