@@ -26,13 +26,9 @@ function initialize_plan_panel(){
 // Populates the plan panel (panel is pre-populated in PHP)
 function populate_plan_panel(callback) {
     $.get('/home/get_my_plans', function (data) {
-        data = $.parseJSON(data);
-        
-        $('div.plans_wrapper').html(data.html);
+        $('div.plans_wrapper').html(data);
         
         initialize_plan_panel();
-        
-        console.log(data.coords_array);
         
         if (callback != undefined) {
             callback();

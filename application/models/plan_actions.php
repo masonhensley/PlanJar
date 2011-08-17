@@ -112,14 +112,6 @@ class Plan_actions extends CI_Model
                 {
                     $date = date('l', strtotime($plan->date));
                 }
-
-                // Add the date and coordinates to the coordinates array
-                $coords_array[] = array(
-                    $date,
-                    $place_name,
-                    $plan->latitude,
-                    $plan->longitude
-                );
                 ?>
                 <div class="active_plans"> 
                     <?php
@@ -161,10 +153,7 @@ class Plan_actions extends CI_Model
             <font style="font-style:italic;">No plans yet</font><br/><br/>
             <?php
         }
-        return array(
-            'html' => ob_get_clean(),
-            'coords_array' => $coords_array
-        );
+        return ob_get_clean();
     }
 
     // Returns true if the user has no plan to another event at the given place at the given time

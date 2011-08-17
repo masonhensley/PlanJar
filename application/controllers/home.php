@@ -30,7 +30,6 @@ class Home extends CI_Controller
             // Get the plan tabs HTML
             $this->load->model('plan_actions');
             $plans_html = $this->plan_actions->display_plans();
-            $plans_html = $plans_html['html'];
 
             // get friend names to populate the friend plan modal
             $friend_names = $this->get_friend_names();
