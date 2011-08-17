@@ -17,7 +17,7 @@ $(function() {
 
 // Gets the notifications and set the timer again
 function fetch_notifications() {
-    $.get('/home/get_notification_popup/', function(data){
+    $.get('/home/get_notification_popup', function(data){
         if(data > 0)
         {
             $('#notifications .top_right_link_inner').badger(data);
