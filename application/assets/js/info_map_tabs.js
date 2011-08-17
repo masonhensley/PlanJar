@@ -106,7 +106,6 @@ function display_info(bypass, arg) {
         });
     } else if ($('.selected_plan').length > 0) {
         // Plan selected
-        bypass = true;
         $.get('/home/load_selected_plan_data', {
             'plan_selected': $('.selected_plan').attr('plan_id')
         }, function (data) {
@@ -114,7 +113,6 @@ function display_info(bypass, arg) {
         });
     } else if ($('.selected_friend_plan').length > 0) {
         // Friend's plan selected
-        bypass = true;
         $.get('/home/load_selected_plan_data', {
             'plan_selected': $('.selected_friend_plan').attr('plan_id'),
             'friend_plan': true

@@ -14,13 +14,9 @@ class Load_locations extends CI_Model
         // when the page first loads, the javascript can't get the attribute in time, so it is set to 0
         if (!$day)
         {
-            $display_day = '';
-        } else
-        {
-            $display_day = $this->get_day($day); // shows the day selected in correct format
-            $display_day = "<font style=\"font-weight:bold\">$display_day</font>";
+            $day = 0;
         }
-
+        $display_day = $this->get_day($day); // shows the day selected in correct format
         $date = new DateTime();
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d');
