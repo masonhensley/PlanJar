@@ -249,7 +249,6 @@ function populate_popular_locations(skip_update_map, callback) {
         'selected_day': get_selected_day()
     }, function (data) {
         data = $.parseJSON(data);
-        console.log(data);
         
         // Populate the list
         $('.suggested_locations').html(data.html);
@@ -273,7 +272,7 @@ function populate_popular_locations(skip_update_map, callback) {
         });
         
         // Populate the map
-        if (skip_update_map != undefined) {
+        if (skip_update_map == undefined) {
             populate_map(data.coords_array, location_marker_closure);
         }
     });
