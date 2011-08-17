@@ -30,7 +30,7 @@ function initialize_plan_panel(){
         // Display the info box
         display_info();
         
-       // not sure how to make this be called after display_info() is done
+        // not sure how to make this be called after display_info() is done
         // setup the view attendees button
         $('#view_attendees').click(function(){
             alert('hey');
@@ -38,9 +38,7 @@ function initialize_plan_panel(){
                 plan_id : $('.selected_plan').attr('plan_id')
             });    
         });
-       
-        
-        
+    
         
     });
 }
