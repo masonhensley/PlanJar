@@ -123,7 +123,7 @@ function display_info(bypass, arg) {
                     }, function(data) {
                         data = $.parseJSON(data);
                 
-                        populate_map(data, plan_marker_closure);
+                        populate_map(data, plan_marker_closure, true);
                     });
                     
                     // Setup the plan info
