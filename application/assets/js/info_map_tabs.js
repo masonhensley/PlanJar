@@ -64,9 +64,6 @@ function display_info(bypass, arg) {
         }, function (data) {
             initialize_location_info(data);
         });
-        
-        // Bypass updating the location list
-        bypass = true;
     } else if ($('.network_active, .selected_group').length > 0) {
         // Network or group selected.
         
@@ -104,6 +101,11 @@ function display_info(bypass, arg) {
                 display_info(true, $(this).val());
             });
         });
+        
+        // Load popular locations if necessary
+        if (bypass != true) {
+            populate_popular_locations();
+        }
     } else if ($('.selected_plan').length > 0) {
         // Plan selected
         $.get('/home/load_selected_plan_data', {
@@ -111,6 +113,9 @@ function display_info(bypass, arg) {
         }, function (data) {
             initialize_plan_info(data);
         });
+        
+        // Load popular locations
+        populate_popular_locations(true);
     } else if ($('.selected_friend_plan').length > 0) {
         // Friend's plan selected
         $.get('/home/load_selected_plan_data', {
@@ -119,6 +124,9 @@ function display_info(bypass, arg) {
         }, function (data) {
             initialize_plan_info(data);
         });
+        
+        // Load popular locations
+        populate_popular_locations(true);
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
@@ -126,7 +134,6 @@ function display_info(bypass, arg) {
     
     // This is down here to allow the above code to procedurally change the value of bypass
     if (bypass != true) {
-        // Needed by fricking every incoming call (and by every I mean enough to put it here)
         populate_popular_locations();
     }
 }
@@ -234,7 +241,7 @@ function initialize_plan_info(data) {
 }
 
 // Populates the popular locations panel
-function populate_popular_locations() {
+function populate_popular_locations(skip_update_map) {
     $.get('/home/load_location_tabs', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
@@ -263,6 +270,8 @@ function populate_popular_locations() {
         });
         
         // Populate the map
-        populate_map(data.coords_array, location_marker_closure);
+        if (skip_update_map != undefined) {
+            populate_map(data.coords_array, location_marker_closure);
+        }
     });
 }
