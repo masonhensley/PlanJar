@@ -9,7 +9,7 @@ function view_plan_list()
         
     });
        
-    $.get('/home/load_attending_list', {
+    $.get('/home/attending_list', {
         plan_id : $('.selected_plan').attr('plan_id')
     },
     function(data){

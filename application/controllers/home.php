@@ -203,10 +203,11 @@ class Home extends CI_Controller
         echo json_encode($return_array);
     }
     
-    public function load_attending_list()
+    public function attending_list()
     {
         $plan_id = $this->input->get('plan_id');
         $this->load->model('load_attending_list');
+        $this->load_attending_list->_display_attending_list($plan_id);
     }
 
     public function get_notification_popup()
