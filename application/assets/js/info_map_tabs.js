@@ -133,15 +133,27 @@ function display_info(bypass, arg) {
     } else if ($('.selected_friend_plan').length > 0) {
         // Friend's plan selected
         
-        // Seek to the correct day
-        goto_day_offset(data.date, true, function() {
-            // Load popular locations
-            populate_popular_locations(true, function() {
-                // Load the selected plan
-                $.get('/home/load_selected_plan_data', {
-                    'plan_selected': $('.selected_friend_plan').attr('plan_id'),
-                    friend_plan: true
-                }, function (data) {
+        // Load the selected plan
+        $.get('/home/load_selected_plan_data', {
+            'plan_selected': $('.selected_plan').attr('plan_id')
+        }, function (data) {
+            data = $.parseJSON(data);
+            
+            // Seek to the correct day
+            goto_day_offset(data.data.date, true, function() {
+                // Load popular locations
+                populate_popular_locations(true, function() {
+                    // Populate the map
+                    $.get('/home/get_plans_coords', {
+                        plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id'),
+                        friend_plan: true
+                    }, function(data) {
+                        data = $.parseJSON(data);
+                
+                        populate_map(data, plan_marker_closure);
+                    });
+                    
+                    // Setup the plan info
                     initialize_plan_info(data);
                 });
             });
