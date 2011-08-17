@@ -130,10 +130,8 @@ function display_info(bypass, arg) {
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
-    }
-    
-    // This is down here to allow the above code to procedurally change the value of bypass
-    if (bypass != true) {
+        
+        // Load popular locations
         populate_popular_locations();
     }
 }
