@@ -296,7 +296,7 @@ class Load_locations extends CI_Model
             $number_tracker = 1;
             foreach ($place_id_array as $place_id => $count)
             {
-                $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
+                $coords_array[] = array_merge($place_array[$place_id], array(''));
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">

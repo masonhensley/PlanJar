@@ -23,8 +23,6 @@ function populate_map(data, closure_function) {
                 title: data[i][0],
                 icon: '/application/assets/images/map_markers/marker' + (i + 1) + '.png'
             });
-            
-            console.log(data[i]);
         
             // Assign the click event
             google.maps.event.addListener(temp_marker, 'click', closure_function(data[i][3]));
