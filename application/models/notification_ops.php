@@ -23,7 +23,7 @@ class Notification_ops extends CI_Model
             // Only add the notification if the originating user is not the current user
             if ($user_id != $this->ion_auth->get_user()->id)
             {
-                $accepted = $this->deduce_accepted($type, $subject_id, $user_id);
+                $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id);
                 $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
             }
         }
@@ -39,7 +39,7 @@ class Notification_ops extends CI_Model
             {
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
-                    $accepted = $this->deduce_accepted($type, $subject_id, $joined_user);
+                    $accepted = (integer) $this->deduce_accepted($type, $subject_id, $joined_user);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
                 }
             }
