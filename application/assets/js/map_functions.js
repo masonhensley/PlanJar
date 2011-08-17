@@ -55,7 +55,7 @@ function plan_marker_closure(plan_id) {
     return function() {
         // Select the corresponding plan and display info
         $('.plan_content, .friend_plan_content').filter('[plan_id="' + plan_id + '"]').click();
-        view_plan_location = true;
+        viewing_plan_location = true;
         show_data_container('#info_content');
     }
 }
