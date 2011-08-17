@@ -4,31 +4,34 @@ var map_marker_array = [];
 // Populates the map with the given data
 // If the given data is empty, only the user's location is shown
 function populate_map(data) {
-    clear_map_markers();
+    // Only populate the map if it's been initialized'
+    if (map != undefined) {
+        clear_map_markers();
     
-    // User's location'
-    map_marker_array.push(new google.maps.Marker({
-        position: new google.maps.LatLng(myLatitude, myLongitude),
-        map: map,
-        title: 'Your location',
-        icon: '/application/assets/images/map_markers/arrow.png'
-    }));
-    
-    for (var i = 0; i < data.length; ++i) {
-        var temp_marker = new google.maps.Marker({
-            position: new google.maps.LatLng(data[i][1], data[i][2]),
+        // User's location'
+        map_marker_array.push(new google.maps.Marker({
+            position: new google.maps.LatLng(myLatitude, myLongitude),
             map: map,
-            title: data[i][0],
-            icon: '/application/assets/images/map_markers/marker' + (i + 1) + '.png'
-        });
-        
-        // Assign the click event
-        google.maps.event.addListener(temp_marker, 'click', location_marker_closure(i));
-        
-        map_marker_array.push(temp_marker);
-    }
+            title: 'Your location',
+            icon: '/application/assets/images/map_markers/arrow.png'
+        }));
     
-    calculate_map_bounds();
+        for (var i = 0; i < data.length; ++i) {
+            var temp_marker = new google.maps.Marker({
+                position: new google.maps.LatLng(data[i][1], data[i][2]),
+                map: map,
+                title: data[i][0],
+                icon: '/application/assets/images/map_markers/marker' + (i + 1) + '.png'
+            });
+        
+            // Assign the click event
+            google.maps.event.addListener(temp_marker, 'click', location_marker_closure(i));
+        
+            map_marker_array.push(temp_marker);
+        }
+    
+        calculate_map_bounds();
+    }
 }
 
 function location_marker_closure(index) {
