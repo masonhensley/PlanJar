@@ -110,8 +110,7 @@ function display_info(bypass, arg) {
         $.get('/home/load_selected_plan_data', {
             'plan_selected': $('.selected_plan').attr('plan_id')
         }, function (data) {
-            data = $.parseJSON(data);
-            
+            console.log(data);
             // Seek to the correct day
             goto_day_offset(data.date, true, function() {
                 // Load popular locations
