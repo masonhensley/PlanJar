@@ -39,9 +39,6 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
-    // Show the info tab
-    //show_data_container('#info_content');
-    
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
         
@@ -108,25 +105,35 @@ function display_info(bypass, arg) {
         }
     } else if ($('.selected_plan').length > 0) {
         // Plan selected
-        $.get('/home/load_selected_plan_data', {
-            'plan_selected': $('.selected_plan').attr('plan_id')
-        }, function (data) {
-            initialize_plan_info(data);
-        });
         
-        // Load popular locations
-        populate_popular_locations(true);
+        // Seek to the correct day
+        goto_day_offset(data.date, true, function() {
+            // Load popular locations
+            populate_popular_locations(true, function() {
+                // Load the selected plan
+                $.get('/home/load_selected_plan_data', {
+                    'plan_selected': $('.selected_plan').attr('plan_id')
+                }, function (data) {
+                    initialize_plan_info(data);
+                });
+            });
+        });
     } else if ($('.selected_friend_plan').length > 0) {
         // Friend's plan selected
-        $.get('/home/load_selected_plan_data', {
-            'plan_selected': $('.selected_friend_plan').attr('plan_id'),
-            'friend_plan': true
-        }, function (data) {
-            initialize_plan_info(data);
-        });
         
-        // Load popular locations
-        populate_popular_locations(true);
+        // Seek to the correct day
+        goto_day_offset(data.date, true, function() {
+            // Load popular locations
+            populate_popular_locations(true, function() {
+                // Load the selected plan
+                $.get('/home/load_selected_plan_data', {
+                    'plan_selected': $('.selected_friend_plan').attr('plan_id'),
+                    friend_plan: true
+                }, function (data) {
+                    initialize_plan_info(data);
+                });
+            });
+        });
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
@@ -187,9 +194,6 @@ function initialize_plan_info(data) {
     $('#info_content').html(data.html);
     data = data.data;
         
-    // Seek to the correct day
-    goto_day_offset(data.date, true);
-        
     // Initialize the graphs
     two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
     populate_percentage_box('.attending_graph', data.percent_attending, 'percent_bar_total');
@@ -239,7 +243,7 @@ function initialize_plan_info(data) {
 }
 
 // Populates the popular locations panel
-function populate_popular_locations(skip_update_map) {
+function populate_popular_locations(skip_update_map, callback) {
     $.get('/home/load_location_tabs', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
@@ -272,4 +276,8 @@ function populate_popular_locations(skip_update_map) {
             populate_map(data.coords_array, location_marker_closure);
         }
     });
+    
+    if (callback != undefined) {
+        callback();
+    }
 }
