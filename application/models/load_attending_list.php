@@ -31,7 +31,7 @@ class Load_attending_list extends CI_Model
     function display_attending_list($query_result)
     {
         $this->load->model('follow_ops');
-        $follow_ids = $this->follow_ops->get_follow_ids();
+        $follow_ids = $this->follow_ops->get_following_ids();
 
         $count = 0;
         ?>
