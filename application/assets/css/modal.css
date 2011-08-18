@@ -19,13 +19,14 @@
 }
 
 .attending_modal{
-    display:none;
+    visibility: hidden;
     height: auto;
     position: absolute;
     left: 50%;
     top: 50%;
     background-color:#efefef;
     padding: 5px;
+    z-index: 1000;
 
     /*--CSS3 Box Shadows--*/
     -webkit-box-shadow: 0px 0px 20px #000;
