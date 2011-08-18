@@ -155,7 +155,6 @@ function initialize_location_info(data) {
                 
     // Make plan click handler
     $('.make_plan').click(function() {
-        var button = $(this);
         show_plan_modal(function () {
             // Pre-populate the place name and id
             $('#plan_location').val(data.place_name);
@@ -233,6 +232,7 @@ function initialize_plan_info(data) {
             'privacy': data.privacy
         }, function() {
             populate_plan_panel();
+            display_info();
         });
     });
 }
