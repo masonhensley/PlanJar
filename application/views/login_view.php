@@ -176,17 +176,6 @@
     </div>
     <a href="http://mixpanel.com/f/partner"><img src="http://mixpanel.com/site_media/images/partner/badge_blue.png" alt="Web Analytics" /></a>
 
-    <!-- Place this tag where you want the +1 button to render -->
-        <g:plusone href="www.planjar.com"></g:plusone>
-        
-        <!--  Place this tag after the last plusone tag -->
-        <script type="text/javascript">
-          (function() {
-            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-          })();
-        </script>
     
     <div id="footer">
         <!-- Begin Footer Menu -->
