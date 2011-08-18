@@ -285,7 +285,7 @@ class Home extends CI_Controller
     public function get_my_plans()
     {
         $this->load->model('plan_actions');
-        echo jaon_encode($this->plan_actions->display_plans());
+        echo $this->plan_actions->display_plans();
     }
 
     // Update the user's location

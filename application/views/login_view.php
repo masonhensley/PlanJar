@@ -15,7 +15,23 @@
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
         <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
+        
+        <!-- Google Analytics -->
+        <script type="text/javascript">
 
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-23115103-4']);
+              _gaq.push(['_setDomainName', '.planjar.com']);
+              _gaq.push(['_trackPageview']);
+            
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+            
+        </script>
+        
     </head>
     <body>
         <div class ="top_panel">
@@ -160,6 +176,7 @@
     </div>
     <a href="http://mixpanel.com/f/partner"><img src="http://mixpanel.com/site_media/images/partner/badge_blue.png" alt="Web Analytics" /></a>
 
+    
     <div id="footer">
         <!-- Begin Footer Menu -->
         <ul id="footer_menu">
@@ -174,7 +191,25 @@
     </div>
 </div>
 
+    <script type="text/javascript">
+        var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
+        (function(){
+          function loadChartbeat() {
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement('script');
+            e.setAttribute('language', 'javascript');
+            e.setAttribute('type', 'text/javascript');
+            e.setAttribute('src',
+               (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+               "js/chartbeat.js");
+            document.body.appendChild(e);
+          }
+          var oldonload = window.onload;
+          window.onload = (typeof window.onload != 'function') ?
+             loadChartbeat : function() { oldonload(); loadChartbeat(); };
+        })();
 
+    </script>
 
 
 </body>

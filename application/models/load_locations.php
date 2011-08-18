@@ -46,7 +46,7 @@ class Load_locations extends CI_Model
         ?>
         <div class="display_message">
             <font style="color:gray;">Select a group or network on the left<br/>
-            to see where they are going </font><?php echo $display_day; ?>
+            to see where they are going </font><?php echo $display_day; ?>.
         </div>
         <?php
         echo(json_encode(array(
@@ -296,7 +296,7 @@ class Load_locations extends CI_Model
             $number_tracker = 1;
             foreach ($place_id_array as $place_id => $count)
             {
-                $coords_array[] = array_merge($place_array[$place_id], array($number_tracker - 1));
+                $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">

@@ -1,6 +1,6 @@
 <?php
 
-class Load_plan_data extends CI_Model
+class Load_attending_list extends CI_Model
 {
 
     function __construct()

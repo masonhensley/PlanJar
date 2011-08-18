@@ -3,7 +3,7 @@ var map_marker_array = [];
 
 // Populates the map with the given data
 // If the given data is empty, only the user's location is shown
-function populate_map(data, closure_function) {
+function populate_map(data, closure_function, non_numbered) {
     // Only populate the map if it's been initialized'
     if (map != undefined) {
         clear_map_markers();
@@ -17,11 +17,18 @@ function populate_map(data, closure_function) {
         }));
     
         for (var i = 0; i < data.length; ++i) {
+            var icon;
+            if (non_numbered != undefined) {
+                icon = '/application/assets/images/map_markers/marker.png'
+            } else {
+                icon = '/application/assets/images/map_markers/marker' + (i + 1) + '.png';
+            }
+            
             var temp_marker = new google.maps.Marker({
                 position: new google.maps.LatLng(data[i][1], data[i][2]),
                 map: map,
                 title: data[i][0],
-                icon: '/application/assets/images/map_markers/marker' + (i + 1) + '.png'
+                'icon': icon
             });
         
             // Assign the click event
@@ -47,8 +54,15 @@ function location_marker_closure(index) {
 function plan_marker_closure(plan_id) {
     return function() {
         // Select the corresponding plan and display info
-        $('.plan_content, .friend_plan_content').filter('[plan_id="' + plan_id + '"]').click();
-        show_data_container('#info_content');
+        //        console.log($('.plan_content, .friend_plan_content').filter('[plan_id="' + plan_id + '"]'));
+        //        console.log($('.plan_content, .friend_plan_content'));
+        //        console.log(plan_id);
+        
+        // Click the necessary plan (the not clause prevents unselecting a plan)
+        $('.plan_content, .friend_plan_content').not('.selected_plan, .selected_friend_plan').filter('[plan_id="' + plan_id + '"]').click();
+        show_data_container('#info_content', function() {
+            $('.view_plan_location').click();
+        });
     }
 }
 

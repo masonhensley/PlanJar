@@ -39,9 +39,6 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
-    // Show the info tab
-    //show_data_container('#info_content');
-    
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
         
@@ -64,9 +61,6 @@ function display_info(bypass, arg) {
         }, function (data) {
             initialize_location_info(data);
         });
-        
-        // Bypass updating the location list
-        bypass = true;
     } else if ($('.network_active, .selected_group').length > 0) {
         // Network or group selected.
         
@@ -104,29 +98,51 @@ function display_info(bypass, arg) {
                 display_info(true, $(this).val());
             });
         });
-    } else if ($('.selected_plan').length > 0) {
-        // Plan selected
+        
+        // Load popular locations if necessary
+        if (bypass != true) {
+            populate_popular_locations();
+        }
+    } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
+        // Plan or friend's plan selected
+        
+        // Load the selected plan
         $.get('/home/load_selected_plan_data', {
-            'plan_selected': $('.selected_plan').attr('plan_id')
+            'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id'),
+            'friend_plan': $('.selected_friend_plan').length > 0
         }, function (data) {
-            initialize_plan_info(data);
-        });
-    } else if ($('.selected_friend_plan').length > 0) {
-        // Friend's plan selected
-        $.get('/home/load_selected_plan_data', {
-            'plan_selected': $('.selected_friend_plan').attr('plan_id'),
-            'friend_plan': true
-        }, function (data) {
-            initialize_plan_info(data);
+            data = $.parseJSON(data);
+            
+            // Seek to the correct day
+            goto_day_offset(data.data.date, true, function() {
+                // Load popular locations
+                populate_popular_locations(true, function() {
+                    // Populate the map
+                    $.get('/home/get_plans_coords', {
+                        plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
+                    }, function(data) {
+                        data = $.parseJSON(data);
+                
+                        populate_map(data, plan_marker_closure, true);
+                    });
+                    
+                    // Setup the plan info
+                    initialize_plan_info(data);
+                });
+            });
+            
+            // View attendees click handler
+            $('#view_attendees').click(function(){
+                $.get('/home/attending_list', {
+                    plan_id : $('.selected_plan').attr('plan_id')
+                });    
+            });
         });
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
-    }
-    
-    // This is down here to allow the above code to procedurally change the value of bypass
-    if (bypass != true) {
-        // Needed by fricking every incoming call (and by every I mean enough to put it here)
+        
+        // Load popular locations
         populate_popular_locations();
     }
 }
@@ -146,7 +162,6 @@ function initialize_location_info(data) {
                 
     // Make plan click handler
     $('.make_plan').click(function() {
-        var button = $(this);
         show_plan_modal(function () {
             // Pre-populate the place name and id
             $('#plan_location').val(data.place_name);
@@ -176,14 +191,9 @@ function initialize_location_info(data) {
 // Sets up the plan info view
 var viewing_plan_location = false;
 function initialize_plan_info(data) {
-    data = $.parseJSON(data);
-        
     // Replace the data and show the data tab.
     $('#info_content').html(data.html);
     data = data.data;
-        
-    // Seek to the correct day
-    goto_day_offset(data.date, true);
         
     // Initialize the graphs
     two_percentage_bar('.plan_gender_graph', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
@@ -229,12 +239,13 @@ function initialize_plan_info(data) {
             'privacy': data.privacy
         }, function() {
             populate_plan_panel();
+            display_info();
         });
     });
 }
 
 // Populates the popular locations panel
-function populate_popular_locations() {
+function populate_popular_locations(skip_update_map, callback) {
     $.get('/home/load_location_tabs', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
@@ -263,6 +274,12 @@ function populate_popular_locations() {
         });
         
         // Populate the map
-        populate_map(data.coords_array, location_marker_closure);
+        if (skip_update_map == undefined) {
+            populate_map(data.coords_array, location_marker_closure);
+        }
     });
+    
+    if (callback != undefined) {
+        callback();
+    }
 }
