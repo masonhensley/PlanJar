@@ -8,7 +8,7 @@ class Load_plan_data extends CI_Model
         parent::__construct();
     }
 
-    function _display_attending_list()
+    function _display_attending_list($plan_id)
     {
         // get #attending
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
