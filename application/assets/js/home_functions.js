@@ -23,7 +23,7 @@ function fetch_notifications() {
             $('#notifications .top_right_link_inner').badger(data);
         }
             
-        notification_timer = setTimeout(fetch_notifications, 30000);
+        notification_timer = setTimeout(fetch_notifications, 45000);
     });
 }
 
