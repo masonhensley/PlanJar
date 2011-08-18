@@ -225,6 +225,7 @@ class Load_plan_data extends CI_Model
         </div>
 
         <?php
+        var_dump($friend_plan);
         if (!$friend_plan)
         {
             // User's plan

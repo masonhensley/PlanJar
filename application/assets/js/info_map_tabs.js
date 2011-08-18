@@ -109,7 +109,7 @@ function display_info(bypass, arg) {
         // Load the selected plan
         $.get('/home/load_selected_plan_data', {
             'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id'),
-            friend_plan: $('.selected_friend_plan').length > 0
+            'friend_plan': $('.selected_friend_plan').length > 0
         }, function (data) {
             data = $.parseJSON(data);
             
