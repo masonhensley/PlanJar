@@ -225,8 +225,7 @@ class Load_plan_data extends CI_Model
         </div>
 
         <?php
-        var_dump($friend_plan);
-        if (!$friend_plan)
+        if ($friend_plan != 'false')
         {
             // User's plan
             // Generate the invite people string
