@@ -148,6 +148,8 @@ function display_info(bypass, arg) {
                     
                     $('#plan_attending_panel').show('fast');
                     
+                    alert('sup');
+                    
                 });    
 
             });
