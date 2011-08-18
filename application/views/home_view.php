@@ -136,11 +136,12 @@
                 <div class="suggested_locations">
                 </div>
                 <div class="upcoming_events">
+                    <!--
                     <img src="http://placehold.it/125x125">
                     <img src="http://placehold.it/125x125">
                     <img src="http://placehold.it/280x125">
                     <img src="http://placehold.it/280x100">
-                    <?php //echo $upcoming_event_html; ?>
+                    -->
                 </div>
             </div>
             <div class ="right">
