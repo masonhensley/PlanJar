@@ -146,6 +146,8 @@ function display_info(bypass, arg) {
                         $('#plan_attending_panel').hide('fast');
                     });
                     
+                    $('#plan_attending_panel').show('fast');
+                    
                 });    
 
             });
