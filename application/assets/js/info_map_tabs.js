@@ -130,6 +130,13 @@ function display_info(bypass, arg) {
                     initialize_plan_info(data);
                 });
             });
+            
+            // View attendees click handler
+            $('#view_attendees').click(function(){
+                $.get('/home/attending_list', {
+                    plan_id : $('.selected_plan').attr('plan_id')
+                });    
+            });
         });
     } else {
         // No controlls selected
