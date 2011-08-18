@@ -135,8 +135,23 @@ function display_info(bypass, arg) {
             $('#view_attendees').click(function(){
                 $.get('/home/attending_list', {
                     plan_id : $('.selected_plan').attr('plan_id')
+                }, function(){
+                    // Make it draggable (with a handle).
+                    $('#plan_attending_panel').draggable({
+                        handle: '.title_bar'
+                    });
+                    
+                    // Closing click handler
+                    $('#cancel_plan').click(function () {
+                        $('#plan_attending_panel').hide('fast');
+                    });
+                    
                 });    
+
             });
+            
+            
+            
         });
     } else {
         // No controlls selected
