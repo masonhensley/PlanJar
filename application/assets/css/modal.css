@@ -18,6 +18,27 @@
     border-radius: 10px;
 }
 
+.attending_modal{
+    display:none;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color:#efefef;
+    padding: 5px;
+
+    /*--CSS3 Box Shadows--*/
+    -webkit-box-shadow: 0px 0px 20px #000;
+    -moz-box-shadow: 0px 0px 20px #000;
+    box-shadow: 0px 0px 20px #000;
+
+    /*--CSS3 Rounded Corners--*/
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+}
+
 .modal .title_bar {
     height: 25px;
     background-color:#555;
