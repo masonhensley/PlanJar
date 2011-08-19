@@ -148,7 +148,7 @@ class Follow_ops extends CI_Model
             }else if($option == 'already_following')
             {
                 ?>
-                <div class="add_following">following</div>
+                <div class="following">following</div>
                 <?php
             }
             ?>
