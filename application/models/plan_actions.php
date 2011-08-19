@@ -110,7 +110,7 @@ class Plan_actions extends CI_Model
                     $date = "Today";
                 } else
                 {
-                    $date = date('l', strtotime($plan->date));
+                    $date = date('l (jS)', strtotime($plan->date));
                 }
                 ?>
                 <div class="active_plans"> 
