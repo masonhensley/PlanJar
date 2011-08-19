@@ -160,6 +160,7 @@
             <a href="/privacy" id="profile_link">Privacy</a>
             <a href="http://blog.planjar.com/" id="profile_link">Blog</a>
         </div>
+        
         <div id="plan_attending_panel" class="attending_modal" style="left:43%; top:19%;"></div>
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
