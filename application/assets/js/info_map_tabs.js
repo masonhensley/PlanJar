@@ -134,7 +134,7 @@ function display_info(bypass, arg) {
             // View attendees click handler
             $('#view_attendees').click(function(){
                 $.get('/home/attending_list', {
-                    plan_id : $('.selected_plan').attr('plan_id')
+                    plan_id : $('#view_attendees').attr('plan_id')
                 }, function(data){
                     // Make it draggable (with a handle).
                     $('#plan_attending_panel').draggable({
