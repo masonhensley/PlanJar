@@ -63,6 +63,10 @@ function initialize_suggested_friends()
             
             $('#friend_search').focus();
         } else {
+            // start spinner
+            var target = document.getElementById('follow_search');
+            var spinner = new Spinner(spinner_options()).spin(target);
+            
             // Clear the search box
             $('#friend_search').val('');
             $('#friend_search').blur();
@@ -72,6 +76,8 @@ function initialize_suggested_friends()
             
             // Get the suggested friends
             populate_suggested_friends();
+            
+            spinner.stop();
         } 
     });
     
