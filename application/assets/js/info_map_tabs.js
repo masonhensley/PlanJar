@@ -139,20 +139,14 @@ function display_info(bypass, arg) {
                     // Make it draggable (with a handle).
                     $('#plan_attending_panel').draggable({
                         handle: '.title_bar'
-                    });
-                    
+                    }); 
+                    $('#plan_attending_panel').html(data);
+                    $('#plan_attending_panel').show('fast');
                     // Closing click handler
                     $('#cancel_friends_panel').click(function () {
                         $('#plan_attending_panel').hide('fast');
                     });
-                    
-                    $('#plan_attending_panel').html(data);
-                    
-                    $('#plan_attending_panel').show('fast');
-                    
-                  
                 });    
-
             });
             
             
