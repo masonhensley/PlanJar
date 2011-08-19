@@ -134,6 +134,7 @@ function display_info(bypass, arg) {
             console.log('click handler set up');
             // View attendees click handler
             $('#view_attendees').click(function(){
+                console.log('attendees clicked');
                 $.get('/home/attending_list', {
                     plan_id : $('#view_attendees').attr('plan_id')
                 }, function(data){
