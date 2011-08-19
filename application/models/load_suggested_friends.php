@@ -44,82 +44,31 @@ class Load_suggested_friends extends CI_Model
         $result = $this->db->query($groupmate_query);
         $result_array_3 = $result->row_array();
 
-
-
         // combine the 3 arrays here into one array called "connection array"
         $connection_array = array_merge($result_array, $result_array_2, $result_array_3);
-        
-        var_dump($result_array, $result_array_2, $result_array_3, $connection_array);
-        
-        $connection_array = array_count_values($connection_array);
-        $number_results = count($connection_array);
-        asort($connection_array);
-        $suggested_friends = array_reverse($connection_array, TRUE);
-        
-        
-        
-        if ($number_results > 0)
+
+        $this->load->model('follow_ops');
+        $following_ids = $this->follow_ops->get_following_ids();
+        $suggested_friends = array();
+
+        foreach ($connection_array as $id)
         {
-            $display_limit = 10;
-            $result = $this->generate_suggested_friends($suggested_friends);
-            $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
+            if (!in_array($id, $following_ids))
+            {
+                $suggested_friends[] = $id;
+            }
         }
 
+        var_dump($result_array, $result_array_2, $result_array_3, $suggested_friends);
 
+        $suggested_friends = array_count_values($suggested_friends);
+        asort($suggested_friends);
+        $suggested_friends = array_reverse($suggested_friends, TRUE);
 
+        $display_limit = 10;
 
-        // old code starts here
-        /*
-          $number_of_results = 0; // this keeps track of the number of items displayed to it can be limited to 15 (or whatever)
-          $display_limit = 15; // the max number of results that can be displayed for suggested friends
-          $friends_query = "SELECT follow_id FROM friend_relationships WHERE user_id=$user_id"; // query pulls all people you are following
-          $friends_following_result = $this->db->query($friends_query);
-          $suggested_friends = array();
-          $already_following = array(); // keep track of the people you are already following
-
-          if ($friends_following_result->num_rows() > 0) // if you are following 1 or more people
-          {
-
-          $friend_of_friend_query = "SELECT follow_id FROM friend_relationships WHERE "; // generate query to find all friends of friends
-          foreach ($friends_following_result->result() as $friend_id)
-          {
-          $already_following[] = $friend_id->follow_id; // update $already_following id array
-          $friend_of_friend_query .= "user_id=$friend_id->follow_id OR "; // long or clause for each friend id
-          }
-          $friend_of_friend_query = substr($friend_of_friend_query, 0, strlen($friend_of_friend_query) - 4); // This cuts off the last "OR" and adds ")"
-          $friend_of_friend_ids = $this->db->query($friend_of_friend_query);
-
-          $friend_of_friend_list = array();  // keep track of friend of friend ids
-
-
-
-          if ($friend_of_friend_ids->num_rows() > 0) // if there are more than 1 2nd degree connections
-          {
-          foreach ($friend_of_friend_ids->result() as $friend_of_friend_id)
-          {
-          if ($friend_of_friend_id->follow_id != $user_id && !in_array($friend_of_friend_id->follow_id, $already_following)) // this makes sure your user_id or anyone you are already following is not added to the list
-          {
-          $friend_of_friend_list[] = $friend_of_friend_id->follow_id;
-          }
-          }
-          $suggested_friends = array_count_values($friend_of_friend_list);     // this turns the array of follow ids into an associative array structured: $user_id => $count
-          $number_of_results += count($suggested_friends);
-          asort($suggested_friends); // this sorts the array by count
-          $suggested_friends = array_reverse($suggested_friends, TRUE);  // this orders the array descending, TRUE parameter keeps the indices
-          if ($number_of_results > 0)
-          {
-          $result = $this->generate_suggested_friends($friend_of_friend_list, $suggested_friends);
-          $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
-          }
-          }
-          }
-
-          if ($number_of_results <= $display_limit)
-          {
-          $new_limit = $display_limit - $number_of_results;  // takes the difference so the number to display is always the same
-          $this->show_suggested_school_friends($new_limit, $already_following); // in the case that you are not following anyone, and there are no mutual followers
-          }
-         */
+        $result = $this->generate_suggested_friends($suggested_friends);
+        $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
     }
 
     function display_suggested_friends($query_result, $suggested_friends=null, $options, $display_limit) //this function displays the suggested friends
@@ -138,8 +87,7 @@ class Load_suggested_friends extends CI_Model
 
     function generate_suggested_friends($suggested_friends)
     {
-        $this->load->model('follow_ops');
-        $following_ids = $this->follow_ops->get_following_ids();
+
 
         // this query pulls all the information needed to display suggested friends
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
