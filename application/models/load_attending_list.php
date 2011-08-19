@@ -39,7 +39,6 @@ class Load_attending_list extends CI_Model
 
 
         <div class="title_bar">
-            Friends
             <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
         </div>
         <div id="friend_modal_content">
