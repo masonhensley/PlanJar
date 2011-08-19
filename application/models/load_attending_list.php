@@ -34,37 +34,39 @@ class Load_attending_list extends CI_Model
         $follow_ids = $this->follow_ops->get_following_ids();
 
         $count = 0;
+        ob_start();
         ?>
 
-        <div id="plan_attending_panel" class="attending_modal" style="left:43%; top:19%;">
-            <div class="title_bar">
-                Friends
-                <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
-            </div>
-            <div id="friend_modal_content">
-                <br/>
-                Select a friend to view their upcoming plans
-                <br/><hr/>
-                <div class="friend_list">
 
-                    <?php
-                    foreach ($query_result->result() as $row)
+        <div class="title_bar">
+            Friends
+            <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
+        </div>
+        <div id="friend_modal_content">
+            <br/>
+            Select a friend to view their upcoming plans
+            <br/><hr/>
+            <div class="friend_list">
+
+                <?php
+                foreach ($query_result->result() as $row)
+                {
+                    if (in_array($row->user_id, $follow_ids))
                     {
-                        if (in_array($row->user_id, $follow_ids))
-                        {
-                            $this->follow_ops->echo_user_entry($row, 'already_following');
-                        } else
-                        {
-                            $this->follow_ops->echo_user_entry($row, 'suggested');
-                        }
-
-                        $count++;
+                        $this->follow_ops->echo_user_entry($row, 'already_following');
+                    } else
+                    {
+                        $this->follow_ops->echo_user_entry($row, 'suggested');
                     }
-                    ?>
-                </div>
+
+                    $count++;
+                }
+                ?>
             </div>
         </div>
+
         <?php
+        echo ob_get_clean();
     }
 
 }
