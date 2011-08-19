@@ -152,7 +152,7 @@ class Follow_ops extends CI_Model
                 <?php
             }else if($option == 'this_is_you'){
                 ?>
-                <div class="following">This is you</div>
+                <div class="following">this is you</div>
                 <?php
             }
             ?>
