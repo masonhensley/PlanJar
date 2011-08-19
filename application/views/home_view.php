@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
         <!-- CSS -->
@@ -50,6 +50,7 @@
         <script type="text/javascript" src="/application/assets/js/add_location_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/view_friends_plans.js"></script>
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
+        <script type="text/javascript" src="/application/assets/js/spin.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
@@ -68,23 +69,23 @@
         <title>PlanJar | Home</title>
 
         <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
-    
+
         <!-- Google Analytics -->
         <script type="text/javascript">
 
-              var _gaq = _gaq || [];
-              _gaq.push(['_setAccount', 'UA-23115103-4']);
-              _gaq.push(['_setDomainName', '.planjar.com']);
-              _gaq.push(['_trackPageview']);
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-23115103-4']);
+            _gaq.push(['_setDomainName', '.planjar.com']);
+            _gaq.push(['_trackPageview']);
             
-              (function() {
+            (function() {
                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-              })();
+            })();
             
         </script>
-        
+
     </head>
     <body>
         <div class ="top_panel">
@@ -160,33 +161,33 @@
             <a href="/privacy" id="profile_link">Privacy</a>
             <a href="http://blog.planjar.com/" id="profile_link">Blog</a>
         </div>
-        
+
         <div id="plan_attending_panel" class="attending_modal" style="left:43%; top:19%;"></div>
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/add_location_modal.php'); ?>
-        
+
         <script type="text/javascript">
             var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
             (function(){
-              function loadChartbeat() {
-                window._sf_endpt=(new Date()).getTime();
-                var e = document.createElement('script');
-                e.setAttribute('language', 'javascript');
-                e.setAttribute('type', 'text/javascript');
-                e.setAttribute('src',
-                   (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
-                   "js/chartbeat.js");
-                document.body.appendChild(e);
-              }
-              var oldonload = window.onload;
-              window.onload = (typeof window.onload != 'function') ?
-                 loadChartbeat : function() { oldonload(); loadChartbeat(); };
+                function loadChartbeat() {
+                    window._sf_endpt=(new Date()).getTime();
+                    var e = document.createElement('script');
+                    e.setAttribute('language', 'javascript');
+                    e.setAttribute('type', 'text/javascript');
+                    e.setAttribute('src',
+                    (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+                        "js/chartbeat.js");
+                    document.body.appendChild(e);
+                }
+                var oldonload = window.onload;
+                window.onload = (typeof window.onload != 'function') ?
+                    loadChartbeat : function() { oldonload(); loadChartbeat(); };
             })();
             
         </script>
-        
+
     </body>
 </html>
