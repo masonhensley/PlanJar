@@ -110,7 +110,7 @@ class Plan_actions extends CI_Model
                     $date = "Today";
                 } else
                 {
-                    $date = date('l', strtotime($plan->date));
+                    $date = date('l (jS)', strtotime($plan->date));
                 }
                 ?>
                 <div class="active_plans"> 
@@ -118,7 +118,7 @@ class Plan_actions extends CI_Model
                     if ($date_organizer != $date)
                     {
                         ?>
-                        <font style="font-size:11px; margin-left: -140px; color:gray;"><?php echo $date; ?><br/></font>
+                        <div style="font-size:11px;color:gray; width:100%; text-align: left; padding-left:4px;"><?php echo $date; ?></div>
                         <?php
                     }
                     $date_organizer = $date;

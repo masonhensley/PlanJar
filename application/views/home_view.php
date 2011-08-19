@@ -50,7 +50,6 @@
         <script type="text/javascript" src="/application/assets/js/add_location_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/view_friends_plans.js"></script>
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
-        <script type="text/javascript" src="/application/assets/js/view_plan_list.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
@@ -69,6 +68,23 @@
         <title>PlanJar | Home</title>
 
         <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
+    
+        <!-- Google Analytics -->
+        <script type="text/javascript">
+
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-23115103-4']);
+              _gaq.push(['_setDomainName', '.planjar.com']);
+              _gaq.push(['_trackPageview']);
+            
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+            
+        </script>
+        
     </head>
     <body>
         <div class ="top_panel">
@@ -120,11 +136,12 @@
                 <div class="suggested_locations">
                 </div>
                 <div class="upcoming_events">
+                    <!--
                     <img src="http://placehold.it/125x125">
                     <img src="http://placehold.it/125x125">
                     <img src="http://placehold.it/280x125">
                     <img src="http://placehold.it/280x100">
-                    <?php //echo $upcoming_event_html; ?>
+                    -->
                 </div>
             </div>
             <div class ="right">
@@ -143,6 +160,8 @@
             <a href="/privacy" id="profile_link">Privacy</a>
             <a href="http://blog.planjar.com/" id="profile_link">Blog</a>
         </div>
+        
+        <div id="plan_attending_panel" class="attending_modal" style="left:43%; top:19%;"></div>
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>

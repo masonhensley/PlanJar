@@ -135,9 +135,23 @@ function display_info(bypass, arg) {
             // View attendees click handler
             $('#view_attendees').click(function(){
                 $.get('/home/attending_list', {
-                    plan_id : $('.selected_plan').attr('plan_id')
+                    plan_id : $('#view_attendees').attr('plan_id')
+                }, function(data){
+                    // Make it draggable (with a handle).
+                    $('#plan_attending_panel').draggable({
+                        handle: '.title_bar'
+                    }); 
+                    $('#plan_attending_panel').html(data);
+                    $('#plan_attending_panel').show('fast');
+                    // Closing click handler
+                    $('#cancel_friends_panel').click(function () {
+                        $('#plan_attending_panel').hide('fast');
+                    });
                 });    
             });
+            
+            
+            
         });
     } else {
         // No controlls selected

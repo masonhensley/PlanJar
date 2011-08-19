@@ -8,17 +8,20 @@ class Load_attending_list extends CI_Model
         parent::__construct();
     }
 
-    function _display_attending_list()
+    function _display_attending_list($plan_id)
     {
         // get #attending
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
         $result = $this->db->query($query);
-        $event_id = $result->row()->event_id;
+        $event_id = $result->row();
+        $event_id = $event_id->event_id;
 
         // select all the people attending the event
         $query = "
         SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school 
-        FROM plans JOIN user_meta ON user_meta.user_id=plans.user_id 
+        FROM plans 
+        JOIN user_meta ON user_meta.user_id=plans.user_id 
+        LEFT JOIN school_data ON user_meta.school_id = school_data.id
         WHERE plans.event_id=$event_id
         ";
 
@@ -29,40 +32,42 @@ class Load_attending_list extends CI_Model
     function display_attending_list($query_result)
     {
         $this->load->model('follow_ops');
-        $follow_ids = $this->follow_ops->get_follow_ids();
-
+        $follow_ids = $this->follow_ops->get_following_ids();
+        $user = $this->ion_auth->get_user();
         $count = 0;
+        ob_start();
         ?>
 
-        <div id="friends_plans_panel" class="modal" style="left:43%; top:19%;">
-            <div class="title_bar">
-                Friends
-                <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
-            </div>
-            <div id="friend_modal_content">
-                <br/>
-                Select a friend to view their upcoming plans
-                <br/><hr/>
-                <div class="friend_list">
 
-                    <?php
-                    foreach ($query_result->result() as $row)
+        <div class="title_bar">
+            <b>Attending List</b>
+            <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
+        </div>
+        <div id="attending_modal_content">
+            <div class="attending_list">
+
+                <?php
+                foreach ($query_result->result() as $row)
+                {
+                    if (in_array($row->user_id, $follow_ids))
                     {
-                        if (in_array($row->user_id, $follow_ids))
-                        {
-                            $this->follow_ops->echo_user_entry($row, 'already_following');
-                        } else
-                        {
-                            $this->follow_ops->echo_user_entry($row, 'suggested');
-                        }
-
-                        $count++;
+                        $this->follow_ops->echo_user_entry($row, 'already_following');
+                    } else if ($row->user_id == $user->id)
+                    {
+                        $this->follow_ops->echo_user_entry($row, 'this_is_you');
+                    } else
+                    {
+                        $this->follow_ops->echo_user_entry($row, 'add following');
                     }
-                    ?>
-                </div>
+
+                    $count++;
+                }
+                ?>
             </div>
         </div>
+
         <?php
+        echo ob_get_clean();
     }
 
 }
