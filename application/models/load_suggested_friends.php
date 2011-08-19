@@ -48,10 +48,16 @@ class Load_suggested_friends extends CI_Model
 
         // combine the 3 arrays here into one array called "connection array"
         $connection_array = array_merge($result_array, $result_array_2, $result_array_3);
+        
+        var_dump($result_array, $result_array_2, $result_array_3, $connection_array);
+        
         $connection_array = array_count_values($connection_array);
         $number_results = count($connection_array);
         asort($connection_array);
         $suggested_friends = array_reverse($connection_array, TRUE);
+        
+        
+        
         if ($number_results > 0)
         {
             $display_limit = 10;
