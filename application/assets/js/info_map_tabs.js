@@ -66,8 +66,9 @@ function display_info(bypass, arg) {
         // Network or group selected.
         // setup spinner
         
+        var opts = spinner_options();
         var target = document.getElementById('suggest_people');
-        var spinner = new Spinner(spinner_options()).spin(target);
+        var spinner = new Spinner(opts).spin(target);
         
         // Make 'all' the default filter setting
         if(arg == undefined)
