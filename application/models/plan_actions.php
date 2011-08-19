@@ -118,7 +118,7 @@ class Plan_actions extends CI_Model
                     if ($date_organizer != $date)
                     {
                         ?>
-                        <font style="font-size:11px; margin-left: -96px; color:gray;"><?php echo $date; ?><br/></font>
+                        <div style="font-size:11px;color:gray; width:100%; text-align: left;"><?php echo $date; ?></div><br/>
                         <?php
                     }
                     $date_organizer = $date;
