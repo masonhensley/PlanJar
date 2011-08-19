@@ -19,7 +19,7 @@
 }
 
 .attending_modal{
-    visibility: hidden;
+    display:none;
     height: auto;
     position: absolute;
     left: 50%;
