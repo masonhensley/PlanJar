@@ -152,7 +152,7 @@ class Home extends CI_Controller
                 'time' => $this->input->get('plan_time'),
                 'clock_time' => $clock_time,
                 'privacy' => $privacy,
-                'originator_id' => $this->ion_auth->get_user()->id,
+                'originator' => $this->ion_auth->get_user()->id,
                 'description' => $this->input->get('plan_description')
             );
 
