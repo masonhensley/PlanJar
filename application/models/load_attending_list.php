@@ -32,7 +32,7 @@ class Load_attending_list extends CI_Model
     {
         $this->load->model('follow_ops');
         $follow_ids = $this->follow_ops->get_following_ids();
-
+        $user = $this->ion_auth->get_user();
         $count = 0;
         ob_start();
         ?>
@@ -51,6 +51,9 @@ class Load_attending_list extends CI_Model
                     if (in_array($row->user_id, $follow_ids))
                     {
                         $this->follow_ops->echo_user_entry($row, 'already_following');
+                    } else if ($row->user_id == $user->id)
+                    {
+                        $this->follow_ops->echo_user_entry($row, 'this_is_you');
                     } else
                     {
                         $this->follow_ops->echo_user_entry($row, 'suggested');
