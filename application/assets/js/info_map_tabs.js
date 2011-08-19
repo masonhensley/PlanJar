@@ -131,6 +131,7 @@ function display_info(bypass, arg) {
                 });
             });
             
+            console.log('click handler set up');
             // View attendees click handler
             $('#view_attendees').click(function(){
                 $.get('/home/attending_list', {
