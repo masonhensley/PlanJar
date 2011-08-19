@@ -222,7 +222,7 @@ function initialize_plan_info(data) {
         
     // Handles clicking on invite people
     $('.invite_people').click(function () {
-        open_invite_modal('event', data.event_id, data.privacy, data.originator_id);
+        open_invite_modal('event', data.event_id, data.privacy, data.originator);
     });
             
     // Handles clicking on the see place button
