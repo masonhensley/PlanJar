@@ -132,6 +132,8 @@ class Load_suggested_friends extends CI_Model
 
     function generate_suggested_friends($suggested_friends)
     {
+        $this->load->model('follow_ops');
+        $following_ids = $this->follow_ops->get_following_ids();
 
         // this query pulls all the information needed to display suggested friends
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
@@ -140,7 +142,10 @@ class Load_suggested_friends extends CI_Model
         $mutual_friend_count = array(); // keep track of mutual friends to display
         foreach ($suggested_friends as $id => $count)
         {
-            $query .= "user_meta.user_id=$id OR ";
+            if (!in_array($id, $following_ids))
+            {
+                $query .= "user_meta.user_id=$id OR ";
+            }
         }
         $query = substr($query, 0, strlen($query) - 3); // This cuts off the last "OR" and adds ")"
         $query .= "ORDER BY CASE user_meta.user_id ";
