@@ -44,6 +44,8 @@ class Load_suggested_friends extends CI_Model
         $result = $this->db->query($groupmate_query);
         $result_array_3 = $result->row_array();
 
+        var_dump($connection_query, $schoolmate_query, $groupmate_query);
+        
         // combine the 3 arrays here into one array called "connection array"
         $connection_array = array_merge($result_array, $result_array_2, $result_array_3);
 
@@ -58,8 +60,6 @@ class Load_suggested_friends extends CI_Model
                 $suggested_friends[] = $id;
             }
         }
-
-        var_dump($result_array, $result_array_2, $result_array_3, $suggested_friends);
 
         $suggested_friends = array_count_values($suggested_friends);
         asort($suggested_friends);
