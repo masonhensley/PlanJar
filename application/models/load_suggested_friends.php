@@ -32,7 +32,7 @@ class Load_suggested_friends extends CI_Model
                 AND user_meta.user_id <> $user->user_id
             ";
         $result = $this->db->query($schoolmate_query);
-        $result_array_2 = $reuslt->row_array();
+        $result_array_2 = $result->row_array();
 
         // query to pull all your groupmates
         $groupmate_query = "
