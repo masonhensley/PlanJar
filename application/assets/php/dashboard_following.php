@@ -14,7 +14,7 @@
         </div>
 
         <div class="suggested_friends">
-            <div style="position:relative; top:7px;">Suggest people</div>
+            <div id="suggest_people" style="position:relative; top:7px;">Suggest people</div>
         </div>
     </div>
 
