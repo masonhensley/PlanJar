@@ -43,8 +43,8 @@ class Load_attending_list extends CI_Model
             <b>Attending List</b>
             <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
         </div>
-        <div id="friend_modal_content">
-            <div class="friend_list">
+        <div id="attending_modal_content">
+            <div class="attending_list">
 
                 <?php
                 foreach ($query_result->result() as $row)
