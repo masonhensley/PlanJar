@@ -57,7 +57,7 @@ class Load_attending_list extends CI_Model
                         $this->follow_ops->echo_user_entry($row, 'this_is_you');
                     } else
                     {
-                        $this->follow_ops->echo_user_entry($row, 'suggested');
+                        $this->follow_ops->echo_user_entry($row, 'add following');
                     }
 
                     $count++;
