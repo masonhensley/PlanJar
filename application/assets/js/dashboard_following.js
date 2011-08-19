@@ -65,7 +65,8 @@ function initialize_suggested_friends()
         } else {
             // start spinner
             var target = document.getElementById('follow_search');
-            var spinner = new Spinner(spinner_options()).spin(target);
+            var opts = spinner_options();
+            var spinner = new Spinner(opts).spin(target);
             
             // Clear the search box
             $('#friend_search').val('');
