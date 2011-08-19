@@ -142,7 +142,7 @@ function display_info(bypass, arg) {
                     });
                     
                     // Closing click handler
-                    $('#cancel_plan').click(function () {
+                    $('#cancel_friends_panel').click(function () {
                         $('#plan_attending_panel').hide('fast');
                     });
                     
