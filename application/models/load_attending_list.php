@@ -13,8 +13,9 @@ class Load_attending_list extends CI_Model
         // get #attending
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
         $result = $this->db->query($query);
-        $event_id = $result->row()->event_id;
-        var_dump($query, $result);
+        $event_id = $result->row();
+        
+        var_dump($query, $event_id);
 
         // select all the people attending the event
         $query = "
