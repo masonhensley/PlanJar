@@ -81,7 +81,7 @@
     text-align:right;
 }
 
-.modal .title_bar {
+.modal .attending_modal .title_bar {
     height: 25px;
     background-color:#555;
     background: url( /application/assets/images/stripe_c.png);
