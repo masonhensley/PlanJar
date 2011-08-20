@@ -26,12 +26,17 @@
 
                     <h2> Admin Dashboard <span class="arrow"></span> </h2> 
 
+                    <div id = "sleaze">
                     <div id="nd3384258"></div><script src="http://static.chartbeat.com/js/sitewidgets/topwidget.js" type="text/javascript" language="javascript"></script><script type="text/javascript" language="javascript">new topwidget("c0c2650b858888a3885f01fddffde0a4", "nd3384258", "silver", 10);</script>
+                    </div>
                     
+                    <div id = "sleaze">
                     <div id="nd6602689"></div><script src="http://static.chartbeat.com/js/sitewidgets/recentwidget.js" type="text/javascript" language="javascript"></script><script type="text/javascript" language="javascript">new recentwidget("c0c2650b858888a3885f01fddffde0a4", "nd6602689", "silver", 10);</script>
+                    </div>
                     
+                    <div id = "sleaze">
                     <div id="nd6269865"></div><script src="http://static.chartbeat.com/js/sitewidgets/referrerwidget.js" type="text/javascript" language="javascript"></script><script type="text/javascript" language="javascript">new referrerwidget("c0c2650b858888a3885f01fddffde0a4", "nd6269865", "silver", 10);</script>
-                    
+                    </div>
                     
                     
 
