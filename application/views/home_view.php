@@ -112,7 +112,7 @@
             if ($this->ion_auth->get_user()->group_id == 1)
             {
                 ?>
-                <a href="/admin_dashboard" style="position:absolute; color:darkgray; top:-37px; right:78px;">Admin Dashboard</a> - 
+                <a href="/admin_dashboard" style="position:absolute; color:darkgray; top:-37px; right:78px;">Admin Dashboard</a>
                 <a href="/home/logout" style="position:absolute; color:darkgray; top:-37px; right:78px;">Log Out</a>
                 <?php
             } else
