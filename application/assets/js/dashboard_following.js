@@ -65,17 +65,8 @@ function initialize_suggested_friends()
         } else {
             // start spinner
             var target = document.getElementById('follow_search');
-            //var opts = spinner_options();
-            var opts = {
-                lines: 8, // The number of lines to draw
-                length: 0, // The length of each line
-                width: 5, // The line thickness
-                radius: 11, // The radius of the inner circle
-                color: '#000', // #rbg or #rrggbb
-                speed: 1.2, // Rounds per second
-                trail: 100, // Afterglow percentage
-                shadow: true // Whether to render a shadow
-            };
+            var opts = spinner_options();
+            
             var spinner = new Spinner(opts).spin(target);
             
             // Clear the search box
