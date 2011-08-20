@@ -34,7 +34,7 @@ function setup_edit_box()
         $('.update_box').click(function(){
             
             // start spinner
-            var target = document.getElementById('follow_search');
+            var target = document.getElementById('my_box');
             var opts = spinner_options();
             var spinner = new Spinner(opts).spin(target);
             
