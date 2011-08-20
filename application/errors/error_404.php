@@ -1,6 +1,10 @@
 <html>
     <head>
         <title>404 - Jar Not Found</title>
+        
+        <!-- CSS -->
+        <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
+        
     </head>
     <body style="text-align: center;">
         <img src="/application/assets/images/404.png" style="width: 500px; height: 449px"/>
@@ -8,44 +12,28 @@
         <br>
         <br>
         
-        <a href="/home" data-role="button" data-inline="true" style: "-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
-    background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
-    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
-    background: -o-linear-gradient(top, #F3F6FF, #EEE);
-    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
-    background: linear-gradient(top, #F3F6FF, #EEE);
-    position: relative;
-    float: left;
-    margin-right: 10px;
-    width: 100px;
-    height: auto;
-    color: black;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;">Click Here for stuff that works</a>
+        <a href="/home" data-role="button" data-inline="true">Click Here for stuff that works</a>
     
     
-        <a href="/help" data-role="button" data-inline="true" style: "-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
-    background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
-    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
-    background: -o-linear-gradient(top, #F3F6FF, #EEE);
-    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
-    background: linear-gradient(top, #F3F6FF, #EEE);
-    position: relative;
-    float: left;
-    margin-right: 10px;
-    width: 100px;
-    height: auto;
-    color: black;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;">Help</a>
+        <a href="/help" data-role="button" data-inline="true">Help</a>
         
+        <div id="button_div">
+                <div style="margin-top:10px; margin-bottom:10px;">
+                    <input class="buttons" type="submit" value="Sign up">
+                </div>
+            </div>
+
+        <div class="tab_container">
+                <div class="tab" assoc_div="#profile_content">Profile</div>
+                <div class="tab" assoc_div="#groups_content">Groups</div>
+                <div class="tab" assoc_div="#friends_content">Friends</div>
+                <div class="tab" assoc_div="#following_content">Following</div>
+                <div class="tab" assoc_div="#notifications_content">Notifications</div>
+                <div class="tab" assoc_div="#settings_content">Settings</div>
+
+                <div id="create_group">+ Create Group</div>
+            </div>
+
+
     </body>
 </html>
