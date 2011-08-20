@@ -9,7 +9,7 @@ function initialize_plan_attending_panel() {
     });
     
     // Closing click handler
-    $('#cancel_friends_panel').click(function () {
+    $('#cancel_attending_panel').click(function () {
         $('#plan_attending_panel').hide('fast');
     });
 }

@@ -179,7 +179,7 @@
         <div id="plan_attending_panel" class="modal" style="left:43%; top:19%;">
             <div class="title_bar">
                 <b>Attending List</b>
-                <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
+                <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
             </div>
             <div id="attending_modal_content">
                 <div class="attending_list">
