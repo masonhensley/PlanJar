@@ -39,6 +39,7 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
+    
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
         
@@ -63,6 +64,11 @@ function display_info(bypass, arg) {
         });
     } else if ($('.network_active, .selected_group').length > 0) {
         // Network or group selected.
+        // setup spinner
+        
+        var opts = spinner_options();
+        var target = document.getElementById('suggest_people');
+        var spinner = new Spinner(opts).spin(target);
         
         // Make 'all' the default filter setting
         if(arg == undefined)
@@ -97,12 +103,18 @@ function display_info(bypass, arg) {
             $('#filter').change(function(){
                 display_info(true, $(this).val());
             });
+            
+            
         });
         
         // Load popular locations if necessary
         if (bypass != true) {
             populate_popular_locations();
         }
+        
+        //stop spinner
+        spinner.stop();
+        
     } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
         // Plan or friend's plan selected
         
