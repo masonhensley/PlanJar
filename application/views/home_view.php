@@ -108,15 +108,20 @@
             <div class="data_tab" assoc_div="#map_content">Map</div>
         </div>
         <div class ="container">
-            <a href="/home/logout" style="position:absolute; color:darkgray; top:-37px; right:78px;">Log Out</a>
             <?php
-                    if ($this->ion_auth->get_user()->group_id == 1)
-                    {
-                        ?>
-                        <a href="/admin_dashboard" style="position:absolute; color:darkgray; top:-37px; right:78px;">Admin Dashboard</a>
-                        <?php
-                    }
-                    ?>
+            if ($this->ion_auth->get_user()->group_id == 1)
+            {
+                ?>
+                <a href="/admin_dashboard" style="position:absolute; color:darkgray; top:-37px; right:78px;">Admin Dashboard</a> - 
+                <a href="/home/logout" style="position:absolute; color:darkgray; top:-37px; right:78px;">Log Out</a>
+                <?php
+            } else
+            {
+                ?>
+                <a href="/home/logout" style="position:absolute; color:darkgray; top:-37px; right:78px;">Log Out</a>
+                <?php
+            }
+            ?>
             <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
             <div class ="left">
