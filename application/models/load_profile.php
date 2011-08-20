@@ -48,7 +48,7 @@ class Load_profile extends CI_Model
                 <br/>
                 <font style="color:darkgray; float:left;">box</font><?php
         echo " ";
-                ?><div class="my_box" id="my_box"><?php
+                ?><div class="my_box" id="my_box"><div id="my_box_spinner"></div><?php
         if (isset($user->box) && trim($user->box) != "")
         {
                     ?><font style="color:gray;"><?php echo $user->box; ?></font><?php
