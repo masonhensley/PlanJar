@@ -34,7 +34,7 @@ class Load_suggested_friends extends CI_Model
         $result = $this->db->query($schoolmate_query);
         $result_array_2 = $result->row_array();
 
-        // query to pull all your groupmates
+        // query to pull all your groupmates not including you 
         $groupmate_query = "
             SELECT DISTINCT group_relationships.user_joined_id FROM
                 (SELECT group_relationships.group_id AS id FROM group_relationships
