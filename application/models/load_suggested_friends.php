@@ -21,8 +21,7 @@ class Load_suggested_friends extends CI_Model
             JOIN friend_relationships ON friend_relationships.user_id=new_user.friend_id 
                 AND friend_relationships.follow_id <> $user->user_id  
 ";
-        $result = $this->db->query($connection_query);
-        $result_array = $result->result_array();
+        $result_array = $this->db->query($connection_query);
 
         // query to pull all your classmates
         $schoolmate_query = "
@@ -31,8 +30,7 @@ class Load_suggested_friends extends CI_Model
                 AND user_meta.grad_year=$user->grad_year
                 AND user_meta.user_id <> $user->user_id
             ";
-        $result = $this->db->query($schoolmate_query);
-        $result_array_2 = $result->result_array();
+        $result_array_2 = $this->db->query($schoolmate_query);
 
         // query to pull all your groupmates not including you 
         $groupmate_query = "
@@ -42,20 +40,22 @@ class Load_suggested_friends extends CI_Model
             JOIN group_relationships ON group_relationships.group_id=group_joined_id.id
             WHERE group_relationships.user_joined_id <> $user->id
             ";
-        $result = $this->db->query($groupmate_query);
-        $result_array_3 = $result->result_array();
+        $result_array_3 = $this->db->query($groupmate_query);
+
+
 
         // combine the 3 arrays here into one array called "connection array"
+
         $connection_array = array();
-        foreach($result_array as $row)
+        foreach ($result_array->result() as $row)
         {
             $connection_array[] = $row->follow_id;
         }
-        foreach($result_array_2 as $row)
+        foreach ($result_array_2->result() as $row)
         {
             $connection_array[] = $row->user_id;
         }
-        foreach($result_array_3 as $row)
+        foreach ($result_array_3->result() as $row)
         {
             $connection_array[] = $row->user_joined_id;
         }
