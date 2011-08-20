@@ -174,9 +174,10 @@ function populate_edit_groups_list(callback) {
                     $('#groups_content .middle .invite_people').click(function() {
                         open_invite_modal('group', $('.group_profile_header').attr('group_id'), $('.group_profile_header').attr('priv_type'));
                     })
+                    spinner.stop();
                 });
             }
-            //spinner.stop();
+            
         });
         
         if (callback != undefined) {
