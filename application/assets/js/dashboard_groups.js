@@ -26,6 +26,11 @@ function initialize_group_search() {
             });
             $('#group_search').focus();
         } else {
+            
+            var opts = spinner_options();
+            var target = document.getElementById('group_middle_spinner');
+            var spinner = new Spinner(opts).spin(target);
+            
             // Clear and blur the search box
             $('#group_search').val('');
             $('#group_search').blur();
@@ -37,6 +42,8 @@ function initialize_group_search() {
                 $('#find_groups_list').show('blind', {}, 'fast');
                 
                 group_select_click_handler();
+                
+                spinner.stop();
             });
         }
     });
