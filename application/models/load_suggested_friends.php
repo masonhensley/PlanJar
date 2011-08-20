@@ -22,7 +22,7 @@ class Load_suggested_friends extends CI_Model
                 AND friend_relationships.follow_id <> $user->user_id  
 ";
         $result = $this->db->query($connection_query);
-        $result_array = $result->row_array();
+        $result_array = $result->result_array();
 
         // query to pull all your classmates
         $schoolmate_query = "
@@ -32,7 +32,7 @@ class Load_suggested_friends extends CI_Model
                 AND user_meta.user_id <> $user->user_id
             ";
         $result = $this->db->query($schoolmate_query);
-        $result_array_2 = $result->row_array();
+        $result_array_2 = $result->result_array();
 
         // query to pull all your groupmates not including you 
         $groupmate_query = "
@@ -43,7 +43,7 @@ class Load_suggested_friends extends CI_Model
             WHERE group_relationships.user_joined_id <> $user->id
             ";
         $result = $this->db->query($groupmate_query);
-        $result_array_3 = $result->row_array();
+        $result_array_3 = $result->result_array();
 
         
         
