@@ -40,6 +40,7 @@ class Load_suggested_friends extends CI_Model
                 (SELECT group_relationships.group_id AS id FROM group_relationships
                 WHERE group_relationships.user_joined_id=$user->id)group_joined_id
             JOIN group_relationships ON group_relationships.group_id=group_joined_id.id
+            WHERE group_relationships.user_joined_id <> $user->id
             ";
         $result = $this->db->query($groupmate_query);
         $result_array_3 = $result->row_array();
