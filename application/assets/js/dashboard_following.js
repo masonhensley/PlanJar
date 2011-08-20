@@ -87,7 +87,7 @@ function initialize_suggested_friends()
 }
 
 // Populates the suggested friends and assigns the click handlers
-function populate_suggested_friends() {
+function populate_suggested_friends(spinner) {
     $.get('/dashboard/get_suggested_friends', function (data) {
         $('#follow_search').html(data);
                     
