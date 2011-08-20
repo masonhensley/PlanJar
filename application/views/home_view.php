@@ -100,14 +100,6 @@
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Following</div></div></a>
                     <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer" id="notifications"><div class="top_right_link_inner">Notifications</div></div></a>
                     <a href="/dashboard/settings" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Settings</div></div></a>
-                    <?php
-                    if ($this->ion_auth->get_user()->group_id == 1)
-                    {
-                        ?>
-                        <a href="/admin_dashboard" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Admin Dashboard</div></div></a>
-                        <?php
-                    }
-                    ?>
                 </div>
             </div>
         </div>
@@ -117,6 +109,14 @@
         </div>
         <div class ="container">
             <a href="/home/logout" style="position:absolute; color:darkgray; top:-37px; right:78px;">Log Out</a>
+            <?php
+                    if ($this->ion_auth->get_user()->group_id == 1)
+                    {
+                        ?>
+                        <a href="/admin_dashboard" style="position:absolute; color:darkgray; top:-37px; right:78px;">Admin Dashboard</a>
+                        <?php
+                    }
+                    ?>
             <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
             <div class ="left">
