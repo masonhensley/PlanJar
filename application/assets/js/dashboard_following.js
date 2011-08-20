@@ -66,7 +66,6 @@ function initialize_suggested_friends()
             // start spinner
             var target = document.getElementById('follow_search');
             var opts = spinner_options();
-            
             var spinner = new Spinner(opts).spin(target);
             
             // Clear the search box
@@ -114,7 +113,7 @@ function populate_suggested_friends() {
         // click handler for getting the profile
         $('#follow_search .user_entry').click(suggested_search_click);
         
-         spinner.stop(); // stop the loading .gif
+         //spinner.stop(); // stop the loading .gif
     });
 }
 
