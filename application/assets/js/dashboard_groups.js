@@ -43,7 +43,7 @@ function initialize_group_search() {
                 
                 group_select_click_handler();
                 
-                spinner.stop();
+                //spinner.stop();
             });
         }
     });
