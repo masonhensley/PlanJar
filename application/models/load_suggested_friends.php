@@ -80,12 +80,12 @@ class Load_suggested_friends extends CI_Model
 
     function display_suggested_friends($query_result, $suggested_friends, $options, $display_limit) //this function displays the suggested friends
     {
-
+        // this won't work until we delete the database again 
+        // because there are group relationships of people who have been deleted
         if (count($suggested_friends) > 0)
         {
             $this->load->model('follow_ops');
             $count = 0;
-            var_dump($suggested_friends, $query_result);
             foreach ($query_result->result() as $row)
             {
                 if ($count < $display_limit)
@@ -96,7 +96,9 @@ class Load_suggested_friends extends CI_Model
             }
         } else
         {
-            echo "Nothing to show";
+            ?>
+            <center><i>Nothing to show</i></center>
+            <?php
         }
     }
 
