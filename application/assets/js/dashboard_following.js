@@ -77,7 +77,7 @@ function initialize_suggested_friends()
             
             // Get the suggested friends
             populate_suggested_friends();
-            
+            spinner.stop(); // stop the loading .gif
         } 
     });
     
@@ -113,7 +113,7 @@ function populate_suggested_friends() {
         // click handler for getting the profile
         $('#follow_search .user_entry').click(suggested_search_click);
         
-         //spinner.stop(); // stop the loading .gif
+         
     });
 }
 
