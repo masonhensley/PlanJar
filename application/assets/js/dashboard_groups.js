@@ -119,6 +119,11 @@ function populate_edit_groups_list(callback) {
         
         // Make groups selectable
         $('#edit_groups_list .group_entry').click(function() {
+            
+            var opts = spinner_options();
+            var target = document.getElementById('group_middle_spinner');
+            var spinner = new Spinner(opts).spin(target);
+            
             // Unselect other groups
             $('#edit_groups_list .middle').hide();
             if(!$(this).hasClass('selected_group'))
