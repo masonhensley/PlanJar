@@ -41,11 +41,8 @@ class Load_suggested_friends extends CI_Model
             WHERE group_relationships.user_joined_id <> $user->id
             ";
         $result_array_3 = $this->db->query($groupmate_query);
-
-
-
+        
         // combine the 3 arrays here into one array called "connection array"
-
         $connection_array = array();
         foreach ($result_array->result() as $row)
         {
@@ -75,9 +72,7 @@ class Load_suggested_friends extends CI_Model
         $suggested_friends = array_count_values($suggested_friends);
         asort($suggested_friends);
         $suggested_friends = array_reverse($suggested_friends, TRUE);
-
-        $display_limit = 10;
-
+        $display_limit = 10; // set the display limit
         $result = $this->generate_suggested_friends($suggested_friends);
         $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
     }
@@ -98,8 +93,6 @@ class Load_suggested_friends extends CI_Model
 
     function generate_suggested_friends($suggested_friends)
     {
-
-
         // this query pulls all the information needed to display suggested friends
         $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school " .
                 "FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
@@ -107,10 +100,7 @@ class Load_suggested_friends extends CI_Model
         $mutual_friend_count = array(); // keep track of mutual friends to display
         foreach ($suggested_friends as $id => $count)
         {
-            if (!in_array($id, $following_ids))
-            {
-                $query .= "user_meta.user_id=$id OR ";
-            }
+            $query .= "user_meta.user_id=$id OR ";
         }
         $query = substr($query, 0, strlen($query) - 3); // This cuts off the last "OR" and adds ")"
         $query .= "ORDER BY CASE user_meta.user_id ";
