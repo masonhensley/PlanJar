@@ -77,9 +77,7 @@ function initialize_suggested_friends()
             $(this).addClass('suggested_active');
             
             // Get the suggested friends
-            populate_suggested_friends(function(){
-                spinner.stop();
-            });
+            populate_suggested_friends();
             
         } 
     });
@@ -115,6 +113,8 @@ function populate_suggested_friends() {
             
         // click handler for getting the profile
         $('#follow_search .user_entry').click(suggested_search_click);
+        
+         spinner.stop(); // stop the loading .gif
     });
 }
 
