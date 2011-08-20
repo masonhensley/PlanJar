@@ -76,7 +76,7 @@ function initialize_suggested_friends()
             $(this).addClass('suggested_active');
             
             // Get the suggested friends
-            populate_suggested_friends(spinner);
+            populate_suggested_friends();
            
         } 
     });
@@ -87,7 +87,7 @@ function initialize_suggested_friends()
 }
 
 // Populates the suggested friends and assigns the click handlers
-function populate_suggested_friends(spinner) {
+function populate_suggested_friends() {
     $.get('/dashboard/get_suggested_friends', function (data) {
         $('#follow_search').html(data);
                     
@@ -105,7 +105,7 @@ function populate_suggested_friends(spinner) {
             $.get('/dashboard/add_user_following', {
                 following_id: clicked_elem.parent().attr('user_id')
             }, function (data) {
-                populate_suggested_friends(spinner);
+                populate_suggested_friends();
                 populate_following_list();
             });
         });
