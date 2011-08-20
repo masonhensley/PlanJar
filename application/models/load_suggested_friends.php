@@ -98,6 +98,7 @@ class Load_suggested_friends extends CI_Model
         {
             ?>
             <center><i>Nothing to show</i></center>
+            <br/>
             <?php
         }
     }
