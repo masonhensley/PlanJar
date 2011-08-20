@@ -176,7 +176,17 @@
             <a href="http://blog.planjar.com/" id="profile_link">Blog</a>
         </div>
 
-        <div id="plan_attending_panel" class="attending_modal" style="left:43%; top:19%;"></div>
+        <div id="plan_attending_panel" class="attending_modal" style="left:43%; top:19%;">
+            <div class="title_bar">
+                <b>Attending List</b>
+                <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
+            </div>
+            <div id="attending_modal_content">
+                <div class="attending_list">
+                </div>
+            </div>
+        </div>
+
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>

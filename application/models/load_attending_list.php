@@ -36,37 +36,23 @@ class Load_attending_list extends CI_Model
         $user = $this->ion_auth->get_user();
         $count = 0;
         ob_start();
-        ?>
 
+        foreach ($query_result->result() as $row)
+        {
+            if (in_array($row->user_id, $follow_ids))
+            {
+                $this->follow_ops->echo_user_entry($row, 'already_following');
+            } else if ($row->user_id == $user->id)
+            {
+                $this->follow_ops->echo_user_entry($row, 'this_is_you');
+            } else
+            {
+                $this->follow_ops->echo_user_entry($row, 'add following');
+            }
 
-        <div class="title_bar">
-            <b>Attending List</b>
-            <input  type="button" id="cancel_friends_panel"  style="float:right;" value="X"/>
-        </div>
-        <div id="attending_modal_content">
-            <div class="attending_list">
+            $count++;
+        }
 
-                <?php
-                foreach ($query_result->result() as $row)
-                {
-                    if (in_array($row->user_id, $follow_ids))
-                    {
-                        $this->follow_ops->echo_user_entry($row, 'already_following');
-                    } else if ($row->user_id == $user->id)
-                    {
-                        $this->follow_ops->echo_user_entry($row, 'this_is_you');
-                    } else
-                    {
-                        $this->follow_ops->echo_user_entry($row, 'add following');
-                    }
-
-                    $count++;
-                }
-                ?>
-            </div>
-        </div>
-
-        <?php
         echo ob_get_clean();
     }
 
