@@ -14,7 +14,7 @@
         
 
         <div class="tab_container">
-                <div class="tab" assoc_div="#profile_content">Return Home</div>
+                <div class="tab" <a href="/home/logout" >Return Home</div>
                 <div class="tab" assoc_div="#groups_content">About</div>
 
 
