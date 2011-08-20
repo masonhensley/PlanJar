@@ -5,7 +5,10 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
         <style type="text/css">
-            /* Put styles needed just for this page here */
+            /* styles for this page */
+            body {
+                background: white;
+            }
         </style>
 
     </head>
