@@ -14,12 +14,15 @@
         
 
         <div class="tab_container">
-                <div class="tab" <a href="/home/logout" >Return Home</div>
+                <div class="tab" <a href="/home" >Return Home</div>
                 <div class="tab" assoc_div="#groups_content">About</div>
 
 
             </div>
 
+        <div id = "tab" style = "width:200px;height:30px;border :-o  utset 1px black;" o nclick = "window.location.href = 'http://www.url.com'" >  
+click here to go somewhere...  
+</div>
 
     </body>
 </html>
