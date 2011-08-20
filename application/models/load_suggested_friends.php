@@ -82,7 +82,7 @@ class Load_suggested_friends extends CI_Model
     {
         // this won't work until we delete the database again 
         // because there are group relationships of people who have been deleted
-        if (count($suggested_friends) > 0)
+        if ($query_result->num_rows() > 0)
         {
             $this->load->model('follow_ops');
             $count = 0;
