@@ -41,7 +41,7 @@ class Load_suggested_friends extends CI_Model
             WHERE group_relationships.user_joined_id <> $user->id
             ";
         $result_array_3 = $this->db->query($groupmate_query);
-        
+
         // combine the 3 arrays here into one array called "connection array"
         $connection_array = array();
         foreach ($result_array->result() as $row)
@@ -77,17 +77,27 @@ class Load_suggested_friends extends CI_Model
         $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
     }
 
-    function display_suggested_friends($query_result, $suggested_friends=null, $options, $display_limit) //this function displays the suggested friends
+    function display_suggested_friends($query_result, $suggested_friends, $options, $display_limit) //this function displays the suggested friends
     {
-        $this->load->model('follow_ops');
-        $count = 0;
-        foreach ($query_result->result() as $row)
+
+        if (count($suggested_friends) > 0)
         {
-            if ($count < $display_limit)
+            $this->load->model('follow_ops');
+            $count = 0;
+            foreach ($query_result->result() as $row)
             {
-                $this->follow_ops->echo_user_entry($row, $options, $suggested_friends);
+                if ($count < $display_limit)
+                {
+                    $this->follow_ops->echo_user_entry($row, $options, $suggested_friends);
+                }
+                $count++;
             }
-            $count++;
+        } else
+        {
+            ?>
+            <i>Nothing to show</i>
+            <?php
+
         }
     }
 
@@ -114,41 +124,5 @@ class Load_suggested_friends extends CI_Model
         return $this->db->query($query);
     }
 
-    /*
-      function show_suggested_school_friends($display_limit, $already_following)
-      {
-
-      $user = $this->ion_auth->get_user();
-      $user_id = $user->id;
-      $grad_year = $user->grad_year;
-      $school_id = $user->school_id;
-
-      $query = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
-      FROM user_meta
-      LEFT JOIN school_data ON user_meta.school_id=school_data.id
-      WHERE school_id=$school_id AND user_id!=$user_id";
-
-      foreach ($already_following as $friend_id) // this makes sure the user hasn't already been shown
-      {
-      $query .= " AND user_id!=$friend_id";
-      }
-
-      $date1 = date("Y");
-      $date2 = $date1 + 4;
-      $query .= " AND (user_meta.grad_year BETWEEN $date1 AND $date2) ";
-      $query .= "ORDER BY (user_meta.grad_year=$grad_year) DESC LIMIT 0, 30";
-
-      $result = $this->db->query($query);
-
-      $options = "suggested_school";
-      if ($result->num_rows() > 0)
-      {
-      echo "<div style=\"padding-top:5px; text-align:center;padding-top:10px;padding-bottom:10px;font-style:italic;border-top:1px solid #AAA;\">Expanded search results to include people from your school</div>";
-      }
-      $this->display_suggested_friends($result, null, $options, 15);
-      }
-     * 
-     */
 }
-
 ?>
