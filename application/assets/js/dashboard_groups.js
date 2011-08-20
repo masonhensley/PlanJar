@@ -176,7 +176,7 @@ function populate_edit_groups_list(callback) {
                     })
                 });
             }
-            spinner.stop();
+            //spinner.stop();
         });
         
         if (callback != undefined) {
