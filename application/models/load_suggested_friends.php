@@ -95,9 +95,7 @@ class Load_suggested_friends extends CI_Model
             }
         } else
         {
-            ?>
-            <i>Nothing to show</i>
-            <?php
+            echo "Nothing to show";
 
         }
     }
