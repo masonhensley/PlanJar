@@ -77,9 +77,10 @@ function initialize_suggested_friends()
             $(this).addClass('suggested_active');
             
             // Get the suggested friends
-            populate_suggested_friends();
+            populate_suggested_friends(function(){
+                spinner.stop();
+            });
             
-            //spinner.stop();
         } 
     });
     
