@@ -1,28 +1,38 @@
 <html>
     <head>
         <title>404 - Jar Not Found</title>
-        
+
         <!-- CSS -->
-        <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
-        
+        <style type="text/css">
+            /* Put styles here */
+            .tab {
+                -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+                -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+                background-color: lightgray;
+                width: 100px;
+                height: auto;
+                margin-right: 10px;
+                display: inline-block;
+                background-color: #F3F3F3;
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: black;
+                border-radius: 5px;
+            }
+        </style>
+
     </head>
     <body style="text-align: center;">
         <img src="/application/assets/images/404.png" style="width: 500px; height: 449px"/>
-        
+
         <br>
         <br>
-        
 
-        <div class="tab_container">
-                <div class="tab" <a href="/home" >Return Home</div>
-                <div class="tab" assoc_div="#groups_content">About</div>
-
-
-            </div>
-
-        <div id = "tab" style = "width:200px;height:30px;border :-o  utset 1px black;" o nclick = "window.location.href = 'http://www.url.com'" >  
-click here to go somewhere...  
-</div>
-
+        <div>
+            <a href="/home" ><div class="tab">Return home</div></a>
+            <a href="/about" ><div class="tab">About</div></a>
+        </div>
     </body>
 </html>
