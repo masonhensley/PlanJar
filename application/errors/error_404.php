@@ -3,24 +3,9 @@
         <title>404 - Jar Not Found</title>
 
         <!-- CSS -->
+        <link rel=stylesheet href="/application/assets/css/dashboard.css" type="text/css" />
         <style type="text/css">
-            /* Put styles here */
-            .tab {
-                -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-                -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-                box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-                background-color: lightgray;
-                width: 100px;
-                height: auto;
-                margin-right: 10px;
-                display: inline-block;
-                background-color: #F3F3F3;
-                text-align: center;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                color: black;
-                border-radius: 5px;
-            }
+            /* Put styles needed just for this page here */
         </style>
 
     </head>
