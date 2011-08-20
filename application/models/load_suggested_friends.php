@@ -85,6 +85,7 @@ class Load_suggested_friends extends CI_Model
         {
             $this->load->model('follow_ops');
             $count = 0;
+            echo "hey";
             foreach ($query_result->result() as $row)
             {
                 if ($count < $display_limit)
@@ -96,7 +97,6 @@ class Load_suggested_friends extends CI_Model
         } else
         {
             echo "Nothing to show";
-
         }
     }
 
