@@ -76,8 +76,8 @@ function initialize_suggested_friends()
             $(this).addClass('suggested_active');
             
             // Get the suggested friends
-            populate_suggested_friends();
-            spinner.stop(); // stop the loading .gif
+            populate_suggested_friends(spinner);
+           
         } 
     });
     
@@ -105,7 +105,7 @@ function populate_suggested_friends() {
             $.get('/dashboard/add_user_following', {
                 following_id: clicked_elem.parent().attr('user_id')
             }, function (data) {
-                populate_suggested_friends();
+                populate_suggested_friends(spinner);
                 populate_following_list();
             });
         });
@@ -113,7 +113,7 @@ function populate_suggested_friends() {
         // click handler for getting the profile
         $('#follow_search .user_entry').click(suggested_search_click);
         
-         
+          spinner.stop(); // stop the loading .gif
     });
 }
 
