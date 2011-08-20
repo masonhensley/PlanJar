@@ -51,6 +51,7 @@
         <script type="text/javascript" src="/application/assets/js/view_friends_plans.js"></script>
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
         <script type="text/javascript" src="/application/assets/js/spin.js"></script>
+        <script type="text/javascript" src="/application/assets/js/plan_attending_panel.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
