@@ -14,8 +14,9 @@ class Load_suggested_friends extends CI_Model
         $user = $this->ion_auth->get_user();
 
         // new query that selects all the followers of your followers
+        // not DISTINCT because we want duplicates for followers of followers
         $connection_query = "
-            SELECT DISTINCT friend_relationships.follow_id FROM
+            SELECT friend_relationships.follow_id FROM
                 (SELECT friend_relationships.follow_id AS friend_id FROM friend_relationships 
                 WHERE friend_relationships.user_id=$user->id)new_user
             JOIN friend_relationships ON friend_relationships.user_id=new_user.friend_id 
