@@ -14,7 +14,7 @@
     Select a group on the left or right to see its profile
     </div>
 </div>
-<div id="group_middle_spinner" style="position:absolute; left: 400px; top:350px;">
+<div id="group_middle_spinner" style="position:absolute; left: 100px; top:100px;">
 </div>
 
 <div class="right">
