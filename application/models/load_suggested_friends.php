@@ -15,7 +15,7 @@ class Load_suggested_friends extends CI_Model
 
         // new query that selects all the followers of your followers
         $connection_query = "
-            SELECT friend_relationships.follow_id FROM
+            SELECT DISTINCT friend_relationships.follow_id FROM
                 (SELECT friend_relationships.follow_id AS friend_id FROM friend_relationships 
                 WHERE friend_relationships.user_id=$user->id)new_user
             JOIN friend_relationships ON friend_relationships.user_id=new_user.friend_id 
@@ -26,7 +26,7 @@ class Load_suggested_friends extends CI_Model
 
         // query to pull all your classmates
         $schoolmate_query = "
-            SELECT user_meta.user_id FROM user_meta
+            SELECT DISTINCT user_meta.user_id FROM user_meta
             WHERE user_meta.school_id=$user->school_id 
                 AND user_meta.grad_year=$user->grad_year
                 AND user_meta.user_id <> $user->user_id
@@ -36,7 +36,7 @@ class Load_suggested_friends extends CI_Model
 
         // query to pull all your groupmates
         $groupmate_query = "
-            SELECT group_relationships.user_joined_id FROM
+            SELECT DISTINCT group_relationships.user_joined_id FROM
                 (SELECT group_relationships.group_id AS id FROM group_relationships
                 WHERE group_relationships.user_joined_id=$user->id)group_joined_id
             JOIN group_relationships ON group_relationships.group_id=group_joined_id.id
@@ -44,11 +44,14 @@ class Load_suggested_friends extends CI_Model
         $result = $this->db->query($groupmate_query);
         $result_array_3 = $result->row_array();
 
-        var_dump($connection_query, $schoolmate_query, $groupmate_query);
+        
         
         // combine the 3 arrays here into one array called "connection array"
         $connection_array = array_merge($result_array, $result_array_2, $result_array_3);
-
+        var_dump($connection_array, $connection_query, $schoolmate_query, $groupmate_query);
+        
+        
+        
         $this->load->model('follow_ops');
         $following_ids = $this->follow_ops->get_following_ids();
         $suggested_friends = array();
