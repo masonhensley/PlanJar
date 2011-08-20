@@ -9,11 +9,12 @@
     <div id="edit_groups_list"></div>
 </div>
 
-<div class="middle" id="group_middle_spinner">
+<div class="middle" >
     <div style="text-align:center; color:gray; position:relative; top:3px;">
     Select a group on the left or right to see its profile
     </div>
 </div>
+<div id="group_middle_spinner" style="position:absolute; left: 400px; top:300px;"></div>
 
 <div class="right">
     <div class="right_header">
