@@ -100,6 +100,14 @@
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Following</div></div></a>
                     <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer" id="notifications"><div class="top_right_link_inner">Notifications</div></div></a>
                     <a href="/dashboard/settings" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Settings</div></div></a>
+                    <?php
+                    if ($this->ion_auth->get_user()->group_id == 1)
+                    {
+                        ?>
+                        <a href="/admin_dashboard" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Admin Dashboard</div></div></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
