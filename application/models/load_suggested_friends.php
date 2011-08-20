@@ -45,18 +45,25 @@ class Load_suggested_friends extends CI_Model
         $result = $this->db->query($groupmate_query);
         $result_array_3 = $result->result_array();
 
-        
-        
         // combine the 3 arrays here into one array called "connection array"
-        $connection_array = array_merge($result_array, $result_array_2, $result_array_3);
-        var_dump($connection_array, $result_array, $result_array_2, $result_array_3, $connection_query, $schoolmate_query, $groupmate_query);
-        
-        
-        
+        $connection_array = array();
+        foreach($result_array as $row)
+        {
+            $connection_array[] = $row->follow_id;
+        }
+        foreach($result_array_2 as $row)
+        {
+            $connection_array[] = $row->user_id;
+        }
+        foreach($result_array_3 as $row)
+        {
+            $connection_array[] = $row->user_joined_id;
+        }
+
+        // remove ids of peope you are already following
         $this->load->model('follow_ops');
         $following_ids = $this->follow_ops->get_following_ids();
         $suggested_friends = array();
-
         foreach ($connection_array as $id)
         {
             if (!in_array($id, $following_ids))
