@@ -29,7 +29,7 @@ function initialize_group_search() {
             
             // start spinner
             var group_suggest_opts = spinner_options();
-            var group_suggest_target = document.getElementById('suggest_people');
+            var group_suggest_target = document.getElementById('suggest_groups_spinner');
             var group_suggest_spinner = new Spinner(group_suggest_opts).spin(group_suggest_target);
             
             // Clear and blur the search box
