@@ -291,6 +291,7 @@ function populate_popular_locations(skip_update_map, callback) {
         
             // Update the info box
             display_info();
+            location_spinner.stop();
         });
         
         // Populate the map
