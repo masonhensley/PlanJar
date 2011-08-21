@@ -111,8 +111,12 @@ function display_info(bypass, arg) {
             populate_popular_locations();
         }
         
-    } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
-        // Plan or friend's plan selected
+    } else if ($('.selected_plan, .selected_friend_plan').length > 0) { // Plan or friend's plan selected
+        
+        // setup spinner
+        var plan_opts = spinner_options();
+        var plan_target = document.getElementById('home_plan_spinner');
+        var plan_spinner = new Spinner(plan_opts).spin(plan_target);
         
         // Load the selected plan
         $.get('/home/load_selected_plan_data', {
@@ -138,6 +142,8 @@ function display_info(bypass, arg) {
                     initialize_plan_info(data);
                 });
             });
+            
+            plan_spinner.stop();
         });
     } else {
         // No controlls selected

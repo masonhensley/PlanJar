@@ -125,6 +125,8 @@
             ?>
             <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
+            
+            <div id="home_data_spinner" style="position:absolute; left:174px; top:31px;"></div>
             <div class ="left">
                 <div class="location_container">
                     <div id="using_location">Using location:</div>
@@ -134,7 +136,6 @@
                 <?php include(APPPATH . 'assets/php/load_group_panel.php'); ?>
             </div>
             
-            <div id="home_data_spinner" style="position:absolute; left:174px; top:31px;"></div>
             <div class ="center">
                 <div class="data_container_wrapper" style="display: block;">
                     <div id="info_content" class ="data_container" style="display: block;"></div>
@@ -165,6 +166,7 @@
                 <font style="font-weight:bold; color:gray;  font-size:20px;">Your Plans</font><br/>
 
                 <hr/>
+                <div id="home_plan_spinner" style="position:absolute; left:174px; top:31px;"></div>
                 <div class="plans_wrapper">
                     <?php echo($plans_html); ?>
                 </div>
