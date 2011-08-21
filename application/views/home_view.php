@@ -162,11 +162,10 @@
                     -->
                 </div>
             </div>
+            <div id="home_plan_spinner" style="position:absolute; left:174px; top:31px;"></div>
             <div class ="right">
                 <font style="font-weight:bold; color:gray;  font-size:20px;">Your Plans</font><br/>
-
                 <hr/>
-                <div id="home_plan_spinner" style="position:absolute; left:174px; top:31px;"></div>
                 <div class="plans_wrapper">
                     <?php echo($plans_html); ?>
                 </div>
