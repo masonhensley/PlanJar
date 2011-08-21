@@ -147,9 +147,12 @@ function display_info(bypass, arg) {
                     initialize_plan_info(data);
                 });
             });
-            
-            plan_spinner.stop();
+        })
+        .complete(function(){
+            plan_spinner.stop(); // stop the spinner when the ajax call is finished
         });
+        
+        
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
