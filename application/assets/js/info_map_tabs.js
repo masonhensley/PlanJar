@@ -112,9 +112,6 @@ function display_info(bypass, arg) {
             populate_popular_locations();
         }
         
-        //stop spinner
-        spinner.stop();
-        
     } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
         // Plan or friend's plan selected
         
