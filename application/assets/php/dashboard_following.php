@@ -8,6 +8,7 @@
 </div>
 <!-- these names got switched up, we should prob change it back-->
 <div class="right">
+    <div id="following_suggested_spinner"></div>
     <div class ="left_header" >
         <div class="in-field_block in-field_block_group">
             <label for="friend_search" style=" color:gray;">Search for people to follow</label>
