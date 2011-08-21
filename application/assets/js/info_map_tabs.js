@@ -104,7 +104,7 @@ function display_info(bypass, arg) {
                 display_info(true, $(this).val());
             });
             
-            
+            spinner.stop();
         });
         
         // Load popular locations if necessary
