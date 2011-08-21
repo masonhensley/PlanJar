@@ -162,7 +162,7 @@
                     -->
                 </div>
             </div>
-            <div id="home_plan_spinner" style="position:absolute; left:180px; top:19px;"></div>
+            <div id="home_plan_spinner" style="position:absolute; right:180px; top:19px;"></div>
             <div class ="right">
                 <font style="font-weight:bold; color:gray;  font-size:20px;">Your Plans</font><br/>
                 <hr/>
