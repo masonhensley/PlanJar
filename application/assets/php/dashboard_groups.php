@@ -23,6 +23,7 @@
             <label for="group_search" style=" color:gray;">Search for groups to follow</label>
             <input type="text" class="textbox" id="group_search" />
         </div>
+        <div id="suggest_groups_spinner" style="position:absolute; top:0px; right:0px;"></div>
         <div class="suggest_groups">
             Suggest groups
         </div>
