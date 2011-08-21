@@ -27,10 +27,10 @@ function initialize_group_search() {
             $('#group_search').focus();
         } else {
             
-            var opts = spinner_options();
-            var target = document.getElementById('suggest_people');
-            var spinner = new Spinner(opts).spin(target);
-            
+            // start spinner
+            var group_suggest_opts = spinner_options();
+            var group_suggest_target = document.getElementById('suggest_people');
+            var group_suggest_spinner = new Spinner(group_suggest_opts).spin(group_suggest_target);
             
             // Clear and blur the search box
             $('#group_search').val('');
@@ -43,6 +43,8 @@ function initialize_group_search() {
                 $('#find_groups_list').show('blind', {}, 'fast');
                 
                 group_select_click_handler();
+            }).complete(function(){
+                group_suggest_spinner.stop();
             });
         }
     });
