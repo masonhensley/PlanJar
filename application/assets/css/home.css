@@ -624,7 +624,7 @@ a {
     font-weight:bold;
 }
 
-.make_plan .make_plan_here{
+.make_plan, .make_plan_here{
     background:-webkit-linear-gradient(top, #F3F6FF, white);
     color:gray;
 }
