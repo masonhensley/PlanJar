@@ -86,9 +86,7 @@
 }
 
 .demographics{
-    position:absolute;
-    top:-34px;
-    left:37px;
+    position:relative;
 }
 
 .percent_male_container{
