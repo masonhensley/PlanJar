@@ -84,6 +84,12 @@ function initialize_suggested_friends()
 
 // Populates the suggested friends and assigns the click handlers
 function populate_suggested_friends() {
+    
+    // setup spinner
+    var following_opts = spinner_options();
+    var following_target = document.getElementById('following_suggested_spinner');
+    var following_spinner = new Spinner(following_opts).spin(following_target);
+    
     $.get('/dashboard/get_suggested_friends', function (data) {
         $('#follow_search').html(data);
                     
@@ -108,6 +114,8 @@ function populate_suggested_friends() {
             
         // click handler for getting the profile
         $('#follow_search .user_entry').click(suggested_search_click);
+    }).complete(function(){
+        following_spinner.stop();
     });
 }
 
