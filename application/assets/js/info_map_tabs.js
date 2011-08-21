@@ -70,9 +70,9 @@ function display_info(bypass, arg) {
     } else if ($('.network_active, .selected_group').length > 0) { // Network or group selected.
         
         // setup spinner
-        var opts = spinner_options();
-        var target = document.getElementById('home_data_spinner');
-        var spinner = new Spinner(opts).spin(target);
+        var group_opts = spinner_options();
+        var group_target = document.getElementById('home_data_spinner');
+        var group_spinner = new Spinner(group_opts).spin(group_target);
         
         // Make 'all' the default filter setting
         if(arg == undefined)
@@ -107,8 +107,8 @@ function display_info(bypass, arg) {
             $('#filter').change(function(){
                 display_info(true, $(this).val());
             });
-            
-            spinner.stop();
+        }).complete(function(){
+            group_spinner.stop();
         });
         
         // Load popular locations if necessary
