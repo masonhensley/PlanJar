@@ -73,7 +73,6 @@ class Notification_ops extends CI_Model
         {
             ?>
             <br/><font style="font-size:17px; font-style:italic; color:gray;">No unread notifications</font>
-
             <?php
         } else
         {
@@ -99,8 +98,8 @@ class Notification_ops extends CI_Model
         if ($query->num_rows() == 0)
         {
             ?>
+            <br/>
             <font style="font-size:17px; font-style:italic; color:gray;">No unread notifications</font>
-
             <?php
         } else
         {
