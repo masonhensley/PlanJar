@@ -10,11 +10,11 @@
 </div>
 
 <div class="middle" >
-    <div style="text-align:right; padding-right:2px; color:gray; position:relative; top:3px;">
+    <div style="text-align:center;  color:gray; position:relative; top:3px;">
     Select a group on the left or right to see its profile
     </div>
 </div>
-<div id="group_middle_spinner" style="position:absolute; left: 470px; top:127px;">
+<div id="group_middle_spinner" style="position:absolute; left: 253px; top:22px;">
 </div>
 
 <div class="right">
