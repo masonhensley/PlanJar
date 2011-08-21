@@ -1,11 +1,12 @@
 <div class="left">
+    <div id="following_spinner" style="position:absolute; top:0px; left:0px;"></div>
     <div class="right_header">
         People you're following...
     </div>
 
     <div id="following_list"></div>
 </div>
-
+<!-- these names got switched up, we should prob change it back-->
 <div class="right">
     <div class ="left_header" >
         <div class="in-field_block in-field_block_group">
