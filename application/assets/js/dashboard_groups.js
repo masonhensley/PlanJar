@@ -56,6 +56,8 @@ function initialize_group_search() {
     // Search for groups on keyup
     $('#group_search').keyup(function () {
         
+        $('#find_groups_list').hide('blind', {}, 'fast');
+        
         // start spinner
         var group_suggest_opts = spinner_options();
         var group_suggest_target = document.getElementById('suggest_groups_spinner');
