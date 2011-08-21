@@ -134,7 +134,7 @@
                 <?php include(APPPATH . 'assets/php/load_group_panel.php'); ?>
             </div>
             
-            <div id="home_data_spinner" style="position:absolute; left:50%; right:50%; top:200px;"></div>
+            <div id="home_data_spinner" style="position:absolute; left:174px; top:31px;"></div>
             <div class ="center">
                 <div class="data_container_wrapper" style="display: block;">
                     <div id="info_content" class ="data_container" style="display: block;"></div>
