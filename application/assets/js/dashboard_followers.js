@@ -21,6 +21,11 @@ function populate_followers_list() {
         $('#followers_list .user_entry').click(function() {
             if(!$(this).hasClass('selected_follower'))
             {
+                // setup spinner
+                var friends_opts = spinner_options();
+                var friends_target = document.getElementById('friends_spinner');
+                var friends_spinner = new Spinner(friends_opts).spin(friends_target);
+                
                 $('.user_entry.selected_follower').removeClass('selected_follower');
                 $(this).addClass('selected_follower');
                 $.get('/dashboard/get_profile', {
@@ -29,6 +34,8 @@ function populate_followers_list() {
                     $('#friends_content .right').hide();
                     $('#friends_content .right').html(data);
                     $('#friends_content .right').show("fast");
+                }).complete(function(){
+                    friends_spinner.stop();
                 });
             }
         });

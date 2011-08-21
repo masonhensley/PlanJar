@@ -1,4 +1,5 @@
 <div class="left">
+    <div id="friends_spinner" style="position:absolute; top:0px; left:0px;"></div>
     <div class="left_header">
         Friends
     </div>
