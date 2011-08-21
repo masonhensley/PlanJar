@@ -42,7 +42,11 @@ function display_info(bypass, arg) {
     
     if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) { // Location selected
         
-        
+        // setup spinner
+        var opts = spinner_options();
+        var target = document.getElementById('home_data_spinner');
+        var location_spinner = new Spinner(opts).spin(target);
+                
         // Get the correct place id and back button value
         var place_id;
         var back_to_plan = false;
@@ -273,11 +277,6 @@ function populate_popular_locations(skip_update_map, callback) {
             
             if(!$(this).hasClass('selected_location_tab'))
             {
-
-                // setup spinner
-                var opts = spinner_options();
-                var target = document.getElementById('home_data_spinner');
-                var location_spinner = new Spinner(opts).spin(target);
                 
                 // Deselect selected location tabs
                 $('.selected_location_tab').removeClass('selected_location_tab');
@@ -291,7 +290,7 @@ function populate_popular_locations(skip_update_map, callback) {
         
             // Update the info box
             display_info();
-            location_spinner.stop();
+            
         });
         
         // Populate the map
