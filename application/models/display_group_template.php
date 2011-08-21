@@ -2,6 +2,7 @@
 
 class Display_group_template extends CI_Model
 {
+
     // Constructor.
     function __construct()
     {
@@ -529,6 +530,12 @@ class Display_group_template extends CI_Model
                 <option value="alumni">Alumni</option>
             </select>
             <br/>
+            <div class="demographics">
+                <font style="color:gray;">males</font><font style="font-weight:bold;">
+                <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;
+                <font style="color:gray;">females</font><font style="font-weight:bold;">
+            <?php echo " " . $data_array['total_females']; ?></font>
+            </div>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
             ?>
@@ -544,12 +551,6 @@ class Display_group_template extends CI_Model
         </div>
 
         <div class="group_graph_bottom_left">
-            <div class="demographics">
-                <font style="color:gray;">males</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_males']; ?></font>
-                <font style="color:gray;">females</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_females']; ?></font>
-            </div>
 
             <div class="percent_male_container">
                 <div class="show_percent"style="display:inline-block;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
