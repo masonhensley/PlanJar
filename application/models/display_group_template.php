@@ -551,8 +551,6 @@ class Display_group_template extends CI_Model
                 <?php echo " " . $data_array['total_females']; ?></font>
             </div>
 
-            <font style="font-weight:bold; position:absolute;top:-53px; text-align:left; left:35px;">People information</font>
-
             <div class="percent_male_container">
                 <div class="show_percent"style="display:inline-block;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
                 <font style="display:inline-block; color:gray;">of males are going out</font>
