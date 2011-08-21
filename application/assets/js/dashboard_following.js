@@ -113,7 +113,7 @@ function populate_suggested_friends() {
         // click handler for getting the profile
         $('#follow_search .user_entry').click(suggested_search_click);
         
-          spinner.stop(); // stop the loading .gif
+        spinner.stop(); // stop the loading .gif
     });
 }
 
@@ -174,29 +174,39 @@ function populate_following_list(callback) {
         $('#following_list .user_entry').click(function(){
             $('.suggested_active').removeClass('suggested_active');
             $('#follow_search').hide();
+            
             if(!$(this).hasClass('selected_follower'))
             {
+                // setup spinner
+                var following_opts = spinner_options();
+                var following_target = document.getElementById('following_spinner');
+                var following_spinner = new Spinner(following_opts).spin(following_target);
+                
                 $('.selected_follower').removeClass('selected_follower');
                 $(this).addClass('selected_follower');
+                
+                // Not in if statement to allow re-clicking
+                $.get('/dashboard/get_profile', {
+                    user_id: $(this).attr('user_id')
+                }, function (data) {
+                    // Hide and reload the data
+                    $('.following_profile_body').hide();
+                    $('.following_profile_body').html(data);
+                
+                    // Hide if necessary and show
+                    if ($('#follow_search').is(':visible')) {
+                        $('#follow_search').hide('blind', {}, 'fast', function() {
+                            $('.following_profile_body').show("fast");
+                        });
+                    } else {
+                        $('.following_profile_body').show("fast");
+                    }
+                }).complete(function(){
+                    following_spinner.stop();
+                });
             }
                 
-            // Not in if statement to allow re-clicking
-            $.get('/dashboard/get_profile', {
-                user_id: $(this).attr('user_id')
-            }, function (data) {
-                // Hide and reload the data
-                $('.following_profile_body').hide();
-                $('.following_profile_body').html(data);
-                
-                // Hide if necessary and show
-                if ($('#follow_search').is(':visible')) {
-                    $('#follow_search').hide('blind', {}, 'fast', function() {
-                        $('.following_profile_body').show("fast");
-                    });
-                } else {
-                    $('.following_profile_body').show("fast");
-                }
-            });
+            
         });
         
         if (callback != undefined) {
