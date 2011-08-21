@@ -119,6 +119,12 @@ function populate_suggested_friends() {
 
 // Modularized click handler for suggested/searched friends
 function suggested_search_click() {
+
+    // setup spinner
+    var following_opts = spinner_options();
+    var following_target = document.getElementById('following_suggested_spinner');
+    var following_spinner = new Spinner(following_opts).spin(following_target);
+
     // Capture the user id
     var user_id = $(this).attr('user_id');
 
@@ -150,6 +156,8 @@ function suggested_search_click() {
                 });
             });
         });       
+    }).complete(function(){
+        following_spinner.stop();
     });
 }
 
@@ -205,10 +213,7 @@ function populate_following_list(callback) {
                     following_spinner.stop();
                 });
             }
-                
-            
         });
-        
         if (callback != undefined) {
             callback();
         }
