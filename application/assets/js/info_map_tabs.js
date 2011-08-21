@@ -65,6 +65,7 @@ function display_info(bypass, arg) {
             'back_to_groups': $('.selected_location_tab').length > 0
         }, function (data) {
             initialize_location_info(data);
+        }).complete(function(){
             location_spinner.stop();
         });
     } else if ($('.network_active, .selected_group').length > 0) { // Network or group selected.
