@@ -40,8 +40,8 @@ function controlls_are_selected() {
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
     
-    if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
-        // Location selected
+    if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) { // Location selected
+        
         
         // Get the correct place id and back button value
         var place_id;
@@ -62,10 +62,9 @@ function display_info(bypass, arg) {
         }, function (data) {
             initialize_location_info(data);
         });
-    } else if ($('.network_active, .selected_group').length > 0) {
-        // Network or group selected.
-        // setup spinner
+    } else if ($('.network_active, .selected_group').length > 0) { // Network or group selected.
         
+        // setup spinner
         var opts = spinner_options();
         var target = document.getElementById('home_data_spinner');
         var spinner = new Spinner(opts).spin(target);
