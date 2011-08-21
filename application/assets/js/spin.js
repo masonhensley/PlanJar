@@ -300,7 +300,7 @@ function spinner_options()
         length: 0, // The length of each line
         width: 5, // The line thickness
         radius: 11, // The radius of the inner circle
-        color: '#D62FD9', // #rbg or #rrggbb
+        color: '#424242', // #rbg or #rrggbb
         speed: 1.2, // Rounds per second
         trail: 100, // Afterglow percentage
         shadow: true // Whether to render a shadow
