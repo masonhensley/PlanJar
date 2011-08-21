@@ -67,7 +67,7 @@ function display_info(bypass, arg) {
         // setup spinner
         
         var opts = spinner_options();
-        var target = document.getElementById('suggest_people');
+        var target = document.getElementById('home_data_spinner');
         var spinner = new Spinner(opts).spin(target);
         
         // Make 'all' the default filter setting
