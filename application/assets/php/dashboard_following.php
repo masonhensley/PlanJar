@@ -1,5 +1,5 @@
 <div class="left">
-    <div id="following_spinner" style="position:absolute; top:0px; left:0px;"></div>
+    <div id="following_spinner" style="position:absolute; top:18px; left:340px;"></div>
     <div class="right_header" style="text-align: center; color:navy;">
         People you're following...
     </div>
