@@ -197,7 +197,7 @@ class Notification_ops extends CI_Model
                 return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
                         $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
                         "</b> has invited $you to " . $event_text . '<b>' . $row->name . '</b> ' .
-                        'on ' . $date->format('l') . ' the ' . $date->format('jS');
+                        'for ' . $date->format('l') . ' the ' . $date->format('jS');
 
             // Group invite
             case 'group_invite':
