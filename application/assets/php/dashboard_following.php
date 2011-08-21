@@ -7,7 +7,7 @@
     <div id="following_list"></div>
 </div>
 <!-- these names got switched up, we should prob change it back-->
-<div id="following_suggested_spinner"></div>
+<div id="following_suggested_spinner" style="position:absolute;top:0px;right:0px;"></div>
 <div class="right">
     <div class ="left_header" >
         <div class="in-field_block in-field_block_group">
