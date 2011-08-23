@@ -21,6 +21,11 @@ function initialize_plan_panel(){
         // Display the info box
         display_info(); 
     });
+    
+    // View map
+    $('#plans_wrapper a').click(function() {
+        return false;
+    });
 }
 
 // Populates the plan panel (panel is pre-populated in PHP)
