@@ -202,7 +202,7 @@ class Home extends CI_Controller
         $return_array = $this->load_plan_data->display_plan_data($plan_id, $friend_plan);
         echo json_encode($return_array);
     }
-    
+
     public function attending_list()
     {
         $plan_id = $this->input->get('plan_id');
@@ -291,19 +291,36 @@ class Home extends CI_Controller
     // Update the user's location
     public function update_user_location()
     {
+        $user = $this->ion_auth->get_user();
+
         $new_lat = $this->input->get('latitude');
         $new_long = $this->input->get('longitude');
+        $city = $this->input->get('city');
 
-        $user = $this->ion_auth->get_user();
+        if ($new_lat === false)
+        {
+            // Only update the city (no coords passed)
+            $this->ion_auth->update_user($user->id, array('city_state' => $this->input->get('city')));
+            return;
+        }
+
         $delta_distance = round($this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long), 2);
 
         if ($this->input->get('auto') == 'false' || $user->latitude == NULL || $user->longitude == NULL)
         {
             // Runs when the user location information is missing or when the location is manually changed
-            $this->ion_auth->update_user($user->id, array(
+            $update_array = array(
                 'latitude' => $new_lat,
-                'longitude' => $new_long));
-            echo(json_encode(array('status' => 'silent')));
+                'longitude' => $new_long
+            );
+            if ($city !== false)
+            {
+                $update_array['city_state'] = $city;
+            }
+            $this->ion_auth->update_user($user->id, $update_array);
+            echo(json_encode(array('status' => 'silent',
+                'city_state' => $this->user->city_state
+            )));
         } else if ($delta_distance > 20)
         {
             // Runs when auto updating the location and the max distance is met
@@ -318,7 +335,9 @@ class Home extends CI_Controller
         {
             // Returns the user's profile location if the distance offset is not met.
             $return_array = array('status' => 'from_profile',
-                'loc' => array($user->latitude, $user->longitude));
+                'loc' => array($user->latitude, $user->longitude),
+                'city_state' => $user->city_state
+            );
             echo(json_encode($return_array));
         }
     }
