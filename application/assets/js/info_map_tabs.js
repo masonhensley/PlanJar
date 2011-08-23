@@ -190,6 +190,11 @@ function initialize_location_info(data) {
         });
     });
     
+    // View map
+    $('.view_map').click(function() {
+        show_data_container('#map_tab'); 
+    });
+    
     // Back to plan click handler (not always visible)
     $('.back_to_plan').click(function () {
         viewing_plan_location = false;
