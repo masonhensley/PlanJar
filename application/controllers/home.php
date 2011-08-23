@@ -319,7 +319,7 @@ class Home extends CI_Controller
             }
             $this->ion_auth->update_user($user->id, $update_array);
             echo(json_encode(array('status' => 'silent',
-                'city_state' => $this->user->city_state
+                'city_state' => $user->city_state
             )));
         } else if ($delta_distance > 20)
         {
