@@ -6,6 +6,11 @@ $(function() {
 function initialize_plan_panel(){
     // Click handler
     $('.plan_content').click(function() {
+        // Show the info tab if a plan wasn't already selected
+        if ($('.selected_plan').length == 0) {
+            show_data_container('#info_content'); 
+        }
+        
         if(!$(this).hasClass('selected_plan'))
         {
             // No plan selected. Deselect all controlls
