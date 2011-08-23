@@ -26,6 +26,12 @@ function initialize_group_search() {
             });
             $('#group_search').focus();
         } else {
+            
+            // start spinner
+            var group_suggest_opts = spinner_options();
+            var group_suggest_target = document.getElementById('suggest_groups_spinner');
+            var group_suggest_spinner = new Spinner(group_suggest_opts).spin(group_suggest_target);
+            
             // Clear and blur the search box
             $('#group_search').val('');
             $('#group_search').blur();
@@ -37,6 +43,8 @@ function initialize_group_search() {
                 $('#find_groups_list').show('blind', {}, 'fast');
                 
                 group_select_click_handler();
+            }).complete(function(){
+                group_suggest_spinner.stop(); // stop spinner
             });
         }
     });
@@ -47,6 +55,14 @@ function initialize_group_search() {
     
     // Search for groups on keyup
     $('#group_search').keyup(function () {
+        
+        $('#find_groups_list').hide();
+        
+        // start spinner
+        var group_suggest_opts = spinner_options();
+        var group_suggest_target = document.getElementById('suggest_groups_spinner');
+        var group_suggest_spinner = new Spinner(group_suggest_opts).spin(group_suggest_target);
+        
         // Deactivate the suggest button and hide the suggested list
         $('.suggest_groups').removeClass('suggest_groups_active');
         
@@ -57,6 +73,8 @@ function initialize_group_search() {
             $('#find_groups_list').show('blind', {}, 'fast');
             
             group_select_click_handler();
+        }).complete(function(){
+            group_suggest_spinner.stop();
         });
     });
 }
@@ -113,10 +131,16 @@ function populate_edit_groups_list(callback) {
         
         // Make groups selectable
         $('#edit_groups_list .group_entry').click(function() {
+
             // Unselect other groups
             $('#edit_groups_list .middle').hide();
             if(!$(this).hasClass('selected_group'))
             {
+                // start the spinner
+                var select_group_opts = spinner_options();
+                var select_group_target = document.getElementById('group_middle_spinner');
+                var select_group_spinner = new Spinner(select_group_opts).spin(select_group_target);
+                
                 // Select this
                 $('.selected_group').removeClass('selected_group'); 
                 $(this).addClass('selected_group');
@@ -163,8 +187,12 @@ function populate_edit_groups_list(callback) {
                     $('#groups_content .middle .invite_people').click(function() {
                         open_invite_modal('group', $('.group_profile_header').attr('group_id'), $('.group_profile_header').attr('priv_type'));
                     })
+                    
+                }).complete(function(){
+                    select_group_spinner.stop(); // stop the spinner
                 });
             }
+            
         });
         
         if (callback != undefined) {

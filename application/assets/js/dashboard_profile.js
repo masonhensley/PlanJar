@@ -32,10 +32,17 @@ function setup_edit_box()
                 
         // click handler for updating box
         $('.update_box').click(function(){
+            
+            // start spinner
+            var target = document.getElementById('my_box_spinner');
+            var opts = spinner_options();
+            var spinner = new Spinner(opts).spin(target);
+            
             $.get('/dashboard/update_box', {
                 'box_text':$('#box_text_area').val()
             }, function (data) {
                 setup_profile();
+                spinner.stop();
             });
         });
     });

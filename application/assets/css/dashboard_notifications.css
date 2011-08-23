@@ -69,12 +69,13 @@
 }
 
 .notification_entry .mark_read {
-    float: right;
+    position:absolute;
+    bottom:5px;
+    right:-2px;
     width: 105px;
     color: gray;
     padding: 3px;
     text-align: center;
-    margin-top:10px;
 }
 
 .notification_entry a {

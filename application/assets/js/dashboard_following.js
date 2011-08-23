@@ -63,11 +63,7 @@ function initialize_suggested_friends()
             
             $('#friend_search').focus();
         } else {
-            // start spinner
-            var target = document.getElementById('follow_search');
-            var opts = spinner_options();
-            var spinner = new Spinner(opts).spin(target);
-            
+
             // Clear the search box
             $('#friend_search').val('');
             $('#friend_search').blur();
@@ -77,8 +73,7 @@ function initialize_suggested_friends()
             
             // Get the suggested friends
             populate_suggested_friends();
-            
-            spinner.stop();
+           
         } 
     });
     
@@ -89,6 +84,12 @@ function initialize_suggested_friends()
 
 // Populates the suggested friends and assigns the click handlers
 function populate_suggested_friends() {
+    
+    // setup spinner
+    var following_opts = spinner_options();
+    var following_target = document.getElementById('following_suggested_spinner');
+    var following_spinner = new Spinner(following_opts).spin(following_target);
+    
     $.get('/dashboard/get_suggested_friends', function (data) {
         $('#follow_search').html(data);
                     
@@ -113,11 +114,19 @@ function populate_suggested_friends() {
             
         // click handler for getting the profile
         $('#follow_search .user_entry').click(suggested_search_click);
+    }).complete(function(){
+        following_spinner.stop();
     });
 }
 
 // Modularized click handler for suggested/searched friends
 function suggested_search_click() {
+
+    // setup spinner
+    var following_opts = spinner_options();
+    var following_target = document.getElementById('following_suggested_spinner');
+    var following_spinner = new Spinner(following_opts).spin(following_target);
+
     // Capture the user id
     var user_id = $(this).attr('user_id');
 
@@ -149,6 +158,8 @@ function suggested_search_click() {
                 });
             });
         });       
+    }).complete(function(){
+        following_spinner.stop();
     });
 }
 
@@ -173,31 +184,38 @@ function populate_following_list(callback) {
         $('#following_list .user_entry').click(function(){
             $('.suggested_active').removeClass('suggested_active');
             $('#follow_search').hide();
+            
             if(!$(this).hasClass('selected_follower'))
             {
+                // setup spinner
+                var following_opts = spinner_options();
+                var following_target = document.getElementById('following_spinner');
+                var following_spinner = new Spinner(following_opts).spin(following_target);
+                
                 $('.selected_follower').removeClass('selected_follower');
                 $(this).addClass('selected_follower');
-            }
                 
-            // Not in if statement to allow re-clicking
-            $.get('/dashboard/get_profile', {
-                user_id: $(this).attr('user_id')
-            }, function (data) {
-                // Hide and reload the data
-                $('.following_profile_body').hide();
-                $('.following_profile_body').html(data);
+                // Not in if statement to allow re-clicking
+                $.get('/dashboard/get_profile', {
+                    user_id: $(this).attr('user_id')
+                }, function (data) {
+                    // Hide and reload the data
+                    $('.following_profile_body').hide();
+                    $('.following_profile_body').html(data);
                 
-                // Hide if necessary and show
-                if ($('#follow_search').is(':visible')) {
-                    $('#follow_search').hide('blind', {}, 'fast', function() {
+                    // Hide if necessary and show
+                    if ($('#follow_search').is(':visible')) {
+                        $('#follow_search').hide('blind', {}, 'fast', function() {
+                            $('.following_profile_body').show("fast");
+                        });
+                    } else {
                         $('.following_profile_body').show("fast");
-                    });
-                } else {
-                    $('.following_profile_body').show("fast");
-                }
-            });
+                    }
+                }).complete(function(){
+                    following_spinner.stop();
+                });
+            }
         });
-        
         if (callback != undefined) {
             callback();
         }

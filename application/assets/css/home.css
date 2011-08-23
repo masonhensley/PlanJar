@@ -624,6 +624,11 @@ a {
     font-weight:bold;
 }
 
+.make_plan, .make_plan_here{
+    background:-webkit-linear-gradient(top, #F3F6FF, white);
+    color:gray;
+}
+
 .already_attending{
     position: absolute;
     left: 49px;

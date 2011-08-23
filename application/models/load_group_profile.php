@@ -103,7 +103,7 @@ class Load_group_profile extends CI_Model
         {
             if (isset($group_info['school']))
             {
-                        ?><font style="color:gray;">School:</font><font style="color:black; font-weight:bold;"><?php echo $group_info['school']; ?></font><br/><br/><?php
+                        ?><font style="color:gray;">School: </font><font style="color:black; font-weight:bold;"><?php echo $group_info['school']; ?></font><br/><br/><?php
             }
         }
                 ?><font style="color:gray;">Description</font><br/>

@@ -40,9 +40,13 @@ function controlls_are_selected() {
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
     
-    if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
-        // Location selected
+    if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) { // Location selected
         
+        // setup spinner
+        var opts = spinner_options();
+        var target = document.getElementById('home_data_spinner');
+        var location_spinner = new Spinner(opts).spin(target);
+                
         // Get the correct place id and back button value
         var place_id;
         var back_to_plan = false;
@@ -61,14 +65,15 @@ function display_info(bypass, arg) {
             'back_to_groups': $('.selected_location_tab').length > 0
         }, function (data) {
             initialize_location_info(data);
+        }).complete(function(){
+            location_spinner.stop();
         });
-    } else if ($('.network_active, .selected_group').length > 0) {
-        // Network or group selected.
-        // setup spinner
+    } else if ($('.network_active, .selected_group').length > 0) { // Network or group selected.
         
-        var opts = spinner_options();
-        var target = document.getElementById('suggest_people');
-        var spinner = new Spinner(opts).spin(target);
+        // setup spinner
+        var group_opts = spinner_options();
+        var group_target = document.getElementById('home_data_spinner');
+        var group_spinner = new Spinner(group_opts).spin(group_target);
         
         // Make 'all' the default filter setting
         if(arg == undefined)
@@ -103,8 +108,8 @@ function display_info(bypass, arg) {
             $('#filter').change(function(){
                 display_info(true, $(this).val());
             });
-            
-            
+        }).complete(function(){
+            group_spinner.stop();
         });
         
         // Load popular locations if necessary
@@ -112,11 +117,12 @@ function display_info(bypass, arg) {
             populate_popular_locations();
         }
         
-        //stop spinner
-        spinner.stop();
+    } else if ($('.selected_plan, .selected_friend_plan').length > 0) { // Plan or friend's plan selected
         
-    } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
-        // Plan or friend's plan selected
+        // setup spinner
+        var plan_opts = spinner_options();
+        var plan_target = document.getElementById('home_plan_spinner');
+        var plan_spinner = new Spinner(plan_opts).spin(plan_target);
         
         // Load the selected plan
         $.get('/home/load_selected_plan_data', {
@@ -142,7 +148,12 @@ function display_info(bypass, arg) {
                     initialize_plan_info(data);
                 });
             });
+        })
+        .complete(function(){
+            plan_spinner.stop(); // stop the spinner when the ajax call is finished
         });
+        
+        
     } else {
         // No controlls selected
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
@@ -267,8 +278,10 @@ function populate_popular_locations(skip_update_map, callback) {
             
         // Location tab click handler
         $('div.location_tab').click(function() {
+            
             if(!$(this).hasClass('selected_location_tab'))
             {
+                
                 // Deselect selected location tabs
                 $('.selected_location_tab').removeClass('selected_location_tab');
             
@@ -281,6 +294,7 @@ function populate_popular_locations(skip_update_map, callback) {
         
             // Update the info box
             display_info();
+            
         });
         
         // Populate the map

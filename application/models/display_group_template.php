@@ -2,6 +2,7 @@
 
 class Display_group_template extends CI_Model
 {
+
     // Constructor.
     function __construct()
     {
@@ -519,8 +520,8 @@ class Display_group_template extends CI_Model
         </div>
         <br/>
         <div class="group_graph_top_left" >
-            <font style="color:gray;position:absolute;top:12px;left:40px;">Viewing</font>&nbsp;
-            <select id="filter" style="float:right;">
+            <font style="color:gray;">Viewing</font>&nbsp;
+            <select id="filter" >
                 <option value="everyone">Everyone</option>
                 <option value="freshmen">Freshmen</option>
                 <option value="sophomores">Sophomores</option>
@@ -529,6 +530,12 @@ class Display_group_template extends CI_Model
                 <option value="alumni">Alumni</option>
             </select>
             <br/>
+            <div class="demographics">
+                <font style="color:gray;">males</font><font style="font-weight:bold;">
+                <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;
+                <font style="color:gray;">females</font><font style="font-weight:bold;">
+            <?php echo " " . $data_array['total_females']; ?></font>
+            </div>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
             ?>
@@ -544,14 +551,6 @@ class Display_group_template extends CI_Model
         </div>
 
         <div class="group_graph_bottom_left">
-            <div class="demographics">
-                <font style="color:gray;">males</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_males']; ?></font>
-                <font style="color:gray;">females</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_females']; ?></font>
-            </div>
-
-            <font style="font-weight:bold; position:absolute;top:-53px; text-align:left; left:35px;">People information</font>
 
             <div class="percent_male_container">
                 <div class="show_percent"style="display:inline-block;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>

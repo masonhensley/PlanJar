@@ -9,10 +9,12 @@
     <div id="edit_groups_list"></div>
 </div>
 
-<div class="middle">
-    <div style="text-align:center; color:gray; position:relative; top:3px;">
+<div class="middle" >
+    <div style="text-align:center;  color:gray; position:relative; top:3px;">
     Select a group on the left or right to see its profile
     </div>
+</div>
+<div id="group_middle_spinner" style="position:absolute; left: 253px; top:22px;">
 </div>
 
 <div class="right">
@@ -21,10 +23,10 @@
             <label for="group_search" style=" color:gray;">Search for groups to follow</label>
             <input type="text" class="textbox" id="group_search" />
         </div>
+        <div id="suggest_groups_spinner" style="position:absolute; top:72px; right:170px;"></div>
         <div class="suggest_groups">
             Suggest groups
         </div>
     </div>
-
     <div id="find_groups_list"></div>
 </div>

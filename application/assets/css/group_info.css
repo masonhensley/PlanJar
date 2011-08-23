@@ -12,10 +12,9 @@
     width:200px;
     height:150px;
     position:absolute;
-    top:40px;
-    left:20px;
+    top:73px;
+    left:39px;
     text-align: left;
-    padding-top:10px;
 }
 .group_graph_top_right{
     width:310px;
@@ -86,9 +85,8 @@
 }
 
 .demographics{
-    position:absolute;
-    top:-34px;
-    left:37px;
+    position:relative;
+    top:2px;
 }
 
 .percent_male_container{

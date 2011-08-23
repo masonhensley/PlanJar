@@ -208,7 +208,7 @@ a{
 
 /* follower tab */
 #friends_content .left {
-    width: 38%;
+    width: 35%;
     float: left;
     height: auto;
     border: 1px solid #CCC;
@@ -220,8 +220,7 @@ a{
     text-align:center;
     color:navy;
     height:37px;
-    padding-top:10px;
-    padding-bottom:10px;
+    padding-top:16px;
     margin-bottom:-7px;
     font-size:16px;
 }
@@ -237,7 +236,7 @@ a{
 .selected_follower {
     background: -webkit-gradient(linear,left top,left bottom,from(#ddd),to(#eff));
 }
-#friends_content .right, #notifications_content .right {
+#notifications_content .right {
     width: 48%;
     float: right;
     height: auto;
@@ -246,6 +245,17 @@ a{
     background-color:white;
     padding:10px;
     margin-right:100px;
+}
+
+#friends_content .right {
+    width: 48%;
+    float: right;
+    height: auto;
+    border: 1px solid #CCC;
+    border-top-right-radius:10px;
+    background-color:white;
+    padding:10px;
+    margin-right:130px;
 }
 
 .suggested_friends{
