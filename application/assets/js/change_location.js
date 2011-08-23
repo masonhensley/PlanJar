@@ -74,16 +74,16 @@ function initialize_change_location_panel() {
             // Store the coordinates
             myLatitude = latitude;
             myLongitude = longitude;
-            get_current_city_name();
-            
-            // Update the profile with the new location
-            $.get('/home/update_user_location', {
-                'latitude': latitude,
-                'longitude': longitude,
-                'city': myCity,
-                auto: false
-            }, function(data) {
-                myCity;
+            get_current_city_name(function() {
+                // Update the profile with the new location
+                $.get('/home/update_user_location', {
+                    'latitude': latitude,
+                    'longitude': longitude,
+                    'city': myCity,
+                    auto: false
+                }, function(data) {
+                    $('#using_location').html('Using location: ' + myCity);
+                });
             });
             
             // Hide the panel and update the map
