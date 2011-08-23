@@ -21,7 +21,7 @@
     <div class="right_header">
         <div class="in-field_block in-field_block_group">
             <label for="group_search" style=" color:gray;">Search for groups to follow</label>
-            <input type="text" class="textbox" id="group_search" />
+            <input type="text" class="textbox" id="group_search" style="height:70%; margin-top:4px;" />
         </div>
         <div id="suggest_groups_spinner" style="position:absolute; top:72px; right:170px;"></div>
         <div class="suggest_groups">
