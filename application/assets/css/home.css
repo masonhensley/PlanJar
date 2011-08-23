@@ -632,6 +632,12 @@ a {
 .view_map {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     color: gray;
+    position: absolute;
+    left: 49px;
+    bottom: 23px;
+    border: 1px solid lightgray;
+    padding: 8px;
+    font-weight:bold;
 }
 
 .already_attending{
