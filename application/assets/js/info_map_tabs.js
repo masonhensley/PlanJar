@@ -177,7 +177,7 @@ function initialize_location_info(data) {
     two_percentage_bar('.two_percent_wrapper', data.percent_male, data.percent_female, 'two_bar_male', 'two_bar_female');
                 
     // Make plan click handler
-    $('.make_plan').click(function() {
+    $('.make_plan_here').click(function() {
         show_plan_modal(function () {
             // Pre-populate the place name and id
             $('#plan_location').val(data.place_name);
@@ -192,7 +192,7 @@ function initialize_location_info(data) {
     
     // View map
     $('.view_map').click(function() {
-        show_data_container('#map_tab'); 
+        show_data_container('#map_content'); 
     });
     
     // Back to plan click handler (not always visible)

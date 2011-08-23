@@ -624,7 +624,13 @@ a {
     font-weight:bold;
 }
 
-.make_plan, .make_plan_here{
+.make_plan_here{
+    position: absolute;
+    left: 10px;
+    bottom: 23px;
+    border: 1px solid lightgray;
+    padding: 8px;
+    font-weight:bold;
     background:-webkit-linear-gradient(top, #F3F6FF, white);
     color:gray;
 }
@@ -633,7 +639,7 @@ a {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     color: gray;
     position: absolute;
-    left: 49px;
+    left: 150px;
     bottom: 23px;
     border: 1px solid lightgray;
     padding: 8px;
