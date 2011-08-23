@@ -534,7 +534,8 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;">males</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
-            <?php echo " " . $data_array['total_females']; ?></font>
+                <?php echo " " . $data_array['total_females']; ?></font>
+                <div id="view_group_list" style="color:navy;">view members</div>
             </div>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
