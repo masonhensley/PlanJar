@@ -63,11 +63,14 @@ function initialize_map() {
                 // Assign the latitude and longitude vars
                 myLatitude = latitude;
                 myLongitude = longitude;
-                get_current_city_name();
                 
                 // Upload the city name
-                $.get('/home/update_user_location', {
-                    'city': myCity
+                get_current_city_name(function() {
+                    $.get('/home/update_user_location', {
+                        'city': myCity
+                    });
+                    
+                    $('#using_location').html('Using location: ' + myCity);
                 });
                 
                 // Map the user's position and show the map
@@ -79,13 +82,14 @@ function initialize_map() {
                 myLongitude = parseFloat(data.loc[1]);
                 myCity = data.city_state;
                 
+                $('#using_location').html('Using location: ' + myCity);
                 map_user_position();
             } else if (data.status == 'silent') {
                 myCity = data.city_state;
+                $('#using_location').html('Using location: ' + myCity);
+                
                 map_user_position();
             }
-            
-            $('#using_location').html('Using location: ' + myCity);
         });
                 
         // Create the map
@@ -125,7 +129,7 @@ function get_selected_location(){
 }
 
 // Update myCity based off the user's coordinates.
-function get_current_city_name() {
+function get_current_city_name(callback) {
     var geocoder = new google.maps.Geocoder();
     var request = {
         location: new google.maps.LatLng(myLatitude, myLongitude)
@@ -151,6 +155,10 @@ function get_current_city_name() {
                     myCity += ', ' + result[array_index].short_name;
                 }
             });
+            
+            if (callback != undefined) {
+                callback();
+            }
         }
     });
 }
