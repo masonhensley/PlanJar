@@ -23,7 +23,7 @@ function initialize_plan_panel(){
     });
     
     // View map
-    $('#plans_wrapper a').click(function() {
+    $('.view_plan_map').click(function() {
         return false;
     });
 }
