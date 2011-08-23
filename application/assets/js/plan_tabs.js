@@ -25,7 +25,7 @@ function initialize_plan_panel(){
     // View map
     $('.view_plan_map').click(function() {
         // Click the first plan in the set
-        $(this).parent().next().click();
+        $(this).parent().next().not('.selected_plan').click();
         show_data_container('#map_content'); 
         
         return false;
