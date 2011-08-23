@@ -89,7 +89,9 @@ function initialize_change_location_panel() {
             // Hide the panel and update the map
             hide_change_location_panel();
             map_user_position();
-            update_current_city_name();
+            get_current_city_name(function() {
+                $('#using_location').html('Using location: ' + myCity);
+            });
         });
     });
 }
