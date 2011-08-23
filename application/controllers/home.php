@@ -306,7 +306,7 @@ class Home extends CI_Controller
 
         $delta_distance = round($this->_get_distance_between($user->latitude, $user->longitude, $new_lat, $new_long), 2);
 
-        if ($this->input->get('auto') == 'false' || $user->latitude == NULL || $user->longitude == NULL)
+        if ($this->input->get('auto') == 'false' || $user->latitude == NULL || $user->longitude == NULL || $user->city_state == '')
         {
             // Runs when the user location information is missing or when the location is manually changed
             $update_array = array(
