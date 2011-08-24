@@ -210,6 +210,7 @@ class Home extends CI_Controller
         $this->load_attending_list->_display_attending_list($plan_id);
     }
     
+    // display the people in a group in a modal
     public function group_member_list()
     {
         $group_id = $this->input->get('group_id');
