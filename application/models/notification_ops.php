@@ -25,6 +25,7 @@ class Notification_ops extends CI_Model
             {
                 $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id);
                 $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
+                $this->send_email_reminder($type, $user_id, $subject_id);
             }
         }
 
@@ -41,6 +42,7 @@ class Notification_ops extends CI_Model
                 {
                     $accepted = (integer) $this->deduce_accepted($type, $subject_id, $joined_user);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
+                    $this->send_email_reminder($type, $joined_user, $subject_id, $group_id);
                 }
             }
         }
