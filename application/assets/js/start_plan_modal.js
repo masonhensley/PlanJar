@@ -94,6 +94,7 @@ function initialize_plan_modal() {
     $('#plan_clock_time').keyup(function() {
         // Select the appropriate time of day
         var date = Date.parse($(this).val());
+        console.log(date);
         if (date != null) {
             console.log(date);
             var hours = date.getHours();
