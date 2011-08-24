@@ -346,13 +346,12 @@ a {
 /*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
 .display_message {
     background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(white));
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
     background: -ms-linear-gradient(top, #F3F6FF, white);
     background: linear-gradient(top, #F3F6FF, white);
     border-bottom: 1px solid darkgray;
-    color:black;
+    color:gray;
     padding: 10px;
 }
 .no_places_to_show {
@@ -657,5 +656,7 @@ a {
 }
 
 .view_plan_map {
-    color: grey;
+    color: navy;
+    float:right;
+    margin-right:10px;
 }
