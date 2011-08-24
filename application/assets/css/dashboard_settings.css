@@ -1,0 +1,7 @@
+.settings_wrapper {
+    width: 500px;
+    border: 1px solid #CCC;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+}
