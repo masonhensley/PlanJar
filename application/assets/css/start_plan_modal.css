@@ -89,3 +89,12 @@
     display: none;
     width: 100%;
 }
+
+#plan_bottom_buttons {
+    width: 100%;
+    text-align: right;
+}
+
+#place_description_wrapper {
+    display: none;
+}
