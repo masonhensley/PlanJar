@@ -405,12 +405,18 @@ class Notification_ops extends CI_Model
                     break;
 
                 case 'follow_notif':
+                    // Set the subject
+                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has followed you");
+                    
                     // Capture the body
                     $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
                             ' has followed you.';
                     break;
 
                 case 'group_invite':
+                    // Set the subject
+                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited you to join a group");
+                    
                     // Get the group name
                     $row = $this->db->query("SELECT name FROM groups WHERE id = ?", array($subject_id))->row();
 
@@ -422,7 +428,6 @@ class Notification_ops extends CI_Model
 
             $this->email->message($this->create_email_notification($body_string));
             $this->email->send();
-            echo($this->email->print_debugger());
         }
     }
 
