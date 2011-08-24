@@ -59,7 +59,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $display_message = "<font style=\"color:gray;\">Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> near your</font> <font style=\"color:green;\">Current Location</font> ";
-        $display_message .= "for <font style=\"color:black;\">$display_day</font>";
+        $display_message .= "for <font style=\"font-weight:bold;\">$display_day</font>";
 
 
         // query to pull all plans from people within 15 miles from your current location
