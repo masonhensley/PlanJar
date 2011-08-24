@@ -183,7 +183,7 @@
                 <div class="suggested_locations">
                 </div>
                 <div class="bottom_right_section">
-                    <font style="color:navy">Invite People to PlanJar</font>
+                    <br/><font style="color:navy">Invite People to PlanJar</font>
                 </div>
             </div>
             <div id="home_plan_spinner" style="position:absolute; right:180px; top:19px;"></div>
