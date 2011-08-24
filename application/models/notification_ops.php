@@ -369,6 +369,7 @@ class Notification_ops extends CI_Model
                             JOIN places ON events.place_id = places.id
                             WHERE events.id = ?";
             $query = $this->db->query($query_string, array($subject_id));
+            var_dump($this->db->last_query());
             $event_row = $query->row();
             $originator = $event_row->first_name . ' ' . $event_row->last_name;
 
