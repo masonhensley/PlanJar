@@ -10,7 +10,7 @@ class Load_attending_list extends CI_Model
 
     function _display_attending_list($plan_id)
     {
-        // get #attending
+        // get the event id
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
         $result = $this->db->query($query);
         $event_id = $result->row();

@@ -210,7 +210,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div id="group_member_panel">
             <div class="title_bar">
                 <b>Group Members</b>
@@ -220,7 +220,6 @@
                 <div class="member_list">
                 </div>    
             </div>
-
         </div>
 
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>

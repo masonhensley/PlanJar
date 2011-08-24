@@ -32,7 +32,7 @@ class Notification_ops extends CI_Model
         $this->load->model('group_ops');
         foreach ($group_list as $group_id)
         {
-            $joined_users = $this->group_ops->get_users($group_id);
+            $joined_users = $this->group_ops->get_group_members($group_id);
 
             // Create notifications for each joined user
             foreach ($joined_users as $joined_user)

@@ -213,7 +213,8 @@ class Home extends CI_Controller
     public function group_member_list()
     {
         $group_id = $this->input->get('group_id');
-        echo $group_id;
+        $this->load->model('load_group_member_list');
+        $this->load_group_member_list->_display_group_members($group_id);
     }
 
     public function get_notification_popup()
