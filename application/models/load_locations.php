@@ -21,7 +21,7 @@ class Load_locations extends CI_Model
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d');
 
-        $display_day = "<font style=\"font-weight:bold\">$display_day</font>";
+        $display_day = "<font style=\"\">$display_day</font>";
         if (!$selected_groups[0])
         {
             $this->on_nothing_selected($display_day);
