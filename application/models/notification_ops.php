@@ -373,6 +373,7 @@ class Notification_ops extends CI_Model
             $query = $this->db->query($query_string, array($subject_id));
             $event_row = $query->row();
 
+            $body_string = 'Hi ' . $user->first_name . ".<br/><br/>";
             switch ($type)
             {
                 case 'event_invite':
@@ -394,8 +395,7 @@ class Notification_ops extends CI_Model
                     $date = $date->format('l') . ' the ' . $date->format('jS');
 
                     // Capture the body
-                    $body_string = 'Hi ' . $user->first_name . ".<br/><br/>" .
-                            $this_user->first_name . ' ' . $this_user->last_name .
+                    $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
                             ' has invited you to ' . $event_row->title;
                     if ($event_row->title != '')
                     {
@@ -405,17 +405,29 @@ class Notification_ops extends CI_Model
                     break;
 
                 case 'follow_notif':
-                    $body_string = '';
+                    // Set the subject
+                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has followed you");
+                    
+                    // Capture the body
+                    $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
+                            ' has followed you.';
                     break;
 
                 case 'group_invite':
-                    $body_string = '';
+                    // Set the subject
+                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited you to join a group");
+                    
+                    // Get the group name
+                    $row = $this->db->query("SELECT name FROM groups WHERE id = ?", array($subject_id))->row();
+
+                    // Capture the body
+                    $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
+                            ' has invited you to join ' . $row->name;
                     break;
             }
 
             $this->email->message($this->create_email_notification($body_string));
             $this->email->send();
-            echo($this->email->print_debugger());
         }
     }
 
