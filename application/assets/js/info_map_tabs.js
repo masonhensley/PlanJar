@@ -2,7 +2,7 @@ $(function() {
     initialize_info_map_tabs();
 })
 
-var group_spinner;
+var group_spinner = new Spinner(spinner_options());
 
 // Initializes the map/data tabs.
 function initialize_info_map_tabs() {
