@@ -115,7 +115,6 @@ function display_info(bypass, arg) {
             $('#view_group_list').click(function(){
                 populate_group_member_panel();
             });            
-            group_spinner.stop();
         });
         
         // Load popular locations if necessary
@@ -170,7 +169,7 @@ function display_info(bypass, arg) {
         // Load popular locations
         populate_popular_locations(false, function(){
             jqxhr.complete(function(){
-                group_spinner.stop();
+                group_spinner.stop(); // stop the group spinner after the groups and locations are done
             });
         });
     }
