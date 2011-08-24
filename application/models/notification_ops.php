@@ -424,7 +424,7 @@ class Notification_ops extends CI_Model
                     break;
             }
 
-            $this->email->message(create_email_notification($body_string));
+            $this->email->message($this->create_email_notification($body_string));
             $this->email->send();
         }
     }
