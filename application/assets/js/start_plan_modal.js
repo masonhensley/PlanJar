@@ -97,6 +97,12 @@ function initialize_plan_modal() {
         console.log($(this).val());
         date = Date.parse('today');
         console.log(date);
+        date = Date.parse('9:30 am');
+        console.log(date);
+        date = Date.parse('9:45 pm');
+        console.log(date);
+        date = Date.parse('12:00 pm');
+        console.log(date);
         if (date != null) {
             console.log(date);
             var hours = date.getHours();
