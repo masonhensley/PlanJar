@@ -51,13 +51,26 @@ function initialize_plan_modal() {
     // Divsets
     $('#plan_time, #plan_privacy_wrapper, #plan_day').divSet();
     
-    // Additional day click handler
+    // Additional day/time click handler
     $('#plan_day div, #plan_time div').click(function() {
         populate_selectable_events();
         
-        if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
-            $('#plan_place_location_buttons').show('fast');
+        if (plan_time_place_valid()) {
+            // Show the necessary buttons
+            $('#create_event, #submit_plan').show('fast');
+            
+            // Hide the warning
+            $('#plan_warning_message').hide('fast');
         }
+    });
+    
+    // Plan time click handler
+    $('#plan_time .divset').click(function () {
+        // Clear and blur the time box
+        $('#plan_clock_time').val('');
+        $('#plan_clock_time').blur();
+        
+        populate_selectable_events();
     });
     
     // Left and right day click handlers
@@ -81,15 +94,6 @@ function initialize_plan_modal() {
         defaultTime: '12:00 pm'
     });
     
-    // Plan time click handler
-    $('#plan_time .divset').click(function () {
-        // Clear and blur the time box
-        $('#plan_clock_time').val('');
-        $('#plan_clock_time').blur();
-        
-        populate_selectable_events()
-    });
-    
     // Clock time keyup handler
     $('#plan_clock_time').keyup(function() {
         // Select the appropriate time of day
@@ -110,7 +114,7 @@ function initialize_plan_modal() {
             $('#plan_time .divset').removeClass('divset_selected');
             $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
             
-            if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
+            if (plan_time_place_valid()) {
                 $('#plan_place_location_buttons').show('fast');
             }
             
