@@ -81,6 +81,7 @@ function display_info(bypass, arg) {
             arg = 'all';
         }
     
+        // display the information in the data box
         $.get('/home/load_data_box', {
             'selected_groups': get_selected_groups(),
             'selected_day': get_selected_day(),
@@ -109,7 +110,9 @@ function display_info(bypass, arg) {
                 display_info(true, $(this).val());
             });
         }).complete(function(){
-            initialize_view_group_list();
+            $('#view_group_list').click(function(){
+                populate_group_member_panel();
+            });            
             group_spinner.stop();
         });
         
@@ -141,7 +144,6 @@ function display_info(bypass, arg) {
                         plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
                     }, function(data) {
                         data = $.parseJSON(data);
-                
                         populate_map(data, plan_marker_closure, true);
                     });
                     
@@ -151,6 +153,10 @@ function display_info(bypass, arg) {
             });
         })
         .complete(function(){
+            $('#view_group_list').click(function(){
+                
+            });
+            
             plan_spinner.stop(); // stop the spinner when the ajax call is finished
         });
         
@@ -164,15 +170,9 @@ function display_info(bypass, arg) {
     }
 }
 
-function initialize_view_group_list(){
-    $('#view_group_list').click(function(){
-        
-        });
-}
-
-
 // Sets up the location view (graphs and whatnot)
 // Used for viewing locations and friends' plans
+
 function initialize_location_info(data) {
     data = $.parseJSON(data);
 
