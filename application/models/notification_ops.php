@@ -348,5 +348,43 @@ class Notification_ops extends CI_Model
         }
     }
 
+    // Sends a notificatin email based on the given type and data
+    function send_email_reminder($type, $user_id, $subject_id)
+    {
+        $user = $this->ion_auth->get_user($user_id);
+
+        if ($user->email_notif == '1')
+        {
+            // Email setup
+            $this->load->library('email');
+            $this->email->from('noreply@planjar.com', 'PlanJar');
+            $this->email->to($user->email);
+
+            switch ($type)
+            {
+                case 'event_invite':
+                    // Get the necessary information
+                    $query_string = "SELECT user_meta.first_name, user_meta.last_name, events.title, places.name
+                    FROM events JOIN user_meta ON events.originator_id = user_meta.user_id
+                    JOIN places ON events.place_id = places.id
+                    WHERE events.id = ?";
+                    $query = $this->db->query($query_string, array($subject_id));
+                    $row = $query->row();
+
+                    // Set the subject
+                    $this->email->subject($row->first_name . ' ' . $row->last_name . ' has invited you to an event');
+
+                    // Capture the body
+                    break;
+
+                case 'follow_notif':
+                    break;
+
+                case 'group_invite':
+                    break;
+            }
+        }
+    }
+
 }
 ?>

@@ -68,7 +68,8 @@ $config['columns'] = array(
     'longitude',
     'phone',
     'box',
-    'city_state');
+    'city_state',
+    'email_notif');
 
 /**
  * A database column which is used to
