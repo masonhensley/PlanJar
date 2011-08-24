@@ -216,15 +216,12 @@
                 <b>Group Members</b>
                 <input type="button" id="cancel_group_member_panel" style="float:right;" value="X" />
             </div>
-
             <div id="group_member_content">
                 <div class="member_list">
-
                 </div>    
             </div>
 
         </div>
-
 
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
