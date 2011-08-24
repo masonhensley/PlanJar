@@ -25,6 +25,9 @@ function initialize_plan_panel(){
         
         // Display the info box
         display_info(); 
+        
+        // Load the comment box and comments
+        load_comments();
     });
     
     // View map
@@ -47,5 +50,13 @@ function populate_plan_panel(callback) {
         if (callback != undefined) {
             callback();
         }
+    });
+}
+
+function load_comments(){
+    $.get('home/plan_comments', function(data){
+        $('.bottom_right_section').hide('fast');
+        $('.plan_comments').html(data);
+        $('.plan_comments').show('fast');
     });
 }

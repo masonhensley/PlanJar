@@ -338,6 +338,19 @@ a {
     background-color: white;
     text-align: center;
 }
+.plan_comments{
+    display:none;
+    float: right;
+    width: 49%;
+    min-height: 54px;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    border-top:1px solid darkgray;
+    margin-top:7px;
+    background-color: white;
+    text-align: center;
+}
 .plan {
     width: 50%;
     height: 200px;
@@ -646,7 +659,7 @@ a {
 
 .already_attending{
     position: absolute;
-    left: 49px;
+    left: 49px; 
     bottom: 23px;
     border: 1px solid lightgray;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
