@@ -37,7 +37,7 @@
         </div>
 
         <hr/>
-        <div id="plan_place_location_buttons" style="width: 100%; text-align: right;">
+        <div id="plan_place_location_buttons" style="width: 100%; text-align: right; display: none;">
             <input type="button" id="create_event" value="Add a title"/>
             <input type="button" id="just_go" value="Make a plan"/>
         </div>
@@ -60,7 +60,7 @@
 
             <hr/>
             <div id="plan_create_event_buttons" style="width: 100%; text-align: right;">
-                <input type="button" id="add_plan_description" value="Add a description"/>
+                <input type="button" id="add_plan_description" value="Add a description" style="display: none;"/>
 
                 <div id="plan_description_wrapper">
                     <div class="in-field_block" style="margin-left: auto; margin-right: auto; width: 423px; height: auto">

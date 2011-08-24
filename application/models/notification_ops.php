@@ -464,7 +464,7 @@ class Notification_ops extends CI_Model
             <body>
                 <div class="wrapper">
                     <a href="<?php echo(base_url()); ?>">
-                        <img src="<?php echo(base_url() . APPPATH . 'assets/images/pj_logo_white_text.png'); ?>"/>
+                        <img src="<?php echo(base_url() . APPPATH . 'assets/images/logo_email.png'); ?>"/>
                     </a>
                     <hr/>
 
