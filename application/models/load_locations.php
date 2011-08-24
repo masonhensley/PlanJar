@@ -230,7 +230,7 @@ class Load_locations extends CI_Model
 
     function setup_groups_header($group_name_array, $display_day)
     {
-        $header_string = "Popular places people from ";
+        $header_string = "Popular <a href=\"#\" id=\"places_link\" style=\"color:lightblue; font-weight:bold; text-decoration:underline;\" >places people from ";
         $number = count($group_name_array);
         if ($number == 1)
         {
