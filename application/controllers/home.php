@@ -214,7 +214,7 @@ class Home extends CI_Controller
     public function group_member_list()
     {
         $group_id = $this->input->get('group_id');
-        $this->load->model('loat_attending_list');
+        $this->load->model('load_attending_list');
         $this->load_attending_list->_display_group_members($group_id);
     }
 
