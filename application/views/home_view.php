@@ -217,7 +217,7 @@
                 <input type="button" id="cancel_group_member_panel" style="float:right;" value="X" />
             </div>
             <div id="group_member_content">
-                <div class="member_list">
+                <div class="member_list" style="max-height: 344px;">
                 </div>    
             </div>
         </div>
