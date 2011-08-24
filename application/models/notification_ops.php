@@ -400,6 +400,10 @@ class Notification_ops extends CI_Model
                     background-color: #DDD;
                 }
 
+                .wrapper img {
+                    padding: 15px;
+                }
+
                 .content {
                     padding: 15px;
                     margin-bottom: 50px;
