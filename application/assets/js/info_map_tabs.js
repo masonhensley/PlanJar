@@ -120,6 +120,8 @@ function display_info(bypass, arg) {
         // Load popular locations if necessary
         if (bypass != true) {
             populate_popular_locations();
+        }else{
+            group_spinner.stop();
         }
         
     } else if ($('.selected_plan, .selected_friend_plan').length > 0) { // Plan or friend's plan selected
