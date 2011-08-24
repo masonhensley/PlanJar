@@ -384,29 +384,30 @@ class Notification_ops extends CI_Model
                         $you = $row->name;
                     }
 
-                    // Set the subject
+                    // Get the preliminary body text
                     if ($event_row->first_name != NULL)
                     {
-                        $originator = $event_row->first_name . ' ' . $event_row->last_name . ' has invited';
-                        $this->email->subject($event_row->first_name . ' ' . $event_row->last_name . " has invited $you to an event");
+                        $prelim = $event_row->first_name . ' ' . $event_row->last_name . " has invited $you to";
                     } else
                     {
                         if ($you == 'you')
                         {
-                            $this->email->subject("You have been invited to an event");
+                            $prelim = "You have been invited to";
                         } else
                         {
-                            $this->email->subject("$you has been invited to an event");
+                            $prelim = "$you has been invited to";
                         }
                     }
+
+                    // Set the subject
+                    $this->email->subject($prelim . ' an event');
 
                     // Get the date string
                     $date = new DateTime($event_row->date);
                     $date = $date->format('l') . ' the ' . $date->format('jS');
 
                     // Capture the body
-                    $body_string = 'Hi ' . $user->first_name . ',<br/><br/>';
-                    $body_string .= $event_row->first_name . ' ' . $event_row->last_name . " has invited $you to " . $event_row->title;
+                    $body_string = 'Hi ' . $user->first_name . ".<br/><br/> $prelim " . $event_row->title;
                     if ($event_row->title != '')
                     {
                         $body_string .= ' at ';
