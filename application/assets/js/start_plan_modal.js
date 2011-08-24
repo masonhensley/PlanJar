@@ -108,10 +108,12 @@ function initialize_plan_modal() {
                 time_to_select = 'late_night';
             }
             
-            $('#plan_time .divset[plan_time="' + time_to_select + '"]').click();
+            $('#plan_time .divset[plan_time="' + time_to_select + '"]').children().removeClass('divset_selected');
+            $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
             
-            $(this).focus();
-            $(this).val(this_val);
+            if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
+                $('#plan_place_location_buttons').show('fast');
+            }
             
             populate_selectable_events();
         }
