@@ -22,7 +22,7 @@ function populate_group_member_panel(){
         $('#group_member_panel').show('fast');
         
         // Add following click handler
-        $('.attending_list .add_following').confirmDiv(function(clicked_elem) {
+        $('.member_list .add_following').confirmDiv(function(clicked_elem) {
             $.get('/dashboard/add_user_following', {
                 following_id: clicked_elem.parent().attr('user_id')
             }, function () {
