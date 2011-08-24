@@ -513,7 +513,7 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_females']; ?></font>
                 <?php
-                if ($format_type == 'groups')
+                if ($format_type == 'groups' && count($selected_groups) > 1)
                 {
                     ?>
                     <div id="view_group_list" style="color:navy; position:absolute; top:-45px; left:0px">See Members</div>
