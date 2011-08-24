@@ -109,6 +109,7 @@ function display_info(bypass, arg) {
                 display_info(true, $(this).val());
             });
         }).complete(function(){
+            initialize_view_group_list();
             group_spinner.stop();
         });
         
@@ -162,6 +163,13 @@ function display_info(bypass, arg) {
         populate_popular_locations();
     }
 }
+
+function initialize_view_group_list(){
+    $('#view_group_list').click(function(){
+        
+        });
+}
+
 
 // Sets up the location view (graphs and whatnot)
 // Used for viewing locations and friends' plans
