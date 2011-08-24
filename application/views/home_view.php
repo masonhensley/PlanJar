@@ -90,7 +90,8 @@
 
         <title>PlanJar | Home</title>
 
-        <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
+        <!-- Mixpanel -->
+        <script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
 
         <!-- Google Analytics -->
         <script type="text/javascript">
@@ -211,6 +212,12 @@
                 <input type="button" id="cancel_group_member_panel" style="float:right;" value="X" />
             </div>
             
+            <div id="group_member_content">
+                <div class="member_list">
+                    
+                </div>    
+            </div>
+        
         </div>
         
         
