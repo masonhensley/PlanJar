@@ -92,9 +92,8 @@ function initialize_plan_modal() {
     
     // Clock time change handler
     $('#plan_clock_time').keyup(function() {
-        var this_val = $(this).val();
         // Select the appropriate time of day
-        var date = Date.parse(this_val);
+        var date = Date.parse($(this).val());
         if (date != null) {
             var hours = date.getHours();
             var time_to_select;
