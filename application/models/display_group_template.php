@@ -477,7 +477,7 @@ class Display_group_template extends CI_Model
 
 
         // make the percentage readable
-        $data_array = $this->make_percentage_readable($data_array);
+        $data_array = $this->make_percentages_readable($data_array);
 
 
         if ($font_style == 'groups')
