@@ -2,6 +2,8 @@ $(function() {
     initialize_info_map_tabs();
 })
 
+var jqxhr;
+
 // Initializes the map/data tabs.
 function initialize_info_map_tabs() {
     // Click handler.
@@ -155,7 +157,7 @@ function display_info(bypass, arg) {
         .complete(function(){
             $('#view_group_list').click(function(){
                 
-            });
+                });
             
             plan_spinner.stop(); // stop the spinner when the ajax call is finished
         });
@@ -166,7 +168,11 @@ function display_info(bypass, arg) {
         $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
         
         // Load popular locations
-        populate_popular_locations();
+        populate_popular_locations(false, function(){
+            jqxhr.complete(function(){
+                group_spinner.stop();
+            });
+        });
     }
 }
 
@@ -280,7 +286,7 @@ function initialize_plan_info(data) {
 
 // Populates the popular locations panel
 function populate_popular_locations(skip_update_map, callback) {
-    $.get('/home/load_location_tabs', {
+    jqxhr = $.get('/home/load_location_tabs', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
     }, function (data) {
@@ -314,9 +320,9 @@ function populate_popular_locations(skip_update_map, callback) {
         if (skip_update_map == undefined) {
             populate_map(data.coords_array, location_marker_closure);
         }
-    });
-    
-    if (callback != undefined) {
+        
+        if (callback != undefined) {
         callback();
     }
+    });
 }
