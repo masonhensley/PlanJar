@@ -20,6 +20,15 @@ function populate_group_member_panel(){
     }, function(data){
         $('.member_list').html(data);
         $('#group_member_panel').show('fast');
-        alert(data);
+        
+        // Add following click handler
+        $('.attending_list .add_following').confirmDiv(function(clicked_elem) {
+            $.get('/dashboard/add_user_following', {
+                following_id: clicked_elem.parent().attr('user_id')
+            }, function () {
+                populate_plan_attending_panel();
+            });
+        });
+        
     });
 }
