@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 
         <!-- CSS -->
@@ -18,6 +18,7 @@
         <link rel=stylesheet href="/application/assets/css/invite_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/selectable_event.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_conflict_modal.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/dashboard_settings.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.2.min.js"></script>
@@ -37,6 +38,7 @@
         <script type="text/javascript" src="/application/assets/js/plan_conflict_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
         <script type="text/javascript" src="/application/assets/js/spin.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_settings.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -64,23 +66,23 @@
 
 
         <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
-        
+
         <!-- Google Analytics -->
         <script type="text/javascript">
 
-              var _gaq = _gaq || [];
-              _gaq.push(['_setAccount', 'UA-23115103-4']);
-              _gaq.push(['_setDomainName', '.planjar.com']);
-              _gaq.push(['_trackPageview']);
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-23115103-4']);
+            _gaq.push(['_setDomainName', '.planjar.com']);
+            _gaq.push(['_trackPageview']);
             
-              (function() {
+            (function() {
                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-              })();
+            })();
             
         </script>
-        
+
     </head>
     <body>
         <div class ="top_panel">
@@ -118,6 +120,10 @@
                 <?php include(APPPATH . '/assets/php/dashboard_notifications.php'); ?>
             </div>
 
+            <div id="settings_content" class="page_content" setup_func="settings_setup">
+                <?php include(APPPATH . '/assets/php/dashboard_settings.php'); ?>
+            </div>
+
             <div id="profile_content" setup_func="setup_profile" class="page_content">
                 <div class="profile_container">
                     <div class="profile_box">
@@ -130,24 +136,24 @@
         <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
-        
-        
+
+
         <script type="text/javascript">
             var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
             (function(){
-              function loadChartbeat() {
-                window._sf_endpt=(new Date()).getTime();
-                var e = document.createElement('script');
-                e.setAttribute('language', 'javascript');
-                e.setAttribute('type', 'text/javascript');
-                e.setAttribute('src',
-                   (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
-                   "js/chartbeat.js");
-                document.body.appendChild(e);
-              }
-              var oldonload = window.onload;
-              window.onload = (typeof window.onload != 'function') ?
-                 loadChartbeat : function() { oldonload(); loadChartbeat(); };
+                function loadChartbeat() {
+                    window._sf_endpt=(new Date()).getTime();
+                    var e = document.createElement('script');
+                    e.setAttribute('language', 'javascript');
+                    e.setAttribute('type', 'text/javascript');
+                    e.setAttribute('src',
+                    (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+                        "js/chartbeat.js");
+                    document.body.appendChild(e);
+                }
+                var oldonload = window.onload;
+                window.onload = (typeof window.onload != 'function') ?
+                    loadChartbeat : function() { oldonload(); loadChartbeat(); };
             })();
 
         </script>
