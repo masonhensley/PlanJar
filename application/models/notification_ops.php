@@ -349,7 +349,7 @@ class Notification_ops extends CI_Model
     }
 
     // Sends a notificatin email based on the given type and data
-    function send_email_reminder($type, $user_id, $subject_id)
+    function send_email_reminder($type, $user_id, $subject_id, $group_id = false)
     {
         $user = $this->ion_auth->get_user($user_id);
 
@@ -357,33 +357,61 @@ class Notification_ops extends CI_Model
         {
             // Email setup
             $this->load->library('email');
+            $this->email->clear();
             $this->email->from('noreply@planjar.com', 'PlanJar');
             $this->email->to($user->email);
 
+            // Get event info
+            $query_string = "SELECT user_meta.first_name, user_meta.last_name, events.title, places.name, events.date
+                            FROM events JOIN user_meta ON events.originator_id = user_meta.user_id
+                            JOIN places ON events.place_id = places.id
+                            WHERE events.id = ?";
+            $query = $this->db->query($query_string, array($subject_id));
+            $event_row = $query->row();
+            $originator = $event_row->first_name . ' ' . $event_row->last_name;
 
             switch ($type)
             {
                 case 'event_invite':
-                    // Get the necessary information
-                    $query_string = "SELECT user_meta.first_name, user_meta.last_name, events.title, places.name
-                    FROM events JOIN user_meta ON events.originator_id = user_meta.user_id
-                    JOIN places ON events.place_id = places.id
-                    WHERE events.id = ?";
-                    $query = $this->db->query($query_string, array($subject_id));
-                    $row = $query->row();
+                    if ($group_id === false)
+                    {
+                        $you = 'you';
+                    } else
+                    {
+                        // Get the group name
+                        $row = $query("SELECT name FROM groups WHERE id = ?", array($group_id));
+                        $you = $row->name;
+                    }
 
                     // Set the subject
-                    $this->email->subject($row->first_name . ' ' . $row->last_name . ' has invited you to an event');
+                    $this->email->subject("$originator has invited $you to an event");
+
+                    // Get the date string
+                    $date = new DateTime($event_row->date);
+                    $date = $date->format('l') . ' the ' . $date->format('jS');
 
                     // Capture the body
+                    $body_string = 'Hi ' . $user->first_name . ',<br/><br/>';
+                    $body_string .= "$originator has invited $you to " . $event_row->title;
+                    if ($event_row->title != '')
+                    {
+                        $body_string .= ' at ';
+                    }
+                    $body_string .= $event_row->name . " for $date.";
+
                     break;
 
                 case 'follow_notif':
+                    $body_string = '';
                     break;
 
                 case 'group_invite':
+                    $body_string = '';
                     break;
             }
+
+            $this->email->message($body_string);
+            $this->email->send();
         }
     }
 
@@ -397,7 +425,9 @@ class Notification_ops extends CI_Model
                 .wrapper {
                     width: 450px;
                     height: auto;
-                    background-color: #DDD;
+                    background-color: #ECECEC;
+                    font-family: helvetica;
+                    font-size: 14pt;
                 }
 
                 .wrapper img {
@@ -410,7 +440,7 @@ class Notification_ops extends CI_Model
                 }
 
                 .bottom_links {
-                    font-size: .7em;
+                    font-size: 10pt;
                     padding: 15px;
                 }
             </style>
