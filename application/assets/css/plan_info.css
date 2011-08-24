@@ -113,6 +113,9 @@
 }
 
 .submit_comment{
-    width:70px;
-    height:40px;
+    width:59px;
+    height:25px;
+    margin-top:17px;
+    text-align:center;
+    float:right;
 }
