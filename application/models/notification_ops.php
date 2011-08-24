@@ -407,7 +407,7 @@ class Notification_ops extends CI_Model
                 case 'follow_notif':
                     // Set the subject
                     $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has followed you");
-                    
+
                     // Capture the body
                     $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
                             ' has followed you.';
@@ -416,18 +416,20 @@ class Notification_ops extends CI_Model
                 case 'group_invite':
                     // Set the subject
                     $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited you to join a group");
-                    
+
                     // Get the group name
                     $row = $this->db->query("SELECT name FROM groups WHERE id = ?", array($subject_id))->row();
-
+                    
                     // Capture the body
                     $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
-                            ' has invited you to join ' . $row->name;
+                            ' has invited you to join ' . $row->name . '.';
                     break;
             }
 
             $this->email->message($this->create_email_notification($body_string));
             $this->email->send();
+            
+            echo($this->email->print_debugger());
         }
     }
 
@@ -473,7 +475,8 @@ class Notification_ops extends CI_Model
                         <br/><br/>
                         Click <?php echo(anchor('dashboard/notifications', 'here')); ?> to respond.
                         <br/><br/><br/><br/>
-                        This notification was up-to-date as of <?php echo(date('g:i a') . ' on ' . date('l, F jS Y')); ?>.
+                        This notification was up-to-date as of<br/>
+                        <?php echo(date('g:i a') . ' on ' . date('l, F jS Y')); ?>.
                     </div>
 
                     <hr/>
