@@ -72,7 +72,9 @@
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.timeentry.min.js"></script>
 
-        <!-- ChartBeat? -->
+        <!-- ChartBeat? 
+        we need to get rid of this code, it errors
+        -->
         <script type="text/javascript">
             var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
             (function(){
