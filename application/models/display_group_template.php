@@ -125,7 +125,7 @@ class Display_group_template extends CI_Model
             $query_filter = "";
         }
 
-        $query = "SELECT user_meta.user_id, user_meta.sex FROM user_meta 
+        $query = "SELECT DISTINCT user_meta.user_id, user_meta.sex FROM user_meta 
         JOIN school_data ON school_data.id=user_meta.school_id 
         WHERE user_meta.school_id=$user->school_id$query_filter";
 
