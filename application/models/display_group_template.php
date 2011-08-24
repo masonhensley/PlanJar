@@ -497,24 +497,6 @@ class Display_group_template extends CI_Model
         </div>
         <br/>
         <div class="group_graph_top_left" >
-            <?php
-            if ($format_type == 'groups' && count($selected_groups) == 1)
-            {
-                ?>
-                <div id="view_group_list" style="color:navy; position:absolute; top:-45px; left:0px">See Members</div>
-                <?php
-            } else if ($format_type == 'friends')
-            {
-                ?>
-                <a href="/dashboard/friends/" id="friends_link"><div style="color:navy; position:absolute; top:-45px; left:0px">See Friends</div></a>
-                <?php
-            } else if ($format_type == 'school')
-            {
-                ?> 
-                <a href="/dashboard/groups/" id="groups_link"><div style="color:navy; position:absolute; top:-45px; left:0px">See School</div></a>
-                <?php
-            }
-            ?>
             <font style="color:gray;">Viewing</font>&nbsp;
             <select id="filter" >
                 <option value="everyone">Everyone</option>
@@ -524,17 +506,33 @@ class Display_group_template extends CI_Model
                 <option value="seniors">Seniors</option>
                 <option value="alumni">Alumni</option>
             </select>
-            <br/><br/>
             <div class="demographics">
-                <font style="color:gray;">males</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;
-                <font style="color:gray;">females</font><font style="font-weight:bold;">
+                <font style="color:gray;">Males</font><font style="font-weight:bold;">
+                <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;&nbsp;
+                <font style="color:gray;">Females</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_females']; ?></font>
             </div>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
             ?>
-
+            <?php
+            if ($format_type == 'groups' && count($selected_groups) == 1)
+            {
+                ?>
+                <div id="view_group_list" style="color:navy; position:absolute; top:46px; left:0px">See Members</div>
+                <?php
+            } else if ($format_type == 'friends')
+            {
+                ?>
+                <a href="/dashboard/friends/" id="friends_link"><div style="color:navy; position:absolute; top:46px; left:0px">See Friends</div></a>
+                <?php
+            } else if ($format_type == 'school')
+            {
+                ?> 
+                <a href="/dashboard/groups/" id="groups_link"><div style="color:navy; position:absolute; top:46px; left:0px">See School</div></a>
+                <?php
+            }
+            ?>
         </div>
         <div class="group_graph_top_right">
         </div>
