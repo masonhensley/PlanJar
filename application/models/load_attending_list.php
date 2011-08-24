@@ -26,13 +26,13 @@ class Load_attending_list extends CI_Model
         ";
 
         $result = $this->db->query($query);
-        $this->display_attending_list($result);
+        $this->display_user_list($result);
     }
 
-    function display_attending_list($query_result)
+    function display_user_list($query_result)
     {
         $this->load->model('follow_ops');
-        $follow_ids = $this->follow_ops->get_following_ids();
+        $follow_ids = $this->follow_ops->get_following_ids(); // load the user's followers to check if they are following the entries
         $user = $this->ion_auth->get_user();
         $count = 0;
         ob_start();
