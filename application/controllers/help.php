@@ -14,7 +14,7 @@ class Help extends CI_Controller
 
     public function foo()
     {
-        $this->load_model('notification_ops');
+        $this->load-?model('notification_ops');
         echo($this->notification_ops->create_email_notification('Hi Parker,<br/><br/>John Doe has invited you to rage at Dan McGuiness.'));
     }
 
