@@ -279,7 +279,7 @@ class Group_ops extends CI_Model
     }
 
 // Returns a list of users who joined the supplied group
-    function get_users($group_id)
+    function get_group_members($group_id)
     {
         $return_array = array();
 
