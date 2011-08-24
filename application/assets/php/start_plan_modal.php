@@ -46,7 +46,7 @@
             <div id="plan_event_select_wrapper"></div>
 
             <div class="in-field_block" style="margin: 0px auto 20px auto;">
-                <label for="event_title">Title</label>
+                <label for="event_title">Add a title</label>
                 <input type="text" id="event_title" name="event_title"/>
             </div>
 
@@ -70,7 +70,7 @@
                     <hr/>
                 </div>
 
-                <input type="button" id="submit_plan" value="Make a plan"/>
+                <input type="button" id="submit_plan" value="Make a plan" style="display: none;"/>
             </div>
         </div>
 

@@ -107,8 +107,7 @@ function initialize_plan_modal() {
                 time_to_select = 'late_night';
             }
             
-            $('#plan_time .divset_selected').removeClass('divset_selected');
-            $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
+            $('#plan_time .divset[plan_time="' + time_to_select + '"]').click();
             
             populate_selectable_events();
         }
@@ -131,6 +130,9 @@ function initialize_plan_modal() {
                 $('#plan_privacy_wrapper, #plan_create_event_buttons').show('fast');
                 
                 $('.selected_event').removeClass('selected_event');
+                
+                // Hide the add description button
+                $('#add_plan_description').hide('fast');
             } else {
                 // Hide and reset the privacy wrapper
                 $('#plan_privacy_wrapper, #plan_create_event_buttons').hide('fast', function () {
@@ -141,6 +143,9 @@ function initialize_plan_modal() {
                 $('#plan_description_wrapper').hide('fast', function() {
                     $('#plan_description').val('');
                 });
+                
+                // Show the add description button
+                $('#add_plan_description').show('fast');
             }
         });
     });
@@ -202,6 +207,8 @@ function populate_selectable_events() {
                 $('#event_title').val('');
                 $('#event_title').blur();
                 $('#event_title').keyup();
+                
+                $('#submit_plan').show('fast');
             });
         });
     }
