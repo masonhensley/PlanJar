@@ -12,12 +12,6 @@ class Help extends CI_Controller
         $this->load->view('help_view');
     }
 
-    public function foo()
-    {
-        $this->load->model('notification_ops');
-        echo($this->notification_ops->create_email_notification('Hi Parker,<br/><br/>John Doe has invited you to rage at Dan McGuiness.'));
-    }
-
 }
 
 ?>
