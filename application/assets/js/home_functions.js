@@ -46,7 +46,7 @@ function get_current_location(callback) {
     }
 }
 
-// Initializes the map and updates the user's location with the server'
+// Initializes the map and updates the user's location with the server
 function initialize_map() {
     get_current_location(function(latitude, longitude) {
         // Update the user's profile with the new information.
@@ -77,7 +77,7 @@ function initialize_map() {
                 map_user_position();
                 show_data_container('#map_content');
             } else if (data.status == 'from_profile') {
-                // Assign the longitude and latitude coordinates from the server to the js variables
+                // Assign the longitude, latitude, and city coordinates from the server to the js variables
                 myLatitude = parseFloat(data.loc[0]);
                 myLongitude = parseFloat(data.loc[1]);
                 myCity = data.city_state;
@@ -85,6 +85,7 @@ function initialize_map() {
                 $('#using_location').html('Using location: ' + myCity);
                 map_user_position();
             } else if (data.status == 'silent') {
+                // Just get the city from the server
                 myCity = data.city_state;
                 $('#using_location').html('Using location: ' + myCity);
                 

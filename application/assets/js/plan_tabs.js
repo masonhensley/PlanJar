@@ -6,6 +6,11 @@ $(function() {
 function initialize_plan_panel(){
     // Click handler
     $('.plan_content').click(function() {
+        // Show the info tab if a plan wasn't already selected
+        if ($('.selected_plan').length == 0) {
+            show_data_container('#info_content'); 
+        }
+        
         if(!$(this).hasClass('selected_plan'))
         {
             // No plan selected. Deselect all controlls
@@ -20,6 +25,15 @@ function initialize_plan_panel(){
         
         // Display the info box
         display_info(); 
+    });
+    
+    // View map
+    $('.view_plan_map').click(function() {
+        // Click the first plan in the set
+        $(this).parent().next().not('.selected_plan').click();
+        show_data_container('#map_content'); 
+        
+        return false;
     });
 }
 

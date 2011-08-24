@@ -218,7 +218,7 @@ class Auth extends Controller
         {
             // Get the school's group id
             $user = $this->ion_auth->get_user($id);
-            $query_string = "SELECT group_id, latitude, longitude FROM school_data WHERE id = ?";
+            $query_string = "SELECT group_id, latitude, longitude, city FROM school_data WHERE id = ?";
             $query = $this->db->query($query_string, array($user->school_id));
             $row = $query->row();
             $group_id = $row->group_id;
@@ -231,7 +231,8 @@ class Auth extends Controller
             // Set the user's location to the school location
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $row->latitude,
-                'longitude' => $row->longitude
+                'longitude' => $row->longitude,
+                'city_state' => $row->city
             ));
 
             // Redirect to the login page
