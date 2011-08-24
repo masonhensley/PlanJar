@@ -6,11 +6,7 @@ $(function() {
 // Executes callback after the modal opens
 function show_plan_modal(callback) {
     // Add the city name to the handle text.
-    if (myCity != undefined) {
-        $('#create_plan_content .title_bar .text').html('Make a plan in ' + myCity);
-    } else {
-        $('#create_plan_content .title_bar .text').html('Make a plan');
-    }
+    $('#create_plan_content .title_bar .text').html('Make a plan');
         
     // Select everything when focused
     $('#plan_location').click(function () {
@@ -56,18 +52,13 @@ function initialize_plan_modal() {
     $('#plan_time, #plan_privacy_wrapper, #plan_day').divSet();
     
     // Additional day click handler
-    $('#plan_day div').click(function() {
+    $('#plan_day div, #plan_time div').click(function() {
         populate_selectable_events();
         
-        if (plan_time_place_valid()) {
+        if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
             $('#plan_place_location_buttons').show('fast');
         }
     });
-    $('#plan_time div').click(function() {
-        if (plan_time_place_valid()) {
-            $('#plan_place_location_buttons').show('fast');
-        }
-    })
     
     // Left and right day click handlers
     $('#plan_place_time_wrapper .left_day_arrow').click(function() {
@@ -137,12 +128,12 @@ function initialize_plan_modal() {
         // Show/hide the privacy settings
         $('#event_title').keyup(function() {
             if ($(this).val().length != '') {
-                $('#plan_privacy_wrapper, #add_plan_description').show('fast');
+                $('#plan_privacy_wrapper, #plan_create_event_buttons').show('fast');
                 
                 $('.selected_event').removeClass('selected_event');
             } else {
                 // Hide and reset the privacy wrapper
-                $('#plan_privacy_wrapper, #add_plan_description').hide('fast', function () {
+                $('#plan_privacy_wrapper, #plan_create_event_buttons').hide('fast', function () {
                     $('#plan_privacy_wrapper div:first').click();
                 });
                 
@@ -563,7 +554,7 @@ function initialize_plan_autocomplete() {
                 populate_selectable_events();
             }
             
-            if (plan_time_place_valid()) {
+            if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
                 $('#plan_place_location_buttons').show('fast');
             }
         }
