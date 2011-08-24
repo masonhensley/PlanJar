@@ -35,7 +35,6 @@ class Load_group_profile extends CI_Model
         $number_joined = 0;
         foreach ($result3->result() as $group_relationship)
         {
-            var_dump($group_relationship->user_joined_id);
             if ($group_relationship->user_joined_id)
             {
                 $number_joined++;

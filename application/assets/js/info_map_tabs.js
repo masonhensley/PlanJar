@@ -3,6 +3,7 @@ $(function() {
 })
 
 var group_spinner = new Spinner(spinner_options());
+var jqxhr;
 
 // Initializes the map/data tabs.
 function initialize_info_map_tabs() {
@@ -120,6 +121,10 @@ function display_info(bypass, arg) {
         // Load popular locations if necessary
         if (bypass != true) {
             populate_popular_locations();
+        }else{
+            jqxhr.complete(function(){
+                group_spinner.stop();
+            });
         }
         
     } else if ($('.selected_plan, .selected_friend_plan').length > 0) { // Plan or friend's plan selected
@@ -277,7 +282,7 @@ function initialize_plan_info(data) {
 
 // Populates the popular locations panel
 function populate_popular_locations(skip_update_map, callback) {
-    $.get('/home/load_location_tabs', {
+    jqxhr = $.get('/home/load_location_tabs', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
     }, function (data) {
@@ -313,8 +318,8 @@ function populate_popular_locations(skip_update_map, callback) {
         }
         
         if (callback != undefined) {
-        callback();
-    }
+            callback();
+        }
     }).complete(function(){
         group_spinner.stop(); // stop the group spinner after the groups and locations are done
     });
