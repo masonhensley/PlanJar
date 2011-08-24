@@ -90,11 +90,12 @@ function initialize_plan_modal() {
         populate_selectable_events()
     });
     
-    // Clock time change handler
+    // Clock time keyup handler
     $('#plan_clock_time').keyup(function() {
         // Select the appropriate time of day
         var date = Date.parse($(this).val());
         if (date != null) {
+            console.log(date);
             var hours = date.getHours();
             var time_to_select;
             if (hours >= 18 && hours < 23) {
@@ -123,11 +124,9 @@ function initialize_plan_modal() {
         // Load the selectable events
         populate_selectable_events();
         
-        if (plan_time_place_valid()) {
-            // Show the event div and hide the first set of buttons
-            $('#plan_place_location_buttons').hide('fast');
-            $('#plan_events_wrapper').show('fast');
-        }
+        // Show the event div and hide the first set of buttons
+        $('#plan_place_location_buttons').hide('fast');
+        $('#plan_events_wrapper').show('fast');
         
         // Show/hide the privacy settings
         $('#event_title').keyup(function() {
@@ -175,8 +174,19 @@ function initialize_plan_modal() {
             // Show the description div and hide the description button
             $('#add_plan_description').hide('fast');
             $('#plan_description_wrapper').show('fast');
+            
+            $('#submit_plan').hide('fast');
         }
     });
+    
+    // Description change handler
+    $('#add_plan_decription').keyup(function() {
+        if ($(this).val() != '') {
+            $('#submit_plan').show('fast');
+        } else {
+            $('#submit_plan').hide('fast');
+        }
+    })
     
     // Submit
     $('#submit_plan').click(function () {
