@@ -29,5 +29,6 @@ function populate_plan_attending_panel() {
                 populate_plan_attending_panel();
             });
         });
+        
     });
 }
