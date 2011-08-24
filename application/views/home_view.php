@@ -42,6 +42,7 @@
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
+        <script type="text/javascript" src="/application/assets/js/view_group_list.js"></script>
         <script type="text/javascript" src="/application/assets/js/info_map_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
@@ -52,7 +53,7 @@
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
         <script type="text/javascript" src="/application/assets/js/spin.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_attending_panel.js"></script>
-        <script type="text/javascript" src="/application/assets/js/view_group_list.js"></script>
+        
         
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
