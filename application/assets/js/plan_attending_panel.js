@@ -25,7 +25,7 @@ function populate_plan_attending_panel() {
         $('.attending_list .add_following').confirmDiv(function(clicked_elem) {
             $.get('/dashboard/add_user_following', {
                 following_id: clicked_elem.parent().attr('user_id')
-            }, function (data) {
+            }, function () {
                 populate_plan_attending_panel();
             });
         });
