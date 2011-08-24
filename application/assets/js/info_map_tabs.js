@@ -122,6 +122,8 @@ function display_info(bypass, arg) {
         if (bypass != true) {
             populate_popular_locations();
         }else{
+            // stop the spinner for a filter call (ie, "freshmen" or "sophomores" is selected)
+            // right now it just stops immediately (without this code the spinner goes forever)
             jqxhr.complete(function(){
                 group_spinner.stop();
             });
