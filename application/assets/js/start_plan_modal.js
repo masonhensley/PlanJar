@@ -137,20 +137,19 @@ function initialize_plan_modal() {
         // Show/hide the privacy settings
         $('#event_title').keyup(function() {
             if ($(this).val().length != '') {
-                $('#plan_privacy_wrapper').show('fast');
+                $('#plan_privacy_wrapper, #add_plan_description').show('fast');
                 
                 $('.selected_event').removeClass('selected_event');
             } else {
                 // Hide and reset the privacy wrapper
-                $('#plan_privacy_wrapper').hide('fast', function () {
+                $('#plan_privacy_wrapper, #add_plan_description').hide('fast', function () {
                     $('#plan_privacy_wrapper div:first').click();
                 });
                 
-                // Hide the description and show the description button
+                // Hide the description
                 $('#plan_description_wrapper').hide('fast', function() {
                     $('#plan_description').val('');
                 });
-                $('#add_plan_description').show('fast');
             }
         });
     });

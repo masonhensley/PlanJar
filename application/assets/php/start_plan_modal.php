@@ -60,7 +60,7 @@
 
             <hr/>
             <div id="plan_create_event_buttons" style="width: 100%; text-align: right;">
-                <input type="button" id="add_plan_description" value="Add a description"/>
+                <input type="button" id="add_plan_description" value="Add a description" style="display: none;"/>
 
                 <div id="plan_description_wrapper">
                     <div class="in-field_block" style="margin-left: auto; margin-right: auto; width: 423px; height: auto">
