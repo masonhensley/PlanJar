@@ -202,6 +202,14 @@ class Home extends CI_Controller
         $return_array = $this->load_plan_data->display_plan_data($plan_id, $friend_plan);
         echo json_encode($return_array);
     }
+    
+    public function plan_comments()
+    {
+        $plan_id = $this->input->get('plan_id');
+        $this->load->model('load_plan_comments');
+        $comments_html = $this->load_plan_comments->display_comments($plan_id);
+        echo $comments_html;
+    }
 
     public function attending_list()
     {
