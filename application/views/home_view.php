@@ -67,6 +67,27 @@
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.timeentry.min.js"></script>
 
+        <!-- ChartBeat? -->
+        <script type="text/javascript">
+            var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
+            (function(){
+                function loadChartbeat() {
+                    window._sf_endpt=(new Date()).getTime();
+                    var e = document.createElement('script');
+                    e.setAttribute('language', 'javascript');
+                    e.setAttribute('type', 'text/javascript');
+                    e.setAttribute('src',
+                    (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+                        "js/chartbeat.js");
+                    document.body.appendChild(e);
+                }
+                var oldonload = window.onload;
+                window.onload = (typeof window.onload != 'function') ?
+                    loadChartbeat : function() { oldonload(); loadChartbeat(); };
+            })();
+            
+        </script>
+
         <title>PlanJar | Home</title>
 
         <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
@@ -125,7 +146,7 @@
             ?>
             <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
-            
+
             <div id="home_data_spinner" style="position:absolute; left:174px; top:31px;"></div>
             <div class ="left">
                 <div class="location_container">
@@ -135,7 +156,7 @@
 
                 <?php include(APPPATH . 'assets/php/load_group_panel.php'); ?>
             </div>
-            
+
             <div class ="center">
                 <div class="data_container_wrapper" style="display: block;">
                     <div id="info_content" class ="data_container" style="display: block;"></div>
@@ -195,26 +216,5 @@
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/add_location_modal.php'); ?>
-
-        <script type="text/javascript">
-            var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
-            (function(){
-                function loadChartbeat() {
-                    window._sf_endpt=(new Date()).getTime();
-                    var e = document.createElement('script');
-                    e.setAttribute('language', 'javascript');
-                    e.setAttribute('type', 'text/javascript');
-                    e.setAttribute('src',
-                    (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
-                        "js/chartbeat.js");
-                    document.body.appendChild(e);
-                }
-                var oldonload = window.onload;
-                window.onload = (typeof window.onload != 'function') ?
-                    loadChartbeat : function() { oldonload(); loadChartbeat(); };
-            })();
-            
-        </script>
-
     </body>
 </html>
