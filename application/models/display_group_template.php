@@ -474,31 +474,11 @@ class Display_group_template extends CI_Model
         $big_display_month = $big_display_day->format('j');
         $big_display_day = $big_display_day->format('D');
 
+
+
         // make the percentage readable
-        if (strlen($data_array['percent_total_going_out']) > 3)
-        {
-            $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
-            if (substr($data_array['percent_total_going_out'], -1) == ".")
-            {
-                $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, -1);
-            }
-        }
-        if (strlen($data_array['percent_males_going_out']) > 3)
-        {
-            $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, 3);
-            if (substr($data_array['percent_males_going_out'], -1) == ".")
-            {
-                $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, -1);
-            }
-        }
-        if (strlen($data_array['percent_females_going_out']) > 3)
-        {
-            $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
-            if (substr($data_array['percent_females_going_out'], -1) == ".")
-            {
-                $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, -1);
-            }
-        }
+        $data_array = $this->make_percentage_readable($data_array);
+
 
         if ($font_style == 'groups')
         {
@@ -574,6 +554,35 @@ class Display_group_template extends CI_Model
         </div>
         <?php
         return ob_get_clean();
+    }
+
+    function make_percentages_readable($data_array)
+    {
+        if (strlen($data_array['percent_total_going_out']) > 3)
+        {
+            $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, 3);
+            if (substr($data_array['percent_total_going_out'], -1) == ".")
+            {
+                $data_array['percent_total_going_out'] = substr($data_array['percent_total_going_out'], 0, -1);
+            }
+        }
+        if (strlen($data_array['percent_males_going_out']) > 3)
+        {
+            $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, 3);
+            if (substr($data_array['percent_males_going_out'], -1) == ".")
+            {
+                $data_array['percent_males_going_out'] = substr($data_array['percent_males_going_out'], 0, -1);
+            }
+        }
+        if (strlen($data_array['percent_females_going_out']) > 3)
+        {
+            $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, 3);
+            if (substr($data_array['percent_females_going_out'], -1) == ".")
+            {
+                $data_array['percent_females_going_out'] = substr($data_array['percent_females_going_out'], 0, -1);
+            }
+        }
+        return $data_array;
     }
 
 }
