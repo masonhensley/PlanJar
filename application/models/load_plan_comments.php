@@ -13,7 +13,7 @@ Class Load_plan_comments extends CI_Model
         ob_start();
         ?>
         <font style="color:darkgray;">
-        <textarea id="box_text_area" name="comments" cols="30" rows="4" maxlength="139"><?php echo $user->box ?></textarea>
+        <textarea id="box_text_area" name="comments" cols="30" rows="4" maxlength="139">Enter a comment yo</textarea>
         </font>
         <?php
         return ob_get_clean();
