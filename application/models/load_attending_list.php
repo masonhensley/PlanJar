@@ -45,6 +45,7 @@ class Load_attending_list extends CI_Model
         ";
         $query_result = $this->db->query($query);
         
+        
          // echo the user entries 
         $this->load_attending_list->display_user_list($query_result);
     }
