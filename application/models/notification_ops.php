@@ -394,7 +394,7 @@ class Notification_ops extends CI_Model
         ?>
         <html>
             <style type="text/css">
-                body {
+                .wrapper {
                     width: 450px;
                     height: auto;
                     background-color: #DDD;
@@ -402,31 +402,35 @@ class Notification_ops extends CI_Model
 
                 .content {
                     padding: 15px;
+                    margin-bottom: 50px;
                 }
 
                 .bottom_links {
-                    margin-top: 100px;
                     font-size: .7em;
+                    padding: 15px;
                 }
             </style>
 
             <body>
-                <a href="<?php echo(base_url()); ?>">
-                    <img src="<?php echo(base_url() . 'assets/images/pj_logo_white_text.png'); ?>"/>
-                </a>
-                <hr/>
+                <div class="wrapper">
+                    <a href="<?php echo(base_url()); ?>">
+                        <img src="<?php echo(base_url() . APPPATH . 'assets/images/pj_logo_white_text.png'); ?>"/>
+                    </a>
+                    <hr/>
 
-                <div class="content">
-                    <?php echo($notif_text); ?>
-                    <br/><br/>
-                    Click <?php echo(anchor('dashboard/notifications', 'here')); ?> to respond.
-                    <br/><br/><br/><br/>
-                    This notification was up-to-date as of <?php echo(date('g:i a')); ?>.
-                </div>
+                    <div class="content">
+                        <?php echo($notif_text); ?>
+                        <br/><br/>
+                        Click <?php echo(anchor('dashboard/notifications', 'here')); ?> to respond.
+                        <br/><br/><br/><br/>
+                        This notification was up-to-date as of <?php echo(date('g:i a') . ' on ' . date('l, F jS Y')); ?>.
+                    </div>
 
-                <div class="bottom_links">
-                    <?php echo(anchor('', 'PlanJar | Home')); ?> - Don't want to receive these emails?
-                    Click <?php echo(achor('dashboard/settings', 'here')); ?> to change your email settings.
+                    <hr/>
+                    <div class="bottom_links">
+                        <?php echo(anchor('', 'PlanJar | Home')); ?> - Don't want to receive these emails?
+                        Click <?php echo(anchor('dashboard/settings', 'here')); ?> to change your email settings.
+                    </div>
                 </div>
             </body>
         </html>
