@@ -69,10 +69,10 @@
                     <hr/>
                 </div>
             </div>
-
-            <div id="plan_warning_message">Please fill out all information to continue...</div>
-            <input type="button" id="submit_plan" value="Make a plan" style="display: none;"/>
         </div>
+
+        <div id="plan_warning_message">Please fill out all information to continue...</div>
+        <input type="button" id="submit_plan" value="Make a plan" style="display: none;"/>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
         <input id="plan_location_name" type="hidden"/>
