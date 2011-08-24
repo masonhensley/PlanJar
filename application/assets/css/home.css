@@ -326,10 +326,10 @@ a {
     background-color: white;
     text-align: center;
 }
-.upcoming_events {
+.bottom_right_section {
     float: right;
     width: 49%;
-    min-height: 55px;
+    min-height: 54px;
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
     border-bottom: 1px solid darkgray;
@@ -337,7 +337,6 @@ a {
     margin-top:7px;
     background-color: white;
     text-align: center;
-    padding-top: 10px;
 }
 .plan {
     width: 50%;
