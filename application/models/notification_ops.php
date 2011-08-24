@@ -419,7 +419,6 @@ class Notification_ops extends CI_Model
 
                     // Get the group name
                     $row = $this->db->query("SELECT name FROM groups WHERE id = ?", array($subject_id))->row();
-                    var_dump($this->db->last_query());
                     
                     // Capture the body
                     $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
@@ -429,6 +428,8 @@ class Notification_ops extends CI_Model
 
             $this->email->message($this->create_email_notification($body_string));
             $this->email->send();
+            
+            echo($this->email->print_debugger());
         }
     }
 
