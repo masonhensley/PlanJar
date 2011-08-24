@@ -110,6 +110,7 @@ function initialize_plan_modal() {
             
             $('#plan_time .divset[plan_time="' + time_to_select + '"]').click();
             
+            $(this).focus();
             $(this).val(this_val);
             
             populate_selectable_events();
