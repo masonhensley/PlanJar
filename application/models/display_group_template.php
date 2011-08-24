@@ -497,6 +497,24 @@ class Display_group_template extends CI_Model
         </div>
         <br/>
         <div class="group_graph_top_left" >
+            <font style="color:gray;">Viewing</font>&nbsp;
+            <select id="filter" >
+                <option value="everyone">Everyone</option>
+                <option value="freshmen">Freshmen</option>
+                <option value="sophomores">Sophomores</option>
+                <option value="juniors">Juniors</option>
+                <option value="seniors">Seniors</option>
+                <option value="alumni">Alumni</option>
+            </select>
+            <div class="demographics">
+                <font style="color:gray;">males</font><font style="font-weight:bold;">
+                <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;
+                <font style="color:gray;">females</font><font style="font-weight:bold;">
+                <?php echo " " . $data_array['total_females']; ?></font>
+            </div>
+            <?php
+            $total = $data_array['total_males'] + $data_array['total_females'];
+            ?>
             <?php
             if ($format_type == 'groups' && count($selected_groups) == 1)
             {
@@ -515,26 +533,6 @@ class Display_group_template extends CI_Model
                 <?php
             }
             ?>
-            <font style="color:gray;">Viewing</font>&nbsp;
-            <select id="filter" >
-                <option value="everyone">Everyone</option>
-                <option value="freshmen">Freshmen</option>
-                <option value="sophomores">Sophomores</option>
-                <option value="juniors">Juniors</option>
-                <option value="seniors">Seniors</option>
-                <option value="alumni">Alumni</option>
-            </select>
-            <br/><br/>
-            <div class="demographics">
-                <font style="color:gray;">males</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;
-                <font style="color:gray;">females</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_females']; ?></font>
-            </div>
-            <?php
-            $total = $data_array['total_males'] + $data_array['total_females'];
-            ?>
-
         </div>
         <div class="group_graph_top_right">
         </div>
