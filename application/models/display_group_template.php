@@ -521,12 +521,12 @@ class Display_group_template extends CI_Model
                 }else if($format_type == 'friends')
                 {
                     ?>
-                    <a href="/dashboard/friends/" id="friends_link"><div style="color:navy; position:absolute; top:0px; right:-30px">View Friends</div></a>
+                    <a href="/dashboard/friends/" id="friends_link"><div style="color:navy; position:absolute; top:0px; right:-36px">See Friends</div></a>
                     <?php
                 }else if($format_type == 'school')
                 {
                     ?> 
-                    <a href="/dashboard/groups/" id="groups_link"><div style="color:navy; position:absolute; top:0px; right:-30px">See School</div></a>
+                    <a href="/dashboard/groups/" id="groups_link"><div style="color:navy; position:absolute; top:0px; right:-17px">See School</div></a>
                     <?php
                 }
                 ?>
