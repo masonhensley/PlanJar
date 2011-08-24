@@ -20,6 +20,6 @@ function populate_group_member_panel(){
     }, function(data){
         $('.member_list').html(data);
         $('#group_member_panel').show('fast');
-        alert('data');
+        alert(data);
     });
 }
