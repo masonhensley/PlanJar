@@ -95,7 +95,7 @@ function initialize_plan_modal() {
         // Select the appropriate time of day
         var date = Date.parse($(this).val());
         console.log($(this).val());
-        date = Date.parse($(this).val());
+        date = Date.parse('12:00 pm');
         console.log(date);
         if (date != null) {
             console.log(date);
