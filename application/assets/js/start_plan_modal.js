@@ -99,11 +99,11 @@ function initialize_plan_modal() {
             console.log(date);
             var hours = date.getHours();
             var time_to_select;
-            if (hours >= 18 && hours < 23) {
+            if (hours >= 18 && hours <= 22) {
                 time_to_select = 'night';
-            } else if (hours >= 12) {
+            } else if (hours >= 12 && hours < 18) {
                 time_to_select = 'afternoon';
-            } else if (hours >= 5) {
+            } else if (hours >= 5 && hours < 12) {
                 time_to_select = 'morning';
             } else {
                 time_to_select = 'late_night';
