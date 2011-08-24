@@ -21,7 +21,7 @@ class Load_locations extends CI_Model
         $sql_date = $date->add(new DateInterval('P' . $day . 'D')); // date to be used in sql queries
         $sql_date = $sql_date->format('Y-m-d');
 
-        $display_day = "<font style=\"\">$display_day</font>"; // left this for convenience
+        $display_day = "<font style=\"font-weight:bold;\">$display_day</font>"; // left this for convenience
         if (!$selected_groups[0])
         {
             $this->on_nothing_selected($display_day);
@@ -59,7 +59,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $display_message = "<font style=\"color:gray;\">Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> near your</font> <font style=\"color:green;\">Current Location</font> ";
-        $display_message .= "for <font style=\"font-weight:bold;color:black;\">$display_day</font>";
+        $display_message .= "for <font style=\"font-weight:bold;\">$display_day</font>";
 
 
         // query to pull all plans from people within 15 miles from your current location
@@ -90,7 +90,7 @@ class Load_locations extends CI_Model
     function on_friends_selected($display_day, $sql_date)
     {
         $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> your <font style=\"color:green;\">Friends</font> ";
-        $display_message .= "are going <br/><font style=\"font-weight:bold;color:black;\">$display_day</font>";
+        $display_message .= "are going <br/><font style=\"font-weight:bold;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $query = "SELECT places.id, events.title, places.name, places.latitude, places.longitude FROM plans 
@@ -123,7 +123,7 @@ class Load_locations extends CI_Model
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
         $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> <font style=\"color:green;\">$school</font> ";
-        $display_message .= "students are going <font style=\"font-weight:bold;color:black;\">$display_day</font>";
+        $display_message .= "students are going <font style=\"font-weight:bold;\">$display_day</font>";
 
         $query = "SELECT events.title, places.name, places.id, places.latitude, places.longitude
                   FROM user_meta
