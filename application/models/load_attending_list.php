@@ -18,7 +18,7 @@ class Load_attending_list extends CI_Model
 
         // select all the people attending the event
         $query = "
-        SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school 
+        SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school 
         FROM plans 
         JOIN user_meta ON user_meta.user_id=plans.user_id 
         LEFT JOIN school_data ON user_meta.school_id = school_data.id
@@ -37,7 +37,7 @@ class Load_attending_list extends CI_Model
 
         // select all the people in the group for query
         $query = "
-        SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school 
+        SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school 
         FROM group_relationships
         JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id
         LEFT JOIN school_data ON user_meta.school_id = school_data.id
