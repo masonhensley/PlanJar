@@ -123,7 +123,7 @@ class Load_locations extends CI_Model
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
         $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy; text-decoration:underline;\" >places</a> <font style=\"color:green; font-weight:bold;\">$school</font> ";
-        $display_message .= "students are going $display_day";
+        $display_message .= "students are going <font style=\"font-weight:bold;color:black;\">$display_day</font>";
 
         $query = "SELECT events.title, places.name, places.id, places.latitude, places.longitude
                   FROM user_meta
