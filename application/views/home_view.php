@@ -205,6 +205,15 @@
             </div>
         </div>
 
+        <div id="group_member_panel">
+            <div class="title_bar">
+                <b>Group Members</b>
+                <input type="button" id="cancel_group_member_panel" style="float:right;" value="X" />
+            </div>
+            
+        </div>
+        
+        
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
