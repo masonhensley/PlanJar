@@ -58,7 +58,16 @@ function initialize_plan_modal() {
     // Additional day click handler
     $('#plan_day div').click(function() {
         populate_selectable_events();
+        
+        if (plan_time_place_valid()) {
+            $('#plan_place_location_buttons').show('fast');
+        }
     });
+    $('#plan_time div').click(function() {
+        if (plan_time_place_valid()) {
+            $('#plan_place_location_buttons').show('fast');
+        }
+    })
     
     // Left and right day click handlers
     $('#plan_place_time_wrapper .left_day_arrow').click(function() {
@@ -553,6 +562,10 @@ function initialize_plan_autocomplete() {
                 }
             
                 populate_selectable_events();
+            }
+            
+            if (plan_time_place_valid()) {
+                $('#plan_place_location_buttons').show('fast');
             }
         }
     });

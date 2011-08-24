@@ -37,7 +37,7 @@
         </div>
 
         <hr/>
-        <div id="plan_place_location_buttons" style="width: 100%; text-align: right;">
+        <div id="plan_place_location_buttons" style="width: 100%; text-align: right; display: none;">
             <input type="button" id="create_event" value="Add a title"/>
             <input type="button" id="just_go" value="Make a plan"/>
         </div>
