@@ -52,7 +52,6 @@
 
             <div id="plan_privacy_wrapper">
                 Privacy options<br/>
-
                 <div priv_val="open">None</div>
                 <div priv_val="strict">Fixed invitation list</div>
                 <div priv_val="loose">Invitees can invite others</div>
@@ -70,6 +69,7 @@
                     <hr/>
                 </div>
 
+                <div id="plan_warning_message">Please fill out all information to continue...</div>
                 <input type="button" id="submit_plan" value="Make a plan" style="display: none;"/>
             </div>
         </div>
