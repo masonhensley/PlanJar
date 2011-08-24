@@ -91,7 +91,7 @@ function initialize_plan_modal() {
     });
     
     // Clock time change handler
-    $('#plan_clock_time').change(function() {
+    $('#plan_clock_time').keyup(function() {
         var this_val = $(this).val();
         // Select the appropriate time of day
         var date = Date.parse(this_val);
