@@ -16,8 +16,8 @@ Class Load_plan_comments extends CI_Model
         <textarea id="box_text_area" name="comments" cols="30" rows="3" maxlength="139"  style="height:45px;margin-top:2px;" >Comment me bro</textarea>
         </font>
         <?php
-        $html = ob_get_clean();
-        return "lol";
+        
+        return ob_get_clean();;
     }
 
 }
