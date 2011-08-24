@@ -34,12 +34,7 @@
                     <input type="text" id="plan_clock_time" name="plan_clock_time"/>
                 </div>
             </div>
-        </div>
-
-        <hr/>
-        <div id="plan_place_location_buttons" style="width: 100%; text-align: right; display: none;">
-            <input type="button" id="create_event" value="Add a title"/>
-            <input type="button" id="just_go" value="Make a plan"/>
+            <hr/>
         </div>
 
         <div id="plan_events_wrapper">
@@ -56,23 +51,23 @@
                 <div priv_val="strict">Fixed invitation list</div>
                 <div priv_val="loose">Invitees can invite others</div>
             </div>
-
             <hr/>
-            <div id="plan_create_event_buttons" style="width: 100%; text-align: right;">
-                <input type="button" id="add_plan_description" value="Add a description" style="display: none;"/>
-
-                <div id="plan_description_wrapper">
-                    <div class="in-field_block" style="margin-left: auto; margin-right: auto; width: 423px; height: auto">
-                        <label for="plan_description">Enter a description</label>
-                        <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
-                    </div>
-                    <hr/>
-                </div>
-            </div>
         </div>
 
-        <div id="plan_warning_message">Please fill out all information to continue...</div>
-        <input type="button" id="submit_plan" value="Make a plan" style="display: none;"/>
+        <div id="plan_description_wrapper">
+            <div class="in-field_block" style="margin-left: auto; margin-right: auto; width: 423px; height: auto">
+                <label for="plan_description">Enter a description</label>
+                <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
+            </div>
+            <hr/>
+        </div>
+
+        <div id="plan_bottom_buttons">
+            <div id="plan_warning_message">Please fill out all information to continue...</div>
+            <input type="button" id="create_event" value="Add a title" style="display: none;"/>
+            <input type="button" id="add_plan_description" value="Add a description" style="display: none;"/>
+            <input type="button" id="submit_plan" value="Make a plan" style="display: none;"/>
+        </div>
 
         <input id="plan_location_id" name="plan_location_id" type="hidden"/>
         <input id="plan_location_name" type="hidden"/>
