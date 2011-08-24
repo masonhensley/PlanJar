@@ -54,7 +54,7 @@ function populate_plan_panel(callback) {
 }
 
 function load_comments(){
-    $.get('home/plan_comments', {
+    $.get('/home/plan_comments', {
         plan_id : $('.selected_plan').attr('plan_id')
     }, 
     function(data){
