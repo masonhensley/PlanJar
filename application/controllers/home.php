@@ -206,7 +206,9 @@ class Home extends CI_Controller
     public function plan_comments()
     {
         $plan_id = $this->input->get('plan_id');
-        echo $plan_id;
+        $this->load->model('load_plan_comments');
+        $this->load_plan_comments->display_comments($plan_id);
+        
     }
 
     public function attending_list()
