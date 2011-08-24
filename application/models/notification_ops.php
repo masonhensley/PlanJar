@@ -360,6 +360,7 @@ class Notification_ops extends CI_Model
             $this->email->from('noreply@planjar.com', 'PlanJar');
             $this->email->to($user->email);
 
+
             switch ($type)
             {
                 case 'event_invite':
@@ -384,6 +385,53 @@ class Notification_ops extends CI_Model
                     break;
             }
         }
+    }
+
+    // Returns the html for an email notification as a string
+    function create_email_notification($notif_text)
+    {
+        ob_start();
+        ?>
+        <html>
+            <style type="text/css">
+                body {
+                    width: 450px;
+                    height: auto;
+                    background-color: #DDD;
+                }
+
+                .content {
+                    padding: 15px;
+                }
+
+                .bottom_links {
+                    margin-top: 100px;
+                    font-size: .7em;
+                }
+            </style>
+
+            <body>
+                <a href="<?php echo(base_url()); ?>">
+                    <img src="<?php echo(base_url() . 'assets/images/pj_logo_white_text.png'); ?>"/>
+                </a>
+                <hr/>
+
+                <div class="content">
+                    <?php echo($notif_text); ?>
+                    <br/><br/>
+                    Click <?php echo(anchor('dashboard/notifications', 'here')); ?> to respond.
+                    <br/><br/><br/><br/>
+                    This notification was up-to-date as of <?php echo(date('g:i a')); ?>.
+                </div>
+
+                <div class="bottom_links">
+                    <?php echo(anchor('', 'PlanJar | Home')); ?> - Don't want to receive these emails?
+                    Click <?php echo(achor('dashboard/settings', 'here')); ?> to change your email settings.
+                </div>
+            </body>
+        </html>
+        <?php
+        return ob_get_clean();
     }
 
 }
