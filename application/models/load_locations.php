@@ -89,7 +89,7 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy; text-decoration:underline;\" >places</a> your <font style=\"font-weight:bold;color:green;\">Friends</font> ";
+        $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy; font-size:18px;\" >places</a> your <font style=\"font-weight:bold;color:green;\">Friends</font> ";
         $display_message .= "are going <br/><font style=\"font-weight:bold;color:black;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
@@ -230,7 +230,7 @@ class Load_locations extends CI_Model
 
     function setup_groups_header($group_name_array, $display_day)
     {
-        $header_string = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy; text-decoration:underline;\" >places</a> people from ";
+        $header_string = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy; font-size:18px;\" >places</a> people from ";
         $number = count($group_name_array);
         if ($number == 1)
         {

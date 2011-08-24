@@ -119,7 +119,7 @@ class Plan_actions extends CI_Model
                     {
                         ?>
                         <div style="font-size:11px;color:gray; width:100%; text-align: left; padding-left:4px;">
-                            <?php echo $date; ?> - <a href="#" class="view_plan_map">View on map</a>
+                            <?php echo $date; ?> - <a href="#" class="view_plan_map">Map</a>
                         </div>
                         <?php
                     }
