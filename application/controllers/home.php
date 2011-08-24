@@ -209,6 +209,12 @@ class Home extends CI_Controller
         $this->load->model('load_attending_list');
         $this->load_attending_list->_display_attending_list($plan_id);
     }
+    
+    public function group_member_list()
+    {
+        $group_id = $this->input->get('group_id');
+        echo $group_id;
+    }
 
     public function get_notification_popup()
     {

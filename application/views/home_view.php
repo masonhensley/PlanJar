@@ -52,7 +52,8 @@
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
         <script type="text/javascript" src="/application/assets/js/spin.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_attending_panel.js"></script>
-
+        <script type="text/javascript" src="/application/assets/js/view_group_list.js"></script>
+        
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
 
@@ -90,7 +91,8 @@
 
         <title>PlanJar | Home</title>
 
-        <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
+        <!-- Mixpanel -->
+        <script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
 
         <!-- Google Analytics -->
         <script type="text/javascript">
@@ -205,6 +207,21 @@
             </div>
         </div>
 
+        <div id="group_member_panel">
+            <div class="title_bar">
+                <b>Group Members</b>
+                <input type="button" id="cancel_group_member_panel" style="float:right;" value="X" />
+            </div>
+            
+            <div id="group_member_content">
+                <div class="member_list">
+                    
+                </div>    
+            </div>
+        
+        </div>
+        
+        
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>

@@ -474,11 +474,8 @@ class Display_group_template extends CI_Model
         $big_display_month = $big_display_day->format('j');
         $big_display_day = $big_display_day->format('D');
 
-
-
         // make the percentage readable
         $data_array = $this->make_percentages_readable($data_array);
-
 
         if ($font_style == 'groups')
         {
@@ -515,7 +512,25 @@ class Display_group_template extends CI_Model
                 <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;
                 <font style="color:gray;">females</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_females']; ?></font>
-                <div id="view_group_list" style="color:navy;">view members</div>
+                <?php
+                if ($format_type == 'groups')
+                {
+                    ?>
+                    <div id="view_group_list" style="color:navy; position:absolute; top:0px; right:-30px">See Members</div>
+                    <?php
+                }else if($format_type == 'friends')
+                {
+                    ?>
+                    <a href="/dashboard/friends/" id="friends_link"><div style="color:navy; position:absolute; top:0px; right:-30px">View Friends</div></a>
+                    <?php
+                }else if($format_type == 'school')
+                {
+                    ?> 
+                    <a href="/dashboard/groups/" id="groups_link"><div style="color:navy; position:absolute; top:0px; right:-30px">See School</div></a>
+                    <?php
+                }
+                ?>
+
             </div>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
