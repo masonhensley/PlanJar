@@ -92,8 +92,9 @@ function initialize_plan_modal() {
     
     // Clock time change handler
     $('#plan_clock_time').change(function() {
+        var this_val = $(this).val();
         // Select the appropriate time of day
-        var date = Date.parse($(this).val());
+        var date = Date.parse(this_val);
         if (date != null) {
             var hours = date.getHours();
             var time_to_select;
@@ -108,6 +109,8 @@ function initialize_plan_modal() {
             }
             
             $('#plan_time .divset[plan_time="' + time_to_select + '"]').click();
+            
+            $(this).val(this_val);
             
             populate_selectable_events();
         }
