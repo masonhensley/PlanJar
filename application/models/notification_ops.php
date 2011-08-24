@@ -355,6 +355,8 @@ class Notification_ops extends CI_Model
     {
         $user = $this->ion_auth->get_user($user_id);
 
+        $this_user = $this->ion_auth->get_user();
+
         if ($user->email_notif == '1')
         {
             // Email setup
@@ -384,36 +386,22 @@ class Notification_ops extends CI_Model
                         $you = $row->name;
                     }
 
-                    // Get the preliminary body text
-                    if ($event_row->first_name != NULL)
-                    {
-                        $prelim = $event_row->first_name . ' ' . $event_row->last_name . " has invited $you to";
-                    } else
-                    {
-                        if ($you == 'you')
-                        {
-                            $prelim = "You have been invited to";
-                        } else
-                        {
-                            $prelim = "$you has been invited to";
-                        }
-                    }
-
                     // Set the subject
-                    $this->email->subject($prelim . ' an event');
+                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . ' has invited you to an event');
 
                     // Get the date string
                     $date = new DateTime($event_row->date);
                     $date = $date->format('l') . ' the ' . $date->format('jS');
 
                     // Capture the body
-                    $body_string = 'Hi ' . $user->first_name . ".<br/><br/> $prelim " . $event_row->title;
+                    $body_string = 'Hi ' . $user->first_name . ".<br/><br/>" .
+                            $this_user->first_name . ' ' . $this_user->last_name .
+                            ' has invited you to ' . $event_row->title;
                     if ($event_row->title != '')
                     {
                         $body_string .= ' at ';
                     }
                     $body_string .= $event_row->name . " for $date.";
-
                     break;
 
                 case 'follow_notif':
@@ -455,7 +443,7 @@ class Notification_ops extends CI_Model
                 }
 
                 .bottom_links {
-                    font-size: 10pt;
+                    font-size: 8pt;
                     padding: 15px;
                 }
             </style>
