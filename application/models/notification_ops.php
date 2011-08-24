@@ -387,7 +387,7 @@ class Notification_ops extends CI_Model
                     }
 
                     // Set the subject
-                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . ' has invited you to an event');
+                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited $you to an event");
 
                     // Get the date string
                     $date = new DateTime($event_row->date);
