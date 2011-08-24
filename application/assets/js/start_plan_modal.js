@@ -127,15 +127,12 @@ function initialize_plan_modal() {
         // Show/hide the privacy settings
         $('#event_title').keyup(function() {
             if ($(this).val().length != '') {
-                $('#plan_privacy_wrapper, #plan_create_event_buttons').show('fast');
+                $('#plan_privacy_wrapper, #add_plan_description, #submit_plan').show('fast');
                 
                 $('.selected_event').removeClass('selected_event');
-                
-                // Hide the add description button
-                $('#add_plan_description').hide('fast');
             } else {
                 // Hide and reset the privacy wrapper
-                $('#plan_privacy_wrapper, #plan_create_event_buttons').hide('fast', function () {
+                $('#plan_privacy_wrapper').hide('fast', function () {
                     $('#plan_privacy_wrapper div:first').click();
                 });
                 
@@ -144,8 +141,15 @@ function initialize_plan_modal() {
                     $('#plan_description').val('');
                 });
                 
-                // Show the add description button
-                $('#add_plan_description').show('fast');
+                // Hide the add description button
+                $('#add_plan_description').hide('fast');
+                
+                // Show/hide the submit button
+                if ($('.selected_event').length > 0) {
+                    $('#submit_plan').show('fast');
+                } else {
+                    $('#submit_plan').hide('fast');
+                }
             }
         });
     });
