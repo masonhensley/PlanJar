@@ -94,14 +94,6 @@ function initialize_plan_modal() {
     $('#plan_clock_time').keyup(function() {
         // Select the appropriate time of day
         var date = Date.parse($(this).val());
-        console.log($(this).val());
-        date = Date.parse('today');
-        console.log(date);
-        date = Date.parse('9:30 am');
-        console.log(date);
-        date = Date.parse('9:45 pm');
-        console.log(date);
-        date = Date.parse('12:00 pm');
         console.log(date);
         if (date != null) {
             console.log(date);
