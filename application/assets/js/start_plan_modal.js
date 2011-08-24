@@ -94,7 +94,7 @@ function initialize_plan_modal() {
     $('#plan_clock_time').keyup(function() {
         // Select the appropriate time of day
         var date = Date.parse($(this).val());
-        console.log(date);
+        console.log($(this));
         if (date != null) {
             var hours = date.getHours();
             var time_to_select;
@@ -110,7 +110,6 @@ function initialize_plan_modal() {
             
             $('#plan_time .divset').removeClass('divset_selected');
             $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
-            console.log($('#plan_time .divset[plan_time="' + time_to_select + '"]'));
             
             if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
                 $('#plan_place_location_buttons').show('fast');
