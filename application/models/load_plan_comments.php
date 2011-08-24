@@ -17,7 +17,7 @@ Class Load_plan_comments extends CI_Model
         </font>
         <?php
         $html = ob_get_clean();
-        return $html;
+        return "lol";
     }
 
 }
