@@ -75,7 +75,7 @@ function display_info(bypass, arg) {
         // setup spinner
         var group_opts = spinner_options();
         var group_target = document.getElementById('home_data_spinner');
-        var group_spinner = new Spinner(group_opts).spin(group_target);
+        group_spinner = new Spinner(group_opts).spin(group_target);
         
         // Make 'all' the default filter setting
         if(arg == undefined)
