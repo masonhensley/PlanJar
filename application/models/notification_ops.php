@@ -365,13 +365,12 @@ class Notification_ops extends CI_Model
 
             // Get event info
             $query_string = "SELECT user_meta.first_name, user_meta.last_name, events.title, places.name, events.date
-                            FROM events JOIN user_meta ON events.originator_id = user_meta.user_id
+                            FROM events LEFT JOIN user_meta ON events.originator_id = user_meta.user_id
                             JOIN places ON events.place_id = places.id
                             WHERE events.id = ?";
             $query = $this->db->query($query_string, array($subject_id));
             var_dump($this->db->last_query());
             $event_row = $query->row();
-            $originator = $event_row->first_name . ' ' . $event_row->last_name;
 
             switch ($type)
             {
@@ -387,7 +386,20 @@ class Notification_ops extends CI_Model
                     }
 
                     // Set the subject
-                    $this->email->subject("$originator has invited $you to an event");
+                    if ($event_row->first_name != NULL)
+                    {
+                        $originator = $event_row->first_name . ' ' . $event_row->last_name . ' has invited';
+                        $this->email->subject($event_row->first_name . ' ' . $event_row->last_name . " has invited $you to an event");
+                    } else
+                    {
+                        if ($you == 'you')
+                        {
+                            $this->email->subject("You have been invited to an event");
+                        } else
+                        {
+                            $this->email->subject("$you has been invited to an event");
+                        }
+                    }
 
                     // Get the date string
                     $date = new DateTime($event_row->date);
