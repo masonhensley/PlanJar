@@ -58,7 +58,7 @@ class Load_locations extends CI_Model
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "<font style=\"color:gray;\">Popular <a href=\"#\" id=\"places_link\" style=\"color:navy; text-decoration:underline;\" >places</a> near your</font> <font style=\"color:green; font-weight:bold;\">Current Location</font> ";
+        $display_message = "<font style=\"color:gray;\">Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> near your</font> <font style=\"color:green; font-weight:bold;\">Current Location</font> ";
         $display_message .= "for <font style=\"font-weight:bold;color:black;\">$display_day</font>";
 
 
@@ -122,7 +122,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy; text-decoration:underline;\" >places</a> <font style=\"color:green; font-weight:bold;\">$school</font> ";
+        $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> <font style=\"color:green; font-weight:bold;\">$school</font> ";
         $display_message .= "students are going <font style=\"font-weight:bold;color:black;\">$display_day</font>";
 
         $query = "SELECT events.title, places.name, places.id, places.latitude, places.longitude
@@ -230,7 +230,7 @@ class Load_locations extends CI_Model
 
     function setup_groups_header($group_name_array, $display_day)
     {
-        $header_string = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy; font-size:18px;\" >places</a> people from ";
+        $header_string = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> people from ";
         $number = count($group_name_array);
         if ($number == 1)
         {
