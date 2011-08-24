@@ -380,7 +380,7 @@ class Notification_ops extends CI_Model
                     } else
                     {
                         // Get the group name
-                        $row = $query("SELECT name FROM groups WHERE id = ?", array($group_id));
+                        $row = $this->db->query("SELECT name FROM groups WHERE id = ?", array($group_id))->row();
                         $you = $row->name;
                     }
 
