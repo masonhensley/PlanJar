@@ -4,12 +4,12 @@ $(function() {
 
 function initialize_group_list_panel(){
     // Make it draggable (with a handle).
-    $('#plan_attending_panel').draggable({
+    $('#group_member_panel').draggable({
         handle: '.title_bar'
     });
     
     // Closing click handler
-    $('#cancel_attending_panel').click(function () {
-        $('#plan_attending_panel').hide('fast');
+    $('#cancel_group_member_panel').click(function () {
+        $('#group_member_panel').hide('fast');
     });
 }
