@@ -2,6 +2,8 @@ $(function() {
     initialize_info_map_tabs();
 })
 
+var group_spinner = new Spinner(spinner_options());
+
 // Initializes the map/data tabs.
 function initialize_info_map_tabs() {
     // Click handler.
@@ -73,7 +75,7 @@ function display_info(bypass, arg) {
         // setup spinner
         var group_opts = spinner_options();
         var group_target = document.getElementById('home_data_spinner');
-        var group_spinner = new Spinner(group_opts).spin(group_target);
+        group_spinner = new Spinner(group_opts).spin(group_target);
         
         // Make 'all' the default filter setting
         if(arg == undefined)
@@ -113,7 +115,6 @@ function display_info(bypass, arg) {
             $('#view_group_list').click(function(){
                 populate_group_member_panel();
             });            
-            group_spinner.stop();
         });
         
         // Load popular locations if necessary
@@ -153,13 +154,8 @@ function display_info(bypass, arg) {
             });
         })
         .complete(function(){
-            $('#view_group_list').click(function(){
-                
-            });
-            
             plan_spinner.stop(); // stop the spinner when the ajax call is finished
         });
-        
         
     } else {
         // No controlls selected
@@ -167,6 +163,7 @@ function display_info(bypass, arg) {
         
         // Load popular locations
         populate_popular_locations();
+        
     }
 }
 
@@ -314,9 +311,11 @@ function populate_popular_locations(skip_update_map, callback) {
         if (skip_update_map == undefined) {
             populate_map(data.coords_array, location_marker_closure);
         }
-    });
-    
-    if (callback != undefined) {
+        
+        if (callback != undefined) {
         callback();
     }
+    }).complete(function(){
+        group_spinner.stop(); // stop the group spinner after the groups and locations are done
+    });
 }

@@ -32,6 +32,9 @@
         <!-- Google Maps API -->
         <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
 
+        <!-- Spinner plugin-->
+        <script type="text/javascript" src="/application/assets/js/spin.js"></script>
+
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/date.js"></script>
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
@@ -42,6 +45,7 @@
         <script type="text/javascript" src="/application/assets/js/start_plan_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/change_location.js"></script>
+        <script type="text/javascript" src="/application/assets/js/view_group_list.js"></script>
         <script type="text/javascript" src="/application/assets/js/info_map_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/day_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/invite_modal.js"></script>
@@ -50,10 +54,10 @@
         <script type="text/javascript" src="/application/assets/js/add_location_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/view_friends_plans.js"></script>
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
-        <script type="text/javascript" src="/application/assets/js/spin.js"></script>
+
         <script type="text/javascript" src="/application/assets/js/plan_attending_panel.js"></script>
-        <script type="text/javascript" src="/application/assets/js/view_group_list.js"></script>
-        
+
+
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
 
@@ -212,16 +216,13 @@
                 <b>Group Members</b>
                 <input type="button" id="cancel_group_member_panel" style="float:right;" value="X" />
             </div>
-            
             <div id="group_member_content">
                 <div class="member_list">
-                    
                 </div>    
             </div>
-        
+
         </div>
-        
-        
+
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/start_plan_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
