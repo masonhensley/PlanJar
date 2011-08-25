@@ -45,7 +45,7 @@ Class Load_plan_comments extends CI_Model
         $display_time = $user_comment->time;
         $this->load->model('load_profile');
         ?>
-        <div class="user_comment" user_id="<?php echo $user->user_id; ?>">
+        <div class="user_comment" user_id="<?php echo $user_comment->user_id; ?>">
             <div class="user_comment_picture">
                 <?php
                 $this->load_profile->insert_profile_picture(55);
@@ -54,6 +54,14 @@ Class Load_plan_comments extends CI_Model
             <div class="user_comment_top_bar">
                 <?php
                 echo $user->first_name . " " . $user->last_name . " says...";
+                if($user->user_id == $user_comment->user_id)
+                {
+                    ?>
+                <div class="delete_comment">
+                    delete
+                </div>
+                <?php
+                }
                 ?>
             </div>
 
