@@ -28,15 +28,14 @@ Class Load_plan_comments extends CI_Model
         ob_start();
        foreach($result->result() as $user_comment)
        {
-           echo $user_comment->comment;
-           display_user_comment($user_comment);
+           $this->display_user_comment($user_comment);
        }
         return ob_get_clean();
     }
     
     function display_user_comment($user_comment)
     {
-        
+        echo $user_comment->comment;
     }
 
 }
