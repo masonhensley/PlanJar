@@ -264,7 +264,7 @@ function populate_selectable_events() {
         }, function (data) {
             if ($('.selected_event').length > 0) {
                 // Hide the submit button
-                $('#submit_plan').show('fast');
+                $('#submit_plan').hide('fast');
             }
             
             $('#plan_event_select_wrapper').html(data);
