@@ -53,6 +53,8 @@ function populate_plan_panel(callback) {
 
 function load_comment_section()
 {
+    console.log('heyo');
+    
     // fill the comment box
     $('#comment_area').removeClass('comment_area_selected');
     
