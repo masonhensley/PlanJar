@@ -69,7 +69,6 @@ function load_comments(){
                 $('#comment_area').val('');
                 document.getElementById("comment_area").select()
             }
-            
         });
         
         $('.submit_comment').click(function(){
