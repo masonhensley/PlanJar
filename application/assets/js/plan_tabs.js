@@ -98,7 +98,7 @@ function load_comments(){
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
      
-        $('.delete_comment').click(function(){
+        
                 
             $('.delete_comment').confirmDiv(function(tehelement){
                 $.get('/home/delete_comment', {
@@ -107,12 +107,6 @@ function load_comments(){
                     load_comments()
                 });
             })
-                
-            
-                    
-        });
-                
-        
     });
 }
 
