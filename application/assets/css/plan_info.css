@@ -126,14 +126,16 @@
     
 }
 .user_comment{
-    
+    text-align: left;
 }
 .user_comment_body{
     
 }
 .user_comment_picture{
-    
+    float:left;
 }
 .user_comment_top_bar{
-    
+    float:left;
+    width:238px;
+    border-bottom: 1px solid gray;
 }
