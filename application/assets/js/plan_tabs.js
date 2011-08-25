@@ -29,6 +29,7 @@ function initialize_plan_panel(){
         // Load the comment box and comments
         $('.bottom_right_section').hide('fast');
         $('.comment_box').show('fast');
+        console.log('tititititit');
         $('.submit_comment').click(function(){
             $.get('/home/submit_comment', {
                 plan_id : $('.selected_plan').attr('plan_id'),
