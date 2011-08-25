@@ -179,6 +179,9 @@
 }
 
 .delete_comment{
+    position:absolute;
+    top:0px;
+    right:0px;
     color:red;
     float:right;
     font-size:12px;
