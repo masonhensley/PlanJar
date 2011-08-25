@@ -41,7 +41,7 @@ Class Load_plan_comments extends CI_Model
 
     function display_user_comment($user_comment)
     {
-        $user = $this->ion_auth->get_user($user_comment->user_id);
+        $user = $this->ion_auth->get_user();
         $display_time = $user_comment->time;
         $this->load->model('load_profile');
         ?>
