@@ -76,7 +76,11 @@ function display_info(bypass, arg) {
                     });
                 },
                 select: function(event, ui) {
+                    deselect_all_controlls();
+                    
                     found_location = ui.item.id;
+                    
+                    display_info();
                 }
             });
         });
