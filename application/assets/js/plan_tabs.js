@@ -27,7 +27,19 @@ function initialize_plan_panel(){
         display_info(); 
         
         // Load the comment box and comments
+        $('.bottom_right_section').hide('fast');
+        $('.comment_box').show('fast');
         load_comments();
+        
+        $('.submit_comment').click(function(){
+            $.get('/home/submit_comment', {
+                plan_id : $('.selected_plan').attr('plan_id'),
+                comment : $('#comment_area').val()
+            },
+            function(){
+                load_comments();
+            });
+        });
     });
     
     // View map
@@ -58,8 +70,7 @@ function load_comments(){
         plan_id : $('.selected_plan').attr('plan_id')
     }, 
     function(data){
-        $('.bottom_right_section').hide('fast');
-        $('.comment_box').show('fast');
+        
         $('.plan_comments').html(data);
         $('.plan_comments').show('fast');
         
@@ -70,18 +81,6 @@ function load_comments(){
                 $('#comment_area').val('');
                 document.getElementById("comment_area").select()
             }
-        });
-        
-        
-    }).complete(function(){
-        $('.submit_comment').click(function(){
-            $.get('/home/submit_comment', {
-                plan_id : $('.selected_plan').attr('plan_id'),
-                comment : $('#comment_area').val()
-            },
-            function(){
-                load_comments();
-            });
         });
     });
 }
