@@ -262,7 +262,18 @@ function populate_selectable_events() {
             time: $('#plan_time .divset_selected').attr('plan_time'),
             place_id: $('#plan_location_id').val()
         }, function (data) {
+            if ($('.selected_event').length > 0) {
+                // Hide the submit button
+                $('#submit_plan').show('fast');
+            }
+            
             $('#plan_event_select_wrapper').html(data);
+            
+            // Hide and reset the description
+            $('#plan_description_wrapper').hide('fast', function() {
+                $('#plan_description').val('');
+                $('#plan_description').blur();
+            });
         
             // Event select click handler
             $('.selectable_event').click('click', function () {
@@ -408,8 +419,7 @@ function get_distance_between(lat0, long0, lat1, long1) {
 // Resets and clears the modal
 function reset_plan_modal() {
     // Clear all inputs
-    $('#create_plan_content input').not('[type="button"]').val('');
-    $('#plan_description').val('');
+    $('#create_plan_content').filter('input[type!="button"], textarea').val('');
     
     // Clear the divsets
     $('#create_plan_content .divset_selected').removeClass('divset_selected');
@@ -421,13 +431,14 @@ function reset_plan_modal() {
     $('#plan_event_select_wrapper').html('');
     
     // Blur necessary inputs
-    $('#event_title, #event_description').blur();
+    $('#event_title, #plan_clock_time, #event_description').blur();
     
     // Hide everything
     $('#plan_events_wrapper, #plan_privacy_wrapper, #plan_description_wrapper').css('display', 'none');
+    $('#create_plan_content input[type="button"]').css('display', 'none');
     
-    // Show the hidden buttons
-    $('#plan_place_location_buttons, #add_plan_description').css('display', '');
+    // Show the warning
+    $('#plan_warning_message').css('display', '');
 }
 
 // Encapsulates the autocomplete setup
