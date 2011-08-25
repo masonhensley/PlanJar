@@ -29,7 +29,18 @@ function initialize_plan_panel(){
         // Load the comment box and comments
         $('.bottom_right_section').hide('fast');
         $('.comment_box').show('fast');
+        
+        $('#comment_area').click(function(){ // click handler for the textarea
+            if(!$(this).hasClass('comment_area_selected'))
+            {
+                $('#comment_area').addClass('comment_area_selected');
+                $('#comment_area').val('');
+                document.getElementById("comment_area").select()
+            }
+        });
+        
         console.log('tititititit');
+        
         $('.submit_comment').click(function(){
             $.get('/home/submit_comment', {
                 plan_id : $('.selected_plan').attr('plan_id'),
@@ -75,13 +86,6 @@ function load_comments(){
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
         
-        $('#comment_area').click(function(){ // click handler for the textarea
-            if(!$(this).hasClass('comment_area_selected'))
-            {
-                $('#comment_area').addClass('comment_area_selected');
-                $('#comment_area').val('');
-                document.getElementById("comment_area").select()
-            }
-        });
+        
     });
 }
