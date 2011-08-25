@@ -186,7 +186,7 @@
                     <br/><font style="color:navy">Invite People to PlanJar</font>
                 </div>
                 <div class="comment_box"></div>
-                <div class="plan_comments"></div>
+                <div class="plan_comments">si</div>
             </div>
             <div id="home_plan_spinner" style="position:absolute; right:180px; top:19px;"></div>
             <div class ="right">
