@@ -6,11 +6,7 @@ $(function() {
 function initialize_plan_panel(){
     // Click handler
     $('.plan_content').click(function() {
-        
-        // fill the comment box
-        $('#comment_area').removeClass('comment_area_selected');
-        $('#comment_area').val('Leave a comment for this event...');
-        
+      
         // Show the info tab if a plan wasn't already selected
         if ($('.selected_plan').length == 0) {
             show_data_container('#info_content'); 
@@ -39,7 +35,7 @@ function initialize_plan_panel(){
             comment : $('#comment_area').val()
         },
         function(){
-            load_comments();
+            load_comment_section();
         });
     });
     
@@ -68,11 +64,14 @@ function populate_plan_panel(callback) {
 
 function load_comment_section()
 {
+    // fill the comment box
+    $('#comment_area').removeClass('comment_area_selected');
+    
     // Load the comment box and comments
     $('.bottom_right_section').hide('fast');
     $('.comment_box').show('fast');
-        
-        
+    $('#comment_area').val('Leave a comment for this event...');
+    
     $('#comment_area').click(function(){ // click handler for the textarea
         if(!$(this).hasClass('comment_area_selected'))
         {
