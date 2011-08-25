@@ -187,7 +187,7 @@
                     <br/><font style="color:navy">Invite People to PlanJar</font>
                 </div>
                 <div class="comment_box">
-                    <textarea id="comment_area" name="comments" cols="30" rows="3"  maxlength="139"></textarea>
+                    <textarea id="comment_area" name="comments" cols="30" rows="3"  maxlength="120"></textarea>
                     <div class="submit_comment">Submit</div>
                 </div>
                 <div class="plan_comments"></div>
