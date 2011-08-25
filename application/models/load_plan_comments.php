@@ -26,16 +26,28 @@ Class Load_plan_comments extends CI_Model
         $result = $this->db->query($query);
 
         ob_start();
-       foreach($result->result() as $user_comment)
-       {
-           $this->display_user_comment($user_comment);
-       }
+        foreach ($result->result() as $user_comment)
+        {
+            $this->display_user_comment($user_comment);
+        }
         return ob_get_clean();
     }
-    
+
     function display_user_comment($user_comment)
     {
-        echo $user_comment->comment ."<br/>";
+        ?>
+        <div class="user_comment">
+            <div class="user_comment_picture">
+                
+            </div>
+            <div class="user_comment_top_bar">
+            </div>
+            
+            <div class="user_comment_body">
+                
+            </div>
+        </div>
+        <?php
     }
 
 }
