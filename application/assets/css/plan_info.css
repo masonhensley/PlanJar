@@ -144,3 +144,8 @@
     color:gray;
     overflow: hidden;
 }
+
+.delete_comment{
+    display:none;
+    color:red;
+}
