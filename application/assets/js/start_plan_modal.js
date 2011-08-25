@@ -55,13 +55,7 @@ function initialize_plan_modal() {
     $('#plan_day div, #plan_time div').click(function() {
         populate_selectable_events();
         
-        if (plan_time_place_valid()) {
-            // Show the necessary buttons
-            $('#create_event, #submit_plan').show('fast');
-            
-            // Hide the warning
-            $('#plan_warning_message').hide('fast');
-        }
+        toggle_time_day_buttons();
     });
     
     // Plan time click handler
@@ -127,45 +121,37 @@ function initialize_plan_modal() {
         // Load the selectable events
         populate_selectable_events();
         
-        // Show the event div and hide the first set of buttons
-        $('#plan_place_location_buttons').hide('fast');
-        $('#plan_events_wrapper').show('fast');
+        // Show and hide the necessary components
+        $('#create_event, #submit_plan').hide('fast');
+        $('#plan_events_wrapper, #plan_warning_message').show('fast');
         
-        // Show/hide the privacy settings
+        // Event title change handler
         $('#event_title').keyup(function() {
             if ($(this).val().length != '') {
+                // Show and hide the necessary components
                 $('#plan_privacy_wrapper, #add_plan_description, #submit_plan').show('fast');
+                $('#plan_warning_message').hide('fast');
                 
+                // Deselect any selected event
                 $('.selected_event').removeClass('selected_event');
             } else {
-                // Hide and reset the privacy wrapper
+                // Hide and reset the privacy
                 $('#plan_privacy_wrapper').hide('fast', function () {
                     $('#plan_privacy_wrapper div:first').click();
                 });
                 
-                // Hide the description
+                // Hide and reset the description
                 $('#plan_description_wrapper').hide('fast', function() {
                     $('#plan_description').val('');
                 });
                 
-                // Hide the add description button
-                $('#add_plan_description').hide('fast');
+                // Hide the buttons
+                $('#add_plan_description, #submit_plan').hide('fast');
                 
-                // Show/hide the submit button
-                if ($('.selected_event').length > 0) {
-                    $('#submit_plan').show('fast');
-                } else {
-                    $('#submit_plan').hide('fast');
-                }
+                // Show the warning
+                $('#plan_warning_message').show('fast');
             }
         });
-    });
-    
-    // Just go click handler
-    $('#just_go').click(function () {
-        if (plan_time_place_valid()) {
-            submit_plan(true);
-        }
     });
     
     // Initial privacy select
@@ -203,6 +189,19 @@ function initialize_plan_modal() {
 // Returns true if the plan location and time are valid
 function plan_time_place_valid() {
     return $('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1
+}
+
+// Shows/hides the necessary buttons for the plan time/place/location section
+function toggle_time_day_buttons() {
+    if (plan_time_place_valid()) {
+        if (!$('#plan_event_select_wrapper').is(':visible')) {
+            // Show the necessary buttons
+            $('#create_event, #submit_plan').show('fast');
+        }
+            
+        // Hide the warning
+        $('#plan_warning_message').hide('fast');
+    }
 }
 
 // Populates the selectable events and initializes the click handlers
@@ -583,9 +582,7 @@ function initialize_plan_autocomplete() {
                 populate_selectable_events();
             }
             
-            if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
-                $('#plan_place_location_buttons').show('fast');
-            }
+            toggle_time_day_buttons();
         }
     });
 }
