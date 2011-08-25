@@ -45,7 +45,7 @@ function initialize_plan_panel(){
             }
         });
         
-        if(!$(this).hasClass('selected_plan'))
+        if($(this).hasClass('selected_plan'))
         {
             load_comments();        
         }
