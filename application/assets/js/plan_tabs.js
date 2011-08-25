@@ -100,11 +100,15 @@ function load_comments(){
      
         $('.delete_comment').click(function(){
                 
-            $.get('/home/delete_comment', {
-                comment_id : $(this).parent().parent().attr('comment_id')
-            }).complete(function(){
-                load_comments()
-            });
+            $('.delete_comment').confirmDiv(function(tehelement){
+                $.get('/home/delete_comment', {
+                    comment_id : $(tehelement).parent().parent().attr('comment_id')
+                }).complete(function(){
+                    load_comments()
+                });
+            })
+                
+            
                     
         });
                 
