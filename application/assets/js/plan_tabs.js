@@ -71,8 +71,6 @@ function load_comment_section()
         $('.submit_comment').addClass('handler_loaded');
     }
     
-    console.log('heyo');
-    
     // fill the comment box
     $('#comment_area').removeClass('comment_area_selected');
     
@@ -99,20 +97,18 @@ function load_comments(){
     function(data){
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
-        if($('.user_comment').hasClass('delete_comment'))
-        {
-            
-            $('.delete_comment').click(function(){
+     
+        $('.delete_comment').click(function(){
                 
-                    $.get('/home/delete_comment', {
-                        comment_id : $(this).parent().attr('comment_id')
-                    }).complete(function(){
-                        load_comments()
-                    });
+            $.get('/home/delete_comment', {
+                comment_id : $(this).parent().attr('comment_id')
+            }).complete(function(){
+                load_comments()
+            });
                     
-                });
+        });
                 
-        }
+        
     });
 }
 
