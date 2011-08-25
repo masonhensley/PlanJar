@@ -39,20 +39,18 @@ function initialize_plan_panel(){
             }
         });
         
-        console.log('tititititit');
-        
-        $('.submit_comment').click(function(){
-            console.log('tits');
-            $.get('/home/submit_comment', {
-                plan_id : $('.selected_plan').attr('plan_id'),
-                comment : $('#comment_area').val()
-            },
-            function(){
-                load_comments();
-            });
-        });
-        
         load_comments();
+    });
+    
+    // Submit comment click handler
+    $('body').delegate('.submit_comment', 'click', function(){
+        $.get('/home/submit_comment', {
+            plan_id : $('.selected_plan').attr('plan_id'),
+            comment : $('#comment_area').val()
+        },
+        function(){
+            load_comments();
+        });
     });
     
     // View map
