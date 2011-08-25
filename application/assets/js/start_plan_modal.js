@@ -426,7 +426,7 @@ function reset_plan_modal() {
     $('#plan_event_select_wrapper').html('');
     
     // Blur necessary inputs
-    $('#event_title, #plan_clock_time, #event_description').blur();
+    $('#event_title, #plan_clock_time, #plan_description').blur();
     
     // Hide everything
     $('#plan_events_wrapper, #plan_privacy_wrapper, #plan_description_wrapper').css('display', 'none');

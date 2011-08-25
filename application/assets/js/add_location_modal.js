@@ -10,8 +10,8 @@ function initialize_add_location_modal() {
     // Close click handler
     $('#close_add_location').click(function () {
         // Clear and unfocus the text inputs
-        $('#new_location_name, #new_location_category, #new_location_category_id').val('');
-        $('#new_location_name, #new_location_category, #new_location_category_id').blur();
+        $('#new_location_name, #new_location_category_id').val('');
+        $('#new_location_name, #new_location_category_id').blur();
         
         // Hide the modal
         $('#add_location_modal').hide('fast');
@@ -57,9 +57,6 @@ function initialize_add_location_modal() {
         if ($('#new_location_name').val().length < 3) {
             // Minimum length not met
             alert('Group names must be at least 3 characters long.');
-        } else if ($('#new_location_id').val() == '') {
-            // No category selected
-            alert('You need to select a category from the autocomplete.')
         } else if (!number_exp.test($('#new_location_latitude').val()) || !number_exp($('#new_location_longitude').val())) {
             // Bad coordinate(s)
             alert('Your group coordinates seem to be off. Try dragging the marker.');

@@ -202,7 +202,7 @@ class Home extends CI_Controller
         $return_array = $this->load_plan_data->display_plan_data($plan_id, $friend_plan);
         echo json_encode($return_array);
     }
-    
+
     public function plan_comments()
     {
         $plan_id = $this->input->get('plan_id');
@@ -210,12 +210,12 @@ class Home extends CI_Controller
         $comments_html = $this->load_plan_comments->display_comments($plan_id);
         echo $comments_html;
     }
-    
+
     public function submit_comment()
     {
         $plan_id = $this->input->get('plan_id');
         $comment = $this->input->get('comment');
-        
+
         // get the event_id
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
         $result = $this->db->query($query);
@@ -238,7 +238,7 @@ class Home extends CI_Controller
         $this->load->model('load_attending_list');
         $this->load_attending_list->_display_attending_list($plan_id);
     }
-    
+
     // display the people in a group in a modal
     public function group_member_list()
     {
@@ -709,7 +709,7 @@ class Home extends CI_Controller
             'name' => $this->input->get('new_location_name'),
             'latitude' => $this->input->get('new_location_latitude'),
             'longitude' => $this->input->get('new_location_longitude'),
-            'category_id' => $this->input->get('new_location_category_id')
+            'category_id' => NULL
         );
 
         $place_id = $this->place_ops->add_user_place($data);

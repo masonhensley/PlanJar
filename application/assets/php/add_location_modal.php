@@ -5,18 +5,9 @@
             <input type="button" id="close_add_location" value='X' style="float: right;"/>
         </div>
 
-        <div class="left">
-            <div class="in-field_block">
-                <label for="new_location_name">Name</label>
-                <input type="text" id="new_location_name" name="new_location_name"/>
-            </div>
-        </div>
-
-        <div class="right">
-            <div class="in-field_block">
-                <label for="new_location_category">Category</label>
-                <input type="text" id="new_location_category"/>
-            </div>
+        <div class="in-field_block" style="margin-left: auto; margin-right: auto;">
+            <label for="new_location_name">Name</label>
+            <input type="text" id="new_location_name" name="new_location_name"/>
         </div>
 
         <div style="text-align: center; width: 100%; margin-top: 50px;">Drag the marker to the correct location.</div>
@@ -29,7 +20,7 @@
             <input type="text" id="new_location_longitude" name="new_location_longitude"/>
         </div>
 
-        <div class="right" style="text-align: center; line-height: 69px">
+        <div class="right" style="text-align: center;">
             <input type="button" id="submit_location" value="Go"/>
         </div>
 
