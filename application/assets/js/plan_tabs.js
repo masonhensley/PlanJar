@@ -68,9 +68,6 @@ function load_comment_section()
             $.get('/home/submit_comment', {
                 plan_id : $('.selected_plan').attr('plan_id'),
                 comment : $('#comment_area').val()
-            },
-            function(){
-                load_comment_section();
             });       
         }
         
