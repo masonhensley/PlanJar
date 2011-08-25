@@ -67,7 +67,6 @@ function load_comments(){
             {
                 $('#comment_area').addClass('comment_area_selected');
                 $('#comment_area').val('');
-                $('#comment_area').blur();
             }
             
         });
