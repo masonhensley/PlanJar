@@ -164,7 +164,11 @@ function initialize_plan_modal() {
     
     // Description change handler
     $('#plan_decription').keyup(function() {
-        if ($(this).val() != '') {
+        console.log($(this));
+        console.log($(this).val());
+        console.log($(this).text());
+        
+        if ($(this).text() != '') {
             $('#plan_warning_message').hide('fast');
             $('#submit_plan').show('fast');
         } else {
