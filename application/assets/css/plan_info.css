@@ -137,5 +137,5 @@
 .user_comment_top_bar{
     float:left;
     width:238px;
-    border-bottom: 1px solid gray;
+    color:gray;
 }
