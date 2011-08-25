@@ -63,8 +63,6 @@ function initialize_plan_modal() {
         // Clear and blur the time box
         $('#plan_clock_time').val('');
         $('#plan_clock_time').blur();
-        
-        populate_selectable_events();
     });
     
     // Left and right day click handlers
@@ -128,12 +126,12 @@ function initialize_plan_modal() {
         // Event title change handler
         $('#event_title').keyup(function() {
             if ($(this).val().length != '') {
+                // Deselect any selected event
+                $('.selected_event').removeClass('selected_event');
+                
                 // Show and hide the necessary components
                 $('#plan_privacy_wrapper, #add_plan_description, #submit_plan').show('fast');
                 $('#plan_warning_message').hide('fast');
-                
-                // Deselect any selected event
-                $('.selected_event').removeClass('selected_event');
             } else {
                 // Hide and reset the privacy
                 $('#plan_privacy_wrapper').hide('fast', function () {
@@ -159,21 +157,19 @@ function initialize_plan_modal() {
     
     // Add description click handler
     $('#add_plan_description').click(function() {
-        if ($('#event_title').val() != '') {
-            // Show the description div and hide the description button
-            $('#add_plan_description').hide('fast');
-            $('#plan_description_wrapper').show('fast');
-            
-            $('#submit_plan').hide('fast');
-        }
+        // Show and hide the necessary components
+        $('#add_plan_description, #submit_plan').hide('fast');
+        $('#plan_warning_message').show('fast');
     });
     
     // Description change handler
     $('#add_plan_decription').keyup(function() {
         if ($(this).val() != '') {
+            $('#plan_warning_message').hide('fast');
             $('#submit_plan').show('fast');
         } else {
             $('#submit_plan').hide('fast');
+            $('#plan_warning_message').show('fast');
         }
     })
     
@@ -193,6 +189,19 @@ function plan_time_place_valid() {
 
 // Shows/hides the necessary buttons for the plan time/place/location section
 function toggle_time_day_buttons() {
+    if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
+        if (!$('#plan_event_select_wrapper').is(':visible')) {
+            // Show the necessary buttons
+            $('#create_event, #submit_plan').show('fast');
+        }
+            
+        // Hide the warning
+        $('#plan_warning_message').hide('fast');
+    }
+}
+
+// Shows/hides the necessary buttons for the plan event section
+function toggle_event_buttons() {
     if (plan_time_place_valid()) {
         if (!$('#plan_event_select_wrapper').is(':visible')) {
             // Show the necessary buttons
@@ -227,8 +236,10 @@ function populate_selectable_events() {
                 // Clear the event
                 $('#event_title').val('');
                 $('#event_title').blur();
-                $('#event_title').keyup();
+                $('#plan_privacy_wrapper').hide('fast');
                 
+                // Show the submit button
+                $('#plan_warning_message').hide('fast');
                 $('#submit_plan').show('fast');
             });
         });
