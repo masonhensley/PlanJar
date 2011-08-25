@@ -6,32 +6,36 @@
                 <form id="image_upload">
                     <input name="file_path" id="file_path" type="file"/>
                 </form>
-                <hr/>
             </td>
         </tr>
 
-        <tr>
-            <td>Change your password</td>
-            <td>
-                <form id="=change_password">
+        <form id="=change_password">
+            <tr>
+                <td rowspan="3">Change your password</td>
+                <td>
                     <div class="in-field_block">
                         <label for="old_password">Old password</label>
                         <input type="text" id="old_password" name="old_password"/>
                     </div>
-
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <div class="in-field_block">
                         <label for="new_password">New password</label>
                         <input type="text" id="new_password" name="new_password"/>
                     </div>
-
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <div class="in-field_block">
                         <label for="new_password_1">Re-enter new password</label>
                         <input type="text" id="new_password_1"/>
                     </div>
-                </form>
-                <hr/>
-            </td>
-        </tr>
+                </td>
+            </tr>
+        </form>
 
         <tr>
             <td>Change your email</td>
@@ -42,7 +46,6 @@
                         <input type="text" id="new_email" name="new_email"/>
                     </div>
                 </form>
-                <hr/>
             </td>
         </tr>
     </table>
