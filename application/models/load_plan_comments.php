@@ -41,16 +41,26 @@ Class Load_plan_comments extends CI_Model
 
     function display_user_comment($user_comment)
     {
+        $user = $this->ion_auth->get_user($user_comment->user_id);
+        $display_time = $user_comment->time;
+        $this->load->model('load_profile');
         ?>
-        <div class="user_comment">
+        <div class="user_comment" user_id="<?php echo $user->user_id; ?>">
             <div class="user_comment_picture">
-
+                <?php
+                $this->load_profile->insert_profile_picture();
+                ?>
             </div>
             <div class="user_comment_top_bar">
+                <?php
+                echo $user->first_name . " " . $user->last_name . " says";
+                ?>
             </div>
 
             <div class="user_comment_body">
-
+                <?php
+                echo $user_comment->comment;
+                ?>
             </div>
         </div>
         <?php
