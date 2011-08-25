@@ -70,8 +70,6 @@ function load_comment_section()
         });
         $('.submit_comment').addClass('handler_loaded');
     }
-  
-    
     
     console.log('heyo');
     
