@@ -58,7 +58,7 @@ Class Load_plan_comments extends CI_Model
             </div>
             <div class="user_comment_top_bar">
                 <?php
-                echo $comment_user->first_name . " " . $comment_user->last_name . " says...";
+                echo $comment_user->first_name . " " . $comment_user->last_name . " said at $display_time";
                 if($logged_in_user->user_id == $user_comment->user_id)
                 {
                     ?>
