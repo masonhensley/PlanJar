@@ -415,6 +415,7 @@ function get_distance_between(lat0, long0, lat1, long1) {
 function reset_plan_modal() {
     // Clear all inputs
     $('#create_plan_content').filter('input[type!="button"], textarea').val('');
+    console.log($('#create_plan_content').filter('input[type!="button"], textarea'));
     
     // Clear the divsets
     $('#create_plan_content .divset_selected').removeClass('divset_selected');
