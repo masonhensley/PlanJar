@@ -114,8 +114,9 @@
 
 .submit_comment{
     width:59px;
-    height:25px;
-    margin-top:17px;
+    height:36px;
     text-align:center;
     float:right;
+    padding-right:1px;
+    padding-top:18px;
 }
