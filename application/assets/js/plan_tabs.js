@@ -42,6 +42,7 @@ function initialize_plan_panel(){
         console.log('tititititit');
         
         $('.submit_comment').click(function(){
+            console.log('tits');
             $.get('/home/submit_comment', {
                 plan_id : $('.selected_plan').attr('plan_id'),
                 comment : $('#comment_area').val()
