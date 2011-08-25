@@ -140,7 +140,7 @@
 }
 .user_comment_top_bar{
     float:left;
-    width:235px;
+    width:216px;
     color:gray;
     overflow: hidden;
     font-size: 12px;
@@ -150,4 +150,10 @@
     color:red;
     float:right;
     font-size:12px;
+}
+.comment_display_time{
+    font-size:12px;
+    position:absolute;
+    bottom:0px;
+    right:0px;
 }

@@ -27,14 +27,14 @@ Class Load_plan_comments extends CI_Model
 
         ob_start();
         ?>
-        
-            <?php
-            foreach ($result->result() as $user_comment)
-            {
-                $this->display_user_comment($user_comment);
-            }
-            ?>
-        
+
+        <?php
+        foreach ($result->result() as $user_comment)
+        {
+            $this->display_user_comment($user_comment);
+        }
+        ?>
+
         <?php
         return ob_get_clean();
     }
@@ -43,14 +43,14 @@ Class Load_plan_comments extends CI_Model
     {
         $logged_in_user = $this->ion_auth->get_user();
         $comment_user = $this->ion_auth->get_user($user_comment->user_id);
-        
-        $display_time =date("F j, Y, g:i a", strtotime( $user_comment->time));
-        
+
+        $display_time = date("F j, Y, g:i a", strtotime($user_comment->time));
+
         $this->load->model('load_profile');
-        
+
         $tracker = 0;
         ?>
-        <div class="user_comment" comment_id="<?php echo $user_comment->id;?>">
+        <div class="user_comment" comment_id="<?php echo $user_comment->id; ?>">
             <div class="user_comment_picture">
                 <?php
                 $this->load_profile->insert_profile_picture(55);
@@ -58,14 +58,14 @@ Class Load_plan_comments extends CI_Model
             </div>
             <div class="user_comment_top_bar">
                 <?php
-                echo $comment_user->first_name . " " . $comment_user->last_name . " said at $display_time";
-                if($logged_in_user->user_id == $user_comment->user_id)
+                echo $comment_user->first_name . " " . $comment_user->last_name . " says...";
+                if ($logged_in_user->user_id == $user_comment->user_id)
                 {
                     ?>
-                <div class="delete_comment">
-                    delete
-                </div>
-                <?php
+                    <div class="delete_comment">
+                        delete
+                    </div>
+                    <?php
                 }
                 ?>
             </div>
@@ -73,6 +73,11 @@ Class Load_plan_comments extends CI_Model
             <div class="user_comment_body">
                 <?php
                 echo $user_comment->comment;
+                ?>
+            </div>
+            <div class="comment_display_time">
+                <?php
+                echo $user_comment->time;
                 ?>
             </div>
         </div>
