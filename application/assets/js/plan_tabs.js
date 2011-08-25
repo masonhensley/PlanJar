@@ -6,10 +6,7 @@ $(function() {
 function initialize_plan_panel(){
     // Click handler
     $('.plan_content').click(function() {
-        
-        // fill the comment box
-        $('#comment_area').val('Leave a comment for this event...')
-        
+      
         // Show the info tab if a plan wasn't already selected
         if ($('.selected_plan').length == 0) {
             show_data_container('#info_content'); 
@@ -17,49 +14,33 @@ function initialize_plan_panel(){
         
         if(!$(this).hasClass('selected_plan'))
         {
-            // No plan selected. Deselect all controlls
-            deselect_all_controlls();
-            
-            // Select this plan
-            $(this).addClass('selected_plan');
+            deselect_all_controlls(); // No plan selected. Deselect all controlls
+            $(this).addClass('selected_plan'); // Select this plan
+            load_comment_section(); //load comments
         } else {
             // Deselect this plan
             $(this).removeClass('selected_plan');
+            show_invite_link();
         }
         
         // Display the info box
         display_info(); 
         
-        // Load the comment box and comments
-        $('.bottom_right_section').hide('fast');
-        $('.comment_box').show('fast');
-        
-        
-        $('#comment_area').click(function(){ // click handler for the textarea
-            if(!$(this).hasClass('comment_area_selected'))
-            {
-                $('#comment_area').addClass('comment_area_selected');
-                $('#comment_area').val('');
-                document.getElementById("comment_area").select()
-            }
-        });
-        
-        if($(this).hasClass('selected_plan'))
-        {
-            load_comments();        
-        }
-        
     });
     
     // Submit comment click handler
     $('body').delegate('.submit_comment', 'click', function(){
-        $.get('/home/submit_comment', {
-            plan_id : $('.selected_plan').attr('plan_id'),
-            comment : $('#comment_area').val()
-        },
-        function(){
-            load_comments();
-        });
+        if($('#comment_area').val() != 'Leave a comment for this event...')
+        {
+            $.get('/home/submit_comment', {
+                plan_id : $('.selected_plan').attr('plan_id'),
+                comment : $('#comment_area').val()
+            },
+            function(){
+                load_comment_section();
+            });       
+        }
+        
     });
     
     // View map
@@ -85,6 +66,27 @@ function populate_plan_panel(callback) {
     });
 }
 
+function load_comment_section()
+{
+    // fill the comment box
+    $('#comment_area').removeClass('comment_area_selected');
+    
+    // Load the comment box and comments
+    $('.bottom_right_section').hide('fast');
+    $('.comment_box').show('fast');
+    $('#comment_area').val('Leave a comment for this event...');
+    
+    $('#comment_area').click(function(){ // click handler for the textarea
+        if(!$(this).hasClass('comment_area_selected'))
+        {
+            $('#comment_area').addClass('comment_area_selected');
+            $('#comment_area').val('');
+            document.getElementById("comment_area").select()
+        }
+    });
+    load_comments();
+}
+
 function load_comments(){
     $.get('/home/plan_comments', {
         plan_id : $('.selected_plan').attr('plan_id')
@@ -93,4 +95,10 @@ function load_comments(){
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
     });
+}
+
+function show_invite_link(){
+    $('.plan_comments').hide();
+    $('.comment_box').hide('fast');
+    $('.bottom_right_section').show('fast');
 }
