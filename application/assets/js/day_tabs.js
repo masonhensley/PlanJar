@@ -47,7 +47,7 @@ function goto_day_offset(offset, skip_click, callback) {
                 callback();
             }
         }
-    } else if (found_location !== false) {
+    } else if (found_location === false) {
         // Default to today
         if (skip_click) {
             $('.day_selected').removeClass('day_selected');
