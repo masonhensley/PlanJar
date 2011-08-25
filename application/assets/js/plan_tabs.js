@@ -82,8 +82,4 @@ function load_comments(){
             });
         });
     });
-    
-    $.get('/home/load_comments', function(){
-        
-    });
 }
