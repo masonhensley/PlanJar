@@ -40,7 +40,6 @@ function initialize_plan_panel(){
         });
         
         load_comments();
-        
     });
     
     // View map
