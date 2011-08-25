@@ -262,7 +262,18 @@ function populate_selectable_events() {
             time: $('#plan_time .divset_selected').attr('plan_time'),
             place_id: $('#plan_location_id').val()
         }, function (data) {
+            if ($('.selected_event').length > 0) {
+                // Hide the submit button
+                $('#submit_plan').show('fast');
+            }
+            
             $('#plan_event_select_wrapper').html(data);
+            
+            // Hide and reset the description
+            $('#plan_description_wrapper').hide('fast', function() {
+                $('#plan_description').val('');
+                $('#plan_description').blur();
+            });
         
             // Event select click handler
             $('.selectable_event').click('click', function () {
