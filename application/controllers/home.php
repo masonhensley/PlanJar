@@ -222,6 +222,7 @@ class Home extends CI_Controller
         $row = $result->row();
         $event_id = $row->event_id;
         
+        // insert into comments
         $user = $this->ion_auth->get_user();
         $query = "
             INSERT INTO plan_comments 
