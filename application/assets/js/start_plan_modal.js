@@ -176,10 +176,49 @@ function initialize_plan_modal() {
     
     // Submit
     $('#submit_plan').click(function () {
-        //Make sure an event is selected or an event has been created
-        if ($('.selected_event').length > 0 || $('#event_title').val().length > 0) {
-            submit_plan();
-        }
+        // Make sure a new event name isn't already taken
+        $.get('/home/check_preexisting_event', {
+            needle: $('#event_title').val(),
+            'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
+            'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
+            'place_id': $('#plan_location_id').val()
+        }, function (data) {
+            if (data != 'available') {
+                // Alert the error message from the server
+                alert(data);
+                
+                // Focus and select the event title
+                $('#event_title').focus();
+                $('#event_title').select();
+            } else {
+                // Get the privacy
+                var privacy;
+                if ($('#plan_event_select_wrapper .selected_event').length == 0) {
+                    privacy = $('#plan_privacy_wrapper .divset_selected').attr('priv_val');
+                } else {
+                    privacy = $('#plan_event_select_wrapper .selected_event').attr('priv_type');
+                }
+            }
+        
+            // Submit the plan
+            $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
+                'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
+                'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
+                'privacy': privacy
+            } ,function (data) {
+                // Hide and reset the modal
+                $('#create_plan_content').hide('fast', function () {
+                    // Clear the plan modal
+                    reset_plan_modal();
+            
+                    // Open the conflict window or the invite window
+                    open_conflict_invite(data, privacy);
+                });
+                
+                // Refresh the plan list.
+                populate_plan_panel();
+            });
+        });
     });
 }
 
@@ -276,67 +315,6 @@ function goto_plan_day_offset(offset, callback) {
             callback();
         }
     }
-}
-
-// Submits the plan and closes the window (also opens the invite window)
-// from_just_go should be set if this function is called from the "just go" button
-function submit_plan(from_just_go) {
-    // Make sure a new event name isn't already taken
-    if ($('#event_title').val() != '') {
-        $.get('/home/check_preexisting_event', {
-            needle: $('#event_title').val(),
-            'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-            'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
-            'place_id': $('#plan_location_id').val()
-        }, function (data) {
-            if (data != 'available') {
-                // Alert the error message from the server
-                alert(data);
-                
-                // Focus and select the event title
-                $('#event_title').focus();
-                $('#event_title').select();
-            } else {
-                submit_plan_helper(from_just_go);
-            }
-        });
-    } else {
-        submit_plan_helper(from_just_go)
-    }
-}
-
-// Encapsulates some of the submit code so it can be run from multiple locations in the submit function
-function submit_plan_helper(from_just_go) {
-    // Get the privacy setting from either the divSet or the <select>
-    var privacy;
-    if (from_just_go) {
-        // Plan submitted by clicking on just go. Use open privacy
-        privacy = 'open';
-    } else {
-        // Plan submitted normally
-        if ($('#plan_event_select_wrapper .selected_event').length == 0) {
-            privacy = $('#plan_privacy_wrapper .divset_selected').attr('priv_val');
-        } else {
-            privacy = $('#plan_event_select_wrapper .selected_event').attr('priv_type');
-        }
-    }
-        
-    $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
-        'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-        'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
-        'privacy': privacy
-    } ,function (data) {
-        // Hide and reset the modal
-        $('#create_plan_content').hide('fast', function () {
-            // Clear the plan modal
-            reset_plan_modal();
-            
-            open_conflict_invite(data, privacy);
-        });
-                
-        // Refresh the plan list.
-        populate_plan_panel();
-    });
 }
 
 // Opens the invite and/or conflict panel based on the given data
