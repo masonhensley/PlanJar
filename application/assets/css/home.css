@@ -236,7 +236,7 @@ a {
     bottom: 0px;
 }
 
-.back_to_plan, .back_to_groups {
+.back_to_plan, .back_to_groups, .back_to_search {
     text-align: center;
     padding: 8px;
     position: absolute;

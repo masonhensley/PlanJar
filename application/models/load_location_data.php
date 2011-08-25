@@ -9,7 +9,7 @@ class Load_location_data extends CI_Model
         parent::__construct();
     }
 
-    function _display_location_info($place_id, $day, $selected_groups, $back_to_plan, $back_to_groups)
+    function _display_location_info($place_id, $day, $selected_groups, $back_to_plan, $back_to_groups, $back_to_search)
     {
         if (!$day)  // set the day correctly if null
         {
@@ -39,7 +39,7 @@ class Load_location_data extends CI_Model
             'place_name' => $place_data_array['place_name']
         );
 
-        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $day_display, $back_to_plan, $back_to_groups);
+        $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $day_display, $back_to_plan, $back_to_groups, $back_to_search);
 
         return array('html' => $return_html, 'graph_data' => $graph_return_data);
     }
@@ -171,7 +171,7 @@ class Load_location_data extends CI_Model
         return $conversion_array;
     }
 
-    function get_place_html($place_info, $place_data_array, $sql_date, $display_day, $back_to_plan, $back_to_groups)
+    function get_place_html($place_info, $place_data_array, $sql_date, $display_day, $back_to_plan, $back_to_groups, $back_to_search)
     {
         if (strlen($place_info['distance']) > 3)
         {
@@ -259,6 +259,10 @@ class Load_location_data extends CI_Model
         {
             ?>
             <div class="back_to_groups" style="position: absolute; top: 0px; right: 0px;">Back to groups/networks</div>
+            <?php
+        } else if ($back_to_search) {
+            ?>
+            <div class="back_to_search" style="position: absolute; top: 0px; right: 0px;">Back to search</div>
             <?php
         }
         return ob_get_clean();

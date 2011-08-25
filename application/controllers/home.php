@@ -310,10 +310,11 @@ class Home extends CI_Controller
         $place_id = $this->input->get('place_id');
         $back_to_plan = $this->input->get('back_to_plan');
         $back_to_groups = $this->input->get('back_to_groups');
+        $back_to_search = $this->input->get('back_to_search');
         $date = $this->input->get('date');
 
         $selected_groups = $this->input->get('selected_groups');
-        $return_array = $this->load_location_data->_display_location_info($place_id, $date, $selected_groups, $back_to_plan == 'true', $back_to_groups == 'true');
+        $return_array = $this->load_location_data->_display_location_info($place_id, $date, $selected_groups, $back_to_plan == 'true', $back_to_groups == 'true', $back_to_search == 'true');
         echo json_encode($return_array);
     }
 

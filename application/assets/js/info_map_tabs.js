@@ -271,6 +271,12 @@ function initialize_location_info(data) {
         $('.selected_location_tab').removeClass('selected_location_tab');
         display_info();
     });
+    
+    // Back to search click handler (not always visible)
+    $('.back_to_search').click(function () {
+        deselect_all_controlls();
+        $('#find_places').click();
+    });
 }
 
 // Sets up the plan info view
