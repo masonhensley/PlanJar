@@ -46,7 +46,17 @@ function display_info(bypass, arg) {
     if ($('#find_places.selected').length > 0) {
         // Find a place
         
-        $('#info_content').html('');
+        $.get('/home/show_place_search', function(data) {
+            $('#info_content').html(data);
+            
+            // In field labels
+            $('#info_content label').inFieldLabels();
+            
+            // Set up the autocomplete
+            $('#search_for_places').autocomplete({
+                
+                });
+        });
     } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
         // Location selected
         

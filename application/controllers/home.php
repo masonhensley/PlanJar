@@ -1,5 +1,4 @@
 <?php
-
 // prevent direct script access
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -221,7 +220,7 @@ class Home extends CI_Controller
         $result = $this->db->query($query);
         $row = $result->row();
         $event_id = $row->event_id;
-        
+
         // insert into comments
         $user = $this->ion_auth->get_user();
         $query = "
@@ -737,6 +736,17 @@ class Home extends CI_Controller
         echo($this->plan_actions->get_plan_coords($plan_id));
     }
 
-}
+    // Returns HTML for an autocomplete box
+    public function show_place_search()
+    {
+        ?>
 
+        <div class="in-field_block" style="margin: 45% auto 0px">
+            <label for="search_for_places">Search for a place</label>
+            <input type="text" id="search_for_places"/>
+        </div>
+        <?php
+    }
+
+}
 ?>
