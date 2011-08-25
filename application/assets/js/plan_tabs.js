@@ -63,8 +63,13 @@ function load_comments(){
         $('.plan_comments').show('fast');
         
         $('#comment_area').click(function(){
-            $('#comment_area').val('');
-            $('#comment_area').blur();
+            if(!$(this).hasClass('comment_area_selected'))
+            {
+                $('#comment_area').addClass('comment_area_selected');
+                $('#comment_area').val('');
+                $('#comment_area').blur();
+            }
+            
         });
         
         $('.submit_comment').click(function(){
