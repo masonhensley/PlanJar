@@ -73,8 +73,11 @@ function load_comments(){
         });
         
         $('.submit_comment').click(function(){
-            $.get('/home/submit_comment', function(){
-                
+            $.get('/home/submit_comment', {
+                plan_id : $('.selected_plan').attr('plan_id'),
+                comment : $('#comment_area').val()
+            },
+            function(){
                 load_comments();
             });
         });
