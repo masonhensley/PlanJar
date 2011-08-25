@@ -10,7 +10,7 @@
             <input type="text" id="new_location_name" name="new_location_name"/>
         </div>
 
-        <div style="text-align: center; width: 100%; margin-top: 50px;">Drag the marker to the correct location.</div>
+        <div style="text-align: center; width: 100%; margin-top: 15px;">Drag the marker to the correct location.</div>
 
         <div id="new_location_map"></div>
 
@@ -21,7 +21,7 @@
         </div>
 
         <div class="right" style="text-align: center;">
-            <input type="button" id="submit_location" value="Go"/>
+            <input type="button" id="submit_location" value="Make a place"/>
         </div>
 
         <input type="hidden" id="new_location_category_id" name="new_location_category_id"/>
