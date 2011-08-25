@@ -226,7 +226,7 @@ class Home extends CI_Controller
         $query = "
             INSERT INTO plan_comments 
             (event_id, comment, user_id, time)
-            VALUES ($event_id, $comment, $user->id, NOW())
+            VALUES ($event_id, '$comment', $user->id, NOW())
             ";
         $this->db->query($query);
     }
