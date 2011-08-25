@@ -269,12 +269,6 @@ function populate_selectable_events() {
             }
             
             $('#plan_event_select_wrapper').html(data);
-            
-            // Hide and reset the description
-            $('#plan_description_wrapper').hide('fast', function() {
-                $('#plan_description').val('');
-                $('#plan_description').blur();
-            });
         
             // Event select click handler
             $('.selectable_event').click('click', function () {
