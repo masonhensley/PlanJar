@@ -691,3 +691,14 @@ a {
     float:right;
     margin-right:13px;
 }
+
+#find_places {
+    position: absolute;
+    right: 361px;
+    top: -48px;
+    border: 1px solid lightgray;
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    padding: 9px;
+    color: gray;
+    border-radius: 5px;
+}

@@ -54,8 +54,8 @@
         <script type="text/javascript" src="/application/assets/js/add_location_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/view_friends_plans.js"></script>
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
-
         <script type="text/javascript" src="/application/assets/js/plan_attending_panel.js"></script>
+        <script type="text/javascript" src="/application/assets/js/find_places.js"></script>
 
 
         <!-- D3 plugin -->
@@ -152,6 +152,7 @@
                 <?php
             }
             ?>
+            <div id="find_places">Find places</div>
             <div class="view_friends_plans">Friends' plans</div>
             <div  id="create_plan">Make a plan</div>
 
