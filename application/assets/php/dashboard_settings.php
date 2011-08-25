@@ -6,6 +6,7 @@
                 <form id="image_upload">
                     <input name="file_path" id="file_path" type="file"/>
                 </form>
+                <hr/>
             </td>
         </tr>
 
@@ -28,6 +29,7 @@
                         <input type="text" id="new_password_1"/>
                     </div>
                 </form>
+                <hr/>
             </td>
         </tr>
 
@@ -40,6 +42,7 @@
                         <input type="text" id="new_email" name="new_email"/>
                     </div>
                 </form>
+                <hr/>
             </td>
         </tr>
     </table>
