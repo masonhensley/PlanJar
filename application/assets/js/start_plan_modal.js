@@ -122,34 +122,35 @@ function initialize_plan_modal() {
         // Show and hide the necessary components
         $('#create_event, #submit_plan').hide('fast');
         $('#plan_events_wrapper, #plan_warning_message').show('fast');
-        
-        // Event title change handler
-        $('#event_title').keyup(function() {
-            if ($(this).val().length != '') {
-                // Deselect any selected event
-                $('.selected_event').removeClass('selected_event');
+    });
+    
+    // Event title change handler
+    $('#event_title').keyup(function() {
+        if ($(this).val().length != '') {
+            // Deselect any selected event
+            $('.selected_event').removeClass('selected_event');
                 
-                // Show and hide the necessary components
-                $('#plan_privacy_wrapper, #add_plan_description, #submit_plan').show('fast');
-                $('#plan_warning_message').hide('fast');
-            } else {
-                // Hide and reset the privacy
-                $('#plan_privacy_wrapper').hide('fast', function () {
-                    $('#plan_privacy_wrapper div:first').click();
-                });
+            // Show and hide the necessary components
+            $('#plan_privacy_wrapper, #add_plan_description, #submit_plan').show('fast');
+            $('#plan_warning_message').hide('fast');
+        } else {
+            // Hide and reset the privacy
+            $('#plan_privacy_wrapper').hide('fast', function () {
+                $('#plan_privacy_wrapper div:first').click();
+            });
                 
-                // Hide and reset the description
-                $('#plan_description_wrapper').hide('fast', function() {
-                    $('#plan_description').val('');
-                });
+            // Hide and reset the description
+            $('#plan_description_wrapper').hide('fast', function() {
+                $('#plan_description').val('');
+                $('#plan_description').blur();
+            });
                 
-                // Hide the buttons
-                $('#add_plan_description, #submit_plan').hide('fast');
+            // Hide the buttons
+            $('#add_plan_description, #submit_plan').hide('fast');
                 
-                // Show the warning
-                $('#plan_warning_message').show('fast');
-            }
-        });
+            // Show the warning
+            $('#plan_warning_message').show('fast');
+        }
     });
     
     // Initial privacy select
@@ -238,6 +239,12 @@ function populate_selectable_events() {
                 $('#event_title').blur();
                 $('#plan_privacy_wrapper').hide('fast');
                 $('#plan_privacy_wrapper div:first').click();
+                
+                // Hide and reset the description
+                $('#plan_description_wrapper').hide('fast', function() {
+                    $('#plan_description').val('');
+                    $('#plan_description').blur();
+                });
                 
                 // Show and hide the necessary controls
                 $('#plan_warning_message, #add_plan_description').hide('fast');
