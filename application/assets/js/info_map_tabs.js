@@ -34,6 +34,7 @@ function deselect_all_controlls(bypass_groups) {
     $('.selected_friend_plan').removeClass('selected_friend_plan');
     viewing_plan_location = false;
     $('#find_places').removeClass('selected');
+    found_location = false;
 }
 
 // Returns true if at least one controll is selected
@@ -42,6 +43,7 @@ function controlls_are_selected() {
 }
 
 // Displays information to the info box based on what's selected
+var found_location = false;
 function display_info(bypass, arg) {
     if ($('#find_places.selected').length > 0) {
         // Find a place
@@ -54,10 +56,31 @@ function display_info(bypass, arg) {
             
             // Set up the autocomplete
             $('#search_for_places').autocomplete({
+                minLength: 2,
+                source: function(request, response) {
+                    $.get('/home/find_places', {
+                        needle: request.term,
+                        latitude: myLatitude,
+                        longitude: myLongitude
+                    }, function(data) {
+                        // Parse the JSON text.
+                        data = $.parseJSON(data);
                 
-                });
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                value: item.name,
+                                id: item.id
+                            }
+                        }));
+                    });
+                },
+                select: function(event, ui) {
+                    found_location = ui.item.id;
+                }
+            });
         });
-    } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
+    } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false || found_location !== false) {
         // Location selected
         
         // setup spinner
@@ -65,10 +88,14 @@ function display_info(bypass, arg) {
         var target = document.getElementById('home_data_spinner');
         var location_spinner = new Spinner(opts).spin(target);
                 
-        // Get the correct place id and back button value
+        // Get the correct place id and back button values
         var place_id;
         var back_to_plan = false;
-        if (viewing_plan_location === false) {
+        var back_to_search = false;
+        if (found_location !== false) {
+            place_id = found_location;
+            back_to_search = true;
+        } else if (viewing_plan_location === false) {
             place_id = $('.selected_location_tab').attr('place_id');
         } else {
             place_id = viewing_plan_location;
@@ -80,6 +107,7 @@ function display_info(bypass, arg) {
             'date': get_selected_day(),
             'selected_groups': get_selected_groups(),
             'back_to_plan': back_to_plan,
+            'back_to_search': back_to_search,
             'back_to_groups': $('.selected_location_tab').length > 0
         }, function (data) {
             initialize_location_info(data);
