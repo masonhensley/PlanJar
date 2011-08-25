@@ -163,8 +163,7 @@ function initialize_plan_modal() {
     });
     
     // Description change handler
-    $('#add_plan_decription').keyup(function() {
-        console.log($(this).val());
+    $('#plan_decription').keyup(function() {
         if ($(this).val() != '') {
             $('#plan_warning_message').hide('fast');
             $('#submit_plan').show('fast');
