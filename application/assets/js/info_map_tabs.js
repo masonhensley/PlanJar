@@ -39,7 +39,7 @@ function deselect_all_controlls(bypass_groups) {
 
 // Returns true if at least one controll is selected
 function controlls_are_selected() {
-    return $('.selected_group, .network_active, .selected_location_tab, .selected_plan, .selected_friend_plan').length > 0;
+    return $('.selected_group, .network_active, .selected_location_tab, .selected_plan, .selected_friend_plan').length > 0 || found_location !== false;
 }
 
 // Displays information to the info box based on what's selected
