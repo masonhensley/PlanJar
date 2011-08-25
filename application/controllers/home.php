@@ -210,6 +210,11 @@ class Home extends CI_Controller
         $comments_html = $this->load_plan_comments->display_comments($plan_id);
         echo $comments_html;
     }
+    
+    public function submit_comment()
+    {
+        
+    }
 
     public function attending_list()
     {

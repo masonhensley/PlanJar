@@ -61,5 +61,22 @@ function load_comments(){
         $('.bottom_right_section').hide('fast');
         $('.plan_comments').html(data);
         $('.plan_comments').show('fast');
+        
+        $('#comment_area').click(function(){
+            if(!$(this).hasClass('comment_area_selected'))
+            {
+                $('#comment_area').addClass('comment_area_selected');
+                $('#comment_area').val('');
+            }
+            
+        });
+        
+        $('.submit_comment').click(function(){
+            $.get('/home/submit_comment', function(){
+                
+                load_comments();
+            });
+        });
+        
     });
 }
