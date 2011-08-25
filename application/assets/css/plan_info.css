@@ -150,10 +150,11 @@
     width: 49%;
     background-color: white;
     text-align: center;
-    max-height:245px;
+    max-height:305px;
     overflow:auto;
 }
 .user_comment{
+    position:relative;
     padding-top:2px;
     text-align: left;
     height:58px;
@@ -182,7 +183,8 @@
     font-size:12px;
 }
 .comment_display_time{
-    font-size:12px;
+    font-size:9px;
+    color:darkgray;
     position:absolute;
     bottom:0px;
     right:0px;
