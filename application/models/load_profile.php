@@ -30,7 +30,7 @@ class Load_profile extends CI_Model
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
-                <?php $this->insert_profile_picture();
+                <?php $this->insert_profile_picture(80);
                 ?>
             </div>
             <div class="profile_user_information">
@@ -238,11 +238,11 @@ class Load_profile extends CI_Model
         return ob_get_clean();
     }
 
-    function insert_profile_picture()
+    function insert_profile_picture($dim)
     {
         $logo_text = "logo_" . rand(1, 25) . ".png";
         ?>
-        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" />
+        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" style="width:<?php echo $dim;?>px;"/>
         <?php
     }
 
