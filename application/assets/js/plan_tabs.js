@@ -26,21 +26,6 @@ function initialize_plan_panel(){
         display_info();
     });
     
-    // Submit comment click handler
-    $('body').delegate('.submit_comment', 'click', function(){
-        if($('#comment_area').val() != 'Leave a comment for this event...')
-        {
-            $.get('/home/submit_comment', {
-                plan_id : $('.selected_plan').attr('plan_id'),
-                comment : $('#comment_area').val()
-            },
-            function(){
-                load_comment_section();
-            });       
-        }
-        
-    });
-    
     // View map
     $('.view_plan_map').click(function() {
         // Click the first plan in the set
@@ -75,6 +60,21 @@ function load_comment_section()
     $('.bottom_right_section').hide('fast');
     $('.comment_box').show('fast');
     $('#comment_area').val('Leave a comment for this event...');
+    
+    // Submit comment click handler
+    $('body').delegate('.submit_comment', 'click', function(){
+        if($('#comment_area').val() != 'Leave a comment for this event...')
+        {
+            $.get('/home/submit_comment', {
+                plan_id : $('.selected_plan').attr('plan_id'),
+                comment : $('#comment_area').val()
+            },
+            function(){
+                load_comment_section();
+            });       
+        }
+        
+    });
     
     $('#comment_area').click(function(){ // click handler for the textarea
         if(!$(this).hasClass('comment_area_selected'))
