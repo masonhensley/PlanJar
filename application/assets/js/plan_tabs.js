@@ -72,6 +72,8 @@ function load_comments(){
             }
         });
         
+        
+    }).complete(function(){
         $('.submit_comment').click(function(){
             $.get('/home/submit_comment', {
                 plan_id : $('.selected_plan').attr('plan_id'),
