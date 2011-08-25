@@ -168,6 +168,7 @@
 }
 .user_comment_picture{
     float:left;
+    margin-top:5px;
 }
 .user_comment_top_bar{
     float:left;
