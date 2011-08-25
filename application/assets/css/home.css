@@ -351,6 +351,12 @@ a {
     background-color: white;
     text-align: center;
 }
+#comment_area{
+    float:left;
+    height:45px;
+    margin-top:2px;
+    color:gray;
+}
 .plan_comments{
     display:none;
     float: right;
