@@ -5,10 +5,9 @@ $(function() {
 // Sets up the plan panel
 function initialize_plan_panel(){
     // Click handler
-    $('.plan_content').click(function() {
-      
+    $('.plan_content').click(function(event_object, skip_info_tab) {
         // Show the info tab if a plan wasn't already selected
-        if ($('.selected_plan').length == 0) {
+        if ($('.selected_plan').length == 0 && skip_info_tab == undefined) {
             show_data_container('#info_content'); 
         }
         
@@ -24,8 +23,7 @@ function initialize_plan_panel(){
         }
         
         // Display the info box
-        display_info(); 
-        
+        display_info();
     });
     
     // Submit comment click handler
@@ -46,7 +44,9 @@ function initialize_plan_panel(){
     // View map
     $('.view_plan_map').click(function() {
         // Click the first plan in the set
-        $(this).parent().next().not('.selected_plan').click();
+        $(this).parent().next().not('.selected_plan').trigger('click', {
+            'skip_info_tab': true
+        });
         show_data_container('#map_content'); 
         
         return false;
