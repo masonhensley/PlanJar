@@ -143,6 +143,7 @@
     width:235px;
     color:gray;
     overflow: hidden;
+    font-size: 12px;
 }
 
 .delete_comment{

@@ -99,6 +99,14 @@ function load_comments(){
     function(data){
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
+        if($('.user_comment').hasClass('delete_comment'))
+        {
+            $('.delete_comment').click(function(){
+                    $.get('/home/delete_comment', {
+                        
+                    })
+                });
+        }
     });
 }
 

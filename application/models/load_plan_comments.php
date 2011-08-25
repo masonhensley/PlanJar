@@ -18,7 +18,7 @@ Class Load_plan_comments extends CI_Model
 
         // select the comments for the given event
         $query = "
-                SELECT comment, user_id, time
+                SELECT comment, user_id, time, id
                 FROM plan_comments
                 WHERE event_id=$event_id
                 ORDER BY time DESC
@@ -45,7 +45,7 @@ Class Load_plan_comments extends CI_Model
         $display_time = $user_comment->time;
         $this->load->model('load_profile');
         ?>
-        <div class="user_comment" user_id="<?php echo $user_comment->user_id; ?>">
+        <div class="user_comment" comment_id="<?php echo $user_comment->id;?>">
             <div class="user_comment_picture">
                 <?php
                 $this->load_profile->insert_profile_picture(55);
