@@ -21,7 +21,7 @@ Class Load_plan_comments extends CI_Model
                 SELECT comment, user_id, time
                 FROM plan_comments
                 WHERE event_id=$event_id
-                ORDER BY time ASC
+                ORDER BY time DESC
                 ";
         $result = $this->db->query($query);
 
