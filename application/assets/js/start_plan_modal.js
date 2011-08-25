@@ -265,6 +265,7 @@ function populate_selectable_events() {
             if ($('.selected_event').length > 0) {
                 // Hide the submit button
                 $('#submit_plan').hide('fast');
+                $('#plan_warning_message').show('fast');
             }
             
             $('#plan_event_select_wrapper').html(data);
