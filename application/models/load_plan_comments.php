@@ -77,7 +77,7 @@ Class Load_plan_comments extends CI_Model
             </div>
             <div class="comment_display_time">
                 <?php
-                echo $user_comment->time;
+                echo $display_time;
                 ?>
             </div>
         </div>
