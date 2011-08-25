@@ -45,7 +45,11 @@ function initialize_plan_panel(){
             }
         });
         
-        load_comments();
+        if(!$(this).hasClass('selected_plan'))
+        {
+            load_comments();        
+        }
+        
     });
     
     // Submit comment click handler
