@@ -71,10 +71,10 @@ function load_comments(){
     }, 
     function(data){
         
-        $('.plan_comments').html(data);
+        $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
         
-        $('#comment_area').click(function(){
+        $('#comment_area').click(function(){ // click handler for the textarea
             if(!$(this).hasClass('comment_area_selected'))
             {
                 $('#comment_area').addClass('comment_area_selected');
