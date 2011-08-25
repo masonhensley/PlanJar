@@ -31,24 +31,7 @@ function initialize_plan_panel(){
         // Display the info box
         display_info(); 
         
-        // Load the comment box and comments
-        $('.bottom_right_section').hide('fast');
-        $('.comment_box').show('fast');
-        
-        
-        $('#comment_area').click(function(){ // click handler for the textarea
-            if(!$(this).hasClass('comment_area_selected'))
-            {
-                $('#comment_area').addClass('comment_area_selected');
-                $('#comment_area').val('');
-                document.getElementById("comment_area").select()
-            }
-        });
-        
-        if($(this).hasClass('selected_plan'))
-        {
-            load_comments();        
-        }
+        load_comment_section();
         
     });
     
@@ -86,6 +69,28 @@ function populate_plan_panel(callback) {
     });
 }
 
+function load_comment_section()
+{
+    // Load the comment box and comments
+    $('.bottom_right_section').hide('fast');
+    $('.comment_box').show('fast');
+        
+        
+    $('#comment_area').click(function(){ // click handler for the textarea
+        if(!$(this).hasClass('comment_area_selected'))
+        {
+            $('#comment_area').addClass('comment_area_selected');
+            $('#comment_area').val('');
+            document.getElementById("comment_area").select()
+        }
+    });
+        
+    if($(this).hasClass('selected_plan'))
+    {
+        load_comments();
+    }
+}
+
 function load_comments(){
     $.get('/home/plan_comments', {
         plan_id : $('.selected_plan').attr('plan_id')
@@ -94,4 +99,10 @@ function load_comments(){
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
     });
+}
+
+function show_invite_link(){
+     $('.plan_comments').hide();
+    $('.comment_box').hide('fast');
+    $('.bottom_right_section').show('fast');
 }
