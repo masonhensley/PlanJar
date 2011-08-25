@@ -350,7 +350,13 @@ function populate_popular_locations(skip_update_map, callback) {
         
         // Populate the list
         $('.suggested_locations').html(data.html);
-            
+          
+        // Places link click handler
+        $('#places_link').click(function() {
+            show_data_container('#map_content');
+            return false;
+        });
+          
         // Location tab click handler
         $('div.location_tab').click(function() {
             
