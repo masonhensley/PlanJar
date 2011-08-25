@@ -44,8 +44,11 @@ Class Load_plan_comments extends CI_Model
         $logged_in_user = $this->ion_auth->get_user();
         $comment_user = $this->ion_auth->get_user($user_comment->user_id);
         
-        $display_time = $user_comment->time;
+        $display_time =date("F j, Y, g:i a", strtotime( $user_comment->time));
+        
         $this->load->model('load_profile');
+        
+        $tracker = 0;
         ?>
         <div class="user_comment" comment_id="<?php echo $user_comment->id;?>">
             <div class="user_comment_picture">

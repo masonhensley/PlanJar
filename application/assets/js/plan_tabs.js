@@ -59,7 +59,6 @@ function load_comment_section()
         $('.submit_comment').click(function(){
             if($('#comment_area').val() != 'Leave a comment for this event...')
             {
-                console.log('helo2');
                 $.get('/home/submit_comment', {
                     plan_id : $('.selected_plan').attr('plan_id'),
                     comment : $('#comment_area').val()
