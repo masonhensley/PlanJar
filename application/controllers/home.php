@@ -235,7 +235,7 @@ class Home extends CI_Controller
     {
         $comment_id = $this->input->get('comment_id');
         $query = "
-                DELETE FROM user_comments WHERE id=$comment_id
+                DELETE FROM plan_comments WHERE id=$comment_id
                 ";
         $this->db->query($query);
     }
