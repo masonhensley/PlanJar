@@ -31,13 +31,16 @@ function initialize_plan_panel(){
     // Submit comment click handler
     $('body').delegate('.submit_comment', 'click', function(){
         if($('#comment_area').val() == 'Leave a comment for this event...')
-        $.get('/home/submit_comment', {
-            plan_id : $('.selected_plan').attr('plan_id'),
-            comment : $('#comment_area').val()
-        },
-        function(){
-            load_comment_section();
-        });
+        {
+            $.get('/home/submit_comment', {
+                plan_id : $('.selected_plan').attr('plan_id'),
+                comment : $('#comment_area').val()
+            },
+            function(){
+                load_comment_section();
+            });       
+        }
+        
     });
     
     // View map
