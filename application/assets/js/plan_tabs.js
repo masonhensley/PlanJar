@@ -8,7 +8,8 @@ function initialize_plan_panel(){
     $('.plan_content').click(function() {
         
         // fill the comment box
-        $('#comment_area').val('Leave a comment for this event...')
+        $('#comment_area').removeClass('comment_area_selected');
+        $('#comment_area').val('Leave a comment for this event...');
         
         // Show the info tab if a plan wasn't already selected
         if ($('.selected_plan').length == 0) {
