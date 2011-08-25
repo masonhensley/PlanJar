@@ -9,5 +9,5 @@ function settings_setup() {
 
 // Initializer
 function initialize_settings() {
-    
+    $('#settings_content label').inFieldLabels();
 }
