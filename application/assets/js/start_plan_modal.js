@@ -419,7 +419,7 @@ function get_distance_between(lat0, long0, lat1, long1) {
 // Resets and clears the modal
 function reset_plan_modal() {
     // Clear all inputs
-    $('#create_plan_content').filter('input[type="text"], textarea').val('');
+    $('#create_plan_content').filter('input[type!="button"], textarea').val('');
     
     // Clear the divsets
     $('#create_plan_content .divset_selected').removeClass('divset_selected');
