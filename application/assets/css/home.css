@@ -355,7 +355,7 @@ a {
     float:left;
     height:45px;
     margin-top:2px;
-    color:gray;
+    color:gray !important;
 }
 .plan_comments{
     display:none;
