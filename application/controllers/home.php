@@ -213,7 +213,22 @@ class Home extends CI_Controller
     
     public function submit_comment()
     {
+        $plan_id = $this->input->get('plan_id');
+        $comment = $this->input->get('comment');
         
+        // get the event_id
+        $query = "SELECT event_id FROM plans WHERE id=$plan_id";
+        $result = $this->db->query($query);
+        $row = $result->row();
+        $event_id = $row->event_id;
+        
+        $user = $this->ion_auth->get_user();
+        $query = "
+            INSERT INTO plan_comments 
+            (event_id, comment, user_id, time)
+            VALUES ($event_id, $comment, $user->id, NOW())
+                
+            ";
     }
 
     public function attending_list()
