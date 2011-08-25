@@ -127,8 +127,8 @@ function initialize_plan_modal() {
         // Load the selectable events
         populate_selectable_events();
         
-        // Show the event div and hide the first set of buttons
-        $('#plan_place_location_buttons').hide('fast');
+        // Show the event div and hide the buttons
+        $('#create_event, #submit_plan').hide('fast');
         $('#plan_events_wrapper').show('fast');
         
         // Show/hide the privacy settings
