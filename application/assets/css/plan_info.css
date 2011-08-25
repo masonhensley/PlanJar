@@ -122,8 +122,32 @@
 }
 
 /* USER COMMENT SECTION */
+.comment_box{
+    display:none;
+    float: right;
+    width: 49%;
+    min-height: 54px;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    border-top:1px solid darkgray;
+    margin-top:7px;
+    background-color: white;
+    text-align: center;
+}
+#comment_area{
+    float:left;
+    height:45px;
+    margin-top:2px;
+    width:228px;
+    color:gray !important;
+}
 .plan_comments{
-    
+    display:none;
+    float: right;
+    width: 49%;
+    background-color: white;
+    text-align: center;
 }
 .user_comment{
     padding-top:2px;
@@ -133,7 +157,7 @@
     border-top:none;
 }
 .user_comment_body{
-
+    float:left;
 }
 .user_comment_picture{
     float:left;

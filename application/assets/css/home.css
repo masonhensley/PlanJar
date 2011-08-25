@@ -338,34 +338,7 @@ a {
     background-color: white;
     text-align: center;
 }
-.comment_box{
-    display:none;
-    float: right;
-    width: 49%;
-    min-height: 54px;
-    border-left: 1px solid darkgray;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
-    border-top:1px solid darkgray;
-    margin-top:7px;
-    background-color: white;
-    text-align: center;
-}
-#comment_area{
-    float:left;
-    height:45px;
-    margin-top:2px;
-    width:228px;
-    color:gray !important;
-}
-.plan_comments{
-    display:none;
-    float: right;
-    width: 49%;
-    margin-top:7px;
-    background-color: white;
-    text-align: center;
-}
+
 .comment_area_selected{
     color:black;
 }
