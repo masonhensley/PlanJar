@@ -415,7 +415,6 @@ function get_distance_between(lat0, long0, lat1, long1) {
 function reset_plan_modal() {
     // Clear all inputs
     $('#create_plan_content input[type!="button"], #create_plan_content textarea').val('');
-    console.log($('#create_plan_content input[type!="button"], #create_plan_content textarea'));
     
     // Clear the divsets
     $('#create_plan_content .divset_selected').removeClass('divset_selected');
@@ -431,7 +430,7 @@ function reset_plan_modal() {
     
     // Hide everything
     $('#plan_events_wrapper, #plan_privacy_wrapper, #plan_description_wrapper').css('display', 'none');
-    $('#create_plan_content input[type="button"]').css('display', 'none');
+    $('#create_plan_content input[type="button"]').not('#cancel_plan').css('display', 'none');
     
     // Show the warning
     $('#plan_warning_message').css('display', '');
