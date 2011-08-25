@@ -62,9 +62,9 @@ function load_comments(){
         $('.plan_comments').html(data);
         $('.plan_comments').show('fast');
         
-        $('#comment_text_area').click(function(){
-            $('#comment_text_area').val('');
-            $('#comment_text_area').blur();
+        $('#comment_area').click(function(){
+            $('#comment_area').val('');
+            $('#comment_area').blur();
         });
         
         $('.submit_comment').click(function(){
