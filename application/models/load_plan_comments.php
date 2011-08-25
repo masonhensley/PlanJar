@@ -53,7 +53,7 @@ Class Load_plan_comments extends CI_Model
             </div>
             <div class="user_comment_top_bar">
                 <?php
-                echo $user->first_name . " " . $user->last_name . " says";
+                echo $user->first_name . " " . $user->last_name . " says...";
                 ?>
             </div>
 
