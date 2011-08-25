@@ -6,6 +6,10 @@ $(function() {
 function initialize_plan_panel(){
     // Click handler
     $('.plan_content').click(function() {
+        
+        // fill the comment box
+        $('#comment_area').val('Leave a comment for this event...')
+        
         // Show the info tab if a plan wasn't already selected
         if ($('.selected_plan').length == 0) {
             show_data_container('#info_content'); 
@@ -29,6 +33,8 @@ function initialize_plan_panel(){
         // Load the comment box and comments
         $('.bottom_right_section').hide('fast');
         $('.comment_box').show('fast');
+        $('#comment_area').val('Leave a comment for this event...')
+        
         
         $('#comment_area').click(function(){ // click handler for the textarea
             if(!$(this).hasClass('comment_area_selected'))
@@ -81,10 +87,7 @@ function load_comments(){
         plan_id : $('.selected_plan').attr('plan_id')
     }, 
     function(data){
-        
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
-        
-        
     });
 }
