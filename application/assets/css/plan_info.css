@@ -116,7 +116,7 @@
 
 /* USER COMMENT SECTION */
 .submit_comment{
-    width:59px;
+    width:57px;
     height:36px;
     text-align:center;
     float:right;
@@ -150,6 +150,8 @@
     width: 49%;
     background-color: white;
     text-align: center;
+    max-height:245px;
+    overflow:auto;
 }
 .user_comment{
     padding-top:2px;
