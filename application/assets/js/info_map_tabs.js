@@ -43,8 +43,13 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
-    if ($('#find_places.selected').length > 0) {
-        // Find a place
+    // show the invite link and hide plan comments
+    if(!$('.plan_content').hasClass('plan_selected'))
+    {
+        show_invite_link();
+    }
+    
+    if ($('#find_places.selected').length > 0) {    // Find a place
         
         $.get('/home/show_place_search', function(data) {
             $('#info_content').html(data);
