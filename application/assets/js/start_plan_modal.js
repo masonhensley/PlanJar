@@ -159,7 +159,7 @@ function initialize_plan_modal() {
     $('#add_plan_description').click(function() {
         // Show and hide the necessary components
         $('#add_plan_description, #submit_plan').hide('fast');
-        $('#plan_warning_message').show('fast');
+        $('#plan_warning_message, #plan_description_wrapper').show('fast');
     });
     
     // Description change handler
