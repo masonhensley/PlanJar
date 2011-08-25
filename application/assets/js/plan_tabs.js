@@ -26,21 +26,6 @@ function initialize_plan_panel(){
         display_info();
     });
     
-    // Submit comment click handler
-    $('body').delegate('.submit_comment', 'click', function(){
-        if($('#comment_area').val() != 'Leave a comment for this event...')
-        {
-            $.get('/home/submit_comment', {
-                plan_id : $('.selected_plan').attr('plan_id'),
-                comment : $('#comment_area').val()
-            },
-            function(){
-                load_comment_section();
-            });       
-        }
-        
-    });
-    
     // View map
     $('.view_plan_map').click(function() {
         // Click the first plan in the set
@@ -68,6 +53,23 @@ function populate_plan_panel(callback) {
 
 function load_comment_section()
 {
+    if(!$('.submit_comment').hasClass('handler_loaded'))
+    {
+        // Submit comment click handler
+        $('.submit_comment').click(function(){
+            if($('#comment_area').val() != 'Leave a comment for this event...')
+            {
+                $.get('/home/submit_comment', {
+                    plan_id : $('.selected_plan').attr('plan_id'),
+                    comment : $('#comment_area').val()
+                }).complete(function(){
+                    load_comment_section();
+                });       
+            }
+        });
+        $('.submit_comment').addClass('handler_loaded');
+    }
+    
     // fill the comment box
     $('#comment_area').removeClass('comment_area_selected');
     
@@ -81,7 +83,7 @@ function load_comment_section()
         {
             $('#comment_area').addClass('comment_area_selected');
             $('#comment_area').val('');
-            document.getElementById("comment_area").select()
+            document.getElementById("comment_area").select()  
         }
     });
     load_comments();
@@ -94,6 +96,16 @@ function load_comments(){
     function(data){
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
+     
+        
+                
+            $('.delete_comment').confirmDiv(function(tehelement){
+                $.get('/home/delete_comment', {
+                    comment_id : $(tehelement).parent().parent().attr('comment_id')
+                }).complete(function(){
+                    load_comments()
+                });
+            })
     });
 }
 

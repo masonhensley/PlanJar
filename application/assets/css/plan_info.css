@@ -12,7 +12,7 @@
     position:absolute;
     top:38px;
     text-align: left;
-    
+
     width:327px;
     height:206px;
     padding-top:18px;
@@ -28,7 +28,7 @@
     top:37px;
     width:271px;
     height:225px;
-    
+
 }
 
 .plan_gender_graph{
@@ -112,11 +112,84 @@
     left:50px;
 }
 
+
+
+/* USER COMMENT SECTION */
 .submit_comment{
-    width:59px;
+    width:57px;
     height:36px;
     text-align:center;
     float:right;
     padding-right:1px;
     padding-top:18px;
+}
+.comment_box{
+    display:none;
+    float: right;
+    width: 49%;
+    min-height: 54px;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    border-top:1px solid darkgray;
+    margin-top:7px;
+    background-color: white;
+    text-align: center;
+}
+#comment_area{
+    float:left;
+    height:45px;
+    margin-top:2px;
+    margin-left:2px;
+    width:228px;
+    color:gray !important;
+}
+.plan_comments{
+    display:none;
+    float: right;
+    width: 49%;
+    background-color: white;
+    text-align: center;
+    max-height:305px;
+    overflow:auto;
+}
+.user_comment{
+    position:relative;
+    padding-top:2px;
+    text-align: left;
+    height:66px;
+    border:1px solid gray;
+    border-top:none;
+}
+.user_comment_body{
+    float:left;
+    width:216px;
+    font-size:12px;
+}
+.user_comment_picture{
+    float:left;
+    margin-top:5px;
+}
+.user_comment_top_bar{
+    float:left;
+    width:216px;
+    color:gray;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.delete_comment{
+    position:absolute;
+    top:0px;
+    right:0px;
+    color:red;
+    float:right;
+    font-size:12px;
+}
+.comment_display_time{
+    font-size:9px;
+    color:darkgray;
+    position:absolute;
+    bottom:0px;
+    right:0px;
 }

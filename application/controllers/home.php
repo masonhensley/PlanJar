@@ -214,6 +214,7 @@ class Home extends CI_Controller
     {
         $plan_id = $this->input->get('plan_id');
         $comment = $this->input->get('comment');
+        $comment = mysql_real_escape_string($comment);
 
         // get the event_id
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
@@ -228,6 +229,15 @@ class Home extends CI_Controller
             (event_id, comment, user_id, time)
             VALUES ($event_id, '$comment', $user->id, NOW())
             ";
+        $this->db->query($query);
+    }
+
+    public function delete_comment()
+    {
+        $comment_id = $this->input->get('comment_id');
+        $query = "
+                DELETE FROM plan_comments WHERE id=$comment_id
+                ";
         $this->db->query($query);
     }
 
