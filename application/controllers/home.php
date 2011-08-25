@@ -214,6 +214,7 @@ class Home extends CI_Controller
     {
         $plan_id = $this->input->get('plan_id');
         $comment = $this->input->get('comment');
+        $comment = mysql_real_escape_string($comment);
 
         // get the event_id
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
