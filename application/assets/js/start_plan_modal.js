@@ -56,8 +56,10 @@ function initialize_plan_modal() {
         populate_selectable_events();
         
         if (plan_time_place_valid()) {
-            // Show the necessary buttons
-            $('#create_event, #submit_plan').show('fast');
+            if (!$('#plan_event_select_wrapper').is(':visible')) {
+                // Show the necessary buttons
+                $('#create_event, #submit_plan').show('fast');
+            }
             
             // Hide the warning
             $('#plan_warning_message').hide('fast');
