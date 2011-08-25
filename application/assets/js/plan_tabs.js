@@ -59,8 +59,9 @@ function load_comments(){
     }, 
     function(data){
         $('.bottom_right_section').hide('fast');
-        $('.comment_box').html(data);
         $('.comment_box').show('fast');
+        $('.plan_comments').html(data);
+        $('.plan_comments').show('fast');
         
         $('#comment_area').click(function(){
             if(!$(this).hasClass('comment_area_selected'))
@@ -80,6 +81,9 @@ function load_comments(){
                 load_comments();
             });
         });
+    });
+    
+    $.get('/home/load_comments', function(){
         
     });
 }
