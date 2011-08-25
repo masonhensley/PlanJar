@@ -101,7 +101,7 @@ function load_comments(){
         $('.delete_comment').click(function(){
                 
             $.get('/home/delete_comment', {
-                comment_id : $(this).parent().attr('comment_id')
+                comment_id : $(this).parent().parent().attr('comment_id')
             }).complete(function(){
                 load_comments()
             });
