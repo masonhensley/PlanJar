@@ -238,8 +238,8 @@ function populate_selectable_events() {
                 $('#event_title').blur();
                 $('#plan_privacy_wrapper').hide('fast');
                 
-                // Show the submit button
-                $('#plan_warning_message').hide('fast');
+                // Show and hide the necessary controls
+                $('#plan_warning_message, #add_plan_description').hide('fast');
                 $('#submit_plan').show('fast');
             });
         });
