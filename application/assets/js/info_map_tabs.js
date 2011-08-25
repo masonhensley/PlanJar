@@ -71,7 +71,7 @@ function display_info(bypass, arg) {
                         // Parse the JSON text.
                         data = $.parseJSON(data);
                 
-                        console.log($.map(data, function (item) {
+                        response($.map(data.data, function (item) {
                             return {
                                 label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
                                 value: item.name,
