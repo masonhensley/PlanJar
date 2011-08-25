@@ -189,7 +189,7 @@ function plan_time_place_valid() {
 
 // Shows/hides the necessary buttons for the plan time/place/location section
 function toggle_time_day_buttons() {
-    if (plan_time_place_valid()) {
+    if (plan_time_place_valid() && $('#plan_events_wrapper').is(':visible')) {
         if (!$('#plan_event_select_wrapper').is(':visible')) {
             // Show the necessary buttons
             $('#create_event, #submit_plan').show('fast');
