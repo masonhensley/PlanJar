@@ -185,8 +185,11 @@
                 <div class="bottom_right_section">
                     <br/><font style="color:navy">Invite People to PlanJar</font>
                 </div>
-                <div class="comment_box"></div>
-                <div class="plan_comments">si</div>
+                <div class="comment_box">
+                    <textarea id="comment_area" name="comments" cols="30" rows="3" maxlength="139">Leave a comment for this event...</textarea>
+                    <div class="submit_comment">Submit</div>
+                </div>
+                <div class="plan_comments"></div>
             </div>
             <div id="home_plan_spinner" style="position:absolute; right:180px; top:19px;"></div>
             <div class ="right">
@@ -215,7 +218,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="group_member_panel" class="modal" style="left:43%; top:19%;">
             <div class="title_bar">
                 <b>Group Members</b>

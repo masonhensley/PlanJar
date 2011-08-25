@@ -10,11 +10,26 @@ Class Load_plan_comments extends CI_Model
 
     function display_comments($plan_id)
     {
+        // get the event_id
+        $query = "SELECT event_id FROM plans WHERE id=$plan_id";
+        $result = $this->db->query($query);
+        $row = $result->row();
+        $event_id = $row->event_id;
+
+        // select the comments for the given event
+        $query = "
+                SELECT comment, user_id, time
+                FROM plan_comments
+                WHERE event_id=$event_id
+                ORDER BY time ASC
+                ";
+        $result = $this->db->query($query);
+
         ob_start();
-        ?>
-        <textarea id="comment_area" name="comments" cols="30" rows="3" maxlength="139">Leave a comment for this event...</textarea>
-        <div class="submit_comment">Submit</div>
-        <?php
+       foreach($result->result() as $user_comment)
+       {
+           echo $user_comment->comment;
+       }
         return ob_get_clean();
     }
 
