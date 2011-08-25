@@ -363,6 +363,9 @@ a {
     background-color: white;
     text-align: center;
 }
+.comment_area_selected{
+    color:black;
+}
 .plan {
     width: 50%;
     height: 200px;
