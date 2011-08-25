@@ -112,6 +112,9 @@
     left:50px;
 }
 
+
+
+/* USER COMMENT SECTION */
 .submit_comment{
     width:59px;
     height:36px;
@@ -120,8 +123,6 @@
     padding-right:1px;
     padding-top:18px;
 }
-
-/* USER COMMENT SECTION */
 .comment_box{
     display:none;
     float: right;
@@ -139,6 +140,7 @@
     float:left;
     height:45px;
     margin-top:2px;
+    margin-left:2px;
     width:228px;
     color:gray !important;
 }
@@ -158,6 +160,8 @@
 }
 .user_comment_body{
     float:left;
+    width:216px;
+    font-size:12px;
 }
 .user_comment_picture{
     float:left;
