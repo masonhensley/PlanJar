@@ -127,6 +127,8 @@
 }
 .user_comment{
     text-align: left;
+    height:58px;
+    border-bottom:1px solid gray;
 }
 .user_comment_body{
     
