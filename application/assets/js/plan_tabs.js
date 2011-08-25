@@ -18,20 +18,18 @@ function initialize_plan_panel(){
         
         if(!$(this).hasClass('selected_plan'))
         {
-            // No plan selected. Deselect all controlls
-            deselect_all_controlls();
+            deselect_all_controlls(); // No plan selected. Deselect all controlls
+            $(this).addClass('selected_plan'); // Select this plan
+            load_comment_section(); //load comments
             
-            // Select this plan
-            $(this).addClass('selected_plan');
         } else {
             // Deselect this plan
             $(this).removeClass('selected_plan');
+            show_invite_link();
         }
         
         // Display the info box
         display_info(); 
-        
-        load_comment_section();
         
     });
     
@@ -102,7 +100,7 @@ function load_comments(){
 }
 
 function show_invite_link(){
-     $('.plan_comments').hide();
+    $('.plan_comments').hide();
     $('.comment_box').hide('fast');
     $('.bottom_right_section').show('fast');
 }
