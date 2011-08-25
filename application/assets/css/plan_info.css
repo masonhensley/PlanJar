@@ -148,4 +148,5 @@
 .delete_comment{
     display:none;
     color:red;
+    float:right;
 }
