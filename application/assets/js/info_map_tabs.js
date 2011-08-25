@@ -44,7 +44,7 @@ function controlls_are_selected() {
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
     // show the invite link and hide plan comments
-    if(!$('.plan_content').hasClass('plan_selected'))
+    if(!$('.plan_content').hasClass('selected_plan'))
     {
         show_invite_link();
     }
