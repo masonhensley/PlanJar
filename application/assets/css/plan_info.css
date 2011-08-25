@@ -126,9 +126,11 @@
     
 }
 .user_comment{
+    padding-top:2px;
     text-align: left;
     height:58px;
-    border-bottom:1px solid gray;
+    border:1px solid gray;
+    border-top:none;
 }
 .user_comment_body{
     
@@ -138,6 +140,7 @@
 }
 .user_comment_top_bar{
     float:left;
-    width:238px;
+    width:235px;
     color:gray;
+    overflow: hidden;
 }
