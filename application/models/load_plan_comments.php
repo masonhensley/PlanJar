@@ -35,7 +35,7 @@ Class Load_plan_comments extends CI_Model
     
     function display_user_comment($user_comment)
     {
-        echo $user_comment->comment;
+        echo $user_comment->comment ."<br/>";
     }
 
 }
