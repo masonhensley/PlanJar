@@ -746,6 +746,8 @@ class Home extends CI_Controller
             <label for="search_for_places">Search for a place</label>
             <input type="text" id="search_for_places"/>
         </div>
+
+        <img src="/application/assets/images/Planjar_logo.png"/>
         <?php
     }
 
