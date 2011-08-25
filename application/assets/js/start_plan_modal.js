@@ -236,8 +236,10 @@ function populate_selectable_events() {
                 // Clear the event
                 $('#event_title').val('');
                 $('#event_title').blur();
-                $('#event_title').keyup();
+                $('#plan_privacy_wrapper').hide('fast');
                 
+                // Show the submit button
+                $('#plan_warning_message').hide('fast');
                 $('#submit_plan').show('fast');
             });
         });
