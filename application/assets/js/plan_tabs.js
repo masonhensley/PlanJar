@@ -33,7 +33,6 @@ function initialize_plan_panel(){
         // Load the comment box and comments
         $('.bottom_right_section').hide('fast');
         $('.comment_box').show('fast');
-        $('#comment_area').val('Leave a comment for this event...')
         
         
         $('#comment_area').click(function(){ // click handler for the textarea
