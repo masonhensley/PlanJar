@@ -21,7 +21,6 @@ function initialize_plan_panel(){
             deselect_all_controlls(); // No plan selected. Deselect all controlls
             $(this).addClass('selected_plan'); // Select this plan
             load_comment_section(); //load comments
-            
         } else {
             // Deselect this plan
             $(this).removeClass('selected_plan');
@@ -82,11 +81,7 @@ function load_comment_section()
             document.getElementById("comment_area").select()
         }
     });
-        
-    if($(this).hasClass('selected_plan'))
-    {
-        load_comments();
-    }
+    load_comments();
 }
 
 function load_comments(){
