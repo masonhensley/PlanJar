@@ -63,25 +63,27 @@ function load_comment_section()
     $('.comment_box').show('fast');
     $('#comment_area').val('Leave a comment for this event...');
     
-    // Submit comment click handler
-    $('body').delegate('.submit_comment', 'click', function(){
-        if($('#comment_area').val() != 'Leave a comment for this event...')
-        {
-            console.log('helo2');
-            $.get('/home/submit_comment', {
-                plan_id : $('.selected_plan').attr('plan_id'),
-                comment : $('#comment_area').val()
-            });       
-        }
-        
-    });
-    
     $('#comment_area').click(function(){ // click handler for the textarea
         if(!$(this).hasClass('comment_area_selected'))
         {
             $('#comment_area').addClass('comment_area_selected');
             $('#comment_area').val('');
             document.getElementById("comment_area").select()
+            
+            // Submit comment click handler
+            $('body').delegate('.submit_comment', 'click', function(){
+                if($('#comment_area').val() != 'Leave a comment for this event...')
+                {
+                    console.log('helo2');
+                    $.get('/home/submit_comment', {
+                        plan_id : $('.selected_plan').attr('plan_id'),
+                        comment : $('#comment_area').val()
+                    }).complete(function(){
+                        load_comment_section();
+                    });       
+                }
+            });
+            
         }
     });
     load_comments();
