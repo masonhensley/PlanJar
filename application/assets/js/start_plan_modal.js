@@ -164,6 +164,7 @@ function initialize_plan_modal() {
     
     // Description change handler
     $('#add_plan_decription').keyup(function() {
+        console.log($(this).val());
         if ($(this).val() != '') {
             $('#plan_warning_message').hide('fast');
             $('#submit_plan').show('fast');
@@ -202,7 +203,7 @@ function toggle_time_day_buttons() {
 
 // Shows/hides the necessary buttons for the plan event section
 function toggle_event_buttons() {
-    if (plan_time_place_valid()) {
+    if (plan_time_place_valid() && !$('#plan_description_wrapper').is(':visible')) {
         if (!$('#plan_event_select_wrapper').is(':visible')) {
             // Show the necessary buttons
             $('#create_event, #submit_plan').show('fast');
@@ -237,6 +238,7 @@ function populate_selectable_events() {
                 $('#event_title').val('');
                 $('#event_title').blur();
                 $('#plan_privacy_wrapper').hide('fast');
+                $('#plan_privacy_wrapper div:first').click();
                 
                 // Show and hide the necessary controls
                 $('#plan_warning_message, #add_plan_description').hide('fast');
