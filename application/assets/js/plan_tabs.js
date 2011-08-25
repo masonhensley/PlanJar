@@ -101,11 +101,17 @@ function load_comments(){
         $('.plan_comments').show('fast');
         if($('.user_comment').hasClass('delete_comment'))
         {
+            
             $('.delete_comment').click(function(){
+                
                     $.get('/home/delete_comment', {
-                        
-                    })
+                        comment_id : $(this).parent().attr('comment_id')
+                    }).complete(function(){
+                        load_comments()
+                    });
+                    
                 });
+                
         }
     });
 }

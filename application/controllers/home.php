@@ -231,6 +231,15 @@ class Home extends CI_Controller
         $this->db->query($query);
     }
 
+    public function delete_comment()
+    {
+        $comment_id = $this->input->get('comment_id');
+        $query = "
+                DELETE FROM user_comments WHERE id=$comment_id
+                ";
+        $this->db->query($query);
+    }
+
     public function attending_list()
     {
         $plan_id = $this->input->get('plan_id');
