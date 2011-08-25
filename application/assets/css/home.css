@@ -338,7 +338,7 @@ a {
     background-color: white;
     text-align: center;
 }
-.plan_comments{
+.comment_box{
     display:none;
     float: right;
     width: 49%;
@@ -350,6 +350,21 @@ a {
     margin-top:7px;
     background-color: white;
     text-align: center;
+}
+.plan_comments{
+    display:none;
+    float: right;
+    width: 49%;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    border-top:1px solid darkgray;
+    margin-top:7px;
+    background-color: white;
+    text-align: center;
+}
+.comment_area_selected{
+    color:black;
 }
 .plan {
     width: 50%;

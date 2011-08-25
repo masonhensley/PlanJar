@@ -59,8 +59,8 @@ function load_comments(){
     }, 
     function(data){
         $('.bottom_right_section').hide('fast');
-        $('.plan_comments').html(data);
-        $('.plan_comments').show('fast');
+        $('.comment_box').html(data);
+        $('.comment_box').show('fast');
         
         $('#comment_area').click(function(){
             if(!$(this).hasClass('comment_area_selected'))
@@ -69,7 +69,6 @@ function load_comments(){
                 $('#comment_area').val('');
                 document.getElementById("comment_area").select()
             }
-            
         });
         
         $('.submit_comment').click(function(){
