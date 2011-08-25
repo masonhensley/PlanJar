@@ -33,6 +33,7 @@ function deselect_all_controlls(bypass_groups) {
     $('.selected_plan').removeClass('selected_plan');
     $('.selected_friend_plan').removeClass('selected_friend_plan');
     viewing_plan_location = false;
+    $('#find_places').removeClass('selected');
 }
 
 // Returns true if at least one controll is selected
@@ -42,8 +43,12 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 function display_info(bypass, arg) {
-    
-    if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) { // Location selected
+    if ($('#find_places.selected').length > 0) {
+        // Find a place
+        
+        $('#info_content').html('');
+    } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false) {
+        // Location selected
         
         // setup spinner
         var opts = spinner_options();
