@@ -41,7 +41,9 @@ Class Load_plan_comments extends CI_Model
 
     function display_user_comment($user_comment)
     {
-        $user = $this->ion_auth->get_user();
+        $logged_in_user = $this->ion_auth->get_user();
+        $comment_user = $this->ion_auth->get_user($user_comment->user_id);
+        
         $display_time = $user_comment->time;
         $this->load->model('load_profile');
         ?>
@@ -53,8 +55,8 @@ Class Load_plan_comments extends CI_Model
             </div>
             <div class="user_comment_top_bar">
                 <?php
-                echo $user_comment->first_name . " " . $user_comment->last_name . " says...";
-                if($user->user_id == $user_comment->user_id)
+                echo $comment_user->first_name . " " . $comment_user->last_name . " says...";
+                if($logged_in_user->user_id == $user_comment->user_id)
                 {
                     ?>
                 <div class="delete_comment">
