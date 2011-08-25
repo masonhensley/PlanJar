@@ -61,5 +61,18 @@ function load_comments(){
         $('.bottom_right_section').hide('fast');
         $('.plan_comments').html(data);
         $('.plan_comments').show('fast');
+        
+        $('#comment_text_area').click(function(){
+            $('#comment_text_area').val('');
+            $('#comment_text_area').blur();
+        });
+        
+        $('.submit_comment').click(function(){
+            $.get('/home/submit_comment', function(){
+                
+                load_comments();
+            });
+        });
+        
     });
 }

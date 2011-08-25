@@ -13,7 +13,7 @@ Class Load_plan_comments extends CI_Model
         ob_start();
         ?>
         <font style="color:darkgray;">
-        <textarea id="box_text_area" name="comments" cols="30" rows="3" maxlength="139"  style="float:left;height:45px;margin-top:2px;" >Comment me bro</textarea>
+        <textarea id="comment_area" name="comments" cols="30" rows="3" maxlength="139"  style="float:left;height:45px;margin-top:2px;" >Comment me bro</textarea>
         </font>
         <div class="submit_comment">Submit</div>
         <?php
