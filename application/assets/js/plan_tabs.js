@@ -53,6 +53,26 @@ function populate_plan_panel(callback) {
 
 function load_comment_section()
 {
+    if(!$('.submit_comment').hasClass('handler_loaded'))
+    {
+        // Submit comment click handler
+        $('.submit_comment').click(function(){
+            if($('#comment_area').val() != 'Leave a comment for this event...')
+            {
+                console.log('helo2');
+                $.get('/home/submit_comment', {
+                    plan_id : $('.selected_plan').attr('plan_id'),
+                    comment : $('#comment_area').val()
+                }).complete(function(){
+                    load_comment_section();
+                });       
+            }
+        });
+        $('.submit_comment').addClass('handler_loaded');
+    }
+  
+    
+    
     console.log('heyo');
     
     // fill the comment box
@@ -68,22 +88,7 @@ function load_comment_section()
         {
             $('#comment_area').addClass('comment_area_selected');
             $('#comment_area').val('');
-            document.getElementById("comment_area").select()
-            
-            // Submit comment click handler
-            $('body').delegate('.submit_comment', 'click', function(){
-                if($('#comment_area').val() != 'Leave a comment for this event...')
-                {
-                    console.log('helo2');
-                    $.get('/home/submit_comment', {
-                        plan_id : $('.selected_plan').attr('plan_id'),
-                        comment : $('#comment_area').val()
-                    }).complete(function(){
-                        load_comment_section();
-                    });       
-                }
-            });
-            
+            document.getElementById("comment_area").select()  
         }
     });
     load_comments();
