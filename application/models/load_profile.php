@@ -186,16 +186,24 @@ class Load_profile extends CI_Model
         $recent_tracker = 0;
         foreach ($result->result() as $place)
         {
-            if (!in_array($place->name, $recent_locations) && $recent_tracker < 5)
+            // recent locations limited to 10
+            // checks if it's already there, less than 5, and not null
+            if (!in_array($place->name, $recent_locations) && $recent_tracker < 5 && $place->name && count($recent_locations) < 11)
             {
                 $recent_tracker++;
                 $recent_locations[] = $place->name;
             }
-            $most_visited_locations[] = $place->name;
+            if ($place->name && count($most_visited_locations < 11)) // most visited locations is limited to 10
+            {
+                $most_visited_locations[] = $place->name;
+            }
         }
-        $most_visited_locations = array_count_values($most_visited_locations);
-        asort($most_visited_locations);
-        $most_visited_locations = array_reverse($most_visited_locations, TRUE);
+        if (count($most_visited_locations) > 0)
+        {
+            $most_visited_locations = array_count_values($most_visited_locations);
+            asort($most_visited_locations);
+            $most_visited_locations = array_reverse($most_visited_locations, TRUE);
+        }
 
         ob_start();
         ?><font style="font-size:23px; margin-left:200px;">Places</font><br/>
@@ -242,7 +250,7 @@ class Load_profile extends CI_Model
     {
         $logo_text = "logo_" . rand(1, 25) . ".png";
         ?>
-        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" style="width:<?php echo $dim;?>px;height:<?php echo $dim;?>px;"/>
+        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
         <?php
     }
 

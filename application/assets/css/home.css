@@ -514,13 +514,8 @@ a {
     margin-bottom: 7px;
 }
 .selected_plan, .selected_friend_plan {
-    background: -webkit-gradient(linear,left top,left bottom,from(#805EBA),to(#390D86));
-    background: -webkit-linear-gradient(top, #805EBA, #390D86);
-    background: -moz-linear-gradient(top, #805EBA, #390D86);
-    background: -o-linear-gradient(top, #805EBA, #390D86);
-    background: -ms-linear-gradient(top, #805EBA, #390D86);
-    background: linear-gradient(top, #805EBA, #390D86);
-    color: white;
+    background: -webkit-linear-gradient(top, #E6F541, #F8FFAB);
+    color: black;
 }
 
 /* --------BOTTOM LINKS ---------*/
@@ -531,8 +526,14 @@ a {
     height: 40px;
     background-color: black;
     opacity: .4;
-    text-align: left;
+    text-align: center;
     position: relative;
+    padding-top:13px;
+}
+
+#bottom_link{
+    margin-left:15px;
+    margin-right:15px;
 }
 .bottom_link_inner {
     position: relative;
