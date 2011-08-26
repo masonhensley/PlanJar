@@ -526,8 +526,11 @@ a {
     height: 40px;
     background-color: black;
     opacity: .4;
-    text-align: left;
+    text-align: center;
     position: relative;
+}
+#profile_link{
+    
 }
 .bottom_link_inner {
     position: relative;
