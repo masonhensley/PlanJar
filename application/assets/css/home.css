@@ -514,8 +514,8 @@ a {
     margin-bottom: 7px;
 }
 .selected_plan, .selected_friend_plan {
-    background: -webkit-linear-gradient(top, #E6F541, #EDF965);
-    color: white;
+    background: -webkit-linear-gradient(top, #E6F541, #F8FFAB);
+    color: black;
 }
 
 /* --------BOTTOM LINKS ---------*/
