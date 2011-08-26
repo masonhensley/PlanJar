@@ -528,9 +528,11 @@ a {
     opacity: .4;
     text-align: center;
     position: relative;
+    padding-top:13px;
 }
 #profile_link{
-    
+    margin-left:15px;
+    margin-right:15px;
 }
 .bottom_link_inner {
     position: relative;
