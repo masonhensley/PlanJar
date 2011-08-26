@@ -186,7 +186,7 @@ class Load_profile extends CI_Model
         $recent_tracker = 0;
         foreach ($result->result() as $place)
         {
-            if (!in_array($place->name, $recent_locations) && $recent_tracker < 5 && $place->name)
+            if (!in_array($place->name, $recent_locations) && $recent_tracker < 5 && $place->name) // checks if it's already there, less than 5, and not null
             {
                 $recent_tracker++;
                 $recent_locations[] = $place->name;
