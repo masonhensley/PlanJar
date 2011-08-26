@@ -193,7 +193,7 @@ class Load_profile extends CI_Model
             }
             $most_visited_locations[] = $place->name;
         }
-        var_dump($most_visited_locations, $query);
+        var_dump($query, $most_visited_locations);
         if (count($most_visited_locations) > 0)
         {
             $most_visited_locations = array_count_values($most_visited_locations);
