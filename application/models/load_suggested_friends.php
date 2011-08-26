@@ -79,7 +79,7 @@ class Load_suggested_friends extends CI_Model
         {
             $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
         }else{
-            echo "Nothing to show";
+            echo "<center><i>Nothing to show</i></center>";
         }
         
     }
