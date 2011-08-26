@@ -4,9 +4,6 @@ body{
     background: #F6f6F6
 }
 
-
-
-
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     height: 40px;
@@ -166,16 +163,7 @@ h4 {
     position:relative;      
 }
 
-.bottom_link_inner {
-    position: relative;
-    top: 20px;
-}
-
-.bottom_link_outer{
-    height:100%;
-    width:86px;
-    display:inline-block;
-    position:relative;
-    top:-12px;
-    text-align: center;
+a{
+    color:white;
+    text-decoration: none;
 }
