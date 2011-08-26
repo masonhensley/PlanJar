@@ -186,12 +186,14 @@ class Load_profile extends CI_Model
         $recent_tracker = 0;
         foreach ($result->result() as $place)
         {
-            if (!in_array($place->name, $recent_locations) && $recent_tracker < 5 && $place->name) // checks if it's already there, less than 5, and not null
+            // recent locations limited to 10
+            // checks if it's already there, less than 5, and not null
+            if (!in_array($place->name, $recent_locations) && $recent_tracker < 5 && $place->name && count($recent_locations) < 11)
             {
                 $recent_tracker++;
                 $recent_locations[] = $place->name;
             }
-            if($place->name)
+            if ($place->name && count($most_visited_locations < 11)) // most visited locations is limited to 10
             {
                 $most_visited_locations[] = $place->name;
             }
