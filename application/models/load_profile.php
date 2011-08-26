@@ -191,7 +191,10 @@ class Load_profile extends CI_Model
                 $recent_tracker++;
                 $recent_locations[] = $place->name;
             }
-            $most_visited_locations[] = $place->name;
+            if($place->name)
+            {
+                $most_visited_locations[] = $place->name;
+            }
         }
         var_dump($query, $most_visited_locations);
         if (count($most_visited_locations) > 0)
