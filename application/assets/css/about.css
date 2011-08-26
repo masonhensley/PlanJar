@@ -155,16 +155,15 @@ h4 {
 /* --------BOTTOM LINKS ---------*/
 
 .bottom_links{
-    width:1024px;
-    margin-left:auto;
-    margin-right:auto;
+    width:962px;
     height:40px;
     background-color: black;
     opacity: .4;
     text-align:center;
     position:relative;      
+    padding-top:12px;
 }
-#profile_link{
+#bottom_link{
     margin-left:15px;
     margin-right:15px;
 }
