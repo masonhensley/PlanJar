@@ -8,8 +8,7 @@
         Select a friend to view their upcoming plans
         <br/><hr/>
         <div class="friend_list">
-            <div class="friend_tab" user_id="all">All Upcoming Friends' Plans</div>
-            <br/><hr/>
+            <div class="friend_tab" user_id="all">All Upcoming Friends' Plans</div><hr/>
             <?php
             foreach ($friend_names as $id => $name)
             {
