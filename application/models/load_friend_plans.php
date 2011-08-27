@@ -50,7 +50,6 @@ class Load_friend_plans extends CI_Model
             $plans_html = $this->_populate_friend_plans($result, $friend_id);
         }
 
-
         echo $plans_html;
     }
 
