@@ -400,7 +400,7 @@ class Notification_ops extends CI_Model
                     $date = $date->format('l') . ' the ' . $date->format('jS');
 
                     // Capture the body
-                    if ($you != 'you')
+                    if ($group_id !== false)
                     {
                         $you = anchor('dashboard/groups', $you);
                     }
