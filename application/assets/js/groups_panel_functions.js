@@ -16,6 +16,9 @@ function initialize_selectable_groups() {
             if ($('.selected_plan, .selected_friend_plan').length > 0) {
                 // Plan selected previously. Go to today
                 goto_day_offset(0, true);
+            } else if ($('.selected_location_tab').length > 0) {
+                // Location selected previously. Show the info tab
+                show_data_container('#info_content');
             }
             
             // Deselect all controlls
