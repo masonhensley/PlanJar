@@ -6,6 +6,19 @@ if (!defined('BASEPATH'))
 class Home extends CI_Controller
 {
 
+    public function __construct()
+    {
+        // Parent constructor
+        parent::__construct();
+
+
+        // Redirect if not logged in
+        if (!$this->ion_auth->logged_in())
+        {
+            redirect('login');
+        }
+    }
+
     public function index()
     {
         // if user is logged in, load home view, otherwise logout
