@@ -38,6 +38,7 @@ function populate_plan_attending_panel() {
                 }
             });
         
+        }).complete(function(){
             $('.awaiting_button').click(function(){
                 if(!$(this).hasClass('guest_list_button_selected'))
                 {
@@ -48,7 +49,6 @@ function populate_plan_attending_panel() {
                 }
             
             });
-        
         });
     });
     
