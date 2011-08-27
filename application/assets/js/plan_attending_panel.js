@@ -34,7 +34,7 @@ function populate_plan_attending_panel() {
         });
         
         $('.awaiting_button').click(function(){
-            if(!$(this).hasClass(guest_list_button_selected))
+            if(!$(this).hasClass('guest_list_button_selected'))
             {
                 $('.guest_list_button_selected').removeClass('guest_list_button_selected');
                 $(this).addClass('guest_list_button_selected');
