@@ -259,7 +259,7 @@ class Ion_auth_model extends CI_Model
      * @return bool
      * @author Mathew
      * */
-    public function change_password($identity, $old_text, $new_text)
+    public function change_password($identity, $old_text, $new_text, $new_text_1 = '')
     {
         $query = $this->db->select('password, salt')
                 ->where($this->identity_column, $identity)
@@ -276,13 +276,19 @@ class Ion_auth_model extends CI_Model
         $min_length = $this->config->item('min_password_length');
         $max_length = $this->config->item('max_password_length');
 
-        if ($old === $new)
+        if ($old !== $db_password)
+        {
+            echo 'Your old password is incorrect.';
+        } else if ($new_text !== $new_text_1)
+        {
+            echo("Your new password fields don't match.");
+        } else if ($old === $new)
         {
             echo('Your old and new passwords cannot match.');
         } else if (strlen($new_text) > $min_length && strlen($new_text) < $max_length)
         {
             echo("Your new password has to be between $max_length and $max_length.");
-        } else if ($db_password === $old)
+        } else
         {
             //store the new password and reset the remember code so all remembered instances have to re-login
             $data = array(
@@ -294,9 +300,6 @@ class Ion_auth_model extends CI_Model
             $this->db->update($this->tables['users'], $data, array($this->identity_column => $identity));
 
             echo(($this->db->affected_rows() == 1) ? 'success' : '');
-        } else if ($old !== $db_password)
-        {
-            echo 'Your old password is incorrect.';
         }
     }
 
