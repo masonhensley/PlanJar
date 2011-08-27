@@ -379,7 +379,7 @@ class Dashboard extends CI_Controller
     {
         // Rectify the params
         $email_notif = $this->input->get('email_notif');
-        if ($email_notif == '')
+        if ($email_notif == '' || $email_notif === false)
         {
             $email_notif = 0;
         } else
@@ -389,6 +389,14 @@ class Dashboard extends CI_Controller
 
         $query_string = "UPDATE user_meta SET email_notif = ? WHERE user_id = ?";
         $query = $this->db->query($query_string, array($email_notif, $this->ion_auth->get_user()->id));
+    }
+
+    public function get_email_prefs()
+    {
+        $query_string = "SELECT email_notif FROM user_meta WHERE user_id = ?";
+        $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id));
+
+        return json_encode($query->row());
     }
 
 }

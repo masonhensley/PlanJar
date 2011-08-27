@@ -5,3 +5,7 @@
     border-top-right-radius: 10px;
     background-color: white;
 }
+
+.settings_wrapper table {
+    width: 100%;
+}

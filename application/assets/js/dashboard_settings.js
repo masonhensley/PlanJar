@@ -23,4 +23,13 @@ function initialize_settings() {
     $('#email_notifications input').change(function() {
         $.get('/dashboard/update_email_prefs?' + $(this).serialize());
     });
+    
+    // Populate the email checkboxe
+    $.get('/dashboard/get_email_prefs', function(data) {
+        data = $.parseJSON(data);
+       
+        $.map(data, function(item, key) {
+            $('#' + key).prop('checked', parseInt(item));
+        });
+    });
 }
