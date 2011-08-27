@@ -61,7 +61,7 @@ function following_click_handler(){
     // Add following click handler
     $('.user_entry .add_following').confirmDiv(function(clicked_elem) {
         $.get('/dashboard/add_user_following', {
-            following_id: $(this).parent().attr('user_id')
+            following_id: $(clicked_elem).parent().attr('user_id')
         }, function () {
             populate_plan_attending_panel();
         });
