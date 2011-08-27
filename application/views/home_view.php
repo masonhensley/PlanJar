@@ -214,13 +214,13 @@
                 <b>Guest List</b>
                 <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
             </div>
-            <div id="awaiting_button" style="position:absolute;"></div>
-            <div id="attending_button" style="position:absolute;"></div>
+            <div id="attending_button">Attending</div>
+            <div id="awaiting_button">Not Responded</div>
             <div id="awaiting_reply" >
                 <div id="awaiting_list">
                 </div>
             </div>
-            <div id="attending_modal_content">
+            <div id="attending_modal_content" style="margin-top:30px;">
                 <div class="attending_list">
                 </div>
             </div>

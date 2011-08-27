@@ -491,7 +491,20 @@ a {
     margin-bottom: 10px;
     width: auto;
     margin-left: 5px;
+
 }
+#attending_button{
+    position:absolute; 
+    width:80px; 
+    height:28px;
+}
+#awaiting_button{
+    position:absolute;
+    width:80px; 
+    height:28px;
+    left:82px;
+}
+
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper {
     text-align: center;
