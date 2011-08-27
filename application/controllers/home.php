@@ -761,5 +761,29 @@ class Home extends CI_Controller
         <?php
     }
 
+    // Unsubscribe the user from all email notifications
+    public function unsub($id)
+    {
+        $query_string = "SELECT user_id FROM unsubscribe WHERE id = ?";
+        $query = $this->db->query($query_string, array($id));
+        if ($query->num_rows() > 0)
+        {
+            // Get the user id
+            $user_id = $query->row()->id;
+
+            // Remove all email settings
+            $user = $this->ion_auth->get_user($id);
+            $this->ion_auth->update_user($user_id, array('email_notif' => 0));
+
+            // Delete the entry
+            $this->db->query("DELETE FROM unsubscribe WHERE id = ?", array($id));
+
+            echo('You have been successfully unsubscribed.');
+        } else
+        {
+            show_404();
+        }
+    }
+
 }
 ?>
