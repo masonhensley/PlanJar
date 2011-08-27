@@ -461,7 +461,7 @@ class Notification_ops extends CI_Model
                 }
 
                 .bottom_links {
-                    font-size: 8pt;
+                    font-size: 6pt;
                     padding: 15px;
                 }
             </style>
@@ -491,6 +491,8 @@ class Notification_ops extends CI_Model
                         <br/>--<br/>
                         Don't want to receive ANY emails from PlanJar?
                         Click <?php echo(anchor("home/unsub/$unsubscribe_id", 'here')); ?> to unsubscribe.
+                        <br/>--<br/>
+                        Feel free to contact the CEO directly at <a href="mailto:feedback@planjar.com">feedback@planjar.com</a>.
                     </div>
                 </div>
             </body>
