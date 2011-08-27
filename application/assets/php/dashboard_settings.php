@@ -61,6 +61,11 @@
         </tr>
 
         <tr>
+            <td></td>
+            <td><?php anchor('auth/forgot_password', 'Forgot your password?'); ?></td>
+        </tr>
+
+        <tr>
             <td colspan="2" style="text-align: center;">
                 <br/><br/>
                 Want more settings? Leave us some feedback on the left.

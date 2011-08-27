@@ -260,7 +260,7 @@ class Home extends CI_Controller
         $this->load->model('load_attending_list');
         $this->load_attending_list->_display_attending_list($plan_id);
     }
-    
+
     public function awaiting_list()
     {
         $plan_id = $this->input->get('plan_id');
@@ -307,10 +307,11 @@ class Home extends CI_Controller
         $this->load->model('load_locations');
         $group_list = $this->input->get('selected_groups'); // this contains a list of ids for the groups selected
         $day = $this->input->get('selected_day');
+        $place_id = $this->input->get('place_id');
         $user_id = $this->ion_auth->get_user();
         $user_id = $user_id->id;
         $school = $this->_get_user_school();
-        $this->load_locations->load_relevant_locations($group_list, $day, $user_id, $school);
+        $this->load_locations->load_relevant_locations($group_list, $day, $user_id, $school, $place_id);
     }
 
     private function _get_user_school()

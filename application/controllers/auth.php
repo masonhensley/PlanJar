@@ -106,6 +106,8 @@ class Auth extends Controller
     //forgot password
     function forgot_password()
     {
+        if ($this->input->post())
+        
         $this->form_validation->set_rules('email', 'Email Address', 'required');
         if ($this->form_validation->run() == false)
         {
@@ -147,6 +149,16 @@ class Auth extends Controller
             $this->session->set_flashdata('message', $this->ion_auth->errors());
             redirect("auth/forgot_password", 'refresh');
         }
+    }
+
+    // Change password
+    public function change_password()
+    {
+        $old_password = $this->input->get('old_password');
+        $new_password = $this->input->get('new_password');
+        $new_password_1 = $this->input->get('new_password_1');
+
+        $this->ion_auth_model->change_password($this->ion_auth->get_user()->email, $old_password, $new_password, $new_password_1);
     }
 
     //activate the user
