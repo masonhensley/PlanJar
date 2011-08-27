@@ -654,13 +654,14 @@ a {
 
 .make_plan_here{
     position: absolute;
-    left: 10px;
-    bottom: 23px;
+    left: 7px;
+    bottom: 12px;
     border: 1px solid lightgray;
-    padding: 8px;
+    padding: 6px;
     font-weight:bold;
     background:-webkit-linear-gradient(top, #F3F6FF, white);
     color:gray;
+    font-size:13px;
 }
 
 .view_map {
