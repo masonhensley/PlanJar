@@ -26,8 +26,7 @@ function populate_plan_attending_panel() {
             $('.attending_list').html(data);
             $('#plan_attending_panel').show('fast');
             
-            following_click_handler();
-        
+            // click handler for attending button
             $('.attending_button').click(function(){
                 if(!$(this).hasClass('guest_list_button_selected'))
                 {
@@ -38,7 +37,7 @@ function populate_plan_attending_panel() {
                 }
             });
         
-        }).complete(function(){
+            // click handler for 'not responded''
             $('.awaiting_button').click(function(){
                 if(!$(this).hasClass('guest_list_button_selected'))
                 {
@@ -49,6 +48,9 @@ function populate_plan_attending_panel() {
                 }
             
             });
+        
+        }).complete(function(){
+            following_click_handler(); // assign click handler to 'follow' buttons
         });
     });
     
