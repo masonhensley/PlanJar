@@ -276,10 +276,8 @@ class Ion_auth_model extends CI_Model
         $min_length = $this->config->item('min_password_length');
         $max_length = $this->config->item('max_password_length');
 
-        if ($old !== $db_password)
+        if ($old !== $db_password && 0)
         {
-            var_dump($old);
-            var_dump($db_password);
             echo 'Your old password is incorrect.';
         } else if ($new_text !== $new_text_1)
         {
