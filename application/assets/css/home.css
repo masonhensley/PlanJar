@@ -495,14 +495,20 @@ a {
 }
 #attending_button{
     position:absolute; 
-    width:80px; 
-    height:28px;
+    width:110px; 
+    height:23px;
+    text-align:center;
 }
 #awaiting_button{
     position:absolute;
-    width:80px; 
-    height:28px;
+    width:110px; 
+    height:23px;
     left:82px;
+    text-align:center;
+}
+.guest_list_button_selected{
+    background:-webkit-linear-gradient(top, #F8BA78, #F5952E);
+    color:white;
 }
 
 /* ------------------- PLAN CONTENT -------------- */
