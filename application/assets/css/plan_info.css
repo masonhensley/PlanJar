@@ -143,6 +143,7 @@
     margin-left:2px;
     width:228px;
     color:gray !important;
+    font-family:helvetica; 
 }
 .plan_comments{
     display:none;
