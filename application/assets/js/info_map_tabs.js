@@ -349,7 +349,8 @@ function initialize_plan_info(data) {
 function populate_popular_locations(skip_update_map, callback) {
     jqxhr = $.get('/home/load_location_tabs', {
         'selected_groups': get_selected_groups(),
-        'selected_day': get_selected_day()
+        'selected_day': get_selected_day(),
+        'selected_place_id': $('selected_location_tab').attr('place_id')
     }, function (data) {
         data = $.parseJSON(data);
         
