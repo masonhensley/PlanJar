@@ -33,7 +33,7 @@ class Load_attending_list extends CI_Model
         $query = "
                 SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
                 FROM notifications
-                JOIN user_meta ON notificaitons.user_id=user_meta.user_id
+                JOIN user_meta ON notifications.user_id=user_meta.user_id
                 LEFT JOIN school_data ON user_meta.school_id=school_data.id
                 WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
             ";
