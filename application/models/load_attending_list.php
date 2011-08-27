@@ -31,7 +31,7 @@ class Load_attending_list extends CI_Model
         
         // select the people who haven't responded to the event yet
         $query = "
-                SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
+                SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
                 FROM notifications
                 JOIN user_meta ON notificaitons.user_id=user_meta.user_id
                 WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
