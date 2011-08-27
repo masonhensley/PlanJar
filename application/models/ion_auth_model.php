@@ -273,9 +273,8 @@ class Ion_auth_model extends CI_Model
         $old = $this->hash_password_db($identity, $old_text);
         $new = $this->hash_password($new_text, $result->salt);
 
-        $this->config->load('ion_auth');
-        $min_length = $this->config->item('min_password_length');
-        $max_length = $this->config->item('max_password_length');
+        $min_length = $this->config->item('min_password_length', 'ion_auth');
+        $max_length = $this->config->item('max_password_length', 'ion_auth');
 
         if ($old !== $db_password)
         {
