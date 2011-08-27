@@ -61,7 +61,10 @@
         </tr>
 
         <tr>
-            <td colspan="2" style="text-align: center;">Want more settings? Leave us some feedback on the left.</td>
+            <td colspan="2" style="text-align: center;">
+                <br/><br/>
+                Want more settings? Leave us some feedback on the left.
+            </td>
         </tr>
     </table>
 </div>
