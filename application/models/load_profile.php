@@ -235,7 +235,7 @@ class Load_profile extends CI_Model
             {
                 if ($index < 11)
                 {
-                    ?><font style="color:navy;"><?php echo $location; ?></font><?php
+                    ?><font style="color:navy;"><?php echo $location ." ($count)"; ?></font><?php
                     if ($index + 1 != $most_visited_count)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
