@@ -21,50 +21,43 @@ class Home extends CI_Controller
 
     public function index()
     {
-        // if user is logged in, load home view, otherwise logout
-        if ($this->ion_auth->logged_in())
-        {
-            $this->load->model('load_groups');
-            $user_info = $this->ion_auth->get_user();
+        $this->load->model('load_groups');
+        $user_info = $this->ion_auth->get_user();
 
-            // retrieve other useful variables for view
-            $firstname = $user_info->first_name;
-            $lastname = $user_info->last_name;
-            $joined_groups = $this->load_groups->joined_groups();
-            $followed_groups = $this->load_groups->followed_groups();
-            $school = $this->load_groups->user_school();
+        // retrieve other useful variables for view
+        $firstname = $user_info->first_name;
+        $lastname = $user_info->last_name;
+        $joined_groups = $this->load_groups->joined_groups();
+        $followed_groups = $this->load_groups->followed_groups();
+        $school = $this->load_groups->user_school();
 
-            // Get the day tabs HTML
-            $this->load->model('day_sets');
-            $day_html = $this->day_sets->day_set(0);
-            $plan_day_html = $this->day_sets->day_set(0, true);
+        // Get the day tabs HTML
+        $this->load->model('day_sets');
+        $day_html = $this->day_sets->day_set(0);
+        $plan_day_html = $this->day_sets->day_set(0, true);
 
-            // Get the plan tabs HTML
-            $this->load->model('plan_actions');
-            $plans_html = $this->plan_actions->display_plans();
+        // Get the plan tabs HTML
+        $this->load->model('plan_actions');
+        $plans_html = $this->plan_actions->display_plans();
 
-            // get friend names to populate the friend plan modal
-            $friend_names = $this->get_friend_names();
+        // get friend names to populate the friend plan modal
+        $friend_names = $this->get_friend_names();
 
-            // get the upcoming events HTML
-            //$this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
-            //$upcoming_event_html = $this->load_coming_events->load_events();
-            // Pass the necessary information to the view.
-            $this->load->view('home_view', array(
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'joined_groups' => $joined_groups,
-                'followed_groups' => $followed_groups,
-                'day_html' => $day_html,
-                'plan_day_html' => $plan_day_html,
-                'school' => $school,
-                'plans_html' => $plans_html,
-                'friend_names' => $friend_names)
-            );
-        } else
-        {
-            redirect('auth/logout');
-        }
+        // get the upcoming events HTML
+        //$this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
+        //$upcoming_event_html = $this->load_coming_events->load_events();
+        // Pass the necessary information to the view.
+        $this->load->view('home_view', array(
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'joined_groups' => $joined_groups,
+            'followed_groups' => $followed_groups,
+            'day_html' => $day_html,
+            'plan_day_html' => $plan_day_html,
+            'school' => $school,
+            'plans_html' => $plans_html,
+            'friend_names' => $friend_names)
+        );
     }
 
     public function get_friend_names()
@@ -89,11 +82,11 @@ class Home extends CI_Controller
         return $name_array;
     }
 
-// logs user out and redirects to login page
+    // logs user out and redirects to login page
     public function logout()
     {
         $this->ion_auth->logout();
-        redirect('/login/');
+        redirect('login');
     }
 
 // Checks the PlanJar Places database for matching places.

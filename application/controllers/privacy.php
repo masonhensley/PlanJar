@@ -12,6 +12,13 @@ class Privacy extends CI_Controller
         $this->load->view('privacy_view');
     }
 
+    // logs user out and redirects to login page
+    public function logout()
+    {
+        $this->ion_auth->logout();
+        redirect('login');
+    }
+
 }
 
 ?>

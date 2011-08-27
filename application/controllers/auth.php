@@ -39,25 +39,6 @@ class Auth extends CI_Controller
         }
     }
 
-    //log the user in
-    // Returns true if successfull. An error message otherwise
-    public function login()
-    {
-        $email = $this->input->get('email');
-        $password = $this->input->get('password');
-        $remember = (bool) $this->input->get('remember');
-
-        $logged_in = $this->ion_auth->login($email, $password, $remember);
-
-        if (!$logged_in)
-        {
-            echo("That user name and password combination is not correct.");
-        } else
-        {
-            echo('success');
-        }
-    }
-
     //log the user out
     public function logout()
     {

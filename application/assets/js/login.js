@@ -20,7 +20,7 @@ $(document).ready(function() {
         // Submit and redirect
         submitHandler: function(form) {
             // Send the form information to the try_login function.
-            $.get('/auth/log_in', $(form).serialize(), function(data) {
+            $.get('/login/log_in', $(form).serialize(), function(data) {
                 // Redirect or display the error.
                 if (data == 'success')  {
                     window.location.href = '/home';

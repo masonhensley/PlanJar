@@ -18,29 +18,30 @@ class Dashboard extends CI_Controller
 
     public function index($initial_tab = 'profile', $suggested = '')
     {
-        if ($this->ion_auth->logged_in())
-        {
-            $user_info = $this->ion_auth->get_user();
+        $user_info = $this->ion_auth->get_user();
 
 // retrieve other useful variables for view
-            $firstname = $user_info->first_name;
-            $lastname = $user_info->last_name;
+        $firstname = $user_info->first_name;
+        $lastname = $user_info->last_name;
 
 // Lookup the groups by id.
-            $this->load->model('load_groups');
+        $this->load->model('load_groups');
 
 // Pass the necessary information to the view.
-            $this->load->view('dashboard_view', array(
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'initial_tab' => $initial_tab,
-                'suggested' => $suggested,
-                'school' => $this->load_groups->user_school())
-            );
-        } else
-        {
-            redirect('auth/logout');
-        }
+        $this->load->view('dashboard_view', array(
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'initial_tab' => $initial_tab,
+            'suggested' => $suggested,
+            'school' => $this->load_groups->user_school())
+        );
+    }
+
+    // logs user out and redirects to login page
+    public function logout()
+    {
+        $this->ion_auth->logout();
+        redirect('login');
     }
 
 // Searches for people to follow by name and returns HTML
@@ -70,7 +71,7 @@ class Dashboard extends CI_Controller
         $query_string = "DELETE FROM friend_relationships WHERE user_id = ? AND follow_id = ?";
         $query = $this->db->query($query_string, array($user->id, $following_id));
 
-        // Update the notification status
+// Update the notification status
         $this->load->model('notification_ops');
         $query_string = "SELECT id FROM notifications WHERE type = ? AND user_id = ? AND  subject_id = ?";
         $query = $this->db->query($query_string, array('follow_notif', $user->id, $following_id));
@@ -212,29 +213,29 @@ class Dashboard extends CI_Controller
         $this->group_ops->follow_group($this->input->get('group_id'));
     }
 
-    // Removes the appropriate group relationship
+// Removes the appropriate group relationship
     public function remove_group_following()
     {
         $user = $this->ion_auth->get_user();
         $group_id = $this->input->get('group_id');
 
-        // Delete the relationship
+// Delete the relationship
         $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND user_following_id = ?";
         $query = $this->db->query($query_string, array($group_id, $user->id));
     }
 
-    // Removes the appropriate group relationship
-    // Removes the group if no members are left
+// Removes the appropriate group relationship
+// Removes the group if no members are left
     public function remove_group_joined()
     {
         $user = $this->ion_auth->get_user();
         $group_id = $this->input->get('group_id');
 
-        // Delete the relationship
+// Delete the relationship
         $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND user_joined_id = ?";
         $query = $this->db->query($query_string, array($group_id, $user->id));
 
-        // Update the notification status
+// Update the notification status
         $this->load->model('notification_ops');
         $query_string = "SELECT id FROM notifications WHERE type = ? AND user_id = ? AND  subject_id = ?";
         $query = $this->db->query($query_string, array('group_invite', $user->id, $group_id));
@@ -244,7 +245,7 @@ class Dashboard extends CI_Controller
             $this->notification_ops->update_notification_accepted($query->row()->id, false, true);
         }
 
-        // Delete the group if no users are joined
+// Delete the group if no users are joined
         $this->load->model('group_ops');
         if (count($this->group_ops->get_group_members($group_id)) == 0)
         {
@@ -377,7 +378,7 @@ class Dashboard extends CI_Controller
 
     public function update_email_prefs()
     {
-        // Rectify the params
+// Rectify the params
         $email_notif = $this->input->get('email_notif');
         if ($email_notif == '' || $email_notif === false)
         {
