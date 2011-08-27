@@ -400,6 +400,10 @@ class Notification_ops extends CI_Model
                     $date = $date->format('l') . ' the ' . $date->format('jS');
 
                     // Capture the body
+                    if ($you != 'you')
+                    {
+                        $you = anchor('dashboard/groups', $you);
+                    }
                     $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
                             " has invited $you to " . $event_row->title;
                     if ($event_row->title != '')
