@@ -36,7 +36,8 @@ class Load_attending_list extends CI_Model
                 JOIN user_meta ON notificaitons.user_id=user_meta.user_id
                 WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
             ";
-        $this->db->query($query);
+        $result = $this->db->query($query);
+        $this->display_user_list($result);
     }
     
     function get_event_id($plan_id)
