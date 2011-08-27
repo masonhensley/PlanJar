@@ -38,7 +38,6 @@ class Load_attending_list extends CI_Model
                 WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
             ";
         $result = $this->db->query($query);
-        var_dump($query, $result->result());
         $this->display_user_list($result);
     }
     
