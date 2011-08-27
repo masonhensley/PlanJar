@@ -49,7 +49,7 @@ class Load_friend_plans extends CI_Model
                 $query .= ") ORDER BY date ASC";
 
                 $result = $this->db->query($query);
-                $plans_html = $this->_populate_friend_plans($result, $friend_id);
+                $plans_html = $this->_populate_friend_plans($result, 'all');
             }
         }
 
@@ -61,13 +61,27 @@ class Load_friend_plans extends CI_Model
 
 
         ob_start(); // start the output buffer
-        $friend_name = $this->ion_auth->get_user($friend_id)->first_name;
         ?>
         <div class="friend_plan_back_button">
             Back 
         </div>
         <br/><br/>
-        <font style="font-size:18px;font-weight:bold; color:navy;text-align:center;"><?php echo " " . $friend_name . "'s Plans"; ?></font>
+        <?php
+        if ($friend_id == 'all')
+        {
+            ?>
+            <font style="font-size:18px;font-weight:bold; color:navy;text-align:center;"><?php echo "Upcoming Friends' Plans";
+            ?></font> <?php
+        } else
+        {
+            $friend_name = $this->ion_auth->get_user($friend_id)->first_name;
+            ?>
+            <font style="font-size:18px;font-weight:bold; color:navy;text-align:center;"><?php echo " " . $friend_name . "'s Plans";
+            ?></font> <?php
+        }
+        ?>
+
+
 
         <?php
         if ($plans_result->num_rows() > 0)
@@ -95,7 +109,7 @@ class Load_friend_plans extends CI_Model
                     if ($date_organizer != $date)
                     {
                         ?>
-                        <font style="font-size:11px; margin-left: -146px; color:gray;"><?php echo $date; ?><br/></font>
+                        <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
                         <?php
                     }
                     $date_organizer = $date;
