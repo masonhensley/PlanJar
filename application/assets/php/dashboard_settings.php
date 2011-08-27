@@ -11,7 +11,7 @@
 
         <form id="change_password">
             <tr>
-                <td rowspan="3">Change your password</td>
+                <td>Change your password</td>
 
                 <td>
                     <div class="in-field_block">
@@ -21,7 +21,8 @@
                 </td>
             </tr>
 
-            <tr>
+            <tr style="display: none;">
+                <td></td>
                 <td>
                     <div class="in-field_block">
                         <label for="new_password">New password</label>
@@ -30,14 +31,27 @@
                 </td>
             </tr>
 
-            <tr>
+            <tr style="display: none;">
+                <td></td>
                 <td>
                     <div class="in-field_block">
                         <label for="new_password_1">Re-enter new password</label>
                         <input type="text" id="new_password_1" name="new_password_1"/>
                     </div>
+                    <input type="submit" value="Change"/>
                 </td>
             </tr>
         </form>
+
+        <tr>
+            <td>Email notifications</td>
+            <td>
+                <form id="email_notifications">
+                    <label>
+                        <input type="checkbox" name="email_notif" id="email_notif"/>All
+                    </label>
+                </form>
+            </td>
+        </tr>
     </table>
 </div>
