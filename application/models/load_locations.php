@@ -183,9 +183,7 @@ class Load_locations extends CI_Model
             }
             $place_id_array[] = $place->place_id;
         }
-        var_dump($place_array);
-        var_dump($place_id_array);
-        
+
         $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
     }
 
@@ -297,8 +295,11 @@ class Load_locations extends CI_Model
             asort($place_id_array);
             $place_id_array = array_reverse($place_id_array, TRUE);
             $number_tracker = 1;
+
+            var_dump($place_id_array);
             foreach ($place_id_array as $place_id)
             {
+                var_dump($place_id);
                 if (($selected_place_id !== false && $place_id == $selected_place_id) || $selected_place_id === false)
                 {
                     $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
