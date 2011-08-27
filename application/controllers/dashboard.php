@@ -399,10 +399,5 @@ class Dashboard extends CI_Controller
         echo( json_encode($query->row()));
     }
 
-    public function change_password()
-    {
-        
-    }
-
 }
 ?>
