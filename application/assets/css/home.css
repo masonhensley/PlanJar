@@ -654,8 +654,8 @@ a {
 
 .make_plan_here{
     position: absolute;
-    left: 7px;
-    bottom: 12px;
+    left: 133px;
+    bottom: 26px;
     border: 1px solid lightgray;
     padding: 6px;
     font-weight:bold;
@@ -666,8 +666,8 @@ a {
 
 .plans_made_here{
     position:absolute;
-    left:20px;
-    bottom:12px;
+    left:7px;
+    bottom:26px;
     border:1px solid lightgray;
     padding: 6px;
     font-weight:bold;
@@ -680,10 +680,11 @@ a {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     color: gray;
     position: absolute;
-    left: 150px;
-    bottom: 23px;
+    top:37px;
+    right:0px;
     border: 1px solid lightgray;
-    padding: 8px;
+    padding: 6px;
+    font-size:13px;
     font-weight:bold;
 }
 
