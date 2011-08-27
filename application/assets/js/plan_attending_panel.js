@@ -23,7 +23,7 @@ function populate_plan_attending_panel() {
             
         following_click_handler();
         
-        $('#attending_button').click(function(){
+        $('.attending_button').click(function(){
             if(!$(this).hasClass(guest_list_button_selected))
             {
                 $('.guest_list_button_selected').removeClass('guest_list_button_selected');
@@ -33,7 +33,7 @@ function populate_plan_attending_panel() {
             }
         });
         
-        $('#awaiting_button').click(function(){
+        $('.awaiting_button').click(function(){
             if(!$(this).hasClass(guest_list_button_selected))
             {
                 $('.guest_list_button_selected').removeClass('guest_list_button_selected');
