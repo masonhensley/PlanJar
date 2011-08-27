@@ -49,7 +49,7 @@ class Auth extends Controller
 
     //log the user in
     // Returns true if successfull. An error message otherwise
-    function login()
+    public function login()
     {
         $email = $this->input->get('email');
         $password = $this->input->get('password');
@@ -67,7 +67,7 @@ class Auth extends Controller
     }
 
     //log the user out
-    function logout()
+    public function logout()
     {
         $logout = $this->ion_auth->logout();
 
