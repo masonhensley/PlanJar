@@ -53,16 +53,18 @@ function location_marker_closure(index) {
 // Used to set up the click event for markers created for plans
 function plan_marker_closure(plan_id) {
     return function() {
-        // Select the corresponding plan and display info
-        //        console.log($('.plan_content, .friend_plan_content').filter('[plan_id="' + plan_id + '"]'));
-        //        console.log($('.plan_content, .friend_plan_content'));
-        //        console.log(plan_id);
-        
         // Click the necessary plan (the not clause prevents unselecting a plan)
         $('.plan_content, .friend_plan_content').not('.selected_plan, .selected_friend_plan').filter('[plan_id="' + plan_id + '"]').click();
         show_data_container('#info_content', function() {
             $('.view_plan_location').click();
         });
+    }
+}
+
+// Used to set up the click event for the marker created for a selected location
+function selected_location_marker_closure(index) {
+    return function() {
+        show_data_container('#info_content');
     }
 }
 

@@ -117,7 +117,7 @@ function display_info(bypass, arg) {
             data = $.parseJSON(data);
             
             initialize_location_info(data);
-            populate_map(data.map_data);
+            populate_map(data.map_data, selected_location_marker_closure, true);
         }).complete(function(){
             location_spinner.stop();
         });

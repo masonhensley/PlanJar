@@ -41,7 +41,10 @@ class Load_location_data extends CI_Model
 
         $return_html = $this->get_place_html($place_info, $place_data_array, $sql_date, $day_display, $back_to_plan, $back_to_groups, $back_to_search);
 
-        return array('html' => $return_html, 'graph_data' => $graph_return_data);
+        return array(
+            'html' => $return_html,
+            'graph_data' => $graph_return_data,
+            'map_data' => array(array($place_info->name, $place_info->latitude, $place_info->longitude, '')));
     }
 
     function get_place_info($place_id)
@@ -260,7 +263,8 @@ class Load_location_data extends CI_Model
             ?>
             <div class="back_to_groups" style="position: absolute; top: 0px; right: 0px;">Back to groups/networks</div>
             <?php
-        } else if ($back_to_search) {
+        } else if ($back_to_search)
+        {
             ?>
             <div class="back_to_search" style="position: absolute; top: 0px; right: 0px;">Back to search</div>
             <?php
