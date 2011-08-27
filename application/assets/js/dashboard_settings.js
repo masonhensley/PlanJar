@@ -21,8 +21,6 @@ function initialize_settings() {
     
     // Submit the email notifications form whenever an element is changed
     $('#email_notifications input').change(function() {
-        $.get('/dashboard/update_email_prefs', {
-            data: $(this).serialize()
-        });
+        $.get('/dashboard/update_email_prefs?' + $(this).serialize());
     });
 }
