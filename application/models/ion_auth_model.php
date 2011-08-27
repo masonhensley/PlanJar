@@ -275,6 +275,8 @@ class Ion_auth_model extends CI_Model
 
         $min_length = $this->config->item('min_password_length');
         $max_length = $this->config->item('max_password_length');
+        var_dump($min_length);
+        var_dump($max_length);
 
         if ($old !== $db_password)
         {
@@ -287,7 +289,7 @@ class Ion_auth_model extends CI_Model
             echo('Your old and new passwords cannot match.');
         } else if (strlen($new_text) < $min_length || strlen($new_text) > $max_length)
         {
-            echo("Your new password has to be between $max_length and $max_length.");
+            echo("Your new password has to be between $min_length and $max_length.");
         } else
         {
             //store the new password and reset the remember code so all remembered instances have to re-login
