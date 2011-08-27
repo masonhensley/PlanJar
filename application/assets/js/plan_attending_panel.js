@@ -28,8 +28,8 @@ function populate_plan_attending_panel() {
             {
                 $('.guest_list_button_selected').removeClass('guest_list_button_selected');
                 $(this).addClass('guest_list_button_selected');
-                $('.awaiting_reply').hide();
-                $('.attending_modal_content').show();
+                $('#awaiting_reply').hide();
+                $('#attending_modal_content').show();
             }
         });
         
@@ -38,8 +38,8 @@ function populate_plan_attending_panel() {
             {
                 $('.guest_list_button_selected').removeClass('guest_list_button_selected');
                 $(this).addClass('guest_list_button_selected');
-                $('.attending_modal_content').hide();
-                $('.awaiting_reply').show();
+                $('#attending_modal_content').hide();
+                $('#awaiting_reply').show();
             }
             
         });
