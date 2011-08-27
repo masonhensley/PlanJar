@@ -10,7 +10,6 @@
         <script type="text/javascript" src="/application/assets/js/login.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
-
         <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
@@ -36,7 +35,7 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <div id="li_error" class ="error_message"><!-- Errors will be displayed here --></div>     
+                <div id="li_error" class ="error_message" style="position:absolute; top:30px; left:200px;color:red"><!-- Errors will be displayed here --></div>     
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:50%; position:relative; top:5px;"/>
                 <div class="top_links">
                     <form id="log_in">
