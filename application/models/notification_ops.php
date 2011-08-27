@@ -382,6 +382,7 @@ class Notification_ops extends CI_Model
             switch ($type)
             {
                 case 'event_invite':
+                    var_dump($group_id);
                     if ($group_id === false)
                     {
                         $you = 'you';
