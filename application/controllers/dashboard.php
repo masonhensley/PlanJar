@@ -39,7 +39,7 @@ class Dashboard extends CI_Controller
             );
         } else
         {
-            $this->logout();
+            redirect('auth/logout');
         }
     }
 

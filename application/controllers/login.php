@@ -77,31 +77,6 @@ class Login extends CI_Controller
         }
     }
 
-    public function try_log_in()
-    {
-        $email = $this->input->get('li_email');
-        $password = $this->input->get('li_password');
-        $remember = $this->input->get('li_remember');
-
-        if ($remember)
-        {
-            $remember = true;
-        } else
-        {
-            $remember = false;
-        }
-
-        $logged_in = $this->ion_auth->login($email, $password, $remember);
-
-        if (!$logged_in)
-        {
-            echo "error";
-        } else
-        {
-            echo "/home/";
-        }
-    }
-
     // Returns a list of schools (in JSON format) that match the needle string.
     public function search_schools()
     {

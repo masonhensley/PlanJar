@@ -14,23 +14,23 @@
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
         <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
-        
+
         <!-- Google Analytics -->
         <script type="text/javascript">
 
-              var _gaq = _gaq || [];
-              _gaq.push(['_setAccount', 'UA-23115103-4']);
-              _gaq.push(['_setDomainName', '.planjar.com']);
-              _gaq.push(['_trackPageview']);
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-23115103-4']);
+            _gaq.push(['_setDomainName', '.planjar.com']);
+            _gaq.push(['_trackPageview']);
             
-              (function() {
+            (function() {
                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-              })();
+            })();
             
         </script>
-        
+
     </head>
     <body>
         <div class ="top_panel">
@@ -41,15 +41,15 @@
                     <form id="log_in">
                         <div class="in-field_block" style="display:inline-block;">
                             <label for="li_email">Email</label>
-                            <input id="li_email" name="li_email" type="email" class="textbox" />
+                            <input id="li_email" name="email" type="email" class="textbox" />
                         </div>
                         <div class="in-field_block" style="display:inline-block; margin-left:10px;">
                             <label for="li_password">Password</label>
-                            <input id="li_password" name="li_password" type="password" class="textbox" />
+                            <input id="li_password" name="password" type="password" class="textbox" />
                         </div>
                         <br/>
                         <font style="font-family:Arial, Helvetica, sans-serif; color:white;">Stay logged in</font>
-                        <input type="checkbox" name="li_remember" value="1" style="margin-top:13px" />
+                        <input type="checkbox" name="remember" value="1" style="margin-top:13px" />
                         <input type="submit" class="buttons" value="Log In" style="margin-left:87px;" />
                         <?php echo(anchor('auth/forgot_password', 'Forgot password?')); ?>
                     </form>
@@ -192,25 +192,25 @@
     -->
 </div>
 
-    <script type="text/javascript">
-        var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
-        (function(){
-          function loadChartbeat() {
+<script type="text/javascript">
+    var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
+    (function(){
+        function loadChartbeat() {
             window._sf_endpt=(new Date()).getTime();
             var e = document.createElement('script');
             e.setAttribute('language', 'javascript');
             e.setAttribute('type', 'text/javascript');
             e.setAttribute('src',
-               (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
-               "js/chartbeat.js");
+            (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+                "js/chartbeat.js");
             document.body.appendChild(e);
-          }
-          var oldonload = window.onload;
-          window.onload = (typeof window.onload != 'function') ?
-             loadChartbeat : function() { oldonload(); loadChartbeat(); };
-        })();
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+            loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
 
-    </script>
+</script>
 
 
 </body>

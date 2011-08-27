@@ -20,12 +20,12 @@ $(document).ready(function() {
         // Submit and redirect
         submitHandler: function(form) {
             // Send the form information to the try_login function.
-            $.get('/login/try_log_in', $(form).serialize(), function(data) {
+            $.get('/auth/log_in', $(form).serialize(), function(data) {
                 // Redirect or display the error.
-                if (data != 'error')  {
-                    window.location.href = data;
+                if (data == 'success')  {
+                    window.location.href = '/home';
                 } else {
-                    alert(data);
+                    $('#li_error').html(data);
                 }
             });
         },

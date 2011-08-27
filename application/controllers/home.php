@@ -63,7 +63,7 @@ class Home extends CI_Controller
             );
         } else
         {
-            $this->logout();
+            redirect('auth/logout');
         }
     }
 
