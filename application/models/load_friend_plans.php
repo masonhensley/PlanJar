@@ -58,8 +58,6 @@ class Load_friend_plans extends CI_Model
 
     function _populate_friend_plans($plans_result, $friend_id)
     {
-
-
         ob_start(); // start the output buffer
         ?>
         <div class="friend_plan_back_button">
@@ -87,52 +85,60 @@ class Load_friend_plans extends CI_Model
         if ($plans_result->num_rows() > 0)
         {
             $date_organizer = "";
+            $plan_ids_shown = array();
+            
             foreach ($plans_result->result() as $plan)
             {
-                // make easy to read variables
-                $id = $plan->id;
-                $place_name = $plan->name;
-                $title = $plan->title;
-                $time = $plan->time;
-                $todays_date = date('N');
 
-                if (date('N', strtotime($plan->date)) == $todays_date)
+                if (in_array($plan->id, $plan_ids_shown))
                 {
-                    $date = "Today";
-                } else
-                {
-                    $date = date('l (jS)', strtotime($plan->date));
-                }
-                ?>
-                <div class="active_plans"> 
-                    <?php
-                    if ($date_organizer != $date)
+                    // make easy to read variables
+                    $plan_ids_shown[] = $plan->id;
+
+                    $id = $plan->id;
+                    $place_name = $plan->name;
+                    $title = $plan->title;
+                    $time = $plan->time;
+                    $todays_date = date('N');
+
+                    if (date('N', strtotime($plan->date)) == $todays_date)
                     {
-                        ?>
-                        <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
-                        <?php
+                        $date = "Today";
+                    } else
+                    {
+                        $date = date('l (jS)', strtotime($plan->date));
                     }
-                    $date_organizer = $date;
-
-                    $this->load->helper('day_offset');
-                    $day_offset = get_day_offset($plan->date);
                     ?>
-                    <div class ="friend_plan_content" plan_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
+                    <div class="active_plans"> 
                         <?php
-                        if ($title != '')
+                        if ($date_organizer != $date)
                         {
                             ?>
-                            <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
-                            <font style="color:darkgray;"><?php echo "@" . $place_name; ?></font>
+                            <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
                             <?php
-                        } else
-                        {
-                            echo "<b>@" . $place_name . "</b>";
                         }
+                        $date_organizer = $date;
+
+                        $this->load->helper('day_offset');
+                        $day_offset = get_day_offset($plan->date);
                         ?>
+                        <div class ="friend_plan_content" plan_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
+                            <?php
+                            if ($title != '')
+                            {
+                                ?>
+                                <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
+                                <font style="color:darkgray;"><?php echo "@" . $place_name; ?></font>
+                                <?php
+                            } else
+                            {
+                                echo "<b>@" . $place_name . "</b>";
+                            }
+                            ?>
+                        </div>
                     </div>
-                </div>
-                <?php
+                    <?php
+                }
             }
         } else
         {
