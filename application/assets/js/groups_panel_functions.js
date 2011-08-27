@@ -64,6 +64,9 @@ function initialize_one_group_select() {
         if ($('.selected_plan, .selected_friend_plan').length > 0) {
             // Plan selected previously. Go to today
             goto_day_offset(0, true);
+        } else if ($('.selected_location_tab').length > 0) {
+            // Location selected previously. Show the info tab
+            show_data_container('#info_content');
         }
         
         $('.network_active').removeClass('network_active'); // unselect the city tab
@@ -96,6 +99,9 @@ function initialize_mult_groups_select() {
         if ($('.selected_plan, .selected_friend_plan').length > 0) {
             // Plan selected previously. Go to today
             goto_day_offset(0, true);
+        } else if ($('.selected_location_tab').length > 0) {
+            // Location selected previously. Show the info tab
+            show_data_container('#info_content');
         }
         
         $('.network_active').removeClass('network_active'); // unselect the city tab
