@@ -51,7 +51,8 @@ function display_info(bypass, arg) {
         show_invite_link();
     }
     
-    if ($('#find_places.selected').length > 0) {    // Find a place
+    if ($('#find_places.selected').length > 0) {    
+        // Find a place
         
         $.get('/home/show_place_search', function(data) {
             $('#info_content').html(data);

@@ -365,6 +365,11 @@ class Notification_ops extends CI_Model
             $this->email->from('noreply@planjar.com', 'PlanJar');
             $this->email->to($user->email);
 
+            // Add an entry to the unsubscribe table and record the id
+            $query_string = "INSERT INTO unsubscribe VALUES (DEFAULT, ?, ?)";
+            $query = $this->db->query($query_string, array($user->id, date('Y-m-d')));
+            $unsubscribe_id = $this->db->insert_id();
+
             // Get event info
             $query_string = "SELECT user_meta.first_name, user_meta.last_name, events.title, places.name, events.date
                             FROM events LEFT JOIN user_meta ON events.originator_id = user_meta.user_id
@@ -426,13 +431,13 @@ class Notification_ops extends CI_Model
                     break;
             }
 
-            $this->email->message($this->create_email_notification($body_string));
+            $this->email->message($this->create_email_notification($body_string, $unsubscribe_id));
             $this->email->send();
         }
     }
 
     // Returns the html for an email notification as a string
-    function create_email_notification($notif_text)
+    function create_email_notification($notif_text, $unsubscribe_id)
     {
         ob_start();
         ?>
@@ -479,8 +484,13 @@ class Notification_ops extends CI_Model
 
                     <hr/>
                     <div class="bottom_links">
-                        <?php echo(anchor('', 'PlanJar | Home')); ?> - Don't want to receive these emails?
+                        <?php echo(anchor('', 'PlanJar | Home')); ?>
+                        <br/>--<br/>
+                        Want to change which email notifications you receive?
                         Click <?php echo(anchor('dashboard/settings', 'here')); ?> to change your email settings.
+                        <br/>--<br/>
+                        Don't want to receive ANY emails from PlanJar?
+                        Click <?php echo(anchor("home/unsub/$unsubscribe_id", 'here')); ?> to unsubscribe.
                     </div>
                 </div>
             </body>
