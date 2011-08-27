@@ -357,6 +357,10 @@ function populate_popular_locations(skip_update_map, callback) {
           
         // Places link click handler
         $('#places_link').click(function() {
+            if ($('.selected_location_tab').length > 0) {
+                $('.selected_location_tab').removeClass('selected_location_tab');
+                display_info();
+            }
             show_data_container('#map_content');
             return false;
         });
