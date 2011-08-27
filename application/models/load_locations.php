@@ -183,6 +183,9 @@ class Load_locations extends CI_Model
             }
             $place_id_array[] = $place->place_id;
         }
+        var_dump($place_array);
+        var_dump($place_id_array);
+        
         $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
     }
 
@@ -298,7 +301,7 @@ class Load_locations extends CI_Model
             {
                 if (($selected_place_id !== false && $place_id == $selected_place_id) || $selected_place_id === false)
                 {
-                    $coords_array[] = array_merge($place_array[$place_id - 1], array($number_tracker));
+                    $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
                 }
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
