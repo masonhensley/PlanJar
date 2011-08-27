@@ -9,6 +9,7 @@
         <br/><hr/>
         <div class="friend_list">
             <div class="friend_tab" user_id="all">All Upcoming Friends' Plans</div>
+            <br/><hr/>
             <?php
             foreach ($friend_names as $id => $name)
             {
