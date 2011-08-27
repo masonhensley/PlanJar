@@ -499,6 +499,7 @@ a {
     height:23px;
     text-align:center;
     background:-webkit-linear-gradient(top, #F3F6FF, #EEE);
+    padding-top:4px;
 }
 #awaiting_button{
     position:absolute;
@@ -507,6 +508,7 @@ a {
     left:113px;
     text-align:center;
     background:-webkit-linear-gradient(top, #F3F6FF, #EEE);
+    padding-top:4px;
 }
 .guest_list_button_selected{
     background:-webkit-linear-gradient(top, #F8BA78, #F5952E);
