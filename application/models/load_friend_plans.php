@@ -45,7 +45,7 @@ class Load_friend_plans extends CI_Model
                 {
                     $query .= "plans.user_id=$friend_id OR ";
                 }
-                $query = substr($query, -4);
+                $query = substr($query, 0, -4);
                 $query .= ") ORDER BY date ASC";
 
                 $result = $this->db->query($query);
