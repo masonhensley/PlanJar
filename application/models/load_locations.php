@@ -296,6 +296,7 @@ class Load_locations extends CI_Model
             $number_tracker = 1;
             foreach ($place_id_array as $place_id)
             {
+                var_dump($selected_place_id);
                 if (($selected_place_id !== false && $place_id == $selected_place_id) || $selected_place_id === false)
                 {
                     $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
