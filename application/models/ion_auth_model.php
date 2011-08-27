@@ -278,6 +278,8 @@ class Ion_auth_model extends CI_Model
 
         if ($old !== $db_password)
         {
+            var_dump($old);
+            var_dump($db_password);
             echo 'Your old password is incorrect.';
         } else if ($new_text !== $new_text_1)
         {
