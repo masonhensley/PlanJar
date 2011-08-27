@@ -396,7 +396,7 @@ class Dashboard extends CI_Controller
         $query_string = "SELECT email_notif FROM user_meta WHERE user_id = ?";
         $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id));
 
-        return json_encode($query->row());
+        echo( json_encode($query->row()));
     }
 
 }
