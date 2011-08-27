@@ -42,5 +42,16 @@
                 </td>
             </tr>
         </form>
+
+        <tr>
+            <td>Email notifications</td>
+            <td>
+                <form id="email_notifications">
+                    <label>
+                        <input type="checkbox" name="email_notif" id="email_notif"/>All
+                    </label>
+                </form>
+            </td>
+        </tr>
     </table>
 </div>
