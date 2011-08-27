@@ -382,7 +382,6 @@ class Notification_ops extends CI_Model
             switch ($type)
             {
                 case 'event_invite':
-                    var_dump($group_id);
                     if ($group_id === false)
                     {
                         $you = 'you';
@@ -402,7 +401,7 @@ class Notification_ops extends CI_Model
 
                     // Capture the body
                     $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
-                            ' has invited you to ' . $event_row->title;
+                            " has invited $you to " . $event_row->title;
                     if ($event_row->title != '')
                     {
                         $body_string .= ' at ';
