@@ -664,6 +664,18 @@ a {
     font-size:13px;
 }
 
+.plans_made_here{
+    position:absolute;
+    left:20px;
+    bottom:12px;
+    border:1px solid lightgray;
+    padding: 6px;
+    font-weight:bold;
+    background:-webkit-linear-gradient(top, #F3F6FF, white);
+    color:gray;
+    font-size:13px;
+}
+
 .view_map {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     color: gray;
