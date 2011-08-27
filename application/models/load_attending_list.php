@@ -97,8 +97,15 @@ class Load_attending_list extends CI_Model
             }
 
             echo ob_get_clean();
-        }else{
-            echo "<i>Nothing to show</i>";
+        } else
+        {
+            ob_start();
+            ?>
+            <div style="width:200px; text-align: center; color:gray; font-style: italic;">
+                Nothing to show
+            </div>
+            <?php
+            echo ob_get_clean();
         }
     }
 
