@@ -220,7 +220,7 @@
                 <div id="awaiting_list">
                 </div>
             </div>
-            <div id="attending_modal_content" style="margin-top:30px;">
+            <div id="attending_modal_content" style="margin-top:25px;">
                 <div class="attending_list">
                 </div>
             </div>
