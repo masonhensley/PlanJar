@@ -285,7 +285,7 @@ class Ion_auth_model extends CI_Model
         } else if ($old_text === $new_text)
         {
             echo('Your old and new passwords cannot match.');
-        } else if (strlen($new_text) > $min_length && strlen($new_text) < $max_length)
+        } else if (strlen($new_text) < $min_length || strlen($new_text) > $max_length)
         {
             echo("Your new password has to be between $max_length and $max_length.");
         } else
