@@ -10,11 +10,7 @@ class Load_attending_list extends CI_Model
 
     function _display_attending_list($plan_id)
     {
-        // get the event id for next query
-        $query = "SELECT event_id FROM plans WHERE id=$plan_id";
-        $result = $this->db->query($query);
-        $event_id = $result->row();
-        $event_id = $event_id->event_id;
+        $event_id = $this->get_event_id($plan_id);
 
         // select all the people attending the event
         $query = "
@@ -28,7 +24,32 @@ class Load_attending_list extends CI_Model
         $result = $this->db->query($query);
         $this->display_user_list($result);
     }
-    
+
+    function _display_awaiting_list($plan_id)
+    {
+        $event_id = $this->get_event_id($plan_id);
+
+        // select the people who haven't responded to the event yet
+        $query = "
+                SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
+                FROM notifications
+                JOIN user_meta ON notifications.user_id=user_meta.user_id
+                LEFT JOIN school_data ON user_meta.school_id=school_data.id
+                WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
+            ";
+        $result = $this->db->query($query);
+        $this->display_user_list($result);
+    }
+
+    function get_event_id($plan_id)
+    {
+        // get the event id for next query
+        $query = "SELECT event_id FROM plans WHERE id=$plan_id";
+        $result = $this->db->query($query);
+        $event_id = $result->row();
+        return $event_id->event_id;
+    }
+
     function _display_group_members($group_id)
     {
         // get group members
@@ -44,9 +65,8 @@ class Load_attending_list extends CI_Model
         WHERE group_relationships.group_id=$group_id
         ";
         $query_result = $this->db->query($query);
-        
-        
-         // echo the user entries 
+
+        // echo the user entries 
         $this->load_attending_list->display_user_list($query_result);
     }
 
@@ -58,23 +78,37 @@ class Load_attending_list extends CI_Model
         $count = 0;
         ob_start();
 
-        foreach ($query_result->result() as $row)
+        if ($query_result->num_rows() > 0)
         {
-            if (in_array($row->user_id, $follow_ids))
+            foreach ($query_result->result() as $row)
             {
-                $this->follow_ops->echo_user_entry($row, 'already_following');
-            } else if ($row->user_id == $user->id)
-            {
-                $this->follow_ops->echo_user_entry($row, 'this_is_you');
-            } else
-            {
-                $this->follow_ops->echo_user_entry($row, 'add following');
+                if (in_array($row->user_id, $follow_ids))
+                {
+                    $this->follow_ops->echo_user_entry($row, 'already_following');
+                } else if ($row->user_id == $user->id)
+                {
+                    $this->follow_ops->echo_user_entry($row, 'this_is_you');
+                } else
+                {
+                    $this->follow_ops->echo_user_entry($row, 'add following');
+                }
+
+                $count++;
             }
 
-            $count++;
+            echo ob_get_clean();
+        } else
+        {
+            ob_start();
+            ?>
+            <div style="width:100%; text-align: center; color:gray; font-style: italic;">
+                <br/>
+                Nothing to show
+                <br/>
+            </div>
+            <?php
+            echo ob_get_clean();
         }
-
-        echo ob_get_clean();
     }
 
 }

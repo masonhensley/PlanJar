@@ -337,6 +337,10 @@ function initialize_plan_info(data) {
     
     // View attendees click handler
     $('#view_attendees').click(function(){
+        $('.guest_list_button_selected').removeClass('guest_list_button_selected');
+        $('.attending_button').addClass('guest_list_button_selected');
+        $('#awaiting_reply').hide();
+        $('#attending_modal_content').show();
         populate_plan_attending_panel();    
     });
 }

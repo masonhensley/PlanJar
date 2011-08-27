@@ -123,6 +123,7 @@ class Load_profile extends CI_Model
         <?php
     }
 
+    // returns number of people the user is following
     function get_number_following($user_id)
     {
         $query = "SELECT follow_id FROM friend_relationships WHERE user_id=$user_id";
@@ -131,6 +132,7 @@ class Load_profile extends CI_Model
         return $number_following;
     }
 
+    // returns number of people the user is followed by
     function get_number_followers($user_id)
     {
         $query = "SELECT user_id FROM friend_relationships WHERE follow_id=$user_id";
@@ -182,18 +184,17 @@ class Load_profile extends CI_Model
         $recent_locations = array(); // variables to keep track of locations
         $most_visited_locations = array();
 
-        // make trackers!
-        $recent_tracker = 0;
+        // make trackers
+
         foreach ($result->result() as $place)
         {
             // recent locations limited to 10
             // checks if it's already there, less than 5, and not null
-            if (!in_array($place->name, $recent_locations) && $recent_tracker < 5 && $place->name && count($recent_locations) < 11)
+            if (!in_array($place->name, $recent_locations) && $place->name && count($recent_locations) < 11)
             {
-                $recent_tracker++;
                 $recent_locations[] = $place->name;
             }
-            if ($place->name && count($most_visited_locations < 11)) // most visited locations is limited to 10
+            if ($place->name)
             {
                 $most_visited_locations[] = $place->name;
             }
@@ -232,12 +233,15 @@ class Load_profile extends CI_Model
             $index = 0;
             foreach ($most_visited_locations as $location => $count)
             {
-                ?><font style="color:navy;"><?php echo $location; ?></font><?php
-                if ($index + 1 != $most_visited_count)
+                if ($index < 11)
                 {
-                    ?><font style="color:black;"><?php echo ", "; ?></font><?php
+                    ?><font style="color:navy;"><?php echo $location ." ($count)"; ?></font><?php
+                    if ($index + 1 != $most_visited_count)
+                    {
+                        ?><font style="color:black;"><?php echo ", "; ?></font><?php
+                    }
+                    $index++;
                 }
-                $index++;
             }
         } else
         {

@@ -15,43 +15,53 @@ function initialize_plan_attending_panel() {
 }
 
 function populate_plan_attending_panel() {
-    $.get('/home/attending_list', {
+    $.get('/home/awaiting_list', {
         plan_id : $('#view_attendees').attr('plan_id')
     }, function(data){
-        $('.attending_list').html(data);
-        $('#plan_attending_panel').show('fast');
+        $('#awaiting_list').html(data);
+    }).complete(function(){ // when the awaiting list is fetched, get the attendees and assign follow click handler
+        $.get('/home/attending_list', {
+            plan_id : $('#view_attendees').attr('plan_id')
+        }, function(data){
+            $('.attending_list').html(data);
+            $('#plan_attending_panel').show('fast');
             
-        following_click_handler();
+            // click handler for attending button
+            $('.attending_button').click(function(){
+                if(!$(this).hasClass('guest_list_button_selected'))
+                {
+                    $('.guest_list_button_selected').removeClass('guest_list_button_selected');
+                    $(this).addClass('guest_list_button_selected');
+                    $('#awaiting_reply').hide();
+                    $('#attending_modal_content').show();
+                }
+            });
         
-        $('.attending_button').click(function(){
-            if(!$(this).hasClass('guest_list_button_selected'))
-            {
-                $('.guest_list_button_selected').removeClass('guest_list_button_selected');
-                $(this).addClass('guest_list_button_selected');
-                $('#awaiting_reply').hide();
-                $('#attending_modal_content').show();
-            }
-        });
-        
-        $('.awaiting_button').click(function(){
-            if(!$(this).hasClass('guest_list_button_selected'))
-            {
-                $('.guest_list_button_selected').removeClass('guest_list_button_selected');
-                $(this).addClass('guest_list_button_selected');
-                $('#attending_modal_content').hide();
-                $('#awaiting_reply').show();
-            }
+            // click handler for 'not responded''
+            $('.awaiting_button').click(function(){
+                if(!$(this).hasClass('guest_list_button_selected'))
+                {
+                    $('.guest_list_button_selected').removeClass('guest_list_button_selected');
+                    $(this).addClass('guest_list_button_selected');
+                    $('#attending_modal_content').hide();
+                    $('#awaiting_reply').show();
+                }
             
-        });
+            });
         
+        }).complete(function(){
+            following_click_handler(); // assign click handler to 'follow' buttons
+        });
     });
+    
+    
 }
 
 function following_click_handler(){
     // Add following click handler
-    $('.attending_list .add_following').confirmDiv(function(clicked_elem) {
+    $('.user_entry .add_following').confirmDiv(function(clicked_elem) {
         $.get('/dashboard/add_user_following', {
-            following_id: clicked_elem.parent().attr('user_id')
+            following_id: $(this).parent().attr('user_id')
         }, function () {
             populate_plan_attending_panel();
         });

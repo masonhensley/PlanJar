@@ -260,6 +260,13 @@ class Home extends CI_Controller
         $this->load->model('load_attending_list');
         $this->load_attending_list->_display_attending_list($plan_id);
     }
+    
+    public function awaiting_list()
+    {
+        $plan_id = $this->input->get('plan_id');
+        $this->load->model('load_attending_list');
+        $this->load_attending_list->_display_awaiting_list($plan_id);
+    }
 
     // display the people in a group in a modal
     public function group_member_list()
