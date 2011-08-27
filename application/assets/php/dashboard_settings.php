@@ -62,7 +62,7 @@
 
         <tr>
             <td></td>
-            <td><?php anchor('auth/forgot_password', 'Forgot your password?'); ?></td>
+            <td><?php echo(anchor('auth/forgot_password', 'Forgot password?')); ?></td>
         </tr>
 
         <tr>
