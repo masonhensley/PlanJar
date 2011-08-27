@@ -769,7 +769,7 @@ class Home extends CI_Controller
         if ($query->num_rows() > 0)
         {
             // Get the user id
-            $user_id = $query->row()->id;
+            $user_id = $query->row()->user_id;
 
             // Remove all email settings
             $user = $this->ion_auth->get_user($id);

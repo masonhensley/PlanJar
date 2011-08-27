@@ -485,7 +485,8 @@ class Notification_ops extends CI_Model
                     <hr/>
                     <div class="bottom_links">
                         <?php echo(anchor('', 'PlanJar | Home')); ?> - Don't want to receive these emails?
-                        Click <?php echo(anchor('dashboard/settings', 'here')); ?> to change your email settings.<br/>
+                        Click <?php echo(anchor('dashboard/settings', 'here')); ?> to change your email settings.
+                        <br/>--<br/>
                         Don't want to receive ANY emails from PlanJar?
                         Click <?php echo(anchor("home/unsub/$unsubscribe_id", 'here')); ?> to unsubscribe.
                     </div>
