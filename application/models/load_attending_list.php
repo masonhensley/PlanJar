@@ -101,7 +101,8 @@ class Load_attending_list extends CI_Model
         {
             ob_start();
             ?>
-            <div style="width:200px; text-align: center; color:gray; font-style: italic;">
+            <div style="width:100%; text-align: center; color:gray; font-style: italic;">
+                <br/>
                 Nothing to show
             </div>
             <?php
