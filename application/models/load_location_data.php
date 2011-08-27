@@ -44,7 +44,7 @@ class Load_location_data extends CI_Model
         return array(
             'html' => $return_html,
             'graph_data' => $graph_return_data,
-            'map_data' => array(array($place_info->name, $place_info->latitude, $place_info->longitude, '')));
+            'map_data' => array(array($place_info['name'], $place_info['latitude'], $place_info['longitude'], '')));
     }
 
     function get_place_info($place_id)
