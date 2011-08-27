@@ -211,8 +211,14 @@
 
         <div id="plan_attending_panel" class="modal" style="left:43%; top:19%;">
             <div class="title_bar">
-                <b>Attending List</b>
+                <b>Guest List</b>
                 <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
+            </div>
+            <div id="awaiting_button" style="position:absolute;"></div>
+            <div id="attending_button" style="position:absolute;"></div>
+            <div id="awaiting_reply" >
+                <div id="awaiting_list">
+                </div>
             </div>
             <div id="attending_modal_content">
                 <div class="attending_list">
