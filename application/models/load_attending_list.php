@@ -10,11 +10,7 @@ class Load_attending_list extends CI_Model
 
     function _display_attending_list($plan_id)
     {
-        // get the event id for next query
-        $query = "SELECT event_id FROM plans WHERE id=$plan_id";
-        $result = $this->db->query($query);
-        $event_id = $result->row();
-        $event_id = $event_id->event_id;
+        $event_id = $this->get_event_id($plan_id);
 
         // select all the people attending the event
         $query = "
@@ -27,6 +23,29 @@ class Load_attending_list extends CI_Model
 
         $result = $this->db->query($query);
         $this->display_user_list($result);
+    }
+    
+    function _display_awaiting_list($plan_id)
+    {
+        $event_id = $this->get_event_id($plan_id);
+        
+        // select the people who haven't responded to the event yet
+        $query = "
+                SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
+                FROM notifications
+                JOIN user_meta ON notificaitons.user_id=user_meta.user_id
+                WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
+            ";
+        $this->db->query($query);
+    }
+    
+    function get_event_id($plan_id)
+    {
+        // get the event id for next query
+        $query = "SELECT event_id FROM plans WHERE id=$plan_id";
+        $result = $this->db->query($query);
+        $event_id = $result->row();
+        return $event_id->event_id;
     }
     
     function _display_group_members($group_id)
