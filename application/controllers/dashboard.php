@@ -405,7 +405,7 @@ class Dashboard extends CI_Controller
         $new_password = $this->input->get('new_password');
         $new_password_1 = $this->input->get('new_password_1');
 
-        $this->ion_auth_model->change_password($this->ion_auth->get_user()->email, $old_password, $new_password);
+        $this->ion_auth_model->change_password($this->ion_auth->get_user()->email, $old_password, $new_password, $new_password_1);
     }
 
 }
