@@ -377,7 +377,18 @@ class Dashboard extends CI_Controller
 
     public function update_email_prefs()
     {
-        
+        // Rectify the params
+        $email_notif = $this->input->get('email_notif');
+        if ($email_notif == '')
+        {
+            $email_notif = 0;
+        } else
+        {
+            $email_notif = 1;
+        }
+
+        $query_string = "UPDATE user_meta SET email_notif = ? WHERE user_id = ?";
+        $query = $this->db->query($query_string, array($email_notif, $this->ion_auth->get_user()->id));
     }
 
 }
