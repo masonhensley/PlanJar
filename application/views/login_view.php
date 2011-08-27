@@ -67,7 +67,7 @@
                 <div id="right_inner">
                     <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>
                     <font color="purple" >
-                        <div id="su_error" class="error_message">
+                        <div id="su_error" class="error_message" style="text-align:center; color:red;">
                             <!-- Errors will be displayed here -->
                         </div>
                     </font>
