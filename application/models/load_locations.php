@@ -277,7 +277,7 @@ class Load_locations extends CI_Model
     }
 
     // Returns html for the locations as well as associated coordinates
-    function display_location_tabs($display_message, $place_id_array, $place_array)
+    function display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id)
     {
         // Establish the list of coordinates
         $coords_array = array();
@@ -303,7 +303,7 @@ class Load_locations extends CI_Model
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">
-                <?php echo $number_tracker; ?>
+                        <?php echo $number_tracker; ?>
                     </div>
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
                     <font style="font-weight:bold;color:gray; font-size:13px;"><?php echo $count; ?> plans made here</font><br/>
