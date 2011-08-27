@@ -9,3 +9,7 @@
 .settings_wrapper table {
     width: 100%;
 }
+
+.settings_wrapper a {
+    color: navy;
+}
