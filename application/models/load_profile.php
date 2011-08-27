@@ -236,10 +236,10 @@ class Load_profile extends CI_Model
             $index = 0;
             foreach ($most_visited_locations as $location => $count)
             {
-                if ($index < 10)// limit display to ten
+                if ($index < 10 && $index < $most_visited_count)// limit display to ten
                 {
                     ?><font style="color:navy;"><?php echo $location . " ($count)"; ?></font><?php
-                    if ($index + 1 != 10)
+                    if ($index + 1 != 10 && $index + 1 != $most_visited_count)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
                     }
