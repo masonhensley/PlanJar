@@ -213,14 +213,17 @@ class Load_profile extends CI_Model
         if ($recent_locations_count > 0)
         {
             $index = 0;
-            foreach ($recent_locations as $location)
+            if ($index < 10) // limit display to ten
             {
-                ?><font style="color:navy;"><?php echo $location; ?></font><?php
-                if ($index + 1 != $recent_locations_count)
+                foreach ($recent_locations as $location)
                 {
-                    ?><font style="color:black;"><?php echo ", "; ?></font><?php
+                    ?><font style="color:navy;"><?php echo $location; ?></font><?php
+                    if ($index + 1 != $recent_locations_count)
+                    {
+                        ?><font style="color:black;"><?php echo ", "; ?></font><?php
+                    }
+                    $index++;
                 }
-                $index++;
             }
         } else
         {
@@ -233,9 +236,9 @@ class Load_profile extends CI_Model
             $index = 0;
             foreach ($most_visited_locations as $location => $count)
             {
-                if ($index < 11)
+                if ($index < 10)// limit display to ten
                 {
-                    ?><font style="color:navy;"><?php echo $location ." ($count)"; ?></font><?php
+                    ?><font style="color:navy;"><?php echo $location . " ($count)"; ?></font><?php
                     if ($index + 1 != $most_visited_count)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
