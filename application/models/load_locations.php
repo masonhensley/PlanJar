@@ -171,6 +171,9 @@ class Load_locations extends CI_Model
             $place_array[$place->place_id] = array($place->name, $place->latitude, $place->longitude);
             $place_id_array[] = $place->place_id;
         }
+        
+        var_dump($place_array);
+        var_dump($place_id_array);
 
         $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
     }
