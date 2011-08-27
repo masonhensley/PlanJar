@@ -90,7 +90,7 @@ class Load_friend_plans extends CI_Model
             foreach ($plans_result->result() as $plan)
             {
 
-                if (in_array($plan->id, $plan_ids_shown))
+                if (!in_array($plan->id, $plan_ids_shown))
                 {
                     // make easy to read variables
                     $plan_ids_shown[] = $plan->id;
