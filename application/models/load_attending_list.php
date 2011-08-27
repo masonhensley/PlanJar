@@ -104,7 +104,7 @@ class Load_attending_list extends CI_Model
             <div style="width:100%; text-align: center; color:gray; font-style: italic;">
                 <br/>
                 Nothing to show
-                <br/>
+                <br/><br/>
             </div>
             <?php
             echo ob_get_clean();
