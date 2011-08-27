@@ -24,11 +24,11 @@ class Load_attending_list extends CI_Model
         $result = $this->db->query($query);
         $this->display_user_list($result);
     }
-    
+
     function _display_awaiting_list($plan_id)
     {
         $event_id = $this->get_event_id($plan_id);
-        
+
         // select the people who haven't responded to the event yet
         $query = "
                 SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
@@ -40,7 +40,7 @@ class Load_attending_list extends CI_Model
         $result = $this->db->query($query);
         $this->display_user_list($result);
     }
-    
+
     function get_event_id($plan_id)
     {
         // get the event id for next query
@@ -49,7 +49,7 @@ class Load_attending_list extends CI_Model
         $event_id = $result->row();
         return $event_id->event_id;
     }
-    
+
     function _display_group_members($group_id)
     {
         // get group members
@@ -65,8 +65,8 @@ class Load_attending_list extends CI_Model
         WHERE group_relationships.group_id=$group_id
         ";
         $query_result = $this->db->query($query);
-        
-         // echo the user entries 
+
+        // echo the user entries 
         $this->load_attending_list->display_user_list($query_result);
     }
 
@@ -78,23 +78,28 @@ class Load_attending_list extends CI_Model
         $count = 0;
         ob_start();
 
-        foreach ($query_result->result() as $row)
+        if ($query_result->num_rows() > 0)
         {
-            if (in_array($row->user_id, $follow_ids))
+            foreach ($query_result->result() as $row)
             {
-                $this->follow_ops->echo_user_entry($row, 'already_following');
-            } else if ($row->user_id == $user->id)
-            {
-                $this->follow_ops->echo_user_entry($row, 'this_is_you');
-            } else
-            {
-                $this->follow_ops->echo_user_entry($row, 'add following');
+                if (in_array($row->user_id, $follow_ids))
+                {
+                    $this->follow_ops->echo_user_entry($row, 'already_following');
+                } else if ($row->user_id == $user->id)
+                {
+                    $this->follow_ops->echo_user_entry($row, 'this_is_you');
+                } else
+                {
+                    $this->follow_ops->echo_user_entry($row, 'add following');
+                }
+
+                $count++;
             }
 
-            $count++;
+            echo ob_get_clean();
+        }else{
+            echo "<i>Nothing to show</i>";
         }
-
-        echo ob_get_clean();
     }
 
 }
