@@ -63,7 +63,7 @@ class Load_locations extends CI_Model
 
 
         // query to pull all plans from people within 15 miles from your current location
-        $query = "SELECT places.id, places.name, events.title, places.latitude, places.longitude
+        $query = "SELECT DISTINCT places.id, places.name, events.title, places.latitude, places.longitude
             FROM (SELECT user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance FROM user_meta HAVING distance < 15)new_users
@@ -78,10 +78,7 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->id]))
-            {
-                $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
-            }
+            $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             $place_id_array[] = $place->id;
         }
         $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
@@ -93,7 +90,7 @@ class Load_locations extends CI_Model
         $display_message .= "are going <br/><font style=\"font-weight:bold;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
-        $query = "SELECT places.id, events.title, places.name, places.latitude, places.longitude FROM plans 
+        $query = "SELECT DISTINCT places.id, events.title, places.name, places.latitude, places.longitude FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
                   WHERE (";
@@ -109,10 +106,7 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->id]))
-            {
-                $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
-            }
+            $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             $place_id_array[] = $place->id;
         }
         $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
@@ -125,7 +119,7 @@ class Load_locations extends CI_Model
         $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> <font style=\"color:green;\">$school</font> ";
         $display_message .= "students are going <font style=\"font-weight:bold;\">$display_day</font>";
 
-        $query = "SELECT events.title, places.name, places.id, places.latitude, places.longitude
+        $query = "SELECT DISTINCT events.title, places.name, places.id, places.latitude, places.longitude
                   FROM user_meta
                   LEFT JOIN plans ON plans.user_id=user_meta.user_id
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
@@ -137,10 +131,7 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->id]))
-            {
-                $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
-            }
+            $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             $place_id_array[] = $place->id;
         }
         $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
@@ -177,10 +168,7 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->place_id]))
-            {
-                $place_array[$place->place_id] = array($place->name, $place->latitude, $place->longitude);
-            }
+            $place_array[$place->place_id] = array($place->name, $place->latitude, $place->longitude);
             $place_id_array[] = $place->place_id;
         }
 
