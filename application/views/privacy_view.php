@@ -79,13 +79,14 @@
                     </div>
 
                 </div> 
+                <div class="bottom_links">
+                    <a href="/help" id="bottom_link">Help & FAQ</a>
+                    <a href="/about" id="bottom_link">About</a>
+                    <a href="/privacy" id="bottom_link">Privacy</a>
+                    <a href="http://blog.planjar.com/" id="profile_link">Blog</a>
+                </div>
             </div>
-            <div class="bottom_links">
-                <a href="/help" id="bottom_link">Help & FAQ</a>
-                <a href="/about" id="bottom_link">About</a>
-                <a href="/privacy" id="bottom_link">Privacy</a>
-                <a href="http://blog.planjar.com/" id="profile_link">Blog</a>
-            </div>
+
 
             <script type="text/javascript">
                 var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
