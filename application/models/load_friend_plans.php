@@ -31,7 +31,9 @@ class Load_friend_plans extends CI_Model
             // if the all button is selected
             $this->load->model('load_locations');
             $friend_ids = $this->load_locations->get_friend_ids();
-            $query = "
+            if (count($friend_ids) > 0)
+            {
+                $query = "
             SELECT DISTINCT plans.id, events.date, events.time, events.title, plans.event_id, places.name
             FROM plans
             JOIN events ON events.id=plans.event_id AND events.date>=CURDATE()
@@ -39,15 +41,16 @@ class Load_friend_plans extends CI_Model
             JOIN places ON events.place_id=places.id
             WHERE (events.privacy='open' OR event_invites.user_id=$user->user_id) AND (
                     ";
-            foreach($friend_ids as $friend_id)
-            {
-                $query .= "plans.user_id=$friend_id OR ";
+                foreach ($friend_ids as $friend_id)
+                {
+                    $query .= "plans.user_id=$friend_id OR ";
+                }
+                $query = substr($query, -4);
+                $query .= ") ORDER BY date ASC";
+
+                $result = $this->db->query($query);
+                $plans_html = $this->_populate_friend_plans($result, $friend_id);
             }
-            $query = substr($query, -4);
-            $query .= ") ORDER BY date ASC";
-            
-            $result = $this->db->query($query);
-            $plans_html = $this->_populate_friend_plans($result, $friend_id);
         }
 
         echo $plans_html;
