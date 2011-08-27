@@ -13,7 +13,9 @@ class Load_friend_plans extends CI_Model
     {
         $user = $this->ion_auth->get_user();
 
-        $query = "
+        if ($friend_id != 'all')
+        {
+            $query = "
             SELECT DISTINCT plans.id, events.date, events.time, events.title, plans.event_id, places.name
             FROM plans
             JOIN events ON events.id=plans.event_id AND events.date>=CURDATE()
@@ -22,8 +24,32 @@ class Load_friend_plans extends CI_Model
             WHERE plans.user_id=$friend_id AND (events.privacy='open' OR event_invites.user_id=$user->user_id)
             ORDER BY date ASC
                 ";
-        $result = $this->db->query($query);
-        $plans_html = $this->_populate_friend_plans($result, $friend_id);
+            $result = $this->db->query($query);
+            $plans_html = $this->_populate_friend_plans($result, $friend_id);
+        } else
+        {
+            // if the all button is selected
+            $this->load->model('load_locations');
+            $friend_ids = $this->load_locations->get_friend_ids();
+            $query = "
+            SELECT DISTINCT plans.id, events.date, events.time, events.title, plans.event_id, places.name
+            FROM plans
+            JOIN events ON events.id=plans.event_id AND events.date>=CURDATE()
+            LEFT JOIN event_invites ON event_invites.event_id=events.id
+            JOIN places ON events.place_id=places.id
+            WHERE (events.privacy='open' OR event_invites.user_id=$user->user_id) AND (
+                    ";
+            foreach($friend_ids as $friend_id)
+            {
+                $query .= "plans.user_id=$friend_id OR ";
+            }
+            $query = substr($query, -4);
+            $query .= ") ORDER BY date ASC";
+            
+            $result = $this->db->query($query);
+            $plans_html = $this->_populate_friend_plans($result, $friend_id);
+        }
+
 
         echo $plans_html;
     }
