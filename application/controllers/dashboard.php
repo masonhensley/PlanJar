@@ -375,5 +375,10 @@ class Dashboard extends CI_Controller
         $this->notification_ops->accept_notification($this->input->get('notif_id'));
     }
 
+    public function update_email_prefs()
+    {
+        
+    }
+
 }
 ?>

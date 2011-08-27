@@ -13,7 +13,7 @@
             <tr>
                 <td>Change your password</td>
 
-                <td>
+                <td style="padding: 5px;">
                     <div class="in-field_block">
                         <label for="old_password">Old password</label>
                         <input type="text" id="old_password" name="old_passwor"/>
@@ -23,7 +23,7 @@
 
             <tr style="display: none;">
                 <td></td>
-                <td>
+                <td style="padding: 5px;">
                     <div class="in-field_block">
                         <label for="new_password">New password</label>
                         <input type="text" id="new_password" name="new_password"/>
@@ -33,7 +33,7 @@
 
             <tr style="display: none;">
                 <td></td>
-                <td>
+                <td style="padding: 5px;">
                     <div class="in-field_block">
                         <label for="new_password_1">Re-enter new password</label>
                         <input type="text" id="new_password_1" name="new_password_1"/>
