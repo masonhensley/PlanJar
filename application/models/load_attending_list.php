@@ -38,6 +38,7 @@ class Load_attending_list extends CI_Model
                 WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
             ";
         $result = $this->db->query($query);
+        var_dump($query, $result->result());
         $this->display_user_list($result);
     }
     
@@ -65,7 +66,6 @@ class Load_attending_list extends CI_Model
         WHERE group_relationships.group_id=$group_id
         ";
         $query_result = $this->db->query($query);
-        
         
          // echo the user entries 
         $this->load_attending_list->display_user_list($query_result);
