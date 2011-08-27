@@ -38,6 +38,12 @@
                         <label for="new_password_1">Re-enter new password</label>
                         <input type="text" id="new_password_1" name="new_password_1"/>
                     </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
                     <input type="submit" value="Change"/>
                 </td>
             </tr>

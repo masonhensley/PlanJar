@@ -399,5 +399,17 @@ class Dashboard extends CI_Controller
         echo( json_encode($query->row()));
     }
 
+    public function change_password()
+    {
+        $old_password = $this->input->get('old_password');
+        $new_password = $this->input->get('new_password');
+
+        if ($this->ion_auth_model->change_password($this->ion_auth->get_user()->identity, $old_password, $new_password)) {
+            echo('success');
+        } else {
+            
+        }
+    }
+
 }
 ?>

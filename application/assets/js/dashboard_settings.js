@@ -12,10 +12,7 @@ function initialize_settings() {
     $('#settings_content label').inFieldLabels();
     
     // Cascade the showing of the password fields
-    $('#old_password').keyup(function() {
-        $(this).parents('tr').next().show('fast');
-    });
-    $('#new_password').keyup(function() {
+    $('#old_password, #new_password, #new_password_1').keyup(function() {
         $(this).parents('tr').next().show('fast');
     });
     
@@ -31,5 +28,20 @@ function initialize_settings() {
         $.map(data, function(item, key) {
             $('#' + key).prop('checked', parseInt(item));
         });
+    });
+    
+    // Change password submit handler
+    $('#change_password').submit(function() {
+        $.get('/dashboard/change_password?' + $(this).serialize(), function(data) {
+            if (data == 'success') {
+                $('#old_password, #new_password, #new_password_1').val('');
+                $('#old_password, #new_password, #new_password_1').blur();
+                $('#new_password, #new_password_1').parents('tr').hide('fast');
+            } else {
+                alert(data);
+            }
+        });
+        
+        return false;
     });
 }
