@@ -45,12 +45,6 @@ function controlls_are_selected() {
 // Displays information to the info box based on what's selected
 var found_location = false;
 function display_info(bypass, arg) {
-    // show the invite link and hide plan comments
-    if(!$('.plan_content').hasClass('selected_plan'))
-    {
-        show_invite_link();
-    }
-    
     if ($('#find_places.selected').length > 0) {    
         // Find a place
         
@@ -120,11 +114,15 @@ function display_info(bypass, arg) {
             'back_to_search': back_to_search,
             'back_to_groups': $('.selected_location_tab').length > 0
         }, function (data) {
+            data = $.parseJSON(data);
+            
             initialize_location_info(data);
+            populate_map(data.map_data);
         }).complete(function(){
             location_spinner.stop();
         });
-    } else if ($('.network_active, .selected_group').length > 0) { // Network or group selected.
+    } else if ($('.network_active, .selected_group').length > 0) {
+        // Network or group selected.
         
         // setup spinner
         var group_opts = spinner_options();
@@ -182,7 +180,11 @@ function display_info(bypass, arg) {
             });
         }
         
-    } else if ($('.selected_plan, .selected_friend_plan').length > 0) { // Plan or friend's plan selected
+    } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
+        // Plan or friend's plan selected
+        
+        // show the invite link and hide plan comments
+        show_invite_link();
         
         // setup spinner
         var plan_opts = spinner_options();
@@ -223,7 +225,6 @@ function display_info(bypass, arg) {
         
         // Load popular locations
         populate_popular_locations();
-        
     }
 }
 
@@ -231,8 +232,6 @@ function display_info(bypass, arg) {
 // Used for viewing locations and friends' plans
 
 function initialize_location_info(data) {
-    data = $.parseJSON(data);
-
     // Apply the layout HTML
     $('#info_content').html(data.html);
     data = data.graph_data;
@@ -349,8 +348,7 @@ function initialize_plan_info(data) {
 function populate_popular_locations(skip_update_map, callback) {
     jqxhr = $.get('/home/load_location_tabs', {
         'selected_groups': get_selected_groups(),
-        'selected_day': get_selected_day(),
-        'selected_place_id': $('selected_location_tab').attr('place_id')
+        'selected_day': get_selected_day()
     }, function (data) {
         data = $.parseJSON(data);
         

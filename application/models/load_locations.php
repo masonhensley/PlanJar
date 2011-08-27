@@ -9,7 +9,7 @@ class Load_locations extends CI_Model
         parent::__construct();
     }
 
-    function load_relevant_locations($selected_groups, $day, $user_id, $school, $selected_place_id)
+    function load_relevant_locations($selected_groups, $day, $user_id, $school)
     {
         // when the page first loads, the javascript can't get the attribute in time, so it is set to 0
         if (!$day)
@@ -27,16 +27,16 @@ class Load_locations extends CI_Model
             $this->on_nothing_selected($display_day);
         } else if ($selected_groups[0] == 'current_location')
         {
-            $this->on_current_location_selected($display_day, $sql_date, $selected_place_id);
+            $this->on_current_location_selected($display_day, $sql_date);
         } else if ($selected_groups[0] == 'friends')
         {
-            $this->on_friends_selected($display_day, $sql_date, $selected_place_id);
+            $this->on_friends_selected($display_day, $sql_date);
         } else if ($selected_groups[0] == 'school')
         {
-            $this->on_school_selected($display_day, $sql_date, $school, $selected_place_id);
+            $this->on_school_selected($display_day, $sql_date, $school);
         } else
         {
-            $this->on_groups_selected($selected_groups, $sql_date, $display_day, $selected_place_id);
+            $this->on_groups_selected($selected_groups, $sql_date, $display_day);
         }
     }
 
@@ -55,7 +55,7 @@ class Load_locations extends CI_Model
         )));
     }
 
-    function on_current_location_selected($display_day, $sql_date, $selected_place_id)
+    function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
         $display_message = "<font style=\"color:gray;\">Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> near your</font> <font style=\"color:green;\">Current Location</font> ";
@@ -81,10 +81,10 @@ class Load_locations extends CI_Model
             $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             $place_id_array[] = $place->id;
         }
-        $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
-    function on_friends_selected($display_day, $sql_date, $selected_place_id)
+    function on_friends_selected($display_day, $sql_date)
     {
         $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> your <font style=\"color:green;\">Friends</font> ";
         $display_message .= "are going <br/><font style=\"font-weight:bold;\">$display_day</font>";
@@ -109,10 +109,10 @@ class Load_locations extends CI_Model
             $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             $place_id_array[] = $place->id;
         }
-        $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
-    function on_school_selected($display_day, $sql_date, $school, $selected_place_id)
+    function on_school_selected($display_day, $sql_date, $school)
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
@@ -134,10 +134,10 @@ class Load_locations extends CI_Model
             $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             $place_id_array[] = $place->id;
         }
-        $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
-    function on_groups_selected($group_list, $sql_date, $display_day, $selected_place_id)
+    function on_groups_selected($group_list, $sql_date, $display_day)
     {
         $group_name_array = $this->get_group_names($group_list);
         $display_message = $this->setup_groups_header($group_name_array, $display_day);
@@ -172,7 +172,7 @@ class Load_locations extends CI_Model
             $place_id_array[] = $place->place_id;
         }
 
-        $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
@@ -266,7 +266,7 @@ class Load_locations extends CI_Model
     }
 
     // Returns html for the locations as well as associated coordinates
-    function display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id)
+    function display_location_tabs($display_message, $place_id_array, $place_array)
     {
         // Establish the list of coordinates
         $coords_array = array();
@@ -286,10 +286,7 @@ class Load_locations extends CI_Model
 
             foreach ($place_id_array as $place_id => $count)
             {
-                if (($selected_place_id !== false && $place_id == $selected_place_id) || $selected_place_id === false)
-                {
-                    $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
-                }
+                $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">
