@@ -221,7 +221,7 @@
                 </div>
             </div>
             <div id="attending_modal_content" style="margin-top:25px;">
-                <div class="attending_list">
+                <div class="attending_list" style="max-height:282px;overflow:auto;width:380px;">
                 </div>
             </div>
         </div>
