@@ -218,7 +218,6 @@
             <div class="awaiting_button">Not Responded</div>
             <div id="awaiting_reply" >
                 <div id="awaiting_list">
-                    hey
                 </div>
             </div>
             <div id="attending_modal_content" style="margin-top:25px;">

@@ -18,7 +18,7 @@ function populate_plan_attending_panel() {
     $.get('/home/awaiting_list', {
         plan_id : $('#view_attendees').attr('plan_id')
     }, function(data){
-        $('.awaiting_list').html(data);
+        $('#awaiting_list').html(data);
     });
     
     $.get('/home/attending_list', {
