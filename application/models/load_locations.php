@@ -78,13 +78,13 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->id]) && $selected_place_id !== false && $place->id != $selected_place_id)
+            if (!isset($place_array[$place->id]))
             {
                 $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             }
             $place_id_array[] = $place->id;
         }
-        $this->display_location_tabs($display_message, $place_id_array, $place_array);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
     }
 
     function on_friends_selected($display_day, $sql_date, $selected_place_id)
@@ -109,13 +109,13 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->id]) && $selected_place_id !== false && $place->id != $selected_place_id)
+            if (!isset($place_array[$place->id]))
             {
                 $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             }
             $place_id_array[] = $place->id;
         }
-        $this->display_location_tabs($display_message, $place_id_array, $place_array);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
     }
 
     function on_school_selected($display_day, $sql_date, $school, $selected_place_id)
@@ -137,13 +137,13 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->id]) && $selected_place_id !== false && $place->id != $selected_place_id)
+            if (!isset($place_array[$place->id]))
             {
                 $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
             }
             $place_id_array[] = $place->id;
         }
-        $this->display_location_tabs($display_message, $place_id_array, $place_array);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
     }
 
     function on_groups_selected($group_list, $sql_date, $display_day, $selected_place_id)
@@ -177,13 +177,13 @@ class Load_locations extends CI_Model
         $place_id_array = array();
         foreach ($result->result() as $place)
         {
-            if (!isset($place_array[$place->place_id]) && $selected_place_id !== false && $place->id != $selected_place_id)
+            if (!isset($place_array[$place->place_id]))
             {
                 $place_array[$place->place_id] = array($place->name, $place->latitude, $place->longitude);
             }
             $place_id_array[] = $place->place_id;
         }
-        $this->display_location_tabs($display_message, $place_id_array, $place_array);
+        $this->display_location_tabs($display_message, $place_id_array, $place_array, $selected_place_id);
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
@@ -294,13 +294,16 @@ class Load_locations extends CI_Model
             asort($place_id_array);
             $place_id_array = array_reverse($place_id_array, TRUE);
             $number_tracker = 1;
-            foreach ($place_id_array as $place_id => $count)
+            foreach ($place_id_array as $place_id)
             {
-                $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
+                if ($place_id != $selected_place_id)
+                {
+                    $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
+                }
                 ?>
                 <div class="location_tab" place_id="<?php echo $place_id; ?>">
                     <div class="number">
-                        <?php echo $number_tracker; ?>
+                <?php echo $number_tracker; ?>
                     </div>
                     <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
                     <font style="font-weight:bold;color:gray; font-size:13px;"><?php echo $count; ?> plans made here</font><br/>
