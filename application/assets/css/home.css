@@ -493,7 +493,7 @@ a {
     margin-left: 5px;
 
 }
-#attending_button{
+.attending_button{
     position:absolute; 
     width:110px; 
     height:23px;
@@ -501,7 +501,7 @@ a {
     background:-webkit-linear-gradient(top, #F3F6FF, #EEE);
     padding-top:4px;
 }
-#awaiting_button{
+.awaiting_button{
     position:absolute;
     width:110px; 
     height:23px;
