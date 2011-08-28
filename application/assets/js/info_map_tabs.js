@@ -262,8 +262,19 @@ function initialize_location_info(data) {
         
         $.get('/home/location_plans_made_here', {
             place_id : $('.selected_location_tab').attr('place_id')
-        },function(){
+        },function(plans_data){
+            $('#plans_made_here_list').html(plans_data);
+            $('#plans_made_here_modal').show();
             
+            // Make it draggable (with a handle).
+            $('#plans_made_here_modal').draggable({
+                handle: '.title_bar'
+            });
+    
+            // Closing click handler
+            $('#cancel_attending_panel').click(function () {
+                $('#plans_made_here_modal').hide('fast');
+            });
         });
         
     });

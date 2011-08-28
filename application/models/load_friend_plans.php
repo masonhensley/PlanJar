@@ -60,7 +60,7 @@ class Load_friend_plans extends CI_Model
     function get_location_plans($place_id)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT DISTINCT events.date, events.time, events.title, plans.event_id, places.name
+        $query = "SELECT DISTINCT events.date, events.time, events.title, events.id AS event_id, places.name
                   FROM places
                   JOIN events ON events.place_id=places.id AND events.date>=CURDATE()
                   LEFT JOIN event_invites ON event_invites.event_id=events.id
@@ -68,6 +68,7 @@ class Load_friend_plans extends CI_Model
                   ";
         $result = $this->db->query($query);
         $plans_html = $this->_populate_location_plans($result);
+        return $plans_html;
     }
 
     // populates modal with plans
@@ -165,7 +166,6 @@ class Load_friend_plans extends CI_Model
     function _populate_location_plans($plans_result)
     {
         ob_start(); // start the output buffer
-        
         if ($plans_result->num_rows() > 0)
         {
             $date_organizer = "";
@@ -179,7 +179,7 @@ class Load_friend_plans extends CI_Model
                     // make easy to read variables
                     $plan_ids_shown[] = $plan->event_id; // make sure events aren't duplicated
 
-                    $id = $plan->id;
+                    $id = $plan->event_id;
                     $place_name = $plan->name;
                     $title = $plan->title;
                     $time = $plan->time;
@@ -206,7 +206,7 @@ class Load_friend_plans extends CI_Model
                         $this->load->helper('day_offset');
                         $day_offset = get_day_offset($plan->date);
                         ?>
-                        <div class ="friend_plan_content" plan_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
+                        <div class ="friend_plan_content" event_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
                             <?php
                             if ($title != '')
                             {
