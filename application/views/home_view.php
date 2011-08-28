@@ -74,9 +74,6 @@
 
         <title>PlanJar | Home</title>
 
-        <!-- Mixpanel - we need to get this out of view -->
-        <script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
-
         <!-- Google Analytics again, out of the view -->
         <script type="text/javascript">
 
@@ -97,7 +94,7 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:8px; height:84%; position:relative; top:7px;"/></a>
+                <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:18px; height:84%; position:relative; top:7px;"/></a>
                 <div class="top_links">
                     <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <!--<a href="/dashboard/" id="dashboard link">dashboard &middot;</a>-->
