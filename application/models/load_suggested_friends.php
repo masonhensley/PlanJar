@@ -81,7 +81,7 @@ class Load_suggested_friends extends CI_Model
         } else
         {
             ?>
-            <center><i><font style="color:gray;">Nothing to show</font></i></center><br/><br/>
+            <center><i><font style="color:gray;">Nothing to show</font></i></center><br/>
             <?php
         }
     }
@@ -105,7 +105,7 @@ class Load_suggested_friends extends CI_Model
         } else
         {
             ?>
-            <center><i><font style="color:gray;">Nothing to show</font></i></center><br/><br/>
+            <center><i><font style="color:gray;">Nothing to show</font></i></center><br/>
             <?php
 
         }
