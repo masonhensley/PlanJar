@@ -54,8 +54,24 @@ class Plan_actions extends CI_Model
 
     // Accepts an array containing plan data
     // Returns the plan details
-    function add_plan($data, $originator = false)
+    function add_plan($data, $originator = false, $skip_notif_check = false)
     {
+        if (!$skip_notif_check)
+        {
+            // See if the user has any invitiations to this event
+            $query_string = "SELECT id FROM notifications
+            WHERE user_id = ? AND type= ? AND subject_id = ?";
+            $query = $this->db->query($query_string, array($data[0], 'event_invite', $data[1]));
+
+            if ($query->num_rows() > 0)
+            {
+                // Accept the notification 
+                $this->load_model('notification_ops');
+                $this->notification_ops->accept_notification($query->row()->id);
+                return;
+            }
+        }
+
         // Add the plan
         $query_string = "INSERT IGNORE INTO plans VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, $data);
@@ -69,6 +85,7 @@ class Plan_actions extends CI_Model
         $plan_check = $this->unique_plan($event_id);
         if ($plan_check === true)
         {
+            // No conflict.
             return json_encode(array(
                         'status' => 'success',
                         'originator' => $originator,
