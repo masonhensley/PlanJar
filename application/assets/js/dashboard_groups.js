@@ -101,6 +101,8 @@ function group_select_click_handler()
                     $('#groups_content .middle').html(data);
                     $('#groups_content .middle').show('fast');
                 }
+            }).complete(function(){
+                populate_group_member_panel();
             });
         }
     });
