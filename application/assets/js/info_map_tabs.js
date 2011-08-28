@@ -262,9 +262,8 @@ function initialize_location_info(data) {
         
         $.get('/home/location_plans_made_here', {
             place_id : $('.selected_location_tab').attr('place_id')
-        },function(data){
-            alert(data);
-            $('#plans_made_here_list').html(data);
+        },function(plans_data){
+            $('#plans_made_here_list').html(plans_data);
             $('#plans_made_here_modal').show();
             
             // Make it draggable (with a handle).
