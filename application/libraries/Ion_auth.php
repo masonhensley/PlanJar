@@ -250,7 +250,7 @@ class Ion_auth
 
         if ($new_password)
         {
-            $notif_text = 'Hi ' . $profile->first_name . ".<br/><br/>Your temporary password is <b>$new_password</b>" .
+            $notif_text = 'Hi ' . $profile->first_name . ".<br/><br/>Your temporary password is <b>$new_password</b>.<br/>" .
                     'Click ' . anchor('/dashboard/settings', 'here') . ' to go to the settings page and change your password.';
             $data = array(
                 'notif_text' => $notif_text,
