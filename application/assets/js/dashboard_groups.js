@@ -102,7 +102,6 @@ function group_select_click_handler()
                     $('#groups_content .middle').show('fast');
                 }
                 $('#view_group_list').click(function(){
-                    alert('hey');
                     populate_group_member_panel();
                 });
                 
@@ -198,6 +197,10 @@ function populate_edit_groups_list(callback) {
                 });
             }
             
+            $('#view_group_list').click(function(){
+                populate_group_member_panel();
+            });
+                
         });
         
         if (callback != undefined) {
