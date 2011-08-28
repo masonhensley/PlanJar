@@ -1,14 +1,15 @@
-<h1>Forgot Password</h1>
-<p>Please enter your email address so we can send you an email to reset your password.</p>
+<html>
+    <head>
+        <title>PlanJar | Forgot Password</title>
+    </head>
 
-<div id="infoMessage"><?php echo $message;?></div>
+    <body>
+        <h1>Forgot Password</h1>
+        <p>Please enter your email address so we can send you an email to reset your password.</p>
 
-<?php echo form_open("auth/forgot_password");?>
-
-      <p>Email Address:<br />
-      <?php echo form_input($email);?>
-      </p>
-      
-      <p><?php echo form_submit('submit', 'Submit');?></p>
-      
-<?php echo form_close();?>
+        <form action="<?php echo(base_url() . 'auth/forgot_password'); ?>" method="post">
+            <input type="email" name="email"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </body>
+</html>

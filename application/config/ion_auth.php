@@ -29,12 +29,12 @@ $config['tables']['meta'] = 'user_meta';
 /**
  * Site Title, example.com
  */
-$config['site_title'] = "planjar.com";
+$config['site_title'] = "PlanJar";
 
 /**
  * Admin Email, admin@example.com
  */
-$config['admin_email'] = "dev@planjar.com";
+$config['admin_email'] = "noreply@planjar.com";
 
 /**
  * Default group, use name

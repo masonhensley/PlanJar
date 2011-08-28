@@ -200,7 +200,7 @@ class Ion_auth
             $this->ci->email->set_newline("\r\n");
             $this->ci->email->from($this->ci->config->item('admin_email', 'ion_auth'), $this->ci->config->item('site_title', 'ion_auth'));
             $this->ci->email->to($user->email);
-            $this->ci->email->subject($this->ci->config->item('site_title', 'ion_auth') . ' - Forgotten Password Verification');
+            $this->ci->email->subject($this->ci->config->item('site_title', 'ion_auth') . ' | Forgotten Password Verification');
             $this->ci->email->message($message);
 
             if ($this->ci->email->send())

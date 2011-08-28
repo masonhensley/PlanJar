@@ -20,36 +20,21 @@ class Auth extends CI_Controller
     //forgot password
     function forgot_password()
     {
-        $this->load->view('forgot_password_view');
+        if ($this->input->post('email'))
+        {
+            // Email sent in post. Run the forgotten password method to email an activation code to the user
+            $forgotten = $this->ion_auth->forgotten_password($this->input->post('email'));
 
-
-//        if ($this->input->post())
-//        
-//        $this->form_validation->set_rules('email', 'Email Address', 'required');
-//        if ($this->form_validation->run() == false)
-//        {
-//            //setup the input
-//            $this->data['email'] = array('name' => 'email',
-//                'id' => 'email',
-//            );
-//            //set any errors and display the form
-//            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-//            $this->load->view('auth/forgot_password', $this->data);
-//        } else
-//        {
-//            //run the forgotten password method to email an activation code to the user
-//            $forgotten = $this->ion_auth->forgotten_password($this->input->post('email'));
-//
-//            if ($forgotten)
-//            { //if there were no errors
-//                $this->session->set_flashdata('message', $this->ion_auth->messages());
-//                redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
-//            } else
-//            {
-//                $this->session->set_flashdata('message', $this->ion_auth->errors());
-//                redirect("auth/forgot_password", 'refresh');
-//            }
-//        }
+            if ($forgotten)
+            {
+                // No errors
+                redirect("auth/login", 'refresh');
+            } else
+            {
+                // Refresh
+                redirect("auth/forgot_password", 'refresh');
+            }
+        }
     }
 
     //reset password - final step for forgotten password
