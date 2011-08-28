@@ -236,7 +236,7 @@ a {
     bottom: 0px;
 }
 
-.back_to_plan, .back_to_groups, .back_to_search, .back_to_info {
+.back_to_plan, .back_to_groups, .back_to_search {
     text-align: center;
     padding: 8px;
     position: absolute;
@@ -658,7 +658,7 @@ a {
     font-weight:bold;
 }
 
-.make_plan_here{
+.make_plan_here{ 
     position: absolute;
     left: 15px;
     bottom: 27px;
@@ -676,7 +676,7 @@ a {
     font-size:18px;
 }
 
-.view_map {
+.view_map, .back_to_info {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     color: gray;
     position: absolute;
