@@ -259,7 +259,7 @@ class Load_location_data extends CI_Model
                 <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
             </div>
             <div id="plans_made_here_list">
-
+                
             </div>
         </div>
 
