@@ -126,18 +126,6 @@ $config['email_templates'] = 'auth/email/';
 $config['email_activate'] = 'activate.tpl.php';
 
 /**
- * Forgot Password Email Template
- * Default : forgot_password.tpl.php
- * */
-$config['email_forgot_password'] = 'forgot_password.tpl.php';
-
-/**
- * Forgot Password Complete Email Template
- * Default : new_password.tpl.php
- * */
-$config['email_forgot_password_complete'] = 'new_password.tpl.php';
-
-/**
  * Salt Length
  * */
 $config['salt_length'] = 10;
