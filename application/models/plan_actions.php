@@ -152,7 +152,7 @@ class Plan_actions extends CI_Model
         } else
         {
             ?>
-            <font style="font-style:italic;">No plans yet</font><br/><br/>
+            <font style="font-style:italic; color:gray; position: relative;top:3px;">No plans yet</font><br/><br/>
             <?php
         }
         return ob_get_clean();

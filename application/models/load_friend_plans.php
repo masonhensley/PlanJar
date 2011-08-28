@@ -9,7 +9,7 @@ class Load_friend_plans extends CI_Model
         parent::__construct();
     }
 
-    function populate_plans($friend_id)
+    function populate_plans($friend_id) // populate friends plans or all plans
     {
         $user = $this->ion_auth->get_user();
 
@@ -141,7 +141,7 @@ class Load_friend_plans extends CI_Model
         } else
         {
             ?>
-            <br/><hr/><font style="font-style:italic;">No plans yet</font><br/><br/>
+            <br/><hr/><font style="font-style:italic;color:gray; position: relative;top:3px;">No plans yet</font><br/><br/>
             <?php
         }
         return ob_get_clean();

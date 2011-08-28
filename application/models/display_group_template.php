@@ -448,10 +448,12 @@ class Display_group_template extends CI_Model
             $top_display = "Friends"; // you can use data_array to find total number of friends
         } else if ($format_type == 'current_location')
         {
-            $top_display .= "Current Location <font style=\"color:gray;\">15 mile radius</font>";
+            $top_display .= "Current Location <font style=\"color:lightgray;\">(15 mile radius)</font>";
         } else if ($format_type == 'school')
         {
-            $top_display .= "School";
+            $query_string = "SELECT school FROM school_data WHERE id = ?";
+            $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
+            $top_display .= $query->row()->school;
         } else if ($format_type == 'groups')
         {
             $font_style = "groups";
@@ -489,11 +491,27 @@ class Display_group_template extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left; font-size:25px;">
-                <font style="color:gray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
+                <font style="color:gray;">
+                <?php
+                if ($format_type == 'groups')
+                {
+                    ?>
+                    Group<?php echo $s;?>:
+                    <?php
+                } else
+                {
+                    ?>
+                    Network:
+                    <?php
+                }
+                ?>
+
+                </font> 
+                <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
-        <div style="position:absolute; top:52px; right:100px;color:gray;">
-            # plans made by day
+        <div style="position:absolute; top:48px; right:57px;color:gray;">
+            # of plans group makes by day
         </div>
         <br/>
         <div class="group_graph_top_left" >

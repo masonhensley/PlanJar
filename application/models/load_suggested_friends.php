@@ -75,13 +75,15 @@ class Load_suggested_friends extends CI_Model
         $suggested_friends = array_reverse($suggested_friends, TRUE);
         $display_limit = 10; // set the display limit
         $result = $this->generate_suggested_friends($suggested_friends);
-        if($result)
+        if ($result)
         {
             $this->display_suggested_friends($result, $suggested_friends, 'suggested', $display_limit);
-        }else{
-            echo "<center><i>Nothing to show</i></center>";
+        } else
+        {
+            ?>
+            <center><i><font style="color:gray;">Nothing to show</font></i></center><br/>
+            <?php
         }
-        
     }
 
     function display_suggested_friends($query_result, $suggested_friends, $options, $display_limit) //this function displays the suggested friends
@@ -103,8 +105,7 @@ class Load_suggested_friends extends CI_Model
         } else
         {
             ?>
-            <center><i>Nothing to show</i></center>
-            <br/>
+            <center><i><font style="color:gray;">Nothing to show</font></i></center><br/>
             <?php
 
         }
@@ -133,7 +134,8 @@ class Load_suggested_friends extends CI_Model
             }
             $query .= "END";
             return $this->db->query($query);
-        }else{
+        } else
+        {
             return false;
         }
     }

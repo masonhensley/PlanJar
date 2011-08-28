@@ -46,7 +46,7 @@
 
                     <h2> Our Team <span class="arrow"></span> </h2> 
 
-                    <h4>Mason Hensley, Director of Black Operations, CEO & Co-Founder <span class="arrow_right"></span> </h4>
+                    <h4>Mason Hensley, Director of Black Ops, CEO & Co-Founder <span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
                             Mason Hensley is Co-Founder and CEO of PlanJar.  Prior to founding PlanJar, he briefly worked at the energy efficiency team at the Tennessee Valley Authority. <br> <br>
@@ -54,6 +54,7 @@
 
                         </div>
                         <div class ="pic">
+                            <img src="/application/assets/images/mason_bio.jpg" style="width:100%; height:100%;"/>
                         </div>
 
                     </div>
@@ -72,9 +73,10 @@
                     <h4> Wells Johnston, Director of Field Operations, Software Architect & Co-Founder ¯\_(ツ)_/¯<span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
-                            Wells tactfully runs PlanJar’s engineering team with Parker, and directs the site design and back-end architecture.  Before PlanJar, Wells worked as a programmer at Moontoast.com, as well as a freelance web developer. <br><br> Outside the PlanJar, Wells is currently pursuing a Bachelor of Science in both Computer Science and Mathematics from Vanderbilt University.
+                            Wells runs PlanJar’s engineering team with Parker, and directs the site development and back-end architecture.  Before PlanJar, Wells worked as a programmer at Moontoast.com, as well as a freelance web developer. <br><br> Outside of PlanJar, Wells is currently pursuing a Bachelor of Science in both Computer Science and Mathematics from Vanderbilt University.
                         </div>
                         <div class ="pic">
+                            <img src="/application/assets/images/wells_bio.jpg" />
                         </div>
 
                     </div> 

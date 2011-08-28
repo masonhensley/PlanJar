@@ -192,6 +192,11 @@ function populate_edit_groups_list(callback) {
                         open_invite_modal('group', $('.group_profile_header').attr('group_id'), $('.group_profile_header').attr('priv_type'));
                     })
                     
+                    // set the view list click handler
+                    $('#view_group_list').click(function(){
+                        populate_group_member_panel();
+                    });
+                    
                 }).complete(function(){
                     select_group_spinner.stop(); // stop the spinner
                 });
@@ -203,8 +208,6 @@ function populate_edit_groups_list(callback) {
             callback();
         }
         
-        $('#view_group_list').click(function(){
-            populate_group_member_panel();
-        });
+        
     });
 }
