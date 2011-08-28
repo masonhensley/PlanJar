@@ -279,7 +279,7 @@ function initialize_location_info(data) {
         },function(plans_data){
             
             $('#plans_made_here_list').html(plans_data);
-            $('#plans_made_here_modal').show();
+            $('#plans_made_here_modal').show('fast');
             
             // Click handler
             $('.location_plan_content').click(function () {
