@@ -489,7 +489,23 @@ class Display_group_template extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left; font-size:25px;">
-                <font style="color:gray;">Selected:</font> <?php echo " $font_style" . $top_display . "</font>"; ?>
+                <font style="color:gray;">
+                <?php
+                if ($format_type == 'groups')
+                {
+                    ?>
+                    Group:
+                    <?php
+                } else
+                {
+                    ?>
+                    Network:
+                    <?php
+                }
+                ?>
+
+                </font> 
+        <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
         <div style="position:absolute; top:52px; right:100px;color:gray;">
@@ -510,7 +526,7 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;">Males</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;&nbsp;
                 <font style="color:gray;">Females</font><font style="font-weight:bold;">
-                <?php echo " " . $data_array['total_females']; ?></font>
+            <?php echo " " . $data_array['total_females']; ?></font>
             </div>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
