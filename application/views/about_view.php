@@ -67,7 +67,7 @@
                             Academically, Parker expects to graduate from Vanderbilt University in 2012 with a bachelor's degree in Computer Science and Math.
                         </div>
                         <div class ="pic">
-                            <img src="/application/assets/images/parker_bio.jpg" style="width: 100%; height: 100%;"/>
+                            <img src="/application/assets/images/parker_bio.jpg" style="width:100%; height:100%;" />
                         </div>
                     </div>
 
