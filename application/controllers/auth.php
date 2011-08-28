@@ -20,23 +20,15 @@ class Auth extends CI_Controller
     //forgot password
     function forgot_password()
     {
-        if ($this->input->post('email'))
-        {
-            // Email sent in post. Run the forgotten password method to email an activation code to the user
-            $forgotten = $this->ion_auth->forgotten_password($this->input->post('email'));
+        // Run the forgotten password method to email an activation code to the user
+        $forgotten = $this->ion_auth->forgotten_password($this->input->get('email'));
 
-            if ($forgotten)
-            {
-                // No errors
-                redirect("auth/login", 'refresh');
-            } else
-            {
-                // Refresh
-                redirect("auth/forgot_password", 'refresh');
-            }
+        if ($forgotten)
+        {
+            echo('success');
         } else
         {
-            redirect('/login');
+            echo('There was a problem processing your request. Please try again.');
         }
     }
 
