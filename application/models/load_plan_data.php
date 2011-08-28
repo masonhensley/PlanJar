@@ -208,7 +208,7 @@ class Load_plan_data extends CI_Model
                     <div style="display:inline-block; font-weight: bold; font-size:12px;">have accepted</div>
                 </div>
 
-                <font style="position:absolute;top:119px;left:85px; font-size:12px; color:gray;">gender breakdown</font>
+                <font style="position:absolute;top:119px;left:85px; font-size:12px; color:gray;">guest gender breakdown</font>
                 <div class="plan_gender_graph"></div>
                 <div class="female_data_container">
                     <div style="display:inline-block; width:12px; height:12px; background-color:#E80C7A;"></div>
