@@ -197,18 +197,17 @@ function populate_edit_groups_list(callback) {
                 });
             }
             
+            // set the view list click handler
             $('#view_group_list').click(function(){
                 populate_group_member_panel();
             });
-                
+        
         });
         
         if (callback != undefined) {
             callback();
         }
         
-        $('#view_group_list').click(function(){
-            populate_group_member_panel();
-        });
+        
     });
 }
