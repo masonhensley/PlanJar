@@ -45,24 +45,13 @@
                 <td></td>
                 <td>
                     <input type="submit" value="Change"/>
+                    <?php echo(anchor('auth/forgot_password', 'Forgot password?')); ?>
                 </td>
             </tr>
         </form>
 
         <tr>
-            <td>Email notifications</td>
-            <td>
-                <form id="email_notifications">
-                    <label>
-                        <input type="checkbox" name="email_notif" id="email_notif"/>All
-                    </label>
-                </form>
-            </td>
-        </tr>
-
-        <tr>
-            <td><?php echo(anchor('auth/forgot_password', 'Forgot password?')); ?></td>
-            <td></td>
+            <td colspan="2"></td>
         </tr>
 
         <tr>
