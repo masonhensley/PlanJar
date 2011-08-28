@@ -9,7 +9,7 @@ class Load_friend_plans extends CI_Model
         parent::__construct();
     }
 
-    function populate_plans($friend_id)
+    function populate_plans($friend_id) // populate friends plans or all plans
     {
         $user = $this->ion_auth->get_user();
 
