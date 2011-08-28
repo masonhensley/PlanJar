@@ -32,7 +32,7 @@ function initialize_settings() {
     
     // Change password submit handler
     $('#change_password').submit(function() {
-        $.get('/auth/change_password?' + $(this).serialize(), function(data) {
+        $.get('/dashboard/change_password?' + $(this).serialize(), function(data) {
             if (data == 'success') {
                 $('#old_password, #new_password, #new_password_1').val('');
                 $('#old_password, #new_password, #new_password_1').blur();
