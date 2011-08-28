@@ -36,8 +36,7 @@ class Auth extends CI_Controller
             }
         } else
         {
-            // No email sent in post. Load the view
-            $this->load->view('auth/email/forgot_password');
+            redirect('/login');
         }
     }
 
