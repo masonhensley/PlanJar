@@ -50,7 +50,7 @@ class Load_location_data extends CI_Model
     function get_place_info($place_id)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT places.name, places.latitude, places.longitude, places.id AS place_id
+        $query = "SELECT places.name, places.latitude, places.longitude, places.id AS place_id,
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
