@@ -68,6 +68,7 @@ class Load_friend_plans extends CI_Model
                   ";
         $result = $this->db->query($query);
         $plans_html = $this->_populate_location_plans($result);
+        var_dump($result, $query);
         return $plans_html;
     }
 
@@ -166,7 +167,6 @@ class Load_friend_plans extends CI_Model
     function _populate_location_plans($plans_result)
     {
         ob_start(); // start the output buffer
-        
         if ($plans_result->num_rows() > 0)
         {
             $date_organizer = "";
