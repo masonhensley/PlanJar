@@ -102,6 +102,7 @@ function group_select_click_handler()
                     $('#groups_content .middle').show('fast');
                 }
                 $('#view_group_list').click(function(){
+                    alert('hey');
                     populate_group_member_panel();
                 });
                 
