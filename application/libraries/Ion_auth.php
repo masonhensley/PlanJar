@@ -195,15 +195,11 @@ class Ion_auth
             // Get user information
             $user = $this->get_user_by_identity($identity);  //changed to get_user_by_identity from email
 
-            $notif_text = 'Hi ' . $profile->first_name . '.<br/><br/>Click ' . anchor('auth/reset_password/' . $forgotten_password_code, 'here') . ' to reset your password.';
+            $notif_text = 'Hi ' . $user->first_name . '.<br/><br/>You requested to reset your password. Click' .
+                    anchor('/auth/reset_password/' . $user->forgotten_password_code, 'here') . ' to reset it.';
             $data = array(
                 'notif_text' => $notif_text,
                 'skip_unsub' => true
-            );
-
-            $data = array(
-                'identity' => $user->{$this->ci->config->item('identity', 'ion_auth')},
-                'forgotten_password_code' => $user->forgotten_password_code
             );
 
             $message = $this->ci->load->view('email_notification_view', $data, true);
