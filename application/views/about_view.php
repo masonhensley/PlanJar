@@ -54,7 +54,7 @@
 
                         </div>
                         <div class ="pic">
-                            <img src="/applications/assets/images/mason_bio.JPG" />
+                            <img src="/application/assets/images/mason_bio.jpg" />
                         </div>
 
                     </div>
