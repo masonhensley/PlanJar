@@ -202,5 +202,9 @@ function populate_edit_groups_list(callback) {
         if (callback != undefined) {
             callback();
         }
+        
+        $('#view_group_list').click(function(){
+            populate_group_member_panel();
+        });
     });
 }
