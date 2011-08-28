@@ -50,7 +50,7 @@ class Load_location_data extends CI_Model
     function get_place_info($place_id)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT places.name, places.latitude, places.longitude,
+        $query = "SELECT places.name, places.latitude, places.longitude, places.id AS place_id
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
@@ -250,7 +250,7 @@ class Load_location_data extends CI_Model
             <div style="font-size:100px; color:gray; line-height: 80px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day_date']; ?></div>
         </div>
         <div class="make_plan_here" >Make a Plan Here</div>
-        <div class="plans_made_here">Plans Made Here</div>
+        <div class="plans_made_here" place_id="<?php echo $place_info->place_id;?>">Plans Made Here</div>
         <div class="view_map" >View Map</div>
 
         <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:375px;z-index:1000;">
@@ -258,7 +258,7 @@ class Load_location_data extends CI_Model
                 <b>Plans made at this location</b>
                 <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
             </div>
-            <div id="plans_made_here_list">
+            <div id="plans_made_here_list" style="max-height:300px;overflow:auto;">
                 
             </div>
         </div>
