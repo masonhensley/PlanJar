@@ -439,7 +439,7 @@ class Notification_ops extends CI_Model
     // Returns the html for an email notification as a string
     function create_email_notification($notif_text, $unsubscribe_id)
     {
-        $data = array('notif_text' => $notif_text, '$unsubscribe_id' => $unsubscribe_id);
+        $data = array('notif_text' => $notif_text, 'unsubscribe_id' => $unsubscribe_id);
 
         return $this->load->view('email_notification_view', $data, true);
     }
