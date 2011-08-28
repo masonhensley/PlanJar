@@ -54,7 +54,7 @@ class Load_profile extends CI_Model
                     ?><font style="color:gray;"><?php echo $user->box; ?></font><?php
         } else
         {
-                    ?><font style="font-style: italic;">Nothing to show</font><?php
+                    ?><font style="font-style: italic; color:gray;">Nothing to show</font><?php
         }
                 ?>
                 </div>
@@ -92,7 +92,7 @@ class Load_profile extends CI_Model
             }
         } else
         {
-                    ?><font style="font-style:italic;">Nothing to show</font><?php
+                    ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
 
         // Code to display groups following
@@ -113,7 +113,7 @@ class Load_profile extends CI_Model
             }
         } else
         {
-                    ?><font style="font-style:italic;">Nothing to show</font><?php
+                    ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
@@ -228,7 +228,7 @@ class Load_profile extends CI_Model
             }
         } else
         {
-            ?><font style="font-style:italic;">Nothing to show</font><?php
+            ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
         ?><br/><br/><font style="font-size:18px;">Most visited</font><br/><?php
         $most_visited_count = count($most_visited_locations);
@@ -249,7 +249,7 @@ class Load_profile extends CI_Model
             }
         } else
         {
-            ?><font style="font-style:italic;">Nothing to show</font><?php
+            ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
         return ob_get_clean();
     }
