@@ -236,7 +236,7 @@ a {
     bottom: 0px;
 }
 
-.back_to_plan, .back_to_groups, .back_to_search {
+.back_to_plan, .back_to_groups, .back_to_search, .back_to_info {
     text-align: center;
     padding: 8px;
     position: absolute;
@@ -247,10 +247,15 @@ a {
     right: 0px;
 }
 
+.back_to_info {
+    top: 5px;
+    right: 5px;
+}
 
 #map {
     width: 100%;
     height: 300px;
+    position: relative;
 }
 .days_panel {
     width: 100%;
