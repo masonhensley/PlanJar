@@ -451,7 +451,9 @@ class Display_group_template extends CI_Model
             $top_display .= "Current Location <font style=\"color:gray;\">15 mile radius</font>";
         } else if ($format_type == 'school')
         {
-            $top_display .= "School";
+            $query_string = "SELECT school FROM school_data WHERE id = ?";
+            $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id));
+            $top_display .= $query->row()->school;
         } else if ($format_type == 'groups')
         {
             $font_style = "groups";
@@ -505,7 +507,7 @@ class Display_group_template extends CI_Model
                 ?>
 
                 </font> 
-        <?php echo " $font_style" . $top_display . "</font>"; ?>
+                <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
         <div style="position:absolute; top:52px; right:100px;color:gray;">
@@ -526,7 +528,7 @@ class Display_group_template extends CI_Model
                 <font style="color:gray;">Males</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;&nbsp;
                 <font style="color:gray;">Females</font><font style="font-weight:bold;">
-            <?php echo " " . $data_array['total_females']; ?></font>
+                <?php echo " " . $data_array['total_females']; ?></font>
             </div>
             <?php
             $total = $data_array['total_males'] + $data_array['total_females'];
