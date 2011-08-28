@@ -9,7 +9,7 @@
                     $.get('/auth/forgot_password', $('form').serialize(), function(data) {
                         if (data == 'success') {
                             alert('Check your email to reset your password. Redirecting...');
-                            window.location.href = '/login';
+                            window.location.href = '/home';
                         } else {
                             alert(data);
                         }
