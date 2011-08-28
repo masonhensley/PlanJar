@@ -248,8 +248,9 @@ a {
 }
 
 .back_to_info {
-    top: 5px;
-    right: 5px;
+    top: 28px;
+    right: 7px;
+    z-index: 1000;
 }
 
 #map {
