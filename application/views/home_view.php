@@ -97,7 +97,7 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:40px; height:84%; position:relative; top:7px;"/></a>
+                <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:8px; height:84%; position:relative; top:7px;"/></a>
                 <div class="top_links">
                     <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <!--<a href="/dashboard/" id="dashboard link">dashboard &middot;</a>-->
