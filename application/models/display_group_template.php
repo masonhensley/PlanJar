@@ -510,7 +510,7 @@ class Display_group_template extends CI_Model
                 <?php echo " $font_style" . $top_display . "</font>"; ?>
             </div>
         </div>
-        <div style="position:absolute; top:48px; right:65px;color:gray;">
+        <div style="position:absolute; top:48px; right:57px;color:gray;">
             # of plans group makes by day
         </div>
         <br/>
