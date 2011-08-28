@@ -1,5 +1,5 @@
 $(function() {
-    initialize_info_map_tabs();
+    initialize_info_map_tabs(); 
 })
 
 var group_spinner = new Spinner(spinner_options());
@@ -18,6 +18,17 @@ function initialize_info_map_tabs() {
         } else {
             show_data_container($(this).attr('assoc_div'));
         }
+    });
+    
+    // setup modal for location plans
+    // Closing click handler
+    $('#cancel_attending_panel').click(function () {
+        $('#plans_made_here_modal').hide('fast');
+    });
+    
+    // Make it draggable (with a handle).
+    $('#plans_made_here_modal').draggable({
+        handle: '.title_bar'
     });
     
     display_info();
@@ -268,16 +279,6 @@ function initialize_location_info(data) {
             
             $('#plans_made_here_list').html(plans_data);
             $('#plans_made_here_modal').show();
-            
-            // Make it draggable (with a handle).
-            $('#plans_made_here_modal').draggable({
-                handle: '.title_bar'
-            });
-    
-            // Closing click handler
-            $('#cancel_attending_panel').click(function () {
-                $('#plans_made_here_modal').hide('fast');
-            });
             
             // Click handler
             $('.location_plan_content').click(function () {
