@@ -262,7 +262,7 @@ function initialize_location_info(data) {
         
         $.get('/home/location_plans_made_here', {
             place_id : $('.selected_location_tab').attr('place_id')
-        },function(){
+        },function(data){
             alert(data);
             $('#plans_made_here_list').html(data);
             $('#plans_made_here_modal').show();
