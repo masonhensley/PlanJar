@@ -266,13 +266,13 @@ function initialize_location_info(data) {
             $('#plans_made_here_list').html(data);
             $('#plans_made_here_modal').show();
             // Make it draggable (with a handle).
-            $('#plan_attending_panel').draggable({
+            $('#plans_made_here_modal').draggable({
                 handle: '.title_bar'
             });
     
             // Closing click handler
             $('#cancel_attending_panel').click(function () {
-                $('#plan_attending_panel').hide('fast');
+                $('#plans_made_here_modal').hide('fast');
             });
         });
         
