@@ -19,8 +19,11 @@ function initialize_info_map_tabs() {
             show_data_container($(this).attr('assoc_div'));
         }
     });
-    
-    // setup modal for location plans
+    setup_modals();
+    display_info();
+}
+function setup_modals(){
+    // setup modal for location plans panel
     // Closing click handler
     $('#cancel_location_plan_panel').click(function () {
         $('#plans_made_here_modal').hide('fast');
@@ -30,8 +33,6 @@ function initialize_info_map_tabs() {
     $('#plans_made_here_modal').draggable({
         handle: '.title_bar'
     });
-    
-    display_info();
 }
 
 // Deselcts all controlls
