@@ -214,10 +214,10 @@
             </div>
         </div>
         
-        <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:200px;z-index:1000;">
+        <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:280px;text-align:center;z-index:1000;">
             <div class="title_bar">
                 <b>Plans made at this location</b>
-                <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
+                <input  type="button" id="cancel_location_plan_panel"  style="float:right;" value="X"/>
             </div>
             <div id="plans_made_here_list" style="max-height:300px;overflow:auto;"></div>
         </div>
