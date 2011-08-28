@@ -210,7 +210,7 @@ class Load_location_data extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left; font-size:20px;">
-                <font style="color:gray;font-size:25px;">Location:</font> <font style="color:navy;font-size:25px;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
+                <font style="color:gray;font-size:25px;">Location:</font> <font style="color:#2D4853;font-size:25px;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
             </div>
         </div>
         <div class="place_display_info">
