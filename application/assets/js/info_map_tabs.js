@@ -262,7 +262,7 @@ function initialize_location_info(data) {
         
         // load the modal that shows plans at a location
         $.get('/home/location_plans_made_here', {
-            place_id : $('.selected_location_tab').attr('place_id')
+            place_id : $('.plans_made_here').attr('place_id')
         },function(plans_data){
             
             $('#plans_made_here_list').html(plans_data);
