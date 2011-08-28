@@ -17,37 +17,6 @@ class Auth extends CI_Controller
         $this->load->helper('url');
     }
 
-    //redirect if needed, otherwise display the user list
-    function index()
-    {
-        if (!$this->ion_auth->logged_in())
-        {
-            //redirect them to the login page
-            redirect('auth/login', 'refresh');
-        } elseif (!$this->ion_auth->is_admin())
-        {
-            //redirect them to the home page because they must be an administrator to view this
-            redirect($this->config->item('base_url'), 'refresh');
-        } else
-        {
-            //set the flash data error message if there is one
-            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-            //list the users
-            $this->data['users'] = $this->ion_auth->get_users_array();
-            $this->load->view('auth/index', $this->data);
-        }
-    }
-
-    //log the user out
-    public function logout()
-    {
-        $logout = $this->ion_auth->logout();
-
-        //redirect them to login
-        redirect('login');
-    }
-
     //forgot password
     function forgot_password()
     {

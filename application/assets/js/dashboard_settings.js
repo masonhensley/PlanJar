@@ -12,7 +12,7 @@ function initialize_settings() {
     $('#settings_content label').inFieldLabels();
     
     // Cascade the showing of the password fields
-    $('#old_password, #new_password, #new_password_1').keyup(function() {
+    $('#new_password, #new_password_1').keyup(function() {
         $(this).parents('tr').next().show('fast');
     });
     

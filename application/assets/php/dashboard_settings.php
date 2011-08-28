@@ -21,7 +21,7 @@
                 </td>
             </tr>
 
-            <tr style="display: none;">
+            <tr>
                 <td></td>
                 <td style="padding: 5px;">
                     <div class="in-field_block">
@@ -41,7 +41,7 @@
                 </td>
             </tr>
 
-            <tr>
+            <tr style="display: none;">
                 <td></td>
                 <td>
                     <input type="submit" value="Change"/>
