@@ -11,6 +11,11 @@ function initialize_settings() {
     // In-field labels
     $('#settings_content label').inFieldLabels();
     
+    // Picture uploader
+    $('#image_upload').submit(function() {
+        return false;
+    });
+    
     // Cascade the showing of the password fields
     $('#new_password, #new_password_1').keyup(function() {
         $(this).parents('tr').next().show('fast');
@@ -21,7 +26,7 @@ function initialize_settings() {
         $.get('/dashboard/update_email_prefs?' + $(this).serialize());
     });
     
-    // Populate the email checkboxe
+    // Populate the email checkboxes
     $.get('/dashboard/get_email_prefs', function(data) {
         data = $.parseJSON(data);
        

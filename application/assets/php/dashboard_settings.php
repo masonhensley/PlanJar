@@ -3,8 +3,8 @@
         <tr>
             <td>Upload a picture</td>
             <td>
-                <form id="image_upload">
-                    <input name="file_path" id="file_path" type="file"/>
+                <form id="image_upload" enctype="multipart/form-data">
+                    <input name="image" id="image" type="file"/>
                 </form>
             </td>
         </tr>
