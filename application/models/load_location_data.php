@@ -217,8 +217,8 @@ class Load_location_data extends CI_Model
             <font style="font-size:19px; font-weight:bold;">People Going</font><br/>
             <div class="attending_info">
                 <font style="color:gray;">People</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['total_attending']; ?></font>
-                <font style="color:gray;">Males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
-                <font style="color:gray;">Females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
+                &nbsp;<font style="color:gray;">Males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
+                &nbsp;<font style="color:gray;">Females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
                 <br/>
                 <font style="color:gray;">School</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['schoolmates_attending']; ?></font>
             </div>
