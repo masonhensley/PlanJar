@@ -33,9 +33,16 @@
             <hr/>
 
             <div class="content">
-                <?php echo($notif_text); ?>
-                <br/><br/>
-                Click <?php echo(anchor('dashboard/notifications', 'here')); ?> to respond.
+                <?php
+                echo($notif_text);
+                if (!isset($skip_notif))
+                {
+                    ?>
+                    <br/><br/>
+                    Click <?php echo(anchor('dashboard/notifications', 'here')); ?> to respond.
+                    <?php
+                }
+                ?>
                 <br/><br/><br/><br/>
                 This information in this email was up-to-date as of<br/>
                 <?php echo(date('g:i a') . ' on ' . date('l, F jS Y')); ?>.
@@ -49,7 +56,7 @@
                 Click <?php echo(anchor('dashboard/settings', 'here')); ?> to change your email settings.
                 <br/>--<br/>
                 <?php
-                if (!isset($sktip_unsub))
+                if (!isset($skip_unsub))
                 {
                     ?>
                     Don't want to receive ANY emails from PlanJar?
