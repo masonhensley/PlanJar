@@ -662,7 +662,6 @@ a {
     position: absolute;
     left: 15px;
     bottom: 27px;
-    font-weight:bold;
     color:navy;
     font-size:18px;
 }
@@ -671,7 +670,6 @@ a {
     position:absolute;
     left:23px;
     bottom:62px;
-    font-weight:bold;
     color:navy;
     font-size:18px;
 }
