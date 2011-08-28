@@ -31,42 +31,49 @@ class Ion_auth
      * @var string
      * */
     protected $ci;
+
     /**
      * account status ('not_activated', etc ...)
      *
      * @var string
      * */
     protected $status;
+
     /**
      * message (uses lang file)
      *
      * @var string
      * */
     protected $messages;
+
     /**
      * error message (uses lang file)
      *
      * @var string
      * */
     protected $errors = array();
+
     /**
      * error start delimiter
      *
      * @var string
      * */
     protected $error_start_delimiter;
+
     /**
      * error end delimiter
      *
      * @var string
      * */
     protected $error_end_delimiter;
+
     /**
      * extra where
      *
      * @var array
      * */
     public $_extra_where = array();
+
     /**
      * extra set
      *
@@ -253,7 +260,7 @@ class Ion_auth
             $this->ci->email->set_newline("\r\n");
             $this->ci->email->from($this->ci->config->item('admin_email', 'ion_auth'), $this->ci->config->item('site_title', 'ion_auth'));
             $this->ci->email->to($profile->email);
-            $this->ci->email->subject($this->ci->config->item('site_title', 'ion_auth') . ' - New Password');
+            $this->ci->email->subject($this->ci->config->item('site_title', 'ion_auth') . ' | New Password');
             $this->ci->email->message($message);
 
             if ($this->ci->email->send())

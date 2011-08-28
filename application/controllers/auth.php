@@ -45,11 +45,9 @@ class Auth extends CI_Controller
 
         if ($reset)
         {  //if the reset worked then send them to the login page
-            $this->session->set_flashdata('message', $this->ion_auth->messages());
-            redirect("auth/login", 'refresh');
+            redirect("home/login", 'refresh');
         } else
         { //if the reset didnt work then send them back to the forgot password page
-            $this->session->set_flashdata('message', $this->ion_auth->errors());
             redirect("auth/forgot_password", 'refresh');
         }
     }
