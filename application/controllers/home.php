@@ -345,7 +345,7 @@ class Home extends CI_Controller
     public function location_plans_made_here()
     {
         $place_id = $this->input->get('place_id');
-        $this->load->model('plan_actions');
+        $this->load->model('load_friend_plans');
         $this->plan_actions->get_location_plans($place_id);
     }
 
