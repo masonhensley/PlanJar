@@ -36,9 +36,7 @@ function initialize_settings() {
             if (data == 'success') {
                 $('#old_password, #new_password, #new_password_1').val('');
                 $('#old_password, #new_password, #new_password_1').blur();
-                console.log($('#change_password input[type="submit"]'));
-                console.log($('#change_password input'));
-                $('#new_password_1, #change_password input[type="submit"]').parents('tr').hide('fast');
+                $('#new_password_1, #submit_new_password').parents('tr').hide('fast');
             } else {
                 alert(data);
             }

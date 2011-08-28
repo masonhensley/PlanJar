@@ -44,7 +44,7 @@
             <tr style="display: none;">
                 <td></td>
                 <td>
-                    <input type="submit" value="Change"/>
+                    <input id="submit_new_password" type="submit" value="Change"/>
                     <?php echo(anchor('auth/forgot_password', 'Forgot password?')); ?>
                 </td>
             </tr>
