@@ -97,7 +97,7 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <a href="/home"><img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:27px; height:80%; position:relative; top:5px;"/></a>
+                <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:40px; height:84%; position:relative; top:7px;"/></a>
                 <div class="top_links">
                     <div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div>
                     <!--<a href="/dashboard/" id="dashboard link">dashboard &middot;</a>-->
@@ -212,6 +212,14 @@
                 <div class="member_list" style="max-height: 344px; overflow: auto; width:366px;">
                 </div>    
             </div>
+        </div>
+        
+        <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:280px;text-align:center;z-index:1000;">
+            <div class="title_bar">
+                <b>Plans made at this location</b>
+                <input  type="button" id="cancel_location_plan_panel"  style="float:right;" value="X"/>
+            </div>
+            <div id="plans_made_here_list" style="max-height:300px;overflow:auto;"></div>
         </div>
 
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>

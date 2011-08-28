@@ -1,5 +1,5 @@
 $(function() {
-    initialize_info_map_tabs();
+    initialize_info_map_tabs(); 
 })
 
 var group_spinner = new Spinner(spinner_options());
@@ -19,8 +19,20 @@ function initialize_info_map_tabs() {
             show_data_container($(this).attr('assoc_div'));
         }
     });
-    
+    setup_modals();
     display_info();
+}
+function setup_modals(){
+    // setup modal for location plans panel
+    // Closing click handler
+    $('#cancel_location_plan_panel').click(function () {
+        $('#plans_made_here_modal').hide('fast');
+    });
+    
+    // Make it draggable (with a handle).
+    $('#plans_made_here_modal').draggable({
+        handle: '.title_bar'
+    });
 }
 
 // Deselcts all controlls
@@ -102,6 +114,7 @@ function display_info(bypass, arg) {
         var place_id;
         var back_to_plan = false;
         var back_to_search = false;
+        
         if (found_location !== false) {
             place_id = found_location;
             back_to_search = true;
@@ -187,7 +200,7 @@ function display_info(bypass, arg) {
         }
         
     } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
-        // Plan or friend's plan selected
+        // Plan, friend's plan, or location's plan selected
         
         // setup spinner
         var plan_opts = spinner_options();
@@ -260,21 +273,24 @@ function initialize_location_info(data) {
     // view location plans click handler
     $('.plans_made_here').click(function(){
         
+        // load the modal that shows plans at a location
         $.get('/home/location_plans_made_here', {
-            place_id : $('.selected_location_tab').attr('place_id')
+            place_id : $('.plans_made_here').attr('place_id')
         },function(plans_data){
-            $('#plans_made_here_list').html(plans_data);
-            $('#plans_made_here_modal').show();
             
-            // Make it draggable (with a handle).
-            $('#plans_made_here_modal').draggable({
-                handle: '.title_bar'
+            $('#plans_made_here_list').html(plans_data);
+            $('#plans_made_here_modal').show('fast');
+            
+            // Click handler
+            $('.location_plan_content').click(function () {
+                if (!$(this).hasClass('selected_friend_plan')) {
+                    // Deselect all controlls and show the info panel
+                    deselect_all_controlls();
+                    $(this).addClass('selected_friend_plan');
+                    display_info();
+                }
             });
-    
-            // Closing click handler
-            $('#cancel_attending_panel').click(function () {
-                $('#plans_made_here_modal').hide('fast');
-            });
+            
         });
         
     });

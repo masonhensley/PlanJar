@@ -526,7 +526,7 @@ a {
 .plans_wrapper {
     text-align: center;
 }
-.plan_content, .friend_plan_content {
+.plan_content, .friend_plan_content, .location_plan_content {
     width: 95%;
     height: auto;
     margin: auto;
@@ -543,7 +543,7 @@ a {
     background: linear-gradient(top, #F3F6FF, #EEE);
     margin-bottom: 7px;
 }
-.selected_plan, .selected_friend_plan {
+.selected_plan, .selected_friend_plan, .selected_location_plan {
     background: -webkit-linear-gradient(top, #E6F541, #F8FFAB);
     color: black;
 }
@@ -659,26 +659,20 @@ a {
 
 .make_plan_here{
     position: absolute;
-    left: 133px;
-    bottom: 26px;
-    border: 1px solid lightgray;
-    padding: 6px;
+    left: 15px;
+    bottom: 27px;
     font-weight:bold;
-    background:-webkit-linear-gradient(top, #F3F6FF, white);
-    color:gray;
-    font-size:13px;
+    color:navy;
+    font-size:18px;
 }
 
 .plans_made_here{
     position:absolute;
-    left:7px;
-    bottom:26px;
-    border:1px solid lightgray;
-    padding: 6px;
+    left:20px;
+    bottom:58px;
     font-weight:bold;
-    background:-webkit-linear-gradient(top, #F3F6FF, white);
-    color:gray;
-    font-size:13px;
+    color:navy;
+    font-size:18px;
 }
 
 .view_map {

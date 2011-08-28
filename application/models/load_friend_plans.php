@@ -60,11 +60,12 @@ class Load_friend_plans extends CI_Model
     function get_location_plans($place_id)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT DISTINCT events.date, events.time, events.title, events.id AS event_id, places.name
+        $query = "SELECT DISTINCT events.date, plans.id, plans.event_id, events.time, events.title, places.name
                   FROM places
                   JOIN events ON events.place_id=places.id AND events.date>=CURDATE()
+                  JOIN plans ON plans.event_id=events.id
                   LEFT JOIN event_invites ON event_invites.event_id=events.id
-                  WHERE events.privacy='open' OR event_invites.user_id=$user->user_id
+                  WHERE places.id=$place_id AND (events.privacy='open' OR event_invites.user_id=$user->user_id)
                   ";
         $result = $this->db->query($query);
         $plans_html = $this->_populate_location_plans($result);
@@ -179,7 +180,7 @@ class Load_friend_plans extends CI_Model
                     // make easy to read variables
                     $plan_ids_shown[] = $plan->event_id; // make sure events aren't duplicated
 
-                    $id = $plan->event_id;
+                    $id = $plan->id;
                     $place_name = $plan->name;
                     $title = $plan->title;
                     $time = $plan->time;
@@ -206,7 +207,7 @@ class Load_friend_plans extends CI_Model
                         $this->load->helper('day_offset');
                         $day_offset = get_day_offset($plan->date);
                         ?>
-                        <div class ="friend_plan_content" event_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
+                        <div class ="location_plan_content" plan_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
                             <?php
                             if ($title != '')
                             {

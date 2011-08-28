@@ -203,8 +203,10 @@ class Home extends CI_Controller
     {
         $plan_id = $this->input->get('plan_selected');
         $friend_plan = $this->input->get('friend_plan');
+        
         $this->load->model('load_plan_data');
         $return_array = $this->load_plan_data->display_plan_data($plan_id, $friend_plan);
+        
         echo json_encode($return_array);
     }
 

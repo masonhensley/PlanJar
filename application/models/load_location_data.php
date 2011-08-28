@@ -50,7 +50,7 @@ class Load_location_data extends CI_Model
     function get_place_info($place_id)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT places.name, places.latitude, places.longitude,
+        $query = "SELECT places.name, places.latitude, places.longitude, places.id AS place_id,
                         ((ACOS(SIN($user->latitude * PI() / 180) * SIN(places.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(places.latitude * PI() / 180) * COS(($user->longitude - places.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
@@ -210,15 +210,15 @@ class Load_location_data extends CI_Model
         ?>
         <div class="data_box_top_bar">
             <div style="float:left; font-size:20px;">
-                <font style="color:gray;font-size:25px;">Location:</font> <font style="color:navy;font-size:25px;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
+                <font style="color:gray;font-size:25px;">Location:</font> <font style="color:#2D4853;font-size:25px;"><b><?php echo $place_info['name'] . "</font>"; ?></b></font>
             </div>
         </div>
         <div class="place_display_info">
             <font style="font-size:19px; font-weight:bold;">People Going</font><br/>
             <div class="attending_info">
                 <font style="color:gray;">People</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['total_attending']; ?></font>
-                <font style="color:gray;">Males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
-                <font style="color:gray;">Females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
+                &nbsp;<font style="color:gray;">Males</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_males']; ?></font>
+                &nbsp;<font style="color:gray;">Females</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['number_females']; ?></font>
                 <br/>
                 <font style="color:gray;">School</font><font style="font-weight:bold;"><?php echo " " . $place_data_array['schoolmates_attending']; ?></font>
             </div>
@@ -249,19 +249,9 @@ class Load_location_data extends CI_Model
             <div style="font-size:100px; color: #7BC848; line-height:80px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day']; ?></div>
             <div style="font-size:100px; color:gray; line-height: 80px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day_date']; ?></div>
         </div>
-        <div class="make_plan_here" >Make a Plan Here</div>
-        <div class="plans_made_here">Plans Made Here</div>
+        <div class="make_plan_here" >make a plan at this location</div>
+        <div class="plans_made_here" place_id="<?php echo $place_info['place_id'];?>">view plans at this location</div>
         <div class="view_map" >View Map</div>
-
-        <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:375px;">
-            <div class="title_bar">
-                <b>Plans made at this location</b>
-                <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
-            </div>
-            <div id="plans_made_here_list">
-                
-            </div>
-        </div>
 
         <?php
         if ($back_to_plan)
