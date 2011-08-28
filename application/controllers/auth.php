@@ -52,16 +52,6 @@ class Auth extends CI_Controller
         }
     }
 
-    // Change password
-    public function change_password()
-    {
-        $old_password = $this->input->get('old_password');
-        $new_password = $this->input->get('new_password');
-        $new_password_1 = $this->input->get('new_password_1');
-
-        $this->ion_auth_model->change_password($this->ion_auth->get_user()->email, $old_password, $new_password, $new_password_1);
-    }
-
     //activate the user
     function activate($id, $code=false)
     {
