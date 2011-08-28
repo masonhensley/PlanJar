@@ -241,8 +241,8 @@ a {
     padding: 8px;
     position: absolute;
     border: 1px solid lightgray;
-    background: white;
-    color: gray;
+    background: gray;
+    color: white;
     top: 0px;
     right: 0px;
 }
