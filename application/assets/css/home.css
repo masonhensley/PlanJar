@@ -496,7 +496,7 @@ a {
 .attending_button{
     position:absolute; 
     width:110px; 
-    height:23px;
+    height:21px;
     text-align:center;
     background:white;
     color:gray;
@@ -505,7 +505,7 @@ a {
 .awaiting_button{
     position:absolute;
     width:110px; 
-    height:23px;
+    height:21px;
     left:113px;
     text-align:center;
     background:white;
