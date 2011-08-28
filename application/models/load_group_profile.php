@@ -92,6 +92,7 @@ class Load_group_profile extends CI_Model
                 <font style="color:gray;">
                 Members &nbsp;<font style="font-weight:bold; color:black;"><?php echo $group_info['number_joined']; ?></font>&nbsp;&nbsp;&nbsp;&nbsp;
                 Followers &nbsp;<font style="font-weight:bold; color:black;"><?php echo $group_info['number_following']; ?></font>
+                <div id="view_group_list" style="color:navy; position:absolute; top:46px; left:0px">See Members</div>
                 </font><br/><hr/>
                 <?php
                 if ($group_info['school_group']) // show that if it is a designated school group, or school affiliation
@@ -127,7 +128,7 @@ class Load_group_profile extends CI_Model
                 ?>
                 <div class="group_bottom_text">
                     You are a <font style="color:purple;font-weight:bold;">member</font> of this group
-                    <div class="invite_people" style="margin-right:3px;">Invite people</div>
+                    <div class="invite_people" style="margin-right:3px;">Invite People</div>
                 </div>
                 <div class="group_bottom_button">
                     <div class="remove_joined">unjoin</div> 
