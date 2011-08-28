@@ -654,20 +654,20 @@ a {
 
 .make_plan_here{
     position: absolute;
-    left: 53px;
-    bottom: 15px;
+    left: 50px;
+    bottom: 31px;
     font-weight:bold;
     color:navy;
-    font-size:13px;
+    font-size:16px;
 }
 
 .plans_made_here{
     position:absolute;
-    left:7px;
-    bottom:26px;
+    left:52px;
+    bottom:56px;
     font-weight:bold;
     color:navy;
-    font-size:13px;
+    font-size:16px;
 }
 
 .view_map {
