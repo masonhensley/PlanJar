@@ -68,6 +68,7 @@ class Load_friend_plans extends CI_Model
                   ";
         $result = $this->db->query($query);
         $plans_html = $this->_populate_location_plans($result);
+        return $plans_html;
     }
 
     // populates modal with plans
