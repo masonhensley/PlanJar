@@ -521,7 +521,7 @@ a {
 .plans_wrapper {
     text-align: center;
 }
-.plan_content, .friend_plan_content {
+.plan_content, .friend_plan_content, .location_plan_content {
     width: 95%;
     height: auto;
     margin: auto;
@@ -538,7 +538,7 @@ a {
     background: linear-gradient(top, #F3F6FF, #EEE);
     margin-bottom: 7px;
 }
-.selected_plan, .selected_friend_plan {
+.selected_plan, .selected_friend_plan, .selected_location_plan {
     background: -webkit-linear-gradient(top, #E6F541, #F8FFAB);
     color: black;
 }

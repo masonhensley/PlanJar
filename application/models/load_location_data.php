@@ -253,7 +253,7 @@ class Load_location_data extends CI_Model
         <div class="plans_made_here">Plans Made Here</div>
         <div class="view_map" >View Map</div>
 
-        <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:375px;">
+        <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:375px;z-index:1000;">
             <div class="title_bar">
                 <b>Plans made at this location</b>
                 <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
