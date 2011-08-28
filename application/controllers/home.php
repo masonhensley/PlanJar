@@ -346,7 +346,7 @@ class Home extends CI_Controller
     {
         $place_id = $this->input->get('place_id');
         $this->load->model('load_friend_plans');
-        $this->load_friend_plans->get_location_plans($place_id);
+        echo $this->load_friend_plans->get_location_plans($place_id);
     }
 
     // Returns HTML for the list of the user's plans (right panel)
