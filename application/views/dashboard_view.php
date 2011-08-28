@@ -26,6 +26,7 @@
 
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/confirmDiv.js"></script>
+        <script type="text/javascript" src="/application/assets/js/view_group_list.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_profile.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_following.js"></script>
