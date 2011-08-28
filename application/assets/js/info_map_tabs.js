@@ -102,6 +102,7 @@ function display_info(bypass, arg) {
         var place_id;
         var back_to_plan = false;
         var back_to_search = false;
+        
         if (found_location !== false) {
             place_id = found_location;
             back_to_search = true;
