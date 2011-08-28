@@ -22,7 +22,7 @@ function initialize_info_map_tabs() {
     
     // setup modal for location plans
     // Closing click handler
-    $('#cancel_attending_panel').click(function () {
+    $('#cancel_location_plan_panel').click(function () {
         $('#plans_made_here_modal').hide('fast');
     });
     
