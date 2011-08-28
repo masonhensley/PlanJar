@@ -257,6 +257,17 @@ function initialize_location_info(data) {
         });
     });
     
+    // view location plans click handler
+    $('.plans_made_here').click(function(){
+        
+        $.get('/home/location_plans_made_here', {
+            place_id : $('.selected_location_tab').attr('place_id')
+        },function(){
+            
+        });
+        
+    });
+    
     // View map
     $('.view_map').click(function() {
         show_data_container('#map_content'); 

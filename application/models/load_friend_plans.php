@@ -56,6 +56,21 @@ class Load_friend_plans extends CI_Model
         echo $plans_html;
     }
 
+    // returns plans made at a location visible to the user
+    function get_location_plans($place_id)
+    {
+        $user = $this->ion_auth->get_user();
+        $query = "SELECT DISTINCT plans.id, events.date, events.time, events.title, plans.event_id, places.name
+                  FROM places
+                  JOIN events ON events.place_id=places.id AND events.date>=CURDATE()
+                  LEFT JOIN event_invites ON event_invites.event_id=events.id
+                  WHERE events.privacy='open' OR event_invites.user_id=$user->user_id
+                  ";
+        $result = $this->db->query($query);
+        $plans_html = $this->_populate_location_plans($result);
+    }
+
+    // populates modal with plans
     function _populate_friend_plans($plans_result, $friend_id)
     {
         ob_start(); // start the output buffer
@@ -84,7 +99,78 @@ class Load_friend_plans extends CI_Model
         {
             $date_organizer = "";
             $plan_ids_shown = array();
-            
+
+            foreach ($plans_result->result() as $plan)
+            {
+
+                if (!in_array($plan->event_id, $plan_ids_shown))
+                {
+                    // make easy to read variables
+                    $plan_ids_shown[] = $plan->event_id; // make sure events aren't duplicated
+
+                    $id = $plan->id;
+                    $place_name = $plan->name;
+                    $title = $plan->title;
+                    $time = $plan->time;
+                    $todays_date = date('N');
+
+                    if (date('N', strtotime($plan->date)) == $todays_date)
+                    {
+                        $date = "Today";
+                    } else
+                    {
+                        $date = date('l (jS)', strtotime($plan->date));
+                    }
+                    ?>
+                    <div class="active_plans"> 
+                        <?php
+                        if ($date_organizer != $date)
+                        {
+                            ?>
+                            <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
+                            <?php
+                        }
+                        $date_organizer = $date;
+
+                        $this->load->helper('day_offset');
+                        $day_offset = get_day_offset($plan->date);
+                        ?>
+                        <div class ="friend_plan_content" plan_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
+                            <?php
+                            if ($title != '')
+                            {
+                                ?>
+                                <font style="font-weight:bold;"><?php echo $title; ?></font><br/>
+                                <font style="color:darkgray;"><?php echo "@" . $place_name; ?></font>
+                                <?php
+                            } else
+                            {
+                                echo "<b>@" . $place_name . "</b>";
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+        } else
+        {
+            ?>
+            <br/><hr/><font style="font-style:italic;color:gray; position: relative;top:3px;">No plans yet</font><br/><br/>
+            <?php
+        }
+        return ob_get_clean();
+    }
+    
+    function _populate_location_plans($plans_result)
+    {
+        ob_start(); // start the output buffer
+        
+        if ($plans_result->num_rows() > 0)
+        {
+            $date_organizer = "";
+            $plan_ids_shown = array();
+
             foreach ($plans_result->result() as $plan)
             {
 
