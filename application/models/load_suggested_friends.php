@@ -105,8 +105,7 @@ class Load_suggested_friends extends CI_Model
         } else
         {
             ?>
-            <center><i>Nothing to show</i></center>
-            <br/><br/>
+            <center><i><font style="color:gray;">Nothing to show</font></i></center><br/><br/>
             <?php
 
         }
