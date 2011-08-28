@@ -101,6 +101,12 @@ function initialize_map() {
         };
         
         map = new google.maps.Map(document.getElementById("map"), map_options);
+        
+        // Attach and assign the back to info button
+        $('#map').append($('<div class="back_to_info">Back to info</div>'));
+        $('.back_to_info').click(function() {
+            show_data_container('#info_content');
+        });
     });
 }
 
