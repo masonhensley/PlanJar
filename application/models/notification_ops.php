@@ -25,7 +25,11 @@ class Notification_ops extends CI_Model
             {
                 $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id);
                 $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
-                $this->send_email_reminder($type, $user_id, $subject_id);
+                if (!$accepted)
+                {
+                    // Send an email notification if the notification would show up as new (i.e. not previously accepted)
+                    $this->send_email_reminder($type, $user_id, $subject_id);
+                }
             }
         }
 
@@ -38,11 +42,16 @@ class Notification_ops extends CI_Model
             // Create notifications for each joined user
             foreach ($joined_users as $joined_user)
             {
+                // Only add the notification if the originating user is not the current user
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
                     $accepted = (integer) $this->deduce_accepted($type, $subject_id, $joined_user);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
-                    $this->send_email_reminder($type, $joined_user, $subject_id, $group_id);
+                    if (!$accepted)
+                    {
+                        // Send an email notification if the notification would show up as new (i.e. not previously accepted)
+                        $this->send_email_reminder($type, $joined_user, $subject_id, $group_id);
+                    }
                 }
             }
         }
@@ -284,21 +293,8 @@ class Notification_ops extends CI_Model
 
                 // Add a plan for the user to the specified event
                 $this->load->model('plan_actions');
-                $this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id));
+                echo($this->plan_actions->add_plan(array($this->ion_auth->get_user()->id, $row->subject_id), false, true));
 
-                // Check if the user already has plans to that place at that time
-                $plan_check = $this->plan_actions->unique_plan($row->subject_id);
-
-                if ($plan_check === true)
-                {
-                    echo(json_encode(array('status' => 'success')));
-                } else
-                {
-                    // Pre-existing plan. Return HTML for two options
-                    $this->load->model('event_ops');
-                    $choice_data = $this->event_ops->get_events_for_choice($row->subject_id, $plan_check);
-                    echo(json_encode(array_merge(array('status' => 'conflict'), $choice_data)));
-                }
                 break;
 
             // Group invite
