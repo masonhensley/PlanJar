@@ -195,12 +195,18 @@ class Ion_auth
             // Get user information
             $user = $this->get_user_by_identity($identity);  //changed to get_user_by_identity from email
 
+            $notif_text = 'Hi ' . $profile->first_name . '.<br/><br/>Click ' . anchor('auth/reset_password/' . $forgotten_password_code, 'here') . ' to reset your password.';
+            $data = array(
+                'notif_text' => $notif_text,
+                'skip_unsub' => true
+            );
+
             $data = array(
                 'identity' => $user->{$this->ci->config->item('identity', 'ion_auth')},
                 'forgotten_password_code' => $user->forgotten_password_code
             );
 
-            $message = $this->ci->load->view($this->ci->config->item('email_templates', 'ion_auth') . $this->ci->config->item('email_forgot_password', 'ion_auth'), $data, true);
+            $message = $this->ci->load->view('email_notification_view', $data, true);
             $this->ci->email->clear();
             $config['mailtype'] = $this->ci->config->item('email_type', 'ion_auth');
             $this->ci->email->initialize($config);
@@ -247,12 +253,14 @@ class Ion_auth
 
         if ($new_password)
         {
+            $notif_text = 'Hi ' . $profile->first_name . ".<br/><br/>Your temporary password is <b>$new_password</b>" .
+                    'Click ' . anchor('/dashboard/settings', 'here') . ' to go to the settings page and change your password.';
             $data = array(
-                'identity' => $profile->{$identity},
-                'new_password' => $new_password
+                'notif_text' => $notif_text,
+                'skip_unsub' => true
             );
 
-            $message = $this->ci->load->view($this->ci->config->item('email_templates', 'ion_auth') . $this->ci->config->item('email_forgot_password_complete', 'ion_auth'), $data, true);
+            $message = $this->ci->load->view('email_notification_view', $data, true);
 
             $this->ci->email->clear();
             $config['mailtype'] = $this->ci->config->item('email_type', 'ion_auth');
