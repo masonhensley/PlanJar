@@ -227,7 +227,7 @@ class Load_location_data extends CI_Model
 
 
         <div class="gender_breakdown">
-            <font style="color:gray;position:absolute;left:51px;top:-10px;">location gender breakdown</font>
+            <font style="color:gray;position:absolute;left:31px;top:-10px;">location gender breakdown</font>
             <!-- boxes that show the color for males/females--> 
             <div class="girl_pink_square"></div>
             <div class="female_percent_display"><font style="font-size:11px;">
@@ -240,7 +240,7 @@ class Load_location_data extends CI_Model
 
         <div class="two_percent_wrapper"></div>
 
-        <div style="position:absolute; color:gray;top:48px;right:124px;"># of plans made here by day</div>
+        <div style="position:absolute; color:gray;top:48px;right:88px;"># of plans made here by day</div>
         <div class="day_plan_graph"></div>
 
         <div style="position:absolute; width:300px; height:150px; bottom:0px; left:0px;"></div>
