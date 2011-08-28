@@ -1,14 +1,11 @@
 /*--------------GLOBAL ---------------- */
 body {
-    background: -webkit-gradient(linear,left top,left bottom,from(#ECECEC),to(white));
+    
     background: -webkit-linear-gradient(top, #ECECEC, white);
-    background: -moz-linear-gradient(top, #ECECEC, white);
-    background: -o-linear-gradient(top, #ECECEC, white);
-    background: -ms-linear-gradient(top, #ECECEC, white);
-    background: linear-gradient(top, #ECECEC, white);
+    
     /* make text not selectable for the UI */
-    /*-webkit-user-select: none;
-    cursor:default; */
+    -webkit-user-select: none;
+    cursor:default; 
     font-family: helvetica;
     font-size: 15px;
     margin: 0px;
