@@ -60,7 +60,7 @@ class Load_friend_plans extends CI_Model
     function get_location_plans($place_id)
     {
         $user = $this->ion_auth->get_user();
-        $query = "SELECT DISTINCT events.date, plans.id, plans.event_id events.time, events.title, places.name
+        $query = "SELECT DISTINCT events.date, plans.id, plans.event_id, events.time, events.title, places.name
                   FROM places
                   JOIN events ON events.place_id=places.id AND events.date>=CURDATE()
                   JOIN plans ON plans.event_id=events.id
