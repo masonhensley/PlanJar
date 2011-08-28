@@ -496,7 +496,7 @@ class Display_group_template extends CI_Model
                 if ($format_type == 'groups')
                 {
                     ?>
-                    Group:
+                    Group<?php echo $s;?>:
                     <?php
                 } else
                 {
