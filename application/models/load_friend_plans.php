@@ -179,7 +179,7 @@ class Load_friend_plans extends CI_Model
                     // make easy to read variables
                     $plan_ids_shown[] = $plan->event_id; // make sure events aren't duplicated
 
-                    $id = $plan->id;
+                    $id = $plan->event_id;
                     $place_name = $plan->name;
                     $title = $plan->title;
                     $time = $plan->time;
@@ -206,7 +206,7 @@ class Load_friend_plans extends CI_Model
                         $this->load->helper('day_offset');
                         $day_offset = get_day_offset($plan->date);
                         ?>
-                        <div class ="friend_plan_content" plan_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
+                        <div class ="friend_plan_content" event_id="<?php echo $id; ?>" day_offset="<?php echo($day_offset); ?>">
                             <?php
                             if ($title != '')
                             {
