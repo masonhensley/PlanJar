@@ -219,9 +219,7 @@
                 <b>Plans made at this location</b>
                 <input  type="button" id="cancel_attending_panel"  style="float:right;" value="X"/>
             </div>
-            <div id="plans_made_here_list" style="max-height:300px;overflow:auto;">
-                
-            </div>
+            <div id="plans_made_here_list" style="max-height:300px;overflow:auto;"></div>
         </div>
 
         <?php include(APPPATH . 'assets/php/friends_plans_modal.php'); ?>
