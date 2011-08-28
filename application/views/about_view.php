@@ -54,7 +54,7 @@
 
                         </div>
                         <div class ="pic">
-                            <img src="/application/assets/images/mason_bio.jpg" />
+                            <img src="/application/assets/images/mason_bio.jpg" style="width:100%; height:100%;"/>
                         </div>
 
                     </div>
