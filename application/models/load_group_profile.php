@@ -92,7 +92,7 @@ class Load_group_profile extends CI_Model
                 <font style="color:gray;">
                 Members &nbsp;<font style="font-weight:bold; color:black;"><?php echo $group_info['number_joined']; ?></font>&nbsp;&nbsp;&nbsp;&nbsp;
                 Followers &nbsp;<font style="font-weight:bold; color:black;"><?php echo $group_info['number_following']; ?></font>
-                <div id="view_group_list" style="color:navy; position:absolute; top:46px; left:0px">See Members</div>
+                <div id="view_group_list" style="color:navy; position:absolute; top:0px; left:200px">See Members</div>
                 </font><br/><hr/>
                 <?php
                 if ($group_info['school_group']) // show that if it is a designated school group, or school affiliation
