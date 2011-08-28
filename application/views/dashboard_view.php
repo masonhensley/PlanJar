@@ -135,6 +135,16 @@
 
             <div id="settings_content" class="page_content"></div>
         </div>
+        <div id="group_member_panel" class="modal" style="left:43%; top:19%;">
+            <div class="title_bar">
+                <b>Group Members</b>
+                <input type="button" id="cancel_group_member_panel" style="float:right;" value="X" />
+            </div>
+            <div id="group_member_content">
+                <div class="member_list" style="max-height: 344px; overflow: auto; width:366px;">
+                </div>    
+            </div>
+        </div>
         <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
