@@ -341,6 +341,13 @@ class Home extends CI_Controller
         $return_array = $this->load_location_data->_display_location_info($place_id, $date, $selected_groups, $back_to_plan == 'true', $back_to_groups == 'true', $back_to_search == 'true');
         echo json_encode($return_array);
     }
+    
+    public function location_plans_made_here()
+    {
+        $place_id = $this->input->get('place_id');
+        $this->load->model('plan_actions');
+        $this->plan_actions->get_location_plans($place_id);
+    }
 
     // Returns HTML for the list of the user's plans (right panel)
     public function get_my_plans()
