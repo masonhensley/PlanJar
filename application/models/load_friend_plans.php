@@ -65,7 +65,7 @@ class Load_friend_plans extends CI_Model
                   JOIN events ON events.place_id=places.id AND events.date>=CURDATE()
                   JOIN plans ON plans.event_id=events.id
                   LEFT JOIN event_invites ON event_invites.event_id=events.id
-                  WHERE (events.privacy='open' OR event_invites.user_id=$user->user_id)
+                  WHERE places.id=$place_id AND (events.privacy='open' OR event_invites.user_id=$user->user_id)
                   ";
         $result = $this->db->query($query);
         $plans_html = $this->_populate_location_plans($result);
