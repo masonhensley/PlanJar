@@ -67,7 +67,7 @@
                             Academically, Parker expects to graduate from Vanderbilt University in 2012 with a bachelor's degree in Computer Science and Math.
                         </div>
                         <div class ="pic">
-                            <img src="/application/assets/images/parker_bio.jpg" />
+                            <img src="/application/assets/images/parker_bio.jpg" style="width: 100%; height: 100%;"/>
                         </div>
                     </div>
 
@@ -77,7 +77,7 @@
                             Wells runs PlanJar’s engineering team with Parker, and directs the site development and back-end architecture.  Before PlanJar, Wells worked as a programmer at Moontoast.com, as well as a freelance web developer. <br><br> Outside of PlanJar, Wells is currently pursuing a Bachelor of Science in both Computer Science and Mathematics from Vanderbilt University.
                         </div>
                         <div class ="pic">
-                            <img src="/application/assets/images/wells_bio.jpg" />
+                            <img src="/application/assets/images/wells_bio.jpg"/>
                         </div>
 
                     </div> 
