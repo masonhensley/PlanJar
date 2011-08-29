@@ -45,6 +45,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.form.js"></script>
 
         <!-- Function to select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">

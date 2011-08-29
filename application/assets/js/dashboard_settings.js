@@ -13,9 +13,14 @@ function initialize_settings() {
     
     // Picture uploader
     $('#image_upload').submit(function() {
-        console.log($('#image_upload').serialize());
-        $.post('/dashboard/upload_picture', $(this).serialize(), function(data) {
-            console.log(data);
+        $(this).ajaxSubmit({
+            target: '#image_upload_response',
+            success: function(data) {
+                console.log(data);
+            },
+            url: '/dashboard/upload_picture',
+            type: 'post',
+            dataType: 'json'
         });
             
         return false;
