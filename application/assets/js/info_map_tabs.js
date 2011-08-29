@@ -85,11 +85,16 @@ function display_info(bypass, arg) {
                         data = $.parseJSON(data);
                 
                         response($.map(data.data, function (item) {
+                            var label = item.name;
+                            if (item.category != null) {
+                                label += ' (' + item.category + ')';
+                            }
+                            label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
                             return {
-                                label: item.name + ' (' + item.category + ')' + ' - ' + parseFloat(item.distance).toFixed(2) + "mi", 
+                                'label': label,
                                 value: item.name,
                                 id: item.id
-                            }
+                            };
                         }));
                     });
                 },

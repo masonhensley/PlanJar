@@ -405,3 +405,11 @@ h3 {
     height:60px;   /* Height of the footer */
     background:#6cf;
 }
+
+#li_error {
+    position: absolute;
+    top: 21px;
+    left: 277px;
+    color: red;
+    width: 250px;
+}
