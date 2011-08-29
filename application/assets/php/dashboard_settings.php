@@ -8,7 +8,7 @@
                     <input type="submit" value="Upload"/>
                     <input type="hidden" value="foo"/>
                 </form>
-                <input type="hidden" id="image_upload_response"/>
+                <div id="#image_upload_response"></div>
             </td>
         </tr>
 
