@@ -404,7 +404,7 @@ class Dashboard extends CI_Controller
 
     public function upload_picture()
     {
-        echo(json_encode(array($_POST, $_FILES)));
+        var_dump($_FILES);
     }
 
 }
