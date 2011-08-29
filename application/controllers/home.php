@@ -82,13 +82,6 @@ class Home extends CI_Controller
         return $name_array;
     }
 
-    // logs user out and redirects to login page
-    public function logout()
-    {
-        $this->ion_auth->logout();
-        redirect('login');
-    }
-
 // Checks the PlanJar Places database for matching places.
     public function find_places()
     {
@@ -203,10 +196,10 @@ class Home extends CI_Controller
     {
         $plan_id = $this->input->get('plan_selected');
         $friend_plan = $this->input->get('friend_plan');
-        
+
         $this->load->model('load_plan_data');
         $return_array = $this->load_plan_data->display_plan_data($plan_id, $friend_plan);
-        
+
         echo json_encode($return_array);
     }
 
@@ -343,7 +336,7 @@ class Home extends CI_Controller
         $return_array = $this->load_location_data->_display_location_info($place_id, $date, $selected_groups, $back_to_plan == 'true', $back_to_groups == 'true', $back_to_search == 'true');
         echo json_encode($return_array);
     }
-    
+
     public function location_plans_made_here()
     {
         $place_id = $this->input->get('place_id');
