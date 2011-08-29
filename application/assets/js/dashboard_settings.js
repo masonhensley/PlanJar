@@ -14,6 +14,9 @@ function initialize_settings() {
     // Picture uploader
     $('#image_upload').submit(function() {
         $(this).ajaxSubmit({
+            beforeSubmit: function() {
+                console.log('started');
+            },
             target: '#image_upload_response',
             success: function(data) {
                 console.log('data');
