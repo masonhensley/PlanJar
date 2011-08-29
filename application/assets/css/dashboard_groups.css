@@ -113,6 +113,11 @@
     margin-top:16px;
 }
 
+.right .group_entry_middle{
+    width: 220px;
+    color:#2D4853;
+}
+
 .group_entry .following {
     position:absolute;
     right:0px;
@@ -120,6 +125,7 @@
     color: gray;
     padding: 3px;
     text-align: center;
+    font-size:13px;
 }
 
 .group_entry .joined {
@@ -129,6 +135,7 @@
     color: gray;
     padding: 3px;
     text-align: center;
+    font-size:13px;
 }
 
 .remove_following, .remove_joined {
@@ -180,8 +187,8 @@
 }
 
 .profile_name_display{
-    margin-left: auto;
-    margin-right:auto;
+    margin-left: 50px;
+    margin-right:50px;
 }
 
 .group_entry .add_following {
