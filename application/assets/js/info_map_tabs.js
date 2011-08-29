@@ -84,18 +84,21 @@ function display_info(bypass, arg) {
                         // Parse the JSON text.
                         data = $.parseJSON(data);
                 
-                        var response_json = $.map(data.data, function (item) {
-                            var label = item.name;
-                            if (item.category != null) {
-                                label += ' (' + item.category + ')';
-                            }
-                            label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
-                            return {
-                                'label': label,
-                                value: item.name,
-                                id: item.id
-                            };
-                        });
+                        var response_json;
+                        if (data.count > 0) {
+                            response_json = $.map(data.data, function (item) {
+                                var label = item.name;
+                                if (item.category != null) {
+                                    label += ' (' + item.category + ')';
+                                }
+                                label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
+                                return {
+                                    'label': label,
+                                    value: item.name,
+                                    id: item.id
+                                };
+                            });
+                        }
                         response_json.push({
                             label: "Create place (it's easy!)", 
                             value: '', 
@@ -109,7 +112,10 @@ function display_info(bypass, arg) {
                     deselect_all_controlls();
                     
                     if (ui.item.id == 'new place') {
-                    // Open the 
+                        // Open the plan panel
+                        show_plan_modal(function() {
+                            show_add_location_modal();
+                        });
                     } else {
                         found_location = ui.item.id;
                     

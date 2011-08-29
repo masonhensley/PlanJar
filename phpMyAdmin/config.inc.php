@@ -32,7 +32,7 @@ $cfg['Servers'][$i]['host'] = 'localhost';
 
 //$cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['connect_type'] = 'socket';
-$cfg['Servers'][$i]['socket'] = '/tmp/mysql/caroline.sock';
+$cfg['Servers'][$i]['socket'] = '/tmp/mysql/juli.sock';
 
 $cfg['Servers'][$i]['compress'] = false;
 /* Select mysqli if your server has it */
