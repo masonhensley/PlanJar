@@ -660,7 +660,7 @@ a {
 
 .make_plan_here{ 
     position: absolute;
-    left: 15px;
+    left: 18px;
     bottom: 27px;
     color:navy;
     font-size:18px;
@@ -668,7 +668,7 @@ a {
 
 .plans_made_here{
     position:absolute;
-    left:23px;
+    left:29px;
     bottom:62px;
     color:navy;
     font-size:18px;
