@@ -113,6 +113,10 @@
     margin-top:16px;
 }
 
+.right .group_entry_middle{
+    width: 220px;
+}
+
 .group_entry .following {
     position:absolute;
     right:0px;
