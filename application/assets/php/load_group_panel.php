@@ -1,6 +1,6 @@
 <div style="position:relative; top:-20px;">
     <div class="groups_wrapper">
-        <a href="/dashboard/groups"><font style="font-weight:bold;color:gray;font-size:20px;">Networks</font></a><br/>
+        <font style="font-weight:bold;color:gray;font-size:20px;">Networks</font><br/>
         <font style="color:gray;">(select one)</font>
         <br/><hr/>
         <div class="network_tab" group_id="current_location">
