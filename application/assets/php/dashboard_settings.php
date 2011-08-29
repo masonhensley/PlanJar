@@ -5,6 +5,7 @@
             <td>
                 <form id="image_upload" enctype="multipart/form-data">
                     <input name="image" id="image" type="file"/>
+                    <input type="submit" value="Upload"/>
                 </form>
             </td>
         </tr>
