@@ -16,6 +16,7 @@ function initialize_info_map_tabs() {
     setup_modals();
     display_info();
 }
+
 function setup_modals(){
     // setup modal for location plans panel
     // Closing click handler
