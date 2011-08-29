@@ -4,7 +4,7 @@
             <td>Upload a picture</td>
             <td>
                 <form id="image_upload" enctype="multipart/form-data">
-                    <input name="image" id="image" type="file"/>
+<!--                    <input name="image" id="image" type="file"/>-->
                     <input type="submit" value="Upload"/>
                     <input type="hidden" value="foo"/>
                 </form>
