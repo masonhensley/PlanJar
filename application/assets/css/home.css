@@ -682,9 +682,11 @@ a {
 
 
 .back_to_info {
-    top: 5px;
-    right: 5px;
+    top: 27px;
+    right: 0px;
     z-index: 1000;
+    padding:11px;
+    width:82px;
 }
 
 .already_attending{
