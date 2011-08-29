@@ -402,5 +402,10 @@ class Dashboard extends CI_Controller
         $this->ion_auth_model->change_password($this->ion_auth->get_user()->email, $old_password, $new_password, $new_password_1);
     }
 
+    public function upload_picture()
+    {
+        echo(json_encode($_FILES));
+    }
+
 }
 ?>
