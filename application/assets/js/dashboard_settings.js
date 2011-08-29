@@ -17,9 +17,8 @@ function initialize_settings() {
             beforeSubmit: function() {
                 console.log('started');
             },
-//            target: '#image_upload_response',
             success: function(data) {
-                console.log('data');
+                console.log(data);
             },
             url: '/dashboard/upload_picture',
             type: 'post',
