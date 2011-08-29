@@ -160,6 +160,8 @@ a{
 }
 #following_list{
     width: 100%;
+    max-height:525px;
+    overflow:auto;
 }
 #follow_search {
     width: 100%;
