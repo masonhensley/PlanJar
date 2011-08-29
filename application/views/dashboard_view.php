@@ -90,7 +90,7 @@
             <div class = "inside_top_panel">
                 <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; height:80%; position:relative; top:5px;"/></a>
                 <div id="show_name"><?php echo " " . $firstname . " " . $lastname . "'s Dashboard"; ?></div>
-                <a href="/dashboard/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
+                <a href="/auth/logout" ><div class ="top_right_link_outer"><div class="top_right_link_inner">Log out</div></div></a>
                 <a href="/home/"><div class ="top_right_link_outer"><div class="top_right_link_inner">Home</div></div></a>
             </div>
         </div>
