@@ -13,7 +13,7 @@ function initialize_settings() {
     
     // Picture uploader
     $('#image_upload').submit(function() {
-        $.post('/dashboard/upload_picture', $(this).serialize(), function(data) {
+        $.post('/dashboard/upload_picture', $('#image_upload').serialize(), function(data) {
             console.log(data);
         });
             
