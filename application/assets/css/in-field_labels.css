@@ -6,9 +6,10 @@
 
 .in-field_block label {
     position:absolute;
-    top: 0.6em;
+    top: 0.7em;
     left: 0.35em;
     color: #999999;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .in-field_block input {
