@@ -681,8 +681,8 @@ a {
 }
 
 .back_to_info {
-    top: 27px;
-    right: 0px;
+    top: 30px;
+    right: 2px;
     z-index: 1000;
     padding:11px;
     width:82px;

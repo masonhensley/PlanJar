@@ -97,10 +97,7 @@ function initialize_map() {
         var map_options = {
             zoom: 14,
             center: new google.maps.LatLng(latitude,longitude),
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            mapTypeControlOptions: {
-                mapTypeData: ([google.maps.MapTypeId.ROADMAP])
-            }
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         
         map = new google.maps.Map(document.getElementById("map"), map_options);
