@@ -34,7 +34,7 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <div id="li_error" class ="error_message" style="position:absolute; top:30px; left:448px;color:red"><!-- Errors will be displayed here --></div>     
-                <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:50%; position:relative; top:5px;"/>
+                <img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:30px; height:50%; position:relative; top:5px;"/>
                 <div class="top_links">
                     <form id="log_in">
                         <div class="in-field_block" style="display:inline-block;">
