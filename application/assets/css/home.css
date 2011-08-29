@@ -56,7 +56,7 @@ a {
     margin-left: auto;
     margin-right: auto;
     width: 1024px;
-    height: 1000px;
+    height:800px;
     text-align: center;
     margin-top: 20px;
     -webkit-box-shadow: 0 0 5px #E1E1E1;
@@ -103,6 +103,8 @@ a {
     width: 95%;
     margin-left: 5px;
     font-size:12px;
+    max-height:600px;
+    overflow:auto;
     border-radius: 5px;
 }
 .network_tab {
@@ -325,6 +327,10 @@ a {
     margin-top:7px;
     background-color: white;
     text-align: center;
+}
+.location_tabs{
+    max-height:500px;
+    overflow:auto;
 }
 .bottom_right_section {
     float: right;
