@@ -13,48 +13,31 @@ class Group_ops extends CI_Model
     function search_for_groups($needle)
     {
         $needle = trim($needle);
-        if ($needle != '')
+
+        // Generate a query string to exclude already followed or joined groups
+        $already_following = '';
+        $following_groups_list = $this->get_following_groups();
+        foreach ($following_groups_list as $group_id)
         {
-            // Break into search terms
-            $needle_array = explode(' ', $needle);
+            $already_following .= "groups.id <> $group_id AND ";
+        }
 
-            // Generate a query string to cross-reference all needle terms with the group names
-            $needle_where = '';
-            foreach ($needle_array as $cur_needle)
-            {
-                $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
-            }
+        // Trim the end of the string
+        if ($already_following != '')
+        {
+            $already_following = substr($already_following, 0, -5);
+        }
 
-            // Trim the end of the string
-            if ($needle_where != '')
-            {
-                $needle_where = substr($needle_where, 0, -5);
-            }
+        $query_string = "SELECT id, name " .
+                "FROM groups
+                WHERE MATCH (groups.name) AGAINST (? IN BOOLEAN MODE)
+                AND ($already_following)";
+        $query = $this->db->query($query_string);
 
-            // Generate a query string to exclude already followed or joined groups
-            $already_following = '';
-            $following_groups_list = $this->get_following_groups();
-            foreach ($following_groups_list as $group_id)
-            {
-                $already_following .= "groups.id <> $group_id AND ";
-            }
-
-            // Trim the end of the string
-            if ($already_following != '')
-            {
-                $already_following = substr($already_following, 0, -5);
-            }
-
-            $query_string = "SELECT id, name " .
-                    "FROM groups WHERE ($needle_where) AND ($already_following)";
-
-            $query = $this->db->query($query_string);
-
-            // Echo the results
-            foreach ($query->result() as $row)
-            {
-                $this->echo_group_entry($row, 'add following');
-            }
+        // Echo the results
+        foreach ($query->result() as $row)
+        {
+            $this->echo_group_entry($row, 'add following');
         }
     }
 
