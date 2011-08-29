@@ -156,14 +156,14 @@ h4 {
 /* --------BOTTOM LINKS ---------*/
 
 .bottom_links{
-    width:962px;
+    width:912px;
     height:40px;
     background-color: black;
     opacity: .4;
     text-align:center;
     position:relative;      
     padding-top:12px;
-    margin-left:31px;
+    margin-left:56px;
 }
 #bottom_link{
     margin-left:15px;

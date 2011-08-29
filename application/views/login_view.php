@@ -51,7 +51,7 @@
                         <font style="font-family:Arial, Helvetica, sans-serif; color:white;">Stay logged in</font>
                         <input type="checkbox" name="remember" value="1" style="margin-top:13px" />
                         <input type="submit" class="buttons" value="Log In" style="margin-left:87px;" />
-                        <?php echo(anchor('auth/forgot_password', 'Forgot password?')); ?>
+                        <div style="margin-left:9px; display:inline-block;margin-top:12px;"><?php echo(anchor('auth/forgot_password', 'Forgot password')); ?></div>
                     </form>
                 </div>  
             </div>
