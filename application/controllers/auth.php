@@ -17,6 +17,13 @@ class Auth extends CI_Controller
         $this->load->helper('url');
     }
 
+    // logout
+    function logout()
+    {
+        $this->ion_auth->logout();
+        redirect('login');
+    }
+
     //forgot password
     function forgot_password()
     {
