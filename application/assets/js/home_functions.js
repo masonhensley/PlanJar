@@ -99,7 +99,7 @@ function initialize_map() {
             center: new google.maps.LatLng(latitude,longitude),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControlOptions: {
-                mapTypeData: ([])
+                mapTypeData: ([google.maps.MapTypeId.ROADMAP])
             }
         };
         

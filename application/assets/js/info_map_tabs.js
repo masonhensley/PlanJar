@@ -84,7 +84,7 @@ function display_info(bypass, arg) {
                         // Parse the JSON text.
                         data = $.parseJSON(data);
                 
-                        var response_json;
+                        var response_json = ([]);
                         if (data.count > 0) {
                             response_json = $.map(data.data, function (item) {
                                 var label = item.name;
