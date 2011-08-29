@@ -5,7 +5,7 @@ body {
     background: -o-linear-gradient(top, #ECECEC, white);
     background: -ms-linear-gradient(top, #ECECEC, white);
     background: linear-gradient(top, #ECECEC, white);
-    
+
     /* make text not selectable for the UI */
     -webkit-user-select: none;
     cursor:default; 
@@ -245,12 +245,6 @@ a {
     color: white;
     top: 0px;
     right: 0px;
-}
-
-.back_to_info {
-    top: 28px;
-    right: 7px;
-    z-index: 1000;
 }
 
 #map {
@@ -684,6 +678,13 @@ a {
     padding: 6px;
     font-size:13px;
     font-weight:bold;
+}
+
+
+.back_to_info {
+    top: 5px;
+    right: 5px;
+    z-index: 1000;
 }
 
 .already_attending{

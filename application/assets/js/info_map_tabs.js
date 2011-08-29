@@ -112,7 +112,7 @@ function display_info(bypass, arg) {
                     deselect_all_controlls();
                     
                     if (ui.item.id == 'new place') {
-                        // Open the plan panel
+                        // Open the plan panel and the new location modal
                         show_plan_modal(function() {
                             show_add_location_modal();
                         });
