@@ -66,7 +66,7 @@ function initialize_add_location_modal() {
                 data = $.parseJSON(data);
                 
                 // Populate the correct fields in the plan modal, show it
-                // (only shows if invisible, used when in "find location") and hide the new location modal
+                // (only shows if invisible, used when in "find places") and hide the new location modal
                 $('#plan_location').val(data.name);
                 $('#plan_location_id').val(data.id);
                 show_plan_modal();

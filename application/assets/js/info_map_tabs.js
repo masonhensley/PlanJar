@@ -84,7 +84,7 @@ function display_info(bypass, arg) {
                         // Parse the JSON text.
                         data = $.parseJSON(data);
                 
-                        response($.map(data.data, function (item) {
+                        var response_json = $.map(data.data, function (item) {
                             var label = item.name;
                             if (item.category != null) {
                                 label += ' (' + item.category + ')';
@@ -95,18 +95,21 @@ function display_info(bypass, arg) {
                                 value: item.name,
                                 id: item.id
                             };
-                        }).push({
+                        });
+                        response_json.push({
                             label: "Create place (it's easy!)", 
                             value: '', 
                             id: 'new place'
-                        }));
+                        });
+                        
+                        response(response_json);
                     });
                 },
                 select: function(event, ui) {
                     deselect_all_controlls();
                     
                     if (ui.item.id == 'new place') {
-                        // Open the 
+                    // Open the 
                     } else {
                         found_location = ui.item.id;
                     
