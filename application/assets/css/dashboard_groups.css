@@ -124,6 +124,7 @@
     color: gray;
     padding: 3px;
     text-align: center;
+    font-size:13px;
 }
 
 .group_entry .joined {
@@ -133,6 +134,7 @@
     color: gray;
     padding: 3px;
     text-align: center;
+    font-size:13px;
 }
 
 .remove_following, .remove_joined {
