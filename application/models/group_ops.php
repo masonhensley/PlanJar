@@ -32,7 +32,7 @@ class Group_ops extends CI_Model
                 "FROM groups
                 WHERE MATCH (groups.name) AGAINST (? IN BOOLEAN MODE)
                 AND ($already_following)";
-        $query = $this->db->query($query_string);
+        $query = $this->db->query($query_string, array($needle));
 
         // Echo the results
         foreach ($query->result() as $row)
