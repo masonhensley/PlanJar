@@ -95,15 +95,23 @@ function display_info(bypass, arg) {
                                 value: item.name,
                                 id: item.id
                             };
+                        }).push({
+                            label: "Create place (it's easy!)", 
+                            value: '', 
+                            id: 'new place'
                         }));
                     });
                 },
                 select: function(event, ui) {
                     deselect_all_controlls();
                     
-                    found_location = ui.item.id;
+                    if (ui.item.id == 'new place') {
+                        // Open the 
+                    } else {
+                        found_location = ui.item.id;
                     
-                    display_info();
+                        display_info();
+                    }
                 }
             });
         });

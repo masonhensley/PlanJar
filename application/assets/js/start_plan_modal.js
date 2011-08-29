@@ -5,24 +5,26 @@ $(function() {
 // Shows the plan modal
 // Executes callback after the modal opens
 function show_plan_modal(callback) {
-    // Add the city name to the handle text.
-    $('#create_plan_content .title_bar .text').html('Make a plan');
+    if (!$('#create_plan_content').is(':visible')) {
+        // Add the city name to the handle text.
+        $('#create_plan_content .title_bar .text').html('Make a plan');
         
-    // Select everything when focused
-    $('#plan_location').click(function () {
-        $(this).focus();
-        $(this).select();
-    });
+        // Select everything when focused
+        $('#plan_location').click(function () {
+            $(this).focus();
+            $(this).select();
+        });
     
-    // Show the modal
-    $('#create_plan_content').show('fast', function () {
-        // Focus the location box.
-        $('#plan_location').focus();
+        // Show the modal
+        $('#create_plan_content').show('fast', function () {
+            // Focus the location box.
+            $('#plan_location').focus();
         
-        if (callback != undefined) {
-            callback();
-        }
-    });
+            if (callback != undefined) {
+                callback();
+            }
+        });
+    }
 }
 
 // Initializes the plan modal
