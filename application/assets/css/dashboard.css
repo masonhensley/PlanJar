@@ -208,7 +208,7 @@ a{
 
 /* follower tab */
 #friends_content .left {
-    width: 35%;
+    width: 36%;
     float: left;
     height: auto;
     border: 1px solid #CCC;
@@ -231,7 +231,8 @@ a{
 
 #followers_list {
     width: 100%;
-    height: auto;
+    max-height:350px;
+    overflow:auto;
 }
 .selected_follower {
     background: -webkit-gradient(linear,left top,left bottom,from(#ddd),to(#eff));
