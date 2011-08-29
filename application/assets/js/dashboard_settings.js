@@ -17,7 +17,7 @@ function initialize_settings() {
             beforeSubmit: function() {
                 console.log('started');
             },
-            target: '#image_upload_response',
+//            target: '#image_upload_response',
             success: function(data) {
                 console.log('data');
             },
