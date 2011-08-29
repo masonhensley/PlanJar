@@ -22,8 +22,7 @@ function initialize_settings() {
                 console.log('data');
             },
             url: '/dashboard/upload_picture',
-            type: 'post',
-            dataType: 'json'
+            type: 'post'
         });
             
         return false;
