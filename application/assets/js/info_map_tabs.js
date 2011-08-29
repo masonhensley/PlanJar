@@ -9,13 +9,7 @@ var jqxhr;
 function initialize_info_map_tabs() {
     // Click handler.
     $('div.tab_bar .data_tab').click(function () {
-        if ($(this).hasClass('tab_selected')) {
-            // Hide data container
-            $('.tab_bar .data_tab').removeClass('tab_selected');
-            $('.data_container:visible').hide('slide', {}, 'fast', function () {
-                $('.data_container_wrapper').hide('blind', {}, 'fast');
-            });
-        } else {
+        if (!$(this).hasClass('tab_selected')) {
             show_data_container($(this).attr('assoc_div'));
         }
     });
