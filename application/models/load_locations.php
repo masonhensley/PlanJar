@@ -283,21 +283,26 @@ class Load_locations extends CI_Model
             asort($place_id_array);
             $place_id_array = array_reverse($place_id_array, TRUE);
             $number_tracker = 1;
-
-            foreach ($place_id_array as $place_id => $count)
-            {
-                $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
-                ?>
-                <div class="location_tab" place_id="<?php echo $place_id; ?>">
-                    <div class="number">
-                        <?php echo $number_tracker; ?>
-                    </div>
-                    <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
-                    <font style="font-weight:bold;color:gray; font-size:13px;"><?php echo $count; ?> plans made here</font><br/>
-                </div>
+            ?>
+            <div class="location_tabs">
                 <?php
-                $number_tracker++;
-            }
+                foreach ($place_id_array as $place_id => $count)
+                {
+                    $coords_array[] = array_merge($place_array[$place_id], array($number_tracker));
+                    ?>
+                    <div class="location_tab" place_id="<?php echo $place_id; ?>">
+                        <div class="number">
+                            <?php echo $number_tracker; ?>
+                        </div>
+                        <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
+                        <font style="font-weight:bold;color:gray; font-size:13px;"><?php echo $count; ?> plans made here</font><br/>
+                    </div>
+                    <?php
+                    $number_tracker++;
+                }
+                ?>
+            </div>
+            <?php
         } else
         {
             ?>
