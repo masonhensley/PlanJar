@@ -18,6 +18,7 @@ function initialize_settings() {
                 console.log('started');
             },
             success: function(data) {
+                data = $.parseJSON(data);
                 console.log(data);
             },
             url: '/dashboard/upload_picture',
