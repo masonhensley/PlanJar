@@ -23,7 +23,7 @@ function initialize_settings() {
             },
             url: '/dashboard/upload_picture',
             type: 'post',
-            dataType: 'json'
+            dataType: 'html'
         });
             
         return false;
