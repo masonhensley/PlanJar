@@ -18,6 +18,8 @@ function initialize_settings() {
                 console.log('started');
             },
             success: function(data) {
+                console.log(data);
+                console.log(unescape(data));
                 data = $.parseJSON(data);
                 
                 if (data.status == 'success') {
