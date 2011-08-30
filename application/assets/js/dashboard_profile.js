@@ -4,11 +4,14 @@ function setup_profile()
 {
     $.get('/dashboard/get_profile',  {
         'user_id': 'user'
-    },function (data) {
+    }, function (data) {
         $('.profile_box').html(data); 
         $('#box_text_area').hide();
         $('.update_box').hide();
         setup_edit_box();
+    }).error(function() {
+        console.log('error');
+        setup_profile();
     });
 }
 
