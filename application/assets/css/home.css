@@ -605,12 +605,6 @@ a {
     height: 100%;
 }
 .top_right_link_outer:hover {
-    background: -webkit-linear-gradient(top, darkGray, gray);
-    background: -moz-linear-gradient(top, darkGray, gray);
-    background: -o-linear-gradient(top, darkGray, gray);
-    background: -ms-linear-gradient(top, darkGray, gray);
-    background: linear-gradient(top, darkGray, gray);
-
     color: lightgray;
 }
 .top_right_link_outer {
