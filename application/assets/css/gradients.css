@@ -34,7 +34,6 @@
 }
 
 /* gray tab gradient */
-/* gray tab for groups, networks, plans */
 .gtg{
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
@@ -43,5 +42,13 @@
     background: linear-gradient(top, #F3F6FF, #EEE);
 }
 
-
+/* active network tab - couldn't use the other green one because it's added in js'' */
+.network_active {
+    background: -webkit-linear-gradient(top, #8AE28F, #22A228);
+    background: -moz-linear-gradient(top, #8AE28F, #22A228);
+    background: -o-linear-gradient(top, #8AE28F, #22A228);
+    background: -ms-linear-gradient(top, #8AE28F, #22A228);
+    background: linear-gradient(top, #8AE28F, #22A228);
+    color: white;
+}
 
