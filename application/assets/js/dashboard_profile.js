@@ -9,9 +9,6 @@ function setup_profile()
         $('#box_text_area').hide();
         $('.update_box').hide();
         setup_edit_box();
-    }).error(function() {
-        console.log('error');
-        setup_profile();
     });
 }
 
