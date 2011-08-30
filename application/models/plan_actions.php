@@ -122,7 +122,7 @@ class Plan_actions extends CI_Model
                 $time = $plan->time;
                 $todays_date = date('l (jS)');
 
-                if (date('I (jS)', strtotime($plan->date)) == $todays_date)
+                if (date('l (jS)', strtotime($plan->date)) == $todays_date)
                 {
                     $date = "Today";
                 } else
