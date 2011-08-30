@@ -13,6 +13,19 @@ function initialize_settings() {
     
     // Picture uploader
     $('#image_upload').submit(function() {
+        $(this).ajaxSubmit({
+            beforeSubmit: function() {
+                console.log('started');
+            },
+            success: function(data) {
+                //data = $.parseJSON(data);
+                console.log(data);
+            },
+            url: '/dashboard/upload_picture',
+            type: 'post',
+            dataType: 'html'
+        });
+            
         return false;
     });
     
