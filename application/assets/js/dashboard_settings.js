@@ -18,8 +18,14 @@ function initialize_settings() {
                 console.log('started');
             },
             success: function(data) {
-                //data = $.parseJSON(data);
-                console.log(data);
+                data = $.parseJSON(data);
+                
+                if (data.status == 'success') {
+                    $('#settings_content .right').html(data.img);
+                    $('#settings_content .right').show('fast');
+                } else {
+                    alert(data.message);
+                }
             },
             url: '/dashboard/upload_picture',
             type: 'post',

@@ -442,11 +442,18 @@ class Dashboard extends CI_Controller
         list($width, $height) = getimagesize($file_path);
 
         // Success
-        $file_path = 1;
         return json_encode(array(
                     'status' => 'success',
-                    'img' => "<img src=\"\"/>"
+                    'img' => '<img src="' . base_url() . "dashboard/display_temp_image/$user_id\"/>"
                 ));
+    }
+
+    public function display_temp_image($user_id)
+    {
+        $file_path = "/var/www/uploads/$user_id.jpg";
+        
+        header('Content-Type: image/jpeg');
+        readfile($filepath);
     }
 
 }
