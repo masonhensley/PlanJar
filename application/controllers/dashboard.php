@@ -443,7 +443,6 @@ class Dashboard extends CI_Controller
             echo(json_encode(array(
                 'status' => 'success',
                 'img' => urlencode(base_url() . "dashboard/display_temp_image/$user_id/" . rand(1000, 99999999)),
-                'user_id' => $user_id,
                 'width' => $width,
                 'height' => $height
             )));

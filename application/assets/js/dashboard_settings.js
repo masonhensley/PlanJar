@@ -15,7 +15,8 @@ function initialize_settings() {
     $('#image_upload').submit(function() {
         $(this).ajaxSubmit({
             beforeSubmit: function() {
-                console.log('started');
+                console.log($('#image'));
+                console.log($('#image').val());
             },
             success: function(data) {
                 data = $.parseJSON(data);
@@ -39,13 +40,16 @@ function initialize_settings() {
                         y2: 80,
                         handles: 'corners',
                         onSelectEnd: function(img, selection) {
+                            // Update the inputs
                             $('#x1').val(selection.x1);
                             $('#y1').val(selection.y1);
                             $('#x2').val(selection.x2);
                             $('#y2').val(selection.y2);
+                            
+                            // Make sure the alternate text is displayed for the upload form
                             $('#image_upload_alt').hide('fast', function() {
                                 $('#upload_crop').show('fast');
-                            )};
+                            });
                         }
                     });
                 } else {
