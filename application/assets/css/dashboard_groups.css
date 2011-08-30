@@ -64,8 +64,13 @@
 }
 
 .suggest_groups{
+    background: -webkit-linear-gradient(top, #EEE, white);
+    background: -moz-linear-gradient(top, #EEE, white);
+    background: -o-linear-gradient(top, #EEE, white);
+    background: -ms-linear-gradient(top, #EEE, white);
+    background: linear-gradient(top, #EEE, white);
+    
     display:inline-block;
-    background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(white));
     height:auto;
     width:auto;
     border:1px solid #CCC;
@@ -76,10 +81,18 @@
 }
 
 .suggest_groups_active{
-    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
+    background: -webkit-linear-gradient(top, #DDD, #EFF);
+    background: -moz-linear-gradient(top, #DDD, #EFF);
+    background: -o-linear-gradient(top, #DDD, #EFF);
+    background: -ms-linear-gradient(top, #DDD, #EFF);
+    background: linear-gradient(top, #DDD, #EFF);
+    
     color:black;
 }
-
+#find_groups_list{
+    max-height: 525px;
+    overflow:auto;
+}
 .group_entry {
     width: 100%;
     height: 60px;
@@ -88,9 +101,15 @@
     position:relative;
 }
 .group_entry.selected_group {
-    background:-webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
+    background: -webkit-linear-gradient(top, #DDD, #EFF);
+    background: -moz-linear-gradient(top, #DDD, #EFF);
+    background: -o-linear-gradient(top, #DDD, #EFF);
+    background: -ms-linear-gradient(top, #DDD, #EFF);
+    background: linear-gradient(top, #DDD, #EFF);
 }
 #edit_groups_list{
+    max-height:525px;
+    overflow:auto;
     border-bottom:1px solid #CCC;
 }
 .group_entry .group_entry_left {
@@ -139,9 +158,14 @@
 }
 
 .remove_following, .remove_joined {
+    background: -webkit-linear-gradient(top, #FF7373, red);
+    background: -moz-linear-gradient(top, #FF7373, red);
+    background: -o-linear-gradient(top, #FF7373, red);
+    background: -ms-linear-gradient(top, #FF7373, red);
+    background: linear-gradient(top, #FF7373, red);
+    
     float:right;
     width: 75px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#FF7373),to(red));
     color: white;
     padding: 3px;
     text-align: center;
@@ -152,9 +176,14 @@
 }
 
 .invite_people {
+    background: -webkit-linear-gradient(top, purple, #AF64DE);
+    background: -moz-linear-gradient(top, purple, #AF64DE);
+    background: -o-linear-gradient(top, purple, #AF64DE);
+    background: -ms-linear-gradient(top, purple, #AF64DE);
+    background: linear-gradient(top, purple, #AF64DE);
+    
     width: 75px;
     height:39px;
-    background: -webkit-gradient(linear,left top,left bottom,from(purple),to(#AF64DE));
     color: white;
     padding: 5px;
     text-align: center;
@@ -165,8 +194,13 @@
 }
 
 .middle .add_joined {
+    background: -webkit-linear-gradient(top, #DF58E8, purple);
+    background: -moz-linear-gradient(top, #DF58E8, purple);
+    background: -o-linear-gradient(top, #DF58E8, purple);
+    background: -ms-linear-gradient(top, #DF58E8, purple);
+    background: linear-gradient(top, #DF58E8, purple);
+    
     display:inline-block;
-    background:-webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
     width:75px;
@@ -192,12 +226,19 @@
 }
 
 .group_entry .add_following {
-    float: right;
+    background: -webkit-linear-gradient(top, #0C2, green);
+    background: -moz-linear-gradient(top, #0C2, green);
+    background: -o-linear-gradient(top, #0C2, green);
+    background: -ms-linear-gradient(top, #0C2, green);
+    background: linear-gradient(top, #0C2, green);
+    
     width: 75px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#0C2),to(green));
     color: white;
     padding: 3px;
     text-align: center;
+    position:absolute;
+    right:0px;
+    top:0px;
 }
 
 .group_entry_left_side{
