@@ -233,7 +233,7 @@ class Load_plan_data extends CI_Model
             if ($plan_row->privacy != 'strict' || $user_originator)
             {
                 ?>
-                <div class="invite_people">Invite people</div>
+                <div class="invite_people ipg">Invite people</div>
 
                 <?php
             } else
