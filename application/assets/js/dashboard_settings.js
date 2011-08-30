@@ -21,7 +21,7 @@ function initialize_settings() {
                 data = $.parseJSON(data);
                 
                 if (data.status == 'success') {
-                    $('#settings_content .right').html(unescape(data.img).replace('+', ''));
+                    $('#settings_content .right').html(unescape(data.img).replace('+', ' '));
                     $('#settings_content .right').show('fast');
                 } else {
                     alert(data.message);
