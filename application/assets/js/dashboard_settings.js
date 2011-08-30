@@ -15,15 +15,44 @@ function initialize_settings() {
     $('#image_upload').submit(function() {
         $(this).ajaxSubmit({
             beforeSubmit: function() {
-                console.log('started');
+                return $('#image').val() != ''
             },
             success: function(data) {
                 data = $.parseJSON(data);
                 
                 if (data.status == 'success') {
-                    $('#settings_content .right').html(unescape(data.img).replace('+', ' '));
+                    // Hide/show the upload form/alt text
+                    $('#image_upload').hide('fast', function() {
+                        $('#image_upload_alt').show('fast');
+                    });
+                    
+                    // Add the image and show the div
+                    $('#preview_image').attr('src', unescape(data.img));
                     $('#settings_content .right').show('fast');
+                    
+                    // Image area select
+                    $('#preview_image').imgAreaSelect({
+                        aspectRatio: '1:1',
+                        imageHeight: data.height / 3,
+                        imageWIdth: data.width / 3,
+                        x1: 0,
+                        y1: 0,
+                        x2: 80,
+                        y2: 80,
+                        handles: 'corners',
+                        onSelectEnd: function(img, selection) {
+                            // Update the inputs
+                            $('#x1').val(selection.x1);
+                            $('#y1').val(selection.y1);
+                            $('#x2').val(selection.x2);
+                            $('#y2').val(selection.y2);
+                            
+                            // Show the submit button
+                            $('#upload_crop').show('fast');
+                        }
+                    });
                 } else {
+                    // Error
                     alert(data.message);
                 }
             },
@@ -32,6 +61,15 @@ function initialize_settings() {
             dataType: 'html'
         });
             
+        return false;
+    });
+    
+    // Crop submit handler
+    $('#crop_image').submit(function() {
+        $.get('/dashboard/crop_temp_image?' + $(this).serialize(), function(data) {
+            console.log(data); 
+        });
+        
         return false;
     });
     

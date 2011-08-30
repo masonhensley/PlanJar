@@ -21,4 +21,11 @@
     background-color: white;
     float: right;
     display: none;
+    text-align: center;
+}
+
+#preview_image {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
