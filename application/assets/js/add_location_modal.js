@@ -129,7 +129,7 @@ function new_marker(latitude, longitude) {
     new_location_marker = new google.maps.Marker({
         position: new google.maps.LatLng(latitude, longitude),
         map: new_location_map,
-        icon: 'http://www.google.com/mapfiles/arrow.png',
+        icon: '/application/assets/images/map_markers/star.png',
         draggable: true,
         title: 'Drag me'
     });

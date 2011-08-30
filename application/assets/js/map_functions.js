@@ -85,7 +85,7 @@ function map_user_position() {
         position: new google.maps.LatLng(myLatitude, myLongitude),
         map: map,
         title: 'Your location',
-        icon: '/application/assets/images/map_markers/arrow.png'
+        icon: '/application/assets/images/map_markers/star.png'
     }));
     
     calculate_map_bounds();
