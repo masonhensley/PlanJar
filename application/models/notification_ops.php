@@ -389,7 +389,7 @@ class Notification_ops extends CI_Model
                     }
 
                     // Set the subject
-                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited $you to an event");
+                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited $you to " . $event_row->name);
 
                     // Get the date string
                     $date = new DateTime($event_row->date);
@@ -400,13 +400,13 @@ class Notification_ops extends CI_Model
                     {
                         $you = anchor('dashboard/groups', $you);
                     }
-                    $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
-                            " has invited $you to " . $event_row->title;
+                    $body_string .= '<b>' . $this_user->first_name . ' ' . $this_user->last_name . '</b>' .
+                            " has invited <b>$you</b> to <b>" . $event_row->title . '</b>';
                     if ($event_row->title != '')
                     {
                         $body_string .= ' at ';
                     }
-                    $body_string .= $event_row->name . " for $date.";
+                    $body_string .= '<b>' . $event_row->name . '</b>' . " for <b>$date</b>.";
                     break;
 
                 case 'follow_notif':
@@ -414,20 +414,20 @@ class Notification_ops extends CI_Model
                     $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has followed you");
 
                     // Capture the body
-                    $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
+                    $body_string .= '<b>' . $this_user->first_name . ' ' . $this_user->last_name . '</b>' .
                             ' has followed you.';
                     break;
 
                 case 'group_invite':
-                    // Set the subject
-                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited you to join a group");
-
                     // Get the group name
                     $row = $this->db->query("SELECT name FROM groups WHERE id = ?", array($subject_id))->row();
 
+                    // Set the subject
+                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited you to join " . $row->name);
+
                     // Capture the body
-                    $body_string .= $this_user->first_name . ' ' . $this_user->last_name .
-                            ' has invited you to join ' . $row->name . '.';
+                    $body_string .= '<b>' . $this_user->first_name . ' ' . $this_user->last_name . '</b>' .
+                            ' has invited you to join <b>' . $row->name . '</b>.';
                     break;
             }
 
