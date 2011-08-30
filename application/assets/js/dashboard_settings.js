@@ -18,11 +18,10 @@ function initialize_settings() {
                 console.log('started');
             },
             success: function(data) {
-                console.log(data);
                 data = $.parseJSON(data);
                 
                 if (data.status == 'success') {
-                    $('#settings_content .right').html(data.img);
+                    $('#settings_content .right').html(unescape(data.img));
                     $('#settings_content .right').show('fast');
                 } else {
                     alert(data.message);

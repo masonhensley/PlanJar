@@ -427,21 +427,22 @@ class Dashboard extends CI_Controller
                 'status' => 'error',
                 'message' => 'Sorry, an unexpected error occuured.'
             )));
+        } else
+        {
+            // Save the file
+            $user_id = $this->ion_auth->get_user()->id;
+            $file_path = "/var/www/uploads/$user_id.jpg";
+            move_uploaded_file($image['tmp_name'], $file_path);
+
+            // Get the dimensions
+            list($width, $height) = getimagesize($file_path);
+
+            // Success
+            echo(json_encode(array(
+                'status' => 'success',
+                'img' => '<img src="' . base_url() . "dashboard/display_temp_image/$user_id\"/>"
+            )));
         }
-
-        // Save the file
-        $user_id = $this->ion_auth->get_user()->id;
-        $file_path = "/var/www/uploads/$user_id.jpg";
-        move_uploaded_file($image['tmp_name'], $file_path);
-
-        // Get the dimensions
-        list($width, $height) = getimagesize($file_path);
-
-        // Success
-        echo(json_encode(array(
-            'status' => 'success',
-            'img' => '<img src="' . base_url() . "dashboard/display_temp_image/$user_id\"/>"
-        )));
     }
 
     public function display_temp_image($user_id)
