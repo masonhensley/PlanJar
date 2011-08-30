@@ -623,6 +623,7 @@ a {
 #show_name {
     display: inline-block;
     color: white;
+    margin-top:12px;
     margin-right: 72px;
 }
 #create_plan {
