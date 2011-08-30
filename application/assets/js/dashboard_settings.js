@@ -21,6 +21,11 @@ function initialize_settings() {
                 data = $.parseJSON(data);
                 
                 if (data.status == 'success') {
+                    // Hide/show the upload form/alt text
+                    $('#image_upload').hide('fast', function() {
+                        $('#image_upload_alt').show('fast');
+                    });
+                    
                     // Add the image and show the div
                     $('#preview_image').attr('src', unescape(data.img));
                     $('#settings_content .right').show('fast');
@@ -42,12 +47,8 @@ function initialize_settings() {
                             $('#x2').val(selection.x2);
                             $('#y2').val(selection.y2);
                             
-                            // Hide the upload form and make sure the alternate text
-                            // is displayed for the upload form
-                            $('#image_upload').hide('fast', function() {
-                                $('#image_upload_alt').show('fast')
-                                $('#upload_crop').show('fast');
-                            });
+                            // Show the submit button
+                            $('#upload_crop').show('fast');
                         }
                     });
                 } else {
