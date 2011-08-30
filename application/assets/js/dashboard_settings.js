@@ -30,13 +30,11 @@ function initialize_settings() {
                     $('#preview_image').attr('src', unescape(data.img));
                     $('#settings_content .right').show('fast');
                     
-                    console.log(data);
-                    
                     // Image area select
                     $('#preview_image').imgAreaSelect({
                         aspectRatio: '1:1',
-                        imageHeight: data.height / 3,
-                        imageWIdth: data.width / 3,
+                        imageHeight: data.height,
+                        imageWidth: data.width,
                         x1: 0,
                         y1: 0,
                         x2: 80,
