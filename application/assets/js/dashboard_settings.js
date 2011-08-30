@@ -22,6 +22,7 @@ function initialize_settings() {
                 
                 if (data.status == 'success') {
                     // Add the image and show the div
+                    console.log(unescape(data.img));
                     $('#settings_content .right').html(unescape(data.img).replace('+', ' '));
                     $('#settings_content .right').show('fast');
                     
