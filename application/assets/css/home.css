@@ -526,6 +526,9 @@ a {
 /* ------------------- PLAN CONTENT -------------- */
 .plans_wrapper {
     text-align: center;
+    max-height:700px;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 .plan_content, .friend_plan_content, .location_plan_content {
     width: 95%;
