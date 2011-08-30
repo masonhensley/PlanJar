@@ -476,10 +476,5 @@ class Dashboard extends CI_Controller
         }
     }
 
-    public function foo()
-    {
-        var_dump(gd_info());
-    }
-
 }
 ?>
