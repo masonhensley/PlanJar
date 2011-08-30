@@ -127,7 +127,7 @@
             </div>
 
             <div id="profile_content" setup_func="setup_profile" class="page_content">
-                <div id="load_profile_spinner" style="position:absolute;top:20px;left:500px;"></div>
+                <div id="load_profile_spinner" style="position:absolute;top:20px;left:540px;"></div>
                 <div class="profile_container">
                     <div class="profile_box">
                     </div>
