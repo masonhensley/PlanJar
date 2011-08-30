@@ -7,14 +7,15 @@ function setup_profile()
     var opts = spinner_options();
     var profile_spinner = new Spinner(opts).spin(target);
     
-    $.get('/dashboard/get_profile',  {
+    jqxhr = $.get('/dashboard/get_profile',  {
         'user_id': 'user'
     }, function (data) {
         $('.profile_box').html(data); 
         $('#box_text_area').hide();
         $('.update_box').hide();
         setup_edit_box();
-    }).error(function() {
+    }).fail(function(error) {
+        console.log(error);
         console.log('error');
         setup_profile();
     }).complete(function(){

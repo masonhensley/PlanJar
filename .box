@@ -1,2 +1,0 @@
-shared_writable_directories:
-    -   /image_uploads
