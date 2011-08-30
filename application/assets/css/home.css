@@ -119,11 +119,11 @@ a {
 }
 
 .network_tab:hover, .selectable_group:hover{
-    background: -webkit-linear-gradient(top, #A7CFFD, #C8E2FF);
-    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
-    background: -o-linear-gradient(top, #F3F6FF, #EEE);
-    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
-    background: linear-gradient(top, #F3F6FF, #EEE);
+    background: -webkit-linear-gradient(top, #D2EFFF, #C8E2FF);
+    background: -moz-linear-gradient(top, #D2EFFF, #EEE);
+    background: -o-linear-gradient(top, #D2EFFF, #EEE);
+    background: -ms-linear-gradient(top, #D2EFFF, #EEE);
+    background: linear-gradient(top, #D2EFFF, #EEE);
 }
 
 /* ---------------- CENTER PANEL ---------------- */
