@@ -402,6 +402,8 @@ class Dashboard extends CI_Controller
         $this->ion_auth_model->change_password($this->ion_auth->get_user()->email, $old_password, $new_password, $new_password_1);
     }
 
+    // Uploads a picture to the uploads directory
+    // Returns the user id and img tag
     public function upload_picture()
     {
         $image = $_FILES['image'];
@@ -440,11 +442,15 @@ class Dashboard extends CI_Controller
             // Success
             echo(json_encode(array(
                 'status' => 'success',
-                'img' => urlencode('<img src="' . base_url() . "dashboard/display_temp_image/$user_id\"/>")
+                'img' => urlencode('<img id="preview_image" src="' . base_url() . "dashboard/display_temp_image/$user_id\"/>"),
+                'user_id' => $user_id,
+                'width' => $width,
+                'height' => $height
             )));
         }
     }
 
+    // Displays the temporary user image
     public function display_temp_image($user_id)
     {
         $file_path = "/var/www/uploads/$user_id.jpg";

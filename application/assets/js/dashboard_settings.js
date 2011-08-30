@@ -21,9 +21,21 @@ function initialize_settings() {
                 data = $.parseJSON(data);
                 
                 if (data.status == 'success') {
+                    // Add the image and show the div
                     $('#settings_content .right').html(unescape(data.img).replace('+', ' '));
                     $('#settings_content .right').show('fast');
+                    
+                    // Image area select
+                    $('#preview_image').imgAreaSelect({
+                        aspectRatio: '1:1',
+                        imageHeight: data.height,
+                        imageWIdth: data.width,
+                        onSelectChange: function(img, selection) {
+                            console.log(selection.width + ' ' + selection.height);
+                        }
+                    });
                 } else {
+                    // Error
                     alert(data.message);
                 }
             },

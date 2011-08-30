@@ -19,6 +19,7 @@
         <link rel=stylesheet href="/application/assets/css/selectable_event.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_conflict_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/dashboard_settings.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/imgareaselect-default.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.2.min.js"></script>
@@ -46,6 +47,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.form.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.imgareaselect.min.js"></script>
 
         <!-- Function to select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">
