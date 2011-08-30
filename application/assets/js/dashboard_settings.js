@@ -22,8 +22,6 @@ function initialize_settings() {
                 
                 if (data.status == 'success') {
                     // Add the image and show the div
-                    console.log(unescape(data.img));
-                    console.log(unescape(data.img).re);
                     $('#settings_content .right').html(unescape(data.img).replace(/\+/g, ' '));
                     $('#settings_content .right').show('fast');
                     
@@ -33,7 +31,8 @@ function initialize_settings() {
                         imageHeight: data.height,
                         imageWIdth: data.width,
                         onSelectChange: function(img, selection) {
-                            console.log(selection.width + ' ' + selection.height);
+                            console.log('(' + selection.x1 + ', ' + selection.y1 + '),(' + selection.x2 + ', ' + selection.y2 + ')');
+                            console.log('(' + selection.x2 + ', ' + selection.y2 + ')');
                         }
                     });
                 } else {
