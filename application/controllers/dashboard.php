@@ -448,7 +448,7 @@ class Dashboard extends CI_Controller
     public function display_temp_image($user_id)
     {
         $file_path = "/var/www/uploads/$user_id.jpg";
-        $image = imagecreatefromjpeg($flie_path);
+        $image = imagecreatefromjpeg($file_path);
 
         $this->output->set_content_type('image/jpeg');
         imagejpeg($image);
