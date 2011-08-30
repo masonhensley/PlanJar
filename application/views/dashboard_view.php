@@ -53,7 +53,7 @@
         <script type="text/javascript">
             $(function() {
                 // Load the data container from the URI
-                $('.tab_container [assoc_div="<?php echo('#' . $initial_tab . '_content'); ?>"]').click();
+                show_data_container('#' + $initial_tab);
             });
             
             // This function is used to show the suggested tab if specified in the URI.
