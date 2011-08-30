@@ -404,7 +404,50 @@ class Dashboard extends CI_Controller
 
     public function upload_picture()
     {
-        var_dump($_FILES);
+        $image = $_FILES['image'];
+
+        // Reject non-jpg files
+        if ($image['type'] != 'image/jpeg')
+        {
+            return json_encode(array(
+                        'status' => 'error',
+                        'message' => 'Sorry, but we only accept jpeg images right now.'
+                    ));
+        }
+
+        // Reject over-sized files
+        if ($image['size'] > 1000000)
+        {
+            return json_encode(array(
+                        'status' => 'error',
+                        'message' => 'Sorry, your file must be less than ?MB.'
+                    ));
+        }
+
+        // Unhandled error
+        if ($image['error'] != 0)
+        {
+            return json_encode(array(
+                        'status' => 'error',
+                        'message' => 'Sorry, an unexpected error occuured.'
+                    ));
+        }
+
+        // Save the file
+        $user_id = $this->ion_auth->get_user()->id;
+        $file_path = "/var/www/uploads/$user_id.jpg";
+        move_uploaded_file($image['tmp_name'], $file_path);
+
+        // Get the dimensions
+        $width = getWidth($file_path);
+        $height = getHeight($file_path);
+
+        // Success
+        $file_path = 1;
+        return json_encode(array(
+                    'status' => 'success',
+                    'img' => "<img src=\"\"/>"
+                ));
     }
 
 }
