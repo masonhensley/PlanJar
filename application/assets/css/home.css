@@ -119,7 +119,7 @@ a {
 }
 
 .network_tab:hover, .selectable_group:hover{
-    background: -webkit-linear-gradient(top, #74B3FB, #B8D9FF);
+    background: -webkit-linear-gradient(top, #A7CFFD, #C8E2FF);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
