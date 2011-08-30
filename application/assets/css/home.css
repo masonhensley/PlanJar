@@ -79,6 +79,14 @@ a {
 .groups_wrapper {
 }
 
+.network_tab:hover, .selectable_group:hover{
+    background: -webkit-linear-gradient(top, #D2EFFF, #C8E2FF);
+    background: -moz-linear-gradient(top, #D2EFFF, #EEE);
+    background: -o-linear-gradient(top, #D2EFFF, #EEE);
+    background: -ms-linear-gradient(top, #D2EFFF, #EEE);
+    background: linear-gradient(top, #D2EFFF, #EEE);
+}
+
 .selectable_group{
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
@@ -138,14 +146,6 @@ a {
     background: -ms-linear-gradient(top, #8AE28F, #22A228);
     background: linear-gradient(top, #8AE28F, #22A228);
     color: white;
-}
-
-.network_tab:hover, .selectable_group:hover{
-    background: -webkit-linear-gradient(top, #D2EFFF, #C8E2FF);
-    background: -moz-linear-gradient(top, #D2EFFF, #EEE);
-    background: -o-linear-gradient(top, #D2EFFF, #EEE);
-    background: -ms-linear-gradient(top, #D2EFFF, #EEE);
-    background: linear-gradient(top, #D2EFFF, #EEE);
 }
 
 /* ---------------- CENTER PANEL ---------------- */
