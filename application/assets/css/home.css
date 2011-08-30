@@ -79,7 +79,15 @@ a {
 .groups_wrapper {
 }
 
-.selectable_group {
+.network_tab:hover, .selectable_group:hover{
+    background: -webkit-linear-gradient(top, #D2EFFF, #C8E2FF);
+    background: -moz-linear-gradient(top, #D2EFFF, #EEE);
+    background: -o-linear-gradient(top, #D2EFFF, #EEE);
+    background: -ms-linear-gradient(top, #D2EFFF, #EEE);
+    background: linear-gradient(top, #D2EFFF, #EEE);
+}
+
+.selectable_group{
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -99,6 +107,18 @@ a {
     overflow:auto;
     border-radius: 5px;
 }
+
+/* orange gradient - selected group*/
+.selected_group, .selected_group:hover {
+    color: white;
+    font-weight: bold;
+    background: -webkit-linear-gradient(top, #F8BA78, #F5952E);
+    background: -moz-linear-gradient(top, #F8BA78, #F5952E);
+    background: -o-linear-gradient(top, #F8BA78, #F5952E);
+    background: -ms-linear-gradient(top, #F8BA78, #F5952E);
+    background: linear-gradient(top, #F8BA78, #F5952E);
+}
+
 .network_tab {
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
@@ -116,6 +136,16 @@ a {
     margin-left: 5px;
     font-size: 12px;
     border-radius: 5px;
+}
+
+/* active network tab - couldn't use the other green one because it's added in js'' */
+.network_active, .network_active:hover {
+    background: -webkit-linear-gradient(top, #8AE28F, #22A228);
+    background: -moz-linear-gradient(top, #8AE28F, #22A228);
+    background: -o-linear-gradient(top, #8AE28F, #22A228);
+    background: -ms-linear-gradient(top, #8AE28F, #22A228);
+    background: linear-gradient(top, #8AE28F, #22A228);
+    color: white;
 }
 
 /* ---------------- CENTER PANEL ---------------- */
@@ -312,7 +342,7 @@ a {
 .bottom_right_section {
     float: right;
     width: 49%;
-    min-height: 54px;
+    height: 54px;
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
     border-bottom: 1px solid darkgray;
@@ -354,6 +384,13 @@ a {
     border-bottom: 1px solid lightgray;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+.location_tab:hover{
+    background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
+    background: -moz-linear-gradient(top, #EFEFEF, #EFF);
+    background: -o-linear-gradient(top, #EFEFEF, #EFF);
+    background: -ms-linear-gradient(top, #EFEFEF, #EFF);
+    background: linear-gradient(top, #EFEFEF, #EFF);
 }
 .event_tab {
     position: relative;
@@ -436,11 +473,16 @@ a {
 }
 /*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans {
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+
     position: absolute;
     right: 321px;
     top: -48px;
     border: 1px solid lightgray;
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 9px;
     color: gray;
     border-radius: 5px;
@@ -506,7 +548,7 @@ a {
     background: -o-linear-gradient(top, #F8BA78, #F5952E);
     background: -ms-linear-gradient(top, #F8BA78, #F5952E);
     background: linear-gradient(top, #F8BA78, #F5952E);
-    
+
     color:white;
 }
 
@@ -534,7 +576,16 @@ a {
     padding-bottom: 5px;
     margin-bottom: 7px;
 }
-.selected_plan, .selected_friend_plan, .selected_location_plan {
+
+.plan_content:hover, .friend_plan_content:hover, .location_plan_content:hover {
+    background: -webkit-linear-gradient(top, #D2EFFF, #C8E2FF);
+    background: -moz-linear-gradient(top, #D2EFFF, #EEE);
+    background: -o-linear-gradient(top, #D2EFFF, #EEE);
+    background: -ms-linear-gradient(top, #D2EFFF, #EEE);
+    background: linear-gradient(top, #D2EFFF, #EEE);
+}
+.selected_plan, .selected_friend_plan, .selected_location_plan,
+.selected_plan:hover, .selected_friend_plan:hover, .selected_location_plan:hover {
     background: -webkit-linear-gradient(top, #E6F541, #F8FFAB);
     background: -moz-linear-gradient(top, #E6F541, #F8FFAB);
     background: -o-linear-gradient(top, #E6F541, #F8FFAB);
@@ -605,12 +656,6 @@ a {
     height: 100%;
 }
 .top_right_link_outer:hover {
-    background: -webkit-linear-gradient(top, darkGray, gray);
-    background: -moz-linear-gradient(top, darkGray, gray);
-    background: -o-linear-gradient(top, darkGray, gray);
-    background: -ms-linear-gradient(top, darkGray, gray);
-    background: linear-gradient(top, darkGray, gray);
-
     color: lightgray;
 }
 .top_right_link_outer {
@@ -618,8 +663,8 @@ a {
     width: 86px;
     display: inline-block;
     position: relative;
-    top: -15px;
     text-align: center;
+    font-size:14px;
 }
 .top_right_link_inner {
     position: relative;
@@ -629,8 +674,9 @@ a {
 #show_name {
     display: inline-block;
     color: white;
-    margin-right: 72px;
-    margin-top: 12px;
+    margin-top:12px;
+    margin-right: 77px;
+    margin-left:15px;
 }
 #create_plan {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
@@ -670,6 +716,9 @@ a {
     color:#2BA3A1;
     font-size:18px;
 }
+.make_plan_here:hover{
+    color:navy;
+}
 
 .plans_made_here{
     position:absolute;
@@ -677,6 +726,9 @@ a {
     bottom:62px;
     color:#2BA3A1;
     font-size:18px;
+}
+.plans_made_here:hover{
+    color:navy;
 }
 
 .view_map, .back_to_info {

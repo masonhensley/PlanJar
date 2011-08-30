@@ -127,7 +127,7 @@
     display:none;
     float: right;
     width: 49%;
-    height: 51px;
+    height: 54px;
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
     border-bottom: 1px solid darkgray;
@@ -138,7 +138,7 @@
 }
 #comment_area{
     float:left;
-    height:45px;
+    height:44px;
     margin-top:2px;
     margin-left:2px;
     width:228px;
@@ -147,13 +147,14 @@
     font-size:13px;
 }
 .plan_comments{
-    display:none;
-    float: right;
-    width: 49%;
-    background-color: white;
+    display:none;background-color: white;
     text-align: center;
     max-height:390px;
     overflow:auto;
+    position:absolute;
+    right:214px;
+    top:398px;
+    width:295px;
 }
 .user_comment{
     position:relative;
