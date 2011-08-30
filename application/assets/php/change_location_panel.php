@@ -1,7 +1,8 @@
 <div class="change_location_panel">
     <div style="float: left; width: 50%;height:100%; margin-left:15px;">
         <p>
-            Search for your location or drag the green marker to the correct location.  Click on the marker when you are done.
+            Search for your location and click the correct one,<br/>
+            or drag the green marker to the correct location and click it when you are done.
         </p>
     </div>
 
