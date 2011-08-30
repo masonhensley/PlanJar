@@ -149,7 +149,7 @@ class Plan_actions extends CI_Model
                     $day_offset = $cur_date->diff($new_date);
                     $day_offset = $day_offset->format('%a');
                     ?>
-                    <div class ="plan_content" plan_id="<?php echo $id; ?>">
+                    <div class ="plan_content gtg" plan_id="<?php echo $id; ?>">
                         <?php
                         if ($title != '')
                         {

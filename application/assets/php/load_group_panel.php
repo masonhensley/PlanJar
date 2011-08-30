@@ -3,14 +3,13 @@
         <font style="font-weight:bold;color:gray;font-size:20px;">Networks</font><br/>
         <font style="color:gray;">(select one)</font>
         <br/><hr/>
-        <div class="network_tab" group_id="current_location">
+        <div class="network_tab gtg" group_id="current_location">
             Current Location
         </div>
-        <div class="
-             network_tab" group_id="friends">
+        <div class="network_tab gtg" group_id="friends">
             Friends
         </div>
-        <div class="network_tab" group_id="school">
+        <div class="network_tab gtg" group_id="school">
             <?php
             echo $school;
             ?>
@@ -24,7 +23,7 @@
             foreach ($joined_groups as $group)
             {
                 ?>
-                <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
+                <div class="selectable_group gtg" group_id="<?php echo($group['id']); ?>">
                     <?php
                     echo($group['name']);
                     ?>
@@ -36,7 +35,7 @@
             foreach ($followed_groups as $group)
             {
                 ?>
-                <div class="selectable_group" group_id="<?php echo($group['id']); ?>">
+                <div class="selectable_group gtg" group_id="<?php echo($group['id']); ?>">
                     <?php echo($group['name']); ?>
                 </div>
                 <?php

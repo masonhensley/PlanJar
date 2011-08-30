@@ -76,17 +76,12 @@ a {
 }
 .groups_wrapper {
 }
+
 .selectable_group {
     border: 1px solid lightgray;
     height: 100%;
     padding: 5px 0px 5px;
     font-weight:bold;
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
-    background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
-    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
-    background: -o-linear-gradient(top, #F3F6FF, #EEE);
-    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
-    background: linear-gradient(top, #F3F6FF, #EEE);
     text-align: center;
     margin-bottom: 10px;
     width: 95%;
@@ -97,12 +92,6 @@ a {
     border-radius: 5px;
 }
 .network_tab {
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
-    background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
-    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
-    background: -o-linear-gradient(top, #F3F6FF, #EEE);
-    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
-    background: linear-gradient(top, #F3F6FF, #EEE);
     border: 1px solid lightgray;
     height: 100%;
     padding: 5px 0px 5px;
@@ -123,16 +112,7 @@ a {
     background: linear-gradient(top, #8AE28F, #22A228);
     color: white;
 }
-.selected_group {
-    background: -webkit-gradient(linear,left top,left bottom,from(#F8BA78),to(#F5952E));
-    background: -webkit-linear-gradient(top, #F8BA78, #F5952E);
-    background: -moz-linear-gradient(top, #F8BA78, #F5952E);
-    background: -o-linear-gradient(top, #F8BA78, #F5952E);
-    background: -ms-linear-gradient(top, #F8BA78, #F5952E);
-    background: linear-gradient(top, #F8BA78, #F5952E);
-    color: white;
-    font-weight: bold;
-}
+
 /* ---------------- CENTER PANEL ---------------- */
 .center {
     float: left;
@@ -311,7 +291,7 @@ a {
     text-align: center;
 }
 .location_tabs{
-    max-height:390px;
+    max-height:375px;
     overflow:auto;
 }
 .bottom_right_section {
@@ -521,12 +501,6 @@ a {
     color: #4E4E4E;
     padding-top: 5px;
     padding-bottom: 5px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
-    background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
-    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
-    background: -o-linear-gradient(top, #F3F6FF, #EEE);
-    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
-    background: linear-gradient(top, #F3F6FF, #EEE);
     margin-bottom: 7px;
 }
 .selected_plan, .selected_friend_plan, .selected_location_plan {
