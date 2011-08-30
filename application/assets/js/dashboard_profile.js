@@ -6,6 +6,7 @@ function setup_profile()
     $.get('/dashboard/get_profile',  {
         'user_id': 'user'
     }, function (data) {
+        console.log(data);
         $('.profile_box').html(data); 
         $('#box_text_area').hide();
         $('.update_box').hide();
