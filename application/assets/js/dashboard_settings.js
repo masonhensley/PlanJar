@@ -18,9 +18,9 @@ function initialize_settings() {
                 console.log('started');
             },
             success: function(data) {
+                data = $.parseJSON(data);
                 console.log(data);
                 console.log(unescape(data));
-                data = $.parseJSON(data);
                 
                 if (data.status == 'success') {
                     $('#settings_content .right').html(unescape(data.img));
