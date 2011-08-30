@@ -623,7 +623,8 @@ a {
     display: inline-block;
     color: white;
     margin-top:12px;
-    margin-right: 72px;
+    margin-right: 90px;
+    margin-left:15px;
 }
 #create_plan {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
