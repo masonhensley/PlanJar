@@ -497,13 +497,13 @@ class Dashboard extends CI_Controller
             );
 
             // Resize to 80x80
-            if (!$this->image_lib->resize())
-            {
-                echo(json_encode(array(
-                    'status' => 'error',
-                    'message' => 'There was an error cropping your image. Try again.'
-                )));
-            }
+//            if (!$this->image_lib->resize())
+//            {
+//                echo(json_encode(array(
+//                    'status' => 'error',
+//                    'message' => 'There was an error cropping your image. Try again.'
+//                )));
+//            }
         } else
         {
             echo(json_encode(array(
