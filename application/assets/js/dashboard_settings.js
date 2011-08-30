@@ -65,6 +65,10 @@ function initialize_settings() {
     
     // Crop submit handler
     $('#crop_image').submit(function() {
+        $.get('/dashboard/crop_temp_image?' + $(this).serialize(), function(data) {
+            console.log(data); 
+        });
+        
         return false;
     });
     
