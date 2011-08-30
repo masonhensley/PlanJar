@@ -79,17 +79,6 @@ a {
 .groups_wrapper {
 }
 
-/* orange gradient - selected group*/
-.selected_group, .selected_group:hover {
-    color: white;
-    font-weight: bold;
-    background: -webkit-linear-gradient(top, #F8BA78, #F5952E);
-    background: -moz-linear-gradient(top, #F8BA78, #F5952E);
-    background: -o-linear-gradient(top, #F8BA78, #F5952E);
-    background: -ms-linear-gradient(top, #F8BA78, #F5952E);
-    background: linear-gradient(top, #F8BA78, #F5952E);
-}
-
 .selectable_group{
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
@@ -110,6 +99,18 @@ a {
     overflow:auto;
     border-radius: 5px;
 }
+
+/* orange gradient - selected group*/
+.selected_group, .selected_group:hover {
+    color: white;
+    font-weight: bold;
+    background: -webkit-linear-gradient(top, #F8BA78, #F5952E);
+    background: -moz-linear-gradient(top, #F8BA78, #F5952E);
+    background: -o-linear-gradient(top, #F8BA78, #F5952E);
+    background: -ms-linear-gradient(top, #F8BA78, #F5952E);
+    background: linear-gradient(top, #F8BA78, #F5952E);
+}
+
 .network_tab {
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
