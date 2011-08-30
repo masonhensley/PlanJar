@@ -449,7 +449,7 @@ class Dashboard extends CI_Controller
     {
         $file_path = "/var/www/uploads/$user_id.jpg";
         //$image = imagecreatefromjpeg($file_path);
-        php_info();
+        phpinfo();
 
         $this->output->set_content_type('image/jpeg');
         imagejpeg($image);
