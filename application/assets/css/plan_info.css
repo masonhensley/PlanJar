@@ -127,7 +127,7 @@
     display:none;
     float: right;
     width: 49%;
-    min-height: 54px;
+    height: 51px;
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
     border-bottom: 1px solid darkgray;
@@ -143,7 +143,8 @@
     margin-left:2px;
     width:228px;
     color:gray !important;
-    font-family:helvetica; 
+    font-family:helvetica;
+    font-size:13px;
 }
 .plan_comments{
     display:none;

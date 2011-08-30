@@ -8,6 +8,7 @@ body {
 
     /* make text not selectable for the UI */
     -webkit-user-select: none;
+    -moz-user-select:none;
     cursor:default; 
 
     font-family: helvetica;
@@ -666,7 +667,7 @@ a {
     position: absolute;
     left: 18px;
     bottom: 27px;
-    color:navy;
+    color:#2BA3A1;
     font-size:18px;
 }
 
@@ -674,7 +675,7 @@ a {
     position:absolute;
     left:29px;
     bottom:62px;
-    color:navy;
+    color:#2BA3A1;
     font-size:18px;
 }
 

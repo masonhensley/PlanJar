@@ -31,7 +31,7 @@
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_profile.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_following.js"></script>
-        <script type="text/javascript" src="/application/assets/js/dashboard_followers.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_friends.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_groups.js"></script>
         <script type="text/javascript" src="/application/assets/js/create_group_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_notifications.js"></script>
@@ -67,9 +67,6 @@
         </script>
 
         <title>PlanJar | Dashboard</title>
-
-
-        <!-- Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","ccd5fd6c9626dca4f5a3b019fc6c7ff4"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><!-- End Mixpanel -->
 
         <!-- Google Analytics -->
         <script type="text/javascript">
@@ -114,7 +111,7 @@
             </div>
 
             <div id="friends_content" class="page_content" setup_func="followers_setup">
-                <?php include(APPPATH . '/assets/php/dashboard_followers.php'); ?>
+                <?php include(APPPATH . '/assets/php/dashboard_friends.php'); ?>
             </div>
 
             <div id="groups_content" class="page_content" setup_func="groups_setup">
@@ -130,6 +127,7 @@
             </div>
 
             <div id="profile_content" setup_func="setup_profile" class="page_content">
+                <div id="load_profile_spinner" style="position:absolute;top:20px;left:540px;"></div>
                 <div class="profile_container">
                     <div class="profile_box">
                     </div>
@@ -151,26 +149,5 @@
         <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
-
-
-        <script type="text/javascript">
-            var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
-            (function(){
-                function loadChartbeat() {
-                    window._sf_endpt=(new Date()).getTime();
-                    var e = document.createElement('script');
-                    e.setAttribute('language', 'javascript');
-                    e.setAttribute('type', 'text/javascript');
-                    e.setAttribute('src',
-                    (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
-                        "js/chartbeat.js");
-                    document.body.appendChild(e);
-                }
-                var oldonload = window.onload;
-                window.onload = (typeof window.onload != 'function') ?
-                    loadChartbeat : function() { oldonload(); loadChartbeat(); };
-            })();
-
-        </script>
     </body>
 </html>
