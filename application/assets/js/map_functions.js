@@ -79,16 +79,7 @@ function clear_map_markers () {
 
 // Puts the user's position on the map and centers to it.
 function map_user_position() {
-    clear_map_markers();
-    
-    map_marker_array.push(new google.maps.Marker({
-        position: new google.maps.LatLng(myLatitude, myLongitude),
-        map: map,
-        title: 'Your location',
-        icon: '/application/assets/images/map_markers/star.png'
-    }));
-    
-    calculate_map_bounds();
+    populate_map(([]));
 }
 
 // Calculates and sets the bounds for the map based on map_marker_array (global var)
