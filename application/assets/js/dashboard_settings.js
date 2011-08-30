@@ -15,14 +15,10 @@ function initialize_settings() {
     $('#image_upload').submit(function() {
         $(this).ajaxSubmit({
             beforeSubmit: function() {
-                console.log($('#image'));
-                console.log($('#image').val());
+                return $('#image').val() != ''
             },
             success: function(data) {
                 data = $.parseJSON(data);
-                
-                // Hide the upload form
-                $('#image_upload').hide('fast');
                 
                 if (data.status == 'success') {
                     // Add the image and show the div
@@ -46,8 +42,10 @@ function initialize_settings() {
                             $('#x2').val(selection.x2);
                             $('#y2').val(selection.y2);
                             
-                            // Make sure the alternate text is displayed for the upload form
-                            $('#image_upload_alt').hide('fast', function() {
+                            // Hide the upload form and make sure the alternate text
+                            // is displayed for the upload form
+                            $('#image_upload').hide('fast', function() {
+                                $('#image_upload_alt').show('fast')
                                 $('#upload_crop').show('fast');
                             });
                         }
