@@ -442,7 +442,7 @@ class Dashboard extends CI_Controller
             // Success
             echo(json_encode(array(
                 'status' => 'success',
-                'img' => urlencode('<img id="preview_image" src="' . base_url() . "dashboard/display_temp_image/$user_id\"/>"),
+                'img' => urlencode(base_url() . "dashboard/display_temp_image/$user_id"),
                 'user_id' => $user_id,
                 'width' => $width,
                 'height' => $height

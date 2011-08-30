@@ -22,7 +22,7 @@ function initialize_settings() {
                 
                 if (data.status == 'success') {
                     // Add the image and show the div
-                    $('#settings_content .right').html(unescape(data.img).replace(/\+/g, ' '));
+                    $('#preview_image').attr('src', unescape(data.img));
                     $('#settings_content .right').show('fast');
                     
                     // Image area select
@@ -30,9 +30,12 @@ function initialize_settings() {
                         aspectRatio: '1:1',
                         imageHeight: data.height,
                         imageWIdth: data.width,
+                        x1: 0,
+                        y1: 0,
+                        x2: 80,
+                        y2: 80,
                         onSelectChange: function(img, selection) {
                             console.log('(' + selection.x1 + ', ' + selection.y1 + '),(' + selection.x2 + ', ' + selection.y2 + ')');
-                            console.log('(' + selection.x2 + ', ' + selection.y2 + ')');
                         }
                     });
                 } else {

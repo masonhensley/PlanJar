@@ -76,4 +76,7 @@
     </table>
 </div>
 
-<div class="right"></div>
+<div class="right">
+    <h2>Crop your image and click Upload when you're done.</h2>
+    <img id="preview_image" src=""/>
+</div>
