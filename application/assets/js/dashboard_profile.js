@@ -2,6 +2,11 @@
 // Setp us the profile view
 function setup_profile()
 {
+    // start spinner
+    var target = document.getElementById('my_box_spinner');
+    var opts = spinner_options();
+    var spinner = new Spinner(opts).spin(target);
+    
     $.get('/dashboard/get_profile',  {
         'user_id': 'user'
     }, function (data) {
@@ -12,6 +17,8 @@ function setup_profile()
     }).error(function() {
         console.log('error');
         setup_profile();
+    }).complete(function(){
+        spinner.stop();
     });
 }
 
