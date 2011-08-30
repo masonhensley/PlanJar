@@ -21,6 +21,7 @@
     background-color: white;
     float: right;
     display: none;
+    text-align: center;
 }
 
 #preview_image {
