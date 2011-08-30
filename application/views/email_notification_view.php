@@ -28,7 +28,7 @@
     <body>
         <div class="wrapper">
             <a href="<?php echo(base_url()); ?>">
-                <img src="<?php echo(base_url() . APPPATH . 'assets/images/logo_email.png'); ?>"/>
+                <img src="<?php echo(base_url() . APPPATH . 'assets/images/logo_email_beta.png'); ?>"/>
             </a>
             <hr/>
 
