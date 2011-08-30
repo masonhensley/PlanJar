@@ -449,7 +449,7 @@ class Dashboard extends CI_Controller
     {
         $file_path = "/var/www/uploads/$user_id.jpg";
 
-        header('Content-Type: image/jpeg');
+        $this->output->set_content_type('image/jpeg');
         readfile($filepath);
     }
 
