@@ -44,9 +44,14 @@
 }
 
 .user_entry .add_following, .following_profile_body .add_following {
+    background: -webkit-linear-gradient(top, #DF58E8, purple);
+    background: -moz-linear-gradient(top, #DF58E8, purple);
+    background: -o-linear-gradient(top, #DF58E8, purple);
+    background: -ms-linear-gradient(top, #DF58E8, purple);
+    background: linear-gradient(top, #DF58E8, purple);
+
     float: right;
     width: 68px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#DF58E8),to(purple));
     color: white;
     padding: 3px;
     text-align:center;
@@ -60,11 +65,13 @@
 }
 
 .modal .title_bar {
+    background: -webkit-linear-gradient(top, #333, #666);
+    background: -moz-linear-gradient(top, #333, #666);
+    background: -o-linear-gradient(top, #333, #666);
+    background: -ms-linear-gradient(top, #333, #666);
+    background: linear-gradient(top, #333, #666);
+
     height: 25px;
-    background-color:#555;
-    background: url( /application/assets/images/stripe_c.png);
-    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
-    background: -moz-linear-gradient(top,#333,#666);
     color:white;
     font-size:18px;
     padding-left:10px;
@@ -80,11 +87,13 @@
 }
 
 .attending_modal .title_bar{
+    background: -webkit-linear-gradient(top, #333, #666);
+    background: -moz-linear-gradient(top, #333, #666);
+    background: -o-linear-gradient(top, #333, #666);
+    background: -ms-linear-gradient(top, #333, #666);
+    background: linear-gradient(top, #333, #666);
+    
     height: 25px;
-    background-color:#555;
-    background: url( /application/assets/images/stripe_c.png);
-    background: -webkit-gradient(linear,left top,left bottom,from(#333),to(#666));
-    background: -moz-linear-gradient(top,#333,#666);
     color:white;
     font-size:18px;
     padding-left:10px;
