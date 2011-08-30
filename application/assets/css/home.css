@@ -320,7 +320,7 @@ a {
 .bottom_right_section {
     float: right;
     width: 49%;
-    min-height: 54px;
+    height: 54px;
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
     border-bottom: 1px solid darkgray;
