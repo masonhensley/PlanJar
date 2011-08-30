@@ -3,9 +3,9 @@
 function setup_profile()
 {
     // start spinner
-    var target = document.getElementById('my_box_spinner');
+    var target = document.getElementById('load_profile_spinner');
     var opts = spinner_options();
-    var spinner = new Spinner(opts).spin(target);
+    var profile_spinner = new Spinner(opts).spin(target);
     
     $.get('/dashboard/get_profile',  {
         'user_id': 'user'
@@ -18,7 +18,7 @@ function setup_profile()
         console.log('error');
         setup_profile();
     }).complete(function(){
-        spinner.stop();
+        profile_spinner.stop();
     });
 }
 
