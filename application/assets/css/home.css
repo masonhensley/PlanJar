@@ -444,11 +444,16 @@ a {
 }
 /*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans {
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+    
     position: absolute;
     right: 321px;
     top: -48px;
     border: 1px solid lightgray;
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 9px;
     color: gray;
     border-radius: 5px;
