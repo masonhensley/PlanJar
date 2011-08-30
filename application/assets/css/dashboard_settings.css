@@ -2,8 +2,8 @@
     width: 500px;
     border: 1px solid #CCC;
     border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     background-color: white;
+    float: left;
 }
 
 .settings_wrapper table {
@@ -12,4 +12,12 @@
 
 .settings_wrapper a {
     color: navy;
+}
+
+#settings_content .right {
+    border: 1px solid #CCC;
+    border-top-right-radius: 10px;
+    background-color: white;
+    float: right;
+    display: none;
 }
