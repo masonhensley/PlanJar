@@ -23,7 +23,8 @@ function initialize_settings() {
                 if (data.status == 'success') {
                     // Add the image and show the div
                     console.log(unescape(data.img));
-                    $('#settings_content .right').html(unescape(data.img).replace('+', ' '));
+                    console.log(unescape(data.img).re);
+                    $('#settings_content .right').html(unescape(data.img).replace(/\+/g, ' '));
                     $('#settings_content .right').show('fast');
                     
                     // Image area select
