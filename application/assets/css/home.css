@@ -449,7 +449,7 @@ a {
     background: -o-linear-gradient(top, #F3F6FF, white);
     background: -ms-linear-gradient(top, #F3F6FF, white);
     background: linear-gradient(top, #F3F6FF, white);
-    
+
     position: absolute;
     right: 321px;
     top: -48px;
@@ -519,7 +519,7 @@ a {
     background: -o-linear-gradient(top, #F8BA78, #F5952E);
     background: -ms-linear-gradient(top, #F8BA78, #F5952E);
     background: linear-gradient(top, #F8BA78, #F5952E);
-    
+
     color:white;
 }
 
@@ -546,6 +546,13 @@ a {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 7px;
+}
+.plan_content:hover, .friend_plan_content:hover, .location_plan_content:hover {
+    background: -webkit-linear-gradient(top, #A7CFFD, #C8E2FF);
+    background: -moz-linear-gradient(top, #F3F6FF, #EEE);
+    background: -o-linear-gradient(top, #F3F6FF, #EEE);
+    background: -ms-linear-gradient(top, #F3F6FF, #EEE);
+    background: linear-gradient(top, #F3F6FF, #EEE);
 }
 .selected_plan, .selected_friend_plan, .selected_location_plan {
     background: -webkit-linear-gradient(top, #E6F541, #F8FFAB);
