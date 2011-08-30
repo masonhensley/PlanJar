@@ -175,8 +175,8 @@
         </div>
 
         <div class="bottom_links">
-            <a href="/help" id="bottom_link">Help & FAQ</a>
-            <a href="/about" id="bottom_link">About</a>
+            <a href="/help" id="bottom_link">FAQ</a>
+            <a href="/about" id="bottom_link">About Us</a>
             <a href="/privacy" id="bottom_link">Privacy</a>
             <!--<a href="http://blog.planjar.com/" id="profile_link">Blog</a>-->
         </div>
