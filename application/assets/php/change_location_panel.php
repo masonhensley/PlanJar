@@ -10,7 +10,7 @@
             <label for="change_location_search">Enter your location.</label>
             <input type="text" id="change_location_search" class="textbox"/>
         </div>
-        <input type="button" id="use_cur_location" value="Approximate Current Location"/>
+        <input type="button" id="use_cur_location" value="Approximate Current Location" style="margin-top:10px;"/>
     </div>
 
     <div style="float: right; margin-top: 30px">
