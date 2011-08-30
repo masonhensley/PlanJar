@@ -514,9 +514,11 @@ class Dashboard extends CI_Controller
             )));
         }
 
-        // Success. Add the file contents to the database.
-        // Create an image object
-        //$Image = imagecreatefromjpeg('/var/www/uploads/' . $user->id . '.jpg');
+        // Create an image string
+        $handle = fopen($filepath, "rb");
+        $image = fread($handle, filesize($filepath));
+
+        $this->ion_auth->update_user($user->id, array('prof_picture' => $image));
     }
 
 }
