@@ -43,7 +43,9 @@ function initialize_settings() {
                             $('#y1').val(selection.y1);
                             $('#x2').val(selection.x2);
                             $('#y2').val(selection.y2);
-                            $('#upload_crop').show('fast');
+                            $('#image_upload_alt').hide('fast', function() {
+                                $('#upload_crop').show('fast');
+                            )};
                         }
                     });
                 } else {

@@ -8,6 +8,7 @@
                     <br/>
                     <input type="submit" value="Upload"/>
                 </form>
+                <div id="image_upload_alt" style="display: none;">Crop your image to the right...</div>
             </td>
         </tr>
 
