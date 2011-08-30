@@ -409,28 +409,24 @@ class Dashboard extends CI_Controller
         // Reject non-jpg files
         if ($image['type'] != 'image/jpeg')
         {
-            return json_encode(array(
-                        'status' => 'error',
-                        'message' => 'Sorry, but we only accept jpeg images right now.'
-                    ));
-        }
-
-        // Reject over-sized files
-        if ($image['size'] > 1000000)
+            echo(json_encode(array(
+                'status' => 'error',
+                'message' => 'Sorry, but we only accept jpeg images right now.'
+            )));
+        } else if ($image['size'] > 1000000)
         {
-            return json_encode(array(
-                        'status' => 'error',
-                        'message' => 'Sorry, your file must be less than ?MB.'
-                    ));
-        }
-
-        // Unhandled error
-        if ($image['error'] != 0)
+            // Reject over-sized files
+            echo(json_encode(array(
+                'status' => 'error',
+                'message' => 'Sorry, your file must be less than ?MB.'
+            )));
+        } else if ($image['error'] != 0)
         {
-            return json_encode(array(
-                        'status' => 'error',
-                        'message' => 'Sorry, an unexpected error occuured.'
-                    ));
+            // Unhandled error
+            echo(json_encode(array(
+                'status' => 'error',
+                'message' => 'Sorry, an unexpected error occuured.'
+            )));
         }
 
         // Save the file
@@ -442,16 +438,16 @@ class Dashboard extends CI_Controller
         list($width, $height) = getimagesize($file_path);
 
         // Success
-        return json_encode(array(
-                    'status' => 'success',
-                    'img' => '<img src="' . base_url() . "dashboard/display_temp_image/$user_id\"/>"
-                ));
+        echo(json_encode(array(
+            'status' => 'success',
+            'img' => '<img src="' . base_url() . "dashboard/display_temp_image/$user_id\"/>"
+        )));
     }
 
     public function display_temp_image($user_id)
     {
         $file_path = "/var/www/uploads/$user_id.jpg";
-        
+
         header('Content-Type: image/jpeg');
         readfile($filepath);
     }
