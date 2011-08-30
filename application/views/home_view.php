@@ -100,7 +100,7 @@
                     <a href="/dashboard/profile"><div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div></a>
                     <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link_outer">Profile</div></a>
                     <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer">Groups</div></a>
-                    <a href="/dashboard/friends" id="profile_link"><div class ="top_right_link_outer"><div class="top_right_link_inner">Friends</div></div></a>
+                    <a href="/dashboard/friends" id="profile_link"><div class ="top_right_link_outer">Friends</div></a>
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer">Following</div></a>
                     <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer" id="notifications">Notifications</div></a>
                     <a href="/dashboard/settings" ><div class ="top_right_link_outer">Settings</div></a>
