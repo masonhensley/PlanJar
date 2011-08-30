@@ -96,7 +96,6 @@
         <div class ="top_panel tpg">
             <div class = "inside_top_panel">
                 <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:18px; height:84%; position:relative; top:7px;"/></a>
-                <div class="top_links">
                     <a href="/dashboard/profile"><div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div></a>
                     <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link_outer">Profile</div></a>
                     <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer">Groups</div></a>
@@ -104,7 +103,6 @@
                     <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer">Following</div></a>
                     <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer" id="notifications">Notifications</div></a>
                     <a href="/dashboard/settings" ><div class ="top_right_link_outer">Settings</div></a>
-                </div>
             </div>
         </div>
         <div class="tab_bar">
