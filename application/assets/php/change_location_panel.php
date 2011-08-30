@@ -7,12 +7,11 @@
     </div>
 
     <div style="display:inline-block;margin-top:10px;float:left;margin-left:10px; text-align: center;">
-        <input type="button" id="use_cur_location" value="Approximate current location"/>
-
         <div class="in-field_block">
             <label for="change_location_search">Enter a new location.</label>
             <input type="text" id="change_location_search" class="textbox"/>
         </div>
+        <input type="button" id="use_cur_location" value="Approximate Current Location"/>
     </div>
 
     <div style="float: right; margin-top: 30px">
