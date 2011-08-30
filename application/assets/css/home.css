@@ -299,11 +299,11 @@ a {
 }
 
 .day:hover{
-    background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
-    background: -moz-linear-gradient(top, #EFEFEF, #EFF);
-    background: -o-linear-gradient(top, #EFEFEF, #EFF);
-    background: -ms-linear-gradient(top, #EFEFEF, #EFF);
-    background: linear-gradient(top, #EFEFEF, #EFF);
+    background:-webkit-linear-gradient(top, #AAA, #EFF);
+    background: -moz-linear-gradient(top, #AAA, #EFF);
+    background: -o-linear-gradient(top, #AAA, #EFF);
+    background: -ms-linear-gradient(top, #AAA, #EFF);
+    background: linear-gradient(top, #AAA, #EFF);
 }
 
 .day.day_selected {
