@@ -200,26 +200,26 @@ function initialize_plan_modal() {
                 } else {
                     privacy = $('#plan_event_select_wrapper .selected_event').attr('priv_type');
                 }
-            }
-        
-            // Submit the plan
-            $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
-                'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
-                'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
-                'privacy': privacy
-            } ,function (data) {
-                // Hide and reset the modal
-                $('#create_plan_content').hide('fast', function () {
-                    // Clear the plan modal
-                    reset_plan_modal();
-            
-                    // Open the conflict window or the invite window
-                    open_conflict_invite(data, privacy);
-                });
                 
-                // Refresh the plan list.
-                populate_plan_panel();
-            });
+                // Submit the plan
+                $.get('/home/submit_plan?' + $('#plan_form').serialize(), {
+                    'plan_time': $('#plan_time .divset_selected').attr('plan_time'),
+                    'plan_day': $('.plan_day.divset_selected').attr('day_offset'),
+                    'privacy': privacy
+                } ,function (data) {
+                    // Hide and reset the modal
+                    $('#create_plan_content').hide('fast', function () {
+                        // Clear the plan modal
+                        reset_plan_modal();
+            
+                        // Open the conflict window or the invite window
+                        open_conflict_invite(data, privacy);
+                    });
+                
+                    // Refresh the plan list.
+                    populate_plan_panel();
+                });
+            }
         });
     });
 }

@@ -128,7 +128,7 @@ class Home extends CI_Controller
 
         // Create a new event if one wasn't selected
         $new_event = false;
-        if ($event_id == '')
+        if ($event_id == '' || !$event_id)
         {
             // Event data
             $date = new DateTime();
