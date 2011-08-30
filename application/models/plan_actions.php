@@ -120,7 +120,7 @@ class Plan_actions extends CI_Model
                 $place_name = $plan->name;
                 $title = $plan->title;
                 $time = $plan->time;
-                $todays_date = date('i (jS)');
+                $todays_date = date('l (jS)');
 
                 if (date('I (jS)', strtotime($plan->date)) == $todays_date)
                 {
