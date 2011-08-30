@@ -9,7 +9,7 @@ body {
     /* make text not selectable for the UI */
     -webkit-user-select: none;
     cursor:default; 
-    
+
     font-family: helvetica;
     font-size: 15px;
     margin: 0px;
@@ -84,7 +84,7 @@ a {
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
-    
+
     border: 1px solid lightgray;
     height: 100%;
     padding: 5px 0px 5px;
@@ -104,7 +104,7 @@ a {
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
-    
+
     border: 1px solid lightgray;
     height: 100%;
     padding: 5px 0px 5px;
@@ -138,13 +138,13 @@ a {
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    
+
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
-    
+
     position: relative;
     float: left;
     margin-right: 10px;
@@ -161,7 +161,7 @@ a {
     background: -o-linear-gradient(top, #73B1EA, #02C);
     background: -ms-linear-gradient(top, #73B1EA, #02C);
     background: linear-gradient(top, #73B1EA, #02C);
-    
+
     color: white;
 }
 .change_location_panel {
@@ -170,7 +170,7 @@ a {
     background: -o-linear-gradient(top, #DDD, #EEE);
     background: -ms-linear-gradient(top, #DDD, #EEE);
     background: linear-gradient(top, #DDD, #EEE);
-    
+
     width: auto;
     height: 85px;
     color: navy;
@@ -189,7 +189,7 @@ a {
     background: -o-linear-gradient(top, #F3F6FF, white);
     background: -ms-linear-gradient(top, #F3F6FF, white);
     background: linear-gradient(top, #F3F6FF, white);
-    
+
     width: 100%;
     height: 100%;
     display: none;
@@ -240,7 +240,7 @@ a {
     width: 74px;
     height: 100%;
     border-left: 1px solid darkgray;
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
+
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -249,12 +249,12 @@ a {
     line-height: 30px;
 }
 .day.day_selected {
-    background: -webkit-gradient(linear,left top,left bottom,from(#EEE),to(#AAA));
     background: -webkit-linear-gradient(top, #EEE, #AAA);
     background: -moz-linear-gradient(top, #EEE, #AAA);
     background: -o-linear-gradient(top, #EEE, #AAA);
     background: -ms-linear-gradient(top, #EEE, #AAA);
     background: linear-gradient(top, #EEE, #AAA);
+
     color: gray;
 }
 .days_panel .left_day_arrow {
@@ -263,7 +263,7 @@ a {
     height: 100%;
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
+
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -277,18 +277,20 @@ a {
     border-right: 1px solid darkgray;
     width: 35px;
     height: 100%;
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
+
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
 }
+
 .days_panel .seven_days {
     height: 100%;
     width: 100%;
     background-color: white;
 }
+
 .suggested_locations {
     float: left;
     width: 49%;
@@ -300,10 +302,12 @@ a {
     background-color: white;
     text-align: center;
 }
+
 .location_tabs{
     max-height:375px;
     overflow:auto;
 }
+
 .bottom_right_section {
     float: right;
     width: 49%;
@@ -327,11 +331,12 @@ a {
 }
 /*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
 .display_message {
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(white));
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
     background: -ms-linear-gradient(top, #F3F6FF, white);
     background: linear-gradient(top, #F3F6FF, white);
+
     border-bottom: 1px solid darkgray;
     color:gray;
     padding: 10px;
@@ -359,7 +364,6 @@ a {
     padding-bottom: 10px;
 }
 .event_tab_active {
-    background: -webkit-gradient(linear,left top,left bottom,from(lightYellow),to(#F1FCD5));
     background: -webkit-linear-gradient(top, lightYellow, #F1FCD5);
     background: -moz-linear-gradient(top, lightYellow, #F1FCD5);
     background: -o-linear-gradient(top, lightYellow, #F1FCD5);
@@ -381,7 +385,11 @@ a {
     border-bottom: 1px solid gray;
 }
 .selected_location_tab {
-    background: -webkit-gradient(linear,left top,left bottom,from(#DDD),to(#EFF));
+    background: -webkit-linear-gradient(top, #DDD, #EFF);
+    background: -moz-linear-gradient(top, #DDD, #EFF);
+    background: -o-linear-gradient(top, #DDD, #EFF);
+    background: -ms-linear-gradient(top, #DDD, #EFF);
+    background: linear-gradient(top, #DDD, #EFF);
 }
 #number_rank {
     border: 1px solid lightgray;
@@ -406,6 +414,7 @@ a {
     padding-top: 10px;
     border: 1px solid lightgray;
     border-left: none;
+
     /* ------ border ----- */
     -webkit-border-top-right-radius: 10px;
     -moz-border-radius-top-right: 10px;
@@ -413,6 +422,7 @@ a {
     -webkit-border-bottom-right-radius: 10px;
     -moz-border-radius-bottom-right: 10px;
     border-bottom-right-radius: 10px;
+
     /*--CSS3 Box Shadows-- */
     -webkit-box-shadow: 0px 0px 5px #555;
     -moz-box-shadow: 0px 0px 5px #555;
@@ -453,12 +463,12 @@ a {
     margin-left: 5px;
 }
 .friend_tab {
-    background: -webkit-gradient(linear,left top,left bottom,from(#F3F6FF),to(#EEE));
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
+
     border: 1px solid lightgray;
     height: 100%;
     width: 100%;
@@ -469,7 +479,6 @@ a {
     margin-bottom: 10px;
     width: auto;
     margin-left: 5px;
-
 }
 .attending_button{
     position:absolute; 
@@ -492,6 +501,10 @@ a {
 }
 .guest_list_button_selected{
     background:-webkit-linear-gradient(top, #F8BA78, #F5952E);
+    background: -moz-linear-gradient(top, #F8BA78, #F5952E);
+    background: -o-linear-gradient(top, #F8BA78, #F5952E);
+    background: -ms-linear-gradient(top, #F8BA78, #F5952E);
+    background: linear-gradient(top, #F8BA78, #F5952E);
     color:white;
 }
 
@@ -508,7 +521,7 @@ a {
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
-    
+
     width: 95%;
     height: auto;
     margin: auto;
@@ -521,6 +534,11 @@ a {
 }
 .selected_plan, .selected_friend_plan, .selected_location_plan {
     background: -webkit-linear-gradient(top, #E6F541, #F8FFAB);
+    background: -moz-linear-gradient(top, #E6F541, #F8FFAB);
+    background: -o-linear-gradient(top, #E6F541, #F8FFAB);
+    background: -ms-linear-gradient(top, #E6F541, #F8FFAB);
+    background: linear-gradient(top, #E6F541, #F8FFAB);
+
     color: black;
 }
 
@@ -585,12 +603,12 @@ a {
     height: 100%;
 }
 .top_right_link_outer:hover {
-    background: -webkit-gradient(linear,left top,left bottom,from(darkGray),to(gray));
     background: -webkit-linear-gradient(top, darkGray, gray);
     background: -moz-linear-gradient(top, darkGray, gray);
     background: -o-linear-gradient(top, darkGray, gray);
     background: -ms-linear-gradient(top, darkGray, gray);
     background: linear-gradient(top, darkGray, gray);
+
     color: lightgray;
 }
 .top_right_link_outer {
@@ -613,21 +631,31 @@ a {
     margin-top: 12px;
 }
 #create_plan {
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+
     position: absolute;
     top: -48px;
     right: 212px;
     border: 1px solid lightgray;
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 9px;
     color: gray;
     border-radius: 5px;
 }
 .make_plan {
+    background:-webkit-linear-gradient(top, #8AE28F, #22A228);
+    background: -moz-linear-gradient(top, #8AE28F, #22A228);
+    background: -o-linear-gradient(top, #8AE28F, #22A228);
+    background: -ms-linear-gradient(top, #8AE28F, #22A228);
+    background: linear-gradient(top, #8AE28F, #22A228);
+
     position: absolute;
     left: 49px;
     bottom: 23px;
     border: 1px solid lightgray;
-    background:-webkit-linear-gradient(top, #8AE28F, #22A228);
     padding: 8px;
     color: white;
     font-weight:bold;
@@ -651,6 +679,11 @@ a {
 
 .view_map, .back_to_info {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+
     color: gray;
     position: absolute;
     top:37px;
@@ -670,11 +703,16 @@ a {
 }
 
 .already_attending{
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+
     position: absolute;
     left: 49px; 
     bottom: 23px;
     border: 1px solid lightgray;
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 8px;
     color: gray;
     font-weight:bold;
@@ -687,11 +725,16 @@ a {
 }
 
 #find_places {
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+
     position: absolute;
     right: 445px;
     top: -48px;
     border: 1px solid lightgray;
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
     padding: 9px;
     color: gray;
     border-radius: 5px;
