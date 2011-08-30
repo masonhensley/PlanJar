@@ -363,6 +363,13 @@ a {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.location_tab:hover{
+    background: -webkit-linear-gradient(top, #C0C0C0, #EFF);
+    background: -moz-linear-gradient(top, #C0C0C0, #EFF);
+    background: -o-linear-gradient(top, #C0C0C0, #EFF);
+    background: -ms-linear-gradient(top, #C0C0C0, #EFF);
+    background: linear-gradient(top, #C0C0C0, #EFF);
+}
 .event_tab {
     position: relative;
     text-align: center;
