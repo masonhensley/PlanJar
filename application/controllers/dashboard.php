@@ -469,55 +469,52 @@ class Dashboard extends CI_Controller
         $x2 = $this->input->get('x2');
         $y2 = $this->input->get('y2');
 
-        // Make sure the inputs are valid
-        if ($x1 && $x2 && $y1 && $y2)
-        {
-            $this->load->library('image_lib');
-            $filepath = '/var/www/uploads/' . $user->id . '.jpg';
+        // Load the lib and filepath
+        $this->load->library('image_lib');
+        $filepath = '/var/www/uploads/' . $user->id . '.jpg';
 
-            // Create the config info for the manipulation class
+        // Create the config info for the manipulation class
+        $config = array(
+            'image_library' => 'gd2',
+            'source_image' => $filepath,
+            'width' => $x2 - $x1,
+            'height' => $y2 - $y1,
+            'x_axis' => $x1,
+            'y_axis' => $y1,
+            'maintain_ratio' => false
+        );
+
+        // Crop the image
+        $this->image_lib->initialize($config);
+        if ($this->image_lib->crop())
+        {
+            // Successful crop. Setup the config
             $config = array(
                 'image_library' => 'gd2',
                 'source_image' => $filepath,
-                'width' => $x2 - $x1,
-                'height' => $y2 - $y1,
-                'x_axis' => $x1,
-                'y_axis' => $y1,
-                'maintain_ratio' => false
+                'width' => 80,
+                'height' => 80
             );
 
-            // Crop the image
-            $this->image_lib->initialize($config);
-            if ($this->image_lib->crop())
-            {
-                // Successful crop. Setup the config
-                $config = array(
-                    'image_library' => 'gd2',
-                    'source_image' => $filepath,
-                    'width' => 80,
-                    'height' => 80
-                );
-
-                // Resize to 80x80
-                if (!$this->image_lib->resize())
-                {
-                    echo(json_encode(array(
-                        'status' => 'error',
-                        'message' => 'There was an error cropping your image. Try again.'
-                    )));
-                }
-            } else
+            // Resize to 80x80
+            if (!$this->image_lib->resize())
             {
                 echo(json_encode(array(
                     'status' => 'error',
                     'message' => 'There was an error cropping your image. Try again.'
                 )));
             }
-
-            // Success. Add the file contents to the database.
-            // Create an image object
-            //$Image = imagecreatefromjpeg('/var/www/uploads/' . $user->id . '.jpg');
+        } else
+        {
+            echo(json_encode(array(
+                'status' => 'error',
+                'message' => 'There was an error cropping your image. Try again.'
+            )));
         }
+
+        // Success. Add the file contents to the database.
+        // Create an image object
+        //$Image = imagecreatefromjpeg('/var/www/uploads/' . $user->id . '.jpg');
     }
 
 }
