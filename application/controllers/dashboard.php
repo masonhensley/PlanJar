@@ -484,6 +484,8 @@ class Dashboard extends CI_Controller
             'maintain_ratio' => false
         );
 
+        var_dump($config);
+
         // Crop the image
         $this->image_lib->initialize($config);
         if ($this->image_lib->crop())
