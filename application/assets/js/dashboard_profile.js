@@ -2,15 +2,16 @@
 // Setp us the profile view
 function setup_profile()
 {
-    console.log('here');
     $.get('/dashboard/get_profile',  {
         'user_id': 'user'
     }, function (data) {
-        console.log(data);
         $('.profile_box').html(data); 
         $('#box_text_area').hide();
         $('.update_box').hide();
         setup_edit_box();
+    }).error(function() {
+        console.log('error');
+        setup_profile();
     });
 }
 

@@ -35,6 +35,5 @@ function show_data_container(data_div) {
     }
     
     // Call the setup function.
-    console.log('setup called');
     eval($(data_div).attr('setup_func') + "()");
 }
