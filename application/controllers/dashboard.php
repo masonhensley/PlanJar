@@ -439,8 +439,7 @@ class Dashboard extends CI_Controller
         move_uploaded_file($image['tmp_name'], $file_path);
 
         // Get the dimensions
-        $width = getWidth($file_path);
-        $height = getHeight($file_path);
+        list($width, $height) = getimagesize($file_path);
 
         // Success
         $file_path = 1;
