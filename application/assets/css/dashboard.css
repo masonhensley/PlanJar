@@ -51,6 +51,7 @@ a{
 .top_right_link_outer{
     height:100%;
     width:75px;
+    font-size:12px;
     display:inline-block;
     float: right;
     top:-15px;
