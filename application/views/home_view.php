@@ -3,8 +3,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
@@ -22,6 +20,8 @@
         <link rel=stylesheet href="/application/assets/css/add_location_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_info.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/gradients.css" type="text/css" />
+        
+        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
         
         <!-- Google Font
         <link href='http://fonts.googleapis.com/css?family=Vollkorn|Ubuntu' rel='stylesheet' type='text/css'>-->
