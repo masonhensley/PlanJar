@@ -448,11 +448,10 @@ class Dashboard extends CI_Controller
     public function display_temp_image($user_id)
     {
         $file_path = "/var/www/uploads/$user_id.jpg";
-        //$image = imagecreatefromjpeg($file_path);
-        var_dump(gd_info());
+        $handle = fopen($file_path, 'r');
 
         $this->output->set_content_type('image/jpeg');
-        imagejpeg($image);
+        fpassthru($handle);
     }
 
 }
