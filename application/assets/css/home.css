@@ -162,6 +162,10 @@ a {
     color: white;
 }
 
+.groups_wrapper a:hover{
+  color:navy;  
+}
+
 /* ---------------- CENTER PANEL ---------------- */
 .center {
     float: left;
