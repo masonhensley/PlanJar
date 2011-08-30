@@ -6,8 +6,7 @@
         <div class="network_tab" group_id="current_location">
             Current Location
         </div>
-        <div class="
-             network_tab" group_id="friends">
+        <div class="network_tab" group_id="friends">
             Friends
         </div>
         <div class="network_tab" group_id="school">
