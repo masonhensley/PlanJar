@@ -640,6 +640,7 @@ a {
     display: inline-block;
     position: relative;
     text-align: center;
+    font-size:14px;
 }
 .top_right_link_inner {
     position: relative;
