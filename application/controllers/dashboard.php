@@ -450,6 +450,7 @@ class Dashboard extends CI_Controller
         $file_path = "/var/www/uploads/$user_id.jpg";
 
         $this->output->set_content_type('image/jpeg');
+        var_dump('foo');
         readfile($filepath);
     }
 
