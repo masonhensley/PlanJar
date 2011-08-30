@@ -458,12 +458,27 @@ class Dashboard extends CI_Controller
         $this->output->set_content_type('image/jpeg');
         fpassthru($handle);
     }
-    
+
     // Crops the image and stores it to the profile
-    public function crop_temp_image() {
+    public function crop_temp_image()
+    {
         $user = $this->ion_auth->get_user();
-        
-        var_dump($this->input->get('x1'));
+
+        $x1 = $this->input->get('x1');
+        $y1 = $this->input->get('y1');
+        $x2 = $this->input->get('x2');
+        $y2 = $this->input->get('y2');
+
+        // Make sure the inputs are valid
+        if ($x1 && $x2 && $y1 && $y2)
+        {
+            
+        }
+    }
+
+    public function foo()
+    {
+        var_dump(gd_info());
     }
 
 }
