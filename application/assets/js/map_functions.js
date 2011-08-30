@@ -13,15 +13,15 @@ function populate_map(data, closure_function, non_numbered) {
             position: new google.maps.LatLng(myLatitude, myLongitude),
             map: map,
             title: 'Your location',
-            icon: '/application/assets/images/map_markers/arrow.png'
+            icon: '/application/assets/images/map_markers/star.png'
         }));
     
         for (var i = 0; i < data.length; ++i) {
             var icon;
             if (non_numbered != undefined) {
-                icon = '/application/assets/images/map_markers/marker.png'
+                icon = '/application/assets/images/map_markers/symbol_middot.png'
             } else {
-                icon = '/application/assets/images/map_markers/marker' + (i + 1) + '.png';
+                icon = '/application/assets/images/map_markers/number_' + (i + 1) + '.png';
             }
             
             var temp_marker = new google.maps.Marker({
@@ -79,16 +79,7 @@ function clear_map_markers () {
 
 // Puts the user's position on the map and centers to it.
 function map_user_position() {
-    clear_map_markers();
-    
-    map_marker_array.push(new google.maps.Marker({
-        position: new google.maps.LatLng(myLatitude, myLongitude),
-        map: map,
-        title: 'Your location',
-        icon: '/application/assets/images/map_markers/arrow.png'
-    }));
-    
-    calculate_map_bounds();
+    populate_map(([]));
 }
 
 // Calculates and sets the bounds for the map based on map_marker_array (global var)
