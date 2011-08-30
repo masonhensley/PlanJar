@@ -505,6 +505,7 @@ a {
     background: -o-linear-gradient(top, #F8BA78, #F5952E);
     background: -ms-linear-gradient(top, #F8BA78, #F5952E);
     background: linear-gradient(top, #F8BA78, #F5952E);
+    
     color:white;
 }
 
