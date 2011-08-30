@@ -79,4 +79,10 @@
 <div class="right">
     <h2>Crop your image and click Upload when you're done.</h2>
     <img id="preview_image" src=""/>
+    <form id="crop_image">
+        <input type="hidden" id ="x1" name="x1"/>
+        <input type="hidden" id ="y1" name="y1"/>
+        <input type="hidden" id ="x2" name="x2"/>
+        <input type="hidden" id ="y2" name="y2"/>
+        <input type="submit" value="Upload" id="upload_crop" style="display: none;"/>
 </div>

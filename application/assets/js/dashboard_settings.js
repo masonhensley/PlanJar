@@ -20,6 +20,9 @@ function initialize_settings() {
             success: function(data) {
                 data = $.parseJSON(data);
                 
+                // Hide the upload form
+                $('#image_upload').hide('fast');
+                
                 if (data.status == 'success') {
                     // Add the image and show the div
                     $('#preview_image').attr('src', unescape(data.img));
@@ -28,14 +31,19 @@ function initialize_settings() {
                     // Image area select
                     $('#preview_image').imgAreaSelect({
                         aspectRatio: '1:1',
-                        imageHeight: data.height,
-                        imageWIdth: data.width,
+                        imageHeight: data.height / 3,
+                        imageWIdth: data.width / 3,
                         x1: 0,
                         y1: 0,
                         x2: 80,
                         y2: 80,
-                        onSelectChange: function(img, selection) {
-                            console.log('(' + selection.x1 + ', ' + selection.y1 + '),(' + selection.x2 + ', ' + selection.y2 + ')');
+                        handles: 'corners',
+                        onSelectEnd: function(img, selection) {
+                            $('#x1').val(selection.x1);
+                            $('#y1').val(selection.y1);
+                            $('#x2').val(selection.x2);
+                            $('#y2').val(selection.y2);
+                            $('#upload_crop').show('fast');
                         }
                     });
                 } else {
@@ -48,6 +56,11 @@ function initialize_settings() {
             dataType: 'html'
         });
             
+        return false;
+    });
+    
+    // Crop submit handler
+    $('#crop_image').submit(function() {
         return false;
     });
     
