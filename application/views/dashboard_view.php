@@ -31,7 +31,7 @@
         <script type="text/javascript" src="/application/assets/js/dashboard_tabs.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_profile.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_following.js"></script>
-        <script type="text/javascript" src="/application/assets/js/dashboard_followers.js"></script>
+        <script type="text/javascript" src="/application/assets/js/dashboard_friends.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_groups.js"></script>
         <script type="text/javascript" src="/application/assets/js/create_group_modal.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_notifications.js"></script>
@@ -111,7 +111,7 @@
             </div>
 
             <div id="friends_content" class="page_content" setup_func="followers_setup">
-                <?php include(APPPATH . '/assets/php/dashboard_followers.php'); ?>
+                <?php include(APPPATH . '/assets/php/dashboard_friends.php'); ?>
             </div>
 
             <div id="groups_content" class="page_content" setup_func="groups_setup">
