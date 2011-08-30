@@ -21,7 +21,8 @@
         <link rel=stylesheet href="/application/assets/css/location_data.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/add_location_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_info.css" type="text/css" />
-
+        <link rel=stylesheet href="/application/assets/css/gradients.css" type="text/css" />
+        
         <!-- Google Font
         <link href='http://fonts.googleapis.com/css?family=Vollkorn|Ubuntu' rel='stylesheet' type='text/css'>-->
 
@@ -92,7 +93,7 @@
 
     </head>
     <body>
-        <div class ="top_panel">
+        <div class ="top_panel tpg">
             <div class = "inside_top_panel">
                 <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:18px; height:84%; position:relative; top:7px;"/></a>
                 <div class="top_links">
