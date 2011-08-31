@@ -378,7 +378,10 @@ class Notification_ops extends CI_Model
             $first_last = $this_user->first_name . ' ' . $this_user->last_name;
 
             // Create the image string
-            $Image = '<img src="/user/get_prof_pic/' . $this_user->id . '"/>';
+            $this->load->model('load_profile');
+            ob_start();
+            $this->load_profile->insert_profile_picture($this_user->id, 33);
+            $image = ob_get_clean();
 
             $body_string = 'Hi ' . $user->first_name . ".<br/><br/>";
             switch ($type)

@@ -18,7 +18,8 @@ class Help extends CI_Controller
         $notif_text = "Hi Parker.
 
 Mason Hensley has invited you to PlanJar Launch Parteeeyyy! at Tin Roof for Tuesday the 6th. ";
-        echo($this->notification_ops->create_email_notification($notif_text, $data));
+        $image = '<img src="/user/get_prof_pic/2"/>';
+        echo($this->notification_ops->create_email_notification($notif_text, '900000', $image));
     }
 
 }
