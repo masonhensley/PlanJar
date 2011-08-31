@@ -18,7 +18,7 @@ class User extends CI_Controller
             $file_path = "/var/www/uploads/profile_jars/$logo_text.png";
 
             $this->output->set_content_type('image/png');
-            $handle = fopen($filename, 'rb');
+            $handle = fopen($filename, 'r');
             fpassthru($handle);
         } else
         {
