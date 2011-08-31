@@ -260,18 +260,7 @@ class Load_profile extends CI_Model
     // Echos an img tag representing the user's profile picture
     function insert_profile_picture($user_id, $dim)
     {
-        $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
-        if ($prof_picture == '')
-        {
-            // No profile picture
-            $src = "/user/get_prof_pic/rand";
-        } else
-        {
-            $src = "/user/get_prof_pic/$user_id";
-        }
-
-
-        $src .= "/$user_id";
+        $src = "/user/get_prof_pic/$user_id";
         ?>
         <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
         <?php

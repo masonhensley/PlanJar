@@ -11,7 +11,15 @@ class User extends CI_Controller
 
     public function get_prof_pic($user_id)
     {
-        if ($user_id == 'rand')
+        $user = $this->ion_auth->get_user($user_id);
+        if (is_object($user))
+        {
+            // Profile picture
+            $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
+
+            $this->output->set_content_type('image/jpeg');
+            echo($prof_picture);
+        } else
         {
             // Random image
             $logo_text = "logo_" . rand(1, 25);
@@ -20,13 +28,6 @@ class User extends CI_Controller
             $this->output->set_content_type('image/png');
             $handle = fopen($filename, 'r');
             fpassthru($handle);
-        } else
-        {
-            // Profile picture
-            $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
-
-            $this->output->set_content_type('image/jpeg');
-            echo($prof_picture);
         }
     }
 
