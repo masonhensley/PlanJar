@@ -20,8 +20,7 @@ function fetch_notifications() {
     $.get('/home/get_notification_popup', function(data){
         if(data > 0)
         {
-            $('#notifications .top_right_link_outer').badger(data);
-            alert('notifications prz')
+            $('#notifications').badger(data);
         }
             
         notification_timer = setTimeout(fetch_notifications, 45000);
