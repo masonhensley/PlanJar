@@ -11,7 +11,7 @@ $.fn.confirmDiv = function(callback) {
 
 function outer_confirm_handler(main_event) {
     // Stop propagation (to allow for clicking anywhere BUT the element)
-    event.stopPropagation();
+    main_event.stopPropagation();
 
     // Clear previous handlers
     $(this).unbind('click');
