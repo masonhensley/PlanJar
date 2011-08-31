@@ -58,6 +58,9 @@ function display_info(bypass, arg) {
         show_invite_link();
     }
     
+    // Clear the change location box
+    hide_change_location_panel();
+    
     if ($('#find_places.selected').length > 0) {    
         // Find a place
         
