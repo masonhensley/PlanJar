@@ -3,8 +3,18 @@ $(function () {
 });
 
 // Run when the tab is selected
-function following_setup() {
-    populate_following_list();
+function following_setup(action_arg) {
+    populate_following_list(function() {
+        if (action_arg == 'suggested') {
+            $('#suggest_people').click();
+        } else if ($('#following_list .user_entry[user_id="' + action_arg + '"]').length > 0) {
+            // User found. Select it
+            $('#following_list .user_entry[user_id="' + action_arg + '"]').click();
+        } else if (action_arg != undefined) {
+            // Unknown user
+            suggested_search_click(action_arg);
+        }
+    });
 }
 
 // This sets up the suggested friends list
@@ -75,11 +85,7 @@ function initialize_suggested_friends()
             populate_suggested_friends();
            
         } 
-    });
-    
-    // Refer to the definition in dashboard_view.
-    // Essentially selects the suggested button if necessary at load
-    show_suggested_init('#following_content', '.suggested_friends');    
+    }); 
 }
 
 // Populates the suggested friends and assigns the click handlers
@@ -120,7 +126,8 @@ function populate_suggested_friends() {
 }
 
 // Modularized click handler for suggested/searched friends
-function suggested_search_click() {
+// If bypass_id is set, it will be used as the id instead of the clicked element's embedded value
+function suggested_search_click(bypass_id) {
 
     // setup spinner
     var following_opts = spinner_options();
@@ -128,7 +135,12 @@ function suggested_search_click() {
     var following_spinner = new Spinner(following_opts).spin(following_target);
 
     // Capture the user id
-    var user_id = $(this).attr('user_id');
+    var user_id;
+    if (bypass_id != undefined) {
+        user_id = bypass_id;
+    } else {
+        user_id = $(this).attr('user_id');
+    }
 
     // Deselect any of the selected user's followers
     $('#following_list .selected_follower').removeClass('selected_follower');
@@ -216,6 +228,7 @@ function populate_following_list(callback) {
                 });
             }
         });
+        
         if (callback != undefined) {
             callback();
         }

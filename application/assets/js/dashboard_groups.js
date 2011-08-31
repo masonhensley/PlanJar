@@ -10,7 +10,7 @@ function groups_setup(action_arg) {
             $('.suggest_groups').click();
         } else if (action_arg != undefined) {
             // Seek to that group
-            1;
+            $('#edit_groups_list .group_entry[group_id="' + action_arg + '"]').click();
         }
     });
     
