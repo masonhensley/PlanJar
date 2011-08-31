@@ -81,9 +81,9 @@ class Load_profile extends CI_Model
         {
             $index = 0;
 
-            foreach ($groups_joined as $group)
+            foreach ($groups_joined as $group_id => $group)
             {
-                        ?><font style="color:green; font-size: 16px;"><?php echo $group; ?></font><?php
+                        ?><a href="/dashboard/groups/<?php echo $group_id;?>"><font style="color:green; font-size: 16px;"><?php echo $group; ?></font></a><?php
                 if ($index + 1 != $group_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -102,9 +102,9 @@ class Load_profile extends CI_Model
         if ($following_count > 0)
         {
             $index = 0;
-            foreach ($groups_following as $group)
+            foreach ($groups_following as $group_id => $group)
             {
-                        ?><font style="color:purple; font-size:16px;"><?php echo $group; ?></font><?php
+                        ?><a href="/dashboard/groups/<?php echo $group_id;?>"><font style="color:purple; font-size:16px;"><?php echo $group; ?></font></a><?php
                 if ($index + 1 != $following_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -150,7 +150,7 @@ class Load_profile extends CI_Model
         $groups_joined = array();
         foreach ($result->result() as $group)
         {
-            $groups_joined[] = $group->name;
+            $groups_joined[$group->id] = $group->name;
         }
         return $groups_joined;
     }
@@ -164,7 +164,7 @@ class Load_profile extends CI_Model
         $groups_following = array();
         foreach ($result->result() as $group)
         {
-            $groups_following[] = $group->name;
+            $groups_following[$group->id] = $group->name;
         }
         return $groups_following;
     }
