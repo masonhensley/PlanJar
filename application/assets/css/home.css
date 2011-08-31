@@ -28,11 +28,11 @@ a:hover{
     color:navy;
 }
 
-.inside_top_panel a{
+.top_right_link_outer a{
     color:lightgray;
 }
 
-.inside_top_panel:hover{
+.top_right_link_outer a:hover{
     color:white;
 }
 
