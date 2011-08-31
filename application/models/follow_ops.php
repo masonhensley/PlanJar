@@ -107,7 +107,7 @@ class Follow_ops extends CI_Model
                 <div class="user_name">
                     <a href="/dashboard/followers/<?php echo $row->user_id ?>">
                         <?php
-                        echo "<font style=\"font-weight:bold;\">" . $row->first_name . ' ' . $row->last_name . "</font>";
+                        echo "<font style=\"font-weight:bold;color:black;\">" . $row->first_name . ' ' . $row->last_name . "</font>";
                         ?></a><?php
                 echo "<br>";
                 $year_display = substr($row->grad_year, -2);
