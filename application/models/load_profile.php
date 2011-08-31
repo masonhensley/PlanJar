@@ -183,6 +183,7 @@ class Load_profile extends CI_Model
 
         $recent_locations = array(); // variables to keep track of locations
         $most_visited_locations = array();
+        $location_ids = array();
 
         // make trackers
 
@@ -193,10 +194,12 @@ class Load_profile extends CI_Model
             if (!in_array($place->name, $recent_locations) && $place->name && count($recent_locations) < 11)
             {
                 $recent_locations[] = $place->name;
+                $location_ids[$place->name] = $place->place_id;
             }
             if ($place->name)
             {
                 $most_visited_locations[] = $place->name;
+                $location_ids[$place->name] = $place->place_id;
             }
         }
         if (count($most_visited_locations) > 0)
@@ -218,7 +221,7 @@ class Load_profile extends CI_Model
             {
                 if ($index < 10) // limit display to ten
                 {
-                    ?><font style="color:navy;"><?php echo $location; ?></font><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location]?>"><font style="color:navy;"><?php echo $location; ?></font></a><?php
                     if ($index + 1 != $recent_locations_count && $index + 1 != 10)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -239,7 +242,7 @@ class Load_profile extends CI_Model
             {
                 if ($index < 10 && $index < $most_visited_count)// limit display to ten
                 {
-                    ?><font style="color:navy;"><?php echo $location . " ($count)"; ?></font><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location]?>"><font style="color:navy;"><?php echo $location . " ($count)"; ?></font></a><?php
                     if ($index + 1 != 10 && $index + 1 != $most_visited_count)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
