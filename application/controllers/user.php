@@ -15,7 +15,7 @@ class User extends CI_Controller
         {
             // Random image
             $logo_text = "logo_" . rand(1, 25);
-            $file_path = "/var/www/uploads/$logo_text.png";
+            $file_path = "/var/www/uploads/profile_jars/$logo_text.png";
 
             $this->output->set_content_type('image/png');
             $handle = fopen($filename, 'rb');
