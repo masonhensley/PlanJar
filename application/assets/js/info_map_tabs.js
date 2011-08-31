@@ -143,6 +143,7 @@ function display_info(bypass, arg) {
             if (found_location !== false) {
                 place_id = found_location;
                 back_to_search = true;
+                populate_popular_locations();
             } else if (viewing_plan_location === false) {
                 place_id = $('.selected_location_tab').attr('place_id');
             } else {
