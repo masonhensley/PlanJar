@@ -13,6 +13,7 @@ function initialize_dashboard_tabs() {
 }
 
 // Shows the data container specified in the argument.
+// action_arg is used to tell the respective setup functions what to do next (suggested or id)
 function show_data_container(data_div, action_arg) {
     if (action_arg == undefined) {
         action_arg = '';
