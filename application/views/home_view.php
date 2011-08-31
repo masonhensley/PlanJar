@@ -76,6 +76,7 @@
         <script type="text/javascript">
             $(function() {
                 if ('<?php echo($action_type); ?>' == 'show_location') {
+                    console.log('here');
                     // Check the id
                     $.get('/home/check_location_id', {id: '<?php echo($action_arg); ?>'}, function(data) {
                         if (data == 'success') {
