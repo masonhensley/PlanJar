@@ -19,13 +19,6 @@ body {
 div {
     border-color: lightgray;
 }
-a {
-    color: gray;
-    text-decoration: none;
-}
-a:hover{
-    color:navy;
-}
 
 .inside_top_panel a{
     color:lightgray;
@@ -34,6 +27,16 @@ a:hover{
 .inside_top_panel a:hover{
     color:white;
 }
+
+a {
+    color: gray;
+    text-decoration: none;
+}
+a:hover{
+    color:navy;
+}
+
+
 
 
 
