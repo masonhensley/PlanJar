@@ -1,7 +1,8 @@
 <div class="left">
     <div id="following_spinner" style="position:absolute; top:18px; left:340px;"></div>
     <div class="right_header" style="text-align: center; color:navy;">
-        People you're following...
+        People you're following...<br/>
+        <font style="color:lightgray">(select to view profile)</font>
     </div>
 
     <div id="following_list"></div>
