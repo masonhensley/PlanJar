@@ -11,19 +11,20 @@ class User extends CI_Controller
 
     public function get_prof_pic($user_id)
     {
-        var_dump($user_id);
         if ($user_id == 'rand')
         {
             // Random image
             $logo_text = "logo_" . rand(1, 25) . ".png";
             $filename = "/application/assets/images/logos/$logo_text";
 
-            //$this->output->set_content_type('image/png');
+            $this->output->set_content_type('image/png');
             $handle = fopen($filename, 'rb');
             fpassthru($handle);
         } else
         {
             $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
+
+            $query = $this->db->query("SELECT prof_picture FROM user_meta WHERE user_id = '$user_id'");
 
             //$this->output->set_content_type('image/jpeg');
             echo($prof_picture);
