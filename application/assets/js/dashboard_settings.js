@@ -87,9 +87,9 @@ function initialize_settings() {
                 });
                 
                 // Hide/show the upload form/alt text
-                $('#upload_submit').hide('fast');
                 $('#image_upload_alt').hide('fast', function() {
                     $('#image_upload').show('fast');
+                    $('#upload_submit').hide('fast');
                 });
             }
         });
