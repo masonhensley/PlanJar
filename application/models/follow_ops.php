@@ -98,25 +98,26 @@ class Follow_ops extends CI_Model
             <div class="user_entry_left">
                 <center>
                     <div class="user_picture">
-                        <?php $this->load_profile->insert_profile_picture($row->user_id, 50); ?>
+                        <a href="/dashboard/followers/<?php echo $row->user_id ?>"><?php $this->load_profile->insert_profile_picture($row->user_id, 50); ?></a>
                     </div>
                 </center>
             </div>
             <div class="user_entry_middle">
 
                 <div class="user_name">
-                    <?php
-                    echo "<font style=\"font-weight:bold;\">" . $row->first_name . ' ' . $row->last_name . "</font>";
-
-                    echo "<br>";
-                    $year_display = substr($row->grad_year, -2);
-                    echo "<font style=\"color:gray;\">" . $row->school . " ('" . $year_display . ")</font><br/>";
-                    if ($option == 'suggested')
-                    {
-                        $number_of_connections = $suggested_friends[$row->user_id];
-                        echo "<font style=\"color:green; font-size:10px; position:absolute;bottom:15px;right:8px;\">$number_of_connections+ connections</font>";
-                    }
-                    ?>
+                    <a href="/dashboard/followers/<?php echo $row->user_id ?>">
+                        <?php
+                        echo "<font style=\"font-weight:bold;\">" . $row->first_name . ' ' . $row->last_name . "</font>";
+                        ?></a><?php
+                echo "<br>";
+                $year_display = substr($row->grad_year, -2);
+                echo "<font style=\"color:gray;\">" . $row->school . " ('" . $year_display . ")</font><br/>";
+                if ($option == 'suggested')
+                {
+                    $number_of_connections = $suggested_friends[$row->user_id];
+                    echo "<font style=\"color:green; font-size:10px; position:absolute;bottom:15px;right:8px;\">$number_of_connections+ connections</font>";
+                }
+                        ?>
                 </div>          
             </div>
             <?php
@@ -145,12 +146,13 @@ class Follow_ops extends CI_Model
                 ?>
                 <div class="add_following">follow</div>
                 <?php
-            }else if($option == 'already_following')
+            } else if ($option == 'already_following')
             {
                 ?>
                 <div class="following">following</div>
                 <?php
-            }else if($option == 'this_is_you'){
+            } else if ($option == 'this_is_you')
+            {
                 ?>
                 <div class="following">this is you</div>
                 <?php
@@ -173,8 +175,8 @@ class Follow_ops extends CI_Model
     {
         $query_string = "INSERT IGNORE INTO friend_relationships VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, array(
-                    $this->ion_auth->get_user()->id,
-                    $following_id
+            $this->ion_auth->get_user()->id,
+            $following_id
                 ));
 
         // Notify the given user
