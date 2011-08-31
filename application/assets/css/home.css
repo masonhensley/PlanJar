@@ -24,7 +24,7 @@ div {
     color:lightgray;
 }
 
-.inside_top_panel a:hover{
+.inside_top_panel:hover{
     color:white;
 }
 
