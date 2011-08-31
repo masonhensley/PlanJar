@@ -503,6 +503,7 @@ class Dashboard extends CI_Controller
                     'status' => 'error',
                     'message' => 'There was an error cropping your image. Try again.'
                 )));
+                return;
             }
         } else
         {
@@ -510,6 +511,7 @@ class Dashboard extends CI_Controller
                 'status' => 'error',
                 'message' => 'There was an error cropping your image. Try again.'
             )));
+            return;
         }
 
         // Create an image string
