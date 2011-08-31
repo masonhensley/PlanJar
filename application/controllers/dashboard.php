@@ -310,6 +310,7 @@ class Dashboard extends CI_Controller
         } else
         {
             $user = $this->ion_auth->get_user($user);
+            var_dump($user);
             $format = "profile_view";
         }
 
