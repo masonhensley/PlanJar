@@ -58,7 +58,7 @@ class Load_locations extends CI_Model
     function on_current_location_selected($display_day, $sql_date)
     {
         $user = $this->ion_auth->get_user();
-        $display_message = "<font style=\"color:gray;\">Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> near your</font> <font style=\"color:green;\">Current Location</font> ";
+        $display_message = "<font style=\"color:gray;\">Popular <a href=\"#\" id=\"places_link\">places</a> near your</font> <font style=\"color:green;\">Current Location</font> ";
         $display_message .= "for <font style=\"font-weight:bold;\">$display_day</font>";
 
 
@@ -86,7 +86,7 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> your <font style=\"color:green;\">Friends</font> ";
+        $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> your <font style=\"color:green;\">Friends</font> ";
         $display_message .= "are going <br/><font style=\"font-weight:bold;\">$display_day</font>";
 
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
@@ -116,7 +116,7 @@ class Load_locations extends CI_Model
     {
         $user = $this->ion_auth->get_user();
         $school_id = $user->school_id;
-        $display_message = "Popular <a href=\"#\" id=\"places_link\" style=\"color:navy;\" >places</a> <font style=\"color:green;\">$school</font> ";
+        $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> <font style=\"color:green;\">$school</font> ";
         $display_message .= "students are going <font style=\"font-weight:bold;\">$display_day</font>";
 
         $query = "SELECT DISTINCT events.title, places.name, places.id, places.latitude, places.longitude
