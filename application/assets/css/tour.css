@@ -134,6 +134,12 @@ h2 {
     padding-top:12px;
     margin-left:31px;
 }
+
+#img{
+    margin: 10px;
+    margin-left: 0px;   
+}
+
 #bottom_link{
     margin-left:15px;
     margin-right:15px;
