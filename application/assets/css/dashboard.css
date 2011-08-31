@@ -16,10 +16,10 @@ a{
     text-decoration: none;
 }
 
-.top_right_link_inner a{
+.top_right_link_outer  a{
     color:darkgray;
 }
-.top_right_link_inner a:hover{
+.top_right_link_outer a:hover{
     color:white;
 }
 
@@ -68,10 +68,6 @@ a{
     margin-left:5px;
     padding-right:5px;
     padding-left:5px;
-}
-
-.top_right_link_outer:hover{    
-    color:lightgray;
 }
 
 .top_right_link_inner{
