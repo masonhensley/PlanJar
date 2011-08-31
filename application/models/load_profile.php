@@ -264,11 +264,11 @@ class Load_profile extends CI_Model
             $src = "/user/get_prof_pic/rand";
         } else
         {
-            $src= "/user/get_prof_pic/$user_id";
+            $src = "/user/get_prof_pic/$user_id";
         }
-        
-        
-        $src .= '/' . rand(0,99999999);
+
+
+        $src .= "/$user_id";
         ?>
         <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
         <?php
