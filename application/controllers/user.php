@@ -17,6 +17,8 @@ class User extends CI_Controller
             $logo_text = "logo_" . rand(1, 25) . ".png";
             $filename = "/application/assets/images/logos/$logo_text";
 
+            redirect($filename);
+
             $this->output->set_content_type('image/png');
             $handle = fopen($filename, 'rb');
             fpassthru($handle);
