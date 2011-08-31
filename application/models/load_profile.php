@@ -254,11 +254,20 @@ class Load_profile extends CI_Model
         return ob_get_clean();
     }
 
+    // Echos an img tag representing the user's profile picture
     function insert_profile_picture($dim)
     {
+        $prof_picture = $this->ion_auth->get_user()->prof_picture;
+        if ($prof_picture == '') {
+            // No profile picture
+            $src = "/application/assets/images/logos/$logo_text";
+        } else {
+            
+        }
+        
         $logo_text = "logo_" . rand(1, 25) . ".png";
         ?>
-        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
+        <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
         <?php
     }
 
