@@ -122,10 +122,10 @@ class Dashboard extends CI_Controller
             {
                 if ($this->follow_ops->is_following($user->id, $row->user_id))
                 {
-                    $this->follow_ops->echo_user_entry($row, 'following');
+                    $this->follow_ops->echo_user_entry($row, 'following', null, true);
                 } else
                 {
-                    $this->follow_ops->echo_user_entry($row, 'add following');
+                    $this->follow_ops->echo_user_entry($row, 'add following', null, true);
                 }
             }
         } else
