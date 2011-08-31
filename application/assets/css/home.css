@@ -103,10 +103,12 @@ a {
     background: linear-gradient(top, #D2EFFF, #EEE);
 }
 
+.find_link{
+    display:inline-block;
+}
 .find_link a{
     color:#57A8E2;
     font-weight:bold;
-    display:inline-block;
 }
 .find_link a:hover{
     color:navy;
