@@ -49,8 +49,15 @@
 
                     <div id="main">  
 
-                        word
-
+                        <h4> Home View 1<span class="arrow"></span> </h4>
+                        <div id = "img">
+                         <img src="/application/assets/images/tour/tour1.png" alt="tour 1"/>
+                        </div> 
+                         
+                        <h4> Home View 2 <span class="arrow"></span> </h4> 
+                        <div id = "img">
+                         <img src="/application/assets/images/tour/tour2.png" alt="tour 2"/>
+                        </div>
 
                     </div>
 

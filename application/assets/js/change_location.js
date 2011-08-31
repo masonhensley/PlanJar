@@ -99,6 +99,8 @@ function initialize_change_location_panel() {
 
 // Shows the panel.
 function show_change_location_panel() {
+    deselect_all_controlls();
+    
     // Extend the data box
     $('.data_container_wrapper').animate({
         height: ($('.change_location_panel').height() + 300) + 'px'
@@ -127,18 +129,26 @@ function show_change_location_panel() {
 }
 
 // Hides the panel.
-function hide_change_location_panel() {
-    // Blur out the search box
-    $('#change_location_search').val('');
-    $('#change_location_search').blur();
+function hide_change_location_panel(callback) {
+    if ($('div.change_location_panel').is(':visible')) {
+        // Blur out the search box
+        $('#change_location_search').val('');
+        $('#change_location_search').blur();
     
-    // Hide the panel
-    $('div.change_location_panel').hide('fast');
+        // Hide the panel
+        $('div.change_location_panel').hide('fast');
         
-    // Reduce the data box
-    $('.data_container_wrapper').animate({
-        height: '300px'
-    });
+        // Reduce the data box
+        $('.data_container_wrapper').animate({
+            height: '300px'
+        });
+        
+        if (callback != undefined) {
+            callback(true);
+        }
+    } else if (callback != undefined) {
+        callback(false);
+    }
 }
 
 // Handles a change of location marker click

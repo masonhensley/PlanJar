@@ -58,207 +58,216 @@ function display_info(bypass, arg) {
         show_invite_link();
     }
     
-    if ($('#find_places.selected').length > 0) {    
-        // Find a place
+    // Clear the change location box
+    hide_change_location_panel(function(was_visible) {
+        // Switch to the info tab if the change location box was visible
+        console.log(was_visible);
+        if (was_visible) {
+            show_data_container('#info_content');
+        }
         
-        $.get('/home/show_place_search', function(data) {
-            $('#info_content').html(data);
+        if ($('#find_places.selected').length > 0) {    
+            // Find a place
+        
+            $.get('/home/show_place_search', function(data) {
+                $('#info_content').html(data);
             
-            // In field labels
-            $('#info_content label').inFieldLabels();
+                // In field labels
+                $('#info_content label').inFieldLabels();
             
-            // Set up the autocomplete
-            $('#search_for_places').autocomplete({
-                minLength: 2,
-                source: function(request, response) {
-                    $.get('/home/find_places', {
-                        needle: request.term,
-                        latitude: myLatitude,
-                        longitude: myLongitude
-                    }, function(data) {
-                        // Parse the JSON text.
-                        data = $.parseJSON(data);
+                // Set up the autocomplete
+                $('#search_for_places').autocomplete({
+                    minLength: 2,
+                    source: function(request, response) {
+                        $.get('/home/find_places', {
+                            needle: request.term,
+                            latitude: myLatitude,
+                            longitude: myLongitude
+                        }, function(data) {
+                            // Parse the JSON text.
+                            data = $.parseJSON(data);
                 
-                        var response_json = ([]);
-                        if (data.count > 0) {
-                            response_json = $.map(data.data, function (item) {
-                                var label = item.name;
-                                if (item.category != null) {
-                                    label += ' (' + item.category + ')';
-                                }
-                                label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
-                                return {
-                                    'label': label,
-                                    value: item.name,
-                                    id: item.id
-                                };
+                            var response_json = ([]);
+                            if (data.count > 0) {
+                                response_json = $.map(data.data, function (item) {
+                                    var label = item.name;
+                                    if (item.category != null) {
+                                        label += ' (' + item.category + ')';
+                                    }
+                                    label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
+                                    return {
+                                        'label': label,
+                                        value: item.name,
+                                        id: item.id
+                                    };
+                                });
+                            }
+                            response_json.push({
+                                label: "Create place (it's easy!)", 
+                                value: '', 
+                                id: 'new place'
                             });
-                        }
-                        response_json.push({
-                            label: "Create place (it's easy!)", 
-                            value: '', 
-                            id: 'new place'
-                        });
                         
-                        response(response_json);
-                    });
-                },
-                select: function(event, ui) {
-                    deselect_all_controlls();
-                    
-                    if (ui.item.id == 'new place') {
-                        // Open the plan panel and the new location modal
-                        show_plan_modal(function() {
-                            show_add_location_modal();
+                            response(response_json);
                         });
-                    } else {
-                        found_location = ui.item.id;
+                    },
+                    select: function(event, ui) {
+                        deselect_all_controlls();
                     
-                        display_info();
+                        if (ui.item.id == 'new place') {
+                            // Open the plan panel and the new location modal
+                            show_plan_modal(function() {
+                                show_add_location_modal();
+                            });
+                        } else {
+                            found_location = ui.item.id;
+                    
+                            display_info();
+                        }
                     }
-                }
-            });
-        });
-    } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false || found_location !== false) {
-        // Location selected
-        
-        // setup spinner
-        var opts = spinner_options();
-        var target = document.getElementById('home_data_spinner');
-        var location_spinner = new Spinner(opts).spin(target);
-                
-        // Get the correct place id and back button values
-        var place_id;
-        var back_to_plan = false;
-        var back_to_search = false;
-        
-        if (found_location !== false) {
-            place_id = found_location;
-            back_to_search = true;
-        } else if (viewing_plan_location === false) {
-            place_id = $('.selected_location_tab').attr('place_id');
-        } else {
-            place_id = viewing_plan_location;
-            back_to_plan = true;
-        }
-        
-        $.get('/home/show_location_data', {
-            'place_id': place_id,
-            'date': get_selected_day(),
-            'selected_groups': get_selected_groups(),
-            'back_to_plan': back_to_plan,
-            'back_to_search': back_to_search,
-            'back_to_groups': $('.selected_location_tab').length > 0
-        }, function (data) {
-            data = $.parseJSON(data);
-            
-            initialize_location_info(data);
-            populate_map(data.map_data, selected_location_marker_closure, true);
-        }).complete(function(){
-            location_spinner.stop();
-        });
-    } else if ($('.network_active, .selected_group').length > 0) {
-        // Network or group selected.
-        
-        // setup spinner
-        var group_opts = spinner_options();
-        var group_target = document.getElementById('home_data_spinner');
-        group_spinner = new Spinner(group_opts).spin(group_target);
-        
-        // Make 'all' the default filter setting
-        if(arg == undefined)
-        {
-            arg = 'all';
-        }
-    
-        // display the information in the data box
-        $.get('/home/load_data_box', {
-            'selected_groups': get_selected_groups(),
-            'selected_day': get_selected_day(),
-            'filter': arg
-        }, function (data) {
-            // Parse the JSON
-            data = $.parseJSON(data);
-        
-            // Apply the layout HTML
-            $('#info_content').html(data.html);
-
-            // Capture the data
-            data = data.data;
-        
-            // Select the correct value for the select box
-            $('#filter').val(arg);
-        
-            // Populate the graphs
-            populate_percentage_box('.total_percent_container', data.percent_total_going_out, 'percent_bar_total');
-            populate_percentage_box('.male_percent_container', data.percent_males_going_out, 'percent_bar_male');
-            populate_percentage_box('.female_percent_container', data.percent_females_going_out, 'percent_bar_female');
-            populate_day_graph('.group_graph_top_right', data.plan_dates, data.selected_date, 'network_graph_bar');
-        
-            // Reload the display info when the filter select is changed
-            $('#filter').change(function(){
-                display_info(true, $(this).val());
-            });
-        }).complete(function(){
-            $('#view_group_list').click(function(){
-                populate_group_member_panel();
-            });            
-        });
-        
-        // Load popular locations if necessary
-        if (bypass != true) {
-            populate_popular_locations();
-        }else{
-            // stop the spinner for a filter call (ie, "freshmen" or "sophomores" is selected)
-            // right now it just stops immediately (without this code the spinner goes forever)
-            jqxhr.complete(function(){
-                group_spinner.stop();
-            });
-        }
-        
-    } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
-        // Plan, friend's plan, or location's plan selected
-        
-        // setup spinner
-        var plan_opts = spinner_options();
-        var plan_target = document.getElementById('home_plan_spinner');
-        var plan_spinner = new Spinner(plan_opts).spin(plan_target);
-        
-        // Load the selected plan
-        $.get('/home/load_selected_plan_data', {
-            'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id'),
-            'friend_plan': $('.selected_friend_plan').length > 0
-        }, function (data) {
-            data = $.parseJSON(data);
-            
-            // Seek to the correct day
-            goto_day_offset(data.data.date, true, function() {
-                // Load popular locations
-                populate_popular_locations(true, function() {
-                    // Populate the map
-                    $.get('/home/get_plans_coords', {
-                        plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
-                    }, function(data) {
-                        data = $.parseJSON(data);
-                        populate_map(data, plan_marker_closure, true);
-                    });
-                    
-                    // Setup the plan info
-                    initialize_plan_info(data);
                 });
             });
-        })
-        .complete(function(){
-            plan_spinner.stop(); // stop the spinner when the ajax call is finished
-        });
+        } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false || found_location !== false) {
+            // Location selected
         
-    } else {
-        // No controlls selected
-        $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
+            // setup spinner
+            var opts = spinner_options();
+            var target = document.getElementById('home_data_spinner');
+            var location_spinner = new Spinner(opts).spin(target);
+                
+            // Get the correct place id and back button values
+            var place_id;
+            var back_to_plan = false;
+            var back_to_search = false;
         
-        // Load popular locations
-        populate_popular_locations();
-    }
+            if (found_location !== false) {
+                place_id = found_location;
+                back_to_search = true;
+            } else if (viewing_plan_location === false) {
+                place_id = $('.selected_location_tab').attr('place_id');
+            } else {
+                place_id = viewing_plan_location;
+                back_to_plan = true;
+            }
+        
+            $.get('/home/show_location_data', {
+                'place_id': place_id,
+                'date': get_selected_day(),
+                'selected_groups': get_selected_groups(),
+                'back_to_plan': back_to_plan,
+                'back_to_search': back_to_search,
+                'back_to_groups': $('.selected_location_tab').length > 0
+            }, function (data) {
+                data = $.parseJSON(data);
+            
+                initialize_location_info(data);
+                populate_map(data.map_data, selected_location_marker_closure, true);
+            }).complete(function(){
+                location_spinner.stop();
+            });
+        } else if ($('.network_active, .selected_group').length > 0) {
+            // Network or group selected.
+        
+            // setup spinner
+            var group_opts = spinner_options();
+            var group_target = document.getElementById('home_data_spinner');
+            group_spinner = new Spinner(group_opts).spin(group_target);
+        
+            // Make 'all' the default filter setting
+            if(arg == undefined)
+            {
+                arg = 'all';
+            }
+    
+            // display the information in the data box
+            $.get('/home/load_data_box', {
+                'selected_groups': get_selected_groups(),
+                'selected_day': get_selected_day(),
+                'filter': arg
+            }, function (data) {
+                // Parse the JSON
+                data = $.parseJSON(data);
+        
+                // Apply the layout HTML
+                $('#info_content').html(data.html);
+
+                // Capture the data
+                data = data.data;
+        
+                // Select the correct value for the select box
+                $('#filter').val(arg);
+        
+                // Populate the graphs
+                populate_percentage_box('.total_percent_container', data.percent_total_going_out, 'percent_bar_total');
+                populate_percentage_box('.male_percent_container', data.percent_males_going_out, 'percent_bar_male');
+                populate_percentage_box('.female_percent_container', data.percent_females_going_out, 'percent_bar_female');
+                populate_day_graph('.group_graph_top_right', data.plan_dates, data.selected_date, 'network_graph_bar');
+        
+                // Reload the display info when the filter select is changed
+                $('#filter').change(function(){
+                    display_info(true, $(this).val());
+                });
+            }).complete(function(){
+                $('#view_group_list').click(function(){
+                    populate_group_member_panel();
+                });            
+            });
+        
+            // Load popular locations if necessary
+            if (bypass != true) {
+                populate_popular_locations();
+            }else{
+                // stop the spinner for a filter call (ie, "freshmen" or "sophomores" is selected)
+                // right now it just stops immediately (without this code the spinner goes forever)
+                jqxhr.complete(function(){
+                    group_spinner.stop();
+                });
+            }
+        
+        } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
+            // Plan, friend's plan, or location's plan selected
+        
+            // setup spinner
+            var plan_opts = spinner_options();
+            var plan_target = document.getElementById('home_plan_spinner');
+            var plan_spinner = new Spinner(plan_opts).spin(plan_target);
+        
+            // Load the selected plan
+            $.get('/home/load_selected_plan_data', {
+                'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id'),
+                'friend_plan': $('.selected_friend_plan').length > 0
+            }, function (data) {
+                data = $.parseJSON(data);
+            
+                // Seek to the correct day
+                goto_day_offset(data.data.date, true, function() {
+                    // Load popular locations
+                    populate_popular_locations(true, function() {
+                        // Populate the map
+                        $.get('/home/get_plans_coords', {
+                            plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
+                        }, function(data) {
+                            data = $.parseJSON(data);
+                            populate_map(data, plan_marker_closure, true);
+                        });
+                    
+                        // Setup the plan info
+                        initialize_plan_info(data);
+                    });
+                });
+            })
+            .complete(function(){
+                plan_spinner.stop(); // stop the spinner when the ajax call is finished
+            });
+        
+        } else {
+            // No controlls selected
+            $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
+        
+            // Load popular locations
+            populate_popular_locations();
+        }
+    });
 }
 
 // Sets up the location view (graphs and whatnot)
