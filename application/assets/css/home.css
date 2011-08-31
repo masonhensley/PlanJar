@@ -23,6 +23,11 @@ a {
     color: white;
     text-decoration: none;
 }
+
+a:hover{
+    color:navy;
+}
+
 /* ---------- TOP PANEL ----------- */
 .top_panel {
     background: -webkit-linear-gradient(top, #333, #666);
