@@ -25,6 +25,10 @@ a {
 }
 
 .inside_top_panel a{
+    color:lightgray;
+}
+
+.inside_top_panel a:hover{
     color:white;
 }
 
