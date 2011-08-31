@@ -19,17 +19,16 @@ class User extends CI_Controller
 
             redirect($filename);
 
-            $this->output->set_content_type('image/png');
-            $handle = fopen($filename, 'rb');
-            fpassthru($handle);
+//            $this->output->set_content_type('image/png');
+//            $handle = fopen($filename, 'rb');
+//            fpassthru($handle);
         } else
         {
             $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
-
-            $query = $this->db->query("SELECT prof_picture FROM user_meta WHERE user_id = '$user_id'");
+            var_dump($prof_picture);
 
             //$this->output->set_content_type('image/jpeg');
-            echo($prof_picture);
+            //echo($prof_picture);
         }
     }
 
