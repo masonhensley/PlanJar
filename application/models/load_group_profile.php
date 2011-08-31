@@ -12,14 +12,24 @@ class Load_group_profile extends CI_Model
     function load_group_profile($group_id)
     {
         $group_info = $this->get_group_details($group_id);
-        $return_html = $this->return_display_profile($group_info);
+        if ($group_info != '')
+        {
+            $return_html = $this->return_display_profile($group_info);
+        }
     }
 
     // Gathers information about the group and returns it in an array
     function get_group_details($group_id)
     {
-        $query = "SELECT school_id, name, description, privacy, id, school_group FROM groups WHERE id=$group_id"; // get the group info
+        $query = "SELECT school_id, name, description, privacy, id, school_group FROM groups WHERE id='$group_id'"; // get the group info
         $result = $this->db->query($query);
+
+        // Quit if there are no results
+        if ($result->num_rows() == 0)
+        {
+            return '';
+        }
+
         $return_array = $result->row_array();
         if (isset($return_array['school_id']))
         {
@@ -66,22 +76,22 @@ class Load_group_profile extends CI_Model
         </div>
 
         <div class="group_profile_picture">
-            <?php echo $this->return_profile_picture(); ?>
+        <?php echo $this->return_profile_picture(); ?>
         </div>
         <div class="user_profile_header">
             <div class="profile_name_display">
                 <br/><font style="font-size:20px; font-weight:bold;"><?php echo $group_info['name']; ?></font><br/><?php
         if ($this->group_ops->user_is_following($group_info['id']))
         {
-                ?> <font style="color:green; font-weight:bold;">following</font><?php
+            ?> <font style="color:green; font-weight:bold;">following</font><?php
         } else if ($this->group_ops->user_is_joined($group_info['id']))
         {
-                ?><font style="color:purple; font-weight:bold;">joined</font><?php
+            ?><font style="color:purple; font-weight:bold;">joined</font><?php
         } else
         {
-                ?><font style="color:gray">(not following)</font><?php
+            ?><font style="color:gray">(not following)</font><?php
         }
-            ?>
+        ?>
                 <br/><br/><br/><br/>
             </div>
         </div>
@@ -106,7 +116,7 @@ class Load_group_profile extends CI_Model
                         ?><font style="color:gray;">School: </font><font style="color:black; font-weight:bold;"><?php echo $group_info['school']; ?></font><br/><br/><?php
             }
         }
-                ?><font style="color:gray;">Description</font><br/>
+        ?><font style="color:gray;">Description</font><br/>
                 <font style=""><?php echo $group_info['description']; ?> </font><br/><hr/><br/>
 
             </div>

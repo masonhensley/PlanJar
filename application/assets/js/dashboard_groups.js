@@ -156,50 +156,51 @@ function show_group_profile(group_id) {
     $.get('/dashboard/get_group_details', {
         'group_id': group_id
     }, function (data) {
-        $('#groups_content .middle').hide();
-        $('#groups_content .middle').html(data);
-        $('#groups_content .middle').show("fast");
+        if (data != '') {
+            $('#groups_content .middle').hide();
+            $('#groups_content .middle').html(data);
+            $('#groups_content .middle').show("fast");
                     
-        // Remove following handler
-        $('#groups_content .remove_following').confirmDiv(function() {
-            $.get('/dashboard/remove_group_following', {
-                group_id: $('.group_profile_header').attr('group_id')
-            }, function (data) {
-                populate_edit_groups_list();
-                $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+            // Remove following handler
+            $('#groups_content .remove_following').confirmDiv(function() {
+                $.get('/dashboard/remove_group_following', {
+                    group_id: $('.group_profile_header').attr('group_id')
+                }, function (data) {
+                    populate_edit_groups_list();
+                    $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+                });
             });
-        });
                     
-        // Remove joined handler
-        $('#groups_content .remove_joined').confirmDiv(function() {
-            $.get('/dashboard/remove_group_joined', {
-                group_id: $('.group_profile_header').attr('group_id')
-            }, function (data) {
-                populate_edit_groups_list();
-                $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+            // Remove joined handler
+            $('#groups_content .remove_joined').confirmDiv(function() {
+                $.get('/dashboard/remove_group_joined', {
+                    group_id: $('.group_profile_header').attr('group_id')
+                }, function (data) {
+                    populate_edit_groups_list();
+                    $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+                });
             });
-        });
                     
-        // Add joined handler
-        $('#groups_content .add_joined').confirmDiv(function() {
-            $.get('/dashboard/add_group_joined', {
-                group_id: $('.group_profile_header').attr('group_id')
-            }, function (data) {
-                populate_edit_groups_list();
-                $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+            // Add joined handler
+            $('#groups_content .add_joined').confirmDiv(function() {
+                $.get('/dashboard/add_group_joined', {
+                    group_id: $('.group_profile_header').attr('group_id')
+                }, function (data) {
+                    populate_edit_groups_list();
+                    $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+                });
             });
-        });
                     
-        // Invite people
-        $('#groups_content .middle .invite_people').click(function() {
-            open_invite_modal('group', $('.group_profile_header').attr('group_id'), $('.group_profile_header').attr('priv_type'));
-        })
+            // Invite people
+            $('#groups_content .middle .invite_people').click(function() {
+                open_invite_modal('group', $('.group_profile_header').attr('group_id'), $('.group_profile_header').attr('priv_type'));
+            })
                     
-        // set the view list click handler
-        $('#view_group_list').click(function(){
-            populate_group_member_panel();
-        });
-                    
+            // set the view list click handler
+            $('#view_group_list').click(function(){
+                populate_group_member_panel();
+            });
+        }          
     }).complete(function(){
         select_group_spinner.stop(); // stop the spinner
     });
