@@ -31,6 +31,7 @@ function show_data_container(data_div, action_arg) {
             // No shown containers. Show the specified container.
             $(data_div).show('slide', {}, 'fast', function() {
                 // Call the setup function.
+                console.log($(data_div).attr('setup_func') + '(' + action_arg + ')');
                 eval($(data_div).attr('setup_func') + '(' + action_arg + ')');
             });
         } else {
