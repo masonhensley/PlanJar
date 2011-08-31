@@ -74,18 +74,15 @@
         <script type="text/javascript" src="/application/assets/js/jquery.timeentry.min.js"></script>
 
         <script type="text/javascript">
-            $(function() {
-                if ('<?php echo($action_type); ?>' == 'show_location') {
-                    console.log('here');
-                    // Check the id
-                    $.get('/home/check_location_id', {id: '<?php echo($action_arg); ?>'}, function(data) {
-                        if (data == 'success') {
-                            found_location = '<?php echo($action_arg); ?>';
-                            display_info();
-                        }
-                    });
-                }
-            });
+            if ('<?php echo($action_type); ?>' == 'show_location') {
+                // Check the id
+                $.get('/home/check_location_id', {id: '<?php echo($action_arg); ?>'}, function(data) {
+                    if (data == 'success') {
+                        found_location = '<?php echo($action_arg); ?>';
+                        display_info();
+                    }
+                });
+            }
         </script>
 
         <title>PlanJar | Home</title>
