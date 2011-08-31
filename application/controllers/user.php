@@ -14,14 +14,12 @@ class User extends CI_Controller
         if ($user_id == 'rand')
         {
             // Random image
-            $logo_text = "logo_" . rand(1, 25) . ".png";
-            $filename = "/application/assets/images/logos/$logo_text";
+            $logo_text = "logo_" . rand(1, 25);
+            $file_path = "/var/www/uploads/$logo_text.png";
 
-            redirect($filename);
-
-//            $this->output->set_content_type('image/png');
-//            $handle = fopen($filename, 'rb');
-//            fpassthru($handle);
+            $this->output->set_content_type('image/png');
+            $handle = fopen($filename, 'rb');
+            fpassthru($handle);
         } else
         {
             $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
