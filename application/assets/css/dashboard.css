@@ -343,6 +343,15 @@ a{
 .edit_box{
     color:blue;
     font-weight:bold;
+    width:108px;
+    text-align: center;
+}
+
+#change_profile_picture{
+    position:absolute;
+    top:103px;
+    left:-1px;
+    font-size:12px;
 }
 
 .my_box{

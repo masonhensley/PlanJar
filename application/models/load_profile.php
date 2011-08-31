@@ -23,7 +23,7 @@ class Load_profile extends CI_Model
         $this->load->model('load_suggested_groups');
         $users_following = $this->load_suggested_groups->get_users_following();
         $users_following[] = $this->ion_auth->get_user()->user_id;
-        
+
         if ($force_accept_button && !in_array($user->id, $users_following))
         {
             ?>
@@ -33,7 +33,18 @@ class Load_profile extends CI_Model
         ?>
         <div class="profile_top_bar">
             <div class="profile_picture">
-                <?php $this->insert_profile_picture($user->id, 80);
+                <?php
+                $this->insert_profile_picture($user->id, 80);
+                if ($format == 'profile_edit')
+                {
+                    ?>
+                    <a href="/dashboard/settings">
+                        <div class="edit_box" id="change_profile_picture">
+                            Change Picture
+                        </div>
+                    </a>
+                    <?php
+                }
                 ?>
             </div>
             <div class="profile_user_information">
@@ -50,7 +61,7 @@ class Load_profile extends CI_Model
                 <br/>
                 <br/>
                 <font style="color:darkgray; float:left;">box</font><?php
-        echo " ";
+                echo " ";
                 ?><div id="my_box_spinner"></div><div class="my_box" id="my_box"><?php
         if (isset($user->box) && trim($user->box) != "")
         {
@@ -59,7 +70,7 @@ class Load_profile extends CI_Model
         {
                     ?><font style="font-style: italic; color:gray;">Nothing to show</font><?php
         }
-                ?>
+        ?>
                 </div>
                 <br/>
                 <?php
@@ -79,13 +90,13 @@ class Load_profile extends CI_Model
                 }
                 ?>
                 <hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
-        $group_count = count($groups_joined);
-        if ($group_count > 0)
-        {
-            $index = 0;
+                $group_count = count($groups_joined);
+                if ($group_count > 0)
+                {
+                    $index = 0;
 
-            foreach ($groups_joined as $group_id => $group)
-            {
+                    foreach ($groups_joined as $group_id => $group)
+                    {
                         ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><font style="color:green; font-size: 16px;"><?php echo $group; ?></font></a><?php
                 if ($index + 1 != $group_count)
                 {
@@ -120,7 +131,7 @@ class Load_profile extends CI_Model
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
-                ?>
+        ?>
             </div>
         </div>
         <?php
