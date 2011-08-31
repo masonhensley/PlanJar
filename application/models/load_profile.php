@@ -83,7 +83,7 @@ class Load_profile extends CI_Model
 
             foreach ($groups_joined as $group_id => $group)
             {
-                        ?><a href="/dashboard/groups/<?php echo $group_id;?>"><font style="color:green; font-size: 16px;"><?php echo $group; ?></font></a><?php
+                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><font style="color:green; font-size: 16px;"><?php echo $group; ?></font></a><?php
                 if ($index + 1 != $group_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -104,7 +104,7 @@ class Load_profile extends CI_Model
             $index = 0;
             foreach ($groups_following as $group_id => $group)
             {
-                        ?><a href="/dashboard/groups/<?php echo $group_id;?>"><font style="color:purple; font-size:16px;"><?php echo $group; ?></font></a><?php
+                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><font style="color:purple; font-size:16px;"><?php echo $group; ?></font></a><?php
                 if ($index + 1 != $following_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -221,7 +221,7 @@ class Load_profile extends CI_Model
             {
                 if ($index < 10) // limit display to ten
                 {
-                    ?><a href="/home/show_location/<?php echo $location_ids[$location]?>"><font style="color:navy;"><?php echo $location; ?></font></a><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><font style="color:navy;"><?php echo $location; ?></font></a><?php
                     if ($index + 1 != $recent_locations_count && $index + 1 != 10)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -242,7 +242,7 @@ class Load_profile extends CI_Model
             {
                 if ($index < 10 && $index < $most_visited_count)// limit display to ten
                 {
-                    ?><a href="/home/show_location/<?php echo $location_ids[$location]?>"><font style="color:navy;"><?php echo $location . " ($count)"; ?></font></a><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><font style="color:navy;"><?php echo $location . " ($count)"; ?></font></a><?php
                     if ($index + 1 != 10 && $index + 1 != $most_visited_count)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -260,7 +260,7 @@ class Load_profile extends CI_Model
     // Echos an img tag representing the user's profile picture
     function insert_profile_picture($user_id, $dim)
     {
-        $src = "/user/get_prof_pic/$user_id";
+        $src = base_url() . "user/get_prof_pic/$user_id";
         ?>
         <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
         <?php
