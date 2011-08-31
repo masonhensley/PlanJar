@@ -20,9 +20,9 @@
         <link rel=stylesheet href="/application/assets/css/add_location_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_info.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/gradients.css" type="text/css" />
-        
+
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-        
+
         <!-- Google Font
         <link href='http://fonts.googleapis.com/css?family=Vollkorn|Ubuntu' rel='stylesheet' type='text/css'>-->
 
@@ -73,6 +73,20 @@
         <script type="text/javascript" src="/application/assets/js/jquery.tokeninput.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.timeentry.min.js"></script>
 
+        <script type="text/javascript">
+            $(function() {
+                if ($action_type == 'show_location') {
+                    // Check the id
+                    $.get('/home/check_location_id', {id: '<?php echo($action_arg); ?>'}, function(data) {
+                        if (data == 'success') {
+                            found_location = '<?php echo($action_arg); ?>';
+                            display_info();
+                        }
+                    });
+                }
+            });
+        </script>
+
         <title>PlanJar | Home</title>
 
         <!-- Google Analytics again, out of the view -->
@@ -96,14 +110,14 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:18px; height:84%; position:relative; top:7px;"/></a>
-                    <a href="/dashboard/profile"><div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div></a>
-                    <a href="/dashboard/profile"><img src="/user/get_prof_pic/<?php echo $user_id;?>" style="width:40px; position:absolute; top:0px;left:627px;"/></a>
-                    <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link_outer">Profile</div></a>
-                    <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer">Groups</div></a>
-                    <a href="/dashboard/friends" id="profile_link"><div class ="top_right_link_outer">Friends</div></a>
-                    <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer">Following</div></a>
-                    <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer" id="notifications">Notifications</div></a>
-                    <a href="/dashboard/settings" ><div class ="top_right_link_outer">Settings</div></a>
+                <a href="/dashboard/profile"><div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div></a>
+                <a href="/dashboard/profile"><img src="/user/get_prof_pic/<?php echo $user_id; ?>" style="width:40px; position:absolute; top:0px;left:627px;"/></a>
+                <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link_outer">Profile</div></a>
+                <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer">Groups</div></a>
+                <a href="/dashboard/friends" id="profile_link"><div class ="top_right_link_outer">Friends</div></a>
+                <a href="/dashboard/following" id="profile_link"><div class ="top_right_link_outer">Following</div></a>
+                <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer" id="notifications">Notifications</div></a>
+                <a href="/dashboard/settings" ><div class ="top_right_link_outer">Settings</div></a>
             </div>
         </div>
         <div class="tab_bar">
@@ -209,7 +223,7 @@
                 </div>    
             </div>
         </div>
-        
+
         <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:280px;text-align:center;z-index:1000;">
             <div class="title_bar">
                 <b>Plans made at this location</b>
