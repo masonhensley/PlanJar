@@ -93,7 +93,8 @@ a {
 .groups_wrapper {
 }
 
-.network_tab:hover, .selectable_group:hover{
+.network_tab:hover, .selectable_group:hover, 
+#find_places:hover, .view_friends_plans:hover, #create_plan:hover{
     background: -webkit-linear-gradient(top, #D2EFFF, #C8E2FF);
     background: -moz-linear-gradient(top, #D2EFFF, #EEE);
     background: -o-linear-gradient(top, #D2EFFF, #EEE);
