@@ -4,7 +4,6 @@
 // The parameter is the function to call on success.
 $.fn.confirmDiv = function(callback) {
     $('html').click();
-    console.log(this);
     this.click({
         'callback': callback
     }, outer_confirm_handler);
@@ -12,7 +11,7 @@ $.fn.confirmDiv = function(callback) {
 
 function outer_confirm_handler(main_event) {
     // Stop propagation (to allow for clicking anywhere BUT the element)
-    event.stopPropagation();
+    main_event.stopPropagation();
 
     // Clear previous handlers
     $(this).unbind('click');
