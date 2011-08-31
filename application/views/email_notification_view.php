@@ -26,10 +26,6 @@
             #user_img_wrapper {
                 float: right;
             }
-
-            #user_img_wrapper img {
-                width: 115px;
-            }
         </style>
     </head>
 
@@ -37,12 +33,12 @@
         <div class="wrapper">
             <a href="<?php echo(base_url()); ?>">
                 <img src="<?php echo(base_url() . APPPATH . 'assets/images/logo_email_beta.png'); ?>"/>
+                <div style="float: right;"><?php echo($image); ?></div>
 
             </a>
             <hr/>
 
             <div class="content">
-                <div id="user_img_wrapper"><?php echo($image); ?></div>
                 <?php
                 echo($notif_text);
                 if (!isset($skip_notif))
