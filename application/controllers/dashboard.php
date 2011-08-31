@@ -92,7 +92,7 @@ class Dashboard extends CI_Controller
         {
             foreach ($query->result() as $row)
             {
-                $this->follow_ops->echo_user_entry($row, 'remove following');
+                $this->follow_ops->echo_user_entry($row, 'remove following', $profile_links_enabled=false);
             }
         } else
         {
