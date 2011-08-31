@@ -56,7 +56,8 @@ class Home extends CI_Controller
             'plan_day_html' => $plan_day_html,
             'school' => $school,
             'plans_html' => $plans_html,
-            'friend_names' => $friend_names)
+            'friend_names' => $friend_names, 
+            'user_id' => $user_info->id)
         );
     }
 
