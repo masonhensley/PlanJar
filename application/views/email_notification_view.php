@@ -24,8 +24,11 @@
             }
 
             #user_img_wrapper {
-                width: 115px;
                 float: right;
+            }
+
+            #user_img_wrapper img {
+                width: 115px;
             }
         </style>
     </head>
