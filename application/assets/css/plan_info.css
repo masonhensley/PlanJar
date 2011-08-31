@@ -173,10 +173,12 @@
     float:left;
     width:216px;
     font-size:12px;
+    margin-left:5px;
 }
 .user_comment_picture{
     float:left;
     margin-top:5px;
+    margin-left:3px;
 }
 .user_comment_top_bar{
     float:left;
@@ -184,6 +186,7 @@
     color:gray;
     overflow: hidden;
     font-size: 12px;
+    margin-left: 5px;
 }
 
 .delete_comment{
