@@ -29,11 +29,12 @@
         <div class="wrapper">
             <a href="<?php echo(base_url()); ?>">
                 <img src="<?php echo(base_url() . APPPATH . 'assets/images/logo_email_beta.png'); ?>"/>
-                <div style="float: right;"><?php echo($image); ?></div>
+
             </a>
             <hr/>
 
             <div class="content">
+                <div style="float: right;"><?php echo($image); ?></div>
                 <?php
                 echo($notif_text);
                 if (!isset($skip_notif))
