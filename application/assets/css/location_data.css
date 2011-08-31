@@ -77,3 +77,11 @@
     height:80px;
     width:245px;
 }
+
+#places_link{
+    color:#2BA3A1;
+    font-weight:bold;
+}
+#places_link:hover{
+    color:navy;
+}

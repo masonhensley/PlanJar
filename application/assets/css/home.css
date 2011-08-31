@@ -19,10 +19,25 @@ body {
 div {
     border-color: lightgray;
 }
+
 a {
-    color: white;
+    color: gray;
     text-decoration: none;
 }
+a:hover{
+    color:navy;
+}
+
+.top_right_link_outer a{
+    color:darkgray;
+}
+
+.top_right_link_outer a:hover{
+    color:white;
+}
+
+
+
 /* ---------- TOP PANEL ----------- */
 .top_panel {
     background: -webkit-linear-gradient(top, #333, #666);
@@ -103,10 +118,12 @@ a {
     background: linear-gradient(top, #D2EFFF, #EEE);
 }
 
+.find_link{
+    display:inline-block;
+}
 .find_link a{
     color:#57A8E2;
     font-weight:bold;
-    display:inline-block;
 }
 .find_link a:hover{
     color:navy;
@@ -352,6 +369,14 @@ a {
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
+}
+
+.left_day_arrow:hover, .right_day_arrow:hover{
+    background:-webkit-linear-gradient(top, #AAA, #EFF);
+    background: -moz-linear-gradient(top, #AAA, #EFF);
+    background: -o-linear-gradient(top, #AAA, #EFF);
+    background: -ms-linear-gradient(top, #AAA, #EFF);
+    background: linear-gradient(top, #AAA, #EFF);
 }
 
 .days_panel .seven_days {

@@ -89,9 +89,14 @@
 }
 
 #view_attendees{
-    color:navy;
+    color:#2BA3A1;
+    font-weight:bold;
     display:inline-block;
     margin-left:24px;
+}
+
+#view_attendees:hover{
+    color:navy;
 }
 
 .attending_data_container{

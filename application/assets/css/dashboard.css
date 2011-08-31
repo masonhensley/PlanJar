@@ -12,7 +12,15 @@ body{
 }
 
 a{
-    color:white; text-decoration: none;
+    color:white; 
+    text-decoration: none;
+}
+
+.top_right_link_inner a{
+    color:darkgray;
+}
+.top_right_link_inner a:hover{
+    color:white;
 }
 
 /* ---------- TOP PANEL ----------- */
