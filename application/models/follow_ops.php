@@ -50,7 +50,7 @@ class Follow_ops extends CI_Model
             // Echo the results
             foreach ($query->result() as $row)
             {
-                $this->echo_user_entry($row, 'add following', $links_enabled=false);
+                $this->echo_user_entry($row, 'add following', $profile_links_enabled = false);
             }
         }
     }
@@ -90,16 +90,17 @@ class Follow_ops extends CI_Model
     }
 
     // Echos a user_entry, which is used as a following/follower list item
-    function echo_user_entry($row, $option = '', $suggested_friends=null, $links_enabled=true)
+    function echo_user_entry($row, $option = '', $suggested_friends=null, $profile_links_enabled=true)
     {
         $this->load->model('load_profile');
+        ob_start();
         ?>
         <div class="user_entry" user_id="<?php echo($row->user_id); ?>">
             <div class="user_entry_left">
                 <center>
                     <div class="user_picture">
                         <?php
-                        if ($links_enabled)
+                        if ($profile_links_enabled)
                         {
                             ?>
                             <a href="/dashboard/following/<?php echo $row->user_id ?>">
@@ -109,7 +110,7 @@ class Follow_ops extends CI_Model
 
                             <?php
                             $this->load_profile->insert_profile_picture($row->user_id, 50);
-                            if ($links_enabled)
+                            if ($profile_links_enabled)
                             {
                                 ?>   
                             </a>
@@ -120,21 +121,44 @@ class Follow_ops extends CI_Model
                 </center>
             </div>
             <div class="user_entry_middle">
-
                 <div class="user_name">
-                    <a href="/dashboard/following/<?php echo $row->user_id ?>">
-                        <?php
-                        echo "<font style=\"font-weight:bold;color:black;\">" . $row->first_name . ' ' . $row->last_name . "</font>";
-                        ?></a><?php
-                echo "<br>";
-                $year_display = substr($row->grad_year, -2);
-                echo "<font style=\"color:gray;\">" . $row->school . " ('" . $year_display . ")</font><br/>";
-                if ($option == 'suggested')
-                {
-                    $number_of_connections = $suggested_friends[$row->user_id];
-                    echo "<font style=\"color:green; font-size:10px; position:absolute;bottom:15px;right:8px;\">$number_of_connections+ connections</font>";
-                }
+                    <?php
+                    if ($profile_links_enabled)
+                    {
+                        ?> 
+                        <a href="/dashboard/following/<?php echo $row->user_id ?>">
+                            <?php
+                        }
                         ?>
+                        <font style="font-weight:bold;color:black;">
+                        <?php
+                        echo $row->first_name . ' ' . $row->last_name;
+                        ?>
+                        </font>
+                        <?php
+                        if ($profile_links_enabled)
+                        {
+                            ?>
+                        </a>
+                        <?php
+                    }
+                    ?><br/><?php
+            $year_display = substr($row->grad_year, -2);
+                    ?> 
+                    <font style="color:gray;">
+                    <?php
+                    echo $row->school . " ('" . $year_display . ")";
+                    ?></font><br/><?php
+            if ($option == 'suggested')
+            {
+                $number_of_connections = $suggested_friends[$row->user_id];
+                        ?>
+                        <font style="color:green; font-size:10px; position:absolute;bottom:15px;right:8px;">
+                        <?php
+                        echo "$number_of_connections+ connections";
+                        ?></font><?php
+        }
+                    ?>
                 </div>          
             </div>
             <?php
@@ -177,6 +201,7 @@ class Follow_ops extends CI_Model
             ?>
         </div>
         <?php
+        echo ob_get_clean();
     }
 
     // Returns true if $user_id is following $follow_id
