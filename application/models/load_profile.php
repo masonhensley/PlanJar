@@ -20,8 +20,11 @@ class Load_profile extends CI_Model
         $user_age = $this->calculate_age($birthday);
         $number_following = $this->get_number_following($user->id);
         $number_followers = $this->get_number_followers($user->id);
-
-        if ($force_accept_button)
+        $this->load->model('load_suggested_groups');
+        $users_following = $this->load_suggested_groups->get_users_following();
+        $users_following[] = $this->ion_auth->get_user()->user_id;
+        
+        if ($force_accept_button && !in_array($user->id, $users_following))
         {
             ?>
             <div class="add_following">follow</div>
