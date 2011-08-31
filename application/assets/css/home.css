@@ -24,6 +24,10 @@ a {
     text-decoration: none;
 }
 
+.inside_top_panel a{
+    color:white;
+}
+
 a:hover{
     color:navy;
 }
