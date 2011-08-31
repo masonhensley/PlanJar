@@ -179,7 +179,9 @@ function suggested_search_click(bypass_id) {
 
 // Populates the following list and assigns the click events.
 function populate_following_list(callback) {
-    $.get('/dashboard/get_following', function (data) {
+    $.get('/dashboard/get_following', {
+        'disable_prof_links': true
+    }, function (data) {
         $('#following_list').html(data);
        
         // Unfollow click handler
