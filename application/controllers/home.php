@@ -19,7 +19,7 @@ class Home extends CI_Controller
         }
     }
 
-    public function index()
+    public function index($action_type, $action_arg)
     {
         $this->load->model('load_groups');
         $user_info = $this->ion_auth->get_user();
@@ -56,7 +56,7 @@ class Home extends CI_Controller
             'plan_day_html' => $plan_day_html,
             'school' => $school,
             'plans_html' => $plans_html,
-            'friend_names' => $friend_names, 
+            'friend_names' => $friend_names,
             'user_id' => $user_info->id)
         );
     }

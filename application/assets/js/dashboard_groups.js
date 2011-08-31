@@ -7,10 +7,13 @@ function groups_setup(action_arg) {
     populate_edit_groups_list(function() {
         if (action_arg == 'suggested') {
             $('.suggest_groups').click();
-        } else if (action_arg != undefined) {
+        } else if ($('#edit_groups_list .group_entry[group_id="' + action_arg + '"]').length > 0) {
             // Seek to that group
             $('#edit_groups_list .group_entry[group_id="' + action_arg + '"]').click();
-        }
+        } else if (action_arg != undefined && action_arg != '') {
+    // Unlisted group
+    
+    }
     });
     
     // show the + Create Group button
