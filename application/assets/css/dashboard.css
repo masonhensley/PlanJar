@@ -16,10 +16,10 @@ a{
     text-decoration: none;
 }
 
-.top_right_link_outer a{
+.top_right_link_inner a{
     color:gray;
 }
-.top_right_link_outer a:hover{
+.top_right_link_inner a:hover{
     color:white;
 }
 
