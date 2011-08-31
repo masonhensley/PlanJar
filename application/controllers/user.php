@@ -25,8 +25,9 @@ class User extends CI_Controller
             $logo_text = "logo_" . rand(1, 25);
             $filename = "/var/www/uploads/profile_jars/$logo_text.png";
 
-            $this->output->set_content_type('image/png');
+            //$this->output->set_content_type('image/png');
             $handle = fopen($filename, "rb");
+            var_dump($handle);
             echo(fread($handle, filesize($filename)));
         }
     }
