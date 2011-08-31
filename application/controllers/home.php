@@ -806,7 +806,7 @@ class Home extends CI_Controller
 
     public function check_location_id()
     {
-        $query = $this->db->query("SELECT id FROM locations WHERE id = ?", array($this->input->get('id', true)));
+        $query = $this->db->query("SELECT id FROM places WHERE id = ?", array($this->input->get('id', true)));
         return ($query->num_rows() > 0) ? 'success' : 'error';
     }
 
