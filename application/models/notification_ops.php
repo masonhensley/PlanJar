@@ -374,6 +374,12 @@ class Notification_ops extends CI_Model
             $query = $this->db->query($query_string, array($subject_id));
             $event_row = $query->row();
 
+            // Compute a first/last name
+            $first_last = $this_user->first_name . ' ' . $this_user->last_name;
+
+            // Create the image string
+            $Image = '<img src="/user/get_prof_pic/' . $this_user->id . '"/>';
+
             $body_string = 'Hi ' . $user->first_name . ".<br/><br/>";
             switch ($type)
             {
@@ -389,7 +395,7 @@ class Notification_ops extends CI_Model
                     }
 
                     // Set the subject
-                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited $you to " . $event_row->name);
+                    $this->email->subject("$first_last has invited $you to " . $event_row->name);
 
                     // Get the date string
                     $date = new DateTime($event_row->date);
@@ -400,7 +406,7 @@ class Notification_ops extends CI_Model
                     {
                         $you = anchor('dashboard/groups', $you);
                     }
-                    $body_string .= '<b>' . $this_user->first_name . ' ' . $this_user->last_name . '</b>' .
+                    $body_string .= "<b>$first_last</b>" .
                             " has invited <b>$you</b> to <b>" . $event_row->title . '</b>';
                     if ($event_row->title != '')
                     {
@@ -411,10 +417,10 @@ class Notification_ops extends CI_Model
 
                 case 'follow_notif':
                     // Set the subject
-                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has followed you");
+                    $this->email->subject("$first_last has followed you");
 
                     // Capture the body
-                    $body_string .= '<b>' . $this_user->first_name . ' ' . $this_user->last_name . '</b>' .
+                    $body_string .= "<b>$first_last</b>" .
                             ' has followed you.';
                     break;
 
@@ -423,23 +429,23 @@ class Notification_ops extends CI_Model
                     $row = $this->db->query("SELECT name FROM groups WHERE id = ?", array($subject_id))->row();
 
                     // Set the subject
-                    $this->email->subject($this_user->first_name . ' ' . $this_user->last_name . " has invited you to join " . $row->name);
+                    $this->email->subject("$first_last has invited you to join " . $row->name);
 
                     // Capture the body
-                    $body_string .= '<b>' . $this_user->first_name . ' ' . $this_user->last_name . '</b>' .
+                    $body_string .= "<b>$first_last</b>" .
                             ' has invited you to join <b>' . $row->name . '</b>.';
                     break;
             }
 
-            $this->email->message($this->create_email_notification($body_string, $unsubscribe_id));
+            $this->email->message($this->create_email_notification($body_string, $unsubscribe_id, $image));
             $this->email->send();
         }
     }
 
     // Returns the html for an email notification as a string
-    function create_email_notification($notif_text, $unsubscribe_id)
+    function create_email_notification($notif_text, $unsubscribe_id, $image)
     {
-        $data = array('notif_text' => $notif_text, 'unsubscribe_id' => $unsubscribe_id);
+        $data = array('notif_text' => $notif_text, 'unsubscribe_id' => $unsubscribe_id, 'image' => $image);
 
         return $this->load->view('email_notification_view', $data, true);
     }

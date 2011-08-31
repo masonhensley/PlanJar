@@ -52,18 +52,9 @@
         <!-- Function to select the appropriate tab (value passed from PHP) -->
         <script type="text/javascript">
             $(function() {
-                // Load the data container from the URI
+                // Load the data container from the URI and give it the action_arg
                 show_data_container('#<?php echo($initial_tab); ?>_content', '<?php echo($action_arg); ?>');
             });
-            
-            // This function is used to show the suggested tab if specified in the URI.
-            // I had to do it this way because the click handlers aren't ready to be called from here right away.
-            // This function is called after the click handlers are defined (in the respective files).
-            function show_suggested_init(content_div, object_to_click) {
-                //                if ('<?php echo(1); ?>' == 'suggested' && content_div == '<?php echo('#' . $initial_tab . '_content'); ?>') {
-                //                    $('<?php echo('#' . $initial_tab . '_content'); ?> ' + object_to_click).click();
-                //                }
-            }
         </script>
 
         <title>PlanJar | Dashboard</title>
