@@ -521,6 +521,8 @@ class Dashboard extends CI_Controller
         // Update the user and unlink the file
         $this->ion_auth->update_user($user->id, array('prof_picture' => $image));
         unlink($filepath);
+
+        echo(json_encode(array('status' => 'success')));
     }
 
 }

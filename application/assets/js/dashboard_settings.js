@@ -11,6 +11,11 @@ function initialize_settings() {
     // In-field labels
     $('#settings_content label').inFieldLabels();
     
+    // Image file name change handler
+    $('#image').change(function() {
+        $('#upload_submit').show('fast');
+    });
+    
     // Picture uploader
     $('#image_upload').submit(function() {
         $(this).ajaxSubmit({
@@ -35,10 +40,6 @@ function initialize_settings() {
                         aspectRatio: '1:1',
                         imageHeight: data.height,
                         imageWidth: data.width,
-                        x1: 0,
-                        y1: 0,
-                        x2: 80,
-                        y2: 80,
                         handles: 'corners',
                         onSelectEnd: function(img, selection) {
                             // Update the inputs
@@ -67,7 +68,23 @@ function initialize_settings() {
     // Crop submit handler
     $('#crop_image').submit(function() {
         $.get('/dashboard/crop_temp_image?' + $(this).serialize(), function(data) {
-            console.log(data); 
+            data = $.parseJSON(data);
+            
+            if (data.status == 'error') {
+                alert(data.message);
+            } else {
+                // Success. Reset everything
+                $('#settings_content .right').hide('fast', function() {
+                    $('#preview_image').attr('src', '');
+                    $('#crop_image input, #image_upload input').val('');
+                    $('#upload_crop').css('display', 'none');
+                });
+                
+                // Hide/show the upload form/alt text
+                $('#image_upload_alt').hide('fast', function() {
+                    $('#image_upload').show('fast');
+                });
+            }
         });
         
         return false;
