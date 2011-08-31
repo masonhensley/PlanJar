@@ -69,7 +69,8 @@ $config['columns'] = array(
     'phone',
     'box',
     'city_state',
-    'email_notif');
+    'email_notif',
+    'prof_picture');
 
 /**
  * A database column which is used to

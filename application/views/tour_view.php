@@ -7,7 +7,7 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/tour.css" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-        <title>Privacy</title>  
+        <title>Tour</title>  
 
         <!--[if IE]>  
             <style>  
@@ -45,7 +45,7 @@
                 </div>  
                 <div id="container"> 
 
-                    <h2> Privacy Policy <span class="arrow"></span> </h2>
+                    <h2> Tour <span class="arrow"></span> </h2>
 
                     <div id="main">  
 
