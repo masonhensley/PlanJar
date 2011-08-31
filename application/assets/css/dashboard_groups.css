@@ -111,6 +111,13 @@
     background: -ms-linear-gradient(top, #DDD, #EFF);
     background: linear-gradient(top, #DDD, #EFF);
 }
+.group_entry:hover{
+    background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
+    background: -moz-linear-gradient(top, #EFEFEF, #EFF);
+    background: -o-linear-gradient(top, #EFEFEF, #EFF);
+    background: -ms-linear-gradient(top, #EFEFEF, #EFF);
+    background: linear-gradient(top, #EFEFEF, #EFF);
+}
 #edit_groups_list{
     max-height:525px;
     overflow:auto;

@@ -35,7 +35,7 @@ a{
     -webkit-box-shadow: 0px 0px 9px #000;
     -moz-box-shadow: 0px 0px 9px #000;
     box-shadow: 0px 0px 9px #000;
-    
+
     height: 40px;
     width:100%;
 }
@@ -105,7 +105,7 @@ a{
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    
+
     background-color: lightgray;
     width: 100px;
     height: auto;
@@ -125,7 +125,7 @@ a{
     background: -o-linear-gradient(top, #73B1EA, #02C);
     background: -ms-linear-gradient(top, #73B1EA, #02C);
     background: linear-gradient(top, #73B1EA, #02C);
-    
+
     color: white;
 }
 
@@ -146,7 +146,7 @@ a{
     background-color:white;
     border: 1px solid #CCC;
     min-height: 50px;
-    
+
     border-top-left-radius:10px;
 }
 
@@ -186,6 +186,13 @@ a{
     text-align: center;
     position: relative;
 }
+.user_entry:hover{
+    background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
+    background: -moz-linear-gradient(top, #EFEFEF, #EFF);
+    background: -o-linear-gradient(top, #EFEFEF, #EFF);
+    background: -ms-linear-gradient(top, #EFEFEF, #EFF);
+    background: linear-gradient(top, #EFEFEF, #EFF);
+}
 .user_entry .user_entry_left {
     float: left;
     width: 90px;
@@ -208,7 +215,7 @@ a{
     background: -o-linear-gradient(top, #DF58E8, purple);
     background: -ms-linear-gradient(top, #DF58E8, purple);
     background: linear-gradient(top, #DF58E8, purple);
-    
+
     float: right;
     width: 80px;
     color: white;
@@ -286,7 +293,7 @@ a{
     background: -o-linear-gradient(top, #EEE, white);
     background: -ms-linear-gradient(top, #EEE, white);
     background: linear-gradient(top, #EEE, white);
-    
+
     margin-right:30px;
     width:auto;
     height:33px;
@@ -307,7 +314,7 @@ a{
     background: -o-linear-gradient(top, #DDD, #EEE);
     background: -ms-linear-gradient(top, #DDD, #EEE);
     background: linear-gradient(top, #DDD, #EEE);
-    
+
     color:black;
 }
 
@@ -325,7 +332,7 @@ a{
     background: -o-linear-gradient(top, white, #F3F6FF);
     background: -ms-linear-gradient(top, white, #F3F6FF);
     background: linear-gradient(top, white, #F3F6FF);
-    
+
     border-top-left-radius:10px;
     float:left;
     border: 1px solid #CCC;
@@ -395,7 +402,7 @@ a{
     background: -o-linear-gradient(top, white, #F3F6FF);
     background: -ms-linear-gradient(top, white, #F3F6FF);
     background: linear-gradient(top, white, #F3F6FF);
-    
+
     display: none;
     position:absolute;
     top:60px;
@@ -447,7 +454,7 @@ a{
     background: -o-linear-gradient(top, #FF7373, red);
     background: -ms-linear-gradient(top, #FF7373, red);
     background: linear-gradient(top, #FF7373, red);
-    
+
     float:right;
     width: 60px;
     height:15px;
