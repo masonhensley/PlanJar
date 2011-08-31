@@ -198,7 +198,7 @@ function show_group_profile(group_id) {
                     
             // set the view list click handler
             $('#view_group_list').click(function(){
-                populate_group_member_panel();
+                populate_group_member_panel(group_id);
             });
         }          
     }).complete(function(){

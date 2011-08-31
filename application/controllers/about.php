@@ -12,11 +12,6 @@ class About extends CI_Controller
         $this->load->view('about_view');
     }
 
-    public function foo()
-    {
-        $this->load->view('image_test_view');
-    }
-
 }
 
 ?>

@@ -14,10 +14,6 @@ function setup_profile()
         $('#box_text_area').hide();
         $('.update_box').hide();
         setup_edit_box();
-    }).fail(function(error) {
-        console.log(error);
-        console.log('error');
-        setup_profile();
     }).complete(function(){
         profile_spinner.stop();
     });

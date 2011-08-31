@@ -14,9 +14,13 @@ function initialize_group_list_panel(){
     });
 }
 
-function populate_group_member_panel(){
+function populate_group_member_panel(group_id){
+    if (group_id == undefined) {
+        $('.selected_group').attr('group_id')
+    }
+    
     $.get('/home/group_member_list', {
-        group_id : $('.selected_group').attr('group_id')
+        'group_id' : group_id
     }, function(data){
         $('.member_list').html(data);
         $('#group_member_panel').show('fast');
