@@ -33,24 +33,24 @@ function initialize_settings() {
                     
                     // Add the image and show the div
                     $('#preview_image').attr('src', unescape(data.img));
-                    $('#settings_content .right').show('fast');
-                    
-                    // Image area select
-                    $('#preview_image').imgAreaSelect({
-                        aspectRatio: '1:1',
-                        imageHeight: data.height,
-                        imageWidth: data.width,
-                        handles: 'corners',
-                        onSelectEnd: function(img, selection) {
-                            // Update the inputs
-                            $('#x1').val(selection.x1);
-                            $('#y1').val(selection.y1);
-                            $('#x2').val(selection.x2);
-                            $('#y2').val(selection.y2);
+                    $('#settings_content .right').show('fast', function() {
+                        // Image area select
+                        $('#preview_image').imgAreaSelect({
+                            aspectRatio: '1:1',
+                            imageHeight: data.height,
+                            imageWidth: data.width,
+                            handles: 'corners',
+                            onSelectEnd: function(img, selection) {
+                                // Update the inputs
+                                $('#x1').val(selection.x1);
+                                $('#y1').val(selection.y1);
+                                $('#x2').val(selection.x2);
+                                $('#y2').val(selection.y2);
                             
-                            // Show the submit button
-                            $('#upload_crop').show('fast');
-                        }
+                                // Show the submit button
+                                $('#upload_crop').show('fast');
+                            }
+                        });
                     });
                 } else {
                     // Error
