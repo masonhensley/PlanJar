@@ -128,7 +128,7 @@
             {
                 ?>
                 <a href="/admin_dashboard" style="position:absolute; color:darkgray; top:-37px; right:78px;">Admin Dashboard</a>
-                <a href="/auth/logout" style="position:absolute; color:darkgray; top:-37px; right:15px;">Log Out</a>
+                <a href="/auth/logout" style="position:absolute; top:-37px; right:15px;">Log Out</a>
                 <?php
             } else
             {
