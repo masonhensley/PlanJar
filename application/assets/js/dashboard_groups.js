@@ -4,7 +4,7 @@ $(function() {
 
 // Called when the tab is selected
 function groups_setup(action_arg) {
-    console.log(actino_arg);
+    console.log(action_arg);
     populate_edit_groups_list(function() {
         if (action_arg == 'suggested') {
             $('.suggest_groups').click();
@@ -211,7 +211,5 @@ function populate_edit_groups_list(callback) {
         if (callback != undefined) {
             callback();
         }
-        
-        
     });
 }
