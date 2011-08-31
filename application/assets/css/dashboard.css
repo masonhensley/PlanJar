@@ -167,6 +167,7 @@ a{
     height: 30px;
     margin-top:10px;
     margin-left:10px;
+    margin-bottom:10px;
 }
 #following_list{
     width: 100%;
@@ -245,7 +246,7 @@ a{
     color:gray;
     height:37px;
     padding-top:16px;
-    margin-bottom:-7px;
+    margin-bottom:8px;
     font-size:16px;
 }
 .left_header{
