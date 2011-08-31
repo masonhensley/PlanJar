@@ -143,14 +143,14 @@ class Load_profile extends CI_Model
 
     function get_groups_joined($user)
     {
-        $query = "SELECT groups.name, group_relationships.id 
+        $query = "SELECT groups.name, group_relationships.group_id 
         FROM group_relationships LEFT JOIN groups ON groups.id=group_relationships.group_id 
         WHERE group_relationships.user_joined_id=$user->id";
         $result = $this->db->query($query);
         $groups_joined = array();
         foreach ($result->result() as $group)
         {
-            $groups_joined[$group->id] = $group->name;
+            $groups_joined[$group->group_id] = $group->name;
         }
         return $groups_joined;
     }
