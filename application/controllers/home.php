@@ -19,7 +19,7 @@ class Home extends CI_Controller
         }
     }
 
-    public function index($action_type, $action_arg)
+    public function index($action_type = '', $action_arg = '')
     {
         $this->load->model('load_groups');
         $user_info = $this->ion_auth->get_user();
