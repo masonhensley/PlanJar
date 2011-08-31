@@ -14,6 +14,10 @@ function initialize_dashboard_tabs() {
 
 // Shows the data container specified in the argument.
 function show_data_container(data_div, action_arg) {
+    if (action_arg == undefined) {
+        action_arg = '';
+    }
+    
     $('#create_group').hide(); // hide the create group icon when the group tab isn't selected
     
     // Select the appropriate tab.
