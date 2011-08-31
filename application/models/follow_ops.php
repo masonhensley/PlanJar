@@ -92,13 +92,13 @@ class Follow_ops extends CI_Model
     // Echos a user_entry, which is used as a following/follower list item
     function echo_user_entry($row, $option = '', $suggested_friends=null)
     {
+        $this->load->model('load_profile');
         ?>
         <div class="user_entry" user_id="<?php echo($row->user_id); ?>">
             <div class="user_entry_left">
                 <center>
                     <div class="user_picture">
-                        <?php $logo_text = "logo_" . rand(1, 25) . ".png"; ?>
-                        <img src="/application/assets/images/logos/<?php echo $logo_text; ?>" style="width:100%; height:100%;" />
+                        <?php $this->load_profile->insert_profile_picture(50); ?>
                     </div>
                 </center>
             </div>
