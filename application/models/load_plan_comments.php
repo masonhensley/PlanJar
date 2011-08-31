@@ -52,14 +52,14 @@ Class Load_plan_comments extends CI_Model
         ?>
         <div class="user_comment" comment_id="<?php echo $user_comment->id; ?>">
             <div class="user_comment_picture">
-                <a href="/dashboard/following/<?php echo $comment_user; ?>">
+                <a href="/dashboard/following/<?php echo $user_comment->user_id; ?>">
                     <?php
                     $this->load_profile->insert_profile_picture($user_comment->id, 55);
                     ?>
                 </a>
             </div>
             <div class="user_comment_top_bar">
-                <a href="/dashboard/following/<?php echo $comment_user; ?>">
+                <a href="/dashboard/following/<?php echo $user_comment->user_id; ?>">
                     <?php
                     echo $comment_user->first_name . " " . $comment_user->last_name . " says...";
                     ?>
