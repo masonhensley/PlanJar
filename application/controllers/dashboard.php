@@ -310,7 +310,13 @@ class Dashboard extends CI_Controller
         } else
         {
             $user = $this->ion_auth->get_user($user);
-            var_dump($user);
+
+            // Quit if the user doesn't exist
+            if (!is_object($user))
+            {
+                return;
+            }
+
             $format = "profile_view";
         }
 
