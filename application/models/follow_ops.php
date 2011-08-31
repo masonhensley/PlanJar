@@ -98,14 +98,14 @@ class Follow_ops extends CI_Model
             <div class="user_entry_left">
                 <center>
                     <div class="user_picture">
-                        <a href="/dashboard/followers/<?php echo $row->user_id ?>"><?php $this->load_profile->insert_profile_picture($row->user_id, 50); ?></a>
+                        <a href="/dashboard/following/<?php echo $row->user_id ?>"><?php $this->load_profile->insert_profile_picture($row->user_id, 50); ?></a>
                     </div>
                 </center>
             </div>
             <div class="user_entry_middle">
 
                 <div class="user_name">
-                    <a href="/dashboard/followers/<?php echo $row->user_id ?>">
+                    <a href="/dashboard/following/<?php echo $row->user_id ?>">
                         <?php
                         echo "<font style=\"font-weight:bold;color:black;\">" . $row->first_name . ' ' . $row->last_name . "</font>";
                         ?></a><?php
