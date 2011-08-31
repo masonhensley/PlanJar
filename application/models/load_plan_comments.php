@@ -54,7 +54,7 @@ Class Load_plan_comments extends CI_Model
             <div class="user_comment_picture">
                 <a href="/dashboard/following/<?php echo $user_comment->user_id; ?>">
                     <?php
-                    $this->load_profile->insert_profile_picture($user_comment->id, 55);
+                    $this->load_profile->insert_profile_picture($user_comment->user_id, 55);
                     ?>
                 </a>
             </div>
