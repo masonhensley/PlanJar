@@ -106,3 +106,15 @@
     top:105px;
     left:56px;
 }
+
+#view_group_list, #friends_link, #groups_link{
+    color:#2BA3A1; 
+    font-weight:bold;
+    position:absolute; 
+    top:46px; 
+    left:0px
+}
+
+#view_group_list:hover, #friends_link:hover,  #groups_link:hover{
+    color:navy;
+}
