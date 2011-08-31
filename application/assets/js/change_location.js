@@ -141,12 +141,12 @@ function hide_change_location_panel(callback) {
             height: '300px',
             complete: function() {
                 if (callback != undefined) {
-                    callback();
+                    callback(true);
                 }
             }
         });
     } else if (callback != undefined) {
-        callback();
+        callback(false);
     }
 }
 
