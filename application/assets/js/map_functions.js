@@ -8,14 +8,6 @@ function populate_map(data, closure_function, non_numbered) {
     if (map != undefined) {
         clear_map_markers();
     
-        // User's location'
-        map_marker_array.push(new google.maps.Marker({
-            position: new google.maps.LatLng(myLatitude, myLongitude),
-            map: map,
-            title: 'Your location',
-            icon: '/application/assets/images/map_markers/star.png'
-        }));
-    
         for (var i = 0; i < data.length; ++i) {
             var icon;
             if (non_numbered != undefined) {
@@ -36,6 +28,14 @@ function populate_map(data, closure_function, non_numbered) {
         
             map_marker_array.push(temp_marker);
         }
+        
+        // User's location'
+        map_marker_array.push(new google.maps.Marker({
+            position: new google.maps.LatLng(myLatitude, myLongitude),
+            map: map,
+            title: 'Your location',
+            icon: '/application/assets/images/map_markers/star.png'
+        }));
     
         calculate_map_bounds();
     }

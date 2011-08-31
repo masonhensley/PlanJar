@@ -33,16 +33,6 @@ function initialize_change_location_panel() {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                 // Clear all markers and add the new ones.
                 clear_map_markers();
-                
-                // Push the current location onto the marker list.
-                var temp_marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(myLatitude, myLongitude), 
-                    map: map,
-                    title:"Your location!",
-                    icon: '/application/assets/images/map_markers/star.png',
-                    draggable: true
-                });
-                map_marker_array.push(temp_marker);
     
                 // Assign the click event
                 google.maps.event.addListener(temp_marker, 'click', change_location_marker_click);
@@ -63,6 +53,16 @@ function initialize_change_location_panel() {
                     // Add the marker to the marker list.
                     map_marker_array.push(temp_marker);
                 });
+                
+                // Push the current location onto the marker list.
+                var temp_marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(myLatitude, myLongitude), 
+                    map: map,
+                    title:"Your location!",
+                    icon: '/application/assets/images/map_markers/star.png',
+                    draggable: true
+                });
+                map_marker_array.push(temp_marker);
                     
                 calculate_map_bounds();
             }
