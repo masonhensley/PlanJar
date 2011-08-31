@@ -16,6 +16,13 @@ a{
     text-decoration: none;
 }
 
+.top_right_link_outer a{
+    color:gray;
+}
+.top_right_link_outer a:hover{
+    color:white;
+}
+
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     background: -webkit-linear-gradient(top, #333, #666);
