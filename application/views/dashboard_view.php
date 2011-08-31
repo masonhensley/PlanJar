@@ -60,9 +60,9 @@
             // I had to do it this way because the click handlers aren't ready to be called from here right away.
             // This function is called after the click handlers are defined (in the respective files).
             function show_suggested_init(content_div, object_to_click) {
-                if ('//<?php echo($suggested); ?>' == 'suggested' && content_div == '<?php echo('#' . $initial_tab . '_content'); ?>') {
-        $('//<?php echo('#' . $initial_tab . '_content'); ?> ' + object_to_click).click();
-    }
+                //                if ('<?php echo($suggested); ?>' == 'suggested' && content_div == '<?php echo('#' . $initial_tab . '_content'); ?>') {
+                //                    $('<?php echo('#' . $initial_tab . '_content'); ?> ' + object_to_click).click();
+                //                }
             }
         </script>
 
