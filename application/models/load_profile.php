@@ -267,6 +267,8 @@ class Load_profile extends CI_Model
             
         }
         $src = "/user/get_prof_pic/rand";
+        
+        $src .= '/' . rand(0,99999999);
         ?>
         <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
         <?php

@@ -484,8 +484,6 @@ class Dashboard extends CI_Controller
             'maintain_ratio' => false
         );
 
-        var_dump($config);
-
         // Crop the image
         $this->image_lib->initialize($config);
         if ($this->image_lib->crop())
@@ -517,6 +515,8 @@ class Dashboard extends CI_Controller
         // Create an image string
         $handle = fopen($filepath, "rb");
         $image = fread($handle, filesize($filepath));
+
+        var_dump($image);
 
         // Update the user and unlink the file
         $this->ion_auth->update_user($user->id, array('prof_picture' => $image));
