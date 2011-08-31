@@ -57,7 +57,9 @@ class Home extends CI_Controller
             'school' => $school,
             'plans_html' => $plans_html,
             'friend_names' => $friend_names,
-            'user_id' => $user_info->id)
+            'action_type' => $action_type,
+            'action_arg' => $action_arg,
+            'user_id' => $user_info->id,)
         );
     }
 
@@ -800,6 +802,12 @@ class Home extends CI_Controller
         {
             show_404();
         }
+    }
+
+    public function check_location_id()
+    {
+        $query = $this->db->query("SELECT id FROM places WHERE id = ?", array($this->input->get('id', true)));
+        echo(($query->num_rows() > 0) ? 'success' : 'error');
     }
 
 }
