@@ -127,7 +127,7 @@ function show_change_location_panel() {
 }
 
 // Hides the panel.
-function hide_change_location_panel() {
+function hide_change_location_panel(callback) {
     // Blur out the search box
     $('#change_location_search').val('');
     $('#change_location_search').blur();
@@ -137,7 +137,12 @@ function hide_change_location_panel() {
         
     // Reduce the data box
     $('.data_container_wrapper').animate({
-        height: '300px'
+        height: '300px',
+        complete: function() {
+            if (callback != undefined) {
+                callback();
+            }
+        }
     });
 }
 
