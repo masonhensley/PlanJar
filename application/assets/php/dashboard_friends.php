@@ -2,7 +2,7 @@
     <div id="friends_spinner" style="position:absolute; top:23px; left:332px;"></div>
     <div class="left_header">
         Friends<br/>
-        <font style="color:lightgray">(select to view profile)</font>
+        <font style="color:lightgray; font-weight:normal;">(select to view profile)</font>
     </div>
     <div id="followers_list"></div>
 </div>

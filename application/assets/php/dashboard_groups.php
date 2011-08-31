@@ -1,8 +1,8 @@
 <div class="left">
     <div class="left_header">
-        <div style="position: relative; top:6px; color:gray;">
+        <div style="position: relative; top:6px; color:gray;font-weight:bold;">
         Groups you are following<br/>
-        <font style="color:lightgray">(select to view profile)</font>
+        <font style="color:lightgray; font-weight:normal;">(select to view profile)</font>
         </div>
     </div>
 
