@@ -145,7 +145,14 @@ class Load_group_profile extends CI_Model
                 </div>
                 <?php
             }
-        } else if ($group_info['school_group']) // if you are following and it is a school group
+        } elseif(!$this->group_ops->user_is_following($group_info['id'])) // if you are not following
+        {
+            ?>
+<div class="group_bottom_text">
+    <div class="add_following">Follow</div>
+</div>
+<?php
+        }else if ($group_info['school_group']) // if you are following and it is a school group
         {
             ?>
             <div class="group_bottom_text">
