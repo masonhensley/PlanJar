@@ -21,7 +21,7 @@ class Load_group_profile extends CI_Model
     // Gathers information about the group and returns it in an array
     function get_group_details($group_id)
     {
-        $query = "SELECT school_id, name, description, privacy, id, school_group FROM groups WHERE id=$group_id"; // get the group info
+        $query = "SELECT school_id, name, description, privacy, id, school_group FROM groups WHERE id='$group_id'"; // get the group info
         $result = $this->db->query($query);
 
         // Quit if there are no results
