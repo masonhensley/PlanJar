@@ -130,11 +130,6 @@ function populate_edit_groups_list(callback) {
             $('#edit_groups_list .middle').hide();
             if(!$(this).hasClass('selected_group'))
             {
-                // start the spinner
-                var select_group_opts = spinner_options();
-                var select_group_target = document.getElementById('group_middle_spinner');
-                var select_group_spinner = new Spinner(select_group_opts).spin(select_group_target);
-                
                 // Select this
                 $('.selected_group').removeClass('selected_group'); 
                 $(this).addClass('selected_group');
@@ -152,6 +147,11 @@ function populate_edit_groups_list(callback) {
 
 // Shows the group profile in the middle
 function show_group_profile(group_id) {
+    // start the spinner
+    var select_group_opts = spinner_options();
+    var select_group_target = document.getElementById('group_middle_spinner');
+    var select_group_spinner = new Spinner(select_group_opts).spin(select_group_target);
+    
     // Load the view
     $.get('/dashboard/get_group_details', {
         group_id: $(this).attr('group_id')
