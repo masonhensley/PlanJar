@@ -11,9 +11,9 @@ function groups_setup(action_arg) {
             // Seek to that group
             $('#edit_groups_list .group_entry[group_id="' + action_arg + '"]').click();
         } else if (action_arg != undefined && action_arg != '') {
-    // Unlisted group
-    
-    }
+            // Unlisted group
+            show_group_profile(action_arg);
+        }
     });
     
     // show the + Create Group button
@@ -95,23 +95,7 @@ function group_select_click_handler()
             $('.selected_group').removeClass('selected_group'); 
             $(this).addClass('selected_group');
             
-            $.get('/dashboard/get_group_details', {
-                group_id: $(this).attr('group_id')
-            }, function (data) {
-                // Hide visible middle panel (if applicable) and show the new middle panel
-                if ($('#groups_content .middle:visible').length > 0) {
-                    $('#groups_content .middle').hide();
-                    $('#groups_content .middle').html(data);
-                    $('#groups_content .middle').show('fast');
-                } else {
-                    $('#groups_content .middle').html(data);
-                    $('#groups_content .middle').show('fast');
-                }
-                $('#view_group_list').click(function(){
-                    populate_group_member_panel();
-                });
-                
-            });
+            show_group_profile($(this).attr('group_id'));
         }
     });
     
@@ -155,57 +139,7 @@ function populate_edit_groups_list(callback) {
                 $('.selected_group').removeClass('selected_group'); 
                 $(this).addClass('selected_group');
                 
-                // Load the view
-                $.get('/dashboard/get_group_details', {
-                    group_id: $(this).attr('group_id')
-                }, function (data) {
-                    $('#groups_content .middle').hide();
-                    $('#groups_content .middle').html(data);
-                    $('#groups_content .middle').show("fast");
-                    
-                    // Remove following handler
-                    $('#groups_content .remove_following').confirmDiv(function() {
-                        $.get('/dashboard/remove_group_following', {
-                            group_id: $('.group_profile_header').attr('group_id')
-                        }, function (data) {
-                            populate_edit_groups_list();
-                            $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
-                        });
-                    });
-                    
-                    // Remove joined handler
-                    $('#groups_content .remove_joined').confirmDiv(function() {
-                        $.get('/dashboard/remove_group_joined', {
-                            group_id: $('.group_profile_header').attr('group_id')
-                        }, function (data) {
-                            populate_edit_groups_list();
-                            $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
-                        });
-                    });
-                    
-                    // Add joined handler
-                    $('#groups_content .add_joined').confirmDiv(function() {
-                        $.get('/dashboard/add_group_joined', {
-                            group_id: $('.group_profile_header').attr('group_id')
-                        }, function (data) {
-                            populate_edit_groups_list();
-                            $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
-                        });
-                    });
-                    
-                    // Invite people
-                    $('#groups_content .middle .invite_people').click(function() {
-                        open_invite_modal('group', $('.group_profile_header').attr('group_id'), $('.group_profile_header').attr('priv_type'));
-                    })
-                    
-                    // set the view list click handler
-                    $('#view_group_list').click(function(){
-                        populate_group_member_panel();
-                    });
-                    
-                }).complete(function(){
-                    select_group_spinner.stop(); // stop the spinner
-                });
+                show_group_profile($(this).attr('group_id'));
             }
             
         });
@@ -213,5 +147,60 @@ function populate_edit_groups_list(callback) {
         if (callback != undefined) {
             callback();
         }
+    });
+}
+
+// Shows the group profile in the middle
+function show_group_profile(group_id) {
+    // Load the view
+    $.get('/dashboard/get_group_details', {
+        group_id: $(this).attr('group_id')
+    }, function (data) {
+        $('#groups_content .middle').hide();
+        $('#groups_content .middle').html(data);
+        $('#groups_content .middle').show("fast");
+                    
+        // Remove following handler
+        $('#groups_content .remove_following').confirmDiv(function() {
+            $.get('/dashboard/remove_group_following', {
+                group_id: $('.group_profile_header').attr('group_id')
+            }, function (data) {
+                populate_edit_groups_list();
+                $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+            });
+        });
+                    
+        // Remove joined handler
+        $('#groups_content .remove_joined').confirmDiv(function() {
+            $.get('/dashboard/remove_group_joined', {
+                group_id: $('.group_profile_header').attr('group_id')
+            }, function (data) {
+                populate_edit_groups_list();
+                $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+            });
+        });
+                    
+        // Add joined handler
+        $('#groups_content .add_joined').confirmDiv(function() {
+            $.get('/dashboard/add_group_joined', {
+                group_id: $('.group_profile_header').attr('group_id')
+            }, function (data) {
+                populate_edit_groups_list();
+                $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+            });
+        });
+                    
+        // Invite people
+        $('#groups_content .middle .invite_people').click(function() {
+            open_invite_modal('group', $('.group_profile_header').attr('group_id'), $('.group_profile_header').attr('priv_type'));
+        })
+                    
+        // set the view list click handler
+        $('#view_group_list').click(function(){
+            populate_group_member_panel();
+        });
+                    
+    }).complete(function(){
+        select_group_spinner.stop(); // stop the spinner
     });
 }
