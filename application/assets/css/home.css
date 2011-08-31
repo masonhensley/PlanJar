@@ -20,14 +20,6 @@ div {
     border-color: lightgray;
 }
 
-.inside_top_panel a{
-    color:lightgray;
-}
-
-.inside_top_panel:hover{
-    color:white;
-}
-
 a {
     color: gray;
     text-decoration: none;
@@ -36,7 +28,13 @@ a:hover{
     color:navy;
 }
 
+.inside_top_panel a{
+    color:lightgray;
+}
 
+.inside_top_panel:hover{
+    color:white;
+}
 
 
 
