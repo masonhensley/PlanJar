@@ -95,7 +95,6 @@ class Group_ops extends CI_Model
                     <?php
                     echo($row->name);
                     ?>
-
                 </div>
             </div>
 
@@ -103,7 +102,7 @@ class Group_ops extends CI_Model
             if ($option == 'suggested groups' || $option == 'add following')
             {
                 ?>
-                <div class="add_following">follow</div>
+                <div class="not_following">not following</div>
                 <?php
             } else if ($option == 'following')
             {

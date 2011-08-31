@@ -183,6 +183,7 @@ class Load_group_profile extends CI_Model
             ?>
             <div class="group_bottom_text">
                 Group is <font style="color:red;font-weight:bold;">closed</font>
+                <div class="add_following">follow</div>
             </div>
             <?php
         }

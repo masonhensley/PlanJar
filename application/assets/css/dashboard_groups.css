@@ -137,17 +137,7 @@
     width: 220px;
 }
 
-.group_entry .following {
-    position:absolute;
-    right:0px;
-    width: auto;
-    color: gray;
-    padding: 3px;
-    text-align: center;
-    font-size:13px;
-}
-
-.group_entry .joined {
+.group_entry .following, .group_entry .joined, .group_entry .not_following {
     position:absolute;
     right:0px;
     width: auto;
