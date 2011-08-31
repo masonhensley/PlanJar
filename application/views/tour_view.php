@@ -50,6 +50,9 @@
                     <div id="main">  
 
                         word
+                         <img src="/application/assets/images/tour/tour1.png" alt="some_text"/>
+                         <br>
+                         <img src="/application/assets/images/tour/tour2.png" alt="some_text"/>
 
 
                     </div>
