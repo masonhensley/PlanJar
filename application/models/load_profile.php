@@ -219,7 +219,7 @@ class Load_profile extends CI_Model
                 if ($index < 10) // limit display to ten
                 {
                     ?><font style="color:navy;"><?php echo $location; ?></font><?php
-                    if ($index + 1 != $recent_locations_count && $index+1 != 10)
+                    if ($index + 1 != $recent_locations_count && $index + 1 != 10)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
                     }
@@ -258,14 +258,15 @@ class Load_profile extends CI_Model
     function insert_profile_picture($dim)
     {
         $prof_picture = $this->ion_auth->get_user()->prof_picture;
-        if ($prof_picture == '') {
+        if ($prof_picture == '')
+        {
             // No profile picture
-            $src = "/application/assets/images/logos/$logo_text";
-        } else {
+            
+        } else
+        {
             
         }
-        
-        $logo_text = "logo_" . rand(1, 25) . ".png";
+        $src = "/user/get_prof_pic/rand";
         ?>
         <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
         <?php
