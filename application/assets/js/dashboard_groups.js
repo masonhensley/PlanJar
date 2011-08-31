@@ -154,7 +154,7 @@ function show_group_profile(group_id) {
     
     // Load the view
     $.get('/dashboard/get_group_details', {
-        group_id: $(this).attr('group_id')
+        'group_id': group_id
     }, function (data) {
         $('#groups_content .middle').hide();
         $('#groups_content .middle').html(data);
