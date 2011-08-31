@@ -537,17 +537,17 @@ class Display_group_template extends CI_Model
             if ($format_type == 'groups' && count($selected_groups) == 1)
             {
                 ?>
-                <div id="view_group_list" style="color:#2BA3A1; font-weight:bold;position:absolute; top:46px; left:0px">See Members</div>
+                <div id="view_group_list">See Members</div>
                 <?php
             } else if ($format_type == 'friends')
             {
                 ?>
-                <a href="/dashboard/friends/" id="friends_link"><div style="color:#2BA3A1; position:absolute; top:46px; left:0px">See Friends</div></a>
+                <a href="/dashboard/friends/" ><div id="friends_link">See Friends</div></a>
                 <?php
             } else if ($format_type == 'school')
             {
                 ?> 
-                <a href="/dashboard/groups/" id="groups_link"><div style="color:#2BA3A1; position:absolute; top:46px; left:0px">See School</div></a>
+                <a href="/dashboard/groups/"><div id="groups_link">See School</div></a>
                 <?php
             }
             ?>
