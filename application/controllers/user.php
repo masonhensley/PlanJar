@@ -27,7 +27,7 @@ class User extends CI_Controller
 
             $this->output->set_content_type('image/png');
             $handle = fopen($filename, "rb");
-            $image = fread($handle, filesize($filename));
+            echo(fread($handle, filesize($filename)));
         }
     }
 
