@@ -84,13 +84,13 @@ class Load_attending_list extends CI_Model
             {
                 if (in_array($row->user_id, $follow_ids))
                 {
-                    $this->follow_ops->echo_user_entry($row, 'already_following');
+                    $this->follow_ops->echo_user_entry($row, 'already_following', $links_enabled=false);
                 } else if ($row->user_id == $user->id)
                 {
-                    $this->follow_ops->echo_user_entry($row, 'this_is_you');
+                    $this->follow_ops->echo_user_entry($row, 'this_is_you', $links_enabled=false);
                 } else
                 {
-                    $this->follow_ops->echo_user_entry($row, 'add following');
+                    $this->follow_ops->echo_user_entry($row, 'add following', $links_enabled=false);
                 }
 
                 $count++;
