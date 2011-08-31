@@ -53,7 +53,7 @@ Class Load_plan_comments extends CI_Model
         <div class="user_comment" comment_id="<?php echo $user_comment->id; ?>">
             <div class="user_comment_picture">
                 <?php
-                $this->load_profile->insert_profile_picture(55);
+                $this->load_profile->insert_profile_picture($user_comment->id, 55);
                 ?>
             </div>
             <div class="user_comment_top_bar">

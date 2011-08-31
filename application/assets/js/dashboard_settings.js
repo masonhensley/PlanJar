@@ -11,6 +11,11 @@ function initialize_settings() {
     // In-field labels
     $('#settings_content label').inFieldLabels();
     
+    // Image file name change handler
+    $('#image').change(function() {
+        $('#upload_submit').show('fast');
+    });
+    
     // Picture uploader
     $('#image_upload').submit(function() {
         $(this).ajaxSubmit({
@@ -28,28 +33,24 @@ function initialize_settings() {
                     
                     // Add the image and show the div
                     $('#preview_image').attr('src', unescape(data.img));
-                    $('#settings_content .right').show('fast');
-                    
-                    // Image area select
-                    $('#preview_image').imgAreaSelect({
-                        aspectRatio: '1:1',
-                        imageHeight: data.height,
-                        imageWidth: data.width,
-                        x1: 0,
-                        y1: 0,
-                        x2: 80,
-                        y2: 80,
-                        handles: 'corners',
-                        onSelectEnd: function(img, selection) {
-                            // Update the inputs
-                            $('#x1').val(selection.x1);
-                            $('#y1').val(selection.y1);
-                            $('#x2').val(selection.x2);
-                            $('#y2').val(selection.y2);
+                    $('#settings_content .right').show('fast', function() {
+                        // Image area select
+                        $('#preview_image').imgAreaSelect({
+                            aspectRatio: '1:1',
+                            imageHeight: data.height,
+                            imageWidth: data.width,
+                            handles: 'corners',
+                            onSelectEnd: function(img, selection) {
+                                // Update the inputs
+                                $('#x1').val(selection.x1);
+                                $('#y1').val(selection.y1);
+                                $('#x2').val(selection.x2);
+                                $('#y2').val(selection.y2);
                             
-                            // Show the submit button
-                            $('#upload_crop').show('fast');
-                        }
+                                // Show the submit button
+                                $('#upload_crop').show('fast');
+                            }
+                        });
                     });
                 } else {
                     // Error
@@ -67,7 +68,30 @@ function initialize_settings() {
     // Crop submit handler
     $('#crop_image').submit(function() {
         $.get('/dashboard/crop_temp_image?' + $(this).serialize(), function(data) {
-            console.log(data); 
+            data = $.parseJSON(data);
+            
+            if (data.status == 'error') {
+                alert(data.message);
+            } else {
+                // Disable the imgAreaSelect
+                $('#preview_image').imgAreaSelect({
+                    disabled: true,
+                    hide: true
+                });
+                
+                // Success. Reset everything
+                $('#settings_content .right').hide('fast', function() {
+                    $('#preview_image').attr('src', '');
+                    $('#crop_image input, #image_upload input').not('[type="submit"]').val('');
+                    $('#upload_crop').css('display', 'none');
+                });
+                
+                // Hide/show the upload form/alt text
+                $('#image_upload_alt').hide('fast', function() {
+                    $('#image_upload').show('fast');
+                    $('#upload_submit').hide('fast');
+                });
+            }
         });
         
         return false;

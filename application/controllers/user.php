@@ -23,10 +23,9 @@ class User extends CI_Controller
         } else
         {
             $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
-            var_dump($prof_picture);
 
-            //$this->output->set_content_type('image/jpeg');
-            //echo($prof_picture);
+            $this->output->set_content_type('image/jpeg');
+            echo($prof_picture);
         }
     }
 

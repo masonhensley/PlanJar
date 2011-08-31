@@ -503,6 +503,7 @@ class Dashboard extends CI_Controller
                     'status' => 'error',
                     'message' => 'There was an error cropping your image. Try again.'
                 )));
+                return;
             }
         } else
         {
@@ -510,17 +511,18 @@ class Dashboard extends CI_Controller
                 'status' => 'error',
                 'message' => 'There was an error cropping your image. Try again.'
             )));
+            return;
         }
 
         // Create an image string
         $handle = fopen($filepath, "rb");
         $image = fread($handle, filesize($filepath));
 
-        var_dump($image);
-
         // Update the user and unlink the file
         $this->ion_auth->update_user($user->id, array('prof_picture' => $image));
         unlink($filepath);
+
+        echo(json_encode(array('status' => 'success')));
     }
 
 }

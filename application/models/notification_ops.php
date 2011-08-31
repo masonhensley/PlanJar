@@ -137,7 +137,7 @@ class Notification_ops extends CI_Model
         <div class="<?php echo($class); ?>" notif_id="<?php echo($row->id); ?>">
             <div class="left">
                 <div class="picture">
-                    <?php echo($this->load_profile->insert_profile_picture(50)); ?>
+                    <?php echo($this->load_profile->insert_profile_picture($row->user_id, 50)); ?>
                 </div>
             </div>
 
