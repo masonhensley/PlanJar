@@ -10,7 +10,7 @@ function following_setup(action_arg) {
         } else if ($('#following_list .user_entry[user_id="' + action_arg + '"]').length > 0) {
             // User found. Select it
             $('#following_list .user_entry[user_id="' + action_arg + '"]').click();
-        } else if (action_arg != undefined) {
+        } else if (action_arg != undefined && action_arg != '') {
             // Unknown user
             suggested_search_click(action_arg);
         }
@@ -151,28 +151,30 @@ function suggested_search_click(bypass_id) {
         'force_accept_button': true
     }, function (data) {
         $('.following_profile_body').html(data);
-        $('.suggested_friends').removeClass('suggested_active');
+        if (data != '') {
+            $('.suggested_friends').removeClass('suggested_active');
                         
-        $('#follow_search').hide('blind', {}, 'fast', function() {
-            $('.following_profile_body').show("fast");
-        });
-        
-        // Add following click handler
-        $('.following_profile_body .add_following').confirmDiv(function (clicked_elem) {
-            $.get('/dashboard/add_user_following', {
-                following_id: user_id
-            }, function (data) {
-                populate_following_list(function() {
-                    // Click on the newly added following entry
-                    console.log($('#following_list .user_entry[user_id="' + user_id + '"]'));
-                    console.log('#following_list .user_entry[user_id="' + user_id + '"]');
-                    $('#following_list .user_entry[user_id="' + user_id + '"]').click();
-                });
+            $('#follow_search').hide('blind', {}, 'fast', function() {
+                $('.following_profile_body').show("fast");
             });
-        });       
-    }).complete(function(){
-        following_spinner.stop();
-    });
+        
+            // Add following click handler
+            $('.following_profile_body .add_following').confirmDiv(function (clicked_elem) {
+                $.get('/dashboard/add_user_following', {
+                    following_id: user_id
+                }, function (data) {
+                    populate_following_list(function() {
+                        // Click on the newly added following entry
+                        console.log($('#following_list .user_entry[user_id="' + user_id + '"]'));
+                        console.log('#following_list .user_entry[user_id="' + user_id + '"]');
+                        $('#following_list .user_entry[user_id="' + user_id + '"]').click();
+                    });
+                });
+            });       
+        }).complete(function(){
+            following_spinner.stop();
+        });
+    }
 }
 
 // Populates the following list and assigns the click events.
