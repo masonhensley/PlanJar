@@ -40,7 +40,7 @@ class Load_profile extends CI_Model
                     ?>
                     <a href="/dashboard/settings">
                         <div class="edit_box" id="change_profile_picture">
-                            Change Profile Picture
+                            Change Picture
                         </div>
                     </a>
                     <?php
