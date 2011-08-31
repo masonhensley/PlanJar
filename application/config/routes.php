@@ -47,6 +47,8 @@ $route['404_override'] = '';
 $route['dashboard/([a-z]+)'] = 'dashboard/index/$1';
 $route['dashboard/([a-z]+)/(.+)'] = 'dashboard/index/$1/$2';
 
+$route['home/show_location/([0-9]+)/?'] = 'home/index/show_location/$1';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

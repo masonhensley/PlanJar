@@ -22,6 +22,14 @@
                 font-size: 6pt;
                 padding: 15px;
             }
+
+            #user_img_wrapper {
+                float: right;
+            }
+
+            #user_img_wrapper img {
+                width: 115px;
+            }
         </style>
     </head>
 
@@ -34,7 +42,7 @@
             <hr/>
 
             <div class="content">
-                <div style="float: right;"><?php echo($image); ?></div>
+                <div id="user_img_wrapper"><?php echo($image); ?></div>
                 <?php
                 echo($notif_text);
                 if (!isset($skip_notif))

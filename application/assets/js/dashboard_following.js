@@ -11,7 +11,7 @@ function following_setup(action_arg) {
             // User found. Select it
             $('#following_list .user_entry[user_id="' + action_arg + '"]').click();
         } else if (action_arg != undefined && action_arg != '') {
-            // Unknown user
+            // Unlisted user
             suggested_search_click(action_arg);
         }
     });
