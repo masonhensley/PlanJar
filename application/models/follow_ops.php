@@ -50,7 +50,7 @@ class Follow_ops extends CI_Model
             // Echo the results
             foreach ($query->result() as $row)
             {
-                $this->echo_user_entry($row, 'add following', $profile_links_enabled = false);
+                $this->echo_user_entry($row, 'add following', $profile_links_enabled=false);
             }
         }
     }
@@ -103,7 +103,7 @@ class Follow_ops extends CI_Model
                         if ($profile_links_enabled)
                         {
                             ?>
-                            <a href="/dashboard/following/<?php echo $row->user_id ?>">
+                            <a href="/dashboard/following/<?php echo $row->user_id; ?>">
                                 <?php
                             }
                             ?>
@@ -126,7 +126,7 @@ class Follow_ops extends CI_Model
                     if ($profile_links_enabled)
                     {
                         ?> 
-                        <a href="/dashboard/following/<?php echo $row->user_id ?>">
+                        <a href="/dashboard/following/<?php echo $row->user_id; ?>">
                             <?php
                         }
                         ?>
