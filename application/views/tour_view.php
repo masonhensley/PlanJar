@@ -49,11 +49,13 @@
 
                     <div id="main">  
 
-                        word
-                         <img src="/application/assets/images/tour/tour1.png" alt="some_text"/>
-                         <br>
-                         <img src="/application/assets/images/tour/tour2.png" alt="some_text"/>
-
+                        <div id = "img">
+                         <img src="/application/assets/images/tour/tour1.png" alt="tour 1"/>
+                        </div> 
+                         
+                        <div id = "img">
+                         <img src="/application/assets/images/tour/tour2.png" alt="tour 2"/>
+                        </div>
 
                     </div>
 
