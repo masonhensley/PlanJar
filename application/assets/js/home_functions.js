@@ -21,6 +21,7 @@ function fetch_notifications() {
         if(data > 0)
         {
             $('#notifications .top_right_link_outer').badger(data);
+            alert('notifications prz')
         }
             
         notification_timer = setTimeout(fetch_notifications, 45000);
