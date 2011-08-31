@@ -143,7 +143,6 @@ function display_info(bypass, arg) {
             if (found_location !== false) {
                 place_id = found_location;
                 back_to_search = true;
-            //populate_popular_locations();   // This is to 
             } else if (viewing_plan_location === false) {
                 place_id = $('.selected_location_tab').attr('place_id');
             } else {
@@ -414,7 +413,6 @@ function initialize_plan_info(data) {
 
 // Populates the popular locations panel
 function populate_popular_locations(skip_update_map, callback) {
-    console.log('populating');
     jqxhr = $.get('/home/load_location_tabs', {
         'selected_groups': get_selected_groups(),
         'selected_day': get_selected_day()
