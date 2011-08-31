@@ -133,7 +133,7 @@
             } else
             {
                 ?>
-                <a href="/auth/logout" style="position:absolute; color:darkgray; top:-37px; right:78px;">Log Out</a>
+                <a href="/auth/logout" style="position:absolute; top:-37px; right:78px;">Log Out</a>
                 <?php
             }
             ?>
