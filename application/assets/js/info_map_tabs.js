@@ -62,6 +62,7 @@ function display_info(bypass, arg) {
     hide_change_location_panel(function(was_visible) {
         // Switch to the info tab if the change location box was visible
         if (was_visible) {
+            console.log('ye');
             show_data_container('#info_content');
         }
         
