@@ -4,12 +4,17 @@ $(function() {
 
 // Called when the tab is selected
 function groups_setup(action_arg) {
-    populate_edit_groups_list();
+    populate_edit_groups_list(function() {
+        if (action_arg == 'suggested') {
+            $('.suggest_groups').click();
+        } else if (action_arg != undefined) {
+            // Seek to that group
+            1;
+        }
+    });
     
     // show the + Create Group button
     $('#create_group').show("fast");
-    
-    console.log(action_arg);
 }
 
 // Sets up the suggest people toggle and search box
@@ -50,10 +55,6 @@ function initialize_group_search() {
             });
         }
     });
-    
-    // Refer to the definition in dashboard_view.
-    // Essentially selects the suggested button if necessary at load
-    show_suggested_init('#groups_content', '.suggest_groups');
     
     // Search for groups on keyup
     $('#group_search').keyup(function () {
