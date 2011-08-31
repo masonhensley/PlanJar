@@ -3,11 +3,13 @@ $(function() {
 });
 
 // Called when the tab is selected
-function groups_setup() {
+function groups_setup(action_arg) {
     populate_edit_groups_list();
     
     // show the + Create Group button
     $('#create_group').show("fast");
+    
+    console.log(action_arg);
 }
 
 // Sets up the suggest people toggle and search box
