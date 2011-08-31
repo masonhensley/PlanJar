@@ -102,6 +102,15 @@ a {
     background: linear-gradient(top, #D2EFFF, #EEE);
 }
 
+.find_link{
+    color:#57A8E2;
+    font-weight:bold;
+    display:inline-block;
+}
+.find_link:hover{
+    color:navy;
+}
+
 .selectable_group{
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);

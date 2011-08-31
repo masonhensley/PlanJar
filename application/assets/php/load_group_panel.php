@@ -56,6 +56,6 @@
         <hr/>
     </div>
     <br/>
-    <a href="/dashboard/groups/suggested" style="color:#57A8E2;font-weight:bold;" >Find groups</a><br/> 
-    <a href="/dashboard/following/suggested" style="color:#57A8E2;font-weight:bold;">Find people</a>
+    <div class="find_link"><a href="/dashboard/groups/suggested" >Find groups</a></div><br/>
+    <div class="find_link"><a href="/dashboard/following/suggested">Find people</a></div>
 </div>
