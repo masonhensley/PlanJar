@@ -175,7 +175,7 @@ class Load_group_profile extends CI_Model
             ?>
             <div class="group_bottom_text">
                 Group is <font style="color:green;font-weight:bold;">open</font>
-                <div class="add_following">Follow</div>
+                <div class="add_following">follow</div>
             </div>
             <?php
         } else if (!$this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose')

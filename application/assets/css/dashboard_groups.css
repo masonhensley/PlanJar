@@ -241,6 +241,22 @@
     top:0px;
 }
 
+.group_bottom_text .add_following{
+    background: -webkit-linear-gradient(top, #0C2, green);
+    background: -moz-linear-gradient(top, #0C2, green);
+    background: -o-linear-gradient(top, #0C2, green);
+    background: -ms-linear-gradient(top, #0C2, green);
+    background: linear-gradient(top, #0C2, green);
+    
+    width: 75px;
+    color: white;
+    padding: 3px;
+    text-align: center;
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+
 .group_entry_left_side{
     float:right;
     height:auto;
