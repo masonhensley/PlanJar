@@ -45,7 +45,7 @@ $route['default_controller'] = "login";
 $route['404_override'] = '';
 
 $route['dashboard/([a-z]+)'] = 'dashboard/index/$1';
-$route['dashboard/([a-z]+)/([a-z]+)'] = 'dashboard/index/$1/$2';
+$route['dashboard/([a-z]+)/(.+)'] = 'dashboard/index/$1/$2';
 
 
 /* End of file routes.php */

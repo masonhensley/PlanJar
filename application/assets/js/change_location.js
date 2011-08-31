@@ -99,6 +99,8 @@ function initialize_change_location_panel() {
 
 // Shows the panel.
 function show_change_location_panel() {
+    deselect_all_controlls();
+    
     // Extend the data box
     $('.data_container_wrapper').animate({
         height: ($('.change_location_panel').height() + 300) + 'px'
@@ -138,13 +140,12 @@ function hide_change_location_panel(callback) {
         
         // Reduce the data box
         $('.data_container_wrapper').animate({
-            height: '300px',
-            complete: function() {
-                if (callback != undefined) {
-                    callback(true);
-                }
-            }
+            height: '300px'
         });
+        
+        if (callback != undefined) {
+            callback(true);
+        }
     } else if (callback != undefined) {
         callback(false);
     }

@@ -16,7 +16,7 @@ class Dashboard extends CI_Controller
         }
     }
 
-    public function index($initial_tab = 'profile', $suggested = '')
+    public function index($initial_tab = 'profile', $action_arg = '')
     {
         $user_info = $this->ion_auth->get_user();
 
@@ -32,7 +32,7 @@ class Dashboard extends CI_Controller
             'firstname' => $firstname,
             'lastname' => $lastname,
             'initial_tab' => $initial_tab,
-            'suggested' => $suggested,
+            'action_arg' => $action_arg,
             'school' => $this->load_groups->user_school())
         );
     }

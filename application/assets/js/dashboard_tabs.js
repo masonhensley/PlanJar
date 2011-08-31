@@ -13,7 +13,7 @@ function initialize_dashboard_tabs() {
 }
 
 // Shows the data container specified in the argument.
-function show_data_container(data_div) {
+function show_data_container(data_div, action_arg) {
     $('#create_group').hide(); // hide the create group icon when the group tab isn't selected
     
     // Select the appropriate tab.
@@ -24,16 +24,19 @@ function show_data_container(data_div) {
     if ($(data_div).css('display') == 'none') {
         if ($('.page_content:visible').length == 0) {
             // No shown containers. Show the specified container.
-            $(data_div).show('slide', {}, 'fast');
+            $(data_div).show('slide', {}, 'fast', function() {
+                // Call the setup function.
+                eval($(data_div).attr('setup_func') + '(' + action_arg + ')');
+            });
         } else {
             // Hide any visible data containers.
             $('.page_content:visible').hide('slide', {}, 'fast', function() {
                 // Show the panel.
-                $(data_div).show('slide', {}, 'fast');
+                $(data_div).show('slide', {}, 'fast', function() {
+                    // Call the setup function.
+                    eval($(data_div).attr('setup_func') + '(' + action_arg + ')');
+                });
             });
         }
     }
-    
-    // Call the setup function.
-    eval($(data_div).attr('setup_func') + "()");
 }
