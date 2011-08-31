@@ -12,7 +12,7 @@ class User extends CI_Controller
     public function get_prof_pic($user_id)
     {
         $user = $this->ion_auth->get_user($user_id);
-        if (is_object($user))
+        if (is_object($user) && $user->prof_picture != '')
         {
             // Profile picture
             $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
@@ -27,7 +27,6 @@ class User extends CI_Controller
 
             //$this->output->set_content_type('image/png');
             $handle = fopen($filename, "rb");
-            var_dump($handle);
             echo(fread($handle, filesize($filename)));
         }
     }
