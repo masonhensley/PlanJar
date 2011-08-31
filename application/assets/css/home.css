@@ -111,11 +111,7 @@ a:hover{
 
 .network_tab:hover, .selectable_group:hover, 
 #find_places:hover, .view_friends_plans:hover, #create_plan:hover{
-    background: -webkit-linear-gradient(top, #D2EFFF, #C8E2FF);
-    background: -moz-linear-gradient(top, #D2EFFF, #EEE);
-    background: -o-linear-gradient(top, #D2EFFF, #EEE);
-    background: -ms-linear-gradient(top, #D2EFFF, #EEE);
-    background: linear-gradient(top, #D2EFFF, #EEE);
+    background: #D2EFFF;
 }
 
 .find_link{
@@ -641,11 +637,7 @@ a:hover{
 }
 
 .plan_content:hover, .friend_plan_content:hover, .location_plan_content:hover {
-    background: -webkit-linear-gradient(top, #D2EFFF, #C8E2FF);
-    background: -moz-linear-gradient(top, #D2EFFF, #EEE);
-    background: -o-linear-gradient(top, #D2EFFF, #EEE);
-    background: -ms-linear-gradient(top, #D2EFFF, #EEE);
-    background: linear-gradient(top, #D2EFFF, #EEE);
+    background:#D2EFFF;
 }
 .selected_plan, .selected_friend_plan, .selected_location_plan,
 .selected_plan:hover, .selected_friend_plan:hover, .selected_location_plan:hover {
