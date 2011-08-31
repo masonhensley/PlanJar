@@ -23,6 +23,9 @@ a {
     color: gray;
     text-decoration: none;
 }
+a:hover{
+    color:navy;
+}
 
 .inside_top_panel a{
     color:lightgray;
@@ -32,9 +35,7 @@ a {
     color:white;
 }
 
-a:hover{
-    color:navy;
-}
+
 
 /* ---------- TOP PANEL ----------- */
 .top_panel {
