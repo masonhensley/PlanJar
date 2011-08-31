@@ -22,6 +22,7 @@ class User extends CI_Controller
             fpassthru($handle);
         } else
         {
+            // Profile picture
             $prof_picture = $this->ion_auth->get_user($user_id)->prof_picture;
 
             $this->output->set_content_type('image/jpeg');
