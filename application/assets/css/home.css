@@ -361,6 +361,14 @@ a:hover{
     background: linear-gradient(top, #F3F6FF, #EEE);
 }
 
+.left_day_arrow:hover, .right_day_arrow:hover{
+    background:-webkit-linear-gradient(top, #AAA, #EFF);
+    background: -moz-linear-gradient(top, #AAA, #EFF);
+    background: -o-linear-gradient(top, #AAA, #EFF);
+    background: -ms-linear-gradient(top, #AAA, #EFF);
+    background: linear-gradient(top, #AAA, #EFF);
+}
+
 .days_panel .seven_days {
     height: 100%;
     width: 100%;
