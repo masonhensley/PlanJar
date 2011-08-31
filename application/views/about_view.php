@@ -51,7 +51,7 @@
                     <div class ="person">
                         <div class ="info">
                             Mason Hensley is Co-Founder and CEO of PlanJar.  Prior to founding PlanJar, he briefly worked at the energy efficiency team at the Tennessee Valley Authority. <br> <br>
-                            Mason holds a bachelor’s degree in Biomedical Engineering from Vanderbilt University; while there, he dabbled a little in Financial Economics. He’s also an Eagle Scout.
+                            Mason holds a bachelor’s degree in Biomedical Engineering from Vanderbilt University; while there, he dabbled a little in Financial Economics. He’s also an Eagle Scout.<br/>
                             <a href="http://twitter.com/masonhensley" class="twitter-follow-button" data-show-count="false">Follow @bossier330</a>
                             <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
                         </div>
@@ -66,9 +66,12 @@
                             Parker runs the engineering team with Wells (currently the only other member of said team) and directs the site architecture and development.
                             Prior to this venture, Parker worked in IT for the legal sector and designed the VSVS online application as VSVS IT Chair.
                             <br/><br/>
-                            Academically, Parker expects to graduate from Vanderbilt University in 2012 with a bachelor's degree in Computer Science and Math.
+                            Academically, Parker expects to graduate from Vanderbilt University in 2012 with a bachelor's degree in Computer Science and Math.<br/>
                             <a href="http://twitter.com/bossier330" class="twitter-follow-button" data-show-count="false">Follow @bossier330</a>
                             <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+                            <a rel="author" href="https://plus.google.com/u/1/113752633780932035775/posts">
+                                <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+                            </a>
                         </div>
                         <div class ="pic">
                             <img src="/application/assets/images/parker_bio.jpg" style="width:100%; height:100%;" />
@@ -78,7 +81,9 @@
                     <h4> Wells Johnston, Director of Field Operations, Software Architect & Co-Founder ¯\_(ツ)_/¯<span class="arrow_right"></span> </h4>
                     <div class ="person">
                         <div class ="info">
-                            Wells runs PlanJar’s engineering team with Parker, and directs the site architecture and development.  Before PlanJar, Wells worked as a programmer at Moontoast.com, as well as a freelance web developer. <br><br> Outside of PlanJar, Wells is currently pursuing a Bachelor of Science in both Computer Science and Mathematics from Vanderbilt University.
+                            Wells runs PlanJar’s engineering team with Parker, and directs the site architecture and development.  Before PlanJar, Wells worked as a
+                            programmer at Moontoast.com, as well as a freelance web developer. <br><br>
+                            Outside of PlanJar, Wells is currently pursuing a Bachelor of Science in both Computer Science and Mathematics from Vanderbilt University.<br/>
                             <a href="http://twitter.com/wellsjohnston" class="twitter-follow-button" data-show-count="false">Follow @bossier330</a>
                             <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
                         </div>
