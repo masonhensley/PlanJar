@@ -518,8 +518,6 @@ class Dashboard extends CI_Controller
         $handle = fopen($filepath, "rb");
         $image = fread($handle, filesize($filepath));
 
-        var_dump($image);
-
         // Update the user and unlink the file
         $this->ion_auth->update_user($user->id, array('prof_picture' => $image));
         unlink($filepath);
