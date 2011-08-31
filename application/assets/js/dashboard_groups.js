@@ -100,7 +100,7 @@ function group_select_click_handler()
     });
     
     // Add following click handler.
-    $('#find_groups_list .add_following').confirmDiv(function(clicked_elem) {
+    $('.group_bottom_text .add_following').confirmDiv(function(clicked_elem) {
         var group_id = clicked_elem.parent().attr('group_id');
         $.get('/dashboard/add_group_following', {
             'group_id': group_id
