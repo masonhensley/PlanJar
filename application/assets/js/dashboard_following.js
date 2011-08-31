@@ -170,11 +170,11 @@ function suggested_search_click(bypass_id) {
                         $('#following_list .user_entry[user_id="' + user_id + '"]').click();
                     });
                 });
-            });       
-        }).complete(function(){
-            following_spinner.stop();
-        });
-    }
+            });
+        }
+    }).complete(function(){
+        following_spinner.stop();
+    });
 }
 
 // Populates the following list and assigns the click events.
