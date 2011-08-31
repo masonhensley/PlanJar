@@ -60,10 +60,12 @@ Class Load_plan_comments extends CI_Model
             </div>
             <div class="user_comment_top_bar">
                 <a href="/dashboard/following/<?php echo $user_comment->user_id; ?>">
-                    <?php
-                    echo $comment_user->first_name . " " . $comment_user->last_name . " says...";
-                    ?>
+                    <?php echo $comment_user->first_name . " " . $comment_user->last_name; ?>
                 </a>
+                <?php
+                echo "says...";
+                ?>
+
             </div>
 
 
