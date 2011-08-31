@@ -4,6 +4,7 @@
 // The parameter is the function to call on success.
 $.fn.confirmDiv = function(callback) {
     $('html').click();
+    console.log(this);
     this.click({
         'callback': callback
     }, outer_confirm_handler);
