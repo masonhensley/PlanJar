@@ -98,7 +98,7 @@ class Follow_ops extends CI_Model
             <div class="user_entry_left">
                 <center>
                     <div class="user_picture">
-                        <?php $this->load_profile->insert_profile_picture(50); ?>
+                        <?php $this->load_profile->insert_profile_picture($row->user_id, 50); ?>
                     </div>
                 </center>
             </div>
