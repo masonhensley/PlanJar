@@ -20,6 +20,14 @@ a{
     color:navy;
 }
 
+.recent_locations_links a{
+    color:#5C98CC;
+}
+
+.recent_locations_links a:hover{
+    color:navy;
+}
+
 .inside_top_panel  a{
     color:darkgray;
 }

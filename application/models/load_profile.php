@@ -234,7 +234,7 @@ class Load_profile extends CI_Model
         if ($recent_locations_count > 0)
         {
             $index = 0;
-
+            ?><div class="recent_locations_links"><?php
             foreach ($recent_locations as $location)
             {
                 if ($index < 10) // limit display to ten
@@ -247,6 +247,7 @@ class Load_profile extends CI_Model
                     $index++;
                 }
             }
+            ?></div><?php
         } else
         {
             ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
