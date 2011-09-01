@@ -205,6 +205,7 @@ function show_data_panel(data_div, callback) {
         if (data_div == '#map_content') {
             // Resize the map after the animation finishes to eliminate the missing tile errors.
             if (!map_tab_opened) {
+                console.log('resized');
                 google.maps.event.trigger(map, 'resize');
                 map_tab_opened = true;
             }
