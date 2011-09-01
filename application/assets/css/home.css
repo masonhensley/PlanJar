@@ -328,21 +328,22 @@ a:hover{
 }
 
 .day:hover{
+    background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
+    background: -moz-linear-gradient(top, #EFEFEF, #EFF);
+    background: -o-linear-gradient(top, #EFEFEF, #EFF);
+    background: -ms-linear-gradient(top, #EFEFEF, #EFF);
+    background: linear-gradient(top, #EFEFEF, #EFF);
+}
+
+.day.day_selected {
     background:-webkit-linear-gradient(top, #AAA, #EFF);
     background: -moz-linear-gradient(top, #AAA, #EFF);
     background: -o-linear-gradient(top, #AAA, #EFF);
     background: -ms-linear-gradient(top, #AAA, #EFF);
     background: linear-gradient(top, #AAA, #EFF);
-}
 
-.day.day_selected {
-    background: -webkit-linear-gradient(top, #EEE, #AAA);
-    background: -moz-linear-gradient(top, #EEE, #AAA);
-    background: -o-linear-gradient(top, #EEE, #AAA);
-    background: -ms-linear-gradient(top, #EEE, #AAA);
-    background: linear-gradient(top, #EEE, #AAA);
-
-    color: gray;
+    font-weight:bold;
+    color: black;
 }
 .days_panel .left_day_arrow {
     float: left;
