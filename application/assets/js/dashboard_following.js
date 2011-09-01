@@ -38,7 +38,7 @@ function initialize_suggested_friends()
                 $('.following_profile_body').hide('fast', function() {
                     $('#follow_search').show('blind', {}, 'fast');
                 });
-            } else {
+            } else if (!$('#follow_search').is(':visible')) {
                 $('#follow_search').show('blind', {}, 'fast');
             }
             

@@ -98,24 +98,6 @@ function group_select_click_handler(group_id)
             show_group_profile($(this).attr('group_id'));
         }
     });
-    
-    // Add following click handler.
-    $('.group_bottom_text .add_following').confirmDiv(function(clicked_elem) {
-        var group_id = clicked_elem.parent().attr('group_id');
-        $.get('/dashboard/add_group_following', {
-            'group_id': group_id
-        }, function (data) {
-            // Repopulate the groups list and select the recently followed group
-            populate_edit_groups_list(function() {
-                $('#edit_groups_list .group_entry[group_id = "' + group_id + '"]').click();
-            });
-            
-            // Clear and hide search boxes
-            $('#group_search').val('');
-            $('#group_search').keyup();
-            $('#group_search').focus();
-        });
-    });
 }
 
 // Populates the list of the user's groups and assigns the click events
@@ -199,6 +181,23 @@ function show_group_profile(group_id) {
             // set the view list click handler
             $('#view_group_list').click(function(){
                 populate_group_member_panel(group_id);
+            });
+            
+            // Add following click handler.
+            $('.group_bottom_text .add_following').confirmDiv(function(clicked_elem) {
+                $.get('/dashboard/add_group_following', {
+                    'group_id': group_id
+                }, function (data) {
+                    // Repopulate the groups list and select the recently followed group
+                    populate_edit_groups_list(function() {
+                        $('#edit_groups_list .group_entry[group_id = "' + group_id + '"]').click();
+                    });
+            
+                    // Clear and hide search boxes
+                    $('#group_search').val('');
+                    $('#group_search').keyup();
+                    $('#group_search').focus();
+                });
             });
         }          
     }).complete(function(){
