@@ -17,10 +17,12 @@ class About extends CI_Controller
         $this->load->library('email');
         $this->email->clear();
         $this->email->from('noreply@planjar.com', 'PlanJar');
-        $this->email->to($user->email);
+        $this->email->to('bossier330@gmail.com');
         $this->email->subject('PlanJar test email');
         $this->email->message('yup');
         $this->email->send();
+
+        echo($this->email->print_debugger());
     }
 
 }
