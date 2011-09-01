@@ -60,6 +60,7 @@ a:hover{
     height: 100%;
     margin-left: auto;
     margin-right: auto;
+    text-align: right;
 }
 .top_links {
     width: 100%;
@@ -715,7 +716,9 @@ a:hover{
 }
 .top_right_link_outer {
     height: 100%;
-    width: 86px;
+    width:auto;
+    margin-left:15px;
+    margin-right:15px;
     display: inline-block;
     position: relative;
     text-align: center;
@@ -730,7 +733,7 @@ a:hover{
     display: inline-block;
     color: white;
     margin-top:12px;
-    margin-right: 77px;
+    margin-right: 136px;
     margin-left:15px;
 }
 #create_plan {
