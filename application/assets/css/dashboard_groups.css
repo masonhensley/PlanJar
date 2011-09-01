@@ -158,7 +158,7 @@
     font-size:13px;
 }
 
-.group_bottom_button .remove_following, .group_bottom_button .remove_joined {
+.middle .remove_following, .middle .remove_joined {
     background: -webkit-linear-gradient(top, #FF7373, red);
     background: -moz-linear-gradient(top, #FF7373, red);
     background: -o-linear-gradient(top, #FF7373, red);
