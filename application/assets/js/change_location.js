@@ -59,7 +59,7 @@ function initialize_change_location_panel() {
                     position: new google.maps.LatLng(myLatitude, myLongitude), 
                     map: map,
                     title:"Your location!",
-                    icon: '/application/assets/images/map_markers/star.png',
+                    icon: '/application/assets/images/map_markers/me.png',
                     draggable: true
                 });
                 map_marker_array.push(temp_marker);
@@ -119,7 +119,7 @@ function show_change_location_panel() {
         position: new google.maps.LatLng(myLatitude, myLongitude), 
         map: map,
         title:"Your location!",
-        icon: '/application/assets/images/map_markers/star.png',
+        icon: '/application/assets/images/map_markers/me.png',
         draggable: true
     });
     map_marker_array.push(temp_marker);
