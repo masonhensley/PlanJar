@@ -135,7 +135,7 @@ class Load_profile extends CI_Model
                     ?></div><?php
         } else
         {
-                    ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
+                    ?><font style="font-style:italic;color:gray;">Nothing to show</font><br/><?php
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
