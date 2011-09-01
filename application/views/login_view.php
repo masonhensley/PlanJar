@@ -39,7 +39,7 @@
             </div>
         </div>
         <div id="container">
-            <div id="leftside">
+            <div id="leftside" style="height:75px;">
                 <h5><!-- PlanJar shows what groups of people are doing around you-->PlanJar is being released Monday September 5<span class="arrow"></span> </h5>
                 <div id="left_title">
                 </div>
@@ -48,7 +48,7 @@
             </div>
             <div id="rightside">
                 <div id="right_inner">
-                    <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>
+                    <h3><!--Not a member?  Sign up for free.-->Sign up will not work until the 5th<span class="arrow"></span></h3>
                     <font color="purple" >
                         <div id="su_error" class="error_message" style="text-align:center; color:red;">
                             <!-- Errors will be displayed here -->
