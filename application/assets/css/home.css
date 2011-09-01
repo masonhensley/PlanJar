@@ -1,10 +1,10 @@
 /*--------------GLOBAL ---------------- */
 body {
-    background: -webkit-linear-gradient(top, #ECECEC, white);
-    background: -moz-linear-gradient(top, #ECECEC, white);
-    background: -o-linear-gradient(top, #ECECEC, white);
-    background: -ms-linear-gradient(top, #ECECEC, white);
-    background: linear-gradient(top, #ECECEC, white);
+    background: -webkit-linear-gradient(top, #F3F3F3, white);
+    background: -moz-linear-gradient(top, #F3F3F3, white);
+    background: -o-linear-gradient(top, #F3F3F3, white);
+    background: -ms-linear-gradient(top, #F3F3F3, white);
+    background: linear-gradient(top, #F3F3F3, white);
 
     /* make text not selectable for the UI */
     -webkit-user-select: none;

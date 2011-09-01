@@ -1,6 +1,11 @@
 /* ---------- GLOBAL ------------*/
 body{
-    background-color:#F3F3F3;
+    background: -webkit-linear-gradient(top, #F3F3F3, white);
+    background: -moz-linear-gradient(top, #F3F3F3, white);
+    background: -o-linear-gradient(top, #F3F3F3, white);
+    background: -ms-linear-gradient(top, #F3F3F3, white);
+    background: linear-gradient(top, #F3F3F3, white);
+    
     margin: 0px;
     font-family: helvetica;
     font-size: 15px;
