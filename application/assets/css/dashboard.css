@@ -345,7 +345,7 @@ a{
     padding:10px;
 }
 
-.edit_box{
+.edit_box, .change_profile_picture{
     color:blue;
     font-weight:bold;
     width:108px;
