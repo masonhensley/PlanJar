@@ -239,7 +239,7 @@ class Load_profile extends CI_Model
             {
                 if ($index < 10) // limit display to ten
                 {
-                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>" style="color:lightblue;"><?php echo $location; ?></a><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>" style="color:#5C98CC;"><?php echo $location; ?></a><?php
                     if ($index + 1 != $recent_locations_count && $index + 1 != 10)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -260,7 +260,7 @@ class Load_profile extends CI_Model
             {
                 if ($index < 10 && $index < $most_visited_count)// limit display to ten
                 {
-                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><font style="color:navy;"><?php echo $location . " ($count)"; ?></font></a><?php
+                    ?><font style="color:#5C98CC;"><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><?php echo $location . " ($count)"; ?></a></font><?php
                     if ($index + 1 != 10 && $index + 1 != $most_visited_count)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
