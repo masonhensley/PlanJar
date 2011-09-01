@@ -183,7 +183,7 @@ function populate_following_list(callback) {
         $('#following_list').html(data);
        
         // Unfollow click handler
-        $('#following_list .remove_following').confirmDiv(function (clicked_elem) {
+        $('.following_profile_body .remove_following').confirmDiv(function (clicked_elem) {
             $.get('/dashboard/remove_following', {
                 following_id: clicked_elem.parent().attr('user_id')
             }, function (data) {
