@@ -13,22 +13,6 @@
         <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
 
-        <!-- Google Analytics -->
-        <script type="text/javascript">
-
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-23115103-4']);
-            _gaq.push(['_setDomainName', '.planjar.com']);
-            _gaq.push(['_trackPageview']);
-            
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-            
-        </script>
-
     </head>
     <body>
         <div class ="top_panel">
@@ -55,11 +39,11 @@
             </div>
         </div>
         <div id="container">
-            <div id="leftside">
-                <h5> PlanJar shows what groups of people are doing around you<span class="arrow"></span> </h5>
+            <div id="leftside" style="height:75px;">
+                <h5><!-- PlanJar shows what groups of people are doing around you-->PlanJar is being released Monday September 5<span class="arrow"></span> </h5>
                 <div id="left_title">
                 </div>
-                <div id="left_video">
+                <div id="left_video" style="display:none;">
                 </div>  
             </div>
             <div id="rightside">

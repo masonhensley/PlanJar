@@ -137,7 +137,7 @@ class Follow_ops extends CI_Model
             {
                 $number_of_connections = $suggested_friends[$row->user_id];
                         ?>
-                        <font style="color:green; font-size:10px; position:absolute;bottom:15px;right:8px;">
+                        <font style="color:green; font-size:10px; position:absolute;bottom:21px;right:1px;">
                         <?php
                         echo "$number_of_connections+ connections";
                         ?></font><?php
