@@ -127,7 +127,7 @@
             if ($this->ion_auth->get_user()->group_id == 1)
             {
                 ?>
-        <a href="/admin_dashboard" style="position:absolute; top:-37px; right:78px;">Admin Dashboard</a>
+                <a href="/admin_dashboard" style="position:absolute; top:-37px; right:78px;">Admin Dashboard</a>
                 <a href="/auth/logout" style="position:absolute; top:-37px; right:15px;">Log Out</a>
                 <?php
             } else
@@ -169,7 +169,8 @@
                 <div class="suggested_locations">
                 </div>
                 <div class="bottom_right_section">
-                    <br/><font style="color:navy">Invite People to PlanJar</font>
+                    <iframe src="http://www.facebook.com/plugins/like.php?app_id=132900086806376&amp;href=http%3A%2F%2Fwww.facebook.com%2Fplanjar&amp;send=false&amp;layout=standard&amp;width=250&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=verdana&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:80px;" allowTransparency="true"></iframe>
+                    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Join the new social network and see graphical trends of what Vanderbilt students are doing" data-count="horizontal" data-via="planjar">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
                 </div>
                 <div class="comment_box">
                     <textarea id="comment_area" name="comments" cols="30" rows="3"  maxlength="100"></textarea>
