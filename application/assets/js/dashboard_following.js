@@ -129,6 +129,7 @@ function populate_suggested_friends() {
 // If bypass_id is set, it will be used as the id instead of the clicked element's embedded value
 function suggested_search_click(bypass_id) {
 
+    alert('hello');
     // setup spinner
     var following_opts = spinner_options();
     var following_target = document.getElementById('following_suggested_spinner');
