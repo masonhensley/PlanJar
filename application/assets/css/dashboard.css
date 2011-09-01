@@ -333,6 +333,10 @@ a{
     border-radius: 5px;
 }
 
+.suggested_friends:hover, suggest_groups:hover{
+    background: #D2EFFF;
+}
+
 .suggested_active{
     background: -webkit-linear-gradient(top, #DDD, #EEE);
     background: -moz-linear-gradient(top, #DDD, #EEE);

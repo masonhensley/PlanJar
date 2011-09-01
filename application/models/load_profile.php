@@ -22,7 +22,7 @@ class Load_profile extends CI_Model
         $number_followers = $this->get_number_followers($user->id);
         $this->load->model('load_suggested_groups');
         $users_following = $this->load_suggested_groups->get_users_following();
-        $users_following[] = $this->ion_auth->get_user()->user_id;
+        $users_following[] = $this->ion_auth->get_user()->user_id; // add the user's id to the following list to avoid seeing the "follow" button
 
         if ($force_accept_button && !in_array($user->id, $users_following))
         {
