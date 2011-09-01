@@ -149,7 +149,8 @@ class Follow_ops extends CI_Model
             if ($option == 'remove following')
             {
                 ?>
-                <div class="remove_following">unfollow</div>
+                <div class="following">following</div>
+                <!--<div class="remove_following">unfollow</div>-->
                 <?php
             } else if ($option == 'add following')
             {

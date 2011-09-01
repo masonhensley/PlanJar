@@ -145,6 +145,8 @@ function suggested_search_click(user_id) {
         'user_id': user_id,
         'force_accept_button': true
     }, function (data) {
+        alert('get_profile complete');
+        
         $('.following_profile_body').html(data);
         if (data != '') {
             $('.suggested_friends').removeClass('suggested_active');
@@ -174,18 +176,6 @@ function suggested_search_click(user_id) {
 function populate_following_list(callback) {
     $.get('/dashboard/get_following', function (data) {
         $('#following_list').html(data);
-       
-        // Unfollow click handler
-        $('#following_list .remove_following').confirmDiv(function (clicked_elem) {
-            $.get('/dashboard/remove_following', {
-                following_id: clicked_elem.parent().attr('user_id')
-            }, function (data) {
-                // Hide the profile body
-                $('.following_profile_body').hide();
-                
-                populate_following_list();
-            });
-        });
         
         // User entry click handler
         $('#following_list .user_entry').click(function(){
@@ -218,6 +208,18 @@ function populate_following_list(callback) {
                     } else {
                         $('.following_profile_body').show("fast");
                     }
+                    
+                    // Unfollow click handler
+                    $('.following_profile_body .remove_following').confirmDiv(function (clicked_elem) {
+                        $.get('/dashboard/remove_following', {
+                            following_id: $('.selected_follower').attr('user_id')
+                        }, function (data) {
+                            // Hide the profile body
+                            $('.following_profile_body').hide();
+                
+                            populate_following_list();
+                        });
+                    });
                 }).complete(function(){
                     following_spinner.stop();
                 });

@@ -1,10 +1,10 @@
 /*--------------GLOBAL ---------------- */
 body {
-    background: -webkit-linear-gradient(top, #ECECEC, white);
-    background: -moz-linear-gradient(top, #ECECEC, white);
-    background: -o-linear-gradient(top, #ECECEC, white);
-    background: -ms-linear-gradient(top, #ECECEC, white);
-    background: linear-gradient(top, #ECECEC, white);
+    background: -webkit-linear-gradient(top, #F3F3F3, white);
+    background: -moz-linear-gradient(top, #F3F3F3, white);
+    background: -o-linear-gradient(top, #F3F3F3, white);
+    background: -ms-linear-gradient(top, #F3F3F3, white);
+    background: linear-gradient(top, #F3F3F3, white);
 
     /* make text not selectable for the UI */
     -webkit-user-select: none;
@@ -33,6 +33,10 @@ a:hover{
 }
 
 .top_right_link_outer a:hover{
+    color:white;
+}
+
+#bottom_link:hover{
     color:white;
 }
 
@@ -74,7 +78,7 @@ a:hover{
     margin-left: auto;
     margin-right: auto;
     width: 1024px;
-    height:800px;
+    height:860px;
     text-align: center;
     margin-top: 20px;
 
@@ -324,21 +328,22 @@ a:hover{
 }
 
 .day:hover{
+    background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
+    background: -moz-linear-gradient(top, #EFEFEF, #EFF);
+    background: -o-linear-gradient(top, #EFEFEF, #EFF);
+    background: -ms-linear-gradient(top, #EFEFEF, #EFF);
+    background: linear-gradient(top, #EFEFEF, #EFF);
+}
+
+.day.day_selected {
     background:-webkit-linear-gradient(top, #AAA, #EFF);
     background: -moz-linear-gradient(top, #AAA, #EFF);
     background: -o-linear-gradient(top, #AAA, #EFF);
     background: -ms-linear-gradient(top, #AAA, #EFF);
     background: linear-gradient(top, #AAA, #EFF);
-}
 
-.day.day_selected {
-    background: -webkit-linear-gradient(top, #EEE, #AAA);
-    background: -moz-linear-gradient(top, #EEE, #AAA);
-    background: -o-linear-gradient(top, #EEE, #AAA);
-    background: -ms-linear-gradient(top, #EEE, #AAA);
-    background: linear-gradient(top, #EEE, #AAA);
-
-    color: gray;
+    font-weight:bold;
+    color: black;
 }
 .days_panel .left_day_arrow {
     float: left;
@@ -583,6 +588,10 @@ a:hover{
     width: auto;
     margin-left: 5px;
 }
+.friend_tab:hover{
+    background:#D2EFFF;
+}
+
 .attending_button{
     position:absolute; 
     width:110px; 

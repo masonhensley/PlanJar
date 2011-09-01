@@ -22,12 +22,17 @@ class Load_profile extends CI_Model
         $number_followers = $this->get_number_followers($user->id);
         $this->load->model('load_suggested_groups');
         $users_following = $this->load_suggested_groups->get_users_following();
-        $users_following[] = $this->ion_auth->get_user()->user_id;
+        $users_following[] = $this->ion_auth->get_user()->user_id; // add the user's id to the following list to avoid seeing the "follow" button
 
         if ($force_accept_button && !in_array($user->id, $users_following))
         {
             ?>
             <div class="add_following">follow</div>
+            <?php
+        } else if (in_array($user->id, $users_following) && $format != 'profile_edit')
+        {
+            ?>
+            <div class="remove_following">unfollow</div>
             <?php
         }
         ?>
@@ -135,7 +140,7 @@ class Load_profile extends CI_Model
                     ?></div><?php
         } else
         {
-                    ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
+                    ?><font style="font-style:italic;color:gray;">Nothing to show</font><br/><?php
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
