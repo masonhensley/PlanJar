@@ -20,11 +20,19 @@ a{
     color:navy;
 }
 
+.joined_groups_links a{
+    color:#41B859;
+}
+
 .recent_locations_links a{
     color:#5C98CC;
 }
 
-.recent_locations_links a:hover{
+.groups_following_links a{
+    color:#9B3AE4;
+}
+
+.recent_locations_links a:hover, .joined_groups_links a:hover, .groups_following_links a:hover{
     color:navy;
 }
 

@@ -63,7 +63,7 @@ class Load_profile extends CI_Model
                 <br/>
                 <br/>
                 <font style="color:darkgray; float:left;">box</font><?php
-                echo " ";
+        echo " ";
                 ?><div id="my_box_spinner"></div><div class="my_box" id="my_box"><?php
         if (isset($user->box) && trim($user->box) != "")
         {
@@ -72,7 +72,7 @@ class Load_profile extends CI_Model
         {
                     ?><font style="font-style: italic; color:gray;">Nothing to show</font><?php
         }
-        ?>
+                ?>
                 </div>
                 <br/>
                 <?php
@@ -92,21 +92,24 @@ class Load_profile extends CI_Model
                     <?php
                 }
                 ?>
-                <hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
-                $group_count = count($groups_joined);
-                if ($group_count > 0)
-                {
-                    $index = 0;
-
-                    foreach ($groups_joined as $group_id => $group)
-                    {
-                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><font style="color:green; font-size: 16px;"><?php echo $group; ?></font></a><?php
+                <hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font>
+                <br/><font style="font-size:20px;">Joined</font><br/><?php
+        // joined groups
+        $group_count = count($groups_joined);
+        if ($group_count > 0)
+        {
+            $index = 0;
+                    ?><div class="joined_groups_links"><?php
+            foreach ($groups_joined as $group_id => $group)
+            {
+                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><?php echo $group; ?></a><?php
                 if ($index + 1 != $group_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
                 }
                 $index++;
             }
+                    ?></div><?php
         } else
         {
                     ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
@@ -119,22 +122,24 @@ class Load_profile extends CI_Model
         if ($following_count > 0)
         {
             $index = 0;
+                    ?><div class="groups_following_links"><?php
             foreach ($groups_following as $group_id => $group)
             {
-                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><font style="color:purple; font-size:16px;"><?php echo $group; ?></font></a><?php
+                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><?php echo $group; ?></a><?php
                 if ($index + 1 != $following_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
                 }
                 $index++;
             }
+                    ?></div><?php
         } else
         {
                     ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
-        ?>
+                ?>
             </div>
         </div>
         <?php
