@@ -29,7 +29,7 @@ class Load_profile extends CI_Model
             ?>
             <div class="add_following">follow</div>
             <?php
-        } else if (in_array($user->id, $users_following) && $format != 'profile_edit')
+        } else if (in_array($user->id, $users_following) && $format != 'profile_edit' )
         {
             ?>
             <div class="remove_following">unfollow</div>
