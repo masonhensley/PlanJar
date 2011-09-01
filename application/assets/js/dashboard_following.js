@@ -6,7 +6,7 @@ $(function () {
 function following_setup(action_arg) {
     populate_following_list(function() {
         if (action_arg == 'suggested') {
-            $('#suggest_people').click();
+            $('.suggested_friends').click();
         } else if ($('#following_list .user_entry[user_id="' + action_arg + '"]').length > 0) {
             // User found. Select it
             $('#following_list .user_entry[user_id="' + action_arg + '"]').click();
@@ -43,7 +43,9 @@ function initialize_suggested_friends()
             }
             
             // Friend search user click handler
-            $('#follow_search .user_entry').click(suggested_search_click);
+            $('#follow_search .user_entry').click(function() {
+                suggested_search_click($(this).attr('user_id'));
+            });
             
             // Follow click handler
             $('#follow_search .add_following').confirmDiv(function (clicked_elem) {
@@ -119,28 +121,21 @@ function populate_suggested_friends() {
         });
             
         // click handler for getting the profile
-        $('#follow_search .user_entry').click(suggested_search_click);
+        $('#follow_search .user_entry').click(function() {
+            suggested_search_click($(this).attr('user_id'));
+        });
     }).complete(function(){
         following_spinner.stop();
     });
 }
 
 // Modularized click handler for suggested/searched friends
-// If bypass_id is set, it will be used as the id instead of the clicked element's embedded value
-function suggested_search_click(bypass_id) {
+function suggested_search_click(user_id) {
 
     // setup spinner
     var following_opts = spinner_options();
     var following_target = document.getElementById('following_suggested_spinner');
     var following_spinner = new Spinner(following_opts).spin(following_target);
-
-    // Capture the user id
-    var user_id;
-    if (bypass_id != undefined) {
-        user_id = bypass_id;
-    } else {
-        user_id = $(this).attr('user_id');
-    }
 
     // Deselect any of the selected user's followers
     $('#following_list .selected_follower').removeClass('selected_follower');
@@ -165,8 +160,6 @@ function suggested_search_click(bypass_id) {
                 }, function (data) {
                     populate_following_list(function() {
                         // Click on the newly added following entry
-                        console.log($('#following_list .user_entry[user_id="' + user_id + '"]'));
-                        console.log('#following_list .user_entry[user_id="' + user_id + '"]');
                         $('#following_list .user_entry[user_id="' + user_id + '"]').click();
                     });
                 });
