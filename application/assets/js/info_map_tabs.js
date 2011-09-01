@@ -209,7 +209,7 @@ function display_info(bypass, arg) {
                 });
             }).complete(function(){
                 $('#view_group_list').click(function(){
-                    populate_group_member_panel();
+                    populate_group_member_panel($('.selected_group').attr('group_id'));
                 });            
             });
         
