@@ -32,6 +32,7 @@ class Load_profile extends CI_Model
         }
         ?>
         <div class="profile_top_bar">
+            <!-- profile pic -->
             <div class="profile_picture">
                 <?php
                 $this->insert_profile_picture($user->id, 80);
@@ -47,6 +48,7 @@ class Load_profile extends CI_Model
                 }
                 ?>
             </div>
+            <!-- first name, last name, school, followers, following-->
             <div class="profile_user_information">
                 <br/><font style="font-size:20px;"><font style="font-weight:bold;"><?php echo $user->first_name . " " . $user->last_name; ?></font><br/>
                 <font style="color:darkgray;"><?php echo $row->school . " "; ?>('<?php echo substr($user->grad_year, -2); ?>)</font></font><br/>
@@ -61,7 +63,7 @@ class Load_profile extends CI_Model
                 <br/>
                 <br/>
                 <font style="color:darkgray; float:left;">box</font><?php
-                echo " ";
+        echo " ";
                 ?><div id="my_box_spinner"></div><div class="my_box" id="my_box"><?php
         if (isset($user->box) && trim($user->box) != "")
         {
@@ -70,10 +72,11 @@ class Load_profile extends CI_Model
         {
                     ?><font style="font-style: italic; color:gray;">Nothing to show</font><?php
         }
-        ?>
+                ?>
                 </div>
                 <br/>
                 <?php
+                // box area
                 if ($format == 'profile_edit')
                 {
                     ?>
@@ -89,49 +92,54 @@ class Load_profile extends CI_Model
                     <?php
                 }
                 ?>
-                <hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font><br/><font style="font-size:20px;">Joined</font><br/><?php
-                $group_count = count($groups_joined);
-                if ($group_count > 0)
-                {
-                    $index = 0;
-
-                    foreach ($groups_joined as $group_id => $group)
-                    {
-                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><font style="color:green; font-size: 16px;"><?php echo $group; ?></font></a><?php
+                <hr/><br/><font style="font-size:23px; margin-left:195px;">Groups</font>
+                <br/><font style="font-size:20px;">Joined</font><br/><?php
+        // joined groups
+        $group_count = count($groups_joined);
+        if ($group_count > 0)
+        {
+            $index = 0;
+                    ?><div class="joined_groups_links"><?php
+            foreach ($groups_joined as $group_id => $group)
+            {
+                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><?php echo $group; ?></a><?php
                 if ($index + 1 != $group_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
                 }
                 $index++;
             }
+                    ?></div><?php
         } else
         {
                     ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
 
-        // Code to display groups following
+        // display groups following
                 ?><br/><br/><font style="font-size:20px;">Following</font><br/><?php
         $index = 0;
         $following_count = count($groups_following);
         if ($following_count > 0)
         {
             $index = 0;
+                    ?><div class="groups_following_links"><?php
             foreach ($groups_following as $group_id => $group)
             {
-                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><font style="color:purple; font-size:16px;"><?php echo $group; ?></font></a><?php
+                        ?><a href="/dashboard/groups/<?php echo $group_id; ?>"><?php echo $group; ?></a><?php
                 if ($index + 1 != $following_count)
                 {
                             ?><font style="color:black;"><?php echo ", "; ?></font><?php
                 }
                 $index++;
             }
+                    ?></div><?php
         } else
         {
                     ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
                 ?><br/><hr/><br/><?php
         echo $locations_data;
-        ?>
+                ?>
             </div>
         </div>
         <?php
@@ -224,18 +232,19 @@ class Load_profile extends CI_Model
         }
 
         ob_start();
+        // display places recently visited and most visited
         ?><font style="font-size:23px; margin-left:200px;">Places</font><br/>
         <font style="font-size:18px;">Recently visited</font><br/><?php
         $recent_locations_count = count($recent_locations);
         if ($recent_locations_count > 0)
         {
             $index = 0;
-
+            ?><div class="recent_locations_links"><?php
             foreach ($recent_locations as $location)
             {
                 if ($index < 10) // limit display to ten
                 {
-                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><font style="color:navy;"><?php echo $location; ?></font></a><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><?php echo $location; ?></a><?php
                     if ($index + 1 != $recent_locations_count && $index + 1 != 10)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -243,20 +252,23 @@ class Load_profile extends CI_Model
                     $index++;
                 }
             }
+            ?></div><?php
         } else
         {
             ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
+        // most visited
         ?><br/><br/><font style="font-size:18px;">Most visited</font><br/><?php
         $most_visited_count = count($most_visited_locations);
         if ($most_visited_count > 0)
         {
             $index = 0;
+            ?><div class="most_visited_links"><?php
             foreach ($most_visited_locations as $location => $count)
             {
                 if ($index < 10 && $index < $most_visited_count)// limit display to ten
                 {
-                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><font style="color:navy;"><?php echo $location . " ($count)"; ?></font></a><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><?php echo $location . " ($count)"; ?></a><?php
                     if ($index + 1 != 10 && $index + 1 != $most_visited_count)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -264,6 +276,7 @@ class Load_profile extends CI_Model
                     $index++;
                 }
             }
+            ?></div><?php
         } else
         {
             ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php

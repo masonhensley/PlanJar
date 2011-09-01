@@ -27,6 +27,13 @@
     text-align: center;
     position: relative;
 }
+.user_entry:hover{
+    background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
+    background: -moz-linear-gradient(top, #EFEFEF, #EFF);
+    background: -o-linear-gradient(top, #EFEFEF, #EFF);
+    background: -ms-linear-gradient(top, #EFEFEF, #EFF);
+    background: linear-gradient(top, #EFEFEF, #EFF);
+}
 .user_entry .user_entry_left {
     float: left;
     width: 90px;
@@ -93,7 +100,7 @@
     background: -o-linear-gradient(top, #333, #666);
     background: -ms-linear-gradient(top, #333, #666);
     background: linear-gradient(top, #333, #666);
-    
+
     height: 25px;
     color:white;
     font-size:18px;
