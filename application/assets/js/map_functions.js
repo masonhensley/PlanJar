@@ -34,7 +34,7 @@ function populate_map(data, closure_function, non_numbered) {
             position: new google.maps.LatLng(myLatitude, myLongitude),
             map: map,
             title: 'Your location',
-            icon: '/application/assets/images/map_markers/star.png'
+            icon: '/application/assets/images/map_markers/you.png'
         }));
     
         calculate_map_bounds();

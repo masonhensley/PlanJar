@@ -430,28 +430,11 @@ class Home extends CI_Controller
         {
             $user = $this->ion_auth->get_user();
 
-            // Break into search terms
-            $needle_array = explode(' ', $needle);
-
-            // Generate query strings to cross-reference all needle terms with the first and last names in the db
-            $needle_where = '';
-            foreach ($needle_array as $cur_needle)
-            {
-                $needle_where .= "(user_meta.first_name LIKE '%%$cur_needle%%' OR " .
-                        "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
-            }
-
-            // Trim the end of the string
-            if (count($needle_array) > 0)
-            {
-                $needle_where = substr($needle_where, 0, -5);
-            }
-
             $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name
                     FROM friend_relationships LEFT JOIN user_meta ON friend_relationships.user_id = user_meta.user_id
-                    WHERE ($needle_where) AND friend_relationships.follow_id = ?";
-
-            $query = $this->db->query($query_string, array($user->id));
+                    WHERE MATCH(user_meta.first_name, user_meta.last_name) AGAINST (? IN BOOLEAN MODE)
+                    AND friend_relationships.follow_id = ?";
+            $query = $this->db->query($query_string, array(str_replace(' ', '* ', $needle) . '*', $user->id));
 
             // Echo the results
             $return_array = array();
