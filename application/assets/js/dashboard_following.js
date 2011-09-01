@@ -39,6 +39,7 @@ function initialize_suggested_friends()
                     $('#follow_search').show('blind', {}, 'fast');
                 });
             } else {
+                console.log('showing a lot?');
                 $('#follow_search').show('blind', {}, 'fast');
             }
             
