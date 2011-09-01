@@ -64,14 +64,15 @@
             </div>
             <div id="rightside">
                 <div id="right_inner">
-                    <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>
+<!--                    <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>-->
+                    <h3>SIgnup will open when PlanJar is released.<span class="arrow"></span></h3>
                     <font color="purple" >
                         <div id="su_error" class="error_message" style="text-align:center; color:red;">
                             <!-- Errors will be displayed here -->
                         </div>
                     </font>
                     <center>
-                        <form id="sign_up">
+                        <form id="sign_up" style="display: none;">
                             <div class="div_texbox">
                                 <div class="in-field_block" style="margin-top:12px;">
                                     <label for="su_email_1">University email</label>
