@@ -32,6 +32,7 @@ class Load_profile extends CI_Model
         }
         ?>
         <div class="profile_top_bar">
+            <!-- profile pic -->
             <div class="profile_picture">
                 <?php
                 $this->insert_profile_picture($user->id, 80);
@@ -47,6 +48,7 @@ class Load_profile extends CI_Model
                 }
                 ?>
             </div>
+            <!-- first name, last name, school, followers, following-->
             <div class="profile_user_information">
                 <br/><font style="font-size:20px;"><font style="font-weight:bold;"><?php echo $user->first_name . " " . $user->last_name; ?></font><br/>
                 <font style="color:darkgray;"><?php echo $row->school . " "; ?>('<?php echo substr($user->grad_year, -2); ?>)</font></font><br/>
@@ -74,6 +76,7 @@ class Load_profile extends CI_Model
                 </div>
                 <br/>
                 <?php
+                // box area
                 if ($format == 'profile_edit')
                 {
                     ?>
@@ -109,7 +112,7 @@ class Load_profile extends CI_Model
                     ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
 
-        // Code to display groups following
+        // display groups following
                 ?><br/><br/><font style="font-size:20px;">Following</font><br/><?php
         $index = 0;
         $following_count = count($groups_following);
@@ -224,6 +227,7 @@ class Load_profile extends CI_Model
         }
 
         ob_start();
+        // display places recently visited and most visited
         ?><font style="font-size:23px; margin-left:200px;">Places</font><br/>
         <font style="font-size:18px;">Recently visited</font><br/><?php
         $recent_locations_count = count($recent_locations);
@@ -235,7 +239,7 @@ class Load_profile extends CI_Model
             {
                 if ($index < 10) // limit display to ten
                 {
-                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><font style="color:navy;"><?php echo $location; ?></font></a><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>" style="color:lightblue;"><?php echo $location; ?></a><?php
                     if ($index + 1 != $recent_locations_count && $index + 1 != 10)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php

@@ -16,6 +16,10 @@ a{
     text-decoration: none;
 }
 
+.profile_body_text a:hover{
+    color:navy;
+}
+
 .inside_top_panel  a{
     color:darkgray;
 }
