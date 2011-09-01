@@ -145,8 +145,6 @@ function suggested_search_click(user_id) {
         'user_id': user_id,
         'force_accept_button': true
     }, function (data) {
-        alert('get_profile complete');
-        
         $('.following_profile_body').html(data);
         if (data != '') {
             $('.suggested_friends').removeClass('suggested_active');
