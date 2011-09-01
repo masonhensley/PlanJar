@@ -736,6 +736,9 @@ a:hover{
     margin-right: 136px;
     margin-left:15px;
 }
+#change_location:hover{
+    color:navy;
+}
 #create_plan {
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
