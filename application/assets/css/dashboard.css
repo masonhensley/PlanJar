@@ -39,6 +39,14 @@ a{
     color:#9B3AE4;
 }
 
+#view_group_list{
+    color:#2BA3A1; 
+    font-weight:bold;
+}
+#view_group_list:hover{
+    color:navy;
+}
+
 .recent_locations_links a:hover, .joined_groups_links a:hover,
 .groups_following_links a:hover, .most_visited_links a:hover{
     color:navy;
@@ -502,7 +510,7 @@ a{
     font-size:13px;
 }
 
-.following_profile_body  .remove_following, .right .remove_following{
+.following_profile_body  .remove_following{
     background: -webkit-linear-gradient(top, #FF7373, red);
     background: -moz-linear-gradient(top, #FF7373, red);
     background: -o-linear-gradient(top, #FF7373, red);
@@ -519,6 +527,9 @@ a{
     top:8px;
     right:9px;
     font-size:13px;
+}
+#notifications_content .remove_following{
+    display:none;
 }
 
 #friends_content .remove_following{
