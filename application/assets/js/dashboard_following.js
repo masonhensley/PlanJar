@@ -216,7 +216,6 @@ function populate_following_list(callback) {
                     
                     // Unfollow click handler
                     $('.following_profile_body .remove_following').confirmDiv(function (clicked_elem) {
-                        alert('ho');
                         $.get('/dashboard/remove_following', {
                             following_id: $('.selected_follower').attr('user_id')
                         }, function (data) {
