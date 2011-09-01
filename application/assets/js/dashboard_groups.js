@@ -86,7 +86,7 @@ function initialize_group_search() {
 }
 
 // Handles clicking found groups
-function group_select_click_handler()
+function group_select_click_handler(group_id)
 {
     $('#find_groups_list .group_entry').click(function() {
         // Unselect other groups and select selected (if it isn't already)
