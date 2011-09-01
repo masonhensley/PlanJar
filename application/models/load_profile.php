@@ -257,16 +257,18 @@ class Load_profile extends CI_Model
         {
             ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
         }
+        // most visited
         ?><br/><br/><font style="font-size:18px;">Most visited</font><br/><?php
         $most_visited_count = count($most_visited_locations);
         if ($most_visited_count > 0)
         {
             $index = 0;
+            ?><div class="most_visited_links"><?php
             foreach ($most_visited_locations as $location => $count)
             {
                 if ($index < 10 && $index < $most_visited_count)// limit display to ten
                 {
-                    ?><font style="color:#5C98CC;"><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><?php echo $location . " ($count)"; ?></a></font><?php
+                    ?><a href="/home/show_location/<?php echo $location_ids[$location] ?>"><?php echo $location . " ($count)"; ?></a><?php
                     if ($index + 1 != 10 && $index + 1 != $most_visited_count)
                     {
                         ?><font style="color:black;"><?php echo ", "; ?></font><?php
@@ -274,6 +276,7 @@ class Load_profile extends CI_Model
                     $index++;
                 }
             }
+            ?></div><?php
         } else
         {
             ?><font style="font-style:italic;color:gray;">Nothing to show</font><?php
