@@ -29,6 +29,11 @@ class Load_profile extends CI_Model
             ?>
             <div class="add_following">follow</div>
             <?php
+        } else if (in_array($user->id, $users_following))
+        {
+            ?>
+            <div class="remove_following">unfollow</div>
+            <?php
         }
         ?>
         <div class="profile_top_bar">
