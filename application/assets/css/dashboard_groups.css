@@ -194,6 +194,15 @@
     right:-3px;
 }
 
+.invite_people:hover{
+    background: -webkit-linear-gradient(top, #AF64DE, #F9A1E4);
+    background: -moz-linear-gradient(top, #AF64DE, #F9A1E4);
+    background: -o-linear-gradient(top, #AF64DE, #F9A1E4);
+    background: -ms-linear-gradient(top, #AF64DE, #F9A1E4);
+    background: linear-gradient(top, #AF64DE, #F9A1E4);
+    
+}
+
 .middle .add_joined {
     background: -webkit-linear-gradient(top, #DF58E8, purple);
     background: -moz-linear-gradient(top, #DF58E8, purple);
