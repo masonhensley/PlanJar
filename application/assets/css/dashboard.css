@@ -493,7 +493,7 @@ a{
     font-size:13px;
 }
 
-#friends_content  .remove_following, #following_content  .remove_following{
+.following_profile_body  .remove_following{
     background: -webkit-linear-gradient(top, #FF7373, red);
     background: -moz-linear-gradient(top, #FF7373, red);
     background: -o-linear-gradient(top, #FF7373, red);
@@ -510,4 +510,8 @@ a{
     top:8px;
     right:120px;
     font-size:13px;
+}
+
+#friends_content .remove_following{
+    display:none;
 }
