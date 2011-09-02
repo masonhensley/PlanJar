@@ -51,12 +51,12 @@
 
                         <h4> Home View 1<span class="arrow"></span> </h4>
                         <div id = "img">
-                         <img src="/application/assets/images/tour/tour1.png" alt="tour 1"/>
+                            <img src="/application/assets/images/tour/tour1.png" alt="tour 1"/>
                         </div> 
-                         
+
                         <h4> Home View 2 <span class="arrow"></span> </h4> 
                         <div id = "img">
-                         <img src="/application/assets/images/tour/tour2.png" alt="tour 2"/>
+                            <img src="/application/assets/images/tour/tour2.png" alt="tour 2"/>
                         </div>
 
                     </div>
@@ -69,27 +69,6 @@
                     <!--<a href="http://blog.planjar.com/" id="profile_link">Blog</a>-->
                 </div>
             </div>
-
-
-            <script type="text/javascript">
-                var _sf_async_config={uid:27655,domain:"testing.pagodabox.com"};
-                (function(){
-                    function loadChartbeat() {
-                        window._sf_endpt=(new Date()).getTime();
-                        var e = document.createElement('script');
-                        e.setAttribute('language', 'javascript');
-                        e.setAttribute('type', 'text/javascript');
-                        e.setAttribute('src',
-                        (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
-                            "js/chartbeat.js");
-                        document.body.appendChild(e);
-                    }
-                    var oldonload = window.onload;
-                    window.onload = (typeof window.onload != 'function') ?
-                        loadChartbeat : function() { oldonload(); loadChartbeat(); };
-                })();
-
-            </script>
 
     </body>  
 </html>
