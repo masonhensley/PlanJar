@@ -1,6 +1,7 @@
 #notifications_list {
-    width: 425px;
-    height: auto;
+    width: 423px;
+    max-height: 500px;
+    overflow:auto;
     margin-top:35px;
     float: left;
     border-top:1px solid #CCC;
@@ -13,7 +14,7 @@
 }
 
 .notification_entry {
-    width: 100%;
+    width: 99%;
     height: 70px;
     border-bottom: 1px solid lightgray;
     border-left: 1px solid lightgray;
