@@ -129,7 +129,9 @@ class Load_friend_plans extends CI_Model
                         if ($date_organizer != $date)
                         {
                             ?>
+                        <div class="plan_date_container">
                             <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
+                        </div>
                             <?php
                         }
                         $date_organizer = $date;
@@ -194,12 +196,14 @@ class Load_friend_plans extends CI_Model
                         $date = date('l (M jS)', strtotime($plan->date));
                     }
                     ?>
-                    <div class="active_plans"> 
+                    <div class="active_plans">
                         <?php
                         if ($date_organizer != $date)
                         {
                             ?>
+                        <div class="plan_date_container">
                             <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
+                        </div>
                             <?php
                         }
                         $date_organizer = $date;
