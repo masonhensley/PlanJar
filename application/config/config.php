@@ -24,9 +24,6 @@ if ($_SERVER['environment'] == 'live')
 } else if ($_SERVER['environment'] == 'production')
 {
     $config['base_url'] = 'http://pj-production.planjar.com/';
-} else
-{
-    $config['base_url'] = 'http://planjar.com/';
 }
 
 /*
