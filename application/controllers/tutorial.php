@@ -4,7 +4,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Tour extends CI_Controller
+class Tutorial extends CI_Controller
 {
 
     public function index()
