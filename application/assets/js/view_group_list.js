@@ -30,7 +30,7 @@ function populate_group_member_panel(group_id){
             $.get('/dashboard/add_user_following', {
                 following_id: clicked_elem.parent().attr('user_id')
             }, function () {
-                populate_group_member_panel();
+                populate_group_member_panel(group_id);
             });
         });
         
