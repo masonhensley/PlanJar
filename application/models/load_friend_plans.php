@@ -130,7 +130,7 @@ class Load_friend_plans extends CI_Model
                         {
                             ?>
                         <div class="plan_date_container">
-                            <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
+                            <font style="font-size:11px; color:gray;"><?php echo $date; ?><br/></font>
                         </div>
                             <?php
                         }
@@ -202,7 +202,7 @@ class Load_friend_plans extends CI_Model
                         {
                             ?>
                         <div class="plan_date_container">
-                            <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
+                            <font style="font-size:11px;  color:gray;"><?php echo $date; ?><br/></font>
                         </div>
                             <?php
                         }
