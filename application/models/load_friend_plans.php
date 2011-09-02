@@ -121,7 +121,7 @@ class Load_friend_plans extends CI_Model
                         $date = "Today";
                     } else
                     {
-                        $date = date('l (jS)', strtotime($plan->date));
+                        $date = date('l (M jS)', strtotime($plan->date));
                     }
                     ?>
                     <div class="active_plans"> 
@@ -184,14 +184,14 @@ class Load_friend_plans extends CI_Model
                     $place_name = $plan->name;
                     $title = $plan->title;
                     $time = $plan->time;
-                    $todays_date = date('N');
+                    $todays_date = date('F j Y');
 
-                    if (date('N', strtotime($plan->date)) == $todays_date)
+                    if (date('F j Y', strtotime($plan->date)) == $todays_date)
                     {
                         $date = "Today";
                     } else
                     {
-                        $date = date('l (jS)', strtotime($plan->date));
+                        $date = date('l (M jS)', strtotime($plan->date));
                     }
                     ?>
                     <div class="active_plans"> 
