@@ -66,6 +66,7 @@ class Load_friend_plans extends CI_Model
                   JOIN plans ON plans.event_id=events.id
                   LEFT JOIN event_invites ON event_invites.event_id=events.id
                   WHERE places.id=$place_id AND (events.privacy='open' OR event_invites.user_id=$user->user_id)
+                  ORDER BY events.date ASC
                   ";
         $result = $this->db->query($query);
         $plans_html = $this->_populate_location_plans($result);
@@ -129,7 +130,9 @@ class Load_friend_plans extends CI_Model
                         if ($date_organizer != $date)
                         {
                             ?>
-                            <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
+                        <div class="plan_date_container">
+                            <font style="font-size:11px; color:gray;"><?php echo $date; ?><br/></font>
+                        </div>
                             <?php
                         }
                         $date_organizer = $date;
@@ -194,12 +197,14 @@ class Load_friend_plans extends CI_Model
                         $date = date('l (M jS)', strtotime($plan->date));
                     }
                     ?>
-                    <div class="active_plans"> 
+                    <div class="active_plans">
                         <?php
                         if ($date_organizer != $date)
                         {
                             ?>
-                            <font style="font-size:11px; margin-left: -114px; color:gray;"><?php echo $date; ?><br/></font>
+                        <div class="plan_date_container">
+                            <font style="font-size:11px;  color:gray;"><?php echo $date; ?><br/></font>
+                        </div>
                             <?php
                         }
                         $date_organizer = $date;

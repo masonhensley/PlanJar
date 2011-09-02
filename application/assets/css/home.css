@@ -649,6 +649,11 @@ a:hover{
     padding-bottom: 5px;
     margin-bottom: 7px;
 }
+.plan_date_container{
+    width:90%;
+    padding-left: 8px;
+    text-align:left;
+}
 
 .plan_content:hover, .friend_plan_content:hover, .location_plan_content:hover {
     background:#D2EFFF;
