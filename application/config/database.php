@@ -44,15 +44,10 @@ if (!defined('BASEPATH'))
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost:/tmp/mysql/caroline.sock';
-$db['default']['username'] = 'garnet';
-$db['default']['password'] = 'Jc1GI8gm';
-$db['default']['database'] = 'caroline';
-
-//$db['default']['hostname'] = '10.194.111.8';
-//$db['default']['username'] = 'user_ca82863a';
-//$db['default']['password'] = '8__j0EAqXC^bZ7';
-//$db['default']['database'] = 'db_ca82863a';
+$db['default']['hostname'] = $_SERVER['database_host'];
+$db['default']['username'] = $_SERVER['database_user'];
+$db['default']['password'] = $_SERVER['database_pass'];
+$db['default']['database'] = $_SERVER['database_name'];
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
