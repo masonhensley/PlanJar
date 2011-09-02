@@ -49,7 +49,7 @@
             <div id="rightside">
                 <div id="right_inner">
 <!--                    <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>-->
-                    <h3>SIgnup will open when PlanJar is released.<span class="arrow"></span></h3>
+                    <h3>Signup will open when PlanJar is released.<span class="arrow"></span></h3>
                     <font color="purple" >
                         <div id="su_error" class="error_message" style="text-align:center; color:red;">
                             <!-- Errors will be displayed here -->
