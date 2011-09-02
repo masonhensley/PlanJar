@@ -127,6 +127,10 @@
     float:right;
     padding-right:1px;
     padding-top:18px;
+    color:navy;
+}
+.submit_comment:hover{
+    color:lightblue;
 }
 .comment_box{
     display:none;
