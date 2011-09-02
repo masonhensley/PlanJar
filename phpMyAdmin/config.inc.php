@@ -1,4 +1,5 @@
 <?php
+
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * phpMyAdmin sample configuration, you can use it as base for
@@ -9,7 +10,6 @@
  *
  * @package phpMyAdmin
  */
-
 /*
  * This is needed for cookie based authentication to encrypt password in
  * cookie
@@ -32,7 +32,8 @@ $cfg['Servers'][$i]['host'] = 'localhost';
 
 //$cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['connect_type'] = 'socket';
-$cfg['Servers'][$i]['socket'] = '/tmp/mysql/' . $_SERVER['database_name'] . '.sock';
+//$cfg['Servers'][$i]['socket'] = '/tmp/mysql/' . $_SERVER['database_name'] . '.sock';
+$cfg['Servers'][$i]['socket'] = '/tmp/mysql/jacquelyne.sock';
 
 $cfg['Servers'][$i]['compress'] = false;
 /* Select mysqli if your server has it */
