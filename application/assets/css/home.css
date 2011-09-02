@@ -405,6 +405,12 @@ a:hover{
 }
 
 .bottom_right_section {
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+    
     float: right;
     width: 49%;
     height: 54px;
@@ -413,7 +419,6 @@ a:hover{
     border-bottom: 1px solid darkgray;
     border-top:1px solid darkgray;
     margin-top:7px;
-    background-color: white;
     text-align: center;
 }
 
