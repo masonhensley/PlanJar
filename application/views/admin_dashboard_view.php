@@ -6,7 +6,7 @@
         <link rel=stylesheet href="/application/assets/css/admin_dashboard.css" type="text/css" />
 
         <!-- jQuery -->
-        <script type="text/javascript" src="/application/assets/js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery-1.6.3.min.js"></script>
 
         <!-- Encapsulated js files -->
         <script type="text/javascript" src="/application/assets/js/admin_dashboard.js"></script>

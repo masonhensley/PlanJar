@@ -2,7 +2,7 @@
     <head>
         <title>PlanJar | Forgot Password</title>
 
-        <script type="text/javascript" src="/application/assets/js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery-1.6.3.min.js"></script>
         <script type="text/javascript">
             $(function() {
                 $('form').submit(function() {
