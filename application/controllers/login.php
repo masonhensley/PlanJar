@@ -36,6 +36,9 @@ class Login extends CI_Controller
         $birthday = new DateTime();
         $birthday->setDate($this->input->get('su_year'), $this->input->get('su_month'), $this->input->get('su_day'));
 
+        $this->load->model('sign_up_ops');
+        $school_id = $this->sign_up_ops->get_school_from_email($email);
+
         // Populate the user data array
         $additional_data = array(
             'school_id' => $school_id,
@@ -52,9 +55,6 @@ class Login extends CI_Controller
         {
 
             // Join the user to his school's group
-            $this->load->model('sign_up_ops');
-            $school_id = $this->sign_up_ops->get_school_from_email($email);
-
             $user_id = $this->ion_auth->get_user_by_email($email)->id;
             $this->load->model('group_ops');
             $this->group_ops->follow_group($school_id, $user_id);
