@@ -55,8 +55,8 @@ class Login extends CI_Controller
         {
             // Join the user to his school's group
             $this->load->model('group_ops');
-            $this->group_ops->follow_group($group_id);
-            $this->group_ops->join_group($group_id);
+            $this->group_ops->follow_group($school_id);
+            $this->group_ops->join_group($school_id);
 
             // Redirect to the post sign up page
             echo "/login/post_sign_up";
