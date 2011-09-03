@@ -15,8 +15,15 @@
                     <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:45px; height:80%; position:relative; top:5px;"/>
                 </a>
                 <div class="top_links">
+                    <?php
+                    if($this->ion_auth->logged_in())
+                    {
+                        ?>
                     <a href="/home" id="profile_link" style="position:absolute; top:11px; left:225px;">Home</a>
                     <a href='/auth/logout' id="profile_link" style="position:absolute; top: 11px; left: 293px;">Log Out</a>
+                    <?php
+                    }
+                    ?>
                 </div>  
                 <div id="container">  
                     <h2> About Our Team <span class="arrow"></span> </h2> 
