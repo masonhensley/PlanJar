@@ -6,7 +6,7 @@
                 <form id="image_upload" enctype="multipart/form-data">
                     <input name="image" id="image" type="file"/>
                     <br/>
-                    <input id="upload_submit" type="submit" value="Upload" style="display: none;"/>
+                    <inputtype="submit" value="Upload"/>
                 </form>
                 <div id="image_upload_alt" style="display: none;">Crop your image to the right...</div>
             </td>
