@@ -6,6 +6,7 @@
         <input type="button" id="cancel_group_creation" style="float:right; position:relative; bottom:2px;" value="X"/>
     </div>
 
+    <form id="leave_here_to_show_real_form"></form>
     <form id="create_group_form">
         <div class="in-field_block input_style">
             <label for="group_name">Group name</label>
