@@ -311,7 +311,7 @@ class Notification_ops extends CI_Model
             // Follow notification
             case 'follow_notif':
                 $this->load->model('follow_ops');
-                $this->follow_ops->add_user_following($row->subject_id);
+                $this->follow_ops->add_user_following($row->subject_id, true);
                 $this->update_notification_viewed($id, true);
                 $this->update_notification_accepted($id, true);
 
