@@ -41,6 +41,7 @@ function initialize_create_group_modal()
         if ($('#group_name').val() != '') {
             var privacy = $('#group_privacy_wrapper .divset_selected').attr('priv_type');
             console.log($('#create_group_form'));
+            console.log($('#create_group_form input'));
             console.log($('#create_group_form').serialzie());
             $.get('/dashboard/create_group?' + $('#create_group_form').serialize(), {
                 'privacy': privacy
