@@ -107,6 +107,7 @@ function initialize_settings() {
         
         // Submit the email notifications form whenever an element is changed
         console.log($('#email_notifications'));
+        console.log($('#email_notifications').serialize());
         console.log($('#email_notifications input'));
         $('#email_notifications input').change(function() {
             console.log('changed');
