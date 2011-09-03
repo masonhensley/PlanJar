@@ -226,10 +226,10 @@ class Group_ops extends CI_Model
     }
 
 // Joins the user to the specified group (the user can optionally be specified)
-    public function join_group($group_id, $user_id = 'foobar')
+    public function join_group($group_id, $user_id = false)
     {
         // Make $user_id useful
-        if ($user_id == 'foobar')
+        if ($user_id === false)
         {
             $user_id = $this->ion_auth->get_user()->id;
         }
@@ -245,10 +245,10 @@ class Group_ops extends CI_Model
     }
 
 // Follows the user to the specified group (the user can optionally be specified)
-    function follow_group($group_id, $user_id = 'foobar')
+    function follow_group($group_id, $user_id = false)
     {
         // Make $user_id useful
-        if ($user_id == 'foobar')
+        if ($user_id === false)
         {
             $user_id = $this->ion_auth->get_user()->id;
         }

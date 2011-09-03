@@ -70,14 +70,14 @@ class Auth extends CI_Controller
 
         if ($activation)
         {
-            // Get the school's group id
+            // Get the school's info
             $user = $this->ion_auth->get_user($id);
             $query_string = "SELECT group_id, latitude, longitude, city FROM school_data WHERE id = ?";
             $query = $this->db->query($query_string, array($user->school_id));
             $row = $query->row();
-            $group_id = $row->group_id;
 
             // Join the user to his school's group
+            $group_id = $row->group_id;
             $this->load->model('group_ops');
             $this->group_ops->follow_group($group_id, $id);
             $this->group_ops->join_group($group_id, $id);
@@ -93,9 +93,7 @@ class Auth extends CI_Controller
             redirect("/login", 'refresh');
         } else
         {
-            //redirect them to the forgot password page
-            $this->session->set_flashdata('message', $this->ion_auth->errors());
-            redirect("auth/forgot_password", 'refresh');
+            show_404();
         }
     }
 
