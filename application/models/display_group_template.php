@@ -546,6 +546,7 @@ class Display_group_template extends CI_Model
                 <?php
             } else if ($format_type == 'school')
             {
+                // get the school id and generate the correct link to group
                 $query = "SELECT id FROM groups WHERE school_id=";
                 $query.= $this->ion_auth->get_user()->school_id;
                 $query .= " AND school_group=1";
