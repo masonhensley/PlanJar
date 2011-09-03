@@ -6,6 +6,7 @@ $(function() {
 function initialize_change_location_panel() {
     // Assign the click event(s).
     $('#change_location').click(function () {
+        show_invite_link();
         if ($('.change_location_panel').css('display') == 'none') {
             // Switch to the map tab.
             show_data_container('#map_content', show_change_location_panel);
