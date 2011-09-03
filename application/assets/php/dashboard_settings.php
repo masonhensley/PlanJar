@@ -58,7 +58,7 @@
                 <form id="email_notifications">
                     <label><input type="checkbox" name="event_invite" id="event_invite"/>I'm invited to an event</label>
                     <label><input type="checkbox" name="follow_notif" id="follow_notif"/>Somebody follows me</label>
-                    <label><input type="checkbox" name="group_invite" id="email_notif"/>I'm invited to a group</label>
+                    <label><input type="checkbox" name="group_invite" id="group_invite"/>I'm invited to a group</label>
                 </form>
             </td>
         </tr>
