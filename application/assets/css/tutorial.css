@@ -6,9 +6,6 @@ body{
     font-size: 15px;
 }
 
-
-
-
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     background: -webkit-linear-gradient(top, #333, #666);
@@ -158,6 +155,7 @@ h4 {
     text-align:center;
     position:relative;      
     padding-top:12px;
+    margin:auto;
 }
 
 #img{
