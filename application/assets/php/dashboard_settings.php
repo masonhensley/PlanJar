@@ -9,10 +9,10 @@
                     <input id="upload_submit" type="submit" value="Upload" style="display: none;"/>
                 </form>
                 <div id="image_upload_alt" style="display: none;">Crop your image to the right...</div>
-                <br/><hr/>
+                <hr/>
             </td>
         </tr>
-        
+
         <form id="change_password">
             <tr>
                 <td>Change your password</td>
@@ -32,7 +32,7 @@
                         <label for="new_password">New password</label>
                         <input type="password" id="new_password" name="new_password"/>
                     </div>
-                    <br/><hr/>
+                    <hr/>
                 </td>
             </tr>
 
