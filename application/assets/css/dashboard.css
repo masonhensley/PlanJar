@@ -535,3 +535,20 @@ a{
 #friends_content .remove_following{
     display:none;
 }
+
+.bottom_links {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    background-color: black;
+    opacity: .4;
+    text-align: center;
+    position: relative;
+    padding-top:13px;
+}
+
+#bottom_link{
+    margin-left:15px;
+    margin-right:15px;
+}
