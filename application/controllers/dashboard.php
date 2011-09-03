@@ -478,12 +478,12 @@ class Dashboard extends CI_Controller
 
         // Load the lib and filepath
         $this->load->library('image_lib');
-        $filepath = '/var/www/uploads/' . $user->id . '.jpg';
+        $temp_file = '/var/www/uploads/' . $user->id . '.jpg';
 
         // Create the config info for the manipulation class
         $config = array(
             'image_library' => 'gd2',
-            'source_image' => $filepath,
+            'source_image' => $temp_file,
             'width' => $x2 - $x1,
             'height' => $y2 - $y1,
             'x_axis' => $x1,
@@ -498,7 +498,7 @@ class Dashboard extends CI_Controller
             // Successful crop. Setup the config
             $config = array(
                 'image_library' => 'gd2',
-                'source_image' => $filepath,
+                'source_image' => $temp_file,
                 'width' => 80,
                 'height' => 80
             );
@@ -521,12 +521,18 @@ class Dashboard extends CI_Controller
             return;
         }
 
+        // Delete the existing image
+        if ($user->image_name != '')
+        {
+            unlink('/var/www/user_images/' . $user->image_name . '.jpg');
+        }
+
         // Copy the image to the user images folder, update the user, and delete the first file
-        $file_name = $user->id . dechex(rand(1000, 99999999));
-        $destination = "/application/assets/images/user_images/$file_name.jpg";
-        copy($filepath, $destination);
+        $file_name = $user->id . dechex(rand(1000, 9999999999));
+        $destination = "/var/www/user_images/$file_name.jpg";
+        copy($temp_file, $destination);
         $this->ion_auth->update_user($user->id, array('image_name' => $file_name));
-        unlink($file_name);
+        unlink($temp_file);
 
         echo(json_encode(array('status' => 'success')));
     }
