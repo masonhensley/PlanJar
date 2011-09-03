@@ -1,11 +1,10 @@
 /* ---------- body ----------- */
 body{
     margin: 0px;
-    background: #F6f6F6
+    background: #F6f6F6;
+    font-family: helvetica;
+    font-size: 15px;
 }
-
-
-
 
 /* ---------- TOP PANEL ----------- */
 .top_panel{
@@ -14,15 +13,15 @@ body{
     background: -o-linear-gradient(top, #333, #666);
     background: -ms-linear-gradient(top, #333, #666);
     background: linear-gradient(top, #333, #666);
-    
+
     /*--CSS3 Box Shadows--*/
     -webkit-box-shadow: 0px 0px 9px #000;
     -moz-box-shadow: 0px 0px 9px #000;
     box-shadow: 0px 0px 9px #000;
-    
+
     height: 40px;
     width:100%;
-    
+
 }
 
 .inside_top_panel{
@@ -141,6 +140,9 @@ h2 {
     margin-right:15px;
 }
 a{
-    color:white;
+    color:gray;
     text-decoration: none;
+}
+#bottom_link:hover, a:hover{
+    color:white;
 }
