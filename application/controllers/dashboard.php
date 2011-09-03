@@ -382,12 +382,14 @@ class Dashboard extends CI_Controller
         $event_invite = (int) $this->input->get('event_invite');
         $follow_notif = (int) $this->input->get('follow_notif');
         $group_invite = (int) $this->input->get('group_invite');
+        
+        var_dump($this->input->get('event_invite'));
+        var_dump($event_invite);
 
         $query_string = "UPDATE user_meta
             SET event_invite = ?, follow_notif = ?, group_invite = ?
             WHERE user_id = ?";
         $query = $this->db->query($query_string, array($event_invite, $follow_notif, $group_invite, $this->ion_auth->get_user()->id));
-        echo($this->db->last_query());
     }
 
     public function get_email_prefs()
