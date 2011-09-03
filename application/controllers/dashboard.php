@@ -440,7 +440,7 @@ class Dashboard extends CI_Controller
         {
             // Save the file
             $user_id = $this->ion_auth->get_user()->id;
-            $file_path = "/var/www/shared/uploads/$user_id.jpg";
+            $file_path = "/var/www/uploads/$user_id.jpg";
             move_uploaded_file($image['tmp_name'], $file_path);
 
             // Get the dimensions
