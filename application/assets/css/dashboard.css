@@ -382,6 +382,8 @@ a{
     margin-left:auto;
     margin-right:auto;
     height:auto;
+    max-height: 760px;
+    overflow:auto;
     width: 48%;
     padding:10px;
 }
