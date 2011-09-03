@@ -1,7 +1,7 @@
 <div class="settings_wrapper">
     <table>
         <tr>
-            <td>Upload a picture</td>
+            <td><font style="color:gray">Upload a picture</font></td>
             <td>
                 <form id="image_upload" enctype="multipart/form-data">
                     <input name="image" id="image" type="file"/>
@@ -14,7 +14,7 @@
         </tr>
         <form id="change_password">
             <tr>
-                <td>Change your password</td>
+                <td><font style="color:gray">Change your password</font></td>
                 <td style="padding: 5px;">
                     <div class="in-field_block">
                         <label for="old_password">Old password</label>
@@ -53,7 +53,7 @@
         </form>
 
         <tr>
-            <td>Email notifications</td>
+            <td><font style="color:gray">Email notifications</font></td>
             <td>
                 <form id="email_notifications">
                     <label>
