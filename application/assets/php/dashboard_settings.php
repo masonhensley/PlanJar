@@ -9,14 +9,12 @@
                     <input type="submit" value="Upload"/>
                 </form>
                 <div id="image_upload_alt" style="display: none;">Crop your image to the right...</div>
-                <hr/>
+                <div style="position:absolute; top: 100px; height:1px; width:200px;"></div>
             </td>
         </tr>
-
         <form id="change_password">
             <tr>
                 <td>Change your password</td>
-
                 <td style="padding: 5px;">
                     <div class="in-field_block">
                         <label for="old_password">Old password</label>
@@ -24,7 +22,6 @@
                     </div>
                 </td>
             </tr>
-
             <tr>
                 <td></td>
                 <td style="padding: 5px;">
@@ -32,10 +29,10 @@
                         <label for="new_password">New password</label>
                         <input type="password" id="new_password" name="new_password"/>
                     </div>
-                    <hr/>
+                    <div style="position:absolute; top:200px;height:1px; width:200px;"></div>
                 </td>
             </tr>
-
+            
             <tr style="display: none;">
                 <td></td>
                 <td style="padding: 5px;">
