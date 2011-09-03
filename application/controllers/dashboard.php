@@ -521,13 +521,12 @@ class Dashboard extends CI_Controller
             return;
         }
 
-        // Create an image string
-        $handle = fopen($filepath, "rb");
-        $image = fread($handle, filesize($filepath));
-
-        // Update the user and unlink the file
-        $this->ion_auth->update_user($user->id, array('prof_picture' => $image));
-        unlink($filepath);
+        // Copy the image to the user images folder, update the user, and delete the first file
+        $file_name = $user->id . dechex(rand(1000, 99999999));
+        $destination = "/application/assets/images/user_images/$file_name.jpg";
+        copy($filepath, $destination);
+        $this->ion_auth->update_user($user->id, array('image_name' => $file_name));
+        unlink($file_name);
 
         echo(json_encode(array('status' => 'success')));
     }

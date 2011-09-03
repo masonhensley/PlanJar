@@ -292,7 +292,15 @@ class Load_profile extends CI_Model
     // Echos an img tag representing the user's profile picture
     function insert_profile_picture($user_id, $dim)
     {
-        $src = base_url() . "application/assets/images/logos/logo_1.png";
+        $image_name = $this->get_user($user_id)->image_name;
+        if ($image_name == '')
+        {
+            $image_path = 'logos/logo_' . rand(1, 25) . '.png';
+        } else
+        {
+            $image_path = "user_images/$image_name.jpg";
+        }
+        $src = base_url() . "application/assets/images/$image_path";
         ?>
         <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
         <?php
