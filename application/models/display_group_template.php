@@ -550,8 +550,9 @@ class Display_group_template extends CI_Model
                 $query.= $this->ion_auth->get_user()->school_id;
                 $query .= " AND school_group=1";
                 $result =$this->db->query($query);
+                $result = $result->row();
                 ?>    
-                <a href="/dashboard/groups/<?php  ?>"><div id="groups_link">See School</div></a>
+                <a href="/dashboard/groups/<?php  echo $result->id; ?>"><div id="groups_link">See School</div></a>
                 <?php
             }
             ?>
