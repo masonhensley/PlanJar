@@ -23,6 +23,7 @@ function initialize_settings() {
                 return $('#image').val() != ''
             },
             success: function(data) {
+                console.log(data);
                 data = $.parseJSON(data);
                 
                 if (data.status == 'success') {
