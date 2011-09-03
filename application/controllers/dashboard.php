@@ -379,25 +379,22 @@ class Dashboard extends CI_Controller
     public function update_email_prefs()
     {
 // Rectify the params
-        $email_notif = $this->input->get('email_notif');
-        if ($email_notif == '' || $email_notif === false)
-        {
-            $email_notif = 0;
-        } else
-        {
-            $email_notif = 1;
-        }
+        $event_invite = (int) $this->input->get('event_invite');
+        $follow_notif = (int) $this->input->get('follow_notif');
+        $group_invite = (int) $this->input->get('group_invite');
 
-        $query_string = "UPDATE user_meta SET email_notif = ? WHERE user_id = ?";
-        $query = $this->db->query($query_string, array($email_notif, $this->ion_auth->get_user()->id));
+        $query_string = "UPDATE user_meta
+            SET event_invite = ?, follow_notif = ?, group_invite = ?
+            WHERE user_id = ?";
+        $query = $this->db->query($query_string, array($event_invite, $follow_notif, $group_invite, $this->ion_auth->get_user()->id));
     }
 
     public function get_email_prefs()
     {
-        $query_string = "SELECT email_notif FROM user_meta WHERE user_id = ?";
+        $query_string = "SELECT event_invite, follow_notif, group_invite FROM user_meta WHERE user_id = ?";
         $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id));
 
-        echo( json_encode($query->row()));
+        echo(json_encode($query->row()));
     }
 
     public function change_password()
