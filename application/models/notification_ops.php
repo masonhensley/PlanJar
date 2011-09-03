@@ -151,7 +151,7 @@ class Notification_ops extends CI_Model
                 // Echo "follow back" instead of "accept" if necessary
                 if ($row->type == 'follow_notif')
                 {
-                    echo('<div class="accept">Follow back</div>');
+                    echo('<div class="accept">follow</div>');
                 } else
                 {
                     echo('<div class="accept">Accept</div>');
