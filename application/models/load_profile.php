@@ -290,7 +290,7 @@ class Load_profile extends CI_Model
     }
 
     // Echos an img tag representing the user's profile picture
-    function insert_profile_picture($user_id, $dim)
+    function insert_profile_picture($user_id, $dim, $style_string = '')
     {
         $image_name = $this->ion_auth->get_user($user_id)->image_name;
         if ($image_name == '')
@@ -301,7 +301,7 @@ class Load_profile extends CI_Model
             $src = base_url() . "user_images/$image_name.jpg";
         }
         ?>
-        <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px;"/>
+        <img src="<?php echo($src); ?>" style="width:<?php echo $dim; ?>px;height:<?php echo $dim; ?>px; <?php echo($style_string); ?>"/>
         <?php
     }
 
