@@ -196,7 +196,7 @@ class Load_locations extends CI_Model
         {
             $friend_query .= "0";
         }
-        $friend_query .= ")";
+        $friend_query .= ")&";
 
         $query_result = $this->db->query($friend_query);
         $friend_ids = array();
