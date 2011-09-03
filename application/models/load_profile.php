@@ -292,7 +292,7 @@ class Load_profile extends CI_Model
     // Echos an img tag representing the user's profile picture
     function insert_profile_picture($user_id, $dim)
     {
-        $image_name = $this->get_user($user_id)->image_name;
+        $image_name = $this->ion_auth->get_user($user_id)->image_name;
         if ($image_name == '')
         {
             $image_path = 'logos/logo_' . rand(1, 25) . '.png';
