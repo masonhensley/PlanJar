@@ -198,11 +198,6 @@ class Load_locations extends CI_Model
         }
         $friend_query .= ")";
 
-        if ($result->num_rows() == 0)
-        {
-            $friend_query = substr($friend_query, 0, -3);
-        }
-
         $query_result = $this->db->query($friend_query);
         $friend_ids = array();
         foreach ($query_result->result() as $id)
