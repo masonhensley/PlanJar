@@ -449,7 +449,7 @@ class Dashboard extends CI_Controller
             // Success
             echo(json_encode(array(
                 'status' => 'success',
-                'img' => urlencode(base_url() . "uploads/$user_id$rand_hex"),
+                'img' => urlencode(base_url() . "uploads/$user_id"),
                 'width' => $width,
                 'height' => $height
             )));
