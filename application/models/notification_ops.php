@@ -353,7 +353,7 @@ class Notification_ops extends CI_Model
 
         $this_user = $this->ion_auth->get_user();
 
-        if (eval('return $user->' . $type) == '1')
+        if (eval('return $user->' . $type . ';') == '1')
         {
             // Email setup
             $this->load->library('email');
