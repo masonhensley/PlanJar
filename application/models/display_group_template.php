@@ -546,8 +546,12 @@ class Display_group_template extends CI_Model
                 <?php
             } else if ($format_type == 'school')
             {
-                ?> 
-                <a href="/dashboard/groups/<?php echo $this->ion_auth->get_user()->school_id; ?>"><div id="groups_link">See School</div></a>
+                $query = "SELECT id FROM groups WHERE school_id=";
+                $query.= $this->ion_auth->get_user()->school_id;
+                $query .= " AND school_group=1";
+                $result =$this->db->query($query);
+                ?>    
+                <a href="/dashboard/groups/<?php  ?>"><div id="groups_link">See School</div></a>
                 <?php
             }
             ?>
