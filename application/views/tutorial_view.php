@@ -6,7 +6,7 @@
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/tutorial.css" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-        <title>Tour</title>  
+        <title>Tutorial</title>  
     </head>  
     <body>
 

@@ -6,7 +6,6 @@
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/privacy.css" type="text/css" />
-        <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
 
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 
@@ -17,8 +16,8 @@
             <div class = "inside_top_panel">
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
                 <div class="top_links">
-                    <a href="/home" id="profile_link" style="position:relative;top:13px;left:30px;">Home</a>
-                    <a href="/auth/logout" id="profile_link" style="position:relative;top:13px;left:60px;">Log Out</a>
+                    <a href="/home" id="profile_link" style="position:absolute;top:13px;left:224px;">Home</a>
+                    <a href="/auth/logout" id="profile_link" style="position:absolute;top:13px;left:300px;">Log Out</a>
                 </div>  
                 <div id="container"> 
 

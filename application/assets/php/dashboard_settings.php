@@ -32,7 +32,7 @@
                     <div style="position:absolute; top:200px;height:1px; width:200px;"></div>
                 </td>
             </tr>
-            
+
             <tr style="display: none;">
                 <td></td>
                 <td style="padding: 5px;">
@@ -70,7 +70,7 @@
         <tr>
             <td colspan="2" style="text-align: center;">
                 <br/><br/>
-                Want more settings? Leave us some feedback on the left.
+                <font style="color:gray">Want more settings? Leave us some feedback on the left.</font>
             </td>
         </tr>
     </table>

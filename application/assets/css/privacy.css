@@ -33,6 +33,7 @@ body{
 }
 
 .top_links{
+    position:relative;
     width:1024px;
     height:50px;
     margin-left: auto;
