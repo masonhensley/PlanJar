@@ -106,12 +106,8 @@ function initialize_settings() {
         });
         
         // Submit the email notifications form whenever an element is changed
-        console.log($('#email_notifications'));
-        console.log($('#email_notifications').serialize());
-        console.log($('#email_notifications input'));
-        $('#email_notifications input').change(function() {
-            console.log('changed');
-            $.get('/dashboard/update_email_prefs?' + $(this).parents('form').serialize());
+        $('#event_invite, #follow_notif, #group_invite').change(function() {
+            $.get('/dashboard/update_email_prefs?' + $('#email_notifications').serialize());
         });
     });
     

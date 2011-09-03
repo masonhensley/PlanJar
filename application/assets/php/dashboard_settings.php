@@ -52,13 +52,12 @@
             </tr>
         </form>
 
-
-        <tr>
         <form id="email_notifications">
-            <td><font style="color:gray">Email me when...</font></td>
-            <td>
-                <label><input type="checkbox" name="event_invite" id="event_invite"/>I'm invited to an event</label>
-            </td>
+            <tr>
+                <td><font style="color:gray">Email me when...</font></td>
+                <td>
+                    <label><input type="checkbox" name="event_invite" id="event_invite"/>I'm invited to an event</label>
+                </td>
             </tr>
 
             <tr>
@@ -73,9 +72,8 @@
                 <td>
                     <label><input type="checkbox" name="group_invite" id="group_invite"/>I'm invited to a group</label>
                 </td>
+            </tr>
         </form>
-        </tr>
-
 
         <tr>
             <td colspan="2"></td>

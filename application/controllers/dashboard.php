@@ -382,6 +382,9 @@ class Dashboard extends CI_Controller
         $event_invite = (int) $this->input->get('event_invite');
         $follow_notif = (int) $this->input->get('follow_notif');
         $group_invite = (int) $this->input->get('group_invite');
+        
+        var_dump($this->input->get('event_invite'));
+        var_dump($event_invite);
 
         $query_string = "UPDATE user_meta
             SET event_invite = ?, follow_notif = ?, group_invite = ?
