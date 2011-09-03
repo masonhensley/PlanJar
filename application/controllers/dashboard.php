@@ -387,6 +387,7 @@ class Dashboard extends CI_Controller
             SET event_invite = ?, follow_notif = ?, group_invite = ?
             WHERE user_id = ?";
         $query = $this->db->query($query_string, array($event_invite, $follow_notif, $group_invite, $this->ion_auth->get_user()->id));
+        echo($this->db->last_query());
     }
 
     public function get_email_prefs()
