@@ -70,7 +70,7 @@ $config['columns'] = array(
     'box',
     'city_state',
     'email_notif',
-    'prof_picture');
+    'image_name');
 
 /**
  * A database column which is used to
