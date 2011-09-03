@@ -1,8 +1,13 @@
 .settings_wrapper {
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+    
     width: 500px;
     border: 1px solid #CCC;
     border-top-left-radius: 10px;
-    background-color: white;
     float: left;
 }
 
