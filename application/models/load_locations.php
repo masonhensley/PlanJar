@@ -188,7 +188,14 @@ class Load_locations extends CI_Model
         {
             $friend_query .= "user_id=$following_id->follow_id OR ";
         }
-        $friend_query = substr($friend_query, 0, -4);
+
+        if ($result->num_rows() > 0)
+        {
+            $friend_query = substr($friend_query, 0, -4);
+        } else
+        {
+            $friend_query .= "0";
+        }
         $friend_query .= ")";
 
         if ($result->num_rows() == 0)
