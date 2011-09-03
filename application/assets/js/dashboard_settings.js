@@ -11,11 +11,6 @@ function initialize_settings() {
     // In-field labels
     $('#settings_content label').inFieldLabels();
     
-    // Image file name change handler
-    $('#image').change(function() {
-        $('#upload_submit').show('fast');
-    });
-    
     // Picture uploader
     $('#image_upload').submit(function() {
         $(this).ajaxSubmit({
@@ -90,7 +85,6 @@ function initialize_settings() {
                 // Hide/show the upload form/alt text
                 $('#image_upload_alt').hide('fast', function() {
                     $('#image_upload').show('fast');
-                    $('#upload_submit').hide('fast');
                 });
             }
         });
