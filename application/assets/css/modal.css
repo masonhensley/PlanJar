@@ -58,11 +58,12 @@
     background: linear-gradient(top, #DF58E8, purple);
 
     float: right;
-    width: 68px;
+    width: 75px;
     color: white;
     padding: 3px;
     text-align:center;
 }
+
 .user_entry .following {
     float: right;
     width: 80px;
