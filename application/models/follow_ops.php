@@ -209,7 +209,6 @@ class Follow_ops extends CI_Model
 
             if ($query->num_rows() > 0)
             {
-                
                 // Accept the notification 
                 $this->load->model('notification_ops');
                 $this->notification_ops->accept_notification($query->row()->id);
