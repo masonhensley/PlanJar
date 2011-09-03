@@ -379,7 +379,7 @@ class Dashboard extends CI_Controller
     public function update_email_prefs()
     {
 // Rectify the params
-        $event_invite = (int) $this->input->get('event_invite');
+        $event_invite = $this->input->get('event_invite') ? 1 : 0;
         $follow_notif = (int) $this->input->get('follow_notif');
         $group_invite = (int) $this->input->get('group_invite');
         
