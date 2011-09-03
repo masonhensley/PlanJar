@@ -5,7 +5,8 @@
         Create Group
         <input type="button" id="cancel_group_creation" style="float:right; position:relative; bottom:2px;" value="X"/>
     </div>
-    <form id="create_group_form">
+<!--    <form id="create_group_form">-->
+    <form id="fooooooo">
         <div class="in-field_block input_style">
             <label for="group_name">Group name</label>
             <input type="text" id="group_name" name="group_name" class="textbox"/>
