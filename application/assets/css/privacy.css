@@ -143,6 +143,6 @@ a{
     color:gray;
     text-decoration: none;
 }
-#bottom_link:hover{
+#bottom_link:hover, a:hover{
     color:white;
 }
