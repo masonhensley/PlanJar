@@ -246,7 +246,7 @@ a{
     margin-top:10px;
 }
 
-.user_entry .add_following, .following_profile_body .add_following {
+#friends_content .user_entry .add_following, .following_profile_body .add_following {
     background: -webkit-linear-gradient(top, #DF58E8, purple);
     background: -moz-linear-gradient(top, #DF58E8, purple);
     background: -o-linear-gradient(top, #DF58E8, purple);
@@ -259,6 +259,7 @@ a{
     padding: 3px;
     text-align: center;
 }
+
 .user_entry .following {
     float: right;
     width: 80px;
