@@ -379,12 +379,9 @@ class Dashboard extends CI_Controller
     public function update_email_prefs()
     {
 // Rectify the params
-        $event_invite = (int) $this->input->get('event_invite');
-        $follow_notif = (int) $this->input->get('follow_notif');
-        $group_invite = (int) $this->input->get('group_invite');
-        
-        var_dump($this->input->get('event_invite'));
-        var_dump($event_invite);
+        $event_invite = $this->input->get('event_invite') ? 1 : 0;
+        $follow_notif = $this->input->get('follow_notif') ? 1 : 0;
+        $group_invite = $this->input->get('group_invite') ? 1 : 0;
 
         $query_string = "UPDATE user_meta
             SET event_invite = ?, follow_notif = ?, group_invite = ?

@@ -12,6 +12,9 @@
                 <div style="position:absolute; top: 100px; height:1px; width:200px;"></div>
             </td>
         </tr>
+        
+        <tr><td></td></tr>
+        
         <form id="change_password">
             <tr>
                 <td><font style="color:gray">Change your password</font></td>
@@ -52,6 +55,8 @@
             </tr>
         </form>
 
+        <tr><td></td></tr>
+        
         <form id="email_notifications">
             <tr>
                 <td><font style="color:gray">Email me when...</font></td>
