@@ -125,7 +125,7 @@ a{
     position:relative;
     top:10px;
     width:1024px;
-    height:1000px;
+    height:900px;
     margin-left:auto;
     margin-right:auto;
     background-color:#F3F3F3;
@@ -549,6 +549,10 @@ a{
 }
 
 #bottom_link{
+    color:gray;
     margin-left:15px;
     margin-right:15px;
+}
+#bottom_link:hover{
+    color:white;
 }
