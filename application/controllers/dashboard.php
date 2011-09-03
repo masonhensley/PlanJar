@@ -449,21 +449,11 @@ class Dashboard extends CI_Controller
             // Success
             echo(json_encode(array(
                 'status' => 'success',
-                'img' => urlencode(base_url() . "dashboard/display_temp_image/$user_id/" . rand(1000, 99999999)),
+                'img' => urlencode(base_url() . "uploads/$user_id$rand_hex"),
                 'width' => $width,
                 'height' => $height
             )));
         }
-    }
-
-    // Displays the temporary user image
-    public function display_temp_image($user_id)
-    {
-        $file_path = "/var/www/uploads/$user_id.jpg";
-        $handle = fopen($file_path, 'r');
-
-        $this->output->set_content_type('image/jpeg');
-        fpassthru($handle);
     }
 
     // Crops the image and stores it to the profile
