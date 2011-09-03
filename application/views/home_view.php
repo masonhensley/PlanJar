@@ -218,7 +218,7 @@
         <div id="group_member_panel" class="modal" style="left:43%; top:19%;">
             <div class="title_bar">
                 <b>Group Members</b>
-                <input type="button" id="cancel_group_member_panel" style="float:right;" value="X" />
+                <input type="button" id="cancel_group_member_panel" style="float:right;" value="&times;" />
             </div>
             <div id="group_member_content">
                 <div class="member_list" style="max-height: 344px; overflow: auto; width:366px;">
@@ -229,7 +229,7 @@
         <div id="plans_made_here_modal" class="modal" style="left:43%; top:19%; width:280px;text-align:center;z-index:1000;">
             <div class="title_bar">
                 <b>Plans made at this location</b>
-                <input  type="button" id="cancel_location_plan_panel"  style="float:right;" value="X"/>
+                <input  type="button" id="cancel_location_plan_panel"  style="float:right;" value="&times;"/>
             </div>
             <div id="plans_made_here_list" style="max-height:300px;overflow:auto;"></div>
         </div>

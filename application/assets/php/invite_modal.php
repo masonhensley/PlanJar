@@ -2,7 +2,7 @@
     <div class="title_bar">
         Invite people
         <div style="float: right;">
-            <input type="button" id="close_invite_modal" value="X"/>
+            <input type="button" id="close_invite_modal" value="&times;"/>
         </div>
     </div>
 
