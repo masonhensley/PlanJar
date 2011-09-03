@@ -65,7 +65,7 @@
                         pound beers to the face too.
                         <br><br> 
                         (Did somebody hold a gun to your head and force you to visit this site? No, they did not. Did you run into a pay wall on the home page demanding your Visa number? No, you did not. You think we just give
-                        all this stuff away because we�re nice guys?  We are going to have to explore every humanly decent way to keep the lights and servers running here at PlanJar. Please be patient with us... The ride should
+                        all this stuff away because we're nice guys?  We are going to have to explore every humanly decent way to keep the lights and servers running here at PlanJar. Please be patient with us... The ride should
                         be fun.)
                         <br><br> 
                         This privacy policy may change at any time. In fact, it's changed multiple times since we first started typing. Good luck figuring out how, because we're sure as hell not going to spam you every time we
