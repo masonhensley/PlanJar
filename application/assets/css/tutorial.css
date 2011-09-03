@@ -46,7 +46,7 @@ body{
     background: #f6f6f6;  
     margin: auto;  
     width: 980px;  
-    height: 4000px;  
+    height: 1690px;  
     padding-top: 20px;  
     font-family: helvetica, arial, sans-serif;
 
@@ -149,14 +149,13 @@ h4 {
 /* --------BOTTOM LINKS ---------*/
 
 .bottom_links{
-    width:962px;
+    width:980px;
     height:40px;
     background-color: black;
     opacity: .4;
     text-align:center;
     position:relative;      
     padding-top:12px;
-    margin-left:31px;
 }
 
 #img{
