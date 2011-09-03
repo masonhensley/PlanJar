@@ -200,21 +200,21 @@ class Follow_ops extends CI_Model
     // Adds the specified user to the user's following list
     function add_user_following($following_id, $skip_notif_check = false)
     {
-        if (!$skip_notif_check)
-        {
-            // See if the user has any follow notifications
-            $query_string = "SELECT id FROM notifications
-            WHERE user_id = ? AND type= ? AND subject_id = ?";
-            $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id, 'follow_notif', $following_id));
-
-            if ($query->num_rows() > 0)
-            {
-                // Accept the notification 
-                $this->load->model('notification_ops');
-                $this->notification_ops->accept_notification($query->row()->id);
-                return;
-            }
-        }
+//        if (!$skip_notif_check)
+//        {
+//            // See if the user has any follow notifications
+//            $query_string = "SELECT id FROM notifications
+//            WHERE user_id = ? AND type= ? AND subject_id = ?";
+//            $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id, 'follow_notif', $following_id));
+//
+//            if ($query->num_rows() > 0)
+//            {
+//                // Accept the notification 
+//                $this->load->model('notification_ops');
+//                $this->notification_ops->accept_notification($query->row()->id);
+//                return;
+//            }
+//        }
 
         $query_string = "INSERT IGNORE INTO friend_relationships VALUES (DEFAULT, ?, ?)";
         $query = $this->db->query($query_string, array(
