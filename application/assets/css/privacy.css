@@ -141,6 +141,9 @@ h2 {
     margin-right:15px;
 }
 a{
-    color:white;
+    color:gray;
     text-decoration: none;
+}
+#bottom_link:hover{
+    color:white;
 }
