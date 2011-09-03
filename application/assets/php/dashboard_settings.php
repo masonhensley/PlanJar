@@ -78,7 +78,7 @@
 </div>
 
 <div class="right">
-    <h2>Crop your image and click Upload when you're done.</h2>
+    <h2>Click and drag to crop your image. Click the 'upload' button when you're done.</h2>
     <img id="preview_image" src=""/>
     <form id="crop_image">
         <input type="hidden" id ="x1" name="x1"/>
