@@ -69,8 +69,10 @@ $config['columns'] = array(
     'phone',
     'box',
     'city_state',
-    'email_notif',
-    'image_name');
+    'event_invite',
+    'image_name',
+    'follow_notif',
+    'group_invite');
 
 /**
  * A database column which is used to
