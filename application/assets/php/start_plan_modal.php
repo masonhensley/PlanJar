@@ -3,7 +3,7 @@
         <!-- Dynamically loaded in js to display "Start a plan in <city>" -->
         <div class="text"></div>
 
-        <input  type="button" id="cancel_plan"  style="float:right;" value="X"/>
+        <input  type="button" id="cancel_plan"  style="float:right;" value="&times;"/>
     </div>
     <form id="plan_form" style="height: 100%;">
         <div id="plan_place_time_wrapper">

@@ -3,7 +3,7 @@
 <div id="create_group_content" class="modal">
     <div class="title_bar">
         Create Group
-        <input type="button" id="cancel_group_creation" style="float:right; position:relative; bottom:2px;" value="X"/>
+        <input type="button" id="cancel_group_creation" style="float:right; position:relative; bottom:2px;" value="&times;"/>
     </div>
 
     <!-- Weird as fuck... If you see a form below this comment with an id of
