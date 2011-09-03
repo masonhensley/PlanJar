@@ -97,17 +97,17 @@ function initialize_settings() {
         $(this).parents('tr').next().show('fast');
     });
     
-    // Submit the email notifications form whenever an element is changed
-    $('#email_notifications input').change(function() {
-        $.get('/dashboard/update_email_prefs?' + $(this).serialize());
-    });
-    
     // Populate the email checkboxes
     $.get('/dashboard/get_email_prefs', function(data) {
         data = $.parseJSON(data);
        
         $.map(data, function(item, key) {
             $('#' + key).prop('checked', parseInt(item));
+        });
+        
+        // Submit the email notifications form whenever an element is changed
+        $('#email_notifications input').change(function() {
+            $.get('/dashboard/update_email_prefs?' + $(this).parents('form').serialize());
         });
     });
     
