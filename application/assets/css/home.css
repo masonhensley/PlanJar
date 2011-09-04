@@ -1,5 +1,6 @@
 /*--------------GLOBAL ---------------- */
 body {
+    background:#F3F3F3;
     background: -webkit-linear-gradient(top, #F3F3F3, white);
     background: -moz-linear-gradient(top, #F3F3F3, white);
     background: -o-linear-gradient(top, #F3F3F3, white);
@@ -44,6 +45,7 @@ a:hover{
 
 /* ---------- TOP PANEL ----------- */
 .top_panel {
+    background:#333;
     background: -webkit-linear-gradient(top, #333, #666);
     background: -moz-linear-gradient(top, #333, #666);
     background: -o-linear-gradient(top, #333, #666);
@@ -132,6 +134,7 @@ a:hover{
 }
 
 .selectable_group{
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -154,16 +157,19 @@ a:hover{
 
 /* orange gradient - selected group*/
 .selected_group, .selected_group:hover {
-    color: white;
-    font-weight: bold;
+    background:#F8BA78;
     background: -webkit-linear-gradient(top, #F8BA78, #F5952E);
     background: -moz-linear-gradient(top, #F8BA78, #F5952E);
     background: -o-linear-gradient(top, #F8BA78, #F5952E);
     background: -ms-linear-gradient(top, #F8BA78, #F5952E);
     background: linear-gradient(top, #F8BA78, #F5952E);
+    
+    color: white;
+    font-weight: bold;
 }
 
 .network_tab {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -184,6 +190,7 @@ a:hover{
 
 /* active network tab - couldn't use the other green one because it's added in js'' */
 .network_active, .network_active:hover {
+    background:#8AE28F;
     background: -webkit-linear-gradient(top, #8AE28F, #22A228);
     background: -moz-linear-gradient(top, #8AE28F, #22A228);
     background: -o-linear-gradient(top, #8AE28F, #22A228);
@@ -214,16 +221,17 @@ a:hover{
     margin-top: 10px;
 }
 .data_tab {
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
-
+    
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    
     position: relative;
     float: left;
     margin-right: 10px;
@@ -235,6 +243,7 @@ a:hover{
     border-radius: 5px;
 }
 .tab_selected {
+    background:#73B1EA;
     background: -webkit-linear-gradient(top, #73B1EA, #02C);
     background: -moz-linear-gradient(top, #73B1EA, #02C);
     background: -o-linear-gradient(top, #73B1EA, #02C);
@@ -244,6 +253,7 @@ a:hover{
     color: white;
 }
 .change_location_panel {
+    background:#DDD;
     background: -webkit-linear-gradient(top, #DDD, #EEE);
     background: -moz-linear-gradient(top, #DDD, #EEE);
     background: -o-linear-gradient(top, #DDD, #EEE);
@@ -263,6 +273,7 @@ a:hover{
     border-right: 1px solid darkgray;
 }
 .data_container {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -320,6 +331,7 @@ a:hover{
     height: 100%;
     border-left: 1px solid darkgray;
 
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -329,6 +341,7 @@ a:hover{
 }
 
 .day:hover{
+    background:#EFEFEF;
     background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
     background: -moz-linear-gradient(top, #EFEFEF, #EFF);
     background: -o-linear-gradient(top, #EFEFEF, #EFF);
@@ -337,6 +350,7 @@ a:hover{
 }
 
 .day.day_selected {
+    background:#AAA;
     background:-webkit-linear-gradient(top, #AAA, #EFF);
     background: -moz-linear-gradient(top, #AAA, #EFF);
     background: -o-linear-gradient(top, #AAA, #EFF);
@@ -353,6 +367,7 @@ a:hover{
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
 
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -367,6 +382,7 @@ a:hover{
     width: 35px;
     height: 100%;
 
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -375,6 +391,7 @@ a:hover{
 }
 
 .left_day_arrow:hover, .right_day_arrow:hover{
+    background:#AAA;
     background:-webkit-linear-gradient(top, #AAA, #EFF);
     background: -moz-linear-gradient(top, #AAA, #EFF);
     background: -o-linear-gradient(top, #AAA, #EFF);
@@ -406,6 +423,7 @@ a:hover{
 }
 /*change*/
 .bottom_right_section {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -433,6 +451,7 @@ a:hover{
 }
 /*------- CSS FOR BOTTOM SELECTABLE LOCATIONS------------ */
 .display_message {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -457,6 +476,7 @@ a:hover{
     padding-bottom: 10px;
 }
 .location_tab:hover{
+    background:#EFEFEF;
     background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
     background: -moz-linear-gradient(top, #EFEFEF, #EFF);
     background: -o-linear-gradient(top, #EFEFEF, #EFF);
@@ -473,6 +493,7 @@ a:hover{
     padding-bottom: 10px;
 }
 .event_tab_active {
+    background:lightyellow;
     background: -webkit-linear-gradient(top, lightYellow, #F1FCD5);
     background: -moz-linear-gradient(top, lightYellow, #F1FCD5);
     background: -o-linear-gradient(top, lightYellow, #F1FCD5);
@@ -494,6 +515,7 @@ a:hover{
     border-bottom: 1px solid gray;
 }
 .selected_location_tab {
+    background:#DDD;
     background: -webkit-linear-gradient(top, #DDD, #EFF);
     background: -moz-linear-gradient(top, #DDD, #EFF);
     background: -o-linear-gradient(top, #DDD, #EFF);
@@ -544,6 +566,7 @@ a:hover{
 }
 /*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -577,6 +600,7 @@ a:hover{
     margin-left: 5px;
 }
 .friend_tab {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -618,6 +642,7 @@ a:hover{
     padding-top:4px;
 }
 .guest_list_button_selected{
+    background:#F8BA78;
     background:-webkit-linear-gradient(top, #F8BA78, #F5952E);
     background: -moz-linear-gradient(top, #F8BA78, #F5952E);
     background: -o-linear-gradient(top, #F8BA78, #F5952E);
@@ -635,6 +660,7 @@ a:hover{
     overflow-x:hidden;
 }
 .plan_content, .friend_plan_content, .location_plan_content {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, #EEE);
     background: -moz-linear-gradient(top, #F3F6FF, #EEE);
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
@@ -662,6 +688,7 @@ a:hover{
 }
 .selected_plan, .selected_friend_plan, .selected_location_plan,
 .selected_plan:hover, .selected_friend_plan:hover, .selected_location_plan:hover {
+    background:#E6F541;
     background: -webkit-linear-gradient(top, #E6F541, #F8FFAB);
     background: -moz-linear-gradient(top, #E6F541, #F8FFAB);
     background: -o-linear-gradient(top, #E6F541, #F8FFAB);
@@ -759,6 +786,7 @@ a:hover{
     color:navy;
 }
 #create_plan {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -774,6 +802,7 @@ a:hover{
     border-radius: 5px;
 }
 .make_plan {
+    background:#8AE28F;
     background:-webkit-linear-gradient(top, #8AE28F, #22A228);
     background: -moz-linear-gradient(top, #8AE28F, #22A228);
     background: -o-linear-gradient(top, #8AE28F, #22A228);
@@ -812,6 +841,7 @@ a:hover{
 }
 
 .view_map, .back_to_info {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -837,6 +867,7 @@ a:hover{
 }
 
 .already_attending{
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -859,6 +890,7 @@ a:hover{
 }
 
 #find_places {
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -875,6 +907,7 @@ a:hover{
 }
 
 .tutorial_button{
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);

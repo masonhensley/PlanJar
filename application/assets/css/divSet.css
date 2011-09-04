@@ -9,7 +9,7 @@
 }
 
 .divset.divset_selected {
-    
+    background:#EEE;
     background: -webkit-linear-gradient(top, #EEE, #AAA);
     background: -moz-linear-gradient(top, #EEE, #AAA);
     background: -o-linear-gradient(top, #EEE, #AAA);
