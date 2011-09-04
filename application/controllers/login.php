@@ -41,12 +41,12 @@ class Login extends CI_Controller
 
         // Populate the user data array
         $additional_data = array(
-            'school_id' => $school_id,
-            'sex' => $this->input->get('su_sex'),
-            'first_name' => $this->input->get('su_first_name'),
-            'last_name' => $this->input->get('su_last_name'),
-            'birthday' => $birthday->format('Y-m-d'),
-            'grad_year' => $this->input->get('su_grad_year')
+            'school_id' => trim($school_id),
+            'sex' => trim($this->input->get('su_sex')),
+            'first_name' => ($this->input->get('su_first_name')),
+            'last_name' => ($this->input->get('su_last_name')),
+            'birthday' => ($birthday->format('Y-m-d')),
+            'grad_year' => ($this->input->get('su_grad_year'))
         );
 
         if ($this->ion_auth->register($email, $password, $email, $additional_data))
