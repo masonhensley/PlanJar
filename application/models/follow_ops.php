@@ -20,7 +20,7 @@ class Follow_ops extends CI_Model
             $query_string = "SELECT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
                     FROM user_meta LEFT JOIN school_data ON user_meta.school_id = school_data.id
                     WHERE MATCH(user_meta.first_name, user_meta.last_name) AGAINST (? IN BOOLEAN MODE)
-                    AND user_meta.user_id <> ?";
+                    AND user_meta.user_id <> ? LIMIT 15";
 
             // Generate a string to exclude people the user is already following.
             $following_ids = $this->get_following_ids();
