@@ -89,7 +89,7 @@ class Load_suggested_groups extends CI_Model
         {
             if (!in_array($group_id->id, $groups_already_joined))
             {
-                $group_results[] = $group_id->group_id;
+                $group_results[] = $group_id->id;
             }
         }
 
