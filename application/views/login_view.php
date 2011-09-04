@@ -50,9 +50,9 @@
                     {
                         ?>
                     <font style="color:white;position:absolute; right:0px; top:4px;">Hey, we are sorry, but some important features on PlanJar do not work in Internet Explorer. We apologize for the inconvenience, but do yourself a favor and install 
-                    <a href="http://www.google.com/chrome">Google Chrome </a>, 
-                    <a href="http://sjc.mozilla.com/en-US/firefox/new/">Mozilla Firefox</a>, or 
-                    <a href="http://www.apple.com/safari/download/">Safari</a>, and your entire experience on the internet will be better.</font>
+                    <a href="http://www.google.com/chrome" style="color:lightblue;">Google Chrome </a>, 
+                    <a href="http://sjc.mozilla.com/en-US/firefox/new/" style="color:lightblue;">Mozilla Firefox</a>, or 
+                    <a href="http://www.apple.com/safari/download/" style="color:lightblue;">Safari</a>, and your entire experience on the internet will be better.</font>
                         <?php
                     }
                     ?>
