@@ -166,7 +166,6 @@
             <a href="/about" id="bottom_link">About Us</a>
             <a href="/privacy" id="bottom_link">Privacy</a>
         </div>
-
         <!-- Chartbeat -->
         <script type="text/javascript" src="/application/assets/js/chartbeat_body.js"></script>
     </body>
