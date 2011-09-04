@@ -190,9 +190,9 @@ a:hover{
     top:40px;
     right:40px;
 }
-.container a{
+#container a{
     color:#5C98CC;
 }
-.container a:hover{
+#container a:hover{
     color:navy;
 }
