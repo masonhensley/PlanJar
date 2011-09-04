@@ -186,13 +186,13 @@ a:hover{
 
 #blog_link{
     position:absolute;
-    font-size:20px;
+    font-size:40px;
     top:0px;
     right:0px;
 }
-#blog_link a{
+.container a{
     color:#5C98CC;
 }
-#blog_link a:hover{
+.container a:hover{
     color:navy;
 }
