@@ -244,7 +244,7 @@ class Notification_ops extends CI_Model
         if ($find_all)
         {
             // Get the notification type
-            $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
+            $query_string = "SELECT originator_id, type, subject_id FROM notifications WHERE id = ?";
             $query = $this->db->query($query_string, array($id));
             $row = $query->row();
 
@@ -252,15 +252,20 @@ class Notification_ops extends CI_Model
             if ($row->type == 'join_group_request')
             {
                 $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND originator_id = ? AND subject_id = ?";
+                $query = $this->db->query($query_string, array(
+                    $value,
+                    $row->type,
+                    $row->originator_id,
+                    $row->subject_id));
             } else
             {
                 $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ? AND subject_id = ?";
+                $query = $this->db->query($query_string, array(
+                    $value,
+                    $row->type,
+                    $this->ion_auth->get_user()->id,
+                    $row->subject_id));
             }
-            $query = $this->db->query($query_string, array(
-                $value,
-                $row->type,
-                $this->ion_auth->get_user()->id,
-                $row->subject_id));
         } else
         {
             $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
@@ -275,7 +280,7 @@ class Notification_ops extends CI_Model
         if ($find_all)
         {
             // Get the notification type
-            $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
+            $query_string = "SELECT originator_id, type, subject_id FROM notifications WHERE id = ?";
             $query = $this->db->query($query_string, array($id));
             $row = $query->row();
 
@@ -283,15 +288,20 @@ class Notification_ops extends CI_Model
             if ($row->type == 'join_group_request')
             {
                 $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND originator_id = ? AND subject_id = ?";
+                $query = $this->db->query($query_string, array(
+                    $value,
+                    $row->type,
+                    $row->originator_id,
+                    $row->subject_id));
             } else
             {
                 $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ? AND subject_id = ?";
+                $query = $this->db->query($query_string, array(
+                    $value,
+                    $row->type,
+                    $this->ion_auth->get_user()->id,
+                    $row->subject_id));
             }
-            $query = $this->db->query($query_string, array(
-                $value,
-                $row->type,
-                $this->ion_auth->get_user()->id,
-                $row->subject_id));
         } else
         {
             $query_string = "UPDATE notifications SET accepted = ? WHERE id = ?";
