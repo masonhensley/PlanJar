@@ -24,7 +24,7 @@ class Notification_ops extends CI_Model
             if ($user_id != $this->ion_auth->get_user()->id)
             {
                 $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id);
-                $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
+                $values_string .= "(DEFAULT, $user_id, DEFAULT, $originator_id, $date, '$type', $subject_id, $accepted, $accepted), ";
                 if (!$accepted)
                 {
                     // Send an email notification if the notification would show up as new (i.e. not previously accepted)
@@ -225,6 +225,15 @@ class Notification_ops extends CI_Model
                 return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->subject_id . '">' .
                         $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
                         '</b> has followed you';
+
+            case 'join_group_request':
+                $query_string = "SELECT name FROM groups WHERE id = ?";
+                $query = $this->db->query($query_string, array($notification_row->subject_id));
+                $row = $query->row();
+
+                return '<b><a href="" class="user_notif_link" user_id="' . $notification_row->user_id . '">' .
+                        $notification_row->first_name . ' ' . $notification_row->last_name . '</a>' .
+                        '</b> has requested to join <b>' . $row->name . '</b> ';
         }
     }
 
