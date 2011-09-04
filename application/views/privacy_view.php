@@ -1,17 +1,15 @@
 <!doctype html>
 <html>  
-    <head>  
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head> 
+        <title>Privacy</title>
 
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/privacy.css" type="text/css" />
-
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    </head>
 
-        <title>Privacy</title>  
-    </head>  
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">

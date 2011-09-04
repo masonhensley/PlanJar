@@ -4,7 +4,7 @@
         <title>PlanJar | Home</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="PlanJar is a location-based event planning web app currently exclusively for students with Vanderbilt email addresses.">
+        <meta name="description" content="With PlanJar, you can follow your favorite people and groups and see graphical trends of where they are going to help plan your social calendar.">
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
