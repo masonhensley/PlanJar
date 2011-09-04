@@ -159,14 +159,13 @@
                     </center>
                 </div>
             </div>
-            <div class="bottom_links">
-                <a href="/help" id="bottom_link">FAQ</a>
-                <a href="/tutorial" id="bottom_link">Tutorial</a>
-                <a href="/about" id="bottom_link">About Us</a>
-                <a href="/privacy" id="bottom_link">Privacy</a>
-            </div>
         </div>
-
+        <div class="bottom_links">
+            <a href="/help" id="bottom_link">FAQ</a>
+            <a href="/tutorial" id="bottom_link">Tutorial</a>
+            <a href="/about" id="bottom_link">About Us</a>
+            <a href="/privacy" id="bottom_link">Privacy</a>
+        </div>
         <!-- Chartbeat -->
         <script type="text/javascript" src="/application/assets/js/chartbeat_body.js"></script>
     </body>
