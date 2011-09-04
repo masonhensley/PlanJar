@@ -1,13 +1,16 @@
-<html lang="en">  
+<!doctype html>
+<html>  
     <head>  
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-
-        <!-- CSS -->
-        <link rel=stylesheet href="/application/assets/css/about.css" type="text/css" />
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
         <title>About us</title> 
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Read about PlanJar's founders.">
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="/application/assets/css/about.css" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
     </head>  
+    
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
@@ -16,12 +19,12 @@
                 </a>
                 <div class="top_links">
                     <?php
-                    if($this->ion_auth->logged_in())
+                    if ($this->ion_auth->logged_in())
                     {
                         ?>
-                    <a href="/home" id="profile_link" style="position:absolute; top:11px; left:225px;">Home</a>
-                    <a href='/auth/logout' id="profile_link" style="position:absolute; top: 11px; left: 293px;">Log Out</a>
-                    <?php
+                        <a href="/home" id="profile_link" style="position:absolute; top:11px; left:225px;">Home</a>
+                        <a href='/auth/logout' id="profile_link" style="position:absolute; top: 11px; left: 293px;">Log Out</a>
+                        <?php
                     }
                     ?>
                 </div>  
