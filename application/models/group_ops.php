@@ -261,20 +261,6 @@ class Group_ops extends CI_Model
             $user_id = $this->ion_auth->get_user()->id;
         }
 
-        // See if there are notifications out for this user and group
-        $query_string = "SELECT id FROM notifications
-            WHERE originator_id = ? AND type = ? AND subject_id = ?";
-        $query = $this->db->query($query_string, array(
-            $user_id,
-            'join_group_request',
-            $group_id
-                ));
-        
-        if ($query->num_rows > 0)
-        {
-            
-        }
-        
         $query_string = "INSERT IGNORE INTO group_relationships VALUES (DEFAULT, ?, ?, DEFAULT)";
         $query = $this->db->query($query_string, array(
             $group_id,
