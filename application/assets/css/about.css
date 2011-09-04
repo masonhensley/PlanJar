@@ -187,8 +187,8 @@ a:hover{
 #blog_link{
     position:absolute;
     font-size:40px;
-    top:0px;
-    right:0px;
+    top:40px;
+    right:40px;
 }
 .container a{
     color:#5C98CC;

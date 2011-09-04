@@ -35,7 +35,7 @@
         </div>
         <div id="container">
             <h2> About Our Team <span class="arrow"></span> </h2>
-            <a href="blog.planjar.com" id="blog_link" >Our Blog!</a>
+            <a href="http://blog.planjar.com" id="blog_link" >Our Blog!</a>
             <h4>Mason Hensley, Director of Black Ops, CEO & Co-Founder <span class="arrow_right"></span> </h4>
             <div class ="person">
                 <div class ="info">
