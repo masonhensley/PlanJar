@@ -42,6 +42,7 @@ body{
 
 /* -------------- Container-----------------------*/
 #container {  
+    position:relative;
     background: #f6f6f6;  
     margin: auto;  
     margin-top:10px;
