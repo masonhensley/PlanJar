@@ -106,7 +106,7 @@ function initialize_settings() {
         });
         
         // Submit the email notifications form whenever an element is changed
-        $('#event_invite, #follow_notif, #group_invite').change(function() {
+        $('#event_invite, #follow_notif, #group_invite, #join_group_request').change(function() {
             $.get('/dashboard/update_email_prefs?' + $('#email_notifications').serialize());
         });
     });

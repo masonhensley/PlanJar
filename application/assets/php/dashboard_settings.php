@@ -78,6 +78,13 @@
                     <label><input type="checkbox" name="group_invite" id="group_invite"/>I'm invited to a group</label>
                 </td>
             </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <label><input type="checkbox" name="join_group_request" id="join_group_request"/>People want to join groups you're in</label>
+                </td>
+            </tr>
         </form>
 
         <tr>
