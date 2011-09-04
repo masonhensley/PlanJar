@@ -236,7 +236,7 @@ class Dashboard extends CI_Controller
             'group_invite',
             $user->id,
             'group_join_request',
-            $user_id,
+            $user->id,
             $group_id));
 
         if ($query->num_rows() > 0)
