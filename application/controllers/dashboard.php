@@ -537,7 +537,7 @@ class Dashboard extends CI_Controller
     public function request_join_group()
     {
         $this->load->model('notification_ops');
-        $this->notification_ops->notify(array(1), array(), 'join_group_request', 3);
+        $this->notification_ops->notify(array(1), array(), 'join_group_request', $this->input->get('group_id'));
     }
 
 }
