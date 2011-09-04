@@ -49,7 +49,7 @@
                     } else
                     {
                         ?>
-                    <font style="color:white;" style="position:absolute; right:0px; top:0px;">Hey, we are sorry, but some important features on PlanJar do not work in Internet Explorer. We apologize for the inconvenience, but do yourself a favor and install Google Chrome or Mozilla Firefox, your entire experience on the internet will be better for it.</font>
+                    <font style="color:white;position:absolute; right:0px; top:4px;">Hey, we are sorry, but some important features on PlanJar do not work in Internet Explorer. We apologize for the inconvenience, but do yourself a favor and install Google Chrome or Mozilla Firefox, your entire experience on the internet will be better for it.</font>
                         <?php
                     }
                     ?>
