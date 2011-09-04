@@ -211,6 +211,9 @@
     top:0px;
     right:0px;  
 }
+.request_to_join:hover{
+    color:navy;
+}
 
 .middle .add_joined {
     background: -webkit-linear-gradient(top, #DF58E8, purple);
