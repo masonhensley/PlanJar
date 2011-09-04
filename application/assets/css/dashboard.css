@@ -157,7 +157,11 @@ a{
     border-radius: 5px;
 }
 
-.tab_selected {
+.tab:hover{
+    background:lightblue;
+}
+
+.tab_selected, .tab_selected:hover {
     background:#73B1EA;
     background: -webkit-linear-gradient(top, #73B1EA, #02C);
     background: -moz-linear-gradient(top, #73B1EA, #02C);
