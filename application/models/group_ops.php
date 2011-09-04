@@ -28,11 +28,20 @@ class Group_ops extends CI_Model
             $already_following = substr($already_following, 0, -5);
         }
 
-        $query_string = "SELECT id, name " .
-                "FROM groups
+        $user = $this->ion_auth->get_user();
+        $query_string = "SELECT id, name,
+                ((ACOS(SIN(? * PI() / 180) * SIN(latitude * PI() / 180) 
+                + COS(? * PI() / 180) * COS(latitude * PI() / 180) * COS((? - longitude) 
+                * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance
+                FROM groups
                 WHERE MATCH (groups.name) AGAINST (? IN BOOLEAN MODE)
+                HAVING distance <= 30
                 AND ($already_following)";
-        $query = $this->db->query($query_string, array(str_replace(' ', '* ', $needle) . '*'));
+        $query = $this->db->query($query_string, array(
+            $user->latitude,
+            $user->latitude,
+            $user->longitude,
+            str_replace(' ', '* ', $needle) . '*'));
 
         // Echo the results
         foreach ($query->result() as $row)
