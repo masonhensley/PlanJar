@@ -17,8 +17,11 @@
 
 a{
     font-family:Arial, Helvetica, sans-serif; 
-    color:white;
+    color:gray;
     text-decoration: none;
+}
+a:hover{
+    color:white;
 }
 
 .inside_top_panel{

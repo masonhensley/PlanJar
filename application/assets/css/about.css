@@ -42,6 +42,7 @@ body{
 
 /* -------------- Container-----------------------*/
 #container {  
+    position:relative;
     background: #f6f6f6;  
     margin: auto;  
     margin-top:10px;
@@ -181,4 +182,17 @@ a{
 }
 a:hover{
     color:white;
+}
+
+#blog_link{
+    position:absolute;
+    font-size:40px;
+    top:40px;
+    right:40px;
+}
+#container a{
+    color:#5C98CC;
+}
+#container a:hover{
+    color:navy;
 }
