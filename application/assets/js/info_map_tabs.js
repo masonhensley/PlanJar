@@ -139,6 +139,10 @@ function display_info(bypass, arg) {
             var back_to_plan = false;
             var back_to_search = false;
         
+            console.log(found_location);
+            console.log(viewing_plan_location);
+            console.log($('.selected_location_tab').attr('place_id'));
+        
             if (found_location !== false) {
                 place_id = found_location;
                 back_to_search = true;
@@ -148,7 +152,6 @@ function display_info(bypass, arg) {
                 place_id = viewing_plan_location;
                 back_to_plan = true;
             }
-            console.log(place_id);
         
             $.get('/home/show_location_data', {
                 'place_id': place_id,
