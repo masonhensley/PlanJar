@@ -14,10 +14,19 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
+                <a href="/home">
+                    <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:35px; position:relative; top:5px;"/>
+                </a>
                 <div class="top_links">
-                    <a href="/home" id="profile_link" style="position:relative;top:13px;left:30px;">Home</a>
-                    <a href="/auth/logout" id="profile_link" style="position:relative;top:13px;left:60px;">Log Out</a>
+                    <?php
+                    if ($this->ion_auth->logged_in())
+                    {
+                        ?>
+                        <a href="/home" id="profile_link" style="position:absolute; top:11px; left:225px;">Home</a>
+                        <a href='/auth/logout' id="profile_link" style="position:absolute; top: 11px; left: 293px;">Log Out</a>
+                        <?php
+                    }
+                    ?>
                 </div>  
                 <div id="container"> 
 
