@@ -354,8 +354,8 @@ class Dashboard extends CI_Controller
         $user = $this->ion_auth->get_user();
 
 // This just looks nicer than a long function call.
-        $name = $this->input->get('group_name');
-        $description = $this->input->get('group_description');
+        $name = trim($this->input->get('group_name'));
+        $description = trim($this->input->get('group_description'));
         $privacy = $this->input->get('privacy');
         $location_source = $this->input->get('location_source');
 

@@ -29,7 +29,7 @@ class Login extends CI_Controller
     // This function is called upon a successful submit
     public function try_sign_up()
     {
-        $email = $this->input->get('su_email_1');
+        $email = trim($this->input->get('su_email_1'));
         $password = $this->input->get('su_password');
 
         // Pre-calculate values
@@ -43,10 +43,10 @@ class Login extends CI_Controller
         $additional_data = array(
             'school_id' => trim($school_id),
             'sex' => trim($this->input->get('su_sex')),
-            'first_name' => ($this->input->get('su_first_name')),
-            'last_name' => ($this->input->get('su_last_name')),
-            'birthday' => ($birthday->format('Y-m-d')),
-            'grad_year' => ($this->input->get('su_grad_year'))
+            'first_name' => trim($this->input->get('su_first_name')),
+            'last_name' => trim($this->input->get('su_last_name')),
+            'birthday' => trim($birthday->format('Y-m-d')),
+            'grad_year' => trim($this->input->get('su_grad_year'))
         );
 
         if ($this->ion_auth->register($email, $password, $email, $additional_data))
@@ -61,7 +61,7 @@ class Login extends CI_Controller
 
     public function log_in()
     {
-        $email = $this->input->get('email');
+        $email = trim($this->input->get('email'));
         $password = $this->input->get('password');
         $remember = (bool) $this->input->get('remember');
 
@@ -79,7 +79,7 @@ class Login extends CI_Controller
     // Returns a list of schools (in JSON format) that match the needle string.
     public function search_schools()
     {
-        $needle = $this->input->get('needle');
+        $needle = trim($this->input->get('needle'));
         $search_terms = explode(' ', $needle);
 
         $like_clauses = '';
@@ -123,16 +123,11 @@ class Login extends CI_Controller
         $this->load->view('post_sign_up_view');
     }
 
-    public function foo()
-    {
-        $this->load->view('foo');
-    }
-
     // Returns true if the email is open and of the correct domain.
     // Returns errors otherwise
     public function email_check()
     {
-        $email = $this->input->get('email');
+        $email = trim($this->input->get('email'));
 
         $query_string = "SELECT * FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));

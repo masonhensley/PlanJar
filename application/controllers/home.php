@@ -150,14 +150,14 @@ class Home extends CI_Controller
             }
 
             $event_data = array(
-                'title' => $this->input->get('event_title'),
+                'title' => trim($this->input->get('event_title')),
                 'place_id' => $this->input->get('plan_location_id'),
                 'date' => $date->format('Y-m-d'),
                 'time' => $this->input->get('plan_time'),
                 'clock_time' => $clock_time,
                 'privacy' => $privacy,
                 'originator_id' => $this->ion_auth->get_user()->id,
-                'description' => $this->input->get('plan_description')
+                'description' => trim($this->input->get('plan_description'))
             );
 
             // Eliminate meaningless fields for a "just going" event
@@ -220,7 +220,7 @@ class Home extends CI_Controller
     public function submit_comment()
     {
         $plan_id = $this->input->get('plan_id');
-        $comment = $this->input->get('comment');
+        $comment = trim($this->input->get('comment'));
         $comment = mysql_real_escape_string($comment);
 
         // get the event_id
@@ -646,7 +646,7 @@ class Home extends CI_Controller
     public function check_preexisting_event()
     {
         // Capture the input
-        $needle = $this->input->get('needle');
+        $needle = trim($this->input->get('needle'));
         $plan_time = $this->input->get('plan_time');
         $plan_date = new DateTime();
         $plan_date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
