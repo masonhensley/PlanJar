@@ -532,8 +532,25 @@ class Dashboard extends CI_Controller
 
     public function request_join_group()
     {
+        $group_id = $this->input->get('group_id');
+
+        $this->load->model('group_ops');
+        $member_list = $this->group_ops->get_group_members($group_id);
+
+        // Pick 5 random users if there are more than 5
+        if (count($member_list) > 5)
+        {
+            for ($i = 0; $i < 5; ++$i)
+            {
+                $index = array_rand($member_list);
+                $new_member_list[] = $member_list[$index];
+                unset($member_list[$index]);
+            }
+            $member_list = $new_member_list;
+        }
+
         $this->load->model('notification_ops');
-        $this->notification_ops->notify(array(1, 3), array(), 'join_group_request', $this->input->get('group_id'));
+        $this->notification_ops->notify(array($member_list), array(), 'join_group_request', $group_id);
     }
 
 }
