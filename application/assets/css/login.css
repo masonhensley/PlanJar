@@ -1,6 +1,6 @@
 /* ---------- TOP PANEL ----------- */
 .top_panel{
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#333), to(#666));
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#333', endColorstr='#666')";
     background: -webkit-linear-gradient(top, #333, #666);
     background: -moz-linear-gradient(top, #333, #666);
     background: -o-linear-gradient(top, #333, #666);
