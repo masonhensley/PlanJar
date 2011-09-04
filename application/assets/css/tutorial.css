@@ -45,6 +45,7 @@ body{
 #container {  
     background: #f6f6f6;  
     margin: auto;  
+    margin-top:10px;
     width: 980px;  
     height: 1690px;  
     padding-top: 20px;  

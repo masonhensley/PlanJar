@@ -28,31 +28,32 @@
                     }
                     ?>
                 </div>  
-                <div id="container"> 
-
-                    <h2> Tutorial <span class="arrow"></span> </h2>
-
-                    <div id="main">  
-
-                        <h4> Home View 1<span class="arrow"></span> </h4>
-                        <div id = "img">
-                            <img src="/application/assets/images/tour/tour1.png" alt="tour 1"/>
-                        </div> 
-
-                        <h4> Home View 2 <span class="arrow"></span> </h4> 
-                        <div id = "img">
-                            <img src="/application/assets/images/tour/tour2.png" alt="tour 2"/>
-                        </div>
-
-                    </div>
-
-                </div> 
-                <div class="bottom_links">
-                    <a href="/help" id="bottom_link">FAQ</a>
-                    <a href="/tutorial" id="bottom_link">Tutorial</a>
-                    <a href="/about" id="bottom_link">About Us</a>
-                    <a href="/privacy" id="bottom_link">Privacy</a>
-                </div>
             </div>
+        </div>
+        <div id="container"> 
+
+            <h2> Tutorial <span class="arrow"></span> </h2>
+
+            <div id="main">  
+
+                <h4> Home View 1<span class="arrow"></span> </h4>
+                <div id = "img">
+                    <img src="/application/assets/images/tour/tour1.png" alt="tour 1"/>
+                </div> 
+
+                <h4> Home View 2 <span class="arrow"></span> </h4> 
+                <div id = "img">
+                    <img src="/application/assets/images/tour/tour2.png" alt="tour 2"/>
+                </div>
+
+            </div>
+
+        </div> 
+        <div class="bottom_links">
+            <a href="/help" id="bottom_link">FAQ</a>
+            <a href="/tutorial" id="bottom_link">Tutorial</a>
+            <a href="/about" id="bottom_link">About Us</a>
+            <a href="/privacy" id="bottom_link">Privacy</a>
+        </div>
     </body>  
 </html>
