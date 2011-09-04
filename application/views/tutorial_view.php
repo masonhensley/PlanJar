@@ -15,7 +15,7 @@
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <a href="/home">
-                    <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
+                    <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:35px; position:relative; top:5px;"/>
                 </a>
                 <div class="top_links">
                     <?php
