@@ -28,6 +28,7 @@ body{
     height:100%;
     margin-left: auto;
     margin-right: auto;
+    position:relative;
 }
 
 .top_links{
@@ -35,7 +36,6 @@ body{
     height:50px;
     margin-left: auto;
     margin-right: auto;
-    position:relative;
 }
 
 
