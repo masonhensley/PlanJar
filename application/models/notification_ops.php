@@ -486,6 +486,18 @@ class Notification_ops extends CI_Model
                     $body_string .= "<b>$first_last</b>" .
                             ' has invited you to join <b>' . $row->name . '</b>.';
                     break;
+
+                case 'join_group_request':
+                    // Get the group name
+                    $row = $this->db->query("SELECT name FROM groups WHERE id = ?", array($subject_id))->row();
+
+                    // Set the subject
+                    $this->email->subject("$first_last has requested to join " . $row->name);
+
+                    // Capture the body
+                    $body_string .= "<b>$first_last</b>" .
+                            ' has requestes to join <b>' . $row->name . '</b>. This email has been sent to multiple users. Only one of you needs to accept.';
+                    break;
             }
 
             $this->email->message($this->create_email_notification($body_string, $unsubscribe_id, $image));
