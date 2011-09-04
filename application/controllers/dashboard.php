@@ -235,11 +235,9 @@ class Dashboard extends CI_Controller
         $query = $this->db->query($query_string, array(
             'group_invite',
             $user->id,
-            'group_join_request',
+            'join_group_request',
             $user->id,
             $group_id));
-
-        var_dump($this->db->last_query());
 
         if ($query->num_rows() > 0)
         {
@@ -535,7 +533,7 @@ class Dashboard extends CI_Controller
     public function request_join_group()
     {
         $this->load->model('notification_ops');
-        $this->notification_ops->notify(array(1), array(), 'join_group_request', $this->input->get('group_id'));
+        $this->notification_ops->notify(array(1, 3), array(), 'join_group_request', $this->input->get('group_id'));
     }
 
 }
