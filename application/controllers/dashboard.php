@@ -235,7 +235,7 @@ class Dashboard extends CI_Controller
         $query = $this->db->query($query_string, array(
             'group_invite',
             $user->id,
-            'group_join_request',
+            'join_group_request',
             $user->id,
             $group_id));
 
