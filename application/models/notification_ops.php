@@ -351,6 +351,7 @@ class Notification_ops extends CI_Model
                 echo(json_encode(array('status' => 'success')));
                 break;
 
+            // Join group request
             case 'join_group_request':
                 $this->load->model('group_ops');
                 $this->group_ops->follow_group($row->subject_id, $row->originator_id);
@@ -386,6 +387,10 @@ class Notification_ops extends CI_Model
             case 'follow_notif':
                 $this->load->model('follow_ops');
                 return $this->follow_ops->is_following($user_id, $subject_id);
+
+            // Join group request
+            case 'join_group_request':
+                return false;
         }
     }
 
