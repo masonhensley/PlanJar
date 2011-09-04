@@ -1,7 +1,7 @@
 <!doctype html>
 <html>  
     <head> 
-        <title>Privacy</title>
+        <title>PlanJar | Privacy</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 

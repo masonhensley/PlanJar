@@ -1,7 +1,7 @@
 <!doctype html>
 <html>  
     <head>  
-        <title>About us</title> 
+        <title>PlanJar | About us</title> 
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="Read about PlanJar's founders.">

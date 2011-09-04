@@ -90,7 +90,7 @@
                 <a href="/home"><img src='/application/assets/images/beta3_white_text.png' style="float: left; margin-left:18px; height:84%; position:relative; top:7px;"/></a>
                 <a href="/dashboard/profile"><div id="show_name">Welcome, <?php echo " " . $firstname . " " . $lastname; ?></div></a>
                 <a href="/dashboard/profile">
-                    <?php echo($this->load_profile->insert_profile_picture($this->ion_auth->get_user()->id, 40, 'position:absolute; top:0px;left:431px;')); ?>
+                    <?php echo($this->load_profile->insert_profile_picture($this->ion_auth->get_user()->id, 40, 'position:absolute; top:0px;left:460px;')); ?>
                 </a>
                 <a href="/dashboard/profile" id="profile_link"><div class ="top_right_link_outer">Profile</div></a>
                 <a href="/dashboard/groups" id="profile_link"><div class ="top_right_link_outer">Groups</div></a>
