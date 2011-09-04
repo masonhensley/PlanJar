@@ -114,6 +114,8 @@ a:hover{
     box-shadow: 0px 0px 5px #555;
 }
 .groups_wrapper {
+    max-height: 600px;
+    overflow:auto;
 }
 
 .network_tab:hover, .selectable_group:hover, 
