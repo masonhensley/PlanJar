@@ -12,28 +12,23 @@ class Load_suggested_groups extends CI_Model
     function suggested_groups()
     {
         $users_following = $this->get_users_following();
-        if (count($users_following) > 0)
+        $groups_already_joined = $this->get_groups_joined();
+        $suggested_groups = $this->get_suggested_groups($users_following, $groups_already_joined);
+        $suggested_groups = array_count_values($suggested_groups);
+        $number_of_results = count($suggested_groups);
+        asort($suggested_groups);
+        $suggested_groups = array_reverse($suggested_groups, TRUE);
+        if ($number_of_results > 0)
         {
-            $groups_already_joined = $this->get_groups_joined();
-            $suggested_groups = $this->get_suggested_groups($users_following, $groups_already_joined);
-            $suggested_groups = array_count_values($suggested_groups);
-            $number_of_results = count($suggested_groups);
-            asort($suggested_groups);
-            $suggested_groups = array_reverse($suggested_groups, TRUE);
-            if ($number_of_results > 0)
+            $result = $this->generate_suggested_groups($suggested_groups);
+            $this->load->model('group_ops');
+            foreach ($result->result() as $row)
             {
-                $result = $this->generate_suggested_groups($suggested_groups);
-                $this->load->model('group_ops');
-                foreach ($result->result() as $row)
-                {
-                    $this->group_ops->echo_group_entry($row, 'suggested groups', $suggested_groups);
-                }
-            }else{
-                echo "<i><div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections</div></i>";
+                $this->group_ops->echo_group_entry($row, 'suggested groups', $suggested_groups);
             }
-        }else{
-            echo "<div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections
-                <br/>Expanding search to include your school</div>";
+        } else
+        {
+            echo "<i><div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections</div></i>";
         }
     }
 
@@ -52,27 +47,44 @@ class Load_suggested_groups extends CI_Model
 
     function get_suggested_groups($users_following, $groups_already_joined)
     {
+        // generate query to figure out group ids based on friends joined and following
         $user = $this->ion_auth->get_user();
-        $query = "SELECT group_id FROM group_relationships 
-            WHERE ";
-        $tracker = 0;
-        foreach ($users_following as $id)
+        if (count($users_following) > 0)
         {
-            if ($tracker == 0)
+            $query = "SELECT group_id FROM group_relationships 
+            WHERE ";
+            $tracker = 0;
+            foreach ($users_following as $id)
             {
-                $query .= "user_following_id=$id OR user_joined_id=$id ";
-            } else if ($tracker == count($users_following) - 1)
-            {
-                $query .= "OR user_following_id=$id OR user_joined_id=$id";
-            } else
-            {
-                $query .= "OR user_following_id=$id OR user_joined_id=$id ";
+                if ($tracker == 0)
+                {
+                    $query .= "user_following_id=$id OR user_joined_id=$id ";
+                } else if ($tracker == count($users_following) - 1)
+                {
+                    $query .= "OR user_following_id=$id OR user_joined_id=$id";
+                } else
+                {
+                    $query .= "OR user_following_id=$id OR user_joined_id=$id ";
+                }
+                $tracker++;
             }
-            $tracker++;
+            $result = $this->db->query($query);
+
+            $group_results = array();
+            foreach ($result->result() as $group_id)
+            {
+                if (!in_array($group_id->group_id, $groups_already_joined))
+                {
+                    $group_results[] = $group_id->group_id;
+                }
+            }
         }
 
+        // generate second query to get all the groups from your school
+        $school_id = $this->ion_auth->get_user()->school_id;
+        $query = "SELECT id FROM groups WHERE school_id=$school_id";
         $result = $this->db->query($query);
-        $group_results = array();
+
         foreach ($result->result() as $group_id)
         {
             if (!in_array($group_id->group_id, $groups_already_joined))
@@ -80,6 +92,7 @@ class Load_suggested_groups extends CI_Model
                 $group_results[] = $group_id->group_id;
             }
         }
+
         return $group_results;
     }
 
