@@ -8,7 +8,7 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="/application/assets/css/about.css" type="text/css" />
-        <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css" />
     </head>  
 
     <body>
