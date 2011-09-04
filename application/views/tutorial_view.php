@@ -1,4 +1,5 @@
-<html lang="en">  
+<!doctype html>
+<html>  
     <head>  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
