@@ -240,19 +240,6 @@ function toggle_time_day_buttons() {
     }
 }
 
-// Shows/hides the necessary buttons for the plan event section
-function toggle_event_buttons() {
-    if (plan_time_place_valid() && !$('#plan_description_wrapper').is(':visible')) {
-        if (!$('#plan_event_select_wrapper').is(':visible')) {
-            // Show the necessary buttons
-            $('#create_event, #submit_plan').show('fast');
-        }
-            
-        // Hide the warning
-        $('#plan_warning_message').hide('fast');
-    }
-}
-
 // Populates the selectable events and initializes the click handlers
 function populate_selectable_events() {
     if (plan_time_place_valid()) {
