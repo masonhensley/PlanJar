@@ -74,14 +74,13 @@ class Load_plan_data extends CI_Model
 
         // get #invited
         $query = "
-            SELECT event_invites.user_id FROM plans 
-            JOIN events ON plans.event_id=events.id
-            JOIN event_invites ON events.id=event_invites.event_id
-            WHERE plans.id=$plan_id
+                SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
+                FROM notifications
+                JOIN user_meta ON notifications.user_id=user_meta.user_id
+                LEFT JOIN school_data ON user_meta.school_id=school_data.id
+                WHERE notifications.subject_id=$event_id AND notifications.type='event_invite'
             ";
-
         $result = $this->db->query($query);
-
         $number_invited = $result->num_rows();
 
         if ($number_attending == 0)
