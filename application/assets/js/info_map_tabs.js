@@ -265,7 +265,7 @@ function display_info(bypass, arg) {
         
         } else {
             // No controlls selected
-            $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;">');
+            $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;"><div class="tutorial_button">Tutorial</div>');
         
             // Load popular locations
             populate_popular_locations();
