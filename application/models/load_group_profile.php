@@ -167,7 +167,7 @@ class Load_group_profile extends CI_Model
             ?>
             >
             <div class="group_bottom_text">
-                <div class="request_to_join">Request To Join</div>
+                <div class="request_to_join">Request to Join Group</div>
                 Group is <font style="color:red;font-weight:bold;">closed</font>
             </div>
             <div class="remove_following">unfollow</div>
