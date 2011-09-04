@@ -258,9 +258,9 @@ class Notification_ops extends CI_Model
             }
             $query = $this->db->query($query_string, array(
                 $value,
-                $query->row()->type,
+                $row->type,
                 $this->ion_auth->get_user()->id,
-                $query->row()->subject_id));
+                $row->subject_id));
         } else
         {
             $query_string = "UPDATE notifications SET viewed = ? WHERE id = ?";
@@ -277,6 +277,7 @@ class Notification_ops extends CI_Model
             // Get the notification type
             $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
             $query = $this->db->query($query_string, array($id));
+            $row = $query->row();
 
             // Update all similar notifications
             if ($row->type == 'join_group_request')
@@ -288,9 +289,9 @@ class Notification_ops extends CI_Model
             }
             $query = $this->db->query($query_string, array(
                 $value,
-                $query->row()->type,
+                $row->type,
                 $this->ion_auth->get_user()->id,
-                $query->row()->subject_id));
+                $row->subject_id));
         } else
         {
             $query_string = "UPDATE notifications SET accepted = ? WHERE id = ?";
