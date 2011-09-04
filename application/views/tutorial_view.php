@@ -8,7 +8,10 @@
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/tutorial.css" type="text/css" />
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
+        <!-- JS -->
+        <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
     </head>
 
     <body>
@@ -55,5 +58,8 @@
             <a href="/about" id="bottom_link">About Us</a>
             <a href="/privacy" id="bottom_link">Privacy</a>
         </div>
+
+        <!-- Chartbeat -->
+        <script type="text/javascript" src="/application/assets/js/chartbeat_body.js"></script>
     </body>  
 </html>

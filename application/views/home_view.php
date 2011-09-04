@@ -23,6 +23,7 @@
         <link rel=stylesheet href="/application/assets/css/add_location_modal.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/plan_info.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/gradients.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/js/badger/badger.css" type="text/css" />
 
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.3.min.js"></script>
@@ -55,8 +56,7 @@
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_attending_panel.js"></script>
         <script type="text/javascript" src="/application/assets/js/find_places.js"></script>
-        <link rel=stylesheet href="/application/assets/js/badger/badger.css" type="text/css" />
-
+        <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
@@ -219,5 +219,8 @@
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/add_location_modal.php'); ?>
+
+        <!-- Chartbeat -->
+        <script type="text/javascript" src="/application/assets/js/chartbeat_body.js"></script>
     </body>
 </html>
