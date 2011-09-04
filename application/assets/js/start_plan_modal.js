@@ -226,7 +226,7 @@ function initialize_plan_modal() {
 
 // Returns true if the plan location and time are valid
 function plan_time_place_valid() {
-    return $('#plan_location_id').val() != '' && $('#plan_day.divset_selected, #plan_time .divset_selected').length > 1
+    return $('#plan_location_id').val() != '' && $('#plan_day .divset_selected, #plan_time .divset_selected').length > 1
 }
 
 // Shows/hides the necessary buttons for the plan time/place/location section
