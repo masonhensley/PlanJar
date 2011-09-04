@@ -68,6 +68,7 @@
 }
 
 .suggest_groups{
+    background:#EEE;
     background: -webkit-linear-gradient(top, #EEE, white);
     background: -moz-linear-gradient(top, #EEE, white);
     background: -o-linear-gradient(top, #EEE, white);
@@ -85,6 +86,7 @@
 }
 
 .suggest_groups_active{
+    background:#DDD;
     background: -webkit-linear-gradient(top, #DDD, #EFF);
     background: -moz-linear-gradient(top, #DDD, #EFF);
     background: -o-linear-gradient(top, #DDD, #EFF);
@@ -105,6 +107,7 @@
     position:relative;
 }
 .group_entry.selected_group {
+    background:#DDD;
     background: -webkit-linear-gradient(top, #DDD, #EFF);
     background: -moz-linear-gradient(top, #DDD, #EFF);
     background: -o-linear-gradient(top, #DDD, #EFF);
@@ -112,6 +115,7 @@
     background: linear-gradient(top, #DDD, #EFF);
 }
 .group_entry:hover{
+    background:#EFEFEF;
     background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
     background: -moz-linear-gradient(top, #EFEFEF, #EFF);
     background: -o-linear-gradient(top, #EFEFEF, #EFF);
@@ -159,6 +163,7 @@
 }
 
 .middle .remove_following, .middle .remove_joined {
+    background:#FF7373;
     background: -webkit-linear-gradient(top, #FF7373, red);
     background: -moz-linear-gradient(top, #FF7373, red);
     background: -o-linear-gradient(top, #FF7373, red);
@@ -177,6 +182,7 @@
 }
 
 .invite_people {
+    background:#AF64DE;
     background: -webkit-linear-gradient(top, purple, #AF64DE);
     background: -moz-linear-gradient(top, purple, #AF64DE);
     background: -o-linear-gradient(top, purple, #AF64DE);
@@ -195,6 +201,7 @@
 }
 
 .request_to_join{
+    background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
@@ -216,6 +223,7 @@
 }
 
 .middle .add_joined {
+    background:#DF58E8;
     background: -webkit-linear-gradient(top, #DF58E8, purple);
     background: -moz-linear-gradient(top, #DF58E8, purple);
     background: -o-linear-gradient(top, #DF58E8, purple);
@@ -248,6 +256,7 @@
 }
 
 .group_entry .add_following {
+    background: #0C2;
     background: -webkit-linear-gradient(top, #0C2, green);
     background: -moz-linear-gradient(top, #0C2, green);
     background: -o-linear-gradient(top, #0C2, green);
@@ -264,6 +273,7 @@
 }
 
 .group_bottom_text .add_following{
+    background:#0C2;
     background: -webkit-linear-gradient(top, #0C2, green);
     background: -moz-linear-gradient(top, #0C2, green);
     background: -o-linear-gradient(top, #0C2, green);

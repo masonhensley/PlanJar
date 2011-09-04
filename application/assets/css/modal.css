@@ -28,6 +28,7 @@
     position: relative;
 }
 .user_entry:hover{
+    background:#EFEFEF;
     background:-webkit-linear-gradient(top, #EFEFEF, #EFF);
     background: -moz-linear-gradient(top, #EFEFEF, #EFF);
     background: -o-linear-gradient(top, #EFEFEF, #EFF);
@@ -51,6 +52,7 @@
 }
 
 .user_entry .add_following, .following_profile_body .add_following {
+    background:#DF58E8;
     background: -webkit-linear-gradient(top, #DF58E8, purple);
     background: -moz-linear-gradient(top, #DF58E8, purple);
     background: -o-linear-gradient(top, #DF58E8, purple);
@@ -73,6 +75,7 @@
 }
 
 .modal .title_bar {
+    background:#333;
     background: -webkit-linear-gradient(top, #333, #666);
     background: -moz-linear-gradient(top, #333, #666);
     background: -o-linear-gradient(top, #333, #666);
@@ -96,6 +99,7 @@
 }
 
 .attending_modal .title_bar{
+    background:#333;
     background: -webkit-linear-gradient(top, #333, #666);
     background: -moz-linear-gradient(top, #333, #666);
     background: -o-linear-gradient(top, #333, #666);

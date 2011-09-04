@@ -61,6 +61,7 @@
 }
 
 .delete_plan {
+    background:#FF7373;
     background: -webkit-linear-gradient(top, #FF7373, red);
     background: -moz-linear-gradient(top, #FF7373, red);
     background: -o-linear-gradient(top, #FF7373, red);
