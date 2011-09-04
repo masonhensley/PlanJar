@@ -87,7 +87,9 @@ class Load_locations extends CI_Model
     function on_friends_selected($display_day, $sql_date)
     {
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
-
+        $place_id_array = array();
+        $place_array = array();
+        
         if (count($friend_ids) > 0)
         {
             $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> your <font style=\"color:green;\">Friends</font> ";
@@ -105,15 +107,15 @@ class Load_locations extends CI_Model
             $query .= ")";
             $result = $this->db->query($query);
 
-            $place_array = array();
-            $place_id_array = array();
+            
+            
             foreach ($result->result() as $place)
             {
                 $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
                 $place_id_array[] = $place->id;
             }
         }else{
-            $display_message = "You don't have any <a href=\"/dashboard/friends\" id=\"places_link\">friends</a> yet";
+            $display_message = "You don't have any <a href=\"/dashboard/friends\" id=\"places_link\">friends</a yet";
         }
 
         $this->display_location_tabs($display_message, $place_id_array, $place_array);
