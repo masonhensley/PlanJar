@@ -86,29 +86,38 @@ class Load_locations extends CI_Model
 
     function on_friends_selected($display_day, $sql_date)
     {
-        $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> your <font style=\"color:green;\">Friends</font> ";
-        $display_message .= "are going <br/><font style=\"font-weight:bold;\">$display_day</font>";
-
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
-        $query = "SELECT DISTINCT places.id, events.title, places.name, places.latitude, places.longitude FROM plans 
+        $place_id_array = array();
+        $place_array = array();
+        
+        if (count($friend_ids) > 0)
+        {
+            $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> your <font style=\"color:green;\">Friends</font> ";
+            $display_message .= "are going <br/><font style=\"font-weight:bold;\">$display_day</font>";
+
+            $query = "SELECT DISTINCT places.id, events.title, places.name, places.latitude, places.longitude FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
                   WHERE (";
-        foreach ($friend_ids as $id)
-        {
-            $query .= "plans.user_id=$id OR ";
-        }
-        $query = substr($query, 0, -4);
-        $query .= ")";
-        $result = $this->db->query($query);
+            foreach ($friend_ids as $id)
+            {
+                $query .= "plans.user_id=$id OR ";
+            }
+            $query = substr($query, 0, -4);
+            $query .= ")";
+            $result = $this->db->query($query);
 
-        $place_array = array();
-        $place_id_array = array();
-        foreach ($result->result() as $place)
-        {
-            $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
-            $place_id_array[] = $place->id;
+            
+            
+            foreach ($result->result() as $place)
+            {
+                $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
+                $place_id_array[] = $place->id;
+            }
+        }else{
+            $display_message = "You don't have any <a href=\"/dashboard/friends\" id=\"places_link\">friends</a yet";
         }
+
         $this->display_location_tabs($display_message, $place_id_array, $place_array);
     }
 

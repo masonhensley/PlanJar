@@ -66,18 +66,25 @@ class Load_location_data extends CI_Model
     {
         $this->load->model('load_locations');
         $friend_ids = $this->load_locations->get_friend_ids();
-// first find the number of friends attending
-        $number_friends_query = "SELECT plans.user_id FROM plans 
+        if (count($friend_ids) > 0)
+        {
+            // first find the number of friends attending
+            $number_friends_query = "SELECT plans.user_id FROM plans 
             JOIN events ON plans.event_id=events.id AND events.date='$date' AND events.place_id=$place_id
             WHERE ";
-        foreach ($friend_ids as $id)
-        {
-            $number_friends_query .= "plans.user_id=$id OR ";
-        }
-        $number_friends_query = substr($number_friends_query, 0, -4);
+            foreach ($friend_ids as $id)
+            {
+                $number_friends_query .= "plans.user_id=$id OR ";
+            }
+            $number_friends_query = substr($number_friends_query, 0, -4);
 
-        $result = $this->db->query($number_friends_query);
-        $number_of_friends = $result->num_rows();
+            $result = $this->db->query($number_friends_query);
+            $number_of_friends = $result->num_rows();
+        } else
+        {
+            $number_of_friends = 0;
+        }
+
         return $number_of_friends;
     }
 
@@ -229,11 +236,11 @@ class Load_location_data extends CI_Model
             <!-- boxes that show the color for males/females--> 
             <div class="girl_pink_square"></div>
             <div class="female_percent_display"><font style="font-size:11px;">
-                <?php echo $place_data_array['percent_female'] . "% "; ?></font>female</div>
+        <?php echo $place_data_array['percent_female'] . "% "; ?></font>female</div>
 
             <div class="boy_blue_square"></div>
             <div class="male_percent_display"><font style="font-size:11px;">
-                <?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
+        <?php echo $place_data_array['percent_male'] . "% "; ?></font>male</div>
         </div>
 
         <div class="two_percent_wrapper"></div>
@@ -248,7 +255,7 @@ class Load_location_data extends CI_Model
             <div style="font-size:100px; color:gray; line-height: 80px;overflow:hidden; display:inline-block;"><?php echo $display_day['big_day_date']; ?></div>
         </div>
         <div class="make_plan_here" >make a plan at this location</div>
-        <div class="plans_made_here" place_id="<?php echo $place_info['place_id'];?>">see plans at this location</div>
+        <div class="plans_made_here" place_id="<?php echo $place_info['place_id']; ?>">see plans at this location</div>
         <div class="view_map" >View Map</div>
 
         <?php
