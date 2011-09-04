@@ -31,6 +31,9 @@
         <!-- Google Maps API -->
         <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
 
+        <!-- Spinner plugin-->
+        <script type="text/javascript" src="/application/assets/js/spin.js"></script>
+
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/date.js"></script>
         <script type="text/javascript" src="/application/assets/js/divSet.js"></script>
@@ -60,9 +63,6 @@
 
         <!-- notifications badge plugin -->
         <script type="text/javascript" src="/application/assets/js/badger/badger.js"></script>
-
-        <!-- Spinner plugin-->
-        <script type="text/javascript" src="/application/assets/js/spin.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
