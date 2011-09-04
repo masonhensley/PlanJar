@@ -1,16 +1,17 @@
 <!doctype html>
 <html>  
-    <head>  
+    <head>
+        <title>Tutorial</title>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <meta name="description" content="Learn how to use PlanJar.">
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/tutorial.css" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-        <title>Tutorial</title>  
-    </head>  
-    <body>
+    </head>
 
+    <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
@@ -44,6 +45,5 @@
                     <a href="/privacy" id="bottom_link">Privacy</a>
                 </div>
             </div>
-
     </body>  
 </html>

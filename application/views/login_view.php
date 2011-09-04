@@ -3,16 +3,21 @@
     <head>
         <title>PlanJar | Login or sign up</title>
 
+        <meta name="description" content="PlanJar is a location-based event planning web app currently exclusively for students with Vanderbilt email addresses.">
+
+        <!-- CSS -->
+        <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
+        <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
+        <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
+
+        <!-- JS -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.3.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
         <script type="text/javascript" src="/application/assets/js/login.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
-        <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
-        <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
-        <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
-
     </head>
+
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
@@ -50,9 +55,9 @@
 <!--                    <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>-->
                     <h3>Signup will open when PlanJar is released.<span class="arrow"></span></h3>
                     <font color="purple" >
-                        <div id="su_error" class="error_message" style="text-align:center; color:red;">
-                            <!-- Errors will be displayed here -->
-                        </div>
+                    <div id="su_error" class="error_message" style="text-align:center; color:red;">
+                        <!-- Errors will be displayed here -->
+                    </div>
                     </font>
                     <center>
                         <form id="sign_up" style="display: none;">
