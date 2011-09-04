@@ -22,11 +22,11 @@ div {
 }
 
 a {
-    color:#e5e5e5;
+    color:gray;
     text-decoration: none;
 }
 a:hover{
-    color:navy;
+    color:white;
 }
 
 .top_right_link_outer a{
