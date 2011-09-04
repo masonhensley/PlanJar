@@ -350,6 +350,7 @@ function initialize_location_info(data) {
 }
 
 // Sets up the plan info view
+console.log('set to false');
 var viewing_plan_location = false;
 function initialize_plan_info(data) {
     // Replace the data and show the data tab.
