@@ -49,6 +49,7 @@ class Display_group_template extends CI_Model
         $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
 
         $return_array = array(); // data to be returned
+        $friend_user_ids = array(); // this is needed to get the correct user ids for the filter
         $number_males = 0;
         $number_females = 0;
         $males_going_out = 0;
@@ -81,7 +82,7 @@ class Display_group_template extends CI_Model
             $result = $this->db->query($query);
 
             $total_people = $result->num_rows();
-            $friend_user_ids = array(); // this is needed to get the correct user ids for the filter
+            
 
             foreach ($result->result() as $person)
             {
