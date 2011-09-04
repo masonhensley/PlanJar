@@ -27,7 +27,7 @@
 
                 <div class="top_links">
                     <?php
-                    if (!$using_ie)
+                    if (!$using_ie && false)
                     {
                         ?>  
                         <form id="log_in">
