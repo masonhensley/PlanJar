@@ -108,9 +108,7 @@ function initialize_plan_modal() {
             $('#plan_time .divset').removeClass('divset_selected');
             $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
             
-            if (plan_time_place_valid()) {
-                $('#plan_place_location_buttons').show('fast');
-            }
+            toggle_time_day_buttons();
             
             populate_selectable_events();
         }
@@ -226,25 +224,12 @@ function initialize_plan_modal() {
 
 // Returns true if the plan location and time are valid
 function plan_time_place_valid() {
-    return $('#plan_location_id').val() != '' && $('.plan_day.divset_selected, #plan_time .divset_selected').length > 1
+    return $('#plan_location_id').val() != '' && $('#plan_day .divset_selected, #plan_time .divset_selected').length > 1
 }
 
 // Shows/hides the necessary buttons for the plan time/place/location section
 function toggle_time_day_buttons() {
     if (plan_time_place_valid() && !$('#plan_events_wrapper').is(':visible')) {
-        if (!$('#plan_event_select_wrapper').is(':visible')) {
-            // Show the necessary buttons
-            $('#create_event, #submit_plan').show('fast');
-        }
-            
-        // Hide the warning
-        $('#plan_warning_message').hide('fast');
-    }
-}
-
-// Shows/hides the necessary buttons for the plan event section
-function toggle_event_buttons() {
-    if (plan_time_place_valid() && !$('#plan_description_wrapper').is(':visible')) {
         if (!$('#plan_event_select_wrapper').is(':visible')) {
             // Show the necessary buttons
             $('#create_event, #submit_plan').show('fast');
