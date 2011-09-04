@@ -215,16 +215,6 @@ class Dashboard extends CI_Controller
 // Delete the relationship
         $query_string = "DELETE FROM group_relationships WHERE group_id = ? AND user_following_id = ?";
         $query = $this->db->query($query_string, array($group_id, $user->id));
-
-        // Update the notification status
-        $this->load->model('notification_ops');
-        $query_string = "SELECT id FROM notifications WHERE type = ? AND user_id = ? AND  subject_id = ?";
-        $query = $this->db->query($query_string, array('group_invite', $user->id, $group_id));
-
-        if ($query->num_rows() > 0)
-        {
-            $this->notification_ops->update_notification_accepted($query->row()->id, false, true);
-        }
     }
 
 // Removes the appropriate group relationship
@@ -240,8 +230,13 @@ class Dashboard extends CI_Controller
 
 // Update the notification status
         $this->load->model('notification_ops');
-        $query_string = "SELECT id FROM notifications WHERE type = ? AND user_id = ? AND  subject_id = ?";
-        $query = $this->db->query($query_string, array('group_invite', $user->id, $group_id));
+        $query_string = "SELECT id FROM notifications
+            WHERE (type = ? AND user_id = ?) OR (type = ? AND originator_id = ?) AND subject_id = ?";
+        $query = $this->db->query($query_string, array(
+            'group_invite',
+            $user->id,
+            'group_join_request',
+            $group_id));
 
         if ($query->num_rows() > 0)
         {
