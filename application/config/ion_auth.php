@@ -72,7 +72,8 @@ $config['columns'] = array(
     'event_invite',
     'image_name',
     'follow_notif',
-    'group_invite');
+    'group_invite',
+    'join_group_request');
 
 /**
  * A database column which is used to
