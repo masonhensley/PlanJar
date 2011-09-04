@@ -24,7 +24,7 @@ class Notification_ops extends CI_Model
             if ($user_id != $this->ion_auth->get_user()->id)
             {
                 $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id);
-                $values_string .= "(DEFAULT, $user_id, DEFAULT, $originator_id, $date, '$type', $subject_id, $accepted, $accepted), ";
+                $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
                 if (!$accepted)
                 {
                     // Send an email notification if the notification would show up as new (i.e. not previously accepted)
