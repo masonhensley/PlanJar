@@ -50,6 +50,9 @@ class Load_friend_plans extends CI_Model
 
                 $result = $this->db->query($query);
                 $plans_html = $this->_populate_friend_plans($result, 'all');
+            } else
+            {
+                $plans_html = '<i>No upcoming plans.</i>';
             }
         }
 
@@ -130,9 +133,9 @@ class Load_friend_plans extends CI_Model
                         if ($date_organizer != $date)
                         {
                             ?>
-                        <div class="plan_date_container">
-                            <font style="font-size:11px; color:gray;"><?php echo $date; ?><br/></font>
-                        </div>
+                            <div class="plan_date_container">
+                                <font style="font-size:11px; color:gray;"><?php echo $date; ?><br/></font>
+                            </div>
                             <?php
                         }
                         $date_organizer = $date;
@@ -166,7 +169,7 @@ class Load_friend_plans extends CI_Model
         }
         return ob_get_clean();
     }
-    
+
     function _populate_location_plans($plans_result)
     {
         ob_start(); // start the output buffer
@@ -202,9 +205,9 @@ class Load_friend_plans extends CI_Model
                         if ($date_organizer != $date)
                         {
                             ?>
-                        <div class="plan_date_container">
-                            <font style="font-size:11px;  color:gray;"><?php echo $date; ?><br/></font>
-                        </div>
+                            <div class="plan_date_container">
+                                <font style="font-size:11px;  color:gray;"><?php echo $date; ?><br/></font>
+                            </div>
                             <?php
                         }
                         $date_organizer = $date;

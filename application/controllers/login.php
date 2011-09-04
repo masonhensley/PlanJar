@@ -49,22 +49,13 @@ class Login extends CI_Controller
             'grad_year' => $this->input->get('su_grad_year')
         );
 
-        $registered = $this->ion_auth->register($email, $password, $email, $additional_data);
-
-        if ($registered)
+        if ($this->ion_auth->register($email, $password, $email, $additional_data))
         {
-
-            // Join the user to his school's group
-            $user_id = $this->ion_auth->get_user_by_email($email)->id;
-            $this->load->model('group_ops');
-            $this->group_ops->follow_group($school_id, $user_id);
-            $this->group_ops->join_group($school_id, $user_id);
-
             // Redirect to the post sign up page
             echo "/login/post_sign_up";
         } else
         {
-            echo "error";
+            echo "There was a problem creating your account.";
         }
     }
 
