@@ -246,9 +246,16 @@ class Notification_ops extends CI_Model
             // Get the notification type
             $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
             $query = $this->db->query($query_string, array($id));
+            $row = $query->row();
 
             // Update all similar notifications
-            $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ? AND subject_id = ?";
+            if ($row->type == 'join_group_request')
+            {
+                $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND originator_id = ? AND subject_id = ?";
+            } else
+            {
+                $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ? AND subject_id = ?";
+            }
             $query = $this->db->query($query_string, array(
                 $value,
                 $query->row()->type,
@@ -272,7 +279,13 @@ class Notification_ops extends CI_Model
             $query = $this->db->query($query_string, array($id));
 
             // Update all similar notifications
-            $query_string = "UPDATE notifications SET accepted = ? WHERE type = ? AND user_id = ? AND subject_id = ?";
+            if ($row->type == 'join_group_request')
+            {
+                $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND originator_id = ? AND subject_id = ?";
+            } else
+            {
+                $query_string = "UPDATE notifications SET viewed = ? WHERE type = ? AND user_id = ? AND subject_id = ?";
+            }
             $query = $this->db->query($query_string, array(
                 $value,
                 $query->row()->type,
@@ -331,6 +344,8 @@ class Notification_ops extends CI_Model
                 $this->load->model('group_ops');
                 $this->group_ops->follow_group($row->subject_id, $row->originator_id);
                 $this->group_ops->join_group($row->subject_id, $row->originator_id);
+                $this->update_notification_viewed($id, true, true);
+                $this->update_notification_accepted($id, true, true);
 
                 echo(json_encode(array('status' => 'success')));
                 break;
