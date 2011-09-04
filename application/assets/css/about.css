@@ -182,3 +182,15 @@ a{
 a:hover{
     color:white;
 }
+
+#blog_link{
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+#blog_link a{
+    color:#5C98CC;
+}
+#blog_link a:hover{
+    color:navy;
+}
