@@ -8,7 +8,7 @@
 </div>
 <div class="right">
     <font style="color:darkgray;">Note: you are not "friends" with someone unless you are both following each other.  
-    If you are not following someone back, they can only see your profile but can't make plans with you or see your plans.</font>
+    If you are not following someone back, they can only see your profile, and they do not have access to your plans.</font>
     <br/><hr/>
     <font style="color:gray; font-size:15px;">Select a person on the left to display their profile here</font>
 </div>
