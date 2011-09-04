@@ -22,25 +22,39 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <div id="li_error" class ="error_message"><!-- Errors will be displayed here --></div>     
+                <div id="li_error" class ="error_message"><!-- Errors will be displayed here --></div>
                 <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:50%; position:relative; top:5px;"/>
+
                 <div class="top_links">
-                    <form id="log_in">
-                        <div class="in-field_block" style="display:inline-block;">
-                            <label for="li_email">Email</label>
-                            <input id="li_email" name="email" type="email" class="textbox" />
-                        </div>
-                        <div class="in-field_block" style="display:inline-block; margin-left:10px;">
-                            <label for="li_password">Password</label>
-                            <input id="li_password" name="password" type="password" class="textbox" />
-                        </div>
-                        <br/>
-                        <font style="font-family:Arial, Helvetica, sans-serif; color:white;">Stay logged in</font>
-                        <input type="checkbox" name="remember" value="1" style="margin-top:13px" />
-                        <input type="submit" class="buttons" value="Log In" style="margin-left:87px;" />
-                        <div style="margin-left:9px; display:inline-block;margin-top:12px;"><?php echo(anchor('auth/forgot_password', 'Forgot password')); ?></div>
-                    </form>
+                    <?php
+                    if (!$using_ie && false)
+                    {
+                        ?>  
+                        <form id="log_in">
+                            <div class="in-field_block" style="display:inline-block;">
+                                <label for="li_email">Email</label>
+                                <input id="li_email" name="email" type="email" class="textbox" />
+                            </div>
+                            <div class="in-field_block" style="display:inline-block; margin-left:10px;">
+                                <label for="li_password">Password</label>
+                                <input id="li_password" name="password" type="password" class="textbox" />
+                            </div>
+                            <br/>
+                            <font style="font-family:Arial, Helvetica, sans-serif; color:white;">Stay logged in</font>
+                            <input type="checkbox" name="remember" value="1" style="margin-top:13px" />
+                            <input type="submit" class="buttons" value="Log In" style="margin-left:87px;" />
+                            <div style="margin-left:9px; display:inline-block;margin-top:12px;"><?php echo(anchor('auth/forgot_password', 'Forgot password')); ?></div>
+                        </form>
+                        <?php
+                    } else
+                    {
+                        ?>
+                    <font style="color:white;" style="position:absolute; right:0px; top:0px;">Hey, we are sorry, but some important features on PlanJar do not work in Internet Explorer. We apologize for the inconvenience, but do yourself a favor and install Google Chrome or Mozilla Firefox, your entire experience on the internet will be better for it.</font>
+                        <?php
+                    }
+                    ?>
                 </div>  
+
             </div>
         </div>
         <div id="container">
