@@ -148,6 +148,7 @@ function display_info(bypass, arg) {
                 place_id = viewing_plan_location;
                 back_to_plan = true;
             }
+            console.log(place_id);
         
             $.get('/home/show_location_data', {
                 'place_id': place_id,
