@@ -289,7 +289,7 @@ class Notification_ops extends CI_Model
     function accept_notification($id)
     {
         // Get the notification row
-        $query_string = "SELECT type, subject_id FROM notifications WHERE id = ?";
+        $query_string = "SELECT originator_id, type, subject_id FROM notifications WHERE id = ?";
         $query = $this->db->query($query_string, array($id));
         $row = $query->row();
 
@@ -323,6 +323,14 @@ class Notification_ops extends CI_Model
                 $this->follow_ops->add_user_following($row->subject_id, true);
                 $this->update_notification_viewed($id, true);
                 $this->update_notification_accepted($id, true);
+
+                echo(json_encode(array('status' => 'success')));
+                break;
+
+            case 'join_group_request':
+                $this->load->model('group_ops');
+                $this->group_ops->follow_group($row->subject_id, $row->originator_id);
+                $this->group_ops->join_group($row->subject_id, $row->originator_id);
 
                 echo(json_encode(array('status' => 'success')));
                 break;

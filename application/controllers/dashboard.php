@@ -533,9 +533,11 @@ class Dashboard extends CI_Controller
 
         echo(json_encode(array('status' => 'success')));
     }
-    
-    public function request_join_group() {
-        
+
+    public function request_join_group()
+    {
+        $this->load->model('notification_ops');
+        $this->notification_ops->notify(array(1), array(), 'join_group_request', 3);
     }
 
 }

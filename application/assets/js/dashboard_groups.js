@@ -172,6 +172,16 @@ function show_group_profile(group_id) {
                     $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
                 });
             });
+            
+            // Request add joined handler
+            $('#groups_content .request_to_join').confirmDiv(function() {
+                $.get('/dashboard/request_join_group', {
+                    group_id: $('.group_profile_header').attr('group_id')
+                }, function (data) {
+                    populate_edit_groups_list();
+                    $('.middle').html("<div style=\"text-align:center; color:gray; position:relative; top:3px;\"> Select a group on the left or right to see its profile </div>");
+                });
+            });
                     
             // Invite people
             $('#groups_content .middle .invite_people').click(function() {
