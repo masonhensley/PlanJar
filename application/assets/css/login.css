@@ -142,14 +142,11 @@ h3 {
 
 #container {
     width:1024px;
-    height: 900px;
-
+    height: 600px;
     margin: auto;
     margin-top: 20px;
-
     padding:10px;
     padding-top: 30px;  
-
     font-family: helvetica, arial, sans-serif;
 }
 
@@ -398,14 +395,13 @@ h3 {
 /* --------BOTTOM LINKS ---------*/
 
 .bottom_links{
-    width:962px;
+    width:100%;
     height:40px;
     background-color: black;
     opacity: .4;
     text-align:center;
     position:relative;      
     padding-top:12px;
-    margin-left:31px;
 }
 #bottom_link{
     margin-left:15px;
