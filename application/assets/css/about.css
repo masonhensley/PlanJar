@@ -186,6 +186,7 @@ a:hover{
 
 #blog_link{
     position:absolute;
+    font-size:20px;
     top:0px;
     right:0px;
 }
