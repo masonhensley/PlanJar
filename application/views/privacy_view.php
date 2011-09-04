@@ -13,7 +13,9 @@
     <body>
         <div class ="top_panel">
             <div class = "inside_top_panel">
-                <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
+                <a href="/home">
+                    <img src='/application/assets/images/pj_logo_white_text.png' style="float: left; margin-left:30px; height:80%; position:relative; top:5px;"/>
+                </a>
                 <div class="top_links">
                     <?php
                     if ($this->ion_auth->logged_in())
