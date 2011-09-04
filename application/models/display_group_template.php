@@ -48,50 +48,51 @@ class Display_group_template extends CI_Model
         $this->load->model('load_locations');
         $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
 
-        $this->get_correct_grad_year($filter);
-
         $return_array = array(); // data to be returned
         $number_males = 0;
         $number_females = 0;
         $males_going_out = 0;
         $females_going_out = 0;
 
-        // handle any filter that is put on the search results
-        // right now this handles freshmen, sophomores, juniors, seniors, and alumni
-        $filter_grad_year = $this->get_correct_grad_year($filter);
-        if ($filter == 'alumni')
+        if (count($user_ids) > 0)
         {
-            $query_filter = " AND user_meta.grad_year<$filter_grad_year";
-        } else if ($filter_grad_year != 0)
-        {
-            $query_filter = " AND user_meta.grad_year='$filter_grad_year'
-            ";
-        } else
-        {
-            $query_filter = "";
-        }
-
-        $query = "SELECT sex, user_id FROM user_meta WHERE (";
-        foreach ($user_ids as $friend_id)
-        {
-            $query .= "user_id=$friend_id OR ";
-        }
-        $query = substr($query, 0, -4);
-        $query .= ")$query_filter"; // apply the filter
-        $result = $this->db->query($query);
-
-        $total_people = $result->num_rows();
-        $friend_user_ids = array(); // this is needed to get the correct user ids for the filter
-
-        foreach ($result->result() as $person)
-        {
-            $friend_user_ids[] = $person->user_id;
-            if ($person->sex == 'male')
+            // handle any filter that is put on the search results
+            // right now this handles freshmen, sophomores, juniors, seniors, and alumni
+            $filter_grad_year = $this->get_correct_grad_year($filter);
+            if ($filter == 'alumni')
             {
-                $number_males++;
+                $query_filter = " AND user_meta.grad_year<$filter_grad_year";
+            } else if ($filter_grad_year != 0)
+            {
+                $query_filter = " AND user_meta.grad_year='$filter_grad_year'
+            ";
             } else
             {
-                $number_females++;
+                $query_filter = "";
+            }
+
+            $query = "SELECT sex, user_id FROM user_meta WHERE (";
+            foreach ($user_ids as $friend_id)
+            {
+                $query .= "user_id=$friend_id OR ";
+            }
+            $query = substr($query, 0, -4);
+            $query .= ")$query_filter"; // apply the filter
+            $result = $this->db->query($query);
+
+            $total_people = $result->num_rows();
+            $friend_user_ids = array(); // this is needed to get the correct user ids for the filter
+
+            foreach ($result->result() as $person)
+            {
+                $friend_user_ids[] = $person->user_id;
+                if ($person->sex == 'male')
+                {
+                    $number_males++;
+                } else
+                {
+                    $number_females++;
+                }
             }
         }
 
@@ -102,7 +103,7 @@ class Display_group_template extends CI_Model
         $return_array = $this->get_percentages($return_array, $sql_date, $friend_user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
         $return_array = $this->get_surrounding_day_info($return_array, $friend_user_ids, $sql_date);
-
+        
         return $return_array;
     }
 
@@ -496,7 +497,7 @@ class Display_group_template extends CI_Model
                 if ($format_type == 'groups')
                 {
                     ?>
-                    Group<?php echo $s;?>:
+                    Group<?php echo $s; ?>:
                     <?php
                 } else
                 {
@@ -550,10 +551,10 @@ class Display_group_template extends CI_Model
                 $query = "SELECT id FROM groups WHERE school_id=";
                 $query.= $this->ion_auth->get_user()->school_id;
                 $query .= " AND school_group=1";
-                $result =$this->db->query($query);
+                $result = $this->db->query($query);
                 $result = $result->row();
                 ?>    
-                <a href="/dashboard/groups/<?php  echo $result->id; ?>"><div id="groups_link">See School</div></a>
+                <a href="/dashboard/groups/<?php echo $result->id; ?>"><div id="groups_link">See School</div></a>
                 <?php
             }
             ?>
