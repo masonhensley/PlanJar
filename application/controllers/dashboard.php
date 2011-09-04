@@ -533,6 +533,10 @@ class Dashboard extends CI_Controller
 
         echo(json_encode(array('status' => 'success')));
     }
+    
+    public function request_join_group() {
+        
+    }
 
 }
 ?>
