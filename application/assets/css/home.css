@@ -242,6 +242,9 @@ a:hover{
     padding: 10px;
     border-radius: 5px;
 }
+.data_tab:hover{
+    background:lightblue;
+}
 .tab_selected, .tab_selected:hover{
     background:#73B1EA;
     background: -webkit-linear-gradient(top, #73B1EA, #02C);
@@ -251,10 +254,6 @@ a:hover{
     background: linear-gradient(top, #73B1EA, #02C);
 
     color: white;
-}
-
-.data_tab:hover{
-    background:lightblue;
 }
 
 .change_location_panel {
