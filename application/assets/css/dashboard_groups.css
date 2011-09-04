@@ -195,11 +195,11 @@
 }
 
 .request_to_join{
-    background: -webkit-linear-gradient(top, purple, #AF64DE);
-    background: -moz-linear-gradient(top, purple, #AF64DE);
-    background: -o-linear-gradient(top, purple, #AF64DE);
-    background: -ms-linear-gradient(top, purple, #AF64DE);
-    background: linear-gradient(top, purple, #AF64DE);
+    background: -webkit-linear-gradient(top, #EEE, white);
+    background: -moz-linear-gradient(top, #EEE, white);
+    background: -o-linear-gradient(top, #EEE, white);
+    background: -ms-linear-gradient(top, #EEE, white);
+    background: linear-gradient(top, #EEE, white);
 
     width: 75px;
     height:34px;
@@ -209,7 +209,7 @@
     display:inline-block;
     position:absolute;
     top:0px;
-    right:-3px;  
+    right:0px;  
 }
 
 .middle .add_joined {
