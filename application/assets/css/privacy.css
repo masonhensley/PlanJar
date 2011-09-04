@@ -29,10 +29,10 @@ body{
     height:100%;
     margin-left: auto;
     margin-right: auto;
+    position:relative;
 }
 
 .top_links{
-    position:relative;
     width:1024px;
     height:50px;
     margin-left: auto;
