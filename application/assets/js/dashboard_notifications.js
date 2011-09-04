@@ -56,8 +56,7 @@ function notification_click_handlers(){
     // Accept handler
     $('.notification_entry .accept').confirmDiv(function(clicked_elem) {
         $.get('/dashboard/accept_notification', {
-            notif_id: clicked_elem.parent().attr('notif_id'),
-            event_id: clicked_elem.parent().attr('event_id')
+            notif_id: clicked_elem.parent().attr('notif_id')
         }, function (data) {
             data = $.parseJSON(data);
                 
