@@ -108,9 +108,7 @@ function initialize_plan_modal() {
             $('#plan_time .divset').removeClass('divset_selected');
             $('#plan_time .divset[plan_time="' + time_to_select + '"]').addClass('divset_selected');
             
-            if (plan_time_place_valid()) {
-                $('#plan_place_location_buttons').show('fast');
-            }
+            toggle_time_day_buttons();
             
             populate_selectable_events();
         }
