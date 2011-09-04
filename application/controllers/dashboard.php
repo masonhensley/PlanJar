@@ -239,6 +239,8 @@ class Dashboard extends CI_Controller
             $user->id,
             $group_id));
 
+        var_dump($this->db->last_query());
+
         if ($query->num_rows() > 0)
         {
             $this->notification_ops->update_notification_accepted($query->row()->id, false, true);
