@@ -242,7 +242,10 @@ a:hover{
     padding: 10px;
     border-radius: 5px;
 }
-.tab_selected {
+.data_tab:hover{
+    background:lightblue;
+}
+.tab_selected, .tab_selected:hover{
     background:#73B1EA;
     background: -webkit-linear-gradient(top, #73B1EA, #02C);
     background: -moz-linear-gradient(top, #73B1EA, #02C);
@@ -252,6 +255,7 @@ a:hover{
 
     color: white;
 }
+
 .change_location_panel {
     background:#DDD;
     background: -webkit-linear-gradient(top, #DDD, #EEE);
