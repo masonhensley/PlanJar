@@ -115,7 +115,7 @@ class Load_locations extends CI_Model
                 $place_id_array[] = $place->id;
             }
         }else{
-            $display_message = "You don't have any <a href=\"/dashboard/friends\" class=\"find_link\">friends</a> yet";
+            $display_message = "You don't have any <a href=\"/dashboard/friends\" style=\"color:#5C98CC\" class=\"find_link\">friends</a> yet";
         }
 
         $this->display_location_tabs($display_message, $place_id_array, $place_array);
