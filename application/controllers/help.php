@@ -9,7 +9,7 @@ class Help extends CI_Controller
 
     public function index()
     {
-        $this->load->view('help_view');
+        header("Location: http://www.faqme.com/planjar");
     }
 
 }

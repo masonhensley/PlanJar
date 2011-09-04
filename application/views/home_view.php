@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>PlanJar | Home</title>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="PlanJar is a location-based event planning web app currently exclusively for students with Vanderbilt email addresses.">
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
@@ -21,20 +24,12 @@
         <link rel=stylesheet href="/application/assets/css/plan_info.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/gradients.css" type="text/css" />
 
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-
-        <!-- Google Font
-        <link href='http://fonts.googleapis.com/css?family=Vollkorn|Ubuntu' rel='stylesheet' type='text/css'>-->
-
         <!-- jQuery and jQuery UI -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.3.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
 
         <!-- Google Maps API -->
         <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript"></script>
-
-        <!-- Spinner plugin-->
-        <script type="text/javascript" src="/application/assets/js/spin.js"></script>
 
         <!-- Encapsulated JS files -->
         <script type="text/javascript" src="/application/assets/js/date.js"></script>
@@ -57,15 +52,17 @@
         <script type="text/javascript" src="/application/assets/js/feedback.js"></script>
         <script type="text/javascript" src="/application/assets/js/plan_attending_panel.js"></script>
         <script type="text/javascript" src="/application/assets/js/find_places.js"></script>
+        <link rel=stylesheet href="/application/assets/js/badger/badger.css" type="text/css" />
 
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
 
-        <!-- notifications plugin -->
+        <!-- notifications badge plugin -->
         <script type="text/javascript" src="/application/assets/js/badger/badger.js"></script>
-        <!-- notifications css -->
-        <link rel=stylesheet href="/application/assets/js/badger/badger.css" type="text/css" />
+
+        <!-- Spinner plugin-->
+        <script type="text/javascript" src="/application/assets/js/spin.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -74,6 +71,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery.timeentry.min.js"></script>
 
         <script type="text/javascript">
+            // If the uri has /show_location/... then show that location info
             if ('<?php echo($action_type); ?>' == 'show_location') {
                 // Check the id
                 $.get('/home/check_location_id', {id: '<?php echo($action_arg); ?>'}, function(data) {
@@ -83,24 +81,6 @@
                     }
                 });
             }
-        </script>
-
-        <title>PlanJar | Home</title>
-
-        <!-- Google Analytics again, out of the view -->
-        <script type="text/javascript">
-
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-23115103-4']);
-            _gaq.push(['_setDomainName', '.planjar.com']);
-            _gaq.push(['_trackPageview']);
-            
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-            
         </script>
 
     </head>
