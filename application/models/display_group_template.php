@@ -54,6 +54,7 @@ class Display_group_template extends CI_Model
         $number_females = 0;
         $males_going_out = 0;
         $females_going_out = 0;
+        $total_people = 0;
 
         if (count($user_ids) > 0)
         {
