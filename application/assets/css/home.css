@@ -121,10 +121,11 @@ a:hover{
 
 .find_link{
     display:inline-block;
-    color:#5C98CC
+    color:#5C98CC;
 }
 .find_link a{
     font-weight:bold;
+    color:#5C98CC;
 }
 .find_link a:hover{
     color:navy;
