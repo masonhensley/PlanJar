@@ -45,7 +45,7 @@ function initialize_change_location_panel() {
                         map: map,
                         position: new google.maps.LatLng(entry.geometry.location.lat(), entry.geometry.location.lng()),
                         title: entry.name,
-                        icon: '/application/assets/images/map_markers/download.png'
+                        icon: '/application/assets/images/map_markers/symbol_middot.png'
                     });
                         
                     // Assign the click event.

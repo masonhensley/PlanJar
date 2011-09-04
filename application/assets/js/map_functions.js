@@ -11,7 +11,7 @@ function populate_map(data, closure_function, non_numbered) {
         for (var i = 0; i < data.length; ++i) {
             var icon;
             if (non_numbered != undefined) {
-                icon = '/application/assets/images/map_markers/download.png'
+                icon = '/application/assets/images/map_markers/symbol_middot.png'
             } else {
                 icon = '/application/assets/images/map_markers/number_' + (i + 1) + '.png';
             }
