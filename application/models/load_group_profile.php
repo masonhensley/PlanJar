@@ -165,7 +165,9 @@ class Load_group_profile extends CI_Model
         } else if ($this->group_ops->user_is_following($group_info['id']) && $group_info['privacy'] == 'loose') // if you are following and the group is loose
         {
             ?>
+            >
             <div class="group_bottom_text">
+                <div class="request_to_join">Request To Join</div>
                 Group is <font style="color:red;font-weight:bold;">closed</font>
             </div>
             <div class="remove_following">unfollow</div>

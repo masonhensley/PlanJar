@@ -73,7 +73,7 @@
     background: -o-linear-gradient(top, #EEE, white);
     background: -ms-linear-gradient(top, #EEE, white);
     background: linear-gradient(top, #EEE, white);
-    
+
     display:inline-block;
     height:auto;
     width:auto;
@@ -90,7 +90,7 @@
     background: -o-linear-gradient(top, #DDD, #EFF);
     background: -ms-linear-gradient(top, #DDD, #EFF);
     background: linear-gradient(top, #DDD, #EFF);
-    
+
     color:black;
 }
 #find_groups_list{
@@ -164,7 +164,7 @@
     background: -o-linear-gradient(top, #FF7373, red);
     background: -ms-linear-gradient(top, #FF7373, red);
     background: linear-gradient(top, #FF7373, red);
-    
+
     float:right;
     width: 75px;
     color: white;
@@ -182,7 +182,7 @@
     background: -o-linear-gradient(top, purple, #AF64DE);
     background: -ms-linear-gradient(top, purple, #AF64DE);
     background: linear-gradient(top, purple, #AF64DE);
-    
+
     width: 75px;
     height:34px;
     color: white;
@@ -194,13 +194,22 @@
     right:-3px;
 }
 
-.invite_people:hover{
-    background: -webkit-linear-gradient(top, #AF64DE, #F9A1E4);
-    background: -moz-linear-gradient(top, #AF64DE, #F9A1E4);
-    background: -o-linear-gradient(top, #AF64DE, #F9A1E4);
-    background: -ms-linear-gradient(top, #AF64DE, #F9A1E4);
-    background: linear-gradient(top, #AF64DE, #F9A1E4);
-    
+.request_to_join{
+    background: -webkit-linear-gradient(top, purple, #AF64DE);
+    background: -moz-linear-gradient(top, purple, #AF64DE);
+    background: -o-linear-gradient(top, purple, #AF64DE);
+    background: -ms-linear-gradient(top, purple, #AF64DE);
+    background: linear-gradient(top, purple, #AF64DE);
+
+    width: 75px;
+    height:34px;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:-3px;  
 }
 
 .middle .add_joined {
@@ -209,7 +218,7 @@
     background: -o-linear-gradient(top, #DF58E8, purple);
     background: -ms-linear-gradient(top, #DF58E8, purple);
     background: linear-gradient(top, #DF58E8, purple);
-    
+
     display:inline-block;
     color: white;
     padding: 3px;
@@ -241,7 +250,7 @@
     background: -o-linear-gradient(top, #0C2, green);
     background: -ms-linear-gradient(top, #0C2, green);
     background: linear-gradient(top, #0C2, green);
-    
+
     width: 75px;
     color: white;
     padding: 3px;
@@ -257,7 +266,7 @@
     background: -o-linear-gradient(top, #0C2, green);
     background: -ms-linear-gradient(top, #0C2, green);
     background: linear-gradient(top, #0C2, green);
-    
+
     width: 75px;
     color: white;
     padding: 3px;
