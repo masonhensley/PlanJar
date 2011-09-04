@@ -872,3 +872,12 @@ a:hover{
     color: gray;
     border-radius: 5px;
 }
+
+.tutorial_button{
+    position:absolute;
+    height:40px;
+    width:100px;
+    border:1px solid gray;
+    background:lightgray;
+    color:#5C98CC;
+}
