@@ -12,6 +12,8 @@
                 font-family:Arial, Helvetica, sans-serif;
             }
         </style>
+
+        <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
     </head>
 
     <body>
@@ -24,5 +26,8 @@
             </fieldset>
         </div>
     </center>
+
+    <!-- Chartbeat -->
+    <script type="text/javascript" src="/application/assets/js/chartbeat_body.js"></script>
 </body>
 </html>

@@ -16,6 +16,7 @@
         <script type="text/javascript" src="/application/assets/js/jquery.validate-1.8.1.js"></script>
         <script type="text/javascript" src="/application/assets/js/login.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
     </head>
 
     <body>
@@ -165,5 +166,8 @@
             <a href="/about" id="bottom_link">About Us</a>
             <a href="/privacy" id="bottom_link">Privacy</a>
         </div>
+
+        <!-- Chartbeat -->
+        <script type="text/javascript" src="/application/assets/js/chartbeat_body.js"></script>
     </body>
 </html>
