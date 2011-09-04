@@ -32,8 +32,7 @@ class Load_suggested_groups extends CI_Model
                 echo "<i><div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections</div></i>";
             }
         }else{
-            echo "<div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections
-                <br/>Expanding search to include your school</div>";
+            echo "<div style=\"padding:10px; text-align:center;\">Could not match any groups to your connections</div>";
         }
     }
 
@@ -52,6 +51,7 @@ class Load_suggested_groups extends CI_Model
 
     function get_suggested_groups($users_following, $groups_already_joined)
     {
+        // generate query to figure out group ids based on friends joined and following
         $user = $this->ion_auth->get_user();
         $query = "SELECT group_id FROM group_relationships 
             WHERE ";
@@ -70,8 +70,8 @@ class Load_suggested_groups extends CI_Model
             }
             $tracker++;
         }
-
         $result = $this->db->query($query);
+        
         $group_results = array();
         foreach ($result->result() as $group_id)
         {
@@ -80,6 +80,20 @@ class Load_suggested_groups extends CI_Model
                 $group_results[] = $group_id->group_id;
             }
         }
+        
+        // generate second query to get all the groups from your school
+        $school_id = $this->ion_auth->get_user()->school_id;
+        $query = "SELECT id FROM groups WHERE school_id=$school_id";
+        $result = $this->db->query($query);
+        
+        foreach($result->result() as $group_id)
+        {
+            if(!in_array($group_id->group_id, $groups_already_joined))
+            {
+                $group_results[] = $group_id->group_id;
+            }
+        }
+        
         return $group_results;
     }
 
