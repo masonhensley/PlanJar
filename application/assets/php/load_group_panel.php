@@ -43,8 +43,8 @@
         }else{
             ?>
         <br/>
-        <i>Not following any groups yet</i><br/><br/>
-        <a href="/dashboard/groups/suggested" style="color:navy;font-weight:bold;" >Search for groups, or make your own!</a>
+        <i><font style="color:gray;">You are not following any groups yet</font></i><br/><br/>
+        <a href="/dashboard/groups/suggested" style="color:#5C98CC;font-weight:bold;" >Search for groups, or make your own!</a>
         <br/><br/> 
         <?php
         }
