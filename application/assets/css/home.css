@@ -874,10 +874,22 @@ a:hover{
 }
 
 .tutorial_button{
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+    
     position:absolute;
-    height:40px;
-    width:100px;
+    bottom:0px;
+    right:0px;
+    height:23px;
+    width:85px;
+    padding-top:6px;
     border:1px solid gray;
     background:lightgray;
     color:#5C98CC;
+}
+.tutorial_button:hover{
+    color:navy;
 }
