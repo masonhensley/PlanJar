@@ -82,7 +82,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <label><input type="checkbox" name="join_group_request" id="join_group_request"/>People want to join groups you're in</label>
+                    <label><input type="checkbox" name="join_group_request" id="join_group_request"/>People want to join groups I'm in</label>
                 </td>
             </tr>
         </form>

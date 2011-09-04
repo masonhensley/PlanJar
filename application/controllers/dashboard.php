@@ -555,7 +555,7 @@ class Dashboard extends CI_Controller
         }
 
         $this->load->model('notification_ops');
-        $this->notification_ops->notify(array($member_list), array(), 'join_group_request', $group_id);
+        $this->notification_ops->notify($member_list, array(), 'join_group_request', $group_id);
     }
 
 }
