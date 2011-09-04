@@ -295,7 +295,7 @@ class Load_profile extends CI_Model
         $image_name = $this->ion_auth->get_user($user_id)->image_name;
         if ($image_name == '')
         {
-            $src = base_url() . 'application/assets/images/logos/logo_' . rand(1, 25) . '.png';
+            $src = base_url() . 'application/assets/images/logos/' . rand(1, 6) . '.png';
         } else
         {
             $src = base_url() . "user_images/$image_name.jpg";
