@@ -1,7 +1,7 @@
 <!doctype html>
 <html>  
     <head>
-        <title>Tutorial</title>
+        <title>PlanJar | Tutorial</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="Learn how to use PlanJar.">
