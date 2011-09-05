@@ -22,8 +22,8 @@
         <script type="text/javascript">
             $(function() {
                 $('#showcase').awShowcase({
-//                    content_width: 500,
-//                    content_height: 300
+                    fir_to_parent: true,
+                    keyboard_keys: true
                 });
             });
         </script>
