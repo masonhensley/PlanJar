@@ -36,6 +36,11 @@ function initialize_settings() {
                             imageHeight: data.height,
                             imageWidth: data.width,
                             handles: 'corners',
+                            persistent: true,
+                            x1: 0,
+                            y1: 0,
+                            x2: Math.min(imageHeight, imageWidth),
+                            y2: Math.min(imageHeight, imageWidth),
                             onSelectEnd: function(img, selection) {
                                 // Update the inputs
                                 $('#x1').val(selection.x1);
