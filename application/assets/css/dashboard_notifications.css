@@ -15,7 +15,7 @@
 
 .notification_entry {
     width: 99%;
-    height: 70px;
+    height: auto;
     border-bottom: 1px solid lightgray;
     border-left: 1px solid lightgray;
     border-right: 1px solid lightgray;
@@ -59,7 +59,7 @@
 
 .notification_entry .middle {
     width: 210px;
-    height:70px;
+    height:auto;
     overflow:hidden;
     color:darkgray;
     font-style:italic;
