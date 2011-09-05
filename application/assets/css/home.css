@@ -928,5 +928,6 @@ a:hover{
     color:#5C98CC;
 }
 .tutorial_button:hover{
+    background:lightgray;
     color:navy;
 }
