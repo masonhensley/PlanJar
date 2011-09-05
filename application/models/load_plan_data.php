@@ -81,6 +81,17 @@ class Load_plan_data extends CI_Model
                 WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
             ";
         $result = $this->db->query($query);
+        $not_responded = $result->num_rows();
+        
+        // get number invited
+        $query = "
+                SELECT DISTINCT user_meta.user_id
+                FROM notifications
+                JOIN user_meta ON notifications.user_id=user_meta.user_id
+                LEFT JOIN school_data ON user_meta.school_id=school_data.id
+                WHERE notifications.subject_id=$event_id AND notifications.type='event_invite'
+        ";
+        $result = $this->db->query($query);
         $number_invited = $result->num_rows();
 
         if ($number_attending == 0)
@@ -120,6 +131,7 @@ class Load_plan_data extends CI_Model
 
         $this->load->helper('day_offset');
         $data_array = array(
+            'not_responded' => $not_responded,
             'time_string' => $time_string,
             'number_invited' => $number_invited,
             'number_attending' => $number_attending,
