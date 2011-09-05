@@ -34,14 +34,14 @@
 
 
 .notification_entry.unviewed .middle{
-    float: left;
+    display:inline-block;
     width: 210px;
     color:black;
     font-style:normal;
 }
 
 .notification_entry > .left {
-    float: left;
+    display:inline-block;
     width: 90px;
 }
 
@@ -74,7 +74,6 @@
     background: -ms-linear-gradient(top, #80B, #A3F);
     background: linear-gradient(top, #80B, #A3F);
     
-    float: right;
     width: 80px;
     color: white;
     padding: 3px;
@@ -114,7 +113,6 @@
     padding-bottom: 5px;
     color: black;
     border-radius: 5px;
-
 }
 
 .notifications_tab_selected{
