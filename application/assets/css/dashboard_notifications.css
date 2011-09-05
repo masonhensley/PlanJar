@@ -83,12 +83,19 @@
 
 .notification_entry .mark_read {
     position:absolute;
-    top:30px;
-    right:-2px;
+    top:8px;
+    right:-7px;
     width: 105px;
     color: gray;
     padding: 3px;
     text-align: center;
+}
+
+.notification_entry .responded{
+    color:black;
+    position:absolute;
+    top:30px;
+    right:-7px;
 }
 
 .notification_entry a {
