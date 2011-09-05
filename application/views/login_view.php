@@ -84,19 +84,19 @@
                                 <img src="/application/assets/images/showcase/1.png"/>
                             </div>
                         </div>
-<!--                         Put the caption content in a div with the class .showcase-caption 
+                        <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
                             The Caption
                         </div>
-                         Put the tooltips in a div with the class .showcase-tooltips. 
+                        <!-- Put the tooltips in a div with the class .showcase-tooltips. -->
                         <div class="showcase-tooltips">
-                             Each anchor in .showcase-tooltips represents a tooltip.
-                            The coords attribute represents the position of the tooltip. 
-                            <a href="http://www.awkward.se" coords="634,130">
-                                 The content of the anchor-tag is displayed in the tooltip. 
+                            <!-- Each anchor in .showcase-tooltips represents a tooltip.
+                            The coords attribute represents the position of the tooltip. -->
+                            <a href="http://www.awkward.se" coords="0,0">
+                                <!-- The content of the anchor-tag is displayed in the tooltip. -->
                                 This is a tooltip that displays the anchor html in a nice way.
                             </a>
-                        </div>-->
+                        </div>
                     </div>
                     <div class="showcase-slide">
                         <div class="showcase-content">
