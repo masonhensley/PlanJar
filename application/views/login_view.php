@@ -89,7 +89,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            Home view
                         </div>
                     </div>
 
@@ -105,7 +105,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            We are all about the groups and networks you join and follow
                         </div>
                     </div>
 
@@ -121,7 +121,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            This is a group overview. See trends for the selected Group or Network
                         </div>
                     </div>
 
@@ -137,7 +137,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            To the left of the info pane are your plans
                         </div>
                     </div>
 
@@ -153,7 +153,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            Click on a plan to see more info or leave comments for other attendees
                         </div>
                     </div>
 
@@ -169,7 +169,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            Making a plan is simple, even if you don't know the time
                         </div>
                     </div>
 
@@ -185,7 +185,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            Inviting friends to your micro events is simple
                         </div>
                     </div>
                 </div>
