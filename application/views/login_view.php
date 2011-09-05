@@ -25,7 +25,8 @@
                     content_width: 500,
                     content_height: 400,
                     arrows: false,
-                    btn_numbers: true
+                    btn_numbers: true,
+                    keyboard_keys: true
                 });
             });
         </script>
