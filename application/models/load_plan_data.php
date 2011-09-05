@@ -72,13 +72,13 @@ class Load_plan_data extends CI_Model
 
         $number_attending = $number_males + $number_females;
 
-        // get #invited
+        // get #accepted
         $query = "
                 SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
                 FROM notifications
                 JOIN user_meta ON notifications.user_id=user_meta.user_id
                 LEFT JOIN school_data ON user_meta.school_id=school_data.id
-                WHERE notifications.subject_id=$event_id AND notifications.type='event_invite'
+                WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=1
             ";
         $result = $this->db->query($query);
         $number_invited = $result->num_rows();
@@ -176,11 +176,11 @@ class Load_plan_data extends CI_Model
                     <font style="color:gray">Time: </font> <font style="font-weight:bold;">
                     <?php echo str_replace('_', ' ', $data_array['time_string']); ?></font>
                     <br/><br/>
-                    <font style="color:gray">Invited: </font><font style="font-weight:bold;">
-                    <?php echo $data_array['number_invited']; ?></font>
-                    &nbsp;&nbsp;&nbsp;
                     <font style="color:gray">Accepted </font><font style="font-weight:bold;">
-                    <?php echo $data_array['number_attending']; ?></font><div id="view_attendees" plan_id="<?php echo $plan_row->plan_id ?>">View Guest List</div>
+                    <?php echo $data_array['number_attending']; ?></font>
+                    &nbsp;&nbsp;&nbsp;
+                    <font style="color:gray">Not Responded </font><font style="font-weight:bold;">
+                    <?php echo $data_array['number_invited']; ?></font><div id="view_attendees" plan_id="<?php echo $plan_row->plan_id ?>">View Guest List</div>
                     <br/><br/>
                     <font style="font-weight:bold;">Description</font>
                     <br/>
