@@ -52,7 +52,7 @@ class Load_plan_data extends CI_Model
         $event_id = $result->row()->event_id;
 
         // select all the people attending the event
-        $query = "SELECT DISTINCT user_meta.sex FROM plans JOIN user_meta ON user_meta.user_id=plans.user_id WHERE plans.event_id=$event_id";
+        $query = "SELECT DISTINCT user_meta.user_id, user_meta.sex FROM plans JOIN user_meta ON user_meta.user_id=plans.user_id WHERE plans.event_id=$event_id";
         $result = $this->db->query($query);
 
         $number_females = 0;
