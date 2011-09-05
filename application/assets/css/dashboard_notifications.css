@@ -35,7 +35,6 @@
 
 
 .notification_entry.unviewed .middle{
-    display:inline-block;
     width: 210px;
     height:auto;
     color:black;
@@ -100,7 +99,7 @@
     color:black;
     position:absolute;
     top:30px;
-    right:-7px;
+    right:-11px;
 }
 
 .notification_entry a {

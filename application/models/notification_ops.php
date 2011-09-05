@@ -158,7 +158,7 @@ class Notification_ops extends CI_Model
                 }
             } else
             {
-                echo('<div class="responded"><b>Responded</b></div><br/>');
+                echo('<div class="responded"><b>Responded</b></div>');
             }
             if ($row->viewed)
             {
