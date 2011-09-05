@@ -23,7 +23,7 @@ class Notification_ops extends CI_Model
             // Only add the notification if the originating user is not the current user
             if ($user_id != $this->ion_auth->get_user()->id)
             {
-                $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id, $this->ion_auth->get_user()->id);
+                $accepted = (integer) $this->deduce_notified($type, $subject_id, $user_id, $this->ion_auth->get_user()->id);
                 $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
                 if (!$accepted)
                 {
@@ -45,7 +45,7 @@ class Notification_ops extends CI_Model
                 // Only add the notification if the originating user is not the current user
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
-                    $accepted = (integer) $this->deduce_accepted($type, $subject_id, $joined_user, $this->ion_auth->get_user()->id);
+                    $accepted = (integer) $this->deduce_notified($type, $subject_id, $joined_user, $this->ion_auth->get_user()->id);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
                     if (!$accepted)
                     {
@@ -364,29 +364,22 @@ class Notification_ops extends CI_Model
         }
     }
 
-    // Returns true if the user has accepted the notification (using data in $notif_row).
-    function deduce_accepted($type, $subject_id, $user_id, $originator_id)
+    // Returns true if the user has already been invited to the subject id
+    function deduce_notified($type, $subject_id, $user_id, $originator_id)
     {
         switch ($type)
         {
-            // Event invite
+            // Cascade these into one
             case 'event_invite':
-                $query_string = "SELECT * FROM plans WHERE user_id = ? AND event_id = ?";
+            case 'group_invite':
+            case 'follow_notif':
+                $query_string = "SELECT id FROM notifications WHERE user_id = ? AND type = ? AND subject_id = ?";
                 $query = $this->db->query($query_string, array(
                     $user_id,
+                    $type,
                     $subject_id));
 
                 return $query->num_rows() > 0;
-
-            // Group invite
-            case 'group_invite':
-                $this->load->model('group_ops');
-                return $this->group_ops->user_is_joined($subject_id, $user_id);
-
-            // Follow notification
-            case 'follow_notif':
-                $this->load->model('follow_ops');
-                return $this->follow_ops->is_following($user_id, $subject_id);
 
             // Join group request
             case 'join_group_request':
