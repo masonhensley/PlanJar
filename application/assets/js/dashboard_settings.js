@@ -75,17 +75,8 @@ function initialize_settings() {
                     hide: true
                 });
                 
-                // Success. Reset everything
-                $('#settings_content .right').hide('fast', function() {
-                    $('#preview_image').attr('src', '');
-                    $('#crop_image input, #image_upload input').not('[type="submit"]').val('');
-                    $('#upload_crop').css('display', 'none');
-                });
-                
-                // Hide/show the upload form/alt text
-                $('#image_upload_alt').hide('fast', function() {
-                    $('#image_upload').show('fast');
-                });
+                // Success.
+                window.location.href = '/dashboard/profile'
             }
         });
         
