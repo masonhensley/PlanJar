@@ -81,28 +81,108 @@
                             .showcase-content-wrapper. We usually wrap even if there is only one element,
                             because it looks better. -->
                             <div class="showcase-content-wrapper">
-                                <img src="/application/assets/images/showcase/1.png"/>
+                                <img src="/application/assets/images/showcase/a.png"/>
                             </div>
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
                             The Caption
                         </div>
-                        <!-- Put the tooltips in a div with the class .showcase-tooltips. -->
-                        <div class="showcase-tooltips">
-                            <!-- Each anchor in .showcase-tooltips represents a tooltip.
-                            The coords attribute represents the position of the tooltip. -->
-                            <a href="http://www.awkward.se" coords="0,0">
-                                <!-- The content of the anchor-tag is displayed in the tooltip. -->
-                                This is a tooltip that displays the anchor html in a nice way.
-                            </a>
+                    </div>
+
+                    <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content -->
+                        <div class="showcase-content">
+                            <!-- If the slide contains multiple elements you should wrap them in a div with the class
+                            .showcase-content-wrapper. We usually wrap even if there is only one element,
+                            because it looks better. -->
+                            <div class="showcase-content-wrapper">
+                                <img src="/application/assets/images/showcase/b.png"/>
+                            </div>
+                        </div>
+                        <!-- Put the caption content in a div with the class .showcase-caption -->
+                        <div class="showcase-caption">
+                            The Caption
                         </div>
                     </div>
+
                     <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content -->
                         <div class="showcase-content">
+                            <!-- If the slide contains multiple elements you should wrap them in a div with the class
+                            .showcase-content-wrapper. We usually wrap even if there is only one element,
+                            because it looks better. -->
                             <div class="showcase-content-wrapper">
-                                <img src="/application/assets/images/showcase/2.png"/>
+                                <img src="/application/assets/images/showcase/c.png"/>
                             </div>
+                        </div>
+                        <!-- Put the caption content in a div with the class .showcase-caption -->
+                        <div class="showcase-caption">
+                            The Caption
+                        </div>
+                    </div>
+
+                    <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content -->
+                        <div class="showcase-content">
+                            <!-- If the slide contains multiple elements you should wrap them in a div with the class
+                            .showcase-content-wrapper. We usually wrap even if there is only one element,
+                            because it looks better. -->
+                            <div class="showcase-content-wrapper">
+                                <img src="/application/assets/images/showcase/d.png"/>
+                            </div>
+                        </div>
+                        <!-- Put the caption content in a div with the class .showcase-caption -->
+                        <div class="showcase-caption">
+                            The Caption
+                        </div>
+                    </div>
+
+                    <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content -->
+                        <div class="showcase-content">
+                            <!-- If the slide contains multiple elements you should wrap them in a div with the class
+                            .showcase-content-wrapper. We usually wrap even if there is only one element,
+                            because it looks better. -->
+                            <div class="showcase-content-wrapper">
+                                <img src="/application/assets/images/showcase/e.png"/>
+                            </div>
+                        </div>
+                        <!-- Put the caption content in a div with the class .showcase-caption -->
+                        <div class="showcase-caption">
+                            The Caption
+                        </div>
+                    </div>
+
+                    <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content -->
+                        <div class="showcase-content">
+                            <!-- If the slide contains multiple elements you should wrap them in a div with the class
+                            .showcase-content-wrapper. We usually wrap even if there is only one element,
+                            because it looks better. -->
+                            <div class="showcase-content-wrapper">
+                                <img src="/application/assets/images/showcase/f.png"/>
+                            </div>
+                        </div>
+                        <!-- Put the caption content in a div with the class .showcase-caption -->
+                        <div class="showcase-caption">
+                            The Caption
+                        </div>
+                    </div>
+
+                    <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content -->
+                        <div class="showcase-content">
+                            <!-- If the slide contains multiple elements you should wrap them in a div with the class
+                            .showcase-content-wrapper. We usually wrap even if there is only one element,
+                            because it looks better. -->
+                            <div class="showcase-content-wrapper">
+                                <img src="/application/assets/images/showcase/g.png"/>
+                            </div>
+                        </div>
+                        <!-- Put the caption content in a div with the class .showcase-caption -->
+                        <div class="showcase-caption">
+                            The Caption
                         </div>
                     </div>
                 </div>
