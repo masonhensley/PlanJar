@@ -81,7 +81,7 @@
                             .showcase-content-wrapper. We usually wrap even if there is only one element,
                             because it looks better. -->
                             <div class="showcase-content-wrapper">
-                                <img src="/application/assets/images/showcase/1.jpg"/>
+                                <img src="/application/assets/images/showcase/1.png"/>
                             </div>
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
@@ -92,7 +92,7 @@
                     <div class="showcase-slide">
                         <div class="showcase-content">
                             <div class="showcase-content-wrapper">
-                                <img src="/application/assets/images/showcase/2.jpg"/>
+                                <img src="/application/assets/images/showcase/2.png"/>
                             </div>
                         </div>
                     </div>
