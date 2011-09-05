@@ -77,7 +77,7 @@
         </div>
         <div id="container">
             <div id="leftside">
-                <h5>Find out more about PlanJar<span class="arrow"></span> </h5>
+                <h5>Make plans with friends while anomomously influencing your larger social circles. Give us a try!<span class="arrow"></span> </h5>
                 <div id="showcase" class="showcase">
                     <div class="showcase-slide">
                         <!-- Put the slide content in a div with the class .showcase-content -->
