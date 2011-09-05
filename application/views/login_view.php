@@ -23,7 +23,9 @@
             $(function() {
                 $('#showcase').awShowcase({
                     content_width: 500,
-                    content_height: 400
+                    content_height: 400,
+                    arrows: false,
+                    btn_numbers: true
                 });
             });
         </script>
@@ -72,7 +74,7 @@
         </div>
         <div id="container">
             <div id="leftside">
-                <h5>PlanJar shows what groups of people are doing around you<span class="arrow"></span> </h5>
+                <h5>Find out more about PlanJar<span class="arrow"></span> </h5>
                 <div id="showcase" class="showcase">
                     <div class="showcase-slide">
                         <!-- Put the slide content in a div with the class .showcase-content -->
