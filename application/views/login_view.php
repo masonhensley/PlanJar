@@ -9,6 +9,7 @@
         <link rel=stylesheet href="/application/assets/css/in-field_labels.css" type="text/css" />
         <link type="text/css" rel=stylesheet href="/application/assets/css/login.css"/>
         <link type="text/css" rel=stylesheet href="/application/assets/css/eggplant/theme.css"/>
+        <link type="text/css" rel=stylesheet href="/application/assets/css/aw-showcase.css"/>
 
         <!-- JS -->
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.3.min.js"></script>
@@ -17,6 +18,15 @@
         <script type="text/javascript" src="/application/assets/js/login.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.aw-showcase.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#showcase').awShowcase({
+                    content_width: 500,
+                    content_height: 300
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -49,10 +59,10 @@
                     } else
                     {
                         ?>
-                    <font style="color:white;position:absolute; right:100px;width:535px; top:4px;">Some important features on PlanJar do not work in Internet Explorer.  We apologize for the inconvenience, but do yourself a favor and install 
-                    <a href="http://www.google.com/chrome" style="color:lightblue;">Google Chrome </a>, 
-                    <a href="http://sjc.mozilla.com/en-US/firefox/new/" style="color:lightblue;">Mozilla Firefox</a>, or 
-                    <a href="http://www.apple.com/safari/download/" style="color:lightblue;">Safari</a>.  Your entire experience on the internet will be better.</font>
+                        <font style="color:white;position:absolute; right:100px;width:535px; top:4px;">Some important features on PlanJar do not work in Internet Explorer.  We apologize for the inconvenience, but do yourself a favor and install 
+                        <a href="http://www.google.com/chrome" style="color:lightblue;">Google Chrome </a>, 
+                        <a href="http://sjc.mozilla.com/en-US/firefox/new/" style="color:lightblue;">Mozilla Firefox</a>, or 
+                        <a href="http://www.apple.com/safari/download/" style="color:lightblue;">Safari</a>.  Your entire experience on the internet will be better.</font>
                         <?php
                     }
                     ?>
@@ -61,12 +71,32 @@
             </div>
         </div>
         <div id="container">
-            <div id="leftside" style="height:75px;">
-                <h5><!-- PlanJar shows what groups of people are doing around you-->PlanJar is being released Monday September 5<span class="arrow"></span> </h5>
-                <div id="left_title">
+            <div id="leftside">
+                <h5>PlanJar shows what groups of people are doing around you<span class="arrow"></span> </h5>
+                <div id="showcase" class="showcase">
+                    <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content -->
+                        <div class="showcase-content">
+                            <!-- If the slide contains multiple elements you should wrap them in a div with the class
+                            .showcase-content-wrapper. We usually wrap even if there is only one element,
+                            because it looks better. -->
+                            <div class="showcase-content-wrapper">
+                                <img src="/application/images/showcase/1.jpg"/>
+                            </div>
+                        </div>
+                        <!-- Put the caption content in a div with the class .showcase-caption -->
+                        <div class="showcase-caption">
+                            The Caption
+                        </div>
+                    </div>
+                    <div class="showcase-slide">
+                        <div class="showcase-content">
+                            <div class="showcase-content-wrapper">
+                                <img src="/application/images/showcase/2.jpg"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="left_video">
-                </div>  
             </div>
             <div id="rightside">
                 <div id="right_inner">
