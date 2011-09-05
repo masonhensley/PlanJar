@@ -33,7 +33,6 @@ class Load_plan_data extends CI_Model
     function get_plan_data_array($plan_id, $plan_row)
     {
         // set the plan time
-
         $show_day = date("l", strtotime($plan_row->date));
         $show_date = date("F jS", strtotime($plan_row->date));
         $show_time = date("g:i a", strtotime($plan_row->clock_time));
@@ -53,7 +52,7 @@ class Load_plan_data extends CI_Model
         $event_id = $result->row()->event_id;
 
         // select all the people attending the event
-        $query = "SELECT user_meta.sex FROM plans JOIN user_meta ON user_meta.user_id=plans.user_id WHERE plans.event_id=$event_id";
+        $query = "SELECT DISTINCT user_meta.sex FROM plans JOIN user_meta ON user_meta.user_id=plans.user_id WHERE plans.event_id=$event_id";
         $result = $this->db->query($query);
 
         $number_females = 0;
@@ -79,7 +78,7 @@ class Load_plan_data extends CI_Model
                 JOIN user_meta ON notifications.user_id=user_meta.user_id
                 LEFT JOIN school_data ON user_meta.school_id=school_data.id
                 WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
-            ";
+                ";
         $result = $this->db->query($query);
         $not_responded = $result->num_rows();
         
@@ -90,7 +89,7 @@ class Load_plan_data extends CI_Model
                 JOIN user_meta ON notifications.user_id=user_meta.user_id
                 LEFT JOIN school_data ON user_meta.school_id=school_data.id
                 WHERE notifications.subject_id=$event_id AND notifications.type='event_invite'
-        ";
+                ";
         $result = $this->db->query($query);
         $number_invited = $result->num_rows();
 
@@ -108,7 +107,7 @@ class Load_plan_data extends CI_Model
             $percent_attending = 0;
         } else
         {
-            $percent_attending = ($number_attending / $number_invited) * 100;
+            $percent_attending = ($number_attending / ($number_attending + $not_responded)) * 100;
         }
 
         // get originator name
