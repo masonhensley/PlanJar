@@ -25,6 +25,5 @@
     </div>
     
     <div id="friend_plan_list" style="display:none; position:relative;">
-        
     </div>
 </div> 
