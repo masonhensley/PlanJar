@@ -466,17 +466,17 @@ function initialize_plan_autocomplete() {
                         };
                     });
                 }
-                
-                // Call the response function with the a copy of the response JSON.
-                var temp = response_json.slice(0);
-                temp.push({
-                    label: 'Expanding search results with factual.com...', 
-                    value: '',
-                    id: ''
-                });
-                response(temp);
                     
                 if (place_limit > 0) {
+                    // Call the response function with the a copy of the response JSON.
+                    var temp = response_json.slice(0);
+                    temp.push({
+                        label: 'Expanding search results with factual.com...', 
+                        value: '',
+                        id: ''
+                    });
+                    response(temp);
+                    
                     // If additional places are required, fetch places from Factual. Pick fields needed
                     // by the autocomplete from the resulting JSON and add them to response_json array.
                     var my_filters = {
@@ -545,13 +545,6 @@ function initialize_plan_autocomplete() {
                         },
                         jsonp: 'jsoncallback'
                     });
-                } else {
-                    response_json.push({
-                        label: "Create place (it's easy!)", 
-                        value: '', 
-                        id: 'new place'
-                    });
-                    response(response_json);
                 }
             });
         },
