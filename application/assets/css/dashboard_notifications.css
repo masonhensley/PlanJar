@@ -43,6 +43,7 @@
 .notification_entry > .left {
     display:inline-block;
     width: 90px;
+    float:left;
 }
 
 .notification_entry .picture {
