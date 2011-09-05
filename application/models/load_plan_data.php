@@ -72,7 +72,7 @@ class Load_plan_data extends CI_Model
 
         $number_attending = $number_males + $number_females;
 
-        // get #invited
+        // get #accepted
         $query = "
                 SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
                 FROM notifications
