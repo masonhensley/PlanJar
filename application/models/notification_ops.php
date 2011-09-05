@@ -23,7 +23,7 @@ class Notification_ops extends CI_Model
             // Only add the notification if the originating user is not the current user
             if ($user_id != $this->ion_auth->get_user()->id)
             {
-                $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id);
+                $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id, $this->ion_auth->get_user()->id);
                 $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
                 if (!$accepted)
                 {
@@ -45,7 +45,7 @@ class Notification_ops extends CI_Model
                 // Only add the notification if the originating user is not the current user
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
-                    $accepted = (integer) $this->deduce_accepted($type, $subject_id, $joined_user);
+                    $accepted = (integer) $this->deduce_accepted($type, $subject_id, $joined_user, $this->ion_auth->get_user()->id);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
                     if (!$accepted)
                     {
@@ -365,7 +365,7 @@ class Notification_ops extends CI_Model
     }
 
     // Returns true if the user has accepted the notification (using data in $notif_row).
-    function deduce_accepted($type, $subject_id, $user_id)
+    function deduce_accepted($type, $subject_id, $user_id, $originator_id)
     {
         switch ($type)
         {
@@ -390,7 +390,9 @@ class Notification_ops extends CI_Model
 
             // Join group request
             case 'join_group_request':
-                return false;
+                $query = "SELECT id FROM notifications WHERE type = ? AND originator_id = ? AND subject_if = ?";
+                $query = $this->db->query($query_string, array($type, $originator_id, $subject_id));
+                return $query->num_rows() > 0;
         }
     }
 
