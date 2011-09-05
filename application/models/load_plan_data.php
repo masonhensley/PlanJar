@@ -122,7 +122,7 @@ class Load_plan_data extends CI_Model
 
         if ($result->row()->first_name == NULL)
         {
-            $originator_name = 'n/a, no event (just going)';
+            $originator_name = 'n/a, no event title (just going)';
         } else
         {
             $originator_name = $result->row()->first_name . " " . $result->row()->last_name;
