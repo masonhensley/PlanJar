@@ -79,12 +79,14 @@
     background: -o-linear-gradient(top, #80B, #A3F);
     background: -ms-linear-gradient(top, #80B, #A3F);
     background: linear-gradient(top, #80B, #A3F);
-    
+
     width: 80px;
     color: white;
     padding: 3px;
-    margin-right:11px;
     text-align: center;
+    position:absolute;
+    top:0px;
+    right:-6px;
 }
 
 .notification_entry .mark_read {
@@ -135,6 +137,6 @@
     background: -o-linear-gradient(top, #F8BA78, #F5952E);
     background: -ms-linear-gradient(top, #F8BA78, #F5952E);
     background: linear-gradient(top, #F8BA78, #F5952E);
-    
+
     color:white;
 }
