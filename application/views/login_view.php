@@ -65,7 +65,7 @@
                 <h5><!-- PlanJar shows what groups of people are doing around you-->PlanJar is being released Monday September 5<span class="arrow"></span> </h5>
                 <div id="left_title">
                 </div>
-                <div id="left_video" style="display:none;">
+                <div id="left_video">
                 </div>  
             </div>
             <div id="rightside">
