@@ -18,6 +18,7 @@
         <script type="text/javascript" src="/application/assets/js/login.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
+        <script type="text/javascript" src="/application/assets/js/google_analytics.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery.aw-showcase.min.js"></script>
         <script type="text/javascript">
             $(function() {

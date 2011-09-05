@@ -42,6 +42,7 @@
         <script type="text/javascript" src="/application/assets/js/spin.js"></script>
         <script type="text/javascript" src="/application/assets/js/dashboard_settings.js"></script>
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
+        <script type="text/javascript" src="/application/assets/js/google_analytics.js"></script>
 
         <!-- jQuery plugins -->
         <script type="text/javascript" src="/application/assets/js/jquery.infieldlabel.min.js"></script>
@@ -130,7 +131,7 @@
         <?php include(APPPATH . 'assets/php/create_group_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/invite_modal.php'); ?>
         <?php include(APPPATH . 'assets/php/plan_conflict_modal.php'); ?>
-        
+
         <!-- Chartbeat -->
         <script type="text/javascript" src="/application/assets/js/chartbeat_body.js"></script>
     </body>

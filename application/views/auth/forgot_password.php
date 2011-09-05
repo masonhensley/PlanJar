@@ -29,7 +29,9 @@
             });
         </script>
 
+        <!-- JS -->
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
+        <script type="text/javascript" src="/application/assets/js/google_analytics.js"></script>
     </head>
 
     <body>
