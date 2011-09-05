@@ -32,14 +32,14 @@
     background: linear-gradient(top, #F3F6FF, white);
 }
 
-/*
+
 .notification_entry.unviewed .middle{
     display:inline-block;
     width: 210px;
+    height:auto;
     color:black;
     font-style:normal;
 }
-*/
 
 .notification_entry > .left {
     display:inline-block;
@@ -62,7 +62,6 @@
 .notification_entry .middle {
     width: 210px;
     height:auto;
-    overflow:hidden;
     color:darkgray;
     font-style:italic;
 }
