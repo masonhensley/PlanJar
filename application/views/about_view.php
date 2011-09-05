@@ -68,7 +68,7 @@
                     <img src="/application/assets/images/parker_bio.jpg" style="width:100%; height:100%;" />
                 </div>
             </div>
-            <h4> Wells Johnston, Director of Field Ops, Software Architect & Co-Founder ¯\_(ツ)_/¯<span class="arrow_right"></span> </h4>
+            <h4> Wells Johnston, Director of Field Ops, Software Architect & Co-Founder (ツ)_/¯<span class="arrow_right"></span> </h4>
             <div class ="person">
                 <div class ="info">
                     Wells runs PlanJar’s engineering team with Parker, and directs the site architecture and development.  Before PlanJar, Wells worked as a
