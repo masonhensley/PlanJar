@@ -37,6 +37,7 @@
 .notification_entry.unviewed .middle{
     width: 210px;
     height:auto;
+    min-height:70px;
     color:black;
     font-style:normal;
     margin-left:auto;
@@ -64,6 +65,7 @@
 .notification_entry .middle {
     width: 210px;
     height:auto;
+    min-height:70px;
     color:darkgray;
     font-style:italic;
     margin-left:auto;
