@@ -131,13 +131,13 @@ div.showcase-tooltip
     margin-right: 3px;
     padding: 2px 5px 0px 5px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 20px;
     color: #444444;
 }
 
 .showcase-button-wrapper span.active
 {
-    color: #fff;
+    color: purple;
 }
 
 /* Thumbnails */
