@@ -52,11 +52,16 @@ class Auth extends CI_Controller
 
         if ($reset)
         {  //if the reset worked then show the confirmation page
-            $this->load->view('auth/reset_password_view');
+            redirect("auth/login", 'refresh');
         } else
         { //if the reset didnt work then send them back to the forgot password page
             redirect("auth/forgot_password", 'refresh');
         }
+    }
+
+    public function post_password_reset()
+    {
+        $this->load->view('auth/reset+password_view');
     }
 
     //activate the user
