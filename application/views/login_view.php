@@ -25,9 +25,8 @@
                     content_width: 500,
                     content_height: 400,
                     arrows: false,
-                    btn_numbers: true,
                     continuous: true,
-                    interval: 15000
+                    interval: 5000
                 });
             });
         </script>
@@ -201,7 +200,7 @@
                     </div>
                     </font>
                     <center>
-                        <form id="sign_up" style="display: none;">
+                        <form id="sign_up">
                             <div class="div_texbox">
                                 <div class="in-field_block" style="margin-top:12px;">
                                     <label for="su_email_1">University email</label>
