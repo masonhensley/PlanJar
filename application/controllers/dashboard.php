@@ -156,11 +156,11 @@ class Dashboard extends CI_Controller
         $this->load->model('group_ops');
         $user = $this->ion_auth->get_user();
 
-        $query_string = "SELECT groups.id, groups.name, group_relationships.user_following_id " .
-                "FROM group_relationships LEFT JOIN groups " .
-                "ON group_relationships.group_id = groups.id " .
-                "WHERE group_relationships.user_following_id = ? OR group_relationships.user_joined_id = ? " .
-                "ORDER BY groups.name ASC";
+        $query_string = "SELECT groups.id, groups.name, group_relationships.user_following_id
+            FROM group_relationships JOIN groups
+            ON group_relationships.group_id = groups.id
+            WHERE group_relationships.user_following_id = ? OR group_relationships.user_joined_id = ?
+            ORDER BY groups.name ASC";
         $query = $this->db->query($query_string, array($user->id, $user->id));
         if ($query->num_rows() > 0)
         {
@@ -174,14 +174,6 @@ class Dashboard extends CI_Controller
                     $this->group_ops->echo_group_entry($row, 'joined');
                 }
             }
-        } else
-        {
-            ?> 
-            <div style="width:100%; height:40px; background-color:white;text-align: center;border-bottom: 1px solid black; border-top:1px solid black;padding-top:15px; padding-bottom: 15px">
-                You are not following any groups<br/>
-                <a href="/dashboard/groups/suggested" style="color:#110055; font-weight:bold;">Find groups</a>
-            </div>
-            <?php
         }
     }
 

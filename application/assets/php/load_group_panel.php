@@ -18,7 +18,7 @@
         <font style="color:gray;">(select one or multiple)</font>
         <br/><hr/>
         <?php
-        if (count($joined_groups) + count($followed_groups) > 1)
+        if (count($joined_groups) + count($followed_groups) > 0)
         {
             foreach ($joined_groups as $group)
             {
@@ -40,15 +40,16 @@
                 </div>
                 <?php
             }
-        }else{
+        } else
+        {
             ?>
-        <br/>
-        <i><font style="color:gray;">You are not following any groups yet</font></i><br/><br/>
-        <a href="/dashboard/groups/suggested" class="find_link">Search for groups, or make your own!</a>
-        <br/><br/> 
-        <?php
+            <br/>
+            <i><font style="color:gray;">You are not following any groups yet</font></i><br/><br/>
+            <a href="/dashboard/groups/suggested" class="find_link">Search for groups, or make your own!</a>
+            <br/><br/> 
+            <?php
         }
-            ?>
+        ?>
         <div id="group_select_type">
             <div id="select_one_group" style="width:50px;">one</div>
             <div id="select_mult_groups" style="margin-left:5px;width:50px;">multiple</div>

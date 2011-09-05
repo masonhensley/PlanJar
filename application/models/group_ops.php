@@ -242,13 +242,24 @@ class Group_ops extends CI_Model
             $user_id = $this->ion_auth->get_user()->id;
         }
 
-        $query_string = "UPDATE group_relationships " .
-                "SET user_following_id = DEFAULT, user_joined_id = ? " .
-                "WHERE group_id = ? AND user_following_id = ?";
+        $query_string = "UPDATE group_relationships
+            SET user_following_id = DEFAULT, user_joined_id = ?
+            WHERE group_id = ? AND user_following_id = ?";
         $query = $this->db->query($query_string, array(
             $user_id,
             $group_id,
             $user_id,
+                ));
+
+        // Mark all associated group notifications as read and accepted
+        $query_string = "UPDATE notifications SET viewed = 1, accepted = 1
+            WHERE (type = ? AND user_id = ?) OR (type = ? AND originator_id = ?) AND subject_id = ?";
+        $query = $this->db->query($query_string, array(
+            'group_invite',
+            $user_id,
+            'join_group_request',
+            $user_id,
+            $group_id
                 ));
     }
 

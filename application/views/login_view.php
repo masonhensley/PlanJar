@@ -26,7 +26,8 @@
                     content_height: 400,
                     arrows: false,
                     continuous: true,
-                    interval: 5000
+                    interval: 4000,
+                    auto: true
                 });
             });
         </script>
@@ -89,7 +90,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            The home view...
                         </div>
                     </div>
 
@@ -105,7 +106,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            We're all about the groups and networks you join and follow.
                         </div>
                     </div>
 
@@ -121,7 +122,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            This is a group overview. See trends for the selected group or network.
                         </div>
                     </div>
 
@@ -137,7 +138,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            To the right of the info pane are your plans.
                         </div>
                     </div>
 
@@ -153,7 +154,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            Click on a plan to see more info or to leave comments for other attendees
                         </div>
                     </div>
 
@@ -169,7 +170,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            Making a plan is simple, even if you don't know exactly when you want to go.
                         </div>
                     </div>
 
@@ -185,15 +186,14 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            The Caption
+                            Inviting friends to your events is simple.
                         </div>
                     </div>
                 </div>
             </div>
             <div id="rightside">
                 <div id="right_inner">
-<!--                    <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>-->
-                    <h3>Signup will open when PlanJar is released.<span class="arrow"></span></h3>
+                    <h3>Not a member?  Sign up for free.<span class="arrow"></span></h3>
                     <font color="purple" >
                     <div id="su_error" class="error_message" style="text-align:center; color:red;">
                         <!-- Errors will be displayed here -->
