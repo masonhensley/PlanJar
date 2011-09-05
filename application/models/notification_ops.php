@@ -496,7 +496,7 @@ class Notification_ops extends CI_Model
 
                     // Capture the body
                     $body_string .= "<b>$first_last</b>" .
-                            ' has requestes to join <b>' . $row->name . '</b>. This email has been sent to multiple users. Only one of you needs to accept.';
+                            ' has requested to join <b>' . $row->name . '</b>. This email has been sent to multiple users. Only one of you needs to accept.';
                     break;
             }
 

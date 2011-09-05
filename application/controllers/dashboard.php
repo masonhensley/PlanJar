@@ -402,7 +402,7 @@ class Dashboard extends CI_Controller
 
     public function get_email_prefs()
     {
-        $query_string = "SELECT event_invite, follow_notif, group_invite FROM user_meta WHERE user_id = ?";
+        $query_string = "SELECT event_invite, follow_notif, group_invite, join_group_request FROM user_meta WHERE user_id = ?";
         $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id));
 
         echo(json_encode($query->row()));
@@ -553,6 +553,8 @@ class Dashboard extends CI_Controller
             }
             $member_list = $new_member_list;
         }
+
+        var_dump($member_list);
 
         $this->load->model('notification_ops');
         $this->notification_ops->notify($member_list, array(), 'join_group_request', $group_id);
