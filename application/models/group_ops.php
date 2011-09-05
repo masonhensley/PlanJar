@@ -315,8 +315,11 @@ class Group_ops extends CI_Model
         $query = $this->db->query($query_string, array($group_id));
 
         // Delete corresponding notifications
-        $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
-        $query = $this->db->query($query_string, array('group_invite', $group_id));
+        $query_string = "DELETE FROM notifications WHERE (type = ? OR type = ?) AND subject_id = ?";
+        $query = $this->db->query($query_string, array(
+            'group_invite',
+            'join_group_request',
+            $group_id));
     }
 
 }
