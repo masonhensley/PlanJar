@@ -33,7 +33,10 @@
         <div class="wrapper">
             <a href="<?php echo(base_url()); ?>">
                 <img src="<?php echo(base_url() . APPPATH . 'assets/images/logo_email_beta.png'); ?>"/>
-                <div style="float: right;"><?php echo($image); ?></div>
+                <?php if (isset($image))
+                { ?>
+                    <div style="float: right;"><?php echo($image); ?></div>
+                <?php } ?>
 
             </a>
             <hr/>
