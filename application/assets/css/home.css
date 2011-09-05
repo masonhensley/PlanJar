@@ -41,7 +41,7 @@ a:hover{
     color:white;
 }
 
-.container a{
+.container a:hover{
     color:navy;
 }
 
