@@ -22,7 +22,7 @@
         <script type="text/javascript">
             $(function() {
                 $('#showcase').awShowcase({
-                    fir_to_parent: true,
+                    fit_to_parent: true,
                     keyboard_keys: true
                 });
             });
@@ -87,6 +87,22 @@
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
                             The Caption
+                        </div>
+                        <!-- Put the tooltips in a div with the class .showcase-tooltips. -->
+                        <div class="showcase-tooltips">
+                            <!-- Each anchor in .showcase-tooltips represents a tooltip.
+                            The coords attribute represents the position of the tooltip. -->
+                            <a href="http://www.awkward.se" coords="634,130">
+                                <!-- The content of the anchor-tag is displayed in the tooltip. -->
+                                This is a tooltip that displays the anchor html in a nice way.
+                            </a>
+                            <a href="http://www.awkward.se" coords="356, 172">
+                                <!-- You can add multiple elements to the anchor-tag which are display in the tooltip. -->
+                                <img src="images/glasses.png" />
+                                <span style="display: block; font-weight: bold; padding: 3px 0 3px 0; text-align: center;">
+                                    White Glasses: 500$
+                                </span>
+                            </a>
                         </div>
                     </div>
                     <div class="showcase-slide">
