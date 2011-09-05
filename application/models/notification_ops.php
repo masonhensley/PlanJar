@@ -390,7 +390,7 @@ class Notification_ops extends CI_Model
 
             // Join group request
             case 'join_group_request':
-                $query = "SELECT id FROM notifications WHERE type = ? AND originator_id = ? AND subject_if = ?";
+                $query_string = "SELECT id FROM notifications WHERE type = ? AND originator_id = ? AND subject_if = ?";
                 $query = $this->db->query($query_string, array($type, $originator_id, $subject_id));
                 return $query->num_rows() > 0;
         }
