@@ -47,9 +47,6 @@ function initialize_settings() {
                                 $('#y1').val(selection.y1);
                                 $('#x2').val(selection.x2);
                                 $('#y2').val(selection.y2);
-                            
-                                // Show the submit button
-                                $('#upload_crop').show('fast');
                             }
                         });
                     });
