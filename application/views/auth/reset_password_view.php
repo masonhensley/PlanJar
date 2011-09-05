@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Almost there...</title>
+        <title>PlanJar | Reset Password</title>
 
         <link rel=stylesheet href="/application/assets/css/login.css" type="text/css" />
         <style type="text/css">
@@ -21,9 +21,8 @@
     <center>
         <div class="almost_there">
             <fieldset>
-                <legend>Almost there...</legend>
-                <p>Thanks for registering for PlanJar.com.
-                    Please check your email to confirm your account.</p>
+                <legend>Reset Password</legend>
+                <p>Please check your email for your new password. You can then login and change your password.</p>
             </fieldset>
         </div>
     </center>

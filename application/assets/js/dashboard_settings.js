@@ -36,15 +36,17 @@ function initialize_settings() {
                             imageHeight: data.height,
                             imageWidth: data.width,
                             handles: 'corners',
+                            persistent: true,
+                            x1: 0,
+                            y1: 0,
+                            x2: Math.min(data.height, data.width),
+                            y2: Math.min(data.height, data.width),
                             onSelectEnd: function(img, selection) {
                                 // Update the inputs
                                 $('#x1').val(selection.x1);
                                 $('#y1').val(selection.y1);
                                 $('#x2').val(selection.x2);
                                 $('#y2').val(selection.y2);
-                            
-                                // Show the submit button
-                                $('#upload_crop').show('fast');
                             }
                         });
                     });
@@ -75,17 +77,8 @@ function initialize_settings() {
                     hide: true
                 });
                 
-                // Success. Reset everything
-                $('#settings_content .right').hide('fast', function() {
-                    $('#preview_image').attr('src', '');
-                    $('#crop_image input, #image_upload input').not('[type="submit"]').val('');
-                    $('#upload_crop').css('display', 'none');
-                });
-                
-                // Hide/show the upload form/alt text
-                $('#image_upload_alt').hide('fast', function() {
-                    $('#image_upload').show('fast');
-                });
+                // Success.
+                window.location.href = '/dashboard/profile'
             }
         });
         

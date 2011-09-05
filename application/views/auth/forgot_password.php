@@ -18,7 +18,7 @@
                     $.get('/auth/forgot_password', $('form').serialize(), function(data) {
                         if (data == 'success') {
                             alert('Check your email to reset your password. Redirecting...');
-                            window.location.href = '/home';
+                            window.location.href = '/login';
                         } else {
                             alert(data);
                         }
@@ -29,7 +29,9 @@
             });
         </script>
 
+        <!-- JS -->
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
+        <script type="text/javascript" src="/application/assets/js/google_analytics.js"></script>
     </head>
 
     <body>
