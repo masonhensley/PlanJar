@@ -156,11 +156,11 @@ class Dashboard extends CI_Controller
         $this->load->model('group_ops');
         $user = $this->ion_auth->get_user();
 
-        $query_string = "SELECT groups.id, groups.name, group_relationships.user_following_id " .
-                "FROM group_relationships LEFT JOIN groups " .
-                "ON group_relationships.group_id = groups.id " .
-                "WHERE group_relationships.user_following_id = ? OR group_relationships.user_joined_id = ? " .
-                "ORDER BY groups.name ASC";
+        $query_string = "SELECT groups.id, groups.name, group_relationships.user_following_id
+            FROM group_relationships JOIN groups
+            ON group_relationships.group_id = groups.id
+            WHERE group_relationships.user_following_id = ? OR group_relationships.user_joined_id = ?
+            ORDER BY groups.name ASC";
         $query = $this->db->query($query_string, array($user->id, $user->id));
         if ($query->num_rows() > 0)
         {
