@@ -72,13 +72,13 @@ class Load_plan_data extends CI_Model
 
         $number_attending = $number_males + $number_females;
 
-        // get #accepted
+        // get #not responded
         $query = "
-                SELECT DISTINCT user_meta.user_id, user_meta.first_name, user_meta.last_name, user_meta.grad_year, school_data.school
+                SELECT DISTINCT user_meta.user_id
                 FROM notifications
                 JOIN user_meta ON notifications.user_id=user_meta.user_id
                 LEFT JOIN school_data ON user_meta.school_id=school_data.id
-                WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=1
+                WHERE notifications.subject_id=$event_id AND notifications.type='event_invite' AND notifications.accepted=0
             ";
         $result = $this->db->query($query);
         $number_invited = $result->num_rows();
