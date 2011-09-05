@@ -22,7 +22,8 @@
         <script type="text/javascript">
             $(function() {
                 $('#showcase').awShowcase({
-                    auto: true
+                    content_width: 600,
+                    content_height: 500
                 });
             });
         </script>
