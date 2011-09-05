@@ -26,7 +26,8 @@
                     content_height: 400,
                     arrows: false,
                     btn_numbers: true,
-                    keyboard_keys: true
+                    continuous: true,
+                    interval: 15000
                 });
             });
         </script>
