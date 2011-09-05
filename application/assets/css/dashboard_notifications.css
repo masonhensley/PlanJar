@@ -21,6 +21,7 @@
     border-right: 1px solid lightgray;
     position: relative;
     padding-top:10px;
+    padding-bottom:10px;
 }
 
 .notification_entry.unviewed {
@@ -39,6 +40,8 @@
     height:auto;
     color:black;
     font-style:normal;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .notification_entry > .left {
@@ -64,6 +67,8 @@
     height:auto;
     color:darkgray;
     font-style:italic;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .notification_entry > .accept {
