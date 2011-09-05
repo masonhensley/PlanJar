@@ -545,6 +545,13 @@ function initialize_plan_autocomplete() {
                         },
                         jsonp: 'jsoncallback'
                     });
+                } else {
+                    response_json.push({
+                        label: "Create place (it's easy!)", 
+                        value: '', 
+                        id: 'new place'
+                    });
+                    response(response_json);
                 }
             });
         },
