@@ -917,13 +917,6 @@ a:hover{
 }
 
 .tutorial_button{
-    background:#F3F6FF;
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
-    background: -moz-linear-gradient(top, #F3F6FF, white);
-    background: -o-linear-gradient(top, #F3F6FF, white);
-    background: -ms-linear-gradient(top, #F3F6FF, white);
-    background: linear-gradient(top, #F3F6FF, white);
-    
     position:absolute;
     bottom:0px;
     right:0px;
@@ -931,7 +924,7 @@ a:hover{
     width:85px;
     padding-top:6px;
     border:1px solid gray;
-    background:lightgray;
+    background:white;
     color:#5C98CC;
 }
 .tutorial_button:hover{
