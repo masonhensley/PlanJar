@@ -4,7 +4,6 @@
         <title>Almost there...</title>
 
         <link rel=stylesheet href="/application/assets/css/login.css" type="text/css" />
-
         <style type="text/css">
             .almost_there {
                 width: 400px;
