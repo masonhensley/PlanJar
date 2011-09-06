@@ -160,7 +160,7 @@ class Load_locations extends CI_Model
         $query_helper = substr($query_helper, 0, -4);
 
         $query = "
-            SELECT DISTINCT places.name, places.id AS place_id, events.title, plans.id, places.latitude, places.longitude
+            SELECT DISTINCT places.name, places.id AS place_id, events.title, plans.id, places.latitude, places.longitude, events.id AS an_event_id
             FROM 
                 (SELECT user_meta.user_id FROM group_relationships 
                 JOIN user_meta 
