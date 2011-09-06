@@ -169,7 +169,7 @@ a:hover{
     background: -o-linear-gradient(top, #F8BA78, #F5952E);
     background: -ms-linear-gradient(top, #F8BA78, #F5952E);
     background: linear-gradient(top, #F8BA78, #F5952E);
-    
+
     color: white;
     font-weight: bold;
 }
@@ -233,11 +233,11 @@ a:hover{
     background: -o-linear-gradient(top, #F3F6FF, #EEE);
     background: -ms-linear-gradient(top, #F3F6FF, #EEE);
     background: linear-gradient(top, #F3F6FF, #EEE);
-    
+
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    
+
     position: relative;
     float: left;
     margin-right: 10px;
@@ -439,7 +439,7 @@ a:hover{
     background: -o-linear-gradient(top, #F3F6FF, white);
     background: -ms-linear-gradient(top, #F3F6FF, white);
     background: linear-gradient(top, #F3F6FF, white);
-    
+
     float: right;
     width: 49%;
     height: 54px;
@@ -584,7 +584,7 @@ a:hover{
     background: linear-gradient(top, #F3F6FF, white);
 
     position: absolute;
-    right: 326px;
+    right: 320px;
     top: -48px;
     border: 1px solid lightgray;
     padding: 9px;

@@ -7,7 +7,7 @@
         <meta name="description" content="With PlanJar, you can follow your favorite people and groups and see graphical trends of where they are going to help plan your social calendar.">
 
         <!-- CSS -->
-        <link rel=stylesheet href="<?php echo base_url(); ?>application/assets/css/home.css" type="text/css" />
+        <link rel=stylesheet href="/application/assets/css/home.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/eggplant/theme.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/token-input-facebook.css" type="text/css" />
         <link rel=stylesheet href="/application/assets/css/start_plan_modal.css" type="text/css" />
