@@ -158,6 +158,7 @@ $(document).ready(function() {
             }
         },
         showErrors: function(errorMap, errorList) {
+            console.log(errorList);
             // Remove all error classes.
             $("#sign_up").find("input, select").each(function() {
                 $(this).removeClass("highlight_error");
