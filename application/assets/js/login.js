@@ -166,8 +166,6 @@ $(document).ready(function() {
             // Add the error class to the first invalid field.
             $("#su_error").html("");
             if(errorList.length) {
-                console.log(error_map);
-                console.log(error_list);
                 $("#su_error").html(errorList[0]['message']);
                 $(errorList[0]['element']).addClass("highlight_error");
             }
