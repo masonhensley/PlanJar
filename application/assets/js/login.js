@@ -203,4 +203,4 @@ $.validator.addMethod("custom_email", function(value, element) {
             return false;
         }
     });
-}, 'defined in addMethod');
+});
