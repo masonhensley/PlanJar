@@ -148,6 +148,8 @@ class Login extends CI_Controller
 
         $email_exists = $this->ion_auth->email_check($email);
 
+        var_dump($this->db->last_query());
+
         if ($query->num_rows() == 0)
         {
             echo ("If you entered you university address, PlanJar isn't at your school yet, but we're coming!");
