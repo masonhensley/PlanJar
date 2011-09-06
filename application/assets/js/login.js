@@ -199,7 +199,7 @@ $.validator.addMethod("custom_email", function(value, element) {
         } else {
             var errors = {};
             errors[element.name] = data;
-            validator.showErrors(errors);
+            validator.showErrors('', errors);
             return false;
         }
     });
