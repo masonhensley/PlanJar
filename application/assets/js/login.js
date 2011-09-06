@@ -198,9 +198,9 @@ $.validator.addMethod("custom_email", function(value, element) {
             return true;
         } else {
             var errors = {};
-            errors[element.name] = data;
+            errors[0] = data;
             validator.showErrors('', errors);
             return false;
         }
     });
-});
+}, 'defined from data');
