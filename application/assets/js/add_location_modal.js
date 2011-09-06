@@ -99,7 +99,8 @@ function initialize_add_location_modal() {
 // Opens the add location modal
 function show_add_location_modal() {
     $('#add_location_modal').show('fast', function () {
-        // Create the map if it doesn't exist'
+        // Create the map if it doesn't exist
+        console.log(new_location_map);
         if (new_location_map == undefined) {
             var map_options = {
                 zoom: 14,
@@ -107,6 +108,7 @@ function show_add_location_modal() {
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             new_location_map = new google.maps.Map(document.getElementById("new_location_map"), map_options);
+            console.log(new_location_map);
         }
     
         // Add the marker
@@ -126,7 +128,6 @@ function new_marker(latitude, longitude) {
     }
     
     // Add the marker
-    console.log(new_location_map);
     new_location_marker = new google.maps.Marker({
         position: new google.maps.LatLng(latitude, longitude),
         map: new_location_map,
