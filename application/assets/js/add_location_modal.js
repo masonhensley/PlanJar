@@ -126,6 +126,7 @@ function new_marker(latitude, longitude) {
     }
     
     // Add the marker
+    console.log(new_location_map);
     new_location_marker = new google.maps.Marker({
         position: new google.maps.LatLng(latitude, longitude),
         map: new_location_map,
