@@ -105,7 +105,7 @@ $(document).ready(function() {
             $.get('/login/try_sign_up', $(form).serialize(), function(data) {
                 // Redirect or display an error.
                 if (data != 'error')  {
-                    window.location.href = data;
+                //window.location.href = data;
                 } else {
                     alert('try again');
                 }
