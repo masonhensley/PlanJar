@@ -100,8 +100,8 @@ class Load_group_profile extends CI_Model
             <div class="profile_body_text">
 
                 <font style="color:gray;">
-                Members &nbsp;<font style="font-weight:bold; color:black;"><?php echo $group_info['number_joined']; ?></font>&nbsp;&nbsp;&nbsp;&nbsp;
-                Followers &nbsp;<font style="font-weight:bold; color:black;"><?php echo $group_info['number_following']; ?></font>
+                Members <font style="font-weight:bold; color:black;"><?php echo $group_info['number_joined']; ?></font>&nbsp;&nbsp;&nbsp;&nbsp;
+                Followers <font style="font-weight:bold; color:black;"><?php echo $group_info['number_following']; ?></font>
                 <div id="view_group_list" style="position:absolute; top:0px; left:228px">See Members</div>
                 </font><br/><hr/>
                 <?php
