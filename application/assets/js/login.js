@@ -204,7 +204,10 @@ $.validator.addMethod("custom_email", function(value, element) {
                 return_val = false;
             }
         },
-        async: false
+        async: false,
+        data: {
+            'email': value
+        }
     });
     
     console.log({
