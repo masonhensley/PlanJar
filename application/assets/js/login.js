@@ -196,6 +196,7 @@ $.validator.addMethod("custom_email", function(value, element) {
         email: value
     }, function(data) {
         if (data == 'true'){
+            console.log('returning true');
             return true;
         } else {
             var errors = {};
