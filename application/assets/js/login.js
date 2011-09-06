@@ -191,20 +191,23 @@ function get_year()
 
 $.validator.addMethod("custom_email", function(value, element) {
     var validator = this;
+    var return_val;
     
     $.ajax({
         url: '/login/email_check',
         success: function(data) {
             if (data == 'true'){
                 console.log('returning true');
-                return true;
+                return_val = true;
             } else {
                 var errors = {};
                 errors[element.name] = data;
                 validator.showErrors(errors);
-                return false;
+                return_val = false;
             }
         },
         async: false
     });
+    
+    return return_val;
 }, '');
