@@ -128,9 +128,6 @@ function display_info(bypass, arg) {
             });
         } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false || found_location !== false) {
             // Location selected
-            console.log($('.selected_location_tab').length);
-            console.log(viewing_plan_location);
-            console.log(found_location);
         
             // setup spinner
             var opts = spinner_options();
