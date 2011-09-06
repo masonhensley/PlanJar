@@ -158,7 +158,7 @@ $(document).ready(function() {
             }
         },
         showErrors: function(errorMap, errorList) {
-            console.log(errorList);
+            console.log(errorList[0]);
             // Remove all error classes.
             $("#sign_up").find("input, select").each(function() {
                 $(this).removeClass("highlight_error");
@@ -192,13 +192,16 @@ function get_year()
 $.validator.addMethod("custom_email", function(value, element) {
     var validator = this;
     
-    return $.get('/login/email_check', {
+    $.get('/login/email_check', {
         email: value
     }, function(data) {
         if (data == 'true'){
             return true;
         } else {
-            validator.settings.messages[element.name] = data;
+            validator.showErrors('', [{
+                'element': element,
+                'message': data
+            }]);
             return false;
         }
     });
