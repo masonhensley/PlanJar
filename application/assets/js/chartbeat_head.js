@@ -1,1 +1,1 @@
-//var _sf_startpt = (new Date()).getTime();
+var _sf_startpt = (new Date()).getTime();
