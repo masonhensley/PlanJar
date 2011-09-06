@@ -195,6 +195,7 @@ $.validator.addMethod("custom_email", function(value, element) {
     $.get('/login/email_check', {
         email: value
     }, function(data) {
+        return true;
         if (data == 'true'){
             console.log('returning true');
             return true;
