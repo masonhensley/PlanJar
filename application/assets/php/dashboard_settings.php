@@ -57,6 +57,12 @@
 
         <tr style="height: 30px;"><td></td></tr>
 
+        <tr>
+            <td colspan="2">We've supposedly been having problems (read: swamping people with emails) with
+                group invite emails and follow notification emails. So, we've defaulted these settings to off, 
+                but feel free to turn them back on.</td>
+        </tr>
+
         <form id="email_notifications">
             <tr>
                 <td><font style="color:gray">Email me when...</font></td>
