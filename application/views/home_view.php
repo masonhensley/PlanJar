@@ -120,9 +120,9 @@
                 <?php
             }
             ?>
-            <div id="find_places">Find places</div>
-            <div class="view_friends_plans">Friends' plans</div>
-            <div  id="create_plan">Make a plan</div>
+            <div id="find_places">Find Places</div>
+            <div class="view_friends_plans">Find Plans</div>
+            <div  id="create_plan">Make a Plan</div>
 
             <div id="home_data_spinner" style="position:absolute; left:174px; top:31px;"></div>
             <div class ="left">
