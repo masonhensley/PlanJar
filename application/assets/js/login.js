@@ -197,11 +197,9 @@ $.validator.addMethod("custom_email", function(value, element) {
         if (data == 'true'){
             return true;
         } else {
-            var errors = ({});
-            errors.push({
+            validator.showErrors('', {
                 'message': data
             });
-            validator.showErrors('', errors);
             return false;
         }
     });
