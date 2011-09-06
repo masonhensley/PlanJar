@@ -115,8 +115,7 @@ $(document).ready(function() {
         messages: {
             su_email_1: {
                 required: 'Enter your email address.',
-                email: 'Your email address must be valid.',
-                remote: $.format("{0}")
+                email: 'Your email address must be valid.'
             },
             su_email_2: {
                 required: 'Re-enter you remail address.',
@@ -189,30 +188,6 @@ function get_year()
     return d.getFullYear();
 }
 
-//// Custom validator method to only allow unique university email addresses.
-//$.validator.addMethod('custom_email', function (value, element) {
-//    return $.validator.methods.remote.call(this, value, element, {
-//        url: '/login/custom_email_check',
-//        data: {
-//            email: value
-//        }
-//    });
-//}, 'An account with that email address already exists.');
-//
-//// Custom validator method to only allow school email addresses.
-//$.validator.addMethod('allowed_email_domain', function (value, element) {
-//    return $.validator.methods.remote.call(this, value, element, {
-//        url: '/login/check_email_domain',
-//        data: {
-//            email: value
-//        },
-//        success: function (data) {
-//            
-//        }
-//    });
-//    
-//}, "That domain currently can't be used to create an account. Make sure to use your school email.");
-
 $.validator.addMethod("custom_email", function(value, element) {
     var validator = this;
     
@@ -224,7 +199,7 @@ $.validator.addMethod("custom_email", function(value, element) {
         }
         else {
             var errors = {};
-            errors[element.name] =  data;
+            errors[element.name] = data;
             validator.showErrors(errors);
             return false;
         }
