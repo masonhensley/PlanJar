@@ -274,9 +274,13 @@ class Group_ops extends CI_Model
             $user_id = $this->ion_auth->get_user()->id;
         }
 
-        $query_string = "INSERT IGNORE INTO group_relationships SELECT DEFAULT, ?, ?, DEFAULT
+        $query_string = "INSERT IGNORE INTO group_relationships
+            SELECT 'DEFAULT', ?, ?, NULL
             FROM DUAL
-            WHERE NOT EXISTS (SELECT id FROM group_relationships WHERE group_id = ? AND user_joined_id = ?)";
+            WHERE NOT EXISTS (
+            SELECT id
+            FROM group_relationships
+            WHERE group_id = ? AND user_joined_id = ?)";
         $query = $this->db->query($query_string, array(
             $group_id,
             $user_id,
