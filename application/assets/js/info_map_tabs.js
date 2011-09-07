@@ -127,7 +127,7 @@ function display_info(bypass, arg) {
                     }
                 });
             });
-        } else if ($('.selected_location_tablocation_tab').length > 0 || viewing_plan_location !== false || found_location !== false) {
+        } else if ($('.selected_location_tablocation_tab').length > 0 || (viewing_plan_location !== false && viewing_plan_location != undefined) || (found_location !== false && found_location != undefined)) {
             // Location selected
         
             // setup spinner
