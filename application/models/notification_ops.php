@@ -46,9 +46,9 @@ class Notification_ops extends CI_Model
                 // Only add the notification if the originating user is not the current user
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
-                    $accepted = (integer) $this->deduce_notified($type, $subject_id, $joined_user, $this->ion_auth->get_user()->id);
+                    $notified = (integer) $this->deduce_notified($type, $subject_id, $joined_user, $this->ion_auth->get_user()->id);
                     $accepted = (integer) $this->deduce_accepted($type, $subject_id, $joined_user, $this->ion_auth->get_user()->id);
-                    $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
+                    $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $notified, $accepted), ";
                     if (!($accepted || $notified))
                     {
                         // Send an email notification if the notification would show up as new (i.e. not previously accepted)
