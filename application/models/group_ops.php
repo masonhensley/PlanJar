@@ -242,6 +242,8 @@ class Group_ops extends CI_Model
             $user_id = $this->ion_auth->get_user()->id;
         }
 
+        $this->follow_group($group_id, $user_id);
+
         $query_string = "UPDATE group_relationships
             SET user_following_id = DEFAULT, user_joined_id = ?
             WHERE group_id = ? AND user_following_id = ?";

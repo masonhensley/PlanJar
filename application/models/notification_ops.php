@@ -335,7 +335,6 @@ class Notification_ops extends CI_Model
             // Group invite
             case 'group_invite':
                 $this->load->model('group_ops');
-                $this->group_ops->follow_group($row->subject_id);
                 $this->group_ops->join_group($row->subject_id);
                 $this->update_notification_viewed($id, true, true);
                 $this->update_notification_accepted($id, true, true);
@@ -356,7 +355,6 @@ class Notification_ops extends CI_Model
             // Join group request
             case 'join_group_request':
                 $this->load->model('group_ops');
-                $this->group_ops->follow_group($row->subject_id, $row->originator_id);
                 $this->group_ops->join_group($row->subject_id, $row->originator_id);
                 $this->update_notification_viewed($id, true, true);
                 $this->update_notification_accepted($id, true, true);
