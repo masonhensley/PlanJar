@@ -27,7 +27,7 @@
                     content_height: 400,
                     arrows: false,
                     continuous: true,
-                    interval: 8000,
+                    interval: 6000,
                     auto: true
                 });
             });

@@ -73,7 +73,7 @@ class Load_suggested_friends extends CI_Model
         $suggested_friends = array_count_values($suggested_friends);
         asort($suggested_friends);
         $suggested_friends = array_reverse($suggested_friends, TRUE);
-        $display_limit = 400; // set the display limit
+        $display_limit = 1000; // set the display limit
         $result = $this->generate_suggested_friends($suggested_friends);
         if ($result)
         {

@@ -309,8 +309,8 @@ class Load_locations extends CI_Model
                         </div>
                         <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
                         <font style="font-weight:bold;color:gray; font-size:13px;">Group has made 
-                        <?php echo $count; if($count > 1){echo "plans";}else{echo "plan";} ?> 
-                        to this location</font><br/>
+                        <?php echo $count; if($count > 1){echo " plans ";}else{echo " plan ";} ?>
+                        here</font><br/>
                     </div>
                     <?php
                     $number_tracker++;
