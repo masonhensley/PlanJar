@@ -51,6 +51,7 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 var found_location = false;
+var viewing_plan_location = false;
 function display_info(bypass, arg) {
     // show the invite link and hide plan comments
     if(!$('.plan_content').hasClass('selected_plan'))
@@ -126,7 +127,7 @@ function display_info(bypass, arg) {
                     }
                 });
             });
-        } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false || found_location !== false) {
+        } else if ($('.selected_location_tablocation_tab').length > 0 || viewing_plan_location !== false || found_location !== false) {
             // Location selected
         
             // setup spinner
@@ -350,7 +351,6 @@ function initialize_location_info(data) {
 }
 
 // Sets up the plan info view
-var viewing_plan_location = false;
 function initialize_plan_info(data) {
     // Replace the data and show the data tab.
     $('#info_content').html(data.html);
