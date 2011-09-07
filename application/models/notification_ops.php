@@ -405,7 +405,7 @@ class Notification_ops extends CI_Model
 
             // Group invite
             case 'group_invite':
-                $query_string = "SELECT id FROM groups WHERE user_joined_id = ? AND group_id = ?";
+                $query_string = "SELECT id FROM group_relationships WHERE user_joined_id = ? AND group_id = ?";
                 $query = $this->db->query($query_string, array($user_id, $subject_id));
 
                 return $query->num_rows() > 0;
