@@ -44,8 +44,8 @@ function populate_map(data, closure_function, non_numbered) {
 
 // Used to set up the click event for markers created for top locations
 function location_marker_closure(index) {
-    console.log(index);
     return function() {
+        console.log(index);
         // Select the corresponding location and display info
         $('.location_tab').eq(index).click();
         show_data_container('#info_content');
