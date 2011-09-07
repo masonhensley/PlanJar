@@ -17,10 +17,6 @@ function initialize_invite_modal() {
     
     // Select all followers
     $('#invite_all_followers').click(function() {
-        console.log($('#invite_followers_list'));
-        console.log($('#invite_followers_list').each(function() {
-            console.log($(this));
-        }));
         $('#invite_followers_list').find('div').each(function() {
             if (!$(this).hasClass('divset_selected')) {
                 $(this).click();
