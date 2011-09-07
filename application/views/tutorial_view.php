@@ -8,14 +8,16 @@
 
         <!-- CSS -->
         <link rel=stylesheet href="/application/assets/css/tutorial.css" type="text/css" />
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
+        <link type="text/css" rel=stylesheet href="/application/assets/css/aw-showcase.css"/>
 
         <!-- JS -->
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
         <script type="text/javascript" src="/application/assets/js/google_analytics.js"></script>
-        <script type="text/javascript" src="/application/assets/js/jquery.aw-showcase.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-1.6.3.min.js"></script>
         <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.aw-showcase.min.js"></script>
+        
         <script type="text/javascript">
             $(function() {
                 $('#showcase').awShowcase({
