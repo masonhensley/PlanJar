@@ -56,6 +56,7 @@ function initialize_invite_modal() {
                 user_ids.length = 0;
             }
             $('#invite_followers_list .divset').each(function() {
+                console.log(user_ids);
                 user_ids.push($(this).attr('user_id')); 
             });
             
