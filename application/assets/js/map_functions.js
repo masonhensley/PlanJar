@@ -8,12 +8,12 @@ function populate_map(data, closure_function, non_numbered) {
     if (map != undefined) {
         clear_map_markers();
     
-        for (var i = 0; i < data.length; ++i) {
+        $.map(data, function(item) {
             var icon;
             if (non_numbered != undefined) {
                 icon = '/application/assets/images/map_markers/symbol_middot.png'
             } else {
-                icon = '/application/assets/images/map_markers/number_' + (i + 1) + '.png';
+                icon = '/application/assets/images/map_markers/number_' + (item[3] + 1) + '.png';
             }
             
             console.log('map');
@@ -25,10 +25,10 @@ function populate_map(data, closure_function, non_numbered) {
             });
         
             // Assign the click event
-            google.maps.event.addListener(temp_marker, 'click', closure_function(data[i][3]));
+            google.maps.event.addListener(temp_marker, 'click', closure_function(data[i][3] - 1));
         
             map_marker_array.push(temp_marker);
-        }
+        });
         
         // User's location'
         map_marker_array.push(new google.maps.Marker({
@@ -45,7 +45,7 @@ function populate_map(data, closure_function, non_numbered) {
 // Used to set up the click event for markers created for top locations
 function location_marker_closure(index) {
     return function() {
-        console.log(index);
+        console.log('.location_tab');
         // Select the corresponding location and display info
         $('.location_tab').eq(index).click();
         show_data_container('#info_content');
