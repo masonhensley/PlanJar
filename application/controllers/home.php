@@ -594,6 +594,7 @@ class Home extends CI_Controller
     {
         // Capture vars
         $user_ids = $this->input->get('user_ids');
+        var_dump($user_ids);
         if (!$user_ids)
         {
             $user_ids = array();
