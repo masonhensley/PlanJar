@@ -15,7 +15,7 @@ class About extends CI_Controller
     public function foo()
     {
         $this->load->model('notification_ops');
-        echo($this->notification_ops->deduce_accepted('follow_notif', 48, 25, 48));
+        var_dump($this->notification_ops->deduce_accepted('follow_notif', 48, 25, 48));
     }
 
 }
