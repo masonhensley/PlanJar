@@ -15,6 +15,15 @@ function initialize_invite_modal() {
         handle: '.title_bar'
     });
     
+    // Select all followers
+    $('#invite_all_followers').click(function() {
+        $('#invite_followers_list').find('div').each(function() {
+            if (!$(this).hasClass('divset_selected')) {
+                $(this).click();
+            }
+        });
+    });
+    
     // TokenInput
     $('#search_in_school').tokenInput('/home/search_school_users', {
         hintText: '',
@@ -147,15 +156,6 @@ function populate_invite_followers_list() {
                     id: $(this).attr('user_id')
                 });
             }
-        });
-        
-        // Select all
-        $('#invite_all_followers').click(function() {
-            $('#invite_followers_list').find('div').each(function() {
-                if (!$(this).hasClass('divset_selected')) {
-                    $(this).click();
-                }
-            });
         });
     });
 }

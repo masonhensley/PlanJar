@@ -9,7 +9,7 @@
     <div class="title"></div>
 
     <div id="invite_followers_list_wrapper">
-        <div class="header">Your followers <input type="button" id="invite_all_followers"/></div>
+        <div class="header">Your followers <input type="button" id="invite_all_followers" value="Select all"/></div>
 
         <div id="invite_followers_list"></div>
     </div>
