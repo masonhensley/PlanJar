@@ -8,24 +8,24 @@ function populate_map(data, closure_function, non_numbered) {
     if (map != undefined) {
         clear_map_markers();
     
-        $.map(data, function(item) {
+        $.map(data, function(item, index) {
             var icon;
             if (non_numbered != undefined) {
                 icon = '/application/assets/images/map_markers/symbol_middot.png'
             } else {
-                icon = '/application/assets/images/map_markers/number_' + (item[3] + 1) + '.png';
+                icon = '/application/assets/images/map_markers/number_' + (index + 1) + '.png';
             }
             
             console.log('map');
             var temp_marker = new google.maps.Marker({
-                position: new google.maps.LatLng(data[i][1], data[i][2]),
+                position: new google.maps.LatLng(item[1], item[2]),
                 map: map,
-                title: data[i][0],
+                title: item[0],
                 'icon': icon
             });
         
             // Assign the click event
-            google.maps.event.addListener(temp_marker, 'click', closure_function(data[i][3] - 1));
+            google.maps.event.addListener(temp_marker, 'click', closure_function(index));
         
             map_marker_array.push(temp_marker);
         });
@@ -45,7 +45,6 @@ function populate_map(data, closure_function, non_numbered) {
 // Used to set up the click event for markers created for top locations
 function location_marker_closure(index) {
     return function() {
-        console.log('.location_tab');
         // Select the corresponding location and display info
         $('.location_tab').eq(index).click();
         show_data_container('#info_content');
@@ -118,7 +117,8 @@ function get_min_marker(lat_lng) {
                 min = item.position.lat();
             }
         });
-    } else {
+    }
+    else {
         // Longitude
         $.map(map_marker_array, function (item) {
             if (item.position.lng() < min) {
