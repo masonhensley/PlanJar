@@ -406,7 +406,7 @@ class Ion_auth_model extends CI_Model
 
             $data = array(
                 'password' => $this->hash_password($password, $salt),
-                'forgotten_password_code' => '0',
+                'forgotten_password_code' => NULL,
                 'active' => 1,
             );
 

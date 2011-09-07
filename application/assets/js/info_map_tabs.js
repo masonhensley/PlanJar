@@ -51,6 +51,7 @@ function controlls_are_selected() {
 
 // Displays information to the info box based on what's selected
 var found_location = false;
+var viewing_plan_location = false;
 function display_info(bypass, arg) {
     // show the invite link and hide plan comments
     if(!$('.plan_content').hasClass('selected_plan'))
@@ -126,7 +127,7 @@ function display_info(bypass, arg) {
                     }
                 });
             });
-        } else if ($('.selected_location_tab').length > 0 || viewing_plan_location !== false || found_location !== false) {
+        } else if ($('.selected_location_tab').length > 0 || Boolean(viewing_plan_location) || Boolean(found_location)) {
             // Location selected
         
             // setup spinner
@@ -148,10 +149,6 @@ function display_info(bypass, arg) {
                 place_id = viewing_plan_location;
                 back_to_plan = true;
             }
-        
-            console.log($('.selected_location_tab').length > 0);
-            console.log(viewing_plan_location);
-            console.log(found_location);
         
             $.get('/home/show_location_data', {
                 'place_id': place_id,
@@ -350,7 +347,6 @@ function initialize_location_info(data) {
 }
 
 // Sets up the plan info view
-var viewing_plan_location = false;
 function initialize_plan_info(data) {
     // Replace the data and show the data tab.
     $('#info_content').html(data.html);
@@ -436,7 +432,7 @@ function populate_popular_locations(skip_update_map, callback) {
         });
           
         // Location tab click handler
-        $('div.location_tab').click(function() {
+        $('.location_tab').click(function() {
             
             if(!$(this).hasClass('selected_location_tab'))
             {
