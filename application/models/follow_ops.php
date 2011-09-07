@@ -208,7 +208,6 @@ class Follow_ops extends CI_Model
             WHERE user_id = ? AND type= ? AND subject_id = ?";
             $query = $this->db->query($query_string, array($this->ion_auth->get_user()->id, 'follow_notif', $following_id));
 
-            echo($this->db->last_query());
             if ($query->num_rows() > 0)
             {
                 // Accept the notification 
