@@ -17,11 +17,7 @@ function initialize_invite_modal() {
     
     // Select all followers
     $('#invite_all_followers').click(function() {
-        $('#invite_followers_list').find('div').each(function() {
-            if (!$(this).hasClass('divset_selected')) {
-                $(this).click();
-            }
-        });
+        $('#invite_followers_list').find('div').addClass('divset_selected');
     });
     
     // TokenInput
@@ -57,8 +53,11 @@ function initialize_invite_modal() {
             // Calculate data to send
             var user_ids = $('#search_in_school').val().split(',');
             if (user_ids[0] == '') {
-                user_ids = [];
+                user_ids.length = 0;
             }
+            $('#invite_followers_list .divset').each(function() {
+                user_ids.push($(this).attr('user_id')); 
+            });
             
             var data = {
                 'user_ids': user_ids,
@@ -144,13 +143,7 @@ function populate_invite_followers_list() {
         
         // Click handler
         $('#invite_followers_list').find('div').click(function() {
-            if ($(this).hasClass('divset_selected')) {
-                // Add the recently selected user to the tokenInput
-                $('#search_in_school').tokenInput('add', {
-                    id: $(this).attr('user_id'), 
-                    name: $(this).html()
-                });
-            } else {
+            if (!$(this).hasClass('divset_selected')) {
                 // Remove the just unselected user from the tokenInput
                 $('#search_in_school').tokenInput('remove', {
                     id: $(this).attr('user_id')
