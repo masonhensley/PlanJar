@@ -13,6 +13,21 @@
         <!-- JS -->
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
         <script type="text/javascript" src="/application/assets/js/google_analytics.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery.aw-showcase.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery-1.6.3.min.js"></script>
+        <script type="text/javascript" src="/application/assets/js/jquery-ui-1.8.13.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#showcase').awShowcase({
+                    content_width: 500,
+                    content_height: 400,
+                    arrows: false,
+                    continuous: true,
+                    interval: 8000,
+                    auto: true
+                });
+            });
+        </script>
     </head>
 
     <body>
