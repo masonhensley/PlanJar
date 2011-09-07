@@ -127,7 +127,7 @@ function display_info(bypass, arg) {
                     }
                 });
             });
-        } else if ($('.selected_location_tablocation_tab').length > 0 || Boolean(viewing_plan_location) || Boolean(found_location)) {
+        } else if ($('.selected_location_tab').length > 0 || Boolean(viewing_plan_location) || Boolean(found_location)) {
             // Location selected
         
             // setup spinner
@@ -432,7 +432,7 @@ function populate_popular_locations(skip_update_map, callback) {
         });
           
         // Location tab click handler
-        $('div.location_tab').click(function() {
+        $('.location_tab').click(function() {
             
             if(!$(this).hasClass('selected_location_tab'))
             {
