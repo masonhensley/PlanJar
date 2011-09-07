@@ -354,7 +354,6 @@ class Dashboard extends CI_Controller
         if ($group_result['status'] == 'success')
         {
 // Join the user to the group
-            $this->group_ops->follow_group($group_result['group_id']);
             $this->group_ops->join_group($group_result['group_id']);
         }
 

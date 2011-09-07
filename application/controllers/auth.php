@@ -78,7 +78,6 @@ class Auth extends CI_Controller
             // Join the user to his school's group
             $group_id = $row->group_id;
             $this->load->model('group_ops');
-            $this->group_ops->follow_group($group_id, $id);
             $this->group_ops->join_group($group_id, $id);
 
             // Set the user's location to the school location
