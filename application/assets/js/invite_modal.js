@@ -43,7 +43,7 @@ function initialize_invite_modal() {
     // Submit handler
     $('#send_invites').click(function () {
         // Make sure at least something is selected
-        if ($('#search_in_school').val() != '' || $('#invite_groups_list .divset_selected').length > 0) {    
+        if ($('#search_in_school').val() != '' || $('#invite_groups_list .divset_selected, #invite_followers_list .divset_selected').length > 0) {    
             // Populate the selected group list
             var group_list = [];
             $('#invite_groups_list .divset_selected').each(function (index, element) {
