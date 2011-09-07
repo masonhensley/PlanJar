@@ -14,15 +14,8 @@ class About extends CI_Controller
 
     public function foo()
     {
-        $this->load->library('email');
-        $this->email->clear();
-        $this->email->from('noreply@planjar.com', 'PlanJar');
-        $this->email->to('bossier330@gmail.com');
-        $this->email->subject('PlanJar test email');
-        $this->email->message('yup');
-        $this->email->send();
-
-        echo($this->email->print_debugger());
+        $this->load->model('notification_ops');
+        echo($this->notification_ops->deduce_accepted('follow_notif', 53, 25, 53));
     }
 
 }

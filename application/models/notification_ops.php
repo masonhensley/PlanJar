@@ -23,9 +23,10 @@ class Notification_ops extends CI_Model
             // Only add the notification if the originating user is not the current user
             if ($user_id != $this->ion_auth->get_user()->id)
             {
-                $accepted = (integer) $this->deduce_notified($type, $subject_id, $user_id, $this->ion_auth->get_user()->id);
-                $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
-                if (!$accepted)
+                $notified = (integer) $this->deduce_notified($type, $subject_id, $user_id, $this->ion_auth->get_user()->id);
+                $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id, $this->ion_auth->get_user()->id);
+                $values_string .= "(DEFAULT, $user_id, DEFAULT, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $notified, $accepted), ";
+                if (!($accepted || $notified))
                 {
                     // Send an email notification if the notification would show up as new (i.e. not previously accepted)
                     $this->send_email_reminder($type, $user_id, $subject_id);
@@ -46,8 +47,9 @@ class Notification_ops extends CI_Model
                 if ($joined_user != $this->ion_auth->get_user()->id)
                 {
                     $accepted = (integer) $this->deduce_notified($type, $subject_id, $joined_user, $this->ion_auth->get_user()->id);
+                    $accepted = (integer) $this->deduce_accepted($type, $subject_id, $user_id, $this->ion_auth->get_user()->id);
                     $values_string .= "(DEFAULT, $joined_user, $group_id, " . $this->ion_auth->get_user()->id . ", $date, '$type', $subject_id, $accepted, $accepted), ";
-                    if (!$accepted)
+                    if (!($accepted || $notified))
                     {
                         // Send an email notification if the notification would show up as new (i.e. not previously accepted)
                         $this->send_email_reminder($type, $joined_user, $subject_id, $group_id);
@@ -417,9 +419,8 @@ class Notification_ops extends CI_Model
 
             // Join group request
             case 'join_group_request':
-                $query_string = "SELECT id FROM notifications WHERE type = ? AND originator_id = ? AND subject_id = ?";
-                $query = $this->db->query($query_string, array($type, $originator_id, $subject_id));
-                return $query->num_rows() > 0;
+                // A join_group_request can never be accepted already
+                return false;
         }
     }
 
