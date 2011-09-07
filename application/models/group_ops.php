@@ -245,7 +245,7 @@ class Group_ops extends CI_Model
         $this->follow_group($group_id, $user_id);
 
         $query_string = "UPDATE group_relationships
-            SET user_following_id = DEFAULT, user_joined_id = ?
+            SET user_following_id = 'NULL', user_joined_id = ?
             WHERE group_id = ? AND user_following_id = ?";
         $query = $this->db->query($query_string, array(
             $user_id,
