@@ -389,6 +389,40 @@ class Notification_ops extends CI_Model
         }
     }
 
+    // Returns true if the user has already accepted the subject id
+    function deduce_accepted($type, $subject_id, $user_id, $originator_id)
+    {
+        switch ($type)
+        {
+            // Event invitation
+            case 'event_invite':
+                $query_string = "SELECT id FROM plans WHERE user_id = ? AND event_id = ?";
+                $query = $this->db->query($query_string, array($user_id, $subject_id));
+
+                return $query->num_rows() > 0;
+
+            // Group invite
+            case 'group_invite':
+                $query_string = "SELECT id FROM groups WHERE user_joined_id = ? AND group_id = ?";
+                $query = $this->db->query($query_string, array($user_id, $subject_id));
+
+                return $query->num_rows() > 0;
+
+            // Follow notification
+            case 'follow_notif':
+                $query_string = "SELECT id FROM friend_relationships WHERE user_id = ? AND  follow_id = ?";
+                $query = $this->db->query($query_string, array($user_id, $subject_id));
+
+                return $query->num_rows() > 0;
+
+            // Join group request
+            case 'join_group_request':
+                $query_string = "SELECT id FROM notifications WHERE type = ? AND originator_id = ? AND subject_id = ?";
+                $query = $this->db->query($query_string, array($type, $originator_id, $subject_id));
+                return $query->num_rows() > 0;
+        }
+    }
+
     // Sends a notificatin email based on the given type and data
     function send_email_reminder($type, $user_id, $subject_id, $group_id = false)
     {
