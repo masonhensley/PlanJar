@@ -248,6 +248,7 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('group_ops');
 
+        $this->group_ops->follow_group($this->input->get('group_id'));
         $this->group_ops->join_group($this->input->get('group_id'));
     }
 
