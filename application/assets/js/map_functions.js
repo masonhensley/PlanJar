@@ -16,6 +16,7 @@ function populate_map(data, closure_function, non_numbered) {
                 icon = '/application/assets/images/map_markers/number_' + (i + 1) + '.png';
             }
             
+            console.log('map');
             var temp_marker = new google.maps.Marker({
                 position: new google.maps.LatLng(data[i][1], data[i][2]),
                 map: map,

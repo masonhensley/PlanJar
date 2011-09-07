@@ -148,6 +148,15 @@ function populate_invite_followers_list() {
                 });
             }
         });
+        
+        // Select all
+        $('#invite_all_followers').click(function() {
+            $('#invite_followers_list').find('div').each(function() {
+                if (!$(this).hasClass('divset_selected')) {
+                    $(this).click();
+                }
+            });
+        });
     });
 }
 
