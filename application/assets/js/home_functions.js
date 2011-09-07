@@ -100,6 +100,7 @@ function initialize_map() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         
+        console.log('map_created');
         map = new google.maps.Map(document.getElementById("map"), map_options);
         
         // Attach and assign the back to info button
