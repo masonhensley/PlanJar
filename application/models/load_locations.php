@@ -131,8 +131,8 @@ class Load_locations extends CI_Model
 
         $query = "SELECT DISTINCT events.title, places.name, places.id, places.latitude, places.longitude
                   FROM user_meta
-                  LEFT JOIN plans ON plans.user_id=user_meta.user_id
-                  JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
+                  JOIN plans ON plans.user_id=user_meta.user_id
+                  LEFT JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   JOIN places ON places.id=events.place_id
                   WHERE user_meta.school_id=$school_id";
         $result = $this->db->query($query);
