@@ -142,6 +142,12 @@ class Login extends CI_Controller
     public function email_check()
     {
         $email = trim($this->input->get('email'));
+        $black_list = array(
+            'kristin.shorter@vanderbilt.edu',
+            'kristin.torrey@vanderbilt.edu',
+            'k.torrey@vanderbilt.edu',
+            'k.shorter@vanderbilt.edu'
+        );
 
         $query_string = "SELECT * FROM school_data WHERE email_domain = ?";
         $query = $this->db->query($query_string, array(substr($email, strpos($email, '@') + 1)));
@@ -154,7 +160,7 @@ class Login extends CI_Controller
         } else if ($email_exists)
         {
             echo('That email address is already in use.');
-        } else
+        } else if (array_search(strtolower($email), $black_list))
         {
             echo('true');
         }
