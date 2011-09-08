@@ -63,7 +63,7 @@ class Load_locations extends CI_Model
 
 
         // query to pull all plans from people within 15 miles from your current location
-        $query = "SELECT DISTINCT places.id, places.name, events.title, places.latitude, places.longitude
+        $query = "SELECT DISTINCT places.id, places.name, events.title, places.latitude, places.longitude, plans.id AS plan_id, events.id AS event_id
             FROM (SELECT user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance FROM user_meta HAVING distance < 15)new_users
