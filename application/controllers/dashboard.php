@@ -114,7 +114,7 @@ class Dashboard extends CI_Controller
                 "FROM friend_relationships LEFT JOIN  user_meta ON friend_relationships.user_id = user_meta.user_id " .
                 "LEFT JOIN school_data ON user_meta.school_id = school_data.id " .
                 "WHERE friend_relationships.follow_id = ? " .
-                "ORDER BY user_meta.last_name ASC";
+                "ORDER BY user_meta.first_name ASC";
         $query = $this->db->query($query_string, array($user->id));
         if ($query->num_rows() > 0)
         {
