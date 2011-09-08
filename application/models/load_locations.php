@@ -95,7 +95,7 @@ class Load_locations extends CI_Model
             $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> your <font style=\"color:green;\">Friends</font> ";
             $display_message .= "are going <br/><font style=\"font-weight:bold;\">$display_day</font>";
 
-            $query = "SELECT DISTINCT places.id, events.title, places.name, places.latitude, places.longitude
+            $query = "SELECT DISTINCT places.id, events.title, places.name, places.latitude, places.longitude, plans.id AS plan_id, events.id AS event_id
                   FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
@@ -308,7 +308,7 @@ class Load_locations extends CI_Model
                             <?php echo $number_tracker; ?>
                         </div>
                         <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
-                        <font style="font-weight:bold;color:gray; font-size:13px;">Group has made 
+                        <font style="font-weight:bold;color:gray; font-size:13px;">selected group has made 
                         <?php echo $count; if($count > 1){echo " plans ";}else{echo " plan ";} ?>
                         here</font><br/>
                     </div>
