@@ -185,6 +185,10 @@ class Event_ops extends CI_Model
             // Delete all relevant notifications
             $query_string = "DELETE FROM notifications WHERE type = ? AND subject_id = ?";
             $query = $this->db->query($query_string, array('event_invite', $event_id));
+
+            // Delete all comments
+            $query_string = "DELETE FROM plan_comments WHERE event_id = ?";
+            $query = $this->db->query($query_string, array($event_id));
         }
     }
 
