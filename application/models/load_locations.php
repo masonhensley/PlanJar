@@ -63,7 +63,7 @@ class Load_locations extends CI_Model
 
 
         // query to pull all plans from people within 15 miles from your current location
-        $query = "SELECT DISTINCT places.id, places.name, events.title, places.latitude, places.longitude
+        $query = "SELECT DISTINCT places.id, places.name, events.title, places.latitude, places.longitude, plans.id AS plan_id, events.id AS event_id
             FROM (SELECT user_id, ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
                         + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
                         * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance FROM user_meta HAVING distance < 15)new_users
@@ -95,7 +95,7 @@ class Load_locations extends CI_Model
             $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> your <font style=\"color:green;\">Friends</font> ";
             $display_message .= "are going <br/><font style=\"font-weight:bold;\">$display_day</font>";
 
-            $query = "SELECT DISTINCT places.id, events.title, places.name, places.latitude, places.longitude
+            $query = "SELECT DISTINCT places.id, events.title, places.name, places.latitude, places.longitude, plans.id AS plan_id, events.id AS event_id
                   FROM plans 
                   JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   LEFT JOIN places ON events.place_id=places.id
@@ -129,10 +129,10 @@ class Load_locations extends CI_Model
         $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> <font style=\"color:green;\">$school</font> ";
         $display_message .= "students are going <font style=\"font-weight:bold;\">$display_day</font>";
 
-        $query = "SELECT DISTINCT events.title, places.name, places.id, places.latitude, places.longitude
+        $query = "SELECT DISTINCT events.title, places.name, places.id, places.latitude, places.longitude, plans.id AS plan_id, events.id AS event_id
                   FROM user_meta
-                  LEFT JOIN plans ON plans.user_id=user_meta.user_id
-                  JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
+                  JOIN plans ON plans.user_id=user_meta.user_id
+                  LEFT JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
                   JOIN places ON places.id=events.place_id
                   WHERE user_meta.school_id=$school_id";
         $result = $this->db->query($query);
@@ -308,7 +308,7 @@ class Load_locations extends CI_Model
                             <?php echo $number_tracker; ?>
                         </div>
                         <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
-                        <font style="font-weight:bold;color:gray; font-size:13px;">Group has made 
+                        <font style="font-weight:bold;color:gray; font-size:13px;">selected group has made 
                         <?php echo $count; if($count > 1){echo " plans ";}else{echo " plan ";} ?>
                         here</font><br/>
                     </div>
