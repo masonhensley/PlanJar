@@ -129,7 +129,7 @@ class Load_locations extends CI_Model
         $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> <font style=\"color:green;\">$school</font> ";
         $display_message .= "students are going <font style=\"font-weight:bold;\">$display_day</font>";
 
-        $query = "SELECT DISTINCT events.title, places.name, places.id, places.latitude, places.longitude
+        $query = "SELECT DISTINCT events.title, places.name, places.id, places.latitude, places.longitude, plans.id AS plan_id, events.id AS event_id
                   FROM user_meta
                   JOIN plans ON plans.user_id=user_meta.user_id
                   LEFT JOIN events ON plans.event_id=events.id AND events.date='$sql_date'
