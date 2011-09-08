@@ -538,7 +538,6 @@ function initialize_plan_autocomplete() {
                                 });
                                 
                                 // Call the response function with the response JSON.
-                                console.log(item_selected);
                                 if (!item_selected) {
                                     response(response_json);
                                 }
