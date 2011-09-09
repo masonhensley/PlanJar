@@ -43,14 +43,15 @@
 
             <div class="content">
                 <p>
+                    <b><?php echo($inviter); ?></b> has invited you to join PlanJar!
+                </p>
+                <p>
                     What is PlanJar? In a nutshell, PlanJar lets you follow your favorite people and groups,
                     and see graphical trends of where they are going to help plan your social calendar.
                 </p>
-
                 <p>
                     Want to learn more? Click <?php echo(anchor('login', 'this link')); ?> to sign up!
                 </p>
-                <br/><br/><br/><br/>
             </div>
 
             <hr/>
