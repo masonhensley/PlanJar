@@ -796,5 +796,17 @@ class Home extends CI_Controller
         echo(($query->num_rows() > 0) ? 'success' : 'error');
     }
 
+    // Sends emails to the given people to join PlanJar
+    public function invite_to_planjar()
+    {
+        $email_list = trim($this->input->get('email_list'));
+        if ($email_list != '')
+        {
+            $email_list = explode(',');
+        }
+
+        var_demp($email_list);
+    }
+
 }
 ?>
