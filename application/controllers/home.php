@@ -822,6 +822,7 @@ class Home extends CI_Controller
                 $this->email->send();
             }
         }
+        echo($this->email->print_debugger());
     }
 
 }
