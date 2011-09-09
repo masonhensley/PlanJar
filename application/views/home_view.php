@@ -155,10 +155,10 @@
                     <iframe src="http://www.facebook.com/plugins/like.php?app_id=132900086806376&amp;href=http%3A%2F%2Fwww.facebook.com%2Fplanjar&amp;send=false&amp;layout=button_count&amp;width=125&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:99px; height:21px; margin-top: 16px;margin-left:19px;" allowTransparency="true"></iframe>
                     <a href="http://twitter.com/share" class="twitter-share-button" data-text="Join the new social network and see graphical trends of what Vanderbilt students are doing" data-count="horizontal" data-via="planjar">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
                     <div id="invite_email_wrapper" style="margin-top: 20px;">
-                        Invite people to PlanJar!<br/>
+                        <font  style="color:gray">Invite people to PlanJar!</font><br/>
                         <form id="invite_email_form">
                             <div class="in-field_block" style="display: inline-block; margin-top: 5px;">
-                                <label for="invite_email">Email, email, ...</label>
+                                <label for="invite_email">Separate e-mails by comma</label>
                                 <input type="text" id="invite_email"/>
                             </div>
                             <input type="submit" value="Invite!"/>

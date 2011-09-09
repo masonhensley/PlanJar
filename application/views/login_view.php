@@ -139,7 +139,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            To the right of the info are the plans you have made.
+                            To the right are the plans you have made.
                         </div>
                     </div>
 
@@ -300,7 +300,7 @@
                 </div>
                 <div class="browser_message">
                     <font style="color:gray;">For the site to work properly, please make sure you are using the most recent version of 
-                    <a href="http://www.google.com/chrome" style="color:navy;">Google Chrome </a>, 
+                    <a href="http://www.google.com/chrome" style="color:navy;">Google Chrome</a>, 
                     <a href="http://sjc.mozilla.com/en-US/firefox/new/" style="color:navy;">Mozilla Firefox</a>, or 
                     <a href="http://www.apple.com/safari/download/" style="color:navy;">Safari</a></font>.
                 </div>
