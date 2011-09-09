@@ -163,7 +163,7 @@
                     </div>
                     <!-- Put the caption content in a div with the class .showcase-caption -->
                     <div class="showcase-caption">
-                        Inviting friends, groups, and schoolmates to your plans is easy and intuitive.
+                        Inviting friends, groups, and schoolmates to your plans is easy.
                     </div>
                 </div>
             </div>
