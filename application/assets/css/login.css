@@ -396,9 +396,10 @@ h3 {
 
 .browser_message{
     position:absolute;
-    bottom:100px;
-    right:100px;
+    bottom:-104px;
+    right:0px;
     color:darkgray;
+    width:286px;
 }
 
 /* --------BOTTOM LINKS ---------*/

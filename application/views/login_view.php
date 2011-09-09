@@ -299,10 +299,10 @@
                     </center>
                 </div>
                 <div class="browser_message">
-                    <font style="color:white;position:absolute; right:100px;width:535px; top:4px;">For the site to work properly, please make sure you are using the most recent version of 
-                    <a href="http://www.google.com/chrome" style="color:lightblue;">Google Chrome </a>, 
-                    <a href="http://sjc.mozilla.com/en-US/firefox/new/" style="color:lightblue;">Mozilla Firefox</a>, or 
-                    <a href="http://www.apple.com/safari/download/" style="color:lightblue;">Safari</a></font>.
+                    <font style="color:gray;">For the site to work properly, please make sure you are using the most recent version of 
+                    <a href="http://www.google.com/chrome" style="color:navy;">Google Chrome </a>, 
+                    <a href="http://sjc.mozilla.com/en-US/firefox/new/" style="color:navy;">Mozilla Firefox</a>, or 
+                    <a href="http://www.apple.com/safari/download/" style="color:navy;">Safari</a></font>.
                 </div>
             </div>
         </div>
