@@ -76,6 +76,9 @@
             </div>
         </div>
         <div id="container">
+            <div class="go_dores_message">
+                Welcome, Vanderbilt. Go 'Dores!
+            </div>
             <div id="leftside">
                 <h5>Make plans with friends while anomomously influencing your larger social circles. Give us a try!<span class="arrow"></span> </h5>
                 <div id="showcase" class="showcase">
