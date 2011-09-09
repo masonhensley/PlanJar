@@ -807,7 +807,7 @@ class Home extends CI_Controller
 
         $this->load->library('email');
         $user = $this->ion_auth->get_user();
-        $useer_name = $user->first_name . $user->last_name;
+        $user_name = $user->first_name . $user->last_name;
         foreach ($email_list as $email)
         {
             // Only email if not already a member
@@ -820,9 +820,9 @@ class Home extends CI_Controller
                 $this->email->subject("$user_name has invited you to PlanJar");
                 $this->email->message($this->load->view('invite_by_email_view', array('inviter' => $user_name), true));
                 $this->email->send();
+                echo($this->email->print_debugger());
             }
         }
-        echo($this->email->print_debugger());
     }
 
 }
