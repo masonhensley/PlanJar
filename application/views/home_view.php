@@ -157,7 +157,7 @@
                     <div id="invite_email_wrapper" style="margin-top: 20px;">
                         Invite people to PlanJar!<br/>
                         <form id="invite_email_form">
-                            <div class="in-field_block" style="display: inline-block;">
+                            <div class="in-field_block" style="display: inline-block; margin-top: 5px;">
                                 <label for="invite_email">Email, email, ...</label>
                                 <input type="text" id="invite_email"/>
                             </div>
