@@ -216,9 +216,9 @@ function show_data_panel(data_div, callback) {
             }
         }
     });
-    
-    // Allows people to invite people to PlanJar
-    function initialize_invite_people_form() {
-        $('.bottom_right_section .in-field_block label').inFieldLabels();
-    }
+}
+
+// Allows people to invite people to PlanJar
+function initialize_invite_people_form() {
+    $('.bottom_right_section .in-field_block label').inFieldLabels();
 }
