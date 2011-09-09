@@ -1,12 +1,47 @@
 <html>
+    <head>
+        <style type="text/css">
+            .wrapper {
+                width: 450px;
+                height: auto;
+                background-color: #ECECEC;
+                font-family: helvetica;
+                font-size: 14pt;
+            }
+
+            .wrapper img {
+                padding: 15px;
+            }
+
+            .content {
+                padding: 15px;
+                margin-bottom: 50px;
+            }
+
+            .bottom_links {
+                font-size: 6pt;
+                padding: 15px;
+            }
+
+            #user_img_wrapper {
+                float: right;
+            }
+        </style>
+    </head>
+
     <body>
-        <div style="width:75%">
-            <fieldset style="border:1px solid #000000; padding:10px; background-color: white;">
-                <legend style="font-family:Arial, Helvetica, sans-serif; font-size: 120%;
-                        letter-spacing: -1px; font-weight: bold; line-height: 1.1; color:#fff;
-                        background: #990099; border: 1px solid #333; padding: 2px 6px;">
-                    <?php echo($inviter); ?> has invited you to PlanJar!
-                </legend>
+        <div class="wrapper">
+            <a href="<?php echo(base_url()); ?>">
+                <img src="<?php echo(base_url() . APPPATH . 'assets/images/logo_email_beta.png'); ?>"/>
+                <?php if (isset($image))
+                { ?>
+                    <div style="float: right;"><?php echo($image); ?></div>
+                <?php } ?>
+
+            </a>
+            <hr/>
+
+            <div class="content">
                 <p>
                     What is PlanJar? In a nutshell, PlanJar lets you follow your favorite people and groups,
                     and see graphical trends of where they are going to help plan your social calendar.
@@ -15,8 +50,13 @@
                 <p>
                     Want to learn more? Click <?php echo(anchor('login', 'this link')); ?> to sign up!
                 </p>
-                </font>
-            </fieldset>
+                <br/><br/><br/><br/>
+            </div>
+
+            <hr/>
+            <div class="bottom_links">
+                Feel free to contact the CEO directly at <a href="mailto:feedback@planjar.com">feedback@planjar.com</a>.
+            </div>
         </div>
     </body>
 </html>

@@ -806,8 +806,13 @@ class Home extends CI_Controller
             $email_list = explode(',', $email_list);
             $this->load->library('email');
             $user = $this->ion_auth->get_user();
-            $user_name = $user->first_name . $user->last_name;
-            var_dump($email_list);
+            $user_name = $user->first_name . ' ' . $user->last_name;
+
+            // Create the image string
+            $this->load->model('load_profile');
+            ob_start();
+            $this->load_profile->insert_profile_picture($user->id, 33);
+            $image = ob_get_clean();
             foreach ($email_list as $email)
             {
                 if (!$this->ion_auth->username_check($email))
@@ -816,9 +821,10 @@ class Home extends CI_Controller
                     $this->email->from('noreply@planjar.com', 'PlanJar');
                     $this->email->to($email);
                     $this->email->subject("$user_name has invited you to PlanJar");
-                    $this->email->message($this->load->view('invite_by_email_view', array('inviter' => $user_name), true));
+                    $this->email->message($this->load->view('invite_by_email_view', array(
+                                'inviter' => $user_name,
+                                'image' => $image), true));
                     $this->email->send();
-                    echo($this->email->print_debugger());
                 }
             }
         }
