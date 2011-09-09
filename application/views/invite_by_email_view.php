@@ -5,11 +5,16 @@
                 <legend style="font-family:Arial, Helvetica, sans-serif; font-size: 120%;
                         letter-spacing: -1px; font-weight: bold; line-height: 1.1; color:#fff;
                         background: #990099; border: 1px solid #333; padding: 2px 6px;">
-                    Activate your account, (<?php echo $identity; ?>)
+                    <?php echo($inviter); ?> has invited you to PlanJar!
                 </legend>
-                <p>Please click this link to
-                    <font color="white">
-                    <?php echo anchor('auth/activate/' . $id . '/' . $activation, 'activate your account'); ?>.</p>
+                <p>
+                    What is PlanJar? In a nutshell, PlanJar lets you follow your favorite people and groups,
+                    and see graphical trends of where they are going to help plan your social calendar.
+                </p>
+
+                <p>
+                    Want to learn more? Click <?php echo(anchor('login', 'this link')); ?> to sign up!
+                </p>
                 </font>
             </fieldset>
         </div>

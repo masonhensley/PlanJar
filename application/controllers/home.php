@@ -799,13 +799,29 @@ class Home extends CI_Controller
     // Sends emails to the given people to join PlanJar
     public function invite_to_planjar()
     {
-        $email_list = $this->input->get('email_list');
+        $email_list = strtolower($this->input->get('email_list'));
         if ($email_list != '')
         {
             $email_list = explode(',', $email_list);
         }
 
-        var_dump($email_list);
+        $this->load->library('email');
+        $user = $this->ion_auth->get_user();
+        $useer_name = $user->first_name . $user->last_name;
+        foreach ($email_list as $email)
+        {
+            // Only email if not already a member
+            $query = $this->db->query("SELECT id FROM users WHERE email = ?", array($email));
+            if ($query->num_rows() > 0)
+            {
+                $this->email->clear();
+                $this->email->from('noreply@planjar.com', 'PlanJar');
+                $this->email->to($email);
+                $this->email->subject("$user_name has invited you to PlanJar");
+                $this->email->message($this->load->view('invite_by_email_view', array('inviter' => $user_name), true));
+                $this->email->send();
+            }
+        }
     }
 
 }
