@@ -154,10 +154,12 @@
                 <div class="bottom_right_section">
                     <iframe src="http://www.facebook.com/plugins/like.php?app_id=132900086806376&amp;href=http%3A%2F%2Fwww.facebook.com%2Fplanjar&amp;send=false&amp;layout=button_count&amp;width=125&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:99px; height:21px; margin-top: 16px;margin-left:19px;" allowTransparency="true"></iframe>
                     <a href="http://twitter.com/share" class="twitter-share-button" data-text="Join the new social network and see graphical trends of what Vanderbilt students are doing" data-count="horizontal" data-via="planjar">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                    Invite people to PlanJar!<br/>
-                    <div class="in-field_block">
-                        <label for="invite_email">Email, email, ...</label>
-                        <input type="text" id="invite_email"/>
+                    <div id="invite_email_wrapper">
+                        Invite people to PlanJar!<br/>
+                        <div class="in-field_block">
+                            <label for="invite_email">Email, email, ...</label>
+                            <input type="text" id="invite_email"/>
+                        </div>
                     </div>
                 </div>
                 <div class="comment_box">
