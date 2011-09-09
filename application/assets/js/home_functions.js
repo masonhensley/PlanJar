@@ -224,7 +224,7 @@ function initialize_invite_people_form() {
     
     $('#invite_email_form').submit(function() {
         $('#invite_email').val($('#invite_email').val().replace(' ', ''));
-        var reg_ex = /(([a-zA-Z0-9]){2}@([a-zA-Z0-9]){2}\.([a-zA-Z0-9]){2},)*([a-zA-Z0-9]){2}@([a-zA-Z0-9]){2}\.([a-zA-Z0-9]){2}/;
+        var reg_ex = /(([a-zA-Z0-9]){2,}@([a-zA-Z0-9]){2,}\.([a-zA-Z0-9]){2,},)*([a-zA-Z0-9]){2,}@([a-zA-Z0-9]){2,}\.([a-zA-Z0-9]){2,}/;
         if (!reg_ex.test($('#invite_email').val())) {
             alert('Make sure the email address(es) you entered are valid and comma-seperated.');
         } else {
