@@ -45,7 +45,7 @@
             ?>
             <br/>
             <i><font style="color:gray;">You are not following any groups yet</font></i><br/><br/>
-            <a href="/dashboard/groups/suggested" class="find_link">Find groups to follow and join, or make your own group</a>
+            <a href="/dashboard/groups/suggested" class="find_link">Find groups to join and follow, or make your own group</a>
             <br/><br/> 
             <?php
         }
