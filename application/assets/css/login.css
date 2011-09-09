@@ -417,3 +417,11 @@ h3 {
     margin-left:15px;
     margin-right:15px;
 }
+
+.go_dores_message{
+    color:navy;
+    font-weight:bold;
+    position:absolute;
+    top:-31px;
+    left:150px;
+}
