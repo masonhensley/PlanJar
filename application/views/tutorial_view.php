@@ -52,6 +52,8 @@
             </div>
         </div>
         <div id="container">
+            <h2> Tutorial <span class="arrow"></span> </h2>
+
             <div id="showcase" class="showcase">
                 <div class="showcase-slide">
                     <!-- Put the slide content in a div with the class .showcase-content -->
@@ -165,8 +167,6 @@
                     </div>
                 </div>
             </div>
-
-            <h2> Tutorial <span class="arrow"></span> </h2>
 
             <div id="main">  
 
