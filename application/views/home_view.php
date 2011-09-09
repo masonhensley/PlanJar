@@ -156,10 +156,13 @@
                     <a href="http://twitter.com/share" class="twitter-share-button" data-text="Join the new social network and see graphical trends of what Vanderbilt students are doing" data-count="horizontal" data-via="planjar">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
                     <div id="invite_email_wrapper">
                         Invite people to PlanJar!<br/>
-                        <div class="in-field_block">
-                            <label for="invite_email">Email, email, ...</label>
-                            <input type="text" id="invite_email"/>
-                        </div>
+                        <form id="invite_email_form">
+                            <div class="in-field_block">
+                                <label for="invite_email">Email, email, ...</label>
+                                <input type="text" id="invite_email"/>
+                            </div>
+                            <input type="submit" value="Invite!"/>
+                        </form>
                     </div>
                 </div>
                 <div class="comment_box">
