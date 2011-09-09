@@ -799,10 +799,10 @@ class Home extends CI_Controller
     // Sends emails to the given people to join PlanJar
     public function invite_to_planjar()
     {
-        $email_list = trim($this->input->get('email_list'));
+        $email_list = $this->input->get('email_list');
         if ($email_list != '')
         {
-            $email_list = explode(',');
+            $email_list = explode(',', $email_list);
         }
 
         var_demp($email_list);
