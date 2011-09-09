@@ -91,7 +91,7 @@
                         </div>
                         <!-- Put the caption content in a div with the class .showcase-caption -->
                         <div class="showcase-caption">
-                            This is the main view providing, an interface to see graphical information of people's plans
+                            This is the main view, providing an interface to see graphical information of people's plans
                         </div>
                     </div>
 
