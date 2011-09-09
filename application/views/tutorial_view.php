@@ -67,7 +67,7 @@
                     </div>
                     <!-- Put the caption content in a div with the class .showcase-caption -->
                     <div class="showcase-caption">
-                        The home view...
+                        This is the main view providing, an interface to see graphical information of people's plans
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@
                     </div>
                     <!-- Put the caption content in a div with the class .showcase-caption -->
                     <div class="showcase-caption">
-                        We're all about the groups and networks you join and follow.
+                        The groups you join and follow are on the left panel.  Select one to see more information about what they are doing.
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@
                     </div>
                     <!-- Put the caption content in a div with the class .showcase-caption -->
                     <div class="showcase-caption">
-                        This is a group overview. See trends for the selected group or network.
+                        A group overview shows you both trends for the selected group or network, and the top locations they are going by day.
                     </div>
                 </div>
 
@@ -115,7 +115,7 @@
                     </div>
                     <!-- Put the caption content in a div with the class .showcase-caption -->
                     <div class="showcase-caption">
-                        To the right of the info pane are your plans.
+                        To the right are the plans you have made.
                     </div>
                 </div>
 
@@ -131,7 +131,7 @@
                     </div>
                     <!-- Put the caption content in a div with the class .showcase-caption -->
                     <div class="showcase-caption">
-                        Click on a plan to see more info or to leave comments for other attendees
+                        Click on a plan to see detailed information about it, or to leave comments for other attendees.
                     </div>
                 </div>
 
@@ -163,7 +163,7 @@
                     </div>
                     <!-- Put the caption content in a div with the class .showcase-caption -->
                     <div class="showcase-caption">
-                        Inviting friends to your events is simple.
+                        Inviting friends, groups, and schoolmates to your plans is easy and intuitive.
                     </div>
                 </div>
             </div>
