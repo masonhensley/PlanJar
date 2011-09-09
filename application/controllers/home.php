@@ -805,7 +805,7 @@ class Home extends CI_Controller
             $email_list = explode(',', $email_list);
         }
 
-        var_demp($email_list);
+        var_dump($email_list);
     }
 
 }
