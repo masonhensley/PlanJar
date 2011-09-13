@@ -100,11 +100,13 @@
                 <a href="/dashboard/notifications" id="profile_link"><div class="top_right_link_outer" id="notifications">Notifications</div></a>
                 <a href="/dashboard/settings" ><div class ="top_right_link_outer">Settings</div></a>
             </div>
-            <div id="tip_of_the_day">
-                <div id="close_tip">X</div>
-                <div id="tip_text">Hey guys, we've made some changes, and here's where we'll let you know.</div>
-            </div>
         </div>
+
+        <div id="tip_of_the_day">
+            <div id="close_tip">X</div>
+            <div id="tip_text">Hey guys, we've made some changes, and here's where we'll let you know.</div>
+        </div>
+
         <div class="tab_bar">
             <div class="data_tab tab_selected" assoc_div="#info_content">Info</div>
             <div class="data_tab" assoc_div="#map_content">Map</div>
