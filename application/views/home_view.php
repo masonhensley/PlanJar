@@ -105,7 +105,7 @@
 
         <div id="tip_of_the_day" class="inside_top_panel">
             <div id="close_tip">X</div>
-            <div id="tip_text">We've made some changes, and here's where we'll let you know.</div>
+            <div id="tip_text">Tired of being a jar? <?php echo(anchor('settings', 'Click here')); ?> to add a picture!</div>
         </div>
 
         <div class="tab_bar">
