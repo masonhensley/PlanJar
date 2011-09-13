@@ -396,6 +396,7 @@ function initialize_plan_info(data) {
             'privacy': data.privacy
         }, function() {
             data = $.parseJSON(data);
+            console.log(data);
                 
             if (data.status != 'success') {
                 // Plan conflict
