@@ -459,7 +459,7 @@ class Notification_ops extends CI_Model
             $this->load_profile->insert_profile_picture($this_user->id, 33);
             $image = ob_get_clean();
 
-            $body_string = 'Hi ' . $user->first_name . ".<br/><br/>";
+            $body_string = $user->first_name . ",<br/><br/>";
             switch ($type)
             {
                 case 'event_invite':

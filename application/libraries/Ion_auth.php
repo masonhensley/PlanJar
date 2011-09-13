@@ -195,7 +195,7 @@ class Ion_auth
             // Get user information
             $user = $this->get_user_by_identity($identity);  //changed to get_user_by_identity from email
 
-            $notif_text = 'Hi ' . $user->first_name . '.<br/><br/>You requested to reset your password. Click ' .
+            $notif_text = $user->first_name . ',<br/><br/>You requested to reset your password. Click ' .
                     anchor('/auth/reset_password/' . $user->forgotten_password_code, 'here') . ' to reset it.';
             $data = array(
                 'notif_text' => $notif_text,
@@ -250,7 +250,7 @@ class Ion_auth
 
         if ($new_password)
         {
-            $notif_text = 'Hi ' . $profile->first_name . ".<br/><br/>Your temporary password is <b>$new_password</b>.<br/>" .
+            $notif_text = $profile->first_name . ",<br/><br/>Your temporary password is <b>$new_password</b>.<br/>" .
                     'Click ' . anchor('/dashboard/settings', 'here') . ' to go to the settings page and change your password.';
             $data = array(
                 'notif_text' => $notif_text,
