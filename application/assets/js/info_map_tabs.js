@@ -399,8 +399,8 @@ function initialize_plan_info(data) {
                 
             if (data.status != 'success') {
                 // Plan conflict
+                populate_plan_panel();
                 open_conflict_modal(data, function() {
-                    populate_plan_panel();
                     display_info();
                 });
             } else {
