@@ -932,3 +932,14 @@ a:hover{
     background:lightgray;
     color:navy;
 }
+
+#tip_of_the_day {
+    height: 30px;
+    background-color: #f9f109;
+}
+
+#tip_text {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
