@@ -955,7 +955,7 @@ a:hover{
 #close_tip {
     position: absolute;
     top: 9px;
-    left: 5px;
+    right: 5px;
     border: 1px solid lightGrey;
     padding: 3px;
 }
