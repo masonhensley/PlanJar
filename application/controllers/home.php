@@ -830,6 +830,7 @@ class Home extends CI_Controller
         }
     }
 
+    // The following 2 functions are to get and set the value of the tip_closed column of user_meta
     public function get_show_tip()
     {
         if ($this->ion_auth->get_user()->tip_closed == '0')
