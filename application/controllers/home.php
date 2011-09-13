@@ -830,5 +830,17 @@ class Home extends CI_Controller
         }
     }
 
+    public function get_show_tip()
+    {
+        var_dump($this->ion_auth->get_user()->tip_closed);
+//        if ($this->ion_auth->get_user()->tip_closed)
+    }
+
+    public function set_show_tip()
+    {
+        $value = $this->input->get('value');
+        $this->ion_auth->update_user($this->ion_auth->get_user()->id, array('tip_closed' => $value));
+    }
+
 }
 ?>

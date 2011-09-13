@@ -73,7 +73,8 @@ $config['columns'] = array(
     'image_name',
     'follow_notif',
     'group_invite',
-    'join_group_request');
+    'join_group_request',
+    'tip_closed');
 
 /**
  * A database column which is used to

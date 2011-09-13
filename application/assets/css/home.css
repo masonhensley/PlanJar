@@ -938,6 +938,7 @@ a:hover{
     background-color: #f9f109;
     position: relative;
     text-align: center;
+    display: none;
 }
 
 #tip_text {
