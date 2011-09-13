@@ -105,7 +105,7 @@
 
         <div id="tip_of_the_day">
             <div id="close_tip">X</div>
-            <div id="tip_text">Hey guys, we've made some changes, and here's where we'll let you know.</div>
+            <div id="tip_text">We've made some changes, and here's where we'll let you know.</div>
         </div>
 
         <div class="tab_bar">
