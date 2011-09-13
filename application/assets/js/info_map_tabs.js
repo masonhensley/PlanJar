@@ -402,6 +402,7 @@ function initialize_plan_info(data) {
                 populate_plan_panel();
                 open_conflict_modal(data, function() {
                     display_info();
+                    populate_plan_panel();
                 });
             } else {
                 // Success
