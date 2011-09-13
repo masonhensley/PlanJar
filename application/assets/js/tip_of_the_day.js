@@ -13,7 +13,7 @@ $(function() {
         
         // Register with the server
         $.get('/home/set_show_tip', {
-            value: 0
+            value: 1
         });
     });
 });
