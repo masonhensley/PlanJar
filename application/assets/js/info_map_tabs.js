@@ -394,9 +394,8 @@ function initialize_plan_info(data) {
         $.get('/home/make_plan_by_event', {
             'event_id': data.event_id,
             'privacy': data.privacy
-        }, function() {
+        }, function(data) {
             data = $.parseJSON(data);
-            console.log(data);
                 
             if (data.status != 'success') {
                 // Plan conflict
