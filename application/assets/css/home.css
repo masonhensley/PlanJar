@@ -941,9 +941,7 @@ a:hover{
 }
 
 #tip_text {
-    position: absolute;
-    top: 10px;
-    left: 5px;
+    line-height: 45px;
 }
 
 #close_tip {
