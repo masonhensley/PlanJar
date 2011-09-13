@@ -58,6 +58,7 @@
         <script type="text/javascript" src="/application/assets/js/find_places.js"></script>
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
         <script type="text/javascript" src="/application/assets/js/google_analytics.js"></script>
+        <script type="text/javascript" src="/application/assets/js/tip_of_the_day.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>

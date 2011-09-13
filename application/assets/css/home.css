@@ -934,12 +934,19 @@ a:hover{
 }
 
 #tip_of_the_day {
-    height: 30px;
+    height: 45px;
     background-color: #f9f109;
+    position: relative;
 }
 
 #tip_text {
     position: absolute;
     top: 10px;
+    left: 5px;
+}
+
+#close_tip {
+    position: absolute;
+    top: 5px;
     left: 5px;
 }
