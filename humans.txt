@@ -1,0 +1,27 @@
+Contact: jbz@planjar.com
+
+/* TEAM */
+	CEO & Co-Founder: Mason Hensley
+	Twitter: @masonhensley
+	From: Texas & Nashville, TN
+
+	Software Architect & Co-Founder: Parker Bossier
+	Twitter: @bossier330
+	From: NOLA & Nashville, TN
+
+	Software Architect & Co-Founder: Wells Johnston
+	Twitter: @wellsjohnston
+	From: San Fransisco, NY & Nashville, TN
+
+/* THANKS */
+
+	Paas: Pagodabox
+	Twitter: @pagodabox
+	From:  Rexburg, Idaho, USA
+
+	
+/* SITE */
+	Last update:2011/09
+	Language:English
+	Doctype:HTML5
+	IDE: Netbeans 7

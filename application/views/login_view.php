@@ -80,7 +80,7 @@
                 <div class="go_dores_message">
                     Welcome, <font style="color:#DCD77E;">Vanderbilt</font>. Go 'Dores!
                 </div>
-                <h5>Make plans with friends while anomomously influencing your larger social circles<span class="arrow"></span> </h5>
+                <h5>Make plans with friends while anonymously influencing your larger social circles<span class="arrow"></span> </h5>
                 <div id="showcase" class="showcase">
                     <div class="showcase-slide">
                         <!-- Put the slide content in a div with the class .showcase-content -->
