@@ -116,6 +116,7 @@ class Notification_ops extends CI_Model
             ORDER BY notifications.viewed ASC, notifications.date DESC";
 
         $query = $this->db->query($query_string);
+        var_dump($this->db->last_query());
 
         if ($query->num_rows() == 0)
         {
