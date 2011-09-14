@@ -105,7 +105,7 @@
 
         <div id="tip_of_the_day" class="inside_top_panel">
             <div id="close_tip">X</div>
-            <div id="tip_text">Tired of being a jar? <?php echo(anchor('/dashboard/settings', 'Click here')); ?> to add a profile picture!</div>
+            <div id="tip_text">Follow your favorite student organizations and join ones you're in on the <?php echo(anchor('/dashboard/groups/suggested', 'groups page')); ?>.</div>
         </div>
 
         <div class="tab_bar">
