@@ -107,11 +107,11 @@ class Notification_ops extends CI_Model
             LEFT JOIN events ON notifications.subject_id = events.id AND notifications.type = 'event_invite'
             WHERE notifications.user_id = $user_id AND notifications.viewed = 0
             AND (
-                events.id = 'NULL' AND
-                notifications.date >= CURDATE()
+                (events.id = 'NULL' AND
+                notifications.date >= CURDATE())
             ) OR (
-                events.id <> 'NULL' AND
-                events.date >= CURDATE()
+                (events.id <> 'NULL' AND
+                events.date >= CURDATE())
             )
             ORDER BY notifications.viewed ASC, notifications.date DESC";
 
