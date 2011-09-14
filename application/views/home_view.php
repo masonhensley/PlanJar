@@ -104,8 +104,8 @@
         </div>
 
         <div id="tip_of_the_day" class="inside_top_panel">
-            <div id="close_tip">X</div>
-            <div id="tip_text">Follow your favorite student organizations and join ones you're in on the <?php echo(anchor('/dashboard/groups/suggested', 'groups page')); ?>.</div>
+            <div id="close_tip">&times;</div>
+            <div id="tip_text"><?php echo(anchor('/dashboard/groups/suggested', 'Follow your favorite student organizations and join the ones you belong to.')); ?></div>
         </div>
 
         <div class="tab_bar">
