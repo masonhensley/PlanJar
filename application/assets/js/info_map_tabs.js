@@ -394,9 +394,22 @@ function initialize_plan_info(data) {
         $.get('/home/make_plan_by_event', {
             'event_id': data.event_id,
             'privacy': data.privacy
-        }, function() {
-            populate_plan_panel();
-            display_info();
+        }, function(data) {
+            data = $.parseJSON(data);
+                
+            if (data.status != 'success') {
+                // Plan conflict
+                populate_plan_panel();
+                open_conflict_modal(data, function() {
+                    display_info();
+                    populate_plan_panel();
+                });
+            } else {
+                // Success
+                populate_plan_panel();
+                display_info();
+            }
+            
         });
     });
     

@@ -58,6 +58,7 @@
         <script type="text/javascript" src="/application/assets/js/find_places.js"></script>
         <script type="text/javascript" src="/application/assets/js/chartbeat_head.js"></script>
         <script type="text/javascript" src="/application/assets/js/google_analytics.js"></script>
+        <script type="text/javascript" src="/application/assets/js/tip_of_the_day.js"></script>
 
         <!-- D3 plugin -->
         <script type="text/javascript" src="/application/assets/js/d3.js"></script>
@@ -101,6 +102,12 @@
                 <a href="/dashboard/settings" ><div class ="top_right_link_outer">Settings</div></a>
             </div>
         </div>
+
+        <div id="tip_of_the_day" class="inside_top_panel">
+            <div id="close_tip">&times;</div>
+            <div id="tip_text"><b><?php echo(anchor('/dashboard/groups/suggested', 'Follow your favorite student organizations and join the ones you belong to.')); ?></b></div>
+        </div>
+
         <div class="tab_bar">
             <div class="data_tab tab_selected" assoc_div="#info_content">Info</div>
             <div class="data_tab" assoc_div="#map_content">Map</div>

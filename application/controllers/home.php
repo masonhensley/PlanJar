@@ -8,11 +8,11 @@ class Home extends CI_Controller
 
     public function __construct()
     {
-        // Parent constructor
+// Parent constructor
         parent::__construct();
 
 
-        // Redirect if not logged in
+// Redirect if not logged in
         if (!$this->ion_auth->logged_in())
         {
             redirect('login');
@@ -25,29 +25,29 @@ class Home extends CI_Controller
         $this->load->model('load_profile');
         $user_info = $this->ion_auth->get_user();
 
-        // retrieve other useful variables for view
+// retrieve other useful variables for view
         $firstname = $user_info->first_name;
         $lastname = $user_info->last_name;
         $joined_groups = $this->load_groups->joined_groups();
         $followed_groups = $this->load_groups->followed_groups();
         $school = $this->load_groups->user_school();
 
-        // Get the day tabs HTML
+// Get the day tabs HTML
         $this->load->model('day_sets');
         $day_html = $this->day_sets->day_set(0);
         $plan_day_html = $this->day_sets->day_set(0, true);
 
-        // Get the plan tabs HTML
+// Get the plan tabs HTML
         $this->load->model('plan_actions');
         $plans_html = $this->plan_actions->display_plans();
 
-        // get friend names to populate the friend plan modal
+// get friend names to populate the friend plan modal
         $friend_names = $this->get_friend_names();
 
-        // get the upcoming events HTML
-        //$this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
-        //$upcoming_event_html = $this->load_coming_events->load_events();
-        // Pass the necessary information to the view.
+// get the upcoming events HTML
+//$this->load->model('load_coming_events'); //this entire function should be moved to populate when the DOM loads
+//$upcoming_event_html = $this->load_coming_events->load_events();
+// Pass the necessary information to the view.
         $this->load->view('home_view', array(
             'firstname' => $firstname,
             'lastname' => $lastname,
@@ -96,7 +96,7 @@ class Home extends CI_Controller
         $latitude = $this->input->get('latitude');
         $longitude = $this->input->get('longitude');
 
-        // Check the PlanJar database. (Query string courtesy of Wells.)
+// Check the PlanJar database. (Query string courtesy of Wells.)
         $query_string = "SELECT places.id, places.latitude, places.longitude, places.name, place_categories.alias AS category,
             ((ACOS(SIN(? * PI() / 180) * SIN(places.latitude * PI() / 180) 
             + COS(? * PI() / 180) * COS(places.latitude * PI() / 180) * COS((? - places.longitude) 
@@ -107,36 +107,36 @@ class Home extends CI_Controller
             ORDER BY distance ASC LIMIT ?";
         $query = $this->db->query($query_string, array($latitude, $latitude, $longitude, str_replace(' ', '* ', $needle) . '*', 10));
 
-        // Return a JSON array.
+// Return a JSON array.
         foreach ($query->result_array() as $row)
         {
-            // Append to the return array.
+// Append to the return array.
             $return_array[] = $row;
         }
 
-        // Check for no results.
+// Check for no results.
         if (!isset($return_array))
         {
             echo(json_encode(array('count' => 0)));
         } else
         {
-            // Return a JSON array with count and data members.
+// Return a JSON array with count and data members.
             echo(json_encode(array('count' => count($return_array), 'data' => $return_array)));
         }
     }
 
-    // Adds a plan entry to the database and creates an event if necessary
-    // Returns the event id
+// Adds a plan entry to the database and creates an event if necessary
+// Returns the event id
     public function submit_plan()
     {
         $event_id = $this->input->get('plan_event_id');
         $privacy = $this->input->get('privacy');
 
-        // Create a new event if one wasn't selected
+// Create a new event if one wasn't selected
         $new_event = false;
         if ($event_id == '' || !$event_id)
         {
-            // Event data
+// Event data
             $date = new DateTime();
             $date->add(new DateInterval('P' . $this->input->get('plan_day') . 'D'));
             $clock_time = $this->input->get('plan_clock_time');
@@ -160,14 +160,14 @@ class Home extends CI_Controller
                 'description' => trim($this->input->get('plan_description'))
             );
 
-            // Eliminate meaningless fields for a "just going" event
+// Eliminate meaningless fields for a "just going" event
             if ($event_data['title'] == '')
             {
                 unset($event_data['clock_time']);
                 unset($event_data['originator_id']);
             }
 
-            // Add the place to the PlanJar database if a Factual place was selected.
+// Add the place to the PlanJar database if a Factual place was selected.
             if ($this->input->get('new_place_factual_id') != '')
             {
                 $place_data = array(
@@ -182,18 +182,18 @@ class Home extends CI_Controller
                 $event_data['place_id'] = $this->place_ops->add_factual_place($place_data);
             }
 
-            // Update event id with the new event
+// Update event id with the new event
             $this->load->model('event_ops');
             $event_id = $this->event_ops->create_event($event_data, $new_event);
         }
 
-        // Plan data
+// Plan data
         $plan_data = array(
             $this->ion_auth->get_user()->id,
             $event_id
         );
 
-        // Add the plan and echo the results
+// Add the plan and echo the results
         $this->load->model('plan_actions');
         echo($this->plan_actions->add_plan($plan_data, $new_event));
     }
@@ -223,13 +223,13 @@ class Home extends CI_Controller
         $comment = trim($this->input->get('comment'));
         $comment = mysql_real_escape_string($comment);
 
-        // get the event_id
+// get the event_id
         $query = "SELECT event_id FROM plans WHERE id=$plan_id";
         $result = $this->db->query($query);
         $row = $result->row();
         $event_id = $row->event_id;
 
-        // insert into comments
+// insert into comments
         $user = $this->ion_auth->get_user();
         $query = "
             INSERT INTO plan_comments 
@@ -262,7 +262,7 @@ class Home extends CI_Controller
         $this->load_attending_list->_display_awaiting_list($plan_id);
     }
 
-    // display the people in a group in a modal
+// display the people in a group in a modal
     public function group_member_list()
     {
         $group_id = $this->input->get('group_id');
@@ -279,7 +279,7 @@ class Home extends CI_Controller
         echo $number_notifications;
     }
 
-    // permanently deletes plan 
+// permanently deletes plan 
     public function delete_plan()
     {
         $plan = $this->input->get('plan_selected');
@@ -294,8 +294,8 @@ class Home extends CI_Controller
         $this->load_friend_plans->populate_plans($friend_id);
     }
 
-    // Return a list of location tabs based on the groups selected
-    // called from data_box_functions.js
+// Return a list of location tabs based on the groups selected
+// called from data_box_functions.js
     public function load_location_tabs()
     {
         $this->load->model('load_locations');
@@ -315,7 +315,7 @@ class Home extends CI_Controller
         return $query->row()->school;
     }
 
-    // this function populates the data box for when a group or location is selected
+// this function populates the data box for when a group or location is selected
     public function load_data_box()
     {
         $selected_groups = $this->input->get('selected_groups');
@@ -328,7 +328,7 @@ class Home extends CI_Controller
         echo json_encode($return_array);
     }
 
-    // this function is called when a location tab is clicked to display its information
+// this function is called when a location tab is clicked to display its information
     public function show_location_data()
     {
         $this->load->model('load_location_data');
@@ -350,14 +350,14 @@ class Home extends CI_Controller
         echo $this->load_friend_plans->get_location_plans($place_id);
     }
 
-    // Returns HTML for the list of the user's plans (right panel)
+// Returns HTML for the list of the user's plans (right panel)
     public function get_my_plans()
     {
         $this->load->model('plan_actions');
         echo $this->plan_actions->display_plans();
     }
 
-    // Update the user's location
+// Update the user's location
     public function update_user_location()
     {
         $user = $this->ion_auth->get_user();
@@ -368,7 +368,7 @@ class Home extends CI_Controller
 
         if ($new_lat === false)
         {
-            // Only update the city (no coords passed)
+// Only update the city (no coords passed)
             $this->ion_auth->update_user($user->id, array('city_state' => $this->input->get('city')));
             return;
         }
@@ -377,7 +377,7 @@ class Home extends CI_Controller
 
         if ($this->input->get('auto') == 'false' || $user->latitude == NULL || $user->longitude == NULL)
         {
-            // Runs when the user location information is missing or when the location is manually changed
+// Runs when the user location information is missing or when the location is manually changed
             $update_array = array(
                 'latitude' => $new_lat,
                 'longitude' => $new_long
@@ -392,7 +392,7 @@ class Home extends CI_Controller
             )));
         } else if ($delta_distance > 20)
         {
-            // Runs when auto updating the location and the max distance is met
+// Runs when auto updating the location and the max distance is met
             $this->ion_auth->update_user($user->id, array(
                 'latitude' => $new_lat,
                 'longitude' => $new_long));
@@ -402,7 +402,7 @@ class Home extends CI_Controller
             echo(json_encode($return_array));
         } else
         {
-            // Returns the user's profile location if the distance offset is not met.
+// Returns the user's profile location if the distance offset is not met.
             $return_array = array('status' => 'from_profile',
                 'loc' => array($user->latitude, $user->longitude),
                 'city_state' => $user->city_state
@@ -418,14 +418,14 @@ class Home extends CI_Controller
                                 * pi() / 180)) * 180 / pi()) * 60 * 1.1515);
     }
 
-    // Returns a set of 7 weekday tabs based on the supplied parameter.
+// Returns a set of 7 weekday tabs based on the supplied parameter.
     public function get_weekday_tab_set()
     {
         $this->load->model('day_sets');
         echo($this->day_sets->day_set($this->input->get('starting_offset'), $this->input->get('plan_set')));
     }
 
-    // Returns a list of people following the user (used for inviting people in a plan)
+// Returns a list of people following the user (used for inviting people in a plan)
     public function get_followers_invite()
     {
         $needle = trim($this->input->get('needle'));
@@ -439,7 +439,7 @@ class Home extends CI_Controller
                     AND friend_relationships.follow_id = ?";
             $query = $this->db->query($query_string, array(str_replace(' ', '* ', $needle) . '*', $user->id));
 
-            // Echo the results
+// Echo the results
             $return_array = array();
             foreach ($query->result() as $row)
             {
@@ -453,7 +453,7 @@ class Home extends CI_Controller
         }
     }
 
-    // Returns a list of people following the user (used for inviting people in a plan)
+// Returns a list of people following the user (used for inviting people in a plan)
     public function get_groups_invite()
     {
         $needle = trim($this->input->get('needle'));
@@ -461,17 +461,17 @@ class Home extends CI_Controller
         {
             $user = $this->ion_auth->get_user();
 
-            // Break into search terms
+// Break into search terms
             $needle_array = explode(' ', $needle);
 
-            // Generate query strings to cross-reference all needle terms with the first and last names in the db
+// Generate query strings to cross-reference all needle terms with the first and last names in the db
             $needle_where = '';
             foreach ($needle_array as $cur_needle)
             {
                 $needle_where .= "groups.name LIKE '%%$cur_needle%%' AND ";
             }
 
-            // Trim the end of the string
+// Trim the end of the string
             if (count($needle_array) > 0)
             {
                 $needle_where = substr($needle_where, 0, -5);
@@ -483,7 +483,7 @@ class Home extends CI_Controller
 
             $query = $this->db->query($query_string, array($user->id));
 
-            // Echo the results
+// Echo the results
             $return_array = array();
             foreach ($query->result() as $row)
             {
@@ -497,14 +497,14 @@ class Home extends CI_Controller
         }
     }
 
-    // Returns HTML for a select input containing all the event names at the specified location and time
+// Returns HTML for a select input containing all the event names at the specified location and time
     public function get_events_for_plan()
     {
         $this->load->model('event_ops');
         $this->event_ops->get_events_for_plan($this->input->get('day'), $this->input->get('time'), $this->input->get('place_id'));
     }
 
-    // Returns HTML for divSet buttons containing names of the user's followers
+// Returns HTML for divSet buttons containing names of the user's followers
     public function get_followers_divset()
     {
         $this->load->model('follow_ops');
@@ -516,11 +516,11 @@ class Home extends CI_Controller
         {
             if ($begin_row)
             {
-                // Add a table row
+// Add a table row
                 echo('<tr>');
             }
 
-            // Td body
+// Td body
             echo('<td>');
             echo('<div class="invite_followers_divset" user_id="' . $tuple['id'] . '">');
             echo($tuple['name']);
@@ -529,7 +529,7 @@ class Home extends CI_Controller
 
             if (!$begin_row)
             {
-                // Close the table row
+// Close the table row
                 echo('</tr>');
             }
             $begin_row = !$begin_row;
@@ -538,7 +538,7 @@ class Home extends CI_Controller
         echo('</table>');
     }
 
-    // Returns HTML for divSet buttons containing names of the user's joined gorups
+// Returns HTML for divSet buttons containing names of the user's joined gorups
     public function get_joined_groups_divset()
     {
         $this->load->model('group_ops');
@@ -556,10 +556,10 @@ class Home extends CI_Controller
         $needle = trim($this->input->get('needle'));
         if ($needle != '')
         {
-            // Break into search terms
+// Break into search terms
             $needle_array = explode(' ', $needle);
 
-            // Generate query strings to cross-reference all needle terms with the first and last names in the db
+// Generate query strings to cross-reference all needle terms with the first and last names in the db
             $needle_where = '';
             foreach ($needle_array as $cur_needle)
             {
@@ -567,7 +567,7 @@ class Home extends CI_Controller
                         "user_meta.last_name LIKE '%%$cur_needle%%') AND ";
             }
 
-            // Trim the end of the string
+// Trim the end of the string
             $needle_where = substr($needle_where, 0, -5);
 
             $query_string = "SELECT user_id, first_name, last_name
@@ -575,7 +575,7 @@ class Home extends CI_Controller
             $query = $this->db->query($query_string, array($this->ion_auth->get_user()->school_id,
                 $this->ion_auth->get_user()->id));
 
-            // Echo the results
+// Echo the results
             $return_array = array();
             foreach ($query->result() as $row)
             {
@@ -589,10 +589,10 @@ class Home extends CI_Controller
         }
     }
 
-    // Invites and notifies the given users and groups
+// Invites and notifies the given users and groups
     public function invite_people()
     {
-        // Capture vars
+// Capture vars
         $user_ids = $this->input->get('user_ids');
         if (!$user_ids)
         {
@@ -607,7 +607,7 @@ class Home extends CI_Controller
         $subject_id = $this->input->get('subject_id');
         $subject_type = $this->input->get('subject_type');
 
-        // Handle the different subject types
+// Handle the different subject types
         if ($subject_type == 'event')
         {
             $this->load->model('event_ops');
@@ -618,18 +618,18 @@ class Home extends CI_Controller
             $notif_type = 'group_invite';
         }
 
-        // Send notifications
+// Send notifications
         $this->load->model('notification_ops');
         $this->notification_ops->notify($user_ids, $group_ids, $notif_type, $subject_id);
 
         echo('success');
     }
 
-    // Resolves the conflict between the given two events (user trying to go to two events
-    // at the same place at the same time)
+// Resolves the conflict between the given two events (user trying to go to two events
+// at the same place at the same time)
     public function resolve_plan_conflict()
     {
-        // Get the plan to discard
+// Get the plan to discard
         $query_string = "SELECT id FROM plans WHERE event_id = ? AND user_id = ?";
         $query = $this->db->query($query_string, array(
             $this->input->get('discard_event'),
@@ -637,15 +637,15 @@ class Home extends CI_Controller
                 ));
 
 
-        // Discard the plan
+// Discard the plan
         $this->load->model('plan_actions');
         $this->plan_actions->delete_plan($query->row()->id);
     }
 
-    // Returns 'available' or an error message if the event name is already in use
+// Returns 'available' or an error message if the event name is already in use
     public function check_preexisting_event()
     {
-        // Capture the input
+// Capture the input
         $needle = trim($this->input->get('needle'));
         $plan_time = $this->input->get('plan_time');
         $plan_date = new DateTime();
@@ -653,10 +653,10 @@ class Home extends CI_Controller
         $plan_date = $plan_date->format('Y-m-d');
         $place_id = $this->input->get('place_id');
 
-        // Check for a new place (impossible to have pre-existing events)
+// Check for a new place (impossible to have pre-existing events)
         if ($place_id == 'factual')
         {
-            // No event
+// No event
             echo('available');
             return;
         }
@@ -671,16 +671,16 @@ class Home extends CI_Controller
 
         if ($query->num_rows() > 0)
         {
-            // Pre-existing event
+// Pre-existing event
             echo("There's already an event with that title. Note that, because of privacy settings, the event may not actually be visible to you.");
         } else
         {
-            // No event
+// No event
             echo('available');
         }
     }
 
-    // Returns a JSON list as needed by the new place category search
+// Returns a JSON list as needed by the new place category search
     public function search_place_categories()
     {
         $needle = trim($this->input->get('needle'));
@@ -701,7 +701,7 @@ class Home extends CI_Controller
             WHERE $where_clause";
             $query = $this->db->query($query_string);
 
-            // Create the return array
+// Create the return array
             $return_array = array();
             foreach ($query->result() as $row)
             {
@@ -715,8 +715,8 @@ class Home extends CI_Controller
         }
     }
 
-    // Adds a location to the database
-    // Returns the new place id and name for daisy chaining into the make plan modal
+// Adds a location to the database
+// Returns the new place id and name for daisy chaining into the make plan modal
     public function add_location()
     {
         $this->load->model('place_ops');
@@ -738,12 +738,12 @@ class Home extends CI_Controller
         $privacy = $this->input->get('privacy');
 
         $this->load->model('plan_actions');
-        $this->plan_actions->add_plan(array(
+        echo($this->plan_actions->add_plan(array(
             $this->ion_auth->get_user()->id,
-            $event_id));
+            $event_id)));
     }
 
-    // Returns the place name and location of each plan on the same day
+// Returns the place name and location of each plan on the same day
     public function get_plans_coords()
     {
         $plan_id = $this->input->get('plan_id');
@@ -752,7 +752,7 @@ class Home extends CI_Controller
         echo($this->plan_actions->get_plan_coords($plan_id));
     }
 
-    // Returns HTML for an autocomplete box
+// Returns HTML for an autocomplete box
     public function show_place_search()
     {
         ?>
@@ -766,21 +766,21 @@ class Home extends CI_Controller
         <?php
     }
 
-    // Unsubscribe the user from all email notifications
+// Unsubscribe the user from all email notifications
     public function unsub($id)
     {
         $query_string = "SELECT user_id FROM unsubscribe WHERE id = ?";
         $query = $this->db->query($query_string, array($id));
         if ($query->num_rows() > 0)
         {
-            // Get the user id
+// Get the user id
             $user_id = $query->row()->user_id;
 
-            // Remove all email settings
+// Remove all email settings
             $user = $this->ion_auth->get_user($id);
             $this->ion_auth->update_user($user_id, array('email_notif' => 0));
 
-            // Delete the entry
+// Delete the entry
             $this->db->query("DELETE FROM unsubscribe WHERE id = ?", array($id));
 
             echo('You have been successfully unsubscribed.');
@@ -796,7 +796,7 @@ class Home extends CI_Controller
         echo(($query->num_rows() > 0) ? 'success' : 'error');
     }
 
-    // Sends emails to the given people to join PlanJar
+// Sends emails to the given people to join PlanJar
     public function invite_to_planjar()
     {
         $email_list = $this->input->get('email_list');
@@ -808,7 +808,7 @@ class Home extends CI_Controller
             $user = $this->ion_auth->get_user();
             $user_name = $user->first_name . ' ' . $user->last_name;
 
-            // Create the image string
+// Create the image string
             $this->load->model('load_profile');
             ob_start();
             $this->load_profile->insert_profile_picture($user->id, 33);
@@ -828,6 +828,21 @@ class Home extends CI_Controller
                 }
             }
         }
+    }
+
+    // The following 2 functions are to get and set the value of the tip_closed column of user_meta
+    public function get_show_tip()
+    {
+        if ($this->ion_auth->get_user()->tip_closed == '0')
+        {
+            echo('show');
+        }
+    }
+
+    public function set_show_tip()
+    {
+        $value = $this->input->get('value');
+        $this->ion_auth->update_user($this->ion_auth->get_user()->id, array('tip_closed' => $value));
     }
 
 }
