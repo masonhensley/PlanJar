@@ -106,17 +106,10 @@ class Notification_ops extends CI_Model
             LEFT JOIN groups ON notifications.group_id = groups.id
             LEFT JOIN events ON notifications.subject_id = events.id AND notifications.type = 'event_invite'
             WHERE notifications.user_id = $user_id AND notifications.viewed = 0
-            AND (
-                (events.id = 'NULL' AND
-                notifications.date >= CURDATE())
-            ) OR (
-                (events.id <> 'NULL' AND
-                events.date >= CURDATE())
-            )
+            AND (events.date = 'NULL' OR notifications.date >= CURDATE())
             ORDER BY notifications.viewed ASC, notifications.date DESC";
 
         $query = $this->db->query($query_string);
-        var_dump($this->db->last_query());
 
         if ($query->num_rows() == 0)
         {
