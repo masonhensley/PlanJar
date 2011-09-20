@@ -165,7 +165,7 @@
                         <font  style="color:gray">Invite people to PlanJar!</font><br/>
                         <form id="invite_email_form">
                             <div class="in-field_block" style="display: inline-block; margin-top: 5px;">
-                                <label for="invite_email">Separate e-mails by comma</label>
+                                <label for="invite_email" style="font-size:14px;">Separate e-mails by comma</label>
                                 <input type="text" id="invite_email"/>
                             </div>
                             <input type="submit" value="Invite!"/>
