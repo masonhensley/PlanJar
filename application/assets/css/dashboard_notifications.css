@@ -99,7 +99,7 @@
     text-align: center;
 }
 
-.notification_entry:hover{
+.notification_entry .mark_read:hover{
     color:navy;
 }
 
