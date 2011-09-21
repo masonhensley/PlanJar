@@ -9,7 +9,7 @@
 }
 
 .group_graph_top_left{
-    width:200px;
+    width:230px;
     height:150px;
     position:absolute;
     top:55px;
@@ -111,9 +111,8 @@
     color: #2BA3A1;
     font-weight: bold;
     position: absolute;
-    top: 26px;
+    top: 33px;
     left: 128px;
-    text-align: center;
 }
 
 #view_group_list:hover, #friends_link:hover,  #groups_link:hover{
