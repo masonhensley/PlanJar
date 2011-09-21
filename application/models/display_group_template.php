@@ -46,7 +46,7 @@ class Display_group_template extends CI_Model
     function get_friend_data($sql_date, $filter)
     {
         $this->load->model('load_locations');
-        $user_ids = $this->load_locations->get_friend_ids(); // get all the ids of your friends
+        $user_ids = $this->load_locations->get_friend_ids(true); // get all the ids of your friends
 
         $return_array = array(); // data to be returned
         $friend_user_ids = array(); // this is needed to get the correct user ids for the filter
@@ -83,7 +83,7 @@ class Display_group_template extends CI_Model
             $result = $this->db->query($query);
 
             $total_people = $result->num_rows();
-            
+
 
             foreach ($result->result() as $person)
             {
@@ -105,7 +105,7 @@ class Display_group_template extends CI_Model
         $return_array = $this->get_percentages($return_array, $sql_date, $friend_user_ids, $total_people, $number_males, $number_females);
         // query for all the plans that people in the groups have made for the surrounding week
         $return_array = $this->get_surrounding_day_info($return_array, $friend_user_ids, $sql_date);
-        
+
         return $return_array;
     }
 
@@ -129,8 +129,10 @@ class Display_group_template extends CI_Model
         }
 
         $query = "SELECT DISTINCT user_meta.user_id, user_meta.sex FROM user_meta 
-        JOIN school_data ON school_data.id=user_meta.school_id 
-        WHERE user_meta.school_id=$user->school_id$query_filter";
+                JOIN school_data ON school_data.id=user_meta.school_id
+                JOIN plans ON friend_relationships.follow_id = plans.user_id
+                JOIN events ON plans.event_id = events.id AND events.date >= CURDATE()
+                WHERE user_meta.school_id=$user->school_id$query_filter";
 
         $result = $this->db->query($query);
 
@@ -185,6 +187,8 @@ class Display_group_template extends CI_Model
         // first get all the ids of people in the groups
         $query = "SELECT DISTINCT user_meta.user_id, user_meta.sex FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id$query_filter
+                    JOIN plans ON friend_relationships.follow_id = plans.user_id
+                    JOIN events ON plans.event_id = events.id AND events.date >= CURDATE()
                     WHERE ";
         foreach ($selected_groups as $group_id)
         {
@@ -244,12 +248,15 @@ class Display_group_template extends CI_Model
             $query_filter = "";
         }
 
-        $query = "SELECT user_meta.user_id, user_meta.sex,
-                        ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
-                        + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
-                        * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
-                        FROM user_meta$query_filter
-                        HAVING distance<15";
+        $query = "SELECT DISTINCT user_meta.user_id, user_meta.sex,
+                ((ACOS(SIN($user->latitude * PI() / 180) * SIN(user_meta.latitude * PI() / 180) 
+                + COS($user->latitude * PI() / 180) * COS(user_meta.latitude * PI() / 180) * COS(($user->longitude - user_meta.longitude) 
+                * PI() / 180)) * 180 / PI()) * 60 * 1.1515) AS distance 
+                FROM user_meta
+                JOIN plans ON user_meta.user_id = plans.user_id
+                JOIN events ON plans.event_id = events.id AND events.date >= CURDATE()
+                $query_filter
+                HAVING distance<15";
         $result = $this->db->query($query);
 
         $this->get_correct_grad_year($filter);
@@ -519,8 +526,7 @@ class Display_group_template extends CI_Model
         <br/>
         <div class="group_graph_top_left" >
             <font style="color:gray;">Viewing</font>&nbsp;
-            <select id="filter" >
-                <option value="active">Active users</option>
+            <select id="filter">
                 <option value="everyone">Everyone</option>
                 <option value="freshmen">Freshmen</option>
                 <option value="sophomores">Sophomores</option>
@@ -575,19 +581,19 @@ class Display_group_template extends CI_Model
 
             <div class="percent_male_container">
                 <div class="show_percent"style="display:inline-block;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
-                <font style="display:inline-block; color:gray;">of males are going out</font>
+                <font style="display:inline-block; color:gray;">of active males are going out</font>
             </div>
             <div class="male_percent_container"></div>
 
             <div class="percent_female_container">
                 <div class="show_percent" style="display:inline-block;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
-                <font style="color:gray;display:inline-block;">of females are going out</font>
+                <font style="color:gray;display:inline-block;">of active females are going out</font>
             </div>
             <div class="female_percent_container"></div>
 
             <div class="show_percent_container">
                 <div class="show_percent" style="display:inline-block;"><?php echo $data_array['percent_total_going_out'] . "% " ?></div>
-                <font style="color:gray;display:inline-block;">of people are going out</font>
+                <font style="color:gray;display:inline-block;">of active users are going out</font>
             </div>
             <div class="total_percent_container"></div>
 

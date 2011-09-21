@@ -196,9 +196,9 @@ class Load_locations extends CI_Model
             $following_query = "SELECT follow_id FROM friend_relationships WHERE user_id = $user_id"; // selects all the people you are following
         } else
         {
-            $following_query = "SELECT friend_relationships.follow_id FROM friend_relationships
+            $following_query = "SELECT DISTINCT friend_relationships.follow_id FROM friend_relationships
                     JOIN plans ON friend_relationships.follow_id = plans.user_id
-                    JOIN events ON plans.event_id = events.id
+                    JOIN events ON plans.event_id = events.id AND events.date >= CURDATE()
                     WHERE friend_relationships.user_id = $user_id";
         }
         $result = $this->db->query($following_query);
