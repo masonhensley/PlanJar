@@ -130,7 +130,7 @@ class Display_group_template extends CI_Model
 
         $query = "SELECT DISTINCT user_meta.user_id, user_meta.sex FROM user_meta 
                 JOIN school_data ON school_data.id=user_meta.school_id
-                JOIN plans ON friend_relationships.follow_id = plans.user_id
+                JOIN plans ON user_meta.user_id = plans.user_id
                 JOIN events ON plans.event_id = events.id AND events.date >= CURDATE()
                 WHERE user_meta.school_id=$user->school_id$query_filter";
 
