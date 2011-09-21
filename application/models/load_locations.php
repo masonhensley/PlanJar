@@ -89,7 +89,7 @@ class Load_locations extends CI_Model
         $friend_ids = $this->get_friend_ids(); // get an array of friend ids
         $place_id_array = array();
         $place_array = array();
-        
+
         if (count($friend_ids) > 0)
         {
             $display_message = "Popular <a href=\"#\" id=\"places_link\">places</a> your <font style=\"color:green;\">Friends</font> ";
@@ -108,14 +108,15 @@ class Load_locations extends CI_Model
             $query .= ")";
             $result = $this->db->query($query);
 
-            
-            
+
+
             foreach ($result->result() as $place)
             {
                 $place_array[$place->id] = array($place->name, $place->latitude, $place->longitude);
                 $place_id_array[] = $place->id;
             }
-        }else{
+        } else
+        {
             $display_message = "You don't have any <a href=\"/dashboard/friends\" class=\"find_link\">friends</a> yet";
         }
 
@@ -186,11 +187,20 @@ class Load_locations extends CI_Model
     }
 
     // This function returns an array of friend user ids (if the friend tab is selected)
-    function get_friend_ids()
+    function get_friend_ids($limit_to_active = false)
     {
         $user = $this->ion_auth->get_user();
         $user_id = $user->id;
-        $following_query = "SELECT follow_id FROM friend_relationships WHERE $user_id=user_id"; // selects all the people you are following
+        if (!$limit_to_active)
+        {
+            $following_query = "SELECT follow_id FROM friend_relationships WHERE user_id = $user_id"; // selects all the people you are following
+        } else
+        {
+            $following_query = "SELECT friend_relationships.follow_id FROM friend_relationships
+                    JOIN plans ON friend_relationships.follow_id = plans.user_id
+                    JOIN events ON plans.event_id = events.id
+                    WHERE friend_relationships.user_id = $user_id";
+        }
         $result = $this->db->query($following_query);
 
         $friend_query = "SELECT user_id FROM friend_relationships WHERE follow_id=$user_id AND (";
@@ -300,7 +310,7 @@ class Load_locations extends CI_Model
                 <?php
                 foreach ($place_id_array as $place_id => $count)
                 {
-                    
+
                     $coords_array[] = array_merge($place_array[$place_id], array($number_tracker)); // this is used for the coordinates
                     ?>
                     <div class="location_tab" place_id="<?php echo $place_id; ?>">
@@ -309,7 +319,16 @@ class Load_locations extends CI_Model
                         </div>
                         <font style="font-weight:bold;"> <?php echo $place_array[$place_id][0]; ?></font><br/>
                         <font style="font-weight:bold;color:gray; font-size:13px;">selected group has made 
-                        <?php echo $count; if($count > 1){echo " plans ";}else{echo " plan ";} ?>
+                        <?php
+                        echo $count;
+                        if ($count > 1)
+                        {
+                            echo " plans ";
+                        } else
+                        {
+                            echo " plan ";
+                        }
+                        ?>
                         here</font><br/>
                     </div>
                     <?php
