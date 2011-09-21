@@ -535,9 +535,10 @@ class Display_group_template extends CI_Model
                 <option value="alumni">Alumni</option>
             </select>
             <div class="demographics">
-                <font style="color:gray;">Males</font><font style="font-weight:bold;">
+                <font style="color:gray;">Active males</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;&nbsp;
-                <font style="color:gray;">Females</font><font style="font-weight:bold;">
+                <br/>
+                <font style="color:gray;">Active females</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_females']; ?></font>
             </div>
             <?php
