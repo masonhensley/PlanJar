@@ -273,7 +273,7 @@ class Home extends CI_Controller
     public function get_notification_popup()
     {
         $user_id = $this->ion_auth->get_user()->id;
-        $query = "SELECT id FROM notifications
+        $query = "SELECT notifications.id FROM notifications
                 LEFT JOIN events ON notifications.subject_id = events.id AND notifications.type = 'event_invite'
                 WHERE notifications.user_id = $user_id AND notifications.viewed = 0
                 AND (notifications.type <> 'event_invite' OR events.date >= CURDATE())";
