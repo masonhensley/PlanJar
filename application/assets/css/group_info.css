@@ -92,19 +92,19 @@
 .percent_male_container{
     position:absolute;
     top:2px;
-    left:56px;
+    left:36px;
 }
 
 .percent_female_container{
     position:absolute;
-    left:56px;
+    left:36px;
     top:53px;
 }
 
 .show_percent_container{
     position:absolute;
     top:105px;
-    left:56px;
+    left:36px;
 }
 
 #view_group_list, #friends_link, #groups_link{
