@@ -187,7 +187,7 @@ class Display_group_template extends CI_Model
         // first get all the ids of people in the groups
         $query = "SELECT DISTINCT user_meta.user_id, user_meta.sex FROM group_relationships
                     JOIN user_meta ON user_meta.user_id=group_relationships.user_joined_id$query_filter
-                    JOIN plans ON friend_relationships.follow_id = plans.user_id
+                    JOIN plans ON user_meta.user_id = plans.user_id
                     JOIN events ON plans.event_id = events.id AND events.date >= CURDATE()
                     WHERE ";
         foreach ($selected_groups as $group_id)
