@@ -273,7 +273,10 @@ class Home extends CI_Controller
     public function get_notification_popup()
     {
         $user_id = $this->ion_auth->get_user()->id;
-        $query = "SELECT id FROM notifications WHERE user_id=$user_id AND viewed=0";
+        $query = "SELECT id FROM notifications
+                LEFT JOIN events ON notifications.subject_id = events.id AND notifications.type = 'event_invite'
+                WHERE notifications.user_id = $user_id AND notifications.viewed = 0
+                AND (notifications.type <> 'event_invite' OR events.date >= CURDATE())";
         $result = $this->db->query($query);
         $number_notifications = $result->num_rows();
         echo $number_notifications;
@@ -672,7 +675,7 @@ class Home extends CI_Controller
         if ($query->num_rows() > 0)
         {
 // Pre-existing event
-            echo("There's already an event with that title. Note that, because of privacy settings, the event may not actually be visible to you.");
+            echo("There's already an event with that title. Note that, because of privacy settings, the event may not actually be visible to you. Try another title.");
         } else
         {
 // No event
