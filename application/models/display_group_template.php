@@ -535,10 +535,10 @@ class Display_group_template extends CI_Model
                 <option value="alumni">Alumni</option>
             </select>
             <div class="demographics">
-                <font style="color:gray;">Active males</font><font style="font-weight:bold;">
+                <font style="color:gray;">Active guys</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_males']; ?></font>&nbsp;&nbsp;&nbsp;
                 <br/>
-                <font style="color:gray;">Active females</font><font style="font-weight:bold;">
+                <font style="color:gray;">Active girls</font><font style="font-weight:bold;">
                 <?php echo " " . $data_array['total_females']; ?></font>
             </div>
             <?php
@@ -582,13 +582,13 @@ class Display_group_template extends CI_Model
 
             <div class="percent_male_container">
                 <div class="show_percent"style="display:inline-block;"><?php echo $data_array['percent_males_going_out'] . "% " ?></div>
-                <font style="display:inline-block; color:gray;">of active males are going out</font>
+                <font style="display:inline-block; color:gray;">of active guys are going out</font>
             </div>
             <div class="male_percent_container"></div>
 
             <div class="percent_female_container">
                 <div class="show_percent" style="display:inline-block;"><?php echo $data_array['percent_females_going_out'] . "% " ?></div>
-                <font style="color:gray;display:inline-block;">of active females are going out</font>
+                <font style="color:gray;display:inline-block;">of active girls are going out</font>
             </div>
             <div class="female_percent_container"></div>
 
