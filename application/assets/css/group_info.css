@@ -9,7 +9,7 @@
 }
 
 .group_graph_top_left{
-    width:200px;
+    width:230px;
     height:150px;
     position:absolute;
     top:55px;
@@ -92,27 +92,27 @@
 .percent_male_container{
     position:absolute;
     top:2px;
-    left:56px;
+    left:36px;
 }
 
 .percent_female_container{
     position:absolute;
-    left:56px;
+    left:36px;
     top:53px;
 }
 
 .show_percent_container{
     position:absolute;
     top:105px;
-    left:56px;
+    left:36px;
 }
 
 #view_group_list, #friends_link, #groups_link{
-    color:#2BA3A1; 
-    font-weight:bold;
-    position:absolute; 
-    top:46px; 
-    left:0px
+    color: #2BA3A1;
+    font-weight: bold;
+    position: absolute;
+    top: 33px;
+    left: 128px;
 }
 
 #view_group_list:hover, #friends_link:hover,  #groups_link:hover{

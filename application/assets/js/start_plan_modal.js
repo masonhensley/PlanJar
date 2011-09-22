@@ -500,7 +500,7 @@ function initialize_plan_autocomplete() {
                         dataType: 'jsonp',
                         success : function(data) {
                             if (data.status != 'ok') {
-                                alert('Factual error. Please try searching for a place again.');
+                                response(response_json);
                             } else {
                                 data = data.response;
                                 if (data.rows > 0) {
