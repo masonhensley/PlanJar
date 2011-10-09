@@ -183,7 +183,10 @@
                     <div class="submit_comment">Submit</div>
                 </div>
                 <div class="plan_comments"></div>
-                <div id="plans_made_here_list"></div>
+                <div id="plans_made_here">
+                    <font style="color: gray;">Plans at this location</font>
+                    <div id="plans_made_here_list"></div>
+                </div>
             </div>
             <div id="home_plan_spinner" style="position:absolute; right:180px; top:19px;"></div>
             <div class ="right">

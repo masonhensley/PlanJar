@@ -99,18 +99,17 @@ function load_comments(){
      
         
                 
-            $('.delete_comment').confirmDiv(function(tehelement){
-                $.get('/home/delete_comment', {
-                    comment_id : $(tehelement).parent().parent().attr('comment_id')
-                }).complete(function(){
-                    load_comments()
-                });
-            })
+        $('.delete_comment').confirmDiv(function(tehelement){
+            $.get('/home/delete_comment', {
+                comment_id : $(tehelement).parent().parent().attr('comment_id')
+            }).complete(function(){
+                load_comments()
+            });
+        })
     });
 }
 
 function show_invite_link(){
-    $('.plan_comments').hide();
-    $('.comment_box').hide('fast');
+    $('.plan_comments, .comment_box, #plans_made_here').hide('fast');
     $('.bottom_right_section').show('fast');
 }

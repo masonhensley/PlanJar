@@ -170,8 +170,9 @@ function display_info(bypass, arg) {
             $.get('/home/location_plans_made_here', {
                 "place_id" : place_id
             },function(plans_data){
-                $('#plans_made_here_list').siblings().hide('fast', function() {
+                $('.bottom_right_section, .comment_box, .plan_comments').hide('fast', function() {
                     $('#plans_made_here_list').html(plans_data);
+                    $('#plans_made_here').show('fast');
                 });
                 
                 // Click handler
