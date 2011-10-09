@@ -436,14 +436,15 @@ function populate_popular_locations(skip_update_map, callback) {
             if(!$(this).hasClass('selected_location_tab'))
             {
                 
-                // Deselect selected location tabs
-                $('.selected_location_tab').removeClass('selected_location_tab');
+                deselect_all_controlls();
             
                 // Select this location tab
                 $(this).addClass('selected_location_tab');
             } else {
                 // Deselect this location tab
                 $(this).removeClass('selected_location_tab');
+                
+                show_invite_link();
             }
         
             // Update the info box
