@@ -53,6 +53,7 @@ function controlls_are_selected() {
 var found_location = false;
 var viewing_plan_location = false;
 function display_info(bypass, arg) {
+    console.log('called');
     // show the invite link and hide plan comments
     if(!$('.plan_content').hasClass('selected_plan'))
     {
