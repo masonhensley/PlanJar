@@ -579,7 +579,7 @@ a:hover{
 /*---------- FRIENDS PLANS MODAL ----------- */
 .view_friends_plans {
     background:#F3F6FF;
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -webkit-linear-gradient(top, #8AE28F, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
     background: -ms-linear-gradient(top, #F3F6FF, white);
@@ -799,7 +799,7 @@ a:hover{
 }
 #create_plan {
     background:#F3F6FF;
-    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -webkit-linear-gradient(top, #AA00D5, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
     background: -o-linear-gradient(top, #F3F6FF, white);
     background: -ms-linear-gradient(top, #F3F6FF, white);
