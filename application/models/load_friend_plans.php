@@ -173,6 +173,9 @@ class Load_friend_plans extends CI_Model
     function _populate_location_plans($plans_result)
     {
         ob_start(); // start the output buffer
+        ?>
+        <font style="color: gray;">Events at <b style="color: #2D4853;"><?php echo($plans_result->row()->name); ?></b></font>
+        <?php
         if ($plans_result->num_rows() > 0)
         {
             $date_organizer = "";

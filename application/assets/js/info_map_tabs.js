@@ -207,9 +207,9 @@ function display_info(bypass, arg) {
                 $('.location_plan_content').click(function () {
                     if (!$(this).hasClass('selected_plan')) {
                         // Deselect all controlls and show the info panel
-                        var selected_place = $('.selected_location_tab').attr('place_id');
+                        //var selected_place = $('.selected_location_tab').attr('place_id');
                         deselect_all_controlls();
-                        $('.location_tab[place_id="' + selected_place + '"]').addClass('selected_location_tab');
+                        //$('.location_tab[place_id="' + selected_place + '"]').addClass('selected_location_tab');
                         $(this).addClass('selected_plan');
                         display_info(true);
                     }
