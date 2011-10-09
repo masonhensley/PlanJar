@@ -165,6 +165,26 @@ function display_info(bypass, arg) {
             }).complete(function(){
                 location_spinner.stop();
             });
+            
+            // Get the list of plans here
+            $.get('/home/location_plans_made_here', {
+                "place_id" : place_id
+            },function(plans_data){
+                $('#plans_made_here_list').siblings().hide('fast', function() {
+                    $('#plans_made_here_list').html(plans_data);
+                });
+                
+                // Click handler
+                $('.location_plan_content').click(function () {
+                    if (!$(this).hasClass('selected_friend_plan')) {
+                        // Deselect all controlls and show the info panel
+                        deselect_all_controlls();
+                        $(this).addClass('selected_friend_plan');
+                        display_info();
+                    }
+                });
+            
+            });
         } else if ($('.network_active, .selected_group').length > 0) {
             // Network or group selected.
         

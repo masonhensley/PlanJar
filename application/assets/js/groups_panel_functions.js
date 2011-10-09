@@ -1,8 +1,6 @@
 $(function() {
     // Make the groups selectable.
     initialize_selectable_groups();
-    
-    $('.network_tab[group_id="school"]').click();
 });
 
 // Initializes the groups/networks panel
