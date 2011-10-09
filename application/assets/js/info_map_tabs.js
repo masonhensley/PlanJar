@@ -44,6 +44,7 @@ function display_info(bypass, arg) {
     // show the invite link and hide plan comments
     if(!$('.plan_content, .location_plan_content').hasClass('selected_plan'))
     {
+        console.log('showing nowww');
         show_invite_link();
     }
     
