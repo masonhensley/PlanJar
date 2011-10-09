@@ -203,7 +203,7 @@ function display_info(bypass, arg) {
                         deselect_all_controlls();
                         $('.location_tab[place_id="' + selected_place + '"]').addClass('selected_location_tab');
                         $(this).addClass('selected_plan');
-                        display_info();
+                        display_info(true);
                     }
                 });
             });
