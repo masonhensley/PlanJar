@@ -17,19 +17,6 @@ function initialize_info_map_tabs() {
     display_info();
 }
 
-function setup_modals(){
-    // setup modal for location plans panel
-    // Closing click handler
-    $('#cancel_location_plan_panel').click(function () {
-        $('#plans_made_here_modal').hide('fast');
-    });
-    
-    // Make it draggable (with a handle).
-    $('#plans_made_here_modal').draggable({
-        handle: '.title_bar'
-    });
-}
-
 // Deselcts all controlls
 function deselect_all_controlls(bypass_groups) {
     if (bypass_groups != true) {
@@ -55,7 +42,7 @@ var viewing_plan_location = false;
 function display_info(bypass, arg) {
     console.log('called');
     // show the invite link and hide plan comments
-    if(!$('.plan_content').hasClass('selected_plan'))
+    if(!$('.plan_content, .location_plan_content').hasClass('selected_plan'))
     {
         show_invite_link();
     }
@@ -184,7 +171,6 @@ function display_info(bypass, arg) {
                         display_info();
                     }
                 });
-            
             });
         } else if ($('.network_active, .selected_group').length > 0) {
             // Network or group selected.
