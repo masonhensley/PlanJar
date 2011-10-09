@@ -84,8 +84,10 @@
                 });
             }
             
-            // This is just here because it's the last JS included
-            $('.network_tab[group_id="school"]').click();
+            $(function() {
+                // This is just here because it's the last JS included
+                $('.network_tab[group_id="school"]').click();
+            });
         </script>
 
     </head>
