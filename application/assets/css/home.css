@@ -840,15 +840,23 @@ a:hover{
     color:navy;
 }
 
-.plans_made_here{
-    position:absolute;
-    left:29px;
-    bottom:62px;
-    color:#2BA3A1;
-    font-size:18px;
-}
-.plans_made_here:hover{
-    color:navy;
+#plans_made_here{
+    background:#F3F6FF;
+    background: -webkit-linear-gradient(top, #F3F6FF, white);
+    background: -moz-linear-gradient(top, #F3F6FF, white);
+    background: -o-linear-gradient(top, #F3F6FF, white);
+    background: -ms-linear-gradient(top, #F3F6FF, white);
+    background: linear-gradient(top, #F3F6FF, white);
+
+    float: right;
+    width: 49%;
+    height: auto;
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    border-top:1px solid darkgray;
+    margin-top:7px;
+    text-align: center;
 }
 
 .view_map, .back_to_info {
