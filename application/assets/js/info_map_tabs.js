@@ -177,10 +177,10 @@ function display_info(bypass, arg) {
                 
                 // Click handler
                 $('.location_plan_content').click(function () {
-                    if (!$(this).hasClass('selected_plan')) {
+                    if (!$(this).hasClass('selected_friend_plan')) {
                         // Deselect all controlls and show the info panel
                         deselect_all_controlls();
-                        $(this).addClass('selected_plan');
+                        $(this).addClass('selected_friend_plan');
                         display_info();
                     }
                 });

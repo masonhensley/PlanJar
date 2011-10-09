@@ -841,6 +841,7 @@ a:hover{
 }
 
 #plans_made_here{
+    display: none;
     background:#F3F6FF;
     background: -webkit-linear-gradient(top, #F3F6FF, white);
     background: -moz-linear-gradient(top, #F3F6FF, white);
