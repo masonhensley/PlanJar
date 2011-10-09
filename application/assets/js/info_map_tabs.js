@@ -13,7 +13,6 @@ function initialize_info_map_tabs() {
             show_data_container($(this).attr('assoc_div'));
         }
     });
-    setup_modals();
     display_info();
 }
 
@@ -165,10 +164,10 @@ function display_info(bypass, arg) {
                 
                 // Click handler
                 $('.location_plan_content').click(function () {
-                    if (!$(this).hasClass('selected_friend_plan')) {
+                    if (!$(this).hasClass('selected_plan')) {
                         // Deselect all controlls and show the info panel
                         deselect_all_controlls();
-                        $(this).addClass('selected_friend_plan');
+                        $(this).addClass('selected_plan');
                         display_info();
                     }
                 });
