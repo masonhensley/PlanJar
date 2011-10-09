@@ -257,7 +257,7 @@ function display_info(bypass, arg) {
         
             // Load popular locations if necessary
             if (bypass != true) {
-                populate_popular_locations();
+            //populate_popular_locations();
             }else{
                 // stop the spinner for a filter call (ie, "freshmen" or "sophomores" is selected)
                 // right now it just stops immediately (without this code the spinner goes forever)
@@ -270,7 +270,9 @@ function display_info(bypass, arg) {
             $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;"><a href="/tutorial"><div class="tutorial_button">Tutorial</div></a>');
         
             // Load popular locations
-            populate_popular_locations();
+            if (bypass != true) {
+                populate_popular_locations();
+            }
         }
     });
 }
