@@ -39,11 +39,9 @@ function controlls_are_selected() {
 var found_location = false;
 var viewing_plan_location = false;
 function display_info(bypass, arg) {
-    console.log('called');
     // show the invite link and hide plan comments
     if(!$('.plan_content, .location_plan_content').hasClass('selected_plan'))
     {
-        console.log('showing nowww');
         show_invite_link();
     }
     
@@ -166,11 +164,48 @@ function display_info(bypass, arg) {
                 $('.location_plan_content').click(function () {
                     if (!$(this).hasClass('selected_plan')) {
                         // Deselect all controlls and show the info panel
+                        var selected_place = $('.selected_location_tab').attr('place_id');
                         deselect_all_controlls();
+                        $('.location_tab[place_id="' + selected_place + '"]').addClass('selected_location_tab');
                         $(this).addClass('selected_plan');
                         display_info();
                     }
                 });
+            });
+        } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
+            // Plan, friend's plan, or location's plan selected
+        
+            // setup spinner
+            var plan_opts = spinner_options();
+            var plan_target = document.getElementById('home_plan_spinner');
+            var plan_spinner = new Spinner(plan_opts).spin(plan_target);
+        
+            // Load the selected plan
+            $.get('/home/load_selected_plan_data', {
+                'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id'),
+                'friend_plan': $('.selected_friend_plan').length > 0
+            }, function (data) {
+                data = $.parseJSON(data);
+            
+                // Seek to the correct day
+                goto_day_offset(data.data.date, true, function() {
+                    // Load popular locations
+                    populate_popular_locations(true, function() {
+                        // Populate the map
+                        $.get('/home/get_plans_coords', {
+                            plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
+                        }, function(data) {
+                            data = $.parseJSON(data);
+                            populate_map(data, plan_marker_closure, true);
+                        });
+                    
+                        // Setup the plan info
+                        initialize_plan_info(data);
+                    });
+                });
+            })
+            .complete(function(){
+                plan_spinner.stop(); // stop the spinner when the ajax call is finished
             });
         } else if ($('.network_active, .selected_group').length > 0) {
             // Network or group selected.
@@ -230,43 +265,6 @@ function display_info(bypass, arg) {
                     group_spinner.stop();
                 });
             }
-        
-        } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
-            // Plan, friend's plan, or location's plan selected
-        
-            // setup spinner
-            var plan_opts = spinner_options();
-            var plan_target = document.getElementById('home_plan_spinner');
-            var plan_spinner = new Spinner(plan_opts).spin(plan_target);
-        
-            // Load the selected plan
-            $.get('/home/load_selected_plan_data', {
-                'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id'),
-                'friend_plan': $('.selected_friend_plan').length > 0
-            }, function (data) {
-                data = $.parseJSON(data);
-            
-                // Seek to the correct day
-                goto_day_offset(data.data.date, true, function() {
-                    // Load popular locations
-                    populate_popular_locations(true, function() {
-                        // Populate the map
-                        $.get('/home/get_plans_coords', {
-                            plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
-                        }, function(data) {
-                            data = $.parseJSON(data);
-                            populate_map(data, plan_marker_closure, true);
-                        });
-                    
-                        // Setup the plan info
-                        initialize_plan_info(data);
-                    });
-                });
-            })
-            .complete(function(){
-                plan_spinner.stop(); // stop the spinner when the ajax call is finished
-            });
-        
         } else {
             // No controlls selected
             $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;"><a href="/tutorial"><div class="tutorial_button">Tutorial</div></a>');
