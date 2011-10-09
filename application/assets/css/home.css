@@ -472,6 +472,7 @@ a:hover{
     border-bottom: 1px solid darkgray;
     color:gray;
     padding: 10px;
+    height: 40px;
 }
 .no_places_to_show {
     font-style: italic;

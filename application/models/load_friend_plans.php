@@ -174,7 +174,7 @@ class Load_friend_plans extends CI_Model
     {
         ob_start(); // start the output buffer
         ?>
-        <div class="display_message">
+        <div class="display_message" style="line-height: 40px;">
             <font style="color: gray;">Events happening at
             <b style="color: #2D4853;"><?php echo($plans_result->row()->name); ?></b>
             this week
