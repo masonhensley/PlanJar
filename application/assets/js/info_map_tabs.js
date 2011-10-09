@@ -170,10 +170,9 @@ function display_info(bypass, arg) {
             $.get('/home/location_plans_made_here', {
                 "place_id" : place_id
             },function(plans_data){
-                $('.bottom_right_section, .comment_box, .plan_comments').hide('fast', function() {
-                    $('#plans_made_here_list').html(plans_data);
-                    $('#plans_made_here').show('fast');
-                });
+                $('.bottom_right_section, .comment_box, .plan_comments').hide('fast');
+                $('#plans_made_here_list').html(plans_data);
+                $('#plans_made_here').show('fast');
                 
                 // Click handler
                 $('.location_plan_content').click(function () {
@@ -315,31 +314,6 @@ function initialize_location_info(data) {
                 $('.plan_day[day_offset="' + $('.day_selected').attr('day_offset') + '"]').click();
             });
         });
-    });
-    
-    // view location plans click handler
-    $('.plans_made_here').click(function(){
-        
-        // load the modal that shows plans at a location
-        $.get('/home/location_plans_made_here', {
-            place_id : $('.plans_made_here').attr('place_id')
-        },function(plans_data){
-            
-            $('#plans_made_here_list').html(plans_data);
-            $('#plans_made_here_modal').show('fast');
-            
-            // Click handler
-            $('.location_plan_content').click(function () {
-                if (!$(this).hasClass('selected_friend_plan')) {
-                    // Deselect all controlls and show the info panel
-                    deselect_all_controlls();
-                    $(this).addClass('selected_friend_plan');
-                    display_info();
-                }
-            });
-            
-        });
-        
     });
     
     // View map

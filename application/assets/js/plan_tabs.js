@@ -74,7 +74,7 @@ function load_comment_section()
     $('#comment_area').removeClass('comment_area_selected');
     
     // Load the comment box and comments
-    $('.bottom_right_section').hide('fast');
+    $('.bottom_right_section, #plans_made_here').hide('fast');
     $('.comment_box').show('fast');
     $('#comment_area').val('Leave a comment for this event...');
     
