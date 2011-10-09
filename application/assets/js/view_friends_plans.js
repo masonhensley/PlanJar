@@ -17,12 +17,6 @@ function initialize_view_friend_plan_modal()
             // Reset
             $('#friend_plan_list').css('display', 'none');
             $('#friend_modal_content').css('display', '');
-            
-            // Clear all controlls and display the info box if a friend's plan is selected
-            if ($('#friends_plans_panel .selected_friend_plan').length > 0) {
-                deselect_all_controlls();
-                display_info();
-            }
         });
     });
     
