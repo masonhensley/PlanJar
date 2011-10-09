@@ -174,7 +174,12 @@ class Load_friend_plans extends CI_Model
     {
         ob_start(); // start the output buffer
         ?>
-        <font style="color: gray;">Events at <b style="color: #2D4853;"><?php echo($plans_result->row()->name); ?></b></font>
+        <div class="display_message">
+            <font style="color: gray;">Events happening at
+            <b style="color: #2D4853;"><?php echo($plans_result->row()->name); ?></b>
+            this week
+            </font>
+        </div>
         <?php
         if ($plans_result->num_rows() > 0)
         {

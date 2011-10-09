@@ -200,7 +200,7 @@ function display_info(bypass, arg) {
                 "place_id" : place_id
             },function(plans_data){
                 $('.bottom_right_section, .comment_box, .plan_comments').hide('fast');
-                $('#plans_made_here_list').html(plans_data);
+                $('#plans_made_here').html(plans_data);
                 $('#plans_made_here').show('fast');
                 
                 // Click handler
