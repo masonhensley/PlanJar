@@ -40,7 +40,7 @@ var found_location = false;
 var viewing_plan_location = false;
 function display_info(bypass, arg) {
     // show the invite link and hide plan comments
-    if(!$('.plan_content, .location_plan_content').hasClass('selected_plan') || $('.selected_location_tab').length == 0)
+    if(!$('.plan_content, .location_plan_content').hasClass('selected_plan') && $('.selected_location_tab').length == 0)
     {
         show_invite_link();
     }
@@ -54,6 +54,8 @@ function display_info(bypass, arg) {
         
         if ($('#find_places.selected').length > 0) {    
             // Find a place
+            
+            show_invite_link();
         
             $.get('/home/show_place_search', function(data) {
                 $('#info_content').html(data);
