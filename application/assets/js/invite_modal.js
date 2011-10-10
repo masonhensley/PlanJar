@@ -45,8 +45,8 @@ function initialize_invite_modal() {
         // Make sure at least something is selected
         if ($('#search_in_school').val() != '' || $('#invite_groups_list .divset_selected, #invite_followers_list .divset_selected').length > 0) {    
             // Deactivate the submit button.
-            $('send_invites').attr('disabled', 'disabled');
-            $('send_invites').val('Inviting...');
+            $('#send_invites').attr('disabled', 'disabled');
+            $('#send_invites').val('Inviting...');
             
             // Populate the selected group list
             var group_list = [];
