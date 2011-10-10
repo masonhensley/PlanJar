@@ -72,7 +72,16 @@ class Load_friend_plans extends CI_Model
                   ORDER BY events.date ASC
                   ";
         $result = $this->db->query($query);
-        $plans_html = $this->_populate_location_plans($result);
+
+        if ($result->num_rows > 0)
+        {
+            $plans_html = $this->_populate_location_plans($result, $result->row()->name);
+        } else
+        {
+            $name_query = $this->db->query("SELECT name FROM places WHERE id = ?", array($place_id));
+            $plans_html = $this->_populate_location_plans($result, $name_query->row()->name);
+        }
+
         return $plans_html;
     }
 
@@ -170,13 +179,13 @@ class Load_friend_plans extends CI_Model
         return ob_get_clean();
     }
 
-    function _populate_location_plans($plans_result)
+    function _populate_location_plans($plans_result, $place_name)
     {
         ob_start(); // start the output buffer
         ?>
         <div class="display_message" style="line-height: 40px;">
             <font style="color: gray;">Events happening at
-            <b style="color: #2D4853;"><?php echo($plans_result->row()->name); ?></b>
+            <b style="color: #2D4853;"><?php echo($plans_name); ?></b>
             this week
             </font>
         </div>

@@ -105,8 +105,7 @@
 
         <div id="tip_of_the_day" class="inside_top_panel">
             <div id="close_tip">&times;</div>
-            <div id="tip_text"><b>Did you know you can search for places as well as look at your friends' plans?
-                    The buttons are right below this message.</b></div>
+            <div id="tip_text"><b>Finding events is easier than ever! Whenever you're looking at a place, plans to that place show up below the main window.</b></div>
         </div>
 
         <div class="tab_bar">
