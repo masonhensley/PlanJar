@@ -37,7 +37,7 @@ function controlls_are_selected() {
 
 // Show the comments box, plans made here box, etc.
 function show_bottom_right(box_to_show) {
-    $('.comments_box, .plan_comments, #plans_made_here').not(box_to_show).hide('fast');
+    $('.bottom_right_section, .comments_box, .plan_comments, #plans_made_here').not(box_to_show).hide('fast');
     $(box_to_show).show('fast');
 }
 
