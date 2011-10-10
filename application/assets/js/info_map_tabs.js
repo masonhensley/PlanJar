@@ -118,47 +118,6 @@ function display_info(bypass, arg) {
                     }
                 });
             });
-        } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
-            // Plan, friend's plan, or location's plan selected
-        
-            // setup spinner
-            var plan_opts = spinner_options();
-            var plan_target = document.getElementById('home_plan_spinner');
-            var plan_spinner = new Spinner(plan_opts).spin(plan_target);
-        
-            // Load the selected plan
-            $.get('/home/load_selected_plan_data', {
-                'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id'),
-                'friend_plan': $('.selected_friend_plan').length > 0
-            }, function (data) {
-                data = $.parseJSON(data);
-            
-                // Seek to the correct day
-                goto_day_offset(data.data.date, true, function() {
-                    var callback_func = function() {
-                        // Populate the map
-                        $.get('/home/get_plans_coords', {
-                            plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
-                        }, function(data) {
-                            data = $.parseJSON(data);
-                            populate_map(data, plan_marker_closure, true);
-                        });
-                    
-                        // Setup the plan info
-                        initialize_plan_info(data);
-                    };
-                    
-                    if (bypass != true) {
-                        // Load popular locations
-                        populate_popular_locations(true, callback_func);
-                    } else {
-                        callback_func();
-                    }
-                });
-            })
-            .complete(function(){
-                plan_spinner.stop(); // stop the spinner when the ajax call is finished
-            });
         } else if ($('.selected_location_tab').length > 0 || Boolean(viewing_plan_location) || Boolean(found_location)) {
             // Location selected
             
@@ -217,6 +176,47 @@ function display_info(bypass, arg) {
                         display_info(true);
                     }
                 });
+            });
+        } else if ($('.selected_plan, .selected_friend_plan').length > 0) {
+            // Plan, friend's plan, or location's plan selected
+        
+            // setup spinner
+            var plan_opts = spinner_options();
+            var plan_target = document.getElementById('home_plan_spinner');
+            var plan_spinner = new Spinner(plan_opts).spin(plan_target);
+        
+            // Load the selected plan
+            $.get('/home/load_selected_plan_data', {
+                'plan_selected': $('.selected_plan, .selected_friend_plan').attr('plan_id'),
+                'friend_plan': $('.selected_friend_plan').length > 0
+            }, function (data) {
+                data = $.parseJSON(data);
+            
+                // Seek to the correct day
+                goto_day_offset(data.data.date, true, function() {
+                    var callback_func = function() {
+                        // Populate the map
+                        $.get('/home/get_plans_coords', {
+                            plan_id: $('.selected_friend_plan, .selected_plan').attr('plan_id')
+                        }, function(data) {
+                            data = $.parseJSON(data);
+                            populate_map(data, plan_marker_closure, true);
+                        });
+                    
+                        // Setup the plan info
+                        initialize_plan_info(data);
+                    };
+                    
+                    if (bypass != true) {
+                        // Load popular locations
+                        populate_popular_locations(true, callback_func);
+                    } else {
+                        callback_func();
+                    }
+                });
+            })
+            .complete(function(){
+                plan_spinner.stop(); // stop the spinner when the ajax call is finished
             });
         } else if ($('.network_active, .selected_group').length > 0) {
             // Network or group selected.
