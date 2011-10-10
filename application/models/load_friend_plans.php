@@ -185,7 +185,7 @@ class Load_friend_plans extends CI_Model
         ?>
         <div class="display_message" style="line-height: 40px;">
             <font style="color: gray;">Events happening at
-            <b style="color: #2D4853;"><?php echo($plans_name); ?></b>
+            <b style="color: #2D4853;"><?php echo($place_name); ?></b>
             this week
             </font>
         </div>
