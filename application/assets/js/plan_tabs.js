@@ -19,7 +19,6 @@ function initialize_plan_panel(){
         } else {
             // Deselect this plan
             $(this).removeClass('selected_plan');
-            show_invite_link();
         }
         
         // Display the info box
@@ -97,8 +96,7 @@ function load_comments(){
         $('.plan_comments').html(data); // populate and show the comments
         $('.plan_comments').show('fast');
      
-        
-                
+     
         $('.delete_comment').confirmDiv(function(tehelement){
             $.get('/home/delete_comment', {
                 comment_id : $(tehelement).parent().parent().attr('comment_id')
@@ -107,9 +105,4 @@ function load_comments(){
             });
         })
     });
-}
-
-function show_invite_link(){
-    $('.plan_comments, .comment_box, #plans_made_here').hide('fast');
-    $('.bottom_right_section').show('fast');
 }

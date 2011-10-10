@@ -35,16 +35,16 @@ function controlls_are_selected() {
     return $('.selected_group, .network_active, .selected_location_tab, .selected_plan, .selected_friend_plan').length > 0 || found_location !== false;
 }
 
+// Show the comments box, plans made here box, etc.
+function show_bottom_right(box_to_show) {
+    $('.comments_box, .plan_comments, #plans_made_here').not(box_to_show).hide('fast');
+    $(box_to_show).show('fast');
+}
+
 // Displays information to the info box based on what's selected
 var found_location = false;
 var viewing_plan_location = false;
 function display_info(bypass, arg) {
-    // show the invite link and hide plan comments if necessary
-    if((!$('.plan_content').hasClass('selected_plan') || !$('.location_plan_content').hasClass('selected_friend_plan')) && $('.selected_location_tab').length == 0)
-    {
-        show_invite_link();
-    }
-    
     // Clear the change location box
     hide_change_location_panel(function(was_visible) {
         // Switch to the info tab if the change location box was visible
@@ -55,8 +55,11 @@ function display_info(bypass, arg) {
         if ($('#find_places.selected').length > 0) {
             // Find a place
         
+            // Reload the popular locations and show the invite panel
             populate_popular_locations();
+            show_bottom_right('.bottom_right_section');
         
+            // Get the panel
             $.get('/home/show_place_search', function(data) {
                 $('#info_content').html(data);
             
@@ -158,7 +161,7 @@ function display_info(bypass, arg) {
             });
         } else if ($('.selected_location_tab').length > 0 || Boolean(viewing_plan_location) || Boolean(found_location)) {
             // Location selected
-        
+            
             // setup spinner
             var opts = spinner_options();
             var target = document.getElementById('home_data_spinner');
@@ -198,11 +201,11 @@ function display_info(bypass, arg) {
             // Get the list of plans here
             $.get('/home/location_plans_made_here', {
                 "place_id" : place_id
-            },function(plans_data){
-                $('.bottom_right_section, .comment_box, .plan_comments').hide('fast');
+            },function(plans_data) {
+                // Show the place's events
                 $('#plans_made_here').html(plans_data);
-                $('#plans_made_here').show('fast');
-                
+                show_bottom_right('#plans_made_here');
+
                 // Click handler
                 $('.location_plan_content').click(function () {
                     if (!$(this).hasClass('selected_friend_plan')) {
@@ -266,19 +269,25 @@ function display_info(bypass, arg) {
             // Load popular locations if necessary
             if (bypass != true) {
                 populate_popular_locations();
-            }else{
+            } else {
                 // stop the spinner for a filter call (ie, "freshmen" or "sophomores" is selected)
                 // right now it just stops immediately (without this code the spinner goes forever)
                 jqxhr.complete(function(){
                     group_spinner.stop();
                 });
             }
+            
+            // Show the invite panel
+            show_bottom_right('.bottom_right_section');
         } else {
             // No controlls selected
             $('#info_content').html('<img src="/application/assets/images/center_display.png" style="width:100%; height:100%;"><a href="/tutorial"><div class="tutorial_button">Tutorial</div></a>');
         
             // Load popular locations
             populate_popular_locations();
+            
+            // Show the invite panel
+            show_bottom_right('.bottom_right_section');
         }
     });
 }
@@ -445,8 +454,6 @@ function populate_popular_locations(skip_update_map, callback) {
             } else {
                 // Deselect this location tab
                 $(this).removeClass('selected_location_tab');
-                
-                show_invite_link();
             }
         
             // Update the info box
