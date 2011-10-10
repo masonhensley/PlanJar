@@ -40,7 +40,7 @@ var found_location = false;
 var viewing_plan_location = false;
 function display_info(bypass, arg) {
     // show the invite link and hide plan comments if necessary
-    if(!$('.plan_content').hasClass('selected_plan') || !$('.location_plan_content').hasClass('selected_friend_plan') && $('.selected_location_tab').length == 0)
+    if((!$('.plan_content').hasClass('selected_plan') || !$('.location_plan_content').hasClass('selected_friend_plan')) && $('.selected_location_tab').length == 0)
     {
         show_invite_link();
     }
