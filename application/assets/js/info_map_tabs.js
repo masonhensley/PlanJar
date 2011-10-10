@@ -378,6 +378,7 @@ function initialize_plan_info(data) {
     // Handles clicking on the see place button
     $('.view_plan_location').click(function () {
         // Save the place id to allow for day tab navigation
+        console.log(data);
         viewing_plan_location = data.location_id;
         
         // Seek to the correct day
