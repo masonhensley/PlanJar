@@ -139,7 +139,7 @@ function reset_invite_modal() {
     $('#invite_modal input[type="hidden"]').val('');
     
     // Activate the submit button
-    $('#send_invites').attr('disabled', 'foo');
+    $('#send_invites').removeAttr('disabled');
     $('#send_invites').val('Invite');
 }
 
