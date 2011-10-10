@@ -205,12 +205,12 @@ function display_info(bypass, arg) {
                 
                 // Click handler
                 $('.location_plan_content').click(function () {
-                    if (!$(this).hasClass('selected_plan')) {
+                    if (!$(this).hasClass('selected_friend_plan')) {
                         // Deselect all controlls and show the info panel
                         //var selected_place = $('.selected_location_tab').attr('place_id');
                         deselect_all_controlls();
                         //$('.location_tab[place_id="' + selected_place + '"]').addClass('selected_location_tab');
-                        $(this).addClass('selected_plan');
+                        $(this).addClass('selected_friend_plan');
                         display_info(true);
                     }
                 });
