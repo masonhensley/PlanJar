@@ -44,6 +44,10 @@ function initialize_invite_modal() {
     $('#send_invites').click(function () {
         // Make sure at least something is selected
         if ($('#search_in_school').val() != '' || $('#invite_groups_list .divset_selected, #invite_followers_list .divset_selected').length > 0) {    
+            // Deactivate the submit button.
+            $('#send_invites').attr('disabled', 'disabled');
+            $('#send_invites').val('Inviting...');
+            
             // Populate the selected group list
             var group_list = [];
             $('#invite_groups_list .divset_selected').each(function (index, element) {
@@ -133,6 +137,10 @@ function reset_invite_modal() {
         
     // Clear the hidden fields
     $('#invite_modal input[type="hidden"]').val('');
+    
+    // Activate the submit button
+    $('#send_invites').removeAttr('disabled');
+    $('#send_invites').val('Invite');
 }
 
 // Populates and initializes the followers list
