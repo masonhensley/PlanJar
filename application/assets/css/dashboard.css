@@ -1,11 +1,15 @@
 /* ---------- GLOBAL ------------*/
 body{
+    /*
     background:#F3F3F3;
     background: -webkit-linear-gradient(top, #F3F3F3, white);
     background: -moz-linear-gradient(top, #F3F3F3, white);
     background: -o-linear-gradient(top, #F3F3F3, white);
     background: -ms-linear-gradient(top, #F3F3F3, white);
     background: linear-gradient(top, #F3F3F3, white);
+    */
+    
+    background-image: url('/application/assets/images/carpet_background.png');
     
     margin: 0px;
     font-family: helvetica;
