@@ -1,9 +1,10 @@
 /* ---------- body ----------- */
 body{
     margin: 0px;
-    background: #F6f6F6;
     font-family: helvetica;
     font-size: 15px;
+    
+    background-image: url('/application/assets/images/carpet_background.png');
 }
 
 /* ---------- TOP PANEL ----------- */

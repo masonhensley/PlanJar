@@ -21,7 +21,7 @@ class Login extends CI_Controller
         } else
         {
             // if user is logged in, redirect to planjar.com/home/
-            redirect('/home/', 'refresh');
+            redirect('/home/');
         }
     }
 
