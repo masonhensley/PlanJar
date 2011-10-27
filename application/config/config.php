@@ -27,6 +27,9 @@ if ($_SERVER['environment'] == 'live')
 } else if ($_SERVER['environment'] == 'demo')
 {
     $config['base_url'] = 'http://pj-demo.pagodabox.com/';
+} else if ($_SERVER['environment'] == 'newpagoda live')
+{
+    $config['base_url'] = 'http://pj-live.newpagodabox.com/';
 }
 
 /*
