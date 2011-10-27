@@ -1,7 +1,0 @@
-web1:
-    php_extensions:
-        - gd
-        - mysql
-    shared_writable_dirs:
-        - /user_images
-        - /uploads
