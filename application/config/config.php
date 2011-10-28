@@ -33,6 +33,9 @@ if ($_SERVER['environment'] == 'live')
 } else if ($_SERVER['environment'] == 'newpagoda production')
 {
     $config['base_url'] = 'http://pj-production.newpagodabox.com/';
+} else if ($_SERVER['environment'] == 'newpagoda demo')
+{
+    $config['base_url'] = 'http://pj-demo.newpagodabox.com/';
 }
 
 /*
