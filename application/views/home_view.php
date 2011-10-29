@@ -105,7 +105,7 @@
 
         <div id="tip_of_the_day" class="inside_top_panel">
             <div id="close_tip">&times;</div>
-            <div id="tip_text"><b>Finding events is easier than ever! Whenever you're looking at a place, events at that place show up to the bottom right.</b></div>
+            <div id="tip_text"><b>We've moved to a new server! Let us know if things aren't working like they should.</b></div>
         </div>
 
         <div class="tab_bar">
