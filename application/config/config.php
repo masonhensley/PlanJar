@@ -23,10 +23,10 @@ if ($_SERVER['environment'] == 'live')
     $config['base_url'] = 'http://planjar.com/';
 } else if ($_SERVER['environment'] == 'production')
 {
-    $config['base_url'] = 'http://pj-production.newpagodabox.com/';
+    $config['base_url'] = 'http://pj-production.pagodabox.com/';
 } else if ($_SERVER['environment'] == 'demo')
 {
-    $config['base_url'] = 'http://pj-demo.newpagodabox.com/';
+    $config['base_url'] = 'http://pj-demo.pagodabox.com/';
 }
 
 /*
