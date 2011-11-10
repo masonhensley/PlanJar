@@ -8,9 +8,9 @@ body{
     background: -ms-linear-gradient(top, #F3F3F3, white);
     background: linear-gradient(top, #F3F3F3, white);
     */
-    
+
     background-image: url('/application/assets/images/carpet_background.png');
-    
+
     margin: 0px;
     font-family: helvetica;
     font-size: 15px;
@@ -65,31 +65,31 @@ a{
 }
 
 /* scrollbar css */
-/*
-::-webkit-scrollbar {
-width: 10px;
-height: 10px;
+
+#edit_groups_list ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
 }
 
-::-webkit-scrollbar-button:start:decrement,
-::-webkit-scrollbar-button:end:increment  {
-height: 30px;
-display: block;
-background-color: transparent;
+#edit_groups_list ::-webkit-scrollbar-button:start:decrement,
+#edit_groups_list ::-webkit-scrollbar-button:end:increment  {
+    height: 30px;
+    display: block;
+    background-color: transparent;
 }
 
-::-webkit-scrollbar-track-piece  {
-background-color: lightgray;
--webkit-border-radius: 6px;
+#edit_groups_list ::-webkit-scrollbar-track-piece  {
+    background-color: lightgray;
+    -webkit-border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb:vertical {
-height: 50px;
-background-color: #666;
-border: 1px solid #eee;
--webkit-border-radius: 6px;
+#edit_groups_list ::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: #666;
+    border: 1px solid #eee;
+    -webkit-border-radius: 6px;
 }
-*/
+
 /* end scrollbar css */
 
 /* ---------- TOP PANEL ----------- */
