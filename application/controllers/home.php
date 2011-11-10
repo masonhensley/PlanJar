@@ -772,7 +772,7 @@ class Home extends CI_Controller
 // Unsubscribe the user from all email notifications
     public function unsub($id)
     {
-        $query_string = "SELECT user_id FROM unsubscribe WHERE id = ?";
+        $query_string = "SELECT user_id FROM unsubscribe WHERE alias = ?";
         $query = $this->db->query($query_string, array($id));
         if ($query->num_rows() > 0)
         {
@@ -781,10 +781,11 @@ class Home extends CI_Controller
 
 // Remove all email settings
             $user = $this->ion_auth->get_user($id);
-            $this->ion_auth->update_user($user_id, array('email_notif' => 0));
-
-// Delete the entry
-            $this->db->query("DELETE FROM unsubscribe WHERE id = ?", array($id));
+            $this->ion_auth->update_user($user_id, array(
+                'follow_notif' => 0,
+                'froup_invite' => 0,
+                'join_group_request' => 0,
+                'event_invite' => 0));
 
             echo('You have been successfully unsubscribed.');
         } else

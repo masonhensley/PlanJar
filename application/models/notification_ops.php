@@ -445,7 +445,7 @@ class Notification_ops extends CI_Model
             if ($query->num_rows() == 0)
             {
                 // An md5 works fine as the alias. Add it to the db
-                $unsubscribe_id = md5($user);
+                $unsubscribe_id = md5($user->id);
                 $this->db->query("INSERT INTO unsubscribe VALUES (?, ?)", array($user->id, $unsubscribe_id));
             } else
             {
