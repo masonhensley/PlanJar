@@ -442,12 +442,12 @@ class Notification_ops extends CI_Model
 
             // See if this user has an unsubscribe alias. If not, create one.
             $query_string = "SELECT id FROM unsubscribe WHERE user_id = ?";
-            $query = $this->db->query($query_string, array($user->id));
+            $query = $this->db->query($query_string, array($user));
             if ($query->num_rows() == 0)
             {
                 // An md5 works fine as the alias. Add it to the db
-                $unsubscribe_id = md5($user->id);
-                $this->db->query("INSERT INTO unsubscribe VALUES (?, ?)", array($user->id, $unsubscribe_id));
+                $unsubscribe_id = md5($user);
+                $this->db->query("INSERT INTO unsubscribe VALUES (?, ?)", array($user, $unsubscribe_id));
             } else
             {
                 $unsubscribe_id = $query->row()->alias;
