@@ -8,7 +8,7 @@ body {
     background: -ms-linear-gradient(top, #F3F3F3, white);
     background: linear-gradient(top, #F3F3F3, white);
     */
-    
+
     background-image: url('/application/assets/images/carpet_background.png');
 
     /* make text not selectable for the UI */
@@ -51,27 +51,27 @@ a:hover{
 
 /* scrollbar css */
 ::-webkit-scrollbar {
-width: 10px;
-height: 10px;
+    width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-button:start:decrement,
 ::-webkit-scrollbar-button:end:increment  {
-height: 30px;
-display: block;
-background-color: transparent;
+    height: 30px;
+    display: block;
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-track-piece  {
-background-color: lightgray;
--webkit-border-radius: 6px;
+    background-color: lightgray;
+    -webkit-border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-height: 50px;
-background-color: #666;
-border: 1px solid #eee;
--webkit-border-radius: 6px;
+    height: 50px;
+    background-color: #666;
+    border: 1px solid #eee;
+    -webkit-border-radius: 6px;
 }
 
 /* end scrollbar css */
@@ -773,6 +773,7 @@ border: 1px solid #eee;
     width: auto;
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 #cancel_plan {
     position: relative;
