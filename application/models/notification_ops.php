@@ -430,7 +430,7 @@ class Notification_ops extends CI_Model
     {
         echo($user_id);
         $user = $this->ion_auth->get_user($user_id);
-        echo($user);
+        echo($user->id);
 
         $this_user = $this->ion_auth->get_user();
 
