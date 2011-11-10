@@ -428,7 +428,9 @@ class Notification_ops extends CI_Model
     // Sends a notificatin email based on the given type and data
     function send_email_reminder($type, $user_id, $subject_id, $group_id = false)
     {
+        echo($user_id);
         $user = $this->ion_auth->get_user($user_id);
+        echo($user);
 
         $this_user = $this->ion_auth->get_user();
 
