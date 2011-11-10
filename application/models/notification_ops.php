@@ -440,7 +440,7 @@ class Notification_ops extends CI_Model
             $this->email->to($user->email);
 
             // See if this user has an unsubscribe alias. If not, create one.
-            $query_string = "SELECT id FROM unsubscribe WHERE user_id = ?";
+            $query_string = "SELECT alias FROM unsubscribe WHERE user_id = ?";
             $query = $this->db->query($query_string, array($user->id));
             if ($query->num_rows() == 0)
             {
