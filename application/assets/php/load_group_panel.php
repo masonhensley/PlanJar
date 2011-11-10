@@ -52,11 +52,11 @@
         ?>
         <hr/>
     </div>
-    <div id="select_one_group" style="width:50px;">one</div>
-    <div id="select_mult_groups" style="margin-left:5px;width:50px;">multiple</div>
-    <br/>
     <div id="group_select_type">
-        <div class="find_link"><a href="/dashboard/groups/suggested" style="display:inline-block;">Find groups</a></div><br/>
-        <div class="find_link"><a href="/dashboard/following/suggested">Find people</a></div>
+        <div id="select_one_group" style="width:50px;">one</div>
+        <div id="select_mult_groups" style="margin-left:5px;width:50px;">multiple</div>
     </div>
+    <br/>
+    <div class="find_link"><a href="/dashboard/groups/suggested" style="display:inline-block;">Find groups</a></div><br/>
+    <div class="find_link"><a href="/dashboard/following/suggested">Find people</a></div>
 </div>
