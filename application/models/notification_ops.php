@@ -429,7 +429,6 @@ class Notification_ops extends CI_Model
     function send_email_reminder($type, $user_id, $subject_id, $group_id = false)
     {
         $user = $this->ion_auth->get_user($user_id);
-
         $this_user = $this->ion_auth->get_user();
 
         if (eval('return $user->' . $type . ';') == '1')
@@ -440,10 +439,18 @@ class Notification_ops extends CI_Model
             $this->email->from('noreply@planjar.com', 'PlanJar');
             $this->email->to($user->email);
 
-            // Add an entry to the unsubscribe table and record the id
-            $query_string = "INSERT INTO unsubscribe VALUES (DEFAULT, ?, ?)";
-            $query = $this->db->query($query_string, array($user->id, date('Y-m-d')));
-            $unsubscribe_id = $this->db->insert_id();
+            // See if this user has an unsubscribe alias. If not, create one.
+            $query_string = "SELECT alias FROM unsubscribe WHERE user_id = ?";
+            $query = $this->db->query($query_string, array($user->id));
+            if ($query->num_rows() == 0)
+            {
+                // An md5 works fine as the alias. Add it to the db
+                $unsubscribe_id = md5($user->id);
+                $this->db->query("INSERT INTO unsubscribe VALUES (?, ?)", array($user->id, $unsubscribe_id));
+            } else
+            {
+                $unsubscribe_id = $query->row()->alias;
+            }
 
             // Get event info
             $query_string = "SELECT user_meta.first_name, user_meta.last_name, events.title, places.name, events.date
