@@ -57,7 +57,7 @@
         <div id="plan_description_wrapper">
             <div class="in-field_block" style="margin-left: auto; margin-right: auto; width: 423px; height: auto">
                 <label for="plan_description">Enter a description</label>
-                <textarea rows="2" cols="50" id="plan_description" name="plan_description"></textarea>
+                <textarea rows="2" cols="50" maxlength="200" id="plan_description" name="plan_description"></textarea>
             </div>
             <hr/>
         </div>

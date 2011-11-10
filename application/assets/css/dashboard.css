@@ -64,6 +64,33 @@ a{
     color:white;
 }
 
+/* scrollbar css */
+::-webkit-scrollbar {
+width: 10px;
+height: 10px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
+height: 30px;
+display: block;
+background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece  {
+background-color: lightgray;
+-webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+height: 50px;
+background-color: #666;
+border: 1px solid #eee;
+-webkit-border-radius: 6px;
+}
+
+/* end scrollbar css */5
+
 /* ---------- TOP PANEL ----------- */
 .top_panel{
     background:#333;
