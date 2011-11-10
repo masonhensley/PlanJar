@@ -65,31 +65,31 @@ a{
 }
 
 /* scrollbar css */
-
-#edit_groups_list ::-webkit-scrollbar {
+/*
+::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
-#edit_groups_list ::-webkit-scrollbar-button:start:decrement,
-#edit_groups_list ::-webkit-scrollbar-button:end:increment  {
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
     height: 30px;
     display: block;
     background-color: transparent;
 }
 
-#edit_groups_list ::-webkit-scrollbar-track-piece  {
+::-webkit-scrollbar-track-piece  {
     background-color: lightgray;
     -webkit-border-radius: 6px;
 }
 
-#edit_groups_list ::-webkit-scrollbar-thumb:vertical {
+::-webkit-scrollbar-thumb:vertical {
     height: 50px;
     background-color: #666;
     border: 1px solid #eee;
     -webkit-border-radius: 6px;
 }
-
+*/
 /* end scrollbar css */
 
 /* ---------- TOP PANEL ----------- */
