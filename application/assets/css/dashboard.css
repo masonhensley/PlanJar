@@ -65,6 +65,7 @@ a{
 }
 
 /* scrollbar css */
+/*
 ::-webkit-scrollbar {
 width: 10px;
 height: 10px;
@@ -88,8 +89,8 @@ background-color: #666;
 border: 1px solid #eee;
 -webkit-border-radius: 6px;
 }
-
-/* end scrollbar css */5
+*/
+/* end scrollbar css */
 
 /* ---------- TOP PANEL ----------- */
 .top_panel{
