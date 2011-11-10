@@ -783,7 +783,7 @@ class Home extends CI_Controller
             $user = $this->ion_auth->get_user($id);
             $this->ion_auth->update_user($user_id, array(
                 'follow_notif' => 0,
-                'froup_invite' => 0,
+                'group_invite' => 0,
                 'join_group_request' => 0,
                 'event_invite' => 0));
 
