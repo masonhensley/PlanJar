@@ -464,6 +464,7 @@ function initialize_plan_autocomplete() {
                 });
             }
             
+            console.log(place_limit);
             if (place_limit > 0) {
                 // If additional places are required, fetch places from Factual. Pick fields needed
                 // by the autocomplete from the resulting JSON and add them to response_json array.
@@ -482,12 +483,14 @@ function initialize_plan_autocomplete() {
                     filters: JSON.stringify(my_filters)
                 };
 
+                console.log('calling');
                 $.ajax({
                     async: false,
                     url: 'http://api.factual.com/v2/tables/s4OOB4/read',
                     data: options,
                     dataType: 'jsonp',
                     success : function(data) {
+                        console.log('returned');
                         if (data.status == 'ok') {
                             data = data.response;
                             if (data.rows > 0) {
