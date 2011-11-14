@@ -1,4 +1,5 @@
 <?php
+
 // prevent direct script access
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -760,13 +761,11 @@ class Home extends CI_Controller
     {
         ?>
 
-        <div class="in-field_block" style="margin: 0px auto;">
-            <label for="search_for_places">Search for a place</label>
-            <input type="text" id="search_for_places"/>
-        </div>
+        <input type="text" id="search_for_places"/>
 
         <img src="/application/assets/images/Planjar_logo.png" style="margin-top: 17px;"/>
         <?php
+
     }
 
 // Unsubscribe the user from all email notifications
