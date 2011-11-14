@@ -103,7 +103,7 @@ function display_info(bypass, arg) {
                             });
                         }
                         response_json.push({
-                            label: "Create place (it's easy!)", 
+                            name: "Create place (it's easy!)", 
                             value: '', 
                             id: 'new place'
                         });
