@@ -761,6 +761,7 @@ class Home extends CI_Controller
         ?>
 
         <div class="in-field_block" style="margin: 0px auto;">
+            <label for="search_for_places">Search for a place</label>
             <input type="text" id="search_for_places"/>
         </div>
 

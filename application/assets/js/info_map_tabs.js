@@ -63,9 +63,12 @@ function display_info(bypass, arg) {
             $.get('/home/show_place_search', function(data) {
                 $('#info_content').html(data);
             
+                // In field labels
+                $('#info_content label').inFieldLabels();
+            
                 // TokenInput
                 $('#search_for_places').tokenInput('/home/find_places', {
-                    hintText: 'Search for a place...',
+                    hintText: '',
                     tokenLimit: 1,
                     queryParam: 'needle',
                     theme: 'facebook',
