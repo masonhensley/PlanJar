@@ -47,8 +47,7 @@ function initialize_plan_modal() {
         handle: '.title_bar'
     });
     
-    // Initialize the plan location autocomplete instance.
-    initialize_plan_autocomplete();
+    // Initialization is done when myLatitude is set.
     
     // Divsets
     $('#plan_time, #plan_privacy_wrapper, #plan_day').divSet();

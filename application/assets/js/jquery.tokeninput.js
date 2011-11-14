@@ -30,7 +30,9 @@
         onResult: null,
         onAdd: null,
         onDelete: null,
-        idPrefix: "token-input-"
+        idPrefix: "token-input-",
+        longitude: null,
+        latitude: null
     };
 
     // Default classes to use when theming
@@ -436,7 +438,7 @@
             var token_data = {
                 "id": item.id, 
                 "name": item.name
-                };
+            };
             $.data(this_token.get(0), "tokeninput", item);
 
             // Save this token for duplicate checking
@@ -732,8 +734,13 @@
 
                     // Prepare the request
                     ajax_params.data[settings.queryParam] = query;
-                    ajax_params.data['latitude'] = settings.latitude;
-                    ajax_params.data['longitude'] = settings.longitude;
+                    
+                    // Custom lat/lng needed
+                    if (settings.latitude &&  settings.longitude) {
+                        ajax_params.data['latitude'] = settings.latitude;
+                        ajax_params.data['longitude'] = settings.longitude;
+                    }
+                    
                     ajax_params.type = settings.method;
                     ajax_params.dataType = settings.contentType;
                     if(settings.crossDomain) {

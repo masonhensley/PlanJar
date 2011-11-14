@@ -66,6 +66,9 @@ function initialize_map() {
                 myLatitude = latitude;
                 myLongitude = longitude;
                 
+                // Initialize the plan modal
+                initialize_plan_autocomplete();
+                
                 // Upload the city name
                 get_current_city_name(function() {
                     $.get('/home/update_user_location', {
