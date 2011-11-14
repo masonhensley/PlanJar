@@ -441,11 +441,6 @@ function initialize_plan_autocomplete() {
             
         },
         onResult: function (data) {
-            console.log(data);
-            
-            // Parse the JSON text.
-            data = $.parseJSON(data);
-                    
             var place_count = data.count;
             var place_limit = 10 - place_count;
                     
