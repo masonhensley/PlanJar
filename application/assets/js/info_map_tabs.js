@@ -65,7 +65,7 @@ function display_info(bypass, arg) {
             
                 // TokenInput
                 $('#search_for_places').tokenInput('/home/find_places', {
-                    hintText: '',
+                    hintText: 'Search for a place...',
                     tokenLimit: 1,
                     queryParam: 'needle',
                     theme: 'facebook',

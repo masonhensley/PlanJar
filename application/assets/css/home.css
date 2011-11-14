@@ -1006,3 +1006,7 @@ a:hover{
     border: 1px solid lightGrey;
     padding: 3px;
 }
+
+#info_content ul.token-input-list-facebook {
+    width: 300px;
+}
