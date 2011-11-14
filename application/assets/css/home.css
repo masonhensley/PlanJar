@@ -1007,7 +1007,7 @@ a:hover{
     padding: 3px;
 }
 
-#info_content ul.token-input-list-facebook {
+#info_content>ul {
     width: 300px;
     margin: 0px auto;
 }
