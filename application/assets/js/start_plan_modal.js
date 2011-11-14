@@ -425,6 +425,29 @@ function reset_plan_modal() {
 
 // Encapsulates the autocomplete setup
 function initialize_plan_autocomplete() {
+    // TokenInput
+    $('#plan_location').tokenInput('/home/find_places', {
+        hintText: 'Find a place to continue...',
+        tokenLimit: true,
+        queryParam: 'needle',
+        theme: 'facebook',
+        'latitude': myLatitude,
+        'longitude': myLongitude,
+        minChars: 2,
+        onAdd: function (item) {
+            
+        },
+        onDelete: function (item) {
+            
+        },
+        onResult: function (data) {
+            console.log(data);
+        }
+    });
+    
+    
+    
+/*
     var item_selected;
     $('#plan_location').autocomplete({
         minLength: 2,
@@ -587,4 +610,5 @@ function initialize_plan_autocomplete() {
             toggle_time_day_buttons();
         }
     });
+    */
 }
