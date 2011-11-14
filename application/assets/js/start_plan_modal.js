@@ -47,8 +47,7 @@ function initialize_plan_modal() {
         handle: '.title_bar'
     });
     
-    // Initialization is done when myLatitude is set in home.js
-    //initialize_plan_autocomplete();
+    initialize_plan_autocomplete();
     
     // Divsets
     $('#plan_time, #plan_privacy_wrapper, #plan_day').divSet();
@@ -424,126 +423,7 @@ function reset_plan_modal() {
 }
 
 // Encapsulates the autocomplete setup
-function initialize_plan_autocomplete() {
-    // TokenInput
-    $('#plan_location').tokenInput('/home/find_places', {
-        hintText: 'Find a place to continue...',
-        tokenLimit: true,
-        queryParam: 'needle',
-        theme: 'facebook',
-        'latitude': myLatitude,
-        'longitude': myLongitude,
-        minChars: 2,
-        onAdd: function (item) {
-            
-        },
-        onDelete: function (item) {
-            
-        },
-        onResult: function (data) {
-            var place_count = data.count;
-            var place_limit = 10 - place_count;
-                    
-            // We're done with count, so overwrite data with data.data (Peter Griffin laugh).
-            data = data.data;
-                    
-            response_json = [];
-            if (place_count > 0) {
-                // Pick fields needed by the autocomplete from the resulting JSON
-                response_json = $.map(data, function (item) {
-                    var label = item.name;
-                    if (item.category != null) {
-                        label += ' (' + item.category + ')';
-                    }
-                    label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
-                    return {
-                        name: label,
-                        value: item.name,
-                        id: item.id
-                    };
-                });
-            }
-            
-            console.log(place_limit);
-            if (place_limit > 0) {
-                // If additional places are required, fetch places from Factual. Pick fields needed
-                // by the autocomplete from the resulting JSON and add them to response_json array.
-                var my_filters = {
-                    "$search": $('#plan_location').text(),
-                    "$loc":{
-                        "$within":{
-                            "$center":[[myLatitude, myLongitude], 50000]
-                        }
-                    }
-                };
-
-                var options = {
-                    api_key: 'SIKk9ulwxwodsqkZwpxfmbJr7EtuVHjwNyx2JO8pzGMCNBtsJPW3GcWZTJUhJ7ee',
-                    limit: place_limit,
-                    filters: JSON.stringify(my_filters)
-                };
-
-                console.log('calling');
-                $.ajax({
-                    async: false,
-                    url: 'http://api.factual.com/v2/tables/s4OOB4/read',
-                    data: options,
-                    dataType: 'jsonp',
-                    success : function(data) {
-                        console.log('returned');
-                        if (data.status == 'ok') {
-                            data = data.response;
-                            if (data.rows > 0) {
-                                data = data.data;
-                                $.each(data, function (index, item) {
-                                    var category = item[12];
-                                    if (category== null) {
-                                        category = '';
-                                    }
-                                        
-                                    // Vars necessary for the autocomplete entry
-                                    var distance = get_distance_between(myLatitude, myLongitude, item[15], item[16]);
-                                    var last_index = category.lastIndexOf('>');
-                                    var category_name = category;
-                                    if (last_index != -1) {
-                                        category_name =  category.substr(last_index + 2);
-                                    }
-                                        
-                                    response_json.push({
-                                        name: '*' + item[2] + ' (' + category_name + ') - ' + distance.toFixed(2) + "mi", 
-                                        value: item[2],
-                                        id: 'factual',
-                                        name: item[2],
-                                        latitude: item[15],
-                                        longitude: item[16],
-                                        'category': category,
-                                        factual_id: item[1]
-                                    });
-                                }); 
-                            }
-                            response_json.push({
-                                label: "Create place (it's easy!)", 
-                                value: '', 
-                                id: 'new place'
-                            });
-                        }
-                    },
-                    jsonp: 'jsoncallback'
-                });
-            } else {
-                response_json.push({
-                    label: "Create place (it's easy!)", 
-                    value: '', 
-                    id: 'new place'
-                });
-            }
-            return response_json;
-        }
-    });
-    
-    
-    
-/*
+function initialize_plan_autocomplete() {  
     var item_selected;
     $('#plan_location').autocomplete({
         minLength: 2,
@@ -706,5 +586,4 @@ function initialize_plan_autocomplete() {
             toggle_time_day_buttons();
         }
     });
-    */
 }

@@ -93,9 +93,6 @@ function initialize_map() {
                 
                 map_user_position();
             }
-            
-            // Initialize the plan modal
-            initialize_plan_autocomplete();
         });
                 
         // Create the map

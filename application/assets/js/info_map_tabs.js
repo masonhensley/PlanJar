@@ -66,55 +66,52 @@ function display_info(bypass, arg) {
                 // In field labels
                 $('#info_content label').inFieldLabels();
             
-                // Set up the autocomplete
-                $('#search_for_places').autocomplete({
-                    minLength: 2,
-                    source: function(request, response) {
-                        $.get('/home/find_places', {
-                            needle: request.term,
-                            latitude: myLatitude,
-                            longitude: myLongitude
-                        }, function(data) {
-                            // Parse the JSON text.
-                            data = $.parseJSON(data);
-                
-                            var response_json = ([]);
-                            if (data.count > 0) {
-                                response_json = $.map(data.data, function (item) {
-                                    var label = item.name;
-                                    if (item.category != null) {
-                                        label += ' (' + item.category + ')';
-                                    }
-                                    label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
-                                    return {
-                                        'label': label,
-                                        value: item.name,
-                                        id: item.id
-                                    };
-                                });
-                            }
-                            response_json.push({
-                                label: "Create place (it's easy!)", 
-                                value: '', 
-                                id: 'new place'
-                            });
-                        
-                            response(response_json);
-                        });
-                    },
-                    select: function(event, ui) {
+                // TokenInput
+                $('#plan_location').tokenInput('/home/find_places', {
+                    hintText: 'Find a place to continue...',
+                    tokenLimit: 1,
+                    queryParam: 'needle',
+                    theme: 'facebook',
+                    'latitude': myLatitude,
+                    'longitude': myLongitude,
+                    minChars: 2,
+                    onAdd: function (item) {
                         deselect_all_controlls();
                     
-                        if (ui.item.id == 'new place') {
+                        if (item.id == 'new place') {
                             // Open the plan panel and the new location modal
                             show_plan_modal(function() {
                                 show_add_location_modal();
                             });
                         } else {
-                            found_location = ui.item.id;
+                            found_location = item.id;
                     
                             display_info();
                         }
+                    },
+                    onResult: function (data) {
+                        var response_json = ([]);
+                        if (data.count > 0) {
+                            response_json = $.map(data.data, function (item) {
+                                var label = item.name;
+                                if (item.category != null) {
+                                    label += ' (' + item.category + ')';
+                                }
+                                label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
+                                return {
+                                    'label': label,
+                                    value: item.name,
+                                    id: item.id
+                                };
+                            });
+                        }
+                        response_json.push({
+                            label: "Create place (it's easy!)", 
+                            value: '', 
+                            id: 'new place'
+                        });
+                        
+                        return response_json;
                     }
                 });
             });
