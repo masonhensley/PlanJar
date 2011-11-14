@@ -67,7 +67,7 @@ function display_info(bypass, arg) {
                 $('#info_content label').inFieldLabels();
             
                 // TokenInput
-                $('#plan_location').tokenInput('/home/find_places', {
+                $('#search_for_places').tokenInput('/home/find_places', {
                     hintText: 'Find a place to continue...',
                     tokenLimit: 1,
                     queryParam: 'needle',
