@@ -468,7 +468,7 @@ function initialize_plan_autocomplete() {
                 // If additional places are required, fetch places from Factual. Pick fields needed
                 // by the autocomplete from the resulting JSON and add them to response_json array.
                 var my_filters = {
-                    "$search": request.term,
+                    "$search": $('#plan_location').text(),
                     "$loc":{
                         "$within":{
                             "$center":[[myLatitude, myLongitude], 50000]
