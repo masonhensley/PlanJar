@@ -96,7 +96,7 @@ function display_info(bypass, arg) {
                                 }
                                 label += ' - ' + parseFloat(item.distance).toFixed(2) + 'mi';
                                 return {
-                                    'label': label,
+                                    'name': label,
                                     value: item.name,
                                     id: item.id
                                 };
