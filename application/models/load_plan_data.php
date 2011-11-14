@@ -282,6 +282,7 @@ class Load_plan_data extends CI_Model
             {
                 ?>
                 <div class="already_attending">You are attending</div>
+                <div class="invite_people ipg">Invite people</div>
                 <?php
             }
         }
