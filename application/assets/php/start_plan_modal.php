@@ -79,4 +79,3 @@
         <input id="plan_event_id" name="plan_event_id" type="hidden" />
     </form>
 </div>
-</div>
