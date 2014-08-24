@@ -44,11 +44,6 @@ if (!defined('BASEPATH'))
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = $_SERVER['database_host'];
-$db['default']['username'] = $_SERVER['database_user'];
-$db['default']['password'] = $_SERVER['database_pass'];
-$db['default']['database'] = $_SERVER['database_name'];
-
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -60,6 +55,13 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+// DreamHost
+require '/home/pbau5/planjar.parkerbossier.com-connections.php';
+$db['default']['hostname'] = $_CONNECTIONS['DB_HOST'];
+$db['default']['username'] = $_CONNECTIONS['DB_USER'];
+$db['default']['password'] = $_CONNECTIONS['DB_PASS'];
+$db['default']['database'] = $_CONNECTIONS['DB_NAME'];
 
 
 /* End of file database.php */
