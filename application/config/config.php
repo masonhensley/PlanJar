@@ -18,7 +18,7 @@ if (!defined('BASEPATH'))
   |
  */
 
-//$config['base_url'] = 'http://planjar.com/';
+$config['base_url'] = '';
 
 /*
   |--------------------------------------------------------------------------
